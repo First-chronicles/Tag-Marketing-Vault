@@ -1,0 +1,20 @@
+{
+  "category": "Content Writing",
+  "client": "Summit AZ",
+  "createdAt": 1792517967002,
+  "deleted": false,
+  "deletedAt": 0,
+  "favorite": false,
+  "folderId": "",
+  "icon": "📍",
+  "notes": "Sample prompt. Pair it with a real job photo when posting.",
+  "status": "Draft",
+  "tags": [
+    "gbp post"
+  ],
+  "text": "Write a Google Business Profile post for Summit Plumbing Pros (Arizona).\n\nTopic: [Topic]\nService: [Service]\nCity: [City], AZ\n\nRules:\n- 150 to 250 words, friendly and clear\n- Start with the homeowner's problem, then how Summit helps\n- Only mention services and claims verified on summitplumbingpros.com\n- Do not claim 24/7 or emergency service\n- No em dashes\n- End with a call to action to call or book online",
+  "title": "Write a GBP post",
+  "tool": "Claude",
+  "updatedAt": 1792517967002,
+  "versions": []
+}

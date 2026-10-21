@@ -1,0 +1,14 @@
+{
+ "name": "EOD 2026-06-19",
+ "cat": "brain-eod",
+ "group": "2026-06 June",
+ "body": "> Eod · Summit Az · 2026-06-19\n\nFriday. Summit-only session: GSC audit, blog launch, Elementor template build and QA.\n\n# Summit Plumbing Pros AZ\nSee [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub).\n- Published the site's first 5 blog posts on summitplumbingpros.com: Signs of Hard Water, Signs of a Hidden Water Leak, Outdoor Faucet Leaking, Signs You Need a New Water Heater, How to Prevent Clogged Drains. Each has a focus keyphrase, Yoast fields, internal links to Chandler/East Valley pages, a Quick answer lead, FAQ and summary table. Drafts were re-localized from Utah to Arizona.\n- Made 5 branded featured banners (1400x730) with [Higgsfield](lib:brain-higgsfield) (10 credits).\n- Built an Elementor Pro \"Single Post\" theme template (the hello-elementor theme had none, which is why featured images did not show).\n- QA: removed 3 competitor mentions and one low-authority link, verified all links. Added a no-competitor and verify-links rule to [SEO Blog Writing Standards](lib:brain-seo-blog-writing-standards). Built `Summit-Blog-Content-Tracker.csv`.\n\n# Summit Utah (summitplumbingut.com)\n- The GSC \"not indexed\" audit (46 pages) belongs to the Utah property: a soft-404 (/404-page/ returns 200) and about 17 thin city pages \"Crawled, currently not indexed\". No changes made.\n\n# Follow-ups\n- Request indexing for the 5 new AZ blog URLs.\n- Decide ongoing instant-indexing method (plugin vs Scott's setup, see [Instant Indexing Setup](lib:brain-instant-indexing-setup)).\n- Optional: delete 5 superseded photo attachments.\n- Utah: fix the soft-404 and strengthen or consolidate the thin city pages.\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Google Search Console](lib:brain-google-search-console), [EOD Reports Index](lib:brain-eod-reports-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/EOD Report 2026-06-19.txt",
+ "date": "2026-06-19",
+ "createdAt": 1792612717258,
+ "updatedAt": 1792612717263,
+ "rev": "93167673e55d"
+}

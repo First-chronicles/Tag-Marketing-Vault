@@ -1,0 +1,14 @@
+{
+ "name": "Alphalete - KPI Scorecard Workbook",
+ "cat": "brain-alphalete",
+ "group": "Reports",
+ "body": "> Tracker · Alphalete · 2026-07-09\n\n# Summary\n\"TAG Marketing Weekly SEO KPI System\", a workbook saved in the Alphalete folder (Jul 9 2026) but built for three clients. Tabs: README, Client Report Blueprint, Alphalete Weekly, Summit Weekly, Pipeliners Weekly, Monthly Rollup.\n\n# How it works (from the README tab)\n- **Two layers:** Layer 1 is the client-facing report built in Search Atlas Report Builder (baseline, deltas, AI summary, white-label PDF). Layer 2 is this internal tracker: target vs actual, percent to goal, time spent, proof, and why any miss happened.\n- **Core rules:** weekly targets are activities you control (posts, links, citations, fixes); outcomes (traffic, rankings, leads) are judged monthly because they lag 1 to 3 months; the baseline is set once and never changed; average position and local rank are lower-is-better.\n- **Weekly rhythm:** set baseline once; Monday fill targets; log completed work, time and proof through the week; Friday write the client-ready summary; paste key numbers into Monthly Rollup and duplicate the tab for the next week.\n- **Where each number comes from:** organic leads from GoHighLevel plus GBP calls; traffic from GA4 or Search Atlas; clicks, impressions and position from GSC; rankings from the Search Atlas rank tracker; indexed pages from GSC; GBP metrics from Search Atlas Local; referring domains from Search Atlas Site Explorer; deliverables from your own work log.\n\n# Notes\nThe Oct 21 meeting changed the client-facing report direction (outcomes first, email delivery). See [Alphalete - Meeting Notes 2026-10-21](lib:brain-alphalete-meeting-notes-2026-10-21).\n\n# Related\n- [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub), [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Search Atlas](lib:brain-search-atlas), [Trackers and Logs Index](lib:brain-trackers-and-logs-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Alphalete Trenchless Pipelining/KPI.xlsx",
+ "date": "2026-07-09",
+ "createdAt": 1792613244420,
+ "updatedAt": 1792613244420,
+ "rev": "3f4dd70a845e"
+}

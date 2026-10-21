@@ -1,0 +1,14 @@
+{
+ "name": "Instantly AI",
+ "cat": "brain-tools",
+ "group": "",
+ "body": "> Tool · 2026-10-01\n\n# Summary\nInstantly AI is the cold-email outreach platform TAG uses. Its API key is wired into Claude Code through `C:\\TAG Marketing Claude\\.env` as `INSTANTLY_API_KEY` [redacted, never opened or printed].\n\n# Access facts\n- Works with the **v1 API only**; v2 rejects the key. There is no MCP connector.\n- Meetings and opportunities are only visible in the Instantly UI.\n- Security pending: the key was pasted in a chat on Jun 24, 2026; Kim should rotate it and update `.env`.\n\n# Usage history\n- **Alphalete outreach:** a May campaign sent 764 emails for 2 replies. The \"June 2026 - Alphalete Trenchless\" campaign targeted school districts and facilities and got 2 \"Interested\" replies: North Park School District R-1 (planning a sewer lining bid, a real lead) and Englewood Public Schools (low fit). No outreach activity recorded after late June. Lead exports and reply threads sit in an `instantly-outreach-2026-06-24\\` folder under Alphalete (personal contact data, not summarized).\n- Follow-up noted in the Alphalete handoff: check for or draft a follow-up to North Park School District R-1.\n- Design reference: the [SEO Tracker](lib:brain-seo-tracker) and [AIO SEO CRM](lib:brain-aio-seo-crm) shells were styled \"Instantly-style\".\n- The [AI SEO Masterclass](lib:brain-ai-seo-masterclass) case study on a local agency used Instantly for cold email to med spas.\n\n# Related\n- [Tools and Integrations Index](lib:brain-tools-and-integrations-index), [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "_Shared (All Clients)/Session Handoff 2026-10-01.md",
+ "date": "2026-10-01",
+ "createdAt": 1792613347323,
+ "updatedAt": 1792613347323,
+ "rev": "3e84d1b2bc1d"
+}

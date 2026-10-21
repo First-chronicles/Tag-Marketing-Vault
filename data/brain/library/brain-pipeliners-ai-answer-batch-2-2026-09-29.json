@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - AI Answer Batch 2 2026-09-29",
+ "cat": "brain-pipeliners",
+ "group": "Audits",
+ "body": "> Report · Pipeliners · 2026-09-29\n\n# Summary\n\"AI-answer readiness, batch 2\" (Sep 29, 2026), same rules as batch 1, files written with LF line endings. Summary based on script headers and after/summary.json.\n\n# Key findings\n- Posts: 13742 /5-signs-you-need-to-repipe-your-home-in-arizona/, 13708 /a-homeowners-guide-to-detecting-and-preventing-root-intrusion-in-pipes/, 13722 /signs-of-outdated-sewer-drain-pipes/, 15583 /corroded-pipes/, 15589 /how-long-do-cast-iron-pipes-last/, 14966 /cracked-vs-collapsed-sewer-pipes-whats-the-difference/ (Elementor).\n- FAQ sets of 4 questions on four posts; corroded pipes and cast iron got content changes without new FAQs.\n- Guarded apply script (dry run by default; live data must equal the \"before\" copy).\n\n# Files in this folder (rollups only)\n- `before/`, `after/` (content HTML, FAQ JSON, Elementor JSON for 14966, summary.json), `batch2-preview.html`, `live/`. Scripts not summarized.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - AI Answer Batch 1 2026-09-29](lib:brain-pipeliners-ai-answer-batch-1-2026-09-29), [Pipeliners - Guardian Audit 4 Blogs 2026-10-08](lib:brain-pipeliners-guardian-audit-4-blogs-2026-10-08)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/aimode-batch2-2026-09-29",
+ "date": "2026-09-29",
+ "createdAt": 1792613507477,
+ "updatedAt": 1792613567246,
+ "rev": "7826f169808b"
+}

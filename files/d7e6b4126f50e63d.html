@@ -1,0 +1,172 @@
+<title>Blog Keyword Positions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#F5F7FA; --panel:#FFFFFF; --line:#E1E6EE; --line-2:#CBD3DF;
+  --ink:#18212E; --ink-2:#4E5B6D; --ink-3:#7D8898;
+  --brand:#1A446F; --brand-bg:#E6EEF7;
+  --p1:#17774A; --p1-bg:#DDF2E6; --p2:#9A5B00; --p2-bg:#FBEBD0; --p3:#3F5F86; --p3-bg:#E2EAF4;
+  --up:#17774A; --down:#B3261E;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#11161D; --panel:#18202A; --line:#27313E; --line-2:#364253;
+  --ink:#E7ECF2; --ink-2:#AEB8C6; --ink-3:#7F8A9A;
+  --brand:#8DB6E3; --brand-bg:#1D2B3C;
+  --p1:#7BD3A2; --p1-bg:#173A29; --p2:#F2B866; --p2-bg:#3C2C12; --p3:#9DB8DA; --p3-bg:#1F2C3E;
+  --up:#7BD3A2; --down:#F2A09A;
+}}
+:root[data-theme="dark"]{
+  --ground:#11161D; --panel:#18202A; --line:#27313E; --line-2:#364253;
+  --ink:#E7ECF2; --ink-2:#AEB8C6; --ink-3:#7F8A9A;
+  --brand:#8DB6E3; --brand-bg:#1D2B3C;
+  --p1:#7BD3A2; --p1-bg:#173A29; --p2:#F2B866; --p2-bg:#3C2C12; --p3:#9DB8DA; --p3-bg:#1F2C3E;
+  --up:#7BD3A2; --down:#F2A09A;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font:15px/1.5 var(--sans);margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:20px;padding-block:28px 48px;display:flex;flex-direction:column;gap:22px}
+header h1{font:600 26px/1.2 var(--sans);margin:0;letter-spacing:-.01em;text-wrap:balance}
+header p{margin:6px 0 0;color:var(--ink-2);max-width:72ch}
+.src{font-size:13px;color:var(--ink-3)}
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:2px;cursor:pointer;text-align:left;font:inherit;color:inherit}
+.tile:hover{border-color:var(--line-2)}
+.tile[aria-pressed="true"]{border-color:var(--brand);box-shadow:inset 0 0 0 1px var(--brand)}
+.tile .lab{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-2);display:flex;align-items:center;gap:8px}
+.tile .num{font:500 30px/1.15 var(--mono);font-variant-numeric:tabular-nums}
+.tile .sub{font-size:13px;color:var(--ink-3)}
+.dot{width:9px;height:9px;border-radius:50%;display:inline-block}
+.d1{background:var(--p1)}.d2{background:var(--p2)}.d3{background:var(--p3)}.db{background:var(--brand)}
+@media (max-width:760px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.bar input,.bar select{font:inherit;font-size:14px;color:var(--ink);background:var(--panel);border:1px solid var(--line-2);border-radius:8px;padding:7px 10px}
+.bar input{flex:1 1 240px;min-width:0}
+.chk{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--ink-2);cursor:pointer}
+.chk input{margin:0}
+.tag{display:inline-block;margin-left:8px;font-size:11px;padding:0 7px;border-radius:999px;background:var(--line);color:var(--ink-2);vertical-align:1px;white-space:nowrap}
+.bar .count{margin-left:auto;font-size:13px;color:var(--ink-3)}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-weight:500;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-2);background:var(--panel);position:sticky;top:0;cursor:pointer;white-space:nowrap;user-select:none}
+th.n,td.n{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td a{color:var(--brand);text-decoration:none}
+td a:hover{text-decoration:underline}
+.kw{font-weight:500}
+.blog{color:var(--ink-2);font-size:13px;max-width:44ch}
+.pill{display:inline-block;border-radius:999px;padding:1px 9px;font:500 12px/1.6 var(--mono);white-space:nowrap}
+.b1{background:var(--p1-bg);color:var(--p1)}.b2{background:var(--p2-bg);color:var(--p2)}.b3{background:var(--p3-bg);color:var(--p3)}.b4{background:var(--line);color:var(--ink-2)}
+.mv{font-family:var(--mono);font-size:13px}
+.mv.up{color:var(--up)}.mv.down{color:var(--down)}.mv.new{color:var(--brand)}.mv.flat{color:var(--ink-3)}
+.bars{display:flex;height:8px;border-radius:4px;overflow:hidden;background:var(--line);min-width:90px}
+.bars span{display:block;height:100%}
+.empty{padding:28px;text-align:center;color:var(--ink-3)}
+.notes{font-size:13px;color:var(--ink-2);display:flex;flex-direction:column;gap:4px;max-width:90ch}
+.notes b{color:var(--ink)}
+:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Blog keyword positions</h1>
+    <p>Which Pipeliners blog posts show up on Google page 1, 2 and 3, and for which searches. Click a tile to switch the list.</p>
+    <p class="src" id="src"></p>
+  </header>
+
+  <div class="tiles" id="tiles"></div>
+
+  <div class="bar">
+    <input id="q" type="search" placeholder="Search a keyword or blog" aria-label="Search a keyword or blog">
+    <select id="blog" aria-label="Filter by blog"><option value="">All blogs</option></select>
+    <label class="chk"><input type="checkbox" id="once"> Hide searches seen only once</label>
+    <label class="chk"><input type="checkbox" id="oth" checked> Hide other companies' names</label>
+    <span class="count" id="count"></span>
+  </div>
+
+  <div class="panel" id="panel"></div>
+
+  <div class="notes">
+    <div><b>How to read it:</b> Page 1 = position 1 to 10, page 2 = 11 to 20, page 3 = 21 to 30. Position is Google's average for that search over the window, so a keyword seen only once or twice can jump around.</div>
+    <div><b>Seen once:</b> the post showed up for that search a single time in 28 days. Treat those positions as luck, not a ranking. The keywords seen 2+ times are the ones to act on.</div>
+    <div><b>Other companies' names:</b> searches for another company's name are hidden by default and left out of the counts. They are not traffic Pipeliners can win.</div>
+    <div><b>Not shown:</b> searches Google hides for privacy, keywords past page 3 (they count in the "By blog" view), and blogs with no impressions in the window.</div>
+    <div id="mvnote"></div>
+  </div>
+</div>
+
+<script>
+const DATA = __DATA__;
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fmt = n => n == null ? '' : Number(n).toLocaleString();
+let view = '1', sortKey = null, sortDir = 1;
+try { view = localStorage.getItem('bkp-view') || '1'; } catch (e) {}
+
+const m = DATA.meta;
+$('#src').textContent = `Google Search Console (all versions of pipelinersusa.com), ${m.window}. Snapshot taken ${m.taken}. ${DATA.blogs.length} blogs had impressions.`;
+$('#mvnote').innerHTML = DATA.prev ? '<b>Movement:</b> compared with the previous snapshot. A green arrow means the keyword moved up.' : '<b>Movement:</b> this is the first snapshot. The next refresh adds an up/down column.';
+
+const counts = {1:0,2:0,3:0}, solid = {1:0,2:0,3:0};
+DATA.rows.forEach(r => { if (r.other) return; counts[r.b]++; if (r.i >= 2) solid[r.b]++; });
+const blogsP1 = DATA.blogs.filter(b => b.c1 > 0).length;
+const tiles = [
+  {v:'1', lab:'Page 1', d:'d1', num:counts[1], sub:`${solid[1]} seen 2+ times, across ${blogsP1} blogs`},
+  {v:'2', lab:'Page 2', d:'d2', num:counts[2], sub:`${solid[2]} seen 2+ times (positions 11 to 20)`},
+  {v:'3', lab:'Page 3', d:'d3', num:counts[3], sub:`${solid[3]} seen 2+ times (positions 21 to 30)`},
+  {v:'blog', lab:'By blog', d:'db', num:DATA.blogs.length, sub:'Blogs with impressions'},
+];
+function drawTiles(){
+  $('#tiles').innerHTML = tiles.map(t => `<button class="tile" type="button" data-v="${t.v}" aria-pressed="${view===t.v}">
+    <span class="lab"><span class="dot ${t.d}"></span>${t.lab}</span><span class="num">${t.num}</span><span class="sub">${t.sub}</span></button>`).join('');
+  document.querySelectorAll('.tile').forEach(b => b.onclick = () => { view = b.dataset.v; sortKey = null; try{localStorage.setItem('bkp-view', view)}catch(e){}; drawTiles(); draw(); });
+}
+DATA.blogs.slice().sort((a,b)=>a.n.localeCompare(b.n)).forEach(b => { const o=document.createElement('option'); o.value=b.p; o.textContent=b.n; $('#blog').appendChild(o); });
+
+function mv(r){
+  if (!DATA.prev) return '<span class="mv flat">first snapshot</span>';
+  if (r.prev == null) return '<span class="mv new">new</span>';
+  const d = r.prev - r.pos;
+  if (Math.abs(d) < 1) return '<span class="mv flat">=</span>';
+  return d > 0 ? `<span class="mv up">&#9650; ${d.toFixed(1)}</span>` : `<span class="mv down">&#9660; ${(-d).toFixed(1)}</span>`;
+}
+function sortBy(list, key){ if(!key) return list; return list.slice().sort((a,b)=>{const x=a[key],y=b[key]; return (typeof x==='string'? x.localeCompare(y) : (x??1e9)-(y??1e9))*sortDir;}); }
+function head(cols){ return '<thead><tr>' + cols.map(c=>`<th class="${c.n?'n':''}" data-k="${c.k}">${c.t}${sortKey===c.k?(sortDir>0?' &#8593;':' &#8595;'):''}</th>`).join('') + '</tr></thead>'; }
+
+function draw(){
+  const q = $('#q').value.trim().toLowerCase(), bf = $('#blog').value;
+  let html = '';
+  if (view === 'blog'){
+    let list = DATA.blogs.filter(b => (!bf || b.p===bf) && (!q || (b.n+' '+b.best+' '+b.p).toLowerCase().includes(q)));
+    list = sortBy(list, sortKey);
+    $('#count').textContent = `${list.length} blogs`;
+    const cols=[{k:'n',t:'Blog'},{k:'c1',t:'Page 1',n:1},{k:'c2',t:'Page 2',n:1},{k:'c3',t:'Page 3',n:1},{k:'c4',t:'Past page 3',n:1},{k:'best',t:'Best keyword'},{k:'bestpos',t:'Its position',n:1},{k:'mix',t:'Mix'}];
+    html = '<table>' + head(cols) + '<tbody>' + list.map(b => {
+      const tot = b.c1+b.c2+b.c3+b.c4 || 1;
+      return `<tr><td><a href="https://pipelinersusa.com${esc(b.p)}" target="_blank" rel="noopener">${esc(b.n)}</a></td>
+      <td class="n">${b.c1||''}</td><td class="n">${b.c2||''}</td><td class="n">${b.c3||''}</td><td class="n">${b.c4||''}</td>
+      <td>${esc(b.best)}</td><td class="n">${b.bestpos==null?'':`<span class="pill b${b.bestpos<=10?1:b.bestpos<=20?2:b.bestpos<=30?3:4}">${b.bestpos.toFixed(1)}</span>`}</td>
+      <td><div class="bars" title="${b.c1} / ${b.c2} / ${b.c3} / ${b.c4}"><span class="d1" style="width:${b.c1/tot*100}%"></span><span class="d2" style="width:${b.c2/tot*100}%"></span><span class="d3" style="width:${b.c3/tot*100}%"></span></div></td></tr>`;
+    }).join('') + '</tbody></table>';
+  } else {
+    const bk = +view;
+    const once = $('#once').checked, oth = $('#oth').checked;
+    let list = DATA.rows.filter(r => r.b===bk && (!bf || r.p===bf) && (!q || (r.q+' '+r.n).toLowerCase().includes(q)) && !(once && r.i<2) && !(oth && r.other));
+    list = sortBy(list, sortKey);
+    $('#count').textContent = `${list.length} keywords`;
+    const cols=[{k:'q',t:'Keyword'},{k:'n',t:'Blog'},{k:'pos',t:'Position',n:1},{k:'mvsort',t:'Movement',n:1},{k:'i',t:'Impressions',n:1},{k:'c',t:'Clicks',n:1}];
+    html = list.length ? '<table>' + head(cols) + '<tbody>' + list.map(r => `<tr>
+      <td class="kw">${esc(r.q)}${r.other?'<span class="tag">other company</span>':''}${r.i<2?'<span class="tag">seen once</span>':''}</td><td class="blog"><a href="https://pipelinersusa.com${esc(r.p)}" target="_blank" rel="noopener">${esc(r.n)}</a></td>
+      <td class="n"><span class="pill b${r.b}">${r.pos.toFixed(1)}</span></td><td class="n">${mv(r)}</td>
+      <td class="n">${fmt(r.i)}</td><td class="n">${r.c||''}</td></tr>`).join('') + '</tbody></table>'
+      : '<div class="empty">No keywords match.</div>';
+  }
+  $('#panel').innerHTML = html;
+  document.querySelectorAll('th[data-k]').forEach(th => th.onclick = () => { const k=th.dataset.k; if(k==='mix'||k==='mvsort') return; sortDir = sortKey===k ? -sortDir : 1; sortKey = k; draw(); });
+}
+$('#q').oninput = draw; $('#blog').onchange = draw; $('#once').onchange = draw; $('#oth').onchange = draw;
+drawTiles(); draw();
+</script>

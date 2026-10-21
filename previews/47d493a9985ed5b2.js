@@ -1,0 +1,1 @@
+window.__vaultPreview("47d493a9985ed5b2",{"text":"# Append this block to ~/.ssh/config.\n\nHost alphalete\n    HostName 217.196.54.224\n    User u486756448\n    Port 65002\n    IdentityFile ~/.ssh/hostinger_alphalete\n    IdentitiesOnly yes\n    ServerAliveInterval 60\n    AddKeysToAgent yes\n    UseKeychain yes\n"});

@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Blog - Whole House Repipe",
+ "cat": "brain-pipeliners",
+ "group": "Blogs",
+ "body": "> Blog · Pipeliners · 2026-06-23\n\n# Summary\nOne of the 6 posts drafted and published in the June 22-23 session (per the handoff). Sources: `blog-drafts\\whole-house-repipe.md`, the Gutenberg HTML in `blog-drafts\\gutenberg\\`, the FAQ schema HTML in `blog-drafts\\faq-schema\\`, and a featured image in `featured-img\\`.\n\n# Key facts\n- **Focus keyword:** whole house repipe. URL /whole-house-repipe/ (post 15580, live in the July 21 blog inventory).\n- Structure: quick answer, key takeaways, question H2s, FAQ with FAQPage schema.\n- This page now runs Google Ads and is ad-protected. Scott confirmed Oct 1 that Pipeliners does not do full repipes; existing wording stays as is and no new repipe claims may be added. The content plan marks it as needing its own decision.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Blog Index](lib:brain-pipeliners-blog-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/blog-drafts/whole-house-repipe.md",
+ "date": "2026-06-23",
+ "createdAt": 1792613346130,
+ "updatedAt": 1792613346130,
+ "rev": "be91d9c177ad"
+}

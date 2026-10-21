@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - On-Page Audit 2026-10-01",
+ "cat": "brain-pipeliners",
+ "group": "Audits",
+ "body": "> Audit · Pipeliners · 2026-10-01\n\n# Summary\nA data-only on-page audit of 106 pages (51 blog posts, 37 city pages, service, offer, utility, core and home) run Oct 1, 2026. Outputs are CSV and text files from a live crawl; there is no written report in the folder.\n\n# Key findings\n- Titles, metas and H1s (`titles-meta-h1.csv`): 104 of 106 pages have exactly one H1; 1 title over 60 characters; 5 pages without a meta description.\n- Claims scan (`claims.csv`, about 698 snippets): NSF and certification mentions (154), superlatives such as #1 or best (81), savings percentages (79), warranty years (52), free inspection or estimate (42), eco-friendly (41), lifespan figures (38), pipe bursting (not offered, 28), 24/7 or emergency (27), septic (25), same-day (19), price figures (18), expansive soil (15), water heater or HVAC (not offered, 9), gas (3).\n- By page (`claims2.txt`): warranty terms on 32 pages, 24/7 on 22, same-day on 17, pricing on 12, \"30% savings\" on 41, 50+ year lifespan on 63, repiping on 51, manhole lining on 5, slab leak repair on 38; ad pages are marked.\n- Internal links (`links.csv`, `inbound-links.csv`): 16 of 106 pages have no in-body inbound links.\n- City H1 drafts (`city-h1-drafts.csv`): proposed H1s for 14 city pages aligned to each focus keyword (for example Carefree \"No-Dig Sewer Line Repair in Carefree, AZ\"), with ad-touched pages flagged.\n\n# Decisions and status\n- The claims inventory fed later claim cleanups (24/7, same-day and pricing claims treated as off-limits on city pages).\n\n# Files in this folder (rollups only)\n- The CSV and TXT files above plus `headings.csv` (2,600 headings with hidden and OTTO-injected flags).\n- Saved HTML (`live/`), JSON crawl outputs and Python scripts: not summarized.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - City Page Audit 2026-10-02](lib:brain-pipeliners-city-page-audit-2026-10-02), [Pipeliners - Schema Accuracy Audit 2026-10-08](lib:brain-pipeliners-schema-accuracy-audit-2026-10-08)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/onpage-audit-2026-10-01",
+ "date": "2026-10-01",
+ "createdAt": 1792613376404,
+ "updatedAt": 1792613567143,
+ "rev": "85394f421f62"
+}

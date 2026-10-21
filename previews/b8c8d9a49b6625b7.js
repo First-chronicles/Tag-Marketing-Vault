@@ -1,0 +1,1 @@
+window.__vaultPreview("b8c8d9a49b6625b7",{"text":"{\"range\": \"last 28 days vs prior 28 days\", \"pulled\": \"Oct 7, 2026\", \"totals\": {\"clicks\": \"41\", \"clicksPrev\": \"38\", \"impr\": \"11.9K\", \"imprPrev\": \"10.4K\", \"pos\": \"25\", \"posPrev\": \"26.2\"}}"});

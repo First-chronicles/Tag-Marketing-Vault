@@ -1,0 +1,14 @@
+{
+ "name": "EOD 2026-09-21",
+ "cat": "brain-eod",
+ "group": "2026-09 September",
+ "body": "> Eod · Summit Az · 2026-09-21\n\nMonday. Summit AZ: plan review, emergency page fixes and internal links.\n\n# Summit Plumbing Pros AZ\nSee [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub).\n- Reviewed the outside \"SEO Low-Hanging Keyword Growth Plan\" against the live site: approach sound, but some items already fixed, some touch the homepage (needs Scott) and it misses GBP. Kept the parts that fit.\n- Rewrote claims on all 10 emergency city pages that promised after-hours, late-night, holiday, \"2 AM\" and flat-rate service while showing Mon to Sat 8 to 5. FAQ now says \"Contact us for a free estimate\"; Gilbert no longer promises \"within the hour\". Hours confirmed with Kim: Mon to Sat 8 AM to 5 PM, Sunday closed.\n- Fixed \"Apache Junction\" on the Fountain Hills emergency page.\n- Added 5 internal links to near-page-one pages (Fountain Hills and San Tan Valley general plumbing, sewer page to Mesa sewer repair, water softeners to San Tan Valley softener install). Fixed a typo on the sewer page.\n- Indexing: 1 page requested before the daily limit; 13 scheduled for 10 PM Sep 22.\n- No titles, metas or homepage content changed. Logged in the SEO change log.\n\n# Follow-ups\n- Sep 22 10 PM: confirm the 13 scheduled indexing requests ran (keep Claude app and Chrome open).\n- Oct 2: review rankings for Mesa sewer, Fountain Hills drain and sewer, San Tan Valley water softener.\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Google Search Console](lib:brain-google-search-console), [EOD Reports Index](lib:brain-eod-reports-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/EOD Report 2026-09-21.txt",
+ "date": "2026-09-21",
+ "createdAt": 1792612880038,
+ "updatedAt": 1792612880038,
+ "rev": "58a395e1dd43"
+}

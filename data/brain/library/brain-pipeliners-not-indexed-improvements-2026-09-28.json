@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Not-Indexed Improvements 2026-09-28",
+ "cat": "brain-pipeliners",
+ "group": "Audits",
+ "body": "> Report · Pipeliners · 2026-09-28\n\n# Summary\nRound 1 of improving not-indexed posts, live Sep 28, 2026 14:03 UTC (`CHANGES.md`). Scope: the 4 not-indexed posts with 0 paid impressions in 90 days and no hold.\n\n# Key findings\n- 13726 /when-is-pipe-descaling-necessary/ (pipe descaling): 3,223 to 1,349 words; filler cut, question H2s, symptom table, City of Phoenix hard-water citation, 4-question FAQ and schema.\n- 13682 /understanding-pipe-restoration-repiping-vs-pipelining/ (repiping vs relining): rebuilt as a real comparison with a table and FAQ; 0 \"pipelining\" nouns.\n- 13694 /how-much-does-trenchless-pipe-lining-cost/: 539 to 838 words; cost-factor list, lining vs digging (20 to 30%), FAQ. Price, warranty and lifespan figures left as they were (Scott to confirm).\n- 13712 /top-10-signs-your-home-needs-pipe-restoration/ (Elementor): 4,135 to 1,607 words; generic maintenance section cut; FAQ schema 10 to 4 questions.\n- Skipped: both myths posts (ads and Kim hold), the residential guide (merge held), /pipelining/ and /pipeline-locating/ (ad-touched), leak detection (already rewritten).\n\n# Decisions and status\n- Titles, H1s, metas and slugs unchanged. New inbound links added from ad-free indexed posts. Verified on desktop and Googlebot mobile.\n- Undo: post meta `_pl_backup_ni_20260928`. GSC Request Indexing done for all 5 including leak detection.\n- Open: junk OTTO twitter:title on 13712 not changed.\n\n# Files in this folder (rollups only)\n- `CHANGES.md`, before/after HTML and JSON, PHP and Python scripts.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Indexing Report 2026-09-28](lib:brain-pipeliners-indexing-report-2026-09-28), [Pipeliners - Not-Indexed Improvements 2026-09-29](lib:brain-pipeliners-not-indexed-improvements-2026-09-29), [GSC Indexing Tracker](lib:brain-gsc-indexing-tracker)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/not-indexed-improve-2026-09-28",
+ "date": "2026-09-28",
+ "createdAt": 1792613507482,
+ "updatedAt": 1792613567249,
+ "rev": "eaf19c78e120"
+}

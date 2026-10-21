@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Review Widget Coverage 2026-08-19",
+ "cat": "brain-pipeliners",
+ "group": "Audits",
+ "body": "> Audit · Pipeliners · 2026-08-19\n\n# Summary\nCrawl of 124 sitemap pages (all 200) to see where the GoHighLevel/LeadConnector reputation widget appears (5.00 average, 123 Google reviews, location `EiTihyrdd2j8bFW4xpe2`). A CSV of the same data sits beside it (`Pipeliners-Review-Widget-Coverage-2026-08-19.csv`).\n\n# Key findings\n- Only 4 pages carry it: homepage, /about-us/, /trenchless-drain-pipe-repair/, /epipe-restoration/.\n- 0 of 37 city pages, 0 of 53 blog posts, 4 of 15 service and conversion pages.\n- Tier 1 to add: /free-sewer-inspection/, /contact/, /services/, /services-areas/, /trenchless-pipe-repair-service-areas-in-arizona/. Tier 2: core service and guide pages.\n- Caveat: the widget is an iframe, so it adds no indexable content or schema and shows the same reviews everywhere. For city pages the file recommends native, city-specific review text instead.\n\n# Follow-up\nA Google reviews block was added to 36 city pages on Aug 26 (see the design audit note).\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Audits and Reports Index](lib:brain-pipeliners-audits-and-reports-index), [GoHighLevel](lib:brain-gohighlevel), [Pipeliners - Design Audit Local Pages 2026-08-26](lib:brain-pipeliners-design-audit-local-pages-2026-08-26)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/search-atlas/Pipeliners-Review-Widget-Coverage-2026-08-19.md",
+ "date": "2026-08-19",
+ "createdAt": 1792613171238,
+ "updatedAt": 1792613171238,
+ "rev": "af90091e798f"
+}

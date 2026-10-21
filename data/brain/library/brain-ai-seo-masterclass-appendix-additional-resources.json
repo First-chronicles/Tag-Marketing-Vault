@@ -1,0 +1,14 @@
+{
+ "name": "AI SEO Masterclass - Appendix Additional Resources",
+ "cat": "brain-learning",
+ "group": "AI SEO Masterclass",
+ "body": "> Lesson · 2026-10-08\n\n# Summary\nReference lists: every tool mentioned in the course, the author's own properties, key data points and suggested learning paths.\n\n# Tool categories listed\n- **SEO research:** Ahrefs, Semrush, Keywords Everywhere, Google Keyword Planner, Google Search Console, GA4, Screaming Frog.\n- **Local and AI SEO:** LocalRank.so, Trackings.ai, IndexChex.\n- **AI content:** ChatGPT Plus, Claude Pro, Koala AI, SurferSEO, Clearscope, Frase.\n- **CMS:** WordPress, GeneratePress, Rank Math Pro, WP Rocket, Schema Pro, ShortPixel.\n- **Outreach:** Instantly, Pitchbox, BuzzStream. **Leads:** Outscraper, LocalRank Leads.\n- **Distribution:** Buffer, Medium, LinkedIn, Substack. **Automation:** Zapier, Make, n8n.\n- **Proxies (for Reddit/parasite work):** BrightData, Oxylabs. **Monetization:** Amazon Associates, Mediavine, ShareASale, Impact.\n\n# Key data points repeated\n43.8% of ChatGPT citations from \"Best X\" listicles; 79.1% of cited content updated in the current year; the author's self-reported results.\n\n# Learning paths suggested\n- New to SEO: Modules 1, 2, 8, 9, 5.\n- Experienced SEO adding AI: Modules 2, 3, 4, 8.\n- Agency: Module 5, 9, case study 5, bonus B.4 and B.6.\n\n# How this applies to TAG clients\n- TAG overlaps: Google Keyword Planner and GSC (free), [Instantly AI](lib:brain-instantly-ai) for outreach, [Search Atlas](lib:brain-search-atlas) in place of most paid research tools.\n- No new paid tool is adopted without Kim's approval.\n\n# Related\n- [AI SEO Masterclass](lib:brain-ai-seo-masterclass), [Learning Index](lib:brain-learning-index), [Lesson Takeaways 2026-10-08](lib:brain-lesson-takeaways-2026-10-08), [Tools and Integrations Index](lib:brain-tools-and-integrations-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "AI SEO lesson/APPENDIX_ ADDITIONAL RESOURCES - AI SEO Masterclass · Local Rank Academy.pdf",
+ "date": "2026-10-08",
+ "createdAt": 1792613092655,
+ "updatedAt": 1792613092655,
+ "rev": "480de62bc1f6"
+}

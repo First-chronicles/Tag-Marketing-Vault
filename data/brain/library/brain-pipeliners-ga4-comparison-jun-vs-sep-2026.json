@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - GA4 Comparison Jun vs Sep 2026",
+ "cat": "brain-pipeliners",
+ "group": "Reports",
+ "body": "> Report · Pipeliners · 2026-09-24\n\n# Summary\nGA4 comparison for the Pipeliners USA Website property (406463023, account \"ON + Pipeliners\") using the built-in Organic traffic comparison. Like-for-like window: Sep 1 to 21 vs Jun 1 to 21, 2026. Built from PDF exports Kim made (ga4-01 to ga4-10).\n\n# Key findings\n- Organic traffic segment: sessions 102 to 97 (-4.9%), active users 74 to 65, new users 68 to 51 (-25%), engagement time 52s to 1m 00s, key events 0 in both.\n- Organic Search only: sessions 99 to 96, engaged sessions 48 to 53, engagement rate 48.48% to 55.21%.\n- All channels: sessions 1,283 to 1,328; engaged sessions 400 to 524; key events 9 to 4. Direct +72%, Cross-network -50%, Display +34%, Paid Search +14%. Organic Search is about 7% of sessions.\n- Organic landing pages: home 64 to 51, reline-vs-replace 13 to 5; new organic landing pages /gilbert and several blog posts.\n- generate_lead: 31 events from 25 users Jun 1 to Sep 23, about 2 a week (0 to 5). It matches key event totals, so it is effectively the site's key event. Lead tracking did not stop; the 9 to 4 fall is within weekly noise.\n- Full June organic baseline: 161 sessions, 115 users, 0 key events.\n\n# Decisions and status\n- ga4-04 and ga4-05 used unequal dates and were not used.\n- Optional: confirm in Admin that generate_lead is the only key event.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - SEO Performance Report Jun vs Sep 2026](lib:brain-pipeliners-seo-performance-report-jun-vs-sep-2026), [Pipeliners - GSC Comparison Jun vs Sep 2026](lib:brain-pipeliners-gsc-comparison-jun-vs-sep-2026)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/seo-tracking/ga4-comparison.md",
+ "date": "2026-09-24",
+ "createdAt": 1792613290913,
+ "updatedAt": 1792613567086,
+ "rev": "313572c48731"
+}

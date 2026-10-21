@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - City Page Rewrite Baseline 2026-07-14",
+ "cat": "brain-pipeliners",
+ "group": "City Pages",
+ "body": "> Tracker · Pipeliners · 2026-07-14\n\n# Summary\nGSC baseline recorded before the 2026-07-14 city page rewrite (audit item 1: replace duplicate boilerplate with unique local content). Re-checks were set for Jul 28 (2 weeks) and Aug 11 (4 weeks). GSC lag about 2-3 days.\n\n# Baseline, 12 rewritten pages (90-day impressions, 28-day average position)\nGlendale 3,583 (61), Phoenix 2,436 (60), Tempe 2,150 (35), Buckeye 1,650 (31), Mesa 1,493 (62), Paradise Valley 1,447 (36), Litchfield Park 1,171 (37), Scottsdale 1,151 (48), Peoria 839 (40), Sun City 751 (36), Florence 706 (36), Avondale 605 (31). None top 10; clicks about 0.\n\n# Notes\nPages still on old boilerplate (Chandler, Sun Lakes, Gilbert, Cave Creek, Goodyear, Maricopa) were the control group. Full backups existed for rollback. The later case study reports all 19 city pages with 1,000+ impressions moving up by a median 10 places.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Full Site Audit 2026-07-13](lib:brain-pipeliners-full-site-audit-2026-07-13), [Pipeliners - SEO Case Study Mar-Aug 2026](lib:brain-pipeliners-seo-case-study-mar-aug-2026)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/pipeliners-citypage-rewrite-baseline-2026-07-14.md",
+ "date": "2026-07-14",
+ "createdAt": 1792613264478,
+ "updatedAt": 1792613264480,
+ "rev": "80e122ca83ce"
+}

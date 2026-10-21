@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Blog - Water Pressure Drops Multiple Fixtures",
+ "cat": "brain-summit",
+ "group": "Blogs",
+ "body": "> Blog · Summit Az · 2026-08-07\n\n# Summary\nSupporting 4 of 4 in the August 2026 low water pressure cluster. Target publish Wed 26 Aug 2026; page tracker shows it published 2026-08-12 at `/blog/water-pressure-drops-multiple-fixtures/`.\n\n# Key facts\n- Primary keyword: water pressure drops multiple fixtures. Intent: Informational (TOFU). Target 900 to 1,200 words. No byline (client direction), Organization publisher schema only.\n- Core answer: When pressure dies as soon as a second fixture runs it is a flow problem, not a pressure problem: undersized supply line, scale or corrosion, summer demand, or a hidden supply leak.\n- In the 2026-10-07 GSC pull this post had 3 clicks and 154 impressions over 28 days, average position 7 (from `page-tracker\\perf_gsc.csv`).\n- Status line: AI first draft, editorially improved and simplified; fill `[CLIENT INPUT]` blocks and verify external sources before publish. Up-link to the pillar goes live only once the pillar is live.\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Summit AZ - Work Folders Index](lib:brain-summit-az-work-folders-index), [Summit AZ - Blogs Folder Overview](lib:brain-summit-az-blogs-folder-overview)\n- [SEO Blog Writing Standards](lib:brain-seo-blog-writing-standards), [Blog Master List](lib:brain-blog-master-list)\n- [Summit AZ - Blog - Low Water Pressure in Mesa (Pillar)](lib:brain-summit-az-blog-low-water-pressure-in-mesa-pillar)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/blogs/water-pressure-drops-multiple-fixtures.md",
+ "date": "2026-08-07",
+ "createdAt": 1792612926541,
+ "updatedAt": 1792612926542,
+ "rev": "201759ee1c24"
+}

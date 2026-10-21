@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - OTTO FAQ Backups 2026-08-26",
+ "cat": "brain-pipeliners",
+ "group": "Audits",
+ "body": "> Audit · Pipeliners · 2026-08-26\n\n# Summary\nBackups taken before removing duplicate OTTO FAQs from city pages. Sources: `otto-nlpfaq-backup-2026-08-26.md` and the `otto-faq-backup\\` folder (`otto-faq-ORIGINAL-verbatim-2026-08-27.json` and `otto-faq-migrated-nodash-2026-08-27.json`).\n\n# nlp_faq rollback (Aug 26)\n- 8 city pages served two FAQs and two FAQPage blocks (an OTTO one on top of the Elementor one): Phoenix, Tempe, Glendale, Paradise Valley, Mesa, Chandler, Florence, Fort McDowell. 239 items, all deployed.\n- OTTO's 30 questions per page were generic and never named the city.\n- `nlp_faq` deployment was switched OFF for those 8 (reversible: items stay stored in OTTO; the file lists each otto_url_id and the restore call).\n- Not touched then: San Tan Valley, and the custom_content FAQ pages (Maricopa, Superior, Gold Canyon, Litchfield Park), homepage, /what-is-cipp/ and two posts.\n\n# custom_content migration (Aug 27)\nThe OTTO FAQ copy from Maricopa, Superior, Gold Canyon and Litchfield Park (48 Q&A pairs) was saved verbatim, em dashes removed, and migrated into Elementor. OTTO has no rollback for custom_content, so the JSON backups are the only copy of the original text.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Audits and Reports Index](lib:brain-pipeliners-audits-and-reports-index), [Pipeliners - Work Report 2026-08-27](lib:brain-pipeliners-work-report-2026-08-27), [Search Atlas](lib:brain-search-atlas)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/otto-nlpfaq-backup-2026-08-26.md",
+ "date": "2026-08-26",
+ "createdAt": 1792613171240,
+ "updatedAt": 1792613171240,
+ "rev": "1521946a6213"
+}

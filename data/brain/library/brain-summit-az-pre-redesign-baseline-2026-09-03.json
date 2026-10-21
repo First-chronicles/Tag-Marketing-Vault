@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Pre-Redesign Baseline 2026-09-03",
+ "cat": "brain-summit",
+ "group": "Reports",
+ "body": "> Report · Summit Az · 2026-09-03\n\n# Summary\nThe locked \"before\" baseline for the Sep 3, 2026 relaunch: Aug 7 to Sep 3 (28 full days before the Sep 4 launch), captured read-only on Sep 11. Do not edit; later changes go in the change log and are compared against this file. It is the Phase 1A baseline of the case study.\n\n# Property checks\n- One GSC property (URL prefix www), one WordPress install on SiteGround, OTTO project UUID 1c548117, Rank Math active (1.0.277.2), Yoast and MetaSync inactive, OTTO pixel not installed.\n- Before launch, SEO tags were served by MetaSync from OTTO values; after launch, Rank Math plus two mu-plugins (`summit-location-seo`, `summit-service-schema`) output schema. Redirects live in the Redirection plugin (32 rules).\n\n# Key numbers (GSC web UI, Aug 7 to Sep 3)\n- 37 clicks, 10,280 impressions, CTR 0.36%, average position 26.0, 744 queries, 142 pages.\n- Desktop 20 clicks at 28.4; mobile 17 at 23.2.\n- Every visible click was branded (15 of 15); non-branded visible queries: 6,288 impressions, 0 clicks.\n- Intent: local service 2,803 impressions, emergency 1,545 (mostly \"emergency plumber tempe\"), 24/7 wording 299 (not offered, do not target), outside service area 589.\n- Page types: homepage 19 clicks; 113 city pages 6 clicks on 5,684 impressions; emergency city pages only 33 impressions.\n\n# GA4 (property 459518259, Aug 12 to Sep 3, from uploaded PDFs)\n- 250 sessions (111 organic), organic engagement rate 77.5%, 3 key events. GA4 recorded zero data from Sep 4 (tag switched to the Utah property), so no window after launch is comparable.\n\n# Data files folded in\n- `Summit-AZ-Page-Baseline-2026-09-10.csv`: 273 URLs (sitemap pages, legacy, noindexed, 54 trashed Utah pages) with old and new post IDs, status and GSC data.\n- `Summit-AZ-Keyword-Baseline-2026-09-10.csv`: 962 queries with brand, intent, service, city and pre/post windows.\n- `Summit-AZ-Technical-Baseline-2026-09-10.csv`: 35 technical checks, pre vs post redesign.\n\n# Related\n- [Summit AZ - Early Post-Redesign Snapshot 2026-09-10](lib:brain-summit-az-early-post-redesign-snapshot-2026-09-10), [Summit AZ - Case Study Scrapbook](lib:brain-summit-az-case-study-scrapbook), [Summit AZ - SEO Change Log](lib:brain-summit-az-seo-change-log), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Google Search Console](lib:brain-google-search-console)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/Summit-AZ-Pre-Redesign-Baseline-2026-09-03.md",
+ "date": "2026-09-03",
+ "createdAt": 1792613153492,
+ "updatedAt": 1792613153493,
+ "rev": "d000f3e13b94"
+}

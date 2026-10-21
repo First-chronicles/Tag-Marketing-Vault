@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - City Pages Batch 1 Briefs 2026-09-30",
+ "cat": "brain-pipeliners",
+ "group": "City Pages",
+ "body": "> Plan · Pipeliners · 2026-09-30\n\n# Summary\nRead-only improvement briefs for 9 city pages last edited in August (so changes would not disturb the September edits being measured Oct 13 and Oct 26). Data: GSC via Search Atlas, Jun 30 to Sep 28; volumes not validated (lookup quota used up). All 9 scored \"2, Needs refresh\".\n\n# Order (closest to page one first)\nCoolidge, Maricopa, Litchfield Park, Paradise Valley, Casa Grande, Peoria, Cave Creek, Anthem, Glendale.\n\n# Rules applied to every page\nTitle and meta in OTTO; \"Pipeliners\" not \"Pipeliners USA\"; ski-ramp structure with question H2s; local proof from Pipeliners only (no invented jobs or reviews); no unconfirmed claims; contextual links to the matching service page and 2-3 nearby cities; FAQ schema matching visible text; record go-live dates; replace the shared heading \"Looking for a Pipe Repair Company Serving [City] Arizona?\".\n\n# Examples\n- **Coolidge:** primary \"sewer line repair coolidge az\" (24 impressions, position 16); title \"Sewer Line Repair & Repiping in Coolidge, AZ | Pipeliners\"; H2 outline from sewer repair to hidden leaks.\n- **Maricopa:** primary \"sewer lining maricopa az\" (42, position 18); new H1 \"Trenchless Sewer Lining & Repair in Maricopa, AZ\"; manhole and commercial only if confirmed (later confirmed NOT offered).\n\n# Status\nPer the handoff, Batch 1 Elementor rewrites went live through Kim's Chrome on Sep 29 for all 9 pages, with H1, OTTO title and FAQ schema follow-ups handed to Kim. Note the brief predates Oct 1: it allows \"pipe lining\" wording and repiping H2s that later rules restrict.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Coolidge Page Copy Draft 2026-09-30](lib:brain-pipeliners-coolidge-page-copy-draft-2026-09-30), [Pipeliners - Local Pages Programmatic Plan 2026-09-30](lib:brain-pipeliners-local-pages-programmatic-plan-2026-09-30)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/city-pages-batch1-briefs.md",
+ "date": "2026-09-30",
+ "createdAt": 1792613264477,
+ "updatedAt": 1792613264477,
+ "rev": "7e19b7422689"
+}

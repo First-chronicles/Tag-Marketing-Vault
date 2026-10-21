@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Context - Page Coverage Snapshot 2026-05-20",
+ "cat": "brain-summit",
+ "group": "Context",
+ "body": "> Research · Summit Az · 2026-05-20\n\n# Summary\nService x city coverage snapshot generated 2026-05-20 from live WordPress over SSH, checked against Kim's matrix of 12 services x 10 cities (120 expected pages). Stored inside a Claude Code worktree folder.\n\n# Key facts\n- 120 of 120 city-service pages exist, including 5 water softener installation drafts created 2026-05-20 (IDs 5703 to 5707: Mesa, Phoenix, Queen Creek, Scottsdale, Tempe) cloned from Chandler (ID 4043) with a bidirectional city swap. Each kept one intentional Chandler back-link.\n- 2 private pages: Water Leak Detection Scottsdale (ID 3995) and Water Heaters Queen Creek (ID 4691).\n- Drain cleaning data issues: ID 2332 (Fountain Hills) had the slug `emergency-plumber-in-fountain-hills-az`; ID 3100 was a duplicate Phoenix drain cleaning page with the slug `sewer-line-repair-phoenix`.\n- FAQ schema added 2026-05-20: the `summit-location-seo.php` mu-plugin emits FAQPage on 105 of 115 city-service pages by parsing the FAQ accordion; the 10 General Plumbing pages had no accordion. Cached in `_summit_faqs_cache`, invalidated on Elementor save.\n\n# Suggested next steps (from the file)\nDecide on the private pages, fix the drain cleaning slugs and duplicate, add FAQ accordions to the General Plumbing pages. The drafts in [Summit AZ - Drafts Folder Overview](lib:brain-summit-az-drafts-folder-overview) followed from this.\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Summit AZ - Work Folders Index](lib:brain-summit-az-work-folders-index)\n- [Summit AZ - Context - Claude Settings and Worktrees](lib:brain-summit-az-context-claude-settings-and-worktrees)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/.claude/worktrees/confident-snyder-6e39bc/PAGES.md",
+ "date": "2026-05-20",
+ "createdAt": 1792613122662,
+ "updatedAt": 1792613122662,
+ "rev": "cca75aa412e7"
+}

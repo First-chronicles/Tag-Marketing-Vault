@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - F2 Trenchless Posts Changes 2026-09-18",
+ "cat": "brain-summit",
+ "group": "Blogs",
+ "body": "> Blog · Summit Az · 2026-09-18\n\n# Summary\nExact change list (\"F2\") to stop the two trenchless blog posts from competing with each other and with the service pages: post 10122 `/blog/trenchless-pipe-lining/` (\"How It Works\") and post 10138 `/blog/trenchless-sewer-repair-mesa-az/` (the Arizona guide).\n\n# Key findings (GSC Jun 17 to Sep 16)\n- \"trenchless\" queries site-wide: 1,090 impressions, 0 clicks, average position 49.7.\n- The two blog posts hold the worst positions (63.5 and 54.7) yet take the largest share of impressions, while service pages already rank 7 to 26 for trenchless terms.\n- Post 10138's top queries are generic, not Mesa, and 4 of its 5 FAQs duplicate post 10122's FAQs.\n- Link gap: 10122 did not link /pipe-lining-phoenix/ or /pipe-lining-mesa/.\n\n# Proposed role split\n- 10122 = the plain explainer (definition, 5-stage process, benefits, suitability).\n- 10138 = the decision guide (lining vs bursting, Mesa candidacy, signs), giving up its duplicated CIPP walkthrough and FAQs.\n\n# Changes\n- F2-1, F2-2 (low risk): add Phoenix and Mesa pipe lining links; point the bursting question at the Mesa guide.\n- F2-4 to F2-6: condense the duplicated CIPP list, replace 4 duplicated FAQs with Mesa questions, add a Phoenix lining link.\n- F2-7: split the focus keywords between the posts.\n- F2-8 (optional): retitle 10138 to show the Mesa focus.\n\n# Decisions and status\n- Per the change log, F2-1, F2-2 and F2-4 to F2-7 were applied Sep 18 (Kim approved). F2-8 was held for Kim.\n- Oct 1: the focus keyword of 10138 was changed to \"trenchless sewer repair\" so it stops competing with service pages.\n\n# Related\n- [Summit AZ - Blog Index](lib:brain-summit-az-blog-index), [Summit AZ - Supporting Blog Plan 2026-09-18](lib:brain-summit-az-supporting-blog-plan-2026-09-18), [Summit AZ - Pipe Lining City Pages](lib:brain-summit-az-pipe-lining-city-pages), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/Summit-AZ-F2-Trenchless-Changes-2026-09-18.md",
+ "date": "2026-09-18",
+ "createdAt": 1792612951691,
+ "updatedAt": 1792612951692,
+ "rev": "3b8ad6ab2f6b"
+}

@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Homepage GBP Alignment 2026-10-21",
+ "cat": "brain-summit",
+ "group": "Plans",
+ "body": "> Plan · Summit Az · 2026-10-21\n\n# Summary\nDraft to tie the homepage (page 4752, locked, needs Scott via Kim) to the Google Business Profile (location 93167, read only, pulled Oct 21). Three fixes proposed.\n\n# Fixes\n1. Schema business details in Rank Math Local SEO and Social Meta: address 950 W. Birchwood Ave Suite 12, Mesa, AZ 85210; phone; social profiles (Facebook, Instagram, YouTube); hours already correct; no price range; geo only from the GBP pin. The node is shared site-wide through `#organization`, which is normal. Phone decision: recommended the GBP number (480) 470-8706 in schema so code matches the listing, while the visible site keeps 447-7008 (both are GHL lines; schema does not affect call tracking).\n2. Put Mesa in the H1 (\"Mesa's Trusted Plumbers for Every Home\"): SKIPPED, Kim chose to keep the current H1 on Oct 21.\n3. Embed the GBP map (Google Maps iframe by CID, lazy loaded, no API key) after the city list in the Serving Communities section: DONE by Kim Oct 21 (widget 5459e47), verified live.\n- Optional extra (only if Kim asks): areaServed and hasMap via a small Rank Math JSON-LD filter.\n\n# Decisions and status\n- Change log Oct 22: Local SEO address, GBP phone and sameAs added; \"LLC\" removed from the schema name (Scott: \"Don't include llc\"); YouTube confirmed and added; Facebook, Instagram and YouTube icons added to the site-wide footer.\n- Oct 21 to 22: Kim removed the separate mobile hero container (fixing the duplicate H1), and 5 homepage service card links were restored after a stale save.\n- Plan after: leave it 4 to 6 weeks, then check the map pack and GSC.\n\n# Related\n- [Summit AZ - Rank Math Fix Steps 2026-10-08](lib:brain-summit-az-rank-math-fix-steps-2026-10-08), [Summit AZ - GBP Optimization Proposal 2026-10-09](lib:brain-summit-az-gbp-optimization-proposal-2026-10-09), [Summit AZ - Homepage Copy Draft 2026-09-04](lib:brain-summit-az-homepage-copy-draft-2026-09-04), [Google Business Profile](lib:brain-google-business-profile), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/Summit-AZ-Homepage-GBP-Alignment-Draft-2026-10-21.md",
+ "date": "2026-10-21",
+ "createdAt": 1792613371167,
+ "updatedAt": 1792613371167,
+ "rev": "f781881cb624"
+}

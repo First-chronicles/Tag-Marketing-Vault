@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Plumbing Hub Residential Update 2026-10-16",
+ "cat": "brain-summit",
+ "group": "City Pages",
+ "body": "> Plan · Summit Az · 2026-10-16\n\n# Summary\nDraft to retarget the /plumbing/ hub (page 10211) to \"residential plumbing services\". The same day the page's services section and Why Choose boxes were rebuilt. Preview screenshots of the card, list and Why Choose designs (several versions, desktop and mobile) were saved in the folder as PNGs and are not separate notes.\n\n# Keyword\n- Focus: residential plumbing services (Semrush 3,600 / KD 27; Search Atlas 1,300 / KD 18).\n- Supporting: plumbing services arizona (old focus), home plumbing services, full service plumbing.\n- Overlap check: no live page used the phrase; /plumbing/ only showed for brand searches, so nothing ranking was at risk.\n\n# Changes proposed\n- Title (58): \"Residential Plumbing Services in Arizona | Summit Plumbing\"; new 158-character meta; H1 \"Residential Plumbing Services in the Phoenix Valley\".\n- Intro rewritten with verified facts: Mesa office, ROC #338366 residential class R-37R, Mon to Sat 8 to 5, slab foundations, hard water, aging pipes, monsoon backups. Second paragraph no longer repeats the intro.\n- Two new FAQs: residential only, and service area.\n\n# Decisions and status\n- Applied Oct 16 per the change log (Kim approved), plus: the 15 tall service cards (all wrongly linked to /slab-leaks/) replaced with a 14-item list linking each service page; Why Choose text changed from dark to white on the dark band. Indexing requested.\n- Note: the new title ends \"| Summit Plumbing\" rather than the full brand, which differs from the \"never Summit Plumbing alone\" rule; worth a check.\n\n# Related\n- [Summit AZ - City Pages Index](lib:brain-summit-az-city-pages-index), [Summit AZ - SEO Change Log](lib:brain-summit-az-seo-change-log), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/Summit-AZ-Plumbing-Hub-Residential-Draft-2026-10-16.md",
+ "date": "2026-10-16",
+ "createdAt": 1792613091005,
+ "updatedAt": 1792613091005,
+ "rev": "e19a9705b941"
+}

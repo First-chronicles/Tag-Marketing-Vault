@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Technical and Local SEO Verification 2026-09-16",
+ "cat": "brain-pipeliners",
+ "group": "Audits",
+ "body": "> Audit · Pipeliners · 2026-09-16\n\n# Summary\nRead-only technical and local SEO verification done alongside the Sep 16 organic snapshot. Method: Python crawl of all 122 sitemap URLs plus /commercial/ and /multifamily/, a status check of all 217 internal hrefs, redirect traces, and direct fetches of third-party listings. Phone numbers were read only from static HTML, not from the GHL pool swap.\n\n# Key findings\n- Health: all 122 sitemap URLs return 200 with no redirects and self-canonicals; no sitewide indexing blocker.\n- High H1: 33 of 37 city pages carry AggregateRating 4.9/122 in JSON-LD that is not visible on the page (and contradicts the visible 5.0 claims on landing pages). Fix in OTTO, not the WP database.\n- High H2: /services/ has zero H1.\n- High H3: /phoenix/, /avondale/, /goodyear/, /san-tan-valley/, /sun-city/, /sun-city-west/, /sun-lakes/ have a bare city-name H1.\n- High H4: 122 hidden `otto-dynamic-indexing-module` links on the homepage; 60 point at 404 (21) or 301 (39) URLs.\n- High H5: Birdeye and the Ace DuraFlo installer locator list (480) 969-7978 with the correct 633 W 2nd Ave address; owner must confirm.\n- Medium: /free-sewer-repair-estimate/ (noindex,nofollow paid LP) in the sitemap; /pipelining/ and /free-video-inspection/ indexable without metas; no commercial or multifamily page; \"Pipeliners USA\" in 57 titles and 18 city H1s; moderate keyword repetition (for example \"Tempe\" 26 per 1,000 words); a hidden price-comparison container on the homepage; FAQPage schema on /do-gurgling-drains-indicate-a-bigger-issue/ with no visible FAQ.\n\n# Decisions and status\n- Report only. Most fixes route through OTTO (Kim) or need homepage or paid-LP approval.\n- Several of these items were addressed later (see the schema accuracy and 404 audits).\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Organic SEO Snapshot 2026-09-16](lib:brain-pipeliners-organic-seo-snapshot-2026-09-16), [Pipeliners - Schema Accuracy Audit 2026-10-08](lib:brain-pipeliners-schema-accuracy-audit-2026-10-08), [Pipeliners - Citation Audit 2026-09-24](lib:brain-pipeliners-citation-audit-2026-09-24), [Search Atlas](lib:brain-search-atlas)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/reports/seo-performance-2026-09-16/technical-local-findings.md",
+ "date": "2026-09-16",
+ "createdAt": 1792613134542,
+ "updatedAt": 1792613566980,
+ "rev": "90a8428fe340"
+}

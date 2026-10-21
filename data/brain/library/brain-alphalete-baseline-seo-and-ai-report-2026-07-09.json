@@ -1,0 +1,14 @@
+{
+ "name": "Alphalete - Baseline SEO and AI Report 2026-07-09",
+ "cat": "brain-alphalete",
+ "group": "Reports",
+ "body": "> Report · Alphalete · 2026-07-09\n\n# Summary\nThe first baseline report, built from Search Atlas data pulled Jul 9 2026 (GSC, GBP, rank tracker, local heat map, LLM visibility). It sets the zero point before SEO, GEO, AEO and AI work, proposes a report layout, and lists the setup tasks done Jul 7 to 9. GA4 was not yet connected in Search Atlas.\n\n# Baseline numbers\n- **GSC (90 days, Apr 9 to Jul 6):** 43 clicks (US 34), 4,377 impressions (US 4,277), CTR about 0.98% (0.79% US), US average position 32.9.\n- Top queries: trenchless sewer repair (389 impr, position about 54), trenchless sewer (78), alphalete (67), pipe lining near me (49, position 1).\n- Top pages: `/what-is-trenchless-sewer-repair/` (1,183 impr, position 51), homepage (587, 28), `/hydro-jetting-colorado-springs/` (108, 17).\n- **GBP:** score 56, 52.4% complete, **not verified**, 16 reviews (4.94 average), 0 replies, 0 citations; views, calls and directions not flowing.\n- **Local heat map:** 1 keyword tracked, baseline average map rank 21 (Jul 8).\n- **AI visibility:** 1.7% overall, sentiment 74, 83 mentions; ChatGPT, Gemini and Google AI Mode all 0%. 5 topics / 15 queries tracked from Jul 7.\n\n# Recommended report layout\nExecutive summary, AI/SEO score overview, keyword ranking progress, local heat map, GBP performance, GA4 traffic, GSC performance, completed tasks, issues fixed, next steps.\n\n# Open issues listed (all Pending at the time)\nGBP not verified (high); 0 of 16 reviews replied (high); core keywords rank deep (high); GA4 not connected (high); very low AI visibility (medium); 0 citations (medium); profile 52% complete (medium); rank tracker location set to United States instead of Colorado Springs (low).\n\n# Related\n- [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub), [Alphalete - SEO Baseline 2026-07-22](lib:brain-alphalete-seo-baseline-2026-07-22), [Search Atlas](lib:brain-search-atlas), [Google Business Profile](lib:brain-google-business-profile), [Client Report Dashboard](lib:brain-client-report-dashboard)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Alphalete Trenchless Pipelining/Alphalete Baseline SEO & AI Report - July 2026.docx",
+ "date": "2026-07-09",
+ "createdAt": 1792613188734,
+ "updatedAt": 1792613188734,
+ "rev": "4cea05be6ff7"
+}

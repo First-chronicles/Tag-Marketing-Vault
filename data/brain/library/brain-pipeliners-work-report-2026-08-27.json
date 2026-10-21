@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Work Report 2026-08-27",
+ "cat": "brain-pipeliners",
+ "group": "Reports",
+ "body": "> Report · Pipeliners · 2026-08-27\n\n# Summary\nTwo work reports in Kim's format from Aug 26-27.\n\n# Report 1: City page FAQ and CTA standardization\n- **Problems:** 5 city pages had OTTO-injected FAQs; San Tan Valley's OTTO FAQ was hidden (`display:none`) while still emitting FAQPage schema for 30 questions; Litchfield Park's OTTO JSON-LD was malformed; the same 5 pages were on an old CTA.\n- **Done:** audited all 37; extracted 48 Q&A pairs from Maricopa, Superior, Gold Canyon and Litchfield Park, removed 25 em dashes case by case, migrated them into the Elementor FAQ template; replaced OTTO custom_content with an HTML comment; rolled back San Tan Valley nlp_faq (reversible) and wrote a new 12-question FAQ grounded in published claims plus the verified EPCOR fact; swapped 5 CTAs to CTA Final V2.\n- **Results:** all 37 city pages show a visible Elementor FAQ whose schema matches; zero OTTO FAQs remain; all 37 on CTA Final V2; phones untouched. Backups in `otto-faq-backup\\`.\n- **Pending then:** Kim to review the San Tan Valley FAQ; Scott to confirm \"Pipeliners pulls the necessary permits\" (now an approved claim as of Oct 1).\n\n# Report 2: Internal linking\n- **Problems:** see [Pipeliners - Internal Linking Plan 2026-08-27](lib:brain-pipeliners-internal-linking-plan-2026-08-27).\n- **Done:** wrote the plan; built and then trashed (at Kim's instruction) a draft Service Areas hub, leaving live /services-areas/ untouched; audited Anthem; added 6-7 contextual links to every city page using phrases already in the copy; repointed the \"root intrusion\" anchor to the root intrusion guide.\n- **Results:** /trenchless-drain-pipe-repair/ inbound links 35 to 74; /what-is-cipp/ 9 to 44; visible copy byte-identical (script-asserted); 0 nested or empty anchors. Corrected an earlier wrong statement that the \"here!\" links were OTTO-injected.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - OTTO FAQ Backups 2026-08-26](lib:brain-pipeliners-otto-faq-backups-2026-08-26), [Pipeliners - Anthem Page Audit 2026-08-27](lib:brain-pipeliners-anthem-page-audit-2026-08-27), [Pipeliners - Audits and Reports Index](lib:brain-pipeliners-audits-and-reports-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/work-report-2026-08-27.md",
+ "date": "2026-08-27",
+ "createdAt": 1792613264473,
+ "updatedAt": 1792613264475,
+ "rev": "bb3a7518de9e"
+}

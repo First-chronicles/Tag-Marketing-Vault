@@ -1,0 +1,14 @@
+{
+ "name": "Alphalete - Monsoon Cluster 2026-07",
+ "cat": "brain-alphalete",
+ "group": "Blogs",
+ "body": "> Blog · Alphalete · 2026-07-20\n\n# Summary\nThe July monsoon-season cluster: a fresh pillar plus 4 supporting posts (about 6,000 words in one file), author Scott Vincent, category Articles, TOFU informational intent. Unlike Summit, Prestige and Pipeliners, Alphalete had no monsoon pillar yet. The Jul 21 blog tracker lists all five as published Jul 20 2026 (not yet indexed then).\n\n# Posts and keywords (Search Atlas, national US)\n| Role | Title | Primary keyword | Volume |\n|---|---|---|---|\n| Pillar | Why Does My Sewer Back Up When It Rains? Monsoon-Season Causes and Fixes | why does my sewer back up when it rains | 10 (KD 30) |\n| 1 | How Colorado's Expansive Clay Soil Cracks Sewer Lines in Monsoon Season | expansive soil sewer line damage | 0 (KD 11) |\n| 2 | Sewer Backing Up During a Colorado Monsoon Storm? What to Do Right Now | sewage backup what to do | 20 |\n| 3 | Soggy Spots, Sewer Smell, and Sinking Ground: Monsoon Yard Signs of a Failing Sewer Line | sewer smell in yard | 20 |\n| 4 | Hydro Jetting for Monsoon-Season Sewer Backups in Colorado: When Cleaning Isn't Enough | hydro jetting tree roots | 50 |\n\nMoney terms \"sewer camera inspection\" (6,600) and \"sewer line repair\" (12,100) were deliberately linked to service pages, not targeted.\n\n# Holds and flags in the file\n- No prices, no \"free\", no lifespan or warranty claims; neutral CTAs. Avoided \"24/7\", \"same-day\", \"guaranteed\", \"no excavation\".\n- Canonical city link pattern resolved Jul 21: metros used `/services/commercial-trenchless-pipelining-{city}/`, small towns `/service-areas/trenchless-sewer-repair-{city}/` (since superseded by root city pages).\n- Do not link the old `/service-areas/{city}-co` builder pages or the prohibited sibling domain.\n- Delivered as markdown; publish via WP draft or REST, not the Search Atlas push (which rewrites the body).\n\n# Later notes\n- The Jul 21 inventory flagged two posts with the identical title \"Why Does My Sewer Back Up When It Rains?\" (13550 and 14279).\n- On Sep 15 the expansive-soil post was merged into the expansive-clay post (retired post kept as draft plus 301).\n- Post 4 was reframed to stay on the monsoon/roots angle and link up to the August hydro pillar.\n\n# Related\n- [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub), [Alphalete - Blog Index](lib:brain-alphalete-blog-index), [Alphalete - Hydro Jetting Cluster 2026-08](lib:brain-alphalete-hydro-jetting-cluster-2026-08), [SEO Blog Writing Standards](lib:brain-seo-blog-writing-standards), [Search Atlas](lib:brain-search-atlas)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Alphalete Trenchless Pipelining/Blogs/Alphalete_July_Monsoon_Cluster_Pillar_Plus_4_Supporting.md",
+ "date": "2026-07-20",
+ "createdAt": 1792613123255,
+ "updatedAt": 1792613123255,
+ "rev": "192020c44f4f"
+}

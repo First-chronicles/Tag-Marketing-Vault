@@ -1,0 +1,265 @@
+<title>Pipeliners Content Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: one reading column (max 960px) with full-width tables in their own scroll boxes; navy for structure, copper for the few things that need action. */
+:root{
+  --bg:#f3f5f8; --surface:#ffffff; --fg:#17212e; --muted:#566273; --line:#d9dfe7;
+  --navy:#1a446f; --copper:#b35c2e; --good:#2f7a4b; --warn:#9a6a00; --stop:#a33a3a;
+  --chip:#e8eef5; --good-bg:#e5f2ea; --warn-bg:#f8efd9; --stop-bg:#f6e3e3; --copper-bg:#f6e8df;
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"Source Sans 3","Segoe UI",Roboto,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f151d; --surface:#172130; --fg:#e6ebf1; --muted:#9aa7b8; --line:#2a3748;
+  --navy:#8db7e3; --copper:#e39a6d; --good:#6cc28d; --warn:#e2b74f; --stop:#ee8a8a;
+  --chip:#1f2c3d; --good-bg:#16301f; --warn-bg:#342a12; --stop-bg:#3a1d1d; --copper-bg:#35231a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f151d; --surface:#172130; --fg:#e6ebf1; --muted:#9aa7b8; --line:#2a3748;
+  --navy:#8db7e3; --copper:#e39a6d; --good:#6cc28d; --warn:#e2b74f; --stop:#ee8a8a;
+  --chip:#1f2c3d; --good-bg:#16301f; --warn-bg:#342a12; --stop-bg:#3a1d1d; --copper-bg:#35231a; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:17px/1.6 var(--body);padding-inline:16px;padding-block:32px 64px}
+.wrap{max-width:960px;margin:0 auto;display:grid;gap:40px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.2}
+h1{font-size:clamp(30px,5vw,44px);font-weight:800;color:var(--navy);letter-spacing:-.01em}
+h2{font-size:26px;font-weight:700;color:var(--navy)}
+h3{font-size:19px;font-weight:700}
+p{margin:0;max-width:68ch}
+.eyebrow{font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--copper)}
+header{display:grid;gap:14px}
+.lede{font-size:19px;color:var(--fg)}
+.meta{color:var(--muted);font-size:14px}
+section{display:grid;gap:16px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:20px 22px;display:grid;gap:10px}
+.box.action{border-left:4px solid var(--copper)}
+ul,ol{margin:0;padding-left:22px;display:grid;gap:6px}
+li{max-width:70ch}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.grid2>*{min-width:0}
+.rule{display:grid;gap:4px}
+.rule b{font-family:var(--display);font-weight:700;font-size:15px}
+.rule span{color:var(--muted);font-size:15px}
+.tbl{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:6px}
+table{border-collapse:collapse;width:100%;min-width:720px;font-size:15px}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+th{font:600 12px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.05em;color:var(--muted);background:var(--chip)}
+tr:last-child td{border-bottom:0}
+td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.kw{font-family:var(--mono);font-size:13px;background:var(--chip);border-radius:4px;padding:1px 6px;white-space:nowrap}
+.pill{display:inline-block;font:600 12px/1.6 var(--body);padding:0 8px;border-radius:999px;white-space:nowrap}
+.p-good{background:var(--good-bg);color:var(--good)}
+.p-warn{background:var(--warn-bg);color:var(--warn)}
+.p-stop{background:var(--stop-bg);color:var(--stop)}
+.p-new{background:var(--copper-bg);color:var(--copper)}
+a{color:var(--navy);text-underline-offset:2px;word-break:break-word}
+a:focus-visible{outline:2px solid var(--copper);outline-offset:2px}
+.cluster{display:grid;gap:8px}
+.cluster ul{list-style:none;padding:0;gap:4px}
+.cluster li{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;font-size:15px}
+.cluster li .pill{flex:none}
+.small{font-size:14px;color:var(--muted)}
+.cal{display:grid;gap:10px}
+.week{display:grid;grid-template-columns:110px 1fr 1fr;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px 14px;font-size:15px}
+.week>*{min-width:0}
+.week .wk{font:500 13px/1.4 var(--mono);color:var(--muted)}
+.week .lab{font:600 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--copper);display:block;margin-bottom:4px}
+.week .lab.r{color:var(--navy)}
+@media (max-width:640px){.week{grid-template-columns:1fr}}
+</style>
+
+<div class="wrap">
+
+<header>
+  <span class="eyebrow">Pipeliners · content strategy · Q4 2026</span>
+  <h1>Pipeliners Content Plan</h1>
+  <p class="lede">Eight new guides and a steady refresh cycle over the next 12 weeks, built around the three services Pipeliners actually sells: lining drain and sewer pipes, ePIPE water line restoration, and hydro jetting. Every topic has measured search demand (100+ searches a month, difficulty 30 or lower) and no existing page already covers it.</p>
+  <p class="meta">Prepared Oct 1, 2026. Sources: Google Search Console (Jul 2 to Sep 28, 2026), saved Search Atlas keyword research (US monthly volume and difficulty), and a crawl of all 106 live pages on Sep 30.</p>
+</header>
+
+<section>
+  <h2>Where things stand</h2>
+  <div class="grid2">
+    <div class="box"><h3>The blog gets seen, not clicked</h3><p>The 51 blog posts earned about zero clicks in the last 90 days. They show up for real searches, but mostly on pages 5 to 10 of Google, where nobody clicks.</p></div>
+    <div class="box"><h3>Demand exists close to the services</h3><p>Google already shows the site for <span class="kw">cipp installation</span> (1,217 impressions, position 63), <span class="kw">cured in place pipe lining</span> (869, position 84) and <span class="kw">what causes pinhole leaks in copper plumbing</span> (693, position 44). One query already ranks near the top: <span class="kw">pipe relining vs replacement cost</span> at position 2.</p></div>
+    <div class="box"><h3>Some demand cannot be served</h3><p>The site also appears for <span class="kw">whole house repipe</span> (310 impressions) and for gas line and manhole terms. Scott confirmed on Oct 1 that Pipeliners does not do full repipes or manhole lining, so this plan writes nothing for that demand.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Rules every piece follows</h2>
+  <div class="box">
+    <div class="grid2">
+      <div class="rule"><b>Only confirmed claims</b><span>Warranty 20 years on drain lining, 10 years on ePIPE. Up to 30% savings. Liners 50+ years, ePIPE 75+. Slab leaks fixed by lining the pipe. Every job starts with a camera inspection.</span></div>
+      <div class="rule"><b>Never write</b><span>24/7, same-day, prices, full repiping, manhole lining, pipe bursting, gas lines. Scott, Oct 1.</span></div>
+      <div class="rule"><b>Answer first</b><span>The first paragraph answers the search. Headings are phrased as the questions people type. Each post ends with a short FAQ and a "last updated" date.</span></div>
+      <div class="rule"><b>House style</b><span>"Pipeliners" in new copy, no em dashes, no competitor names, outside links only to .gov, .edu or standards bodies. "Relining" or "lining the pipe" instead of the noun "pipe lining".</span></div>
+      <div class="rule"><b>Ad pages stay untouched</b><span>New posts can link to pages that run ads, but those pages are only edited with a specific OK.</span></div>
+      <div class="rule"><b>Named author</b><span>Each post carries a real byline (Jake Shaker or Scott Vincent) so Google and AI tools can tie it to a person with trade experience.</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Who the content is for</h2>
+  <div class="grid2">
+    <div class="box"><h3>Homeowners with a problem now</h3><p>Phoenix Valley owners of 1950s to 1990s homes with a backup, a smell, a slab leak or repeat clogs. They search the symptom first, then "how is it fixed", then a local company.</p></div>
+    <div class="box"><h3>Buyers and sellers</h3><p>People in the middle of a home sale who hear "get a sewer scope". High value: they need an inspection this week and often a repair quote.</p></div>
+    <div class="box"><h3>Property and business owners</h3><p>Restaurants, offices, rentals and HOAs where downtime costs money. Smaller search volume, bigger jobs.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Topic clusters</h2>
+  <p class="small">Each cluster has one main guide (the hub) and supporting posts that link back to it. <span class="pill p-good">Live</span> exists and stays. <span class="pill p-warn">Update</span> exists but needs work. <span class="pill p-new">New</span> is a gap this plan fills. <span class="pill p-stop">Decide</span> needs a decision first.</p>
+  <div class="grid2">
+    <div class="box cluster">
+      <h3>1. Sewer and drain lining</h3>
+      <p class="small">Service page: <a href="https://pipelinersusa.com/trenchless-drain-pipe-repair/">/trenchless-drain-pipe-repair/</a> (runs ads)</p>
+      <ul>
+        <li><span class="pill p-good">Live</span> Hub: <a href="https://pipelinersusa.com/trenchless-sewer-repair/">Trenchless sewer repair</a></li>
+        <li><span class="pill p-new">New</span> Relining cast iron pipes</li>
+        <li><span class="pill p-new">New</span> Orangeburg pipe in Phoenix homes</li>
+        <li><span class="pill p-new">New</span> Sewer lateral repair</li>
+        <li><span class="pill p-warn">Update</span> <a href="https://pipelinersusa.com/cracked-vs-collapsed-sewer-pipes-whats-the-difference/">Cracked vs collapsed sewer line</a></li>
+        <li><span class="pill p-stop">Decide</span> Two lining-vs-replacement posts and three CIPP posts compete for the same searches</li>
+      </ul>
+    </div>
+    <div class="box cluster">
+      <h3>2. Sewer inspection</h3>
+      <p class="small">Supports every service: every job starts with a camera.</p>
+      <ul>
+        <li><span class="pill p-new">New</span> Hub: Sewer camera inspection guide</li>
+        <li><span class="pill p-new">New</span> Sewer cleanout: where it is and what it does</li>
+        <li><span class="pill p-new">New</span> Sewer scope before you buy a Phoenix home</li>
+        <li><span class="pill p-good">Live</span> <a href="https://pipelinersusa.com/sewer-camera-inspection-near-me-in-mesa-az-your-complete-guide-to-local-sewer-diagnostics-and-repairs/">Mesa camera inspection guide</a> (runs ads, links in only)</li>
+      </ul>
+    </div>
+    <div class="box cluster">
+      <h3>3. Clogs, backups and hydro jetting</h3>
+      <p class="small">Service page: <a href="https://pipelinersusa.com/hydro-jetting/">/hydro-jetting/</a> (runs ads)</p>
+      <ul>
+        <li><span class="pill p-good">Live</span> Hub: <a href="https://pipelinersusa.com/main-sewer-line-clog/">Main sewer line clog</a></li>
+        <li><span class="pill p-new">New</span> Hydro jetting a sewer line: what it does, when it is safe</li>
+        <li><span class="pill p-new">New</span> Commercial drain and sewer maintenance (Scott to confirm scope)</li>
+        <li><span class="pill p-warn">Update</span> <a href="https://pipelinersusa.com/sewer-smell-in-house/">Sewer smell in house</a>, made year-round</li>
+        <li><span class="pill p-good">Live</span> Monsoon set of 4 posts, refresh in May before the season</li>
+      </ul>
+    </div>
+    <div class="box cluster">
+      <h3>4. Water lines, leaks and ePIPE</h3>
+      <p class="small">Service page: <a href="https://pipelinersusa.com/epipe-restoration/">/epipe-restoration/</a> (runs ads)</p>
+      <ul>
+        <li><span class="pill p-good">Live</span> Hub: <a href="https://pipelinersusa.com/epoxy-pipe-lining/">Epoxy restoration guide</a></li>
+        <li><span class="pill p-warn">Update</span> <a href="https://pipelinersusa.com/slab-leaks-phoenix/">Phoenix slab leaks</a>, add the confirmed lining repair</li>
+        <li><span class="pill p-warn">Update</span> <a href="https://pipelinersusa.com/what-causes-pinhole-leaks-in-copper-pipes/">Pinhole leaks</a>, add Valley hard-water data</li>
+        <li><span class="pill p-stop">Decide</span> Three repiping posts now say or suggest Pipeliners repipes</li>
+      </ul>
+    </div>
+  </div>
+  <p class="small">City pages are not part of this plan. All 37 already exist, and adding the same new block to each one risks Google treating them as templated pages. They keep getting one-at-a-time fixes driven by each city's own searches.</p>
+</section>
+
+<section>
+  <h2>New content queue</h2>
+  <p class="small">Ordered by priority. Volume is US searches a month; KD is keyword difficulty (0 to 100). All are at or under KD 30 except where noted.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>#</th><th>Working title</th><th>Focus keyword</th><th>Vol</th><th>KD</th><th>Intent</th><th>Why now</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td>Relining Cast Iron Pipes: How It Works and When It Fits</td><td><span class="kw">relining cast iron pipe</span><br><span class="small">also: cast iron pipe repair 720/13, cast iron pipe lining 590/6</span></td><td class="num">590</td><td class="num">7</td><td>Informational, close to buying</td><td>Easiest keyword in the set and a direct lead-in to the core service. Cast iron drains are common in older Valley homes.</td></tr>
+      <tr><td class="num">2</td><td>Sewer Camera Inspection: What It Shows and When You Need One</td><td><span class="kw">sewer camera inspection</span><br><span class="small">also: sewer line inspection 3,600/5, sewer scope inspection 3,600/29</span></td><td class="num">8,100</td><td class="num">18</td><td>Informational and commercial</td><td>Biggest low-difficulty topic that fits. It becomes the hub for the inspection cluster and hands off to the Mesa guide and the city pages.</td></tr>
+      <tr><td class="num">3</td><td>Sewer Cleanout: Where It Is and What It Does</td><td><span class="kw">sewer cleanout</span><br><span class="small">also: sewer cleanout location 260/29</span></td><td class="num">6,600</td><td class="num">14</td><td>Informational</td><td>People look for the cleanout during a backup, which is the moment they need help.</td></tr>
+      <tr><td class="num">4</td><td>Orangeburg Pipe: How to Spot It in a Phoenix Home</td><td><span class="kw">what is orangeburg pipe</span><br><span class="small">also: how to identify orangeburg pipe 170/24, orangeburg pipe collapse 140/8. Head term "orangeburg pipe" is 8,100/33, just over the limit.</span></td><td class="num">260</td><td class="num">22</td><td>Informational</td><td>Tied to the Valley's mid-century building era, which gives it local detail competitors lack.</td></tr>
+      <tr><td class="num">5</td><td>Sewer Scope Before You Buy a Phoenix Home</td><td><span class="kw">what is a sewer scope inspection</span><br><span class="small">also: home inspection sewer scope 140/15, sewer scope 2,400/27</span></td><td class="num">170</td><td class="num">12</td><td>Commercial</td><td>Buyers need an answer within days, which makes them high-value leads. The post can be shared with realtors and inspectors.</td></tr>
+      <tr><td class="num">6</td><td>Hydro Jetting a Sewer Line: What It Does and When It Is Safe</td><td><span class="kw">hydro jetting sewer line</span><br><span class="small">also: what is hydro jetting 590/18, drain jetting 880/2</span></td><td class="num">1,000</td><td class="num">15</td><td>Informational</td><td>Supports the hydro jetting service page without competing with it. That page targets people ready to book.</td></tr>
+      <tr><td class="num">7</td><td>Sewer Lateral Repair: Who Owns the Line and How It Is Fixed</td><td><span class="kw">sewer lateral repair</span></td><td class="num">880</td><td class="num">28</td><td>Informational, close to buying</td><td>Answers the ownership question before the repair question, which is how homeowners actually search.</td></tr>
+      <tr><td class="num">8</td><td>Commercial Drain and Sewer Line Maintenance</td><td><span class="kw">commercial drain cleaning</span><br><span class="small">also: commercial sewer repair 170/7</span></td><td class="num">1,900</td><td class="num">5</td><td>Transactional</td><td>Lowest difficulty in the whole set, with the biggest jobs. Needs Scott to confirm which commercial work Pipeliners takes on.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">Left out on purpose: cost topics such as "sewer scope inspection cost" (2,400/13) and "hydro jetting cost" (1,600/20), because Scott asked for no prices. Also left out: pipe bursting (3,600) and whole house repipe, which Pipeliners does not offer.</p>
+</section>
+
+<section>
+  <h2>Existing posts: what happens to each</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Action</th><th>Posts</th><th>What changes</th></tr></thead>
+    <tbody>
+      <tr><td><span class="pill p-good">Keep</span></td><td class="num">36</td><td>Already aligned to one keyword with answer-first structure (Sep 23 to 29 work). Checked once a quarter.</td></tr>
+      <tr><td><span class="pill p-warn">Update</span></td><td class="num">4</td><td><a href="https://pipelinersusa.com/sewer-smell-in-house/">Sewer smell in house</a>: drop the "this fall" framing so it can rank year-round for <span class="kw">sewer smell in house</span> 3,600/11 and <span class="kw">sewer smell in bathroom</span> 4,400/29. <a href="https://pipelinersusa.com/cracked-vs-collapsed-sewer-pipes-whats-the-difference/">Cracked vs collapsed</a>: expand from 841 words for <span class="kw">collapsed sewer line</span> 260/4. <a href="https://pipelinersusa.com/slab-leaks-phoenix/">Slab leaks</a>: add the repair method Scott confirmed. <a href="https://pipelinersusa.com/what-causes-pinhole-leaks-in-copper-pipes/">Pinhole leaks</a>: add city water hardness figures.</td></tr>
+      <tr><td><span class="pill p-stop">Re-angle</span></td><td class="num">3</td><td><a href="https://pipelinersusa.com/5-signs-you-need-to-repipe-your-home-in-arizona/">5 signs you need to repipe</a> and <a href="https://pipelinersusa.com/understanding-pipe-restoration-repiping-vs-pipelining/">Repiping vs relining</a> become "check whether the pipes can be restored before you repipe". <a href="https://pipelinersusa.com/whole-house-repipe/">Whole house repipe</a> runs ads and needs its own decision.</td></tr>
+      <tr><td><span class="pill p-stop">Decide</span></td><td class="num">5</td><td>Lining vs replacement: <a href="https://pipelinersusa.com/reline-vs-replace-best-options-for-drain-and-sewer-pipes/">reline vs replace</a> and <a href="https://pipelinersusa.com/sewer-pipe-lining-vs-replacement-how-to-know-which-repair-is-right/">sewer lining vs replacement</a> rank for the same 5 searches. CIPP: <a href="https://pipelinersusa.com/what-is-cipp/">what is CIPP</a>, <a href="https://pipelinersusa.com/how-plumbers-use-cured-in-place-pipe-lining-to-avoid-digging-and-demolition/">cured in place pipe guide</a> and <a href="https://pipelinersusa.com/cipp-vs-traditional-sewer-line-replacement-pros-and-cons/">CIPP vs traditional</a> split one topic three ways. Each group needs one owner page; the others get a new angle.</td></tr>
+      <tr><td><span class="pill p-stop">On hold</span></td><td class="num">3</td><td>The two myths posts (your hold) and the residential pipe restoration guide (waiting on Scott's merge decision). Not touched.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section>
+  <h2>12-week calendar</h2>
+  <p class="small">One new post and one refresh a week. Each draft goes to you for approval before it is published. Weeks 9 to 12 are for measuring and catching up, not new writing.</p>
+  <div class="cal">
+    <div class="week"><span class="wk">Oct 5</span><div><span class="lab">New</span>Relining cast iron pipes</div><div><span class="lab r">Refresh</span>Apply the approved 24/7 and same-day wording</div></div>
+    <div class="week"><span class="wk">Oct 12</span><div><span class="lab">New</span>Sewer camera inspection guide (hub)</div><div><span class="lab r">Refresh</span>Re-angle the two repiping posts, once decided</div></div>
+    <div class="week"><span class="wk">Oct 19</span><div><span class="lab">New</span>Sewer cleanout</div><div><span class="lab r">Refresh</span>Sewer smell in house, made year-round</div></div>
+    <div class="week"><span class="wk">Oct 26</span><div><span class="lab">New</span>Orangeburg pipe in Phoenix homes</div><div><span class="lab r">Refresh</span>Cracked vs collapsed sewer line</div></div>
+    <div class="week"><span class="wk">Nov 2</span><div><span class="lab">New</span>Sewer scope before you buy</div><div><span class="lab r">Refresh</span>Slab leaks: add the confirmed lining repair</div></div>
+    <div class="week"><span class="wk">Nov 9</span><div><span class="lab">New</span>Hydro jetting a sewer line</div><div><span class="lab r">Refresh</span>Pinhole leaks: add hard-water data</div></div>
+    <div class="week"><span class="wk">Nov 16</span><div><span class="lab">New</span>Sewer lateral repair</div><div><span class="lab r">Refresh</span>Link pass: every post links to its service page</div></div>
+    <div class="week"><span class="wk">Nov 23</span><div><span class="lab">New</span>Commercial drain and sewer maintenance (if Scott confirms)</div><div><span class="lab r">Refresh</span>Owner pages for lining vs replacement and CIPP, once decided</div></div>
+    <div class="week"><span class="wk">Nov 30 to Dec 21</span><div><span class="lab">Measure</span>Check indexing and rankings for posts 1 to 8; request indexing for any not yet picked up</div><div><span class="lab r">Plan</span>Pick the next 8 topics from what the first 8 show; quarterly check of the 36 kept posts</div></div>
+  </div>
+</section>
+
+<section>
+  <h2>How the posts link together</h2>
+  <div class="box">
+    <ul>
+      <li>Every new post links up to its cluster hub, and the hub links down to every post in the cluster.</li>
+      <li>Every post links to the one service page it leads to: drain and sewer relining, ePIPE, or hydro jetting. 16 of the 51 current posts link to no service page today; the Nov 16 link pass fixes that.</li>
+      <li>Posts cross-link to 2 or 3 related posts in the same cluster, using words already in the sentence as the link.</li>
+      <li>Local posts (Orangeburg, sewer scope before you buy) link to 1 or 2 city pages where the detail genuinely applies. No lists of city links.</li>
+      <li>New posts may link to pages that run ads. Those pages are never edited to link back without a specific OK.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>What makes these posts worth citing</h2>
+  <div class="grid2">
+    <div class="box"><h3>Pipeliners' own job data</h3><p>The best material only Pipeliners has: what the camera actually finds in Valley sewer lines (roots, bellies, Orangeburg, cast iron scale), counted from real jobs. A few numbers from Scott or Jake, even rough ones, would make these posts the only source with them.</p></div>
+    <div class="box"><h3>Real job photos and footage stills</h3><p>Before and after camera stills from actual jobs, credited to Pipeliners. AI tools and Google both favor pages showing work nobody else can show.</p></div>
+    <div class="box"><h3>Local public sources</h3><p>City water hardness reports, building-era records and utility rules, cited from .gov sources only. This detail separates a Phoenix guide from a national one.</p></div>
+    <div class="box"><h3>Sharing beyond the website</h3><p>The sewer scope and cleanout guides are useful to realtors, home inspectors and HOA boards. Sharing them there, which you or Scott would do, earns mentions that the website alone cannot.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>How we will know it is working</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Measure</th><th>Today</th><th>Target by early January</th><th>Checked</th></tr></thead>
+    <tbody>
+      <tr><td>New posts indexed by Google</td><td class="num">n/a</td><td>All 8 within 14 days of publishing</td><td>Weekly</td></tr>
+      <tr><td>New posts ranking in the top 30 for their focus keyword</td><td class="num">n/a</td><td>At least 5 of 8 by day 90</td><td>Monthly</td></tr>
+      <tr><td>Blog clicks from Google</td><td class="num">~0 / 90 days</td><td>First steady clicks; any post at 10+ a month</td><td>Monthly</td></tr>
+      <tr><td>AI visibility score (Search Atlas)</td><td class="num">44 (Sep 29)</td><td>Up, measured quarterly</td><td>Quarterly</td></tr>
+      <tr><td>Calls and estimate requests from blog visitors</td><td class="num">not tracked</td><td>Tracked, once conversion tracking is fixed</td><td>Monthly</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">These are targets, not promises. Rankings on a small site move slowly, and AI citations change from week to week, so read the results in monthly and quarterly blocks.</p>
+</section>
+
+<section>
+  <h2>Decisions needed before we start</h2>
+  <div class="box action">
+    <ol>
+      <li><b>Repiping posts:</b> approve re-angling the two ad-free repiping posts toward "restore before you repipe", and decide what to do with the Whole House Repipe page, which runs ads.</li>
+      <li><b>Commercial work:</b> ask Scott which commercial drain and sewer jobs Pipeliners takes on, so post 8 says only what is true.</li>
+      <li><b>Competing posts:</b> pick one owner page each for "lining vs replacement" and for "CIPP". The other pages get a new angle rather than being removed.</li>
+      <li><b>Job data:</b> ask Scott or Jake whether they can share rough counts from recent camera inspections for the inspection and Orangeburg posts.</li>
+      <li><b>Pace:</b> confirm one new post and one refresh a week, with each draft approved by you before it goes live.</li>
+    </ol>
+  </div>
+</section>
+
+</div>

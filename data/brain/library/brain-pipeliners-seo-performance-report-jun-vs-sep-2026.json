@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - SEO Performance Report Jun vs Sep 2026",
+ "cat": "brain-pipeliners",
+ "group": "Reports",
+ "body": "> Report · Pipeliners · 2026-09-24\n\n# Summary\nA 23-page SEO performance report (prepared by TAG Marketing, Sep 24, 2026) setting June 2026 as the baseline and comparing it with September. Every number was read directly from the named platform with screenshots in each section. Two identical PDF files exist (`...-with-GA4.pdf` and `...-Jun-vs-Sep-2026.pdf` have the same content hash).\n\n# Key findings\n- GSC June baseline (Domain property, Web, US): 53 clicks, 20,586 impressions, 0.3% CTR, average position 44.3.\n- GSC same 21 days: 31 to 32 clicks, 13,983 to 14,555 impressions, position 43.1 to 46.1. Brand clicks rose 8 to 13; other clicks fell 23 to 19.\n- GA4: organic visits steady (99 to 96), engagement rate 48% to 55%; leads still recorded but none from organic.\n- Search Atlas: ranking keywords 345 to 507 (+47%); estimated traffic 885 to 552 (-38%) after an August peak.\n- Rank Tracker: 111 keywords, 19 in the top 20, 4 in the top 10; \"florence pipe break repair\" #1 in Phoenix.\n- Site Audit: Site Health 909 to 911; 4 error types, the largest is 47 pages without a meta description.\n- SEMrush starts Sep 22, 2026 (574 estimated visits, 519 keywords); June history is not available on the plan.\n- Sections: summary, how to read, GSC baseline, GSC comparison, GA4 (Organic Search highlighted), Search Atlas visibility, rank tracking, SEMrush, technical, notes and limitations.\n\n# Decisions and status\n- Estimates (Search Atlas, SEMrush) and real clicks (GSC) are kept separate and never added together.\n- Built with `build_report.py`; screenshots in `report-assets/`.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - SEO Report Playbook](lib:brain-pipeliners-seo-report-playbook), [Pipeliners - SEO Case Study Jun-Sep 2026](lib:brain-pipeliners-seo-case-study-jun-sep-2026), [Pipeliners - GA4 Comparison Jun vs Sep 2026](lib:brain-pipeliners-ga4-comparison-jun-vs-sep-2026), [Pipeliners - GSC Comparison Jun vs Sep 2026](lib:brain-pipeliners-gsc-comparison-jun-vs-sep-2026), [Pipeliners - SEO Tracking Baselines 2026-09-24](lib:brain-pipeliners-seo-tracking-baselines-2026-09-24)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/seo-tracking/Pipeliners-SEO-Performance-Report-Jun-vs-Sep-2026-with-GA4.pdf",
+ "date": "2026-09-24",
+ "createdAt": 1792613290912,
+ "updatedAt": 1792613567086,
+ "rev": "7255b96259e1"
+}

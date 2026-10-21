@@ -1,0 +1,14 @@
+{
+ "name": "Prestige - Blog - Trenchless Sewer Repair",
+ "cat": "brain-prestige",
+ "group": "Blogs",
+ "body": "> Blog · Prestige · 2026-08-01\n\n# Brief\n- Title: Trenchless Sewer Repair: Fixing the Line Without Digging Up Your Yard\n- Slug: /blog/trenchless-sewer-repair/. Role: Support 4. Intent: commercial research (MOFU). About 1,170 words.\n- Primary keyword: trenchless sewer repair. Secondaries: trenchless sewer line replacement, pipe lining vs pipe bursting, sewer repair without digging, cured-in-place pipe, trenchless sewer repair Bluffton SC.\n\n# Angle\nTrenchless repair works through one or two small access points instead of a full-length trench. The two methods are lining (cure a new pipe inside the old one) and bursting (pull a new pipe through while breaking the old one). A camera inspection decides which works. Sections cover the definition, lining vs bursting, when you still have to dig, why it matters in the Lowcountry (mature trees, high water table), the process, and an FAQ.\n\n# Flag status\n- Publish after the pillar. No external authority link is needed (method explainer), so the post leans on internal links.\n- First-hand proof is optional (for example a before/after camera still of a lined lateral).\n- Gated for Scott: trenchless, lining and bursting pricing, free language, warranties.\n\n# Status\nDrip Day 8 (scheduled 2026-08-09). Not yet published per the cluster list.\n\n# Related\n- [Prestige - Sewer Cluster Rollout Plan 2026-08-01](lib:brain-prestige-sewer-cluster-rollout-plan-2026-08-01), [Prestige - Blog - Old Sewer Pipes](lib:brain-prestige-blog-old-sewer-pipes), [Prestige Plumbing (Hub)](lib:brain-prestige-plumbing-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Prestige Plumbing/drafts/blog/trenchless-sewer-repair/trenchless-sewer-repair.md",
+ "date": "2026-08-01",
+ "createdAt": 1792613582216,
+ "updatedAt": 1792613582216,
+ "rev": "cdc82962335c"
+}

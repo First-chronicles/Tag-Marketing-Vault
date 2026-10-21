@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Local Pages Phase 1 and Batch Plan 2026-09-03",
+ "cat": "brain-summit",
+ "group": "Plans",
+ "body": "> Plan · Summit Az · 2026-09-03\n\n# Summary\nPhase 1 prioritization of the 122 local pages and the resulting batch schedule. Files: `Summit-AZ-Local-Pages-Phase1-Report-2026-09-03.md` and `.pdf`, `Summit-AZ-Batch-Plan-2026-09-03.md` and `.pdf`, `Summit-AZ-Local-Pages-Priority-List-2026-09-03.csv` (one row per page) and `Summit-AZ-Drain-Batch1-Baseline-Queries-2026-09-03.csv` (drain batch baseline queries).\n\n# Phase 1 findings (GSC Jun 3 to Sep 1)\n- 122 local pages, 3 clicks in three months; 51 pages with impressions, 71 with none; nothing in the top 7.\n- Priority buckets: 24 improve now, 2 CTR fix, 72 rewrite later, 24 hold (not indexed, duplicate or hub owns the demand).\n- Sewer line repair had the most demand (Phoenix 1,763 impressions, Tempe 995, Mesa 863, Chandler 614).\n- The /drain-cleaning/ hub took all Mesa drain demand (672 impressions on 29 Mesa queries).\n- Ignore queries containing \"summit\" (Summit County searches).\n\n# Batch plan\n- Rule: five city pages plus the service hub per batch, ordered by demand, one batch every two weeks, each following the same steps (baseline, backup, audit, claims, keyword map, briefs, copy, report, approval, publish, track at 14/28/60 days).\n- Schedule: 1 sewer (Sep 7), 2 general plumbing hubs (Sep 21), 3 tankless (Oct 5), 4 emergency (Oct 19), 5 drain (Nov 2), 6 softeners (Nov 16), 7 leak detection (Nov 30), 8 pipe lining (Dec 14), 9 sewer second half (Jan 4), 10 water pressure (Jan 18), 11 remaining general and tankless (Feb 1), 12+ water heaters, fixtures, disposals.\n\n# Decisions and status\n- Decisions needed before writing: hub vs Mesa split (hub becomes East Valley, Mesa page owns Mesa) and confirmed local facts per city.\n- In practice the schedule was overtaken: after the Sep 24 discovery that duplication caused non-indexing, rewrites were chosen by index status and striking-distance data instead (see [Summit AZ - City Pages Index](lib:brain-summit-az-city-pages-index)).\n\n# Related\n- [Summit AZ - Local Pages SEO Audit 2026-09-02](lib:brain-summit-az-local-pages-seo-audit-2026-09-02), [Summit AZ - Sewer Batch 1 Report 2026-09-03](lib:brain-summit-az-sewer-batch-1-report-2026-09-03), [Summit AZ - General Plumbing Batch 2 Report 2026-09-03](lib:brain-summit-az-general-plumbing-batch-2-report-2026-09-03), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/Summit-AZ-Batch-Plan-2026-09-03.md",
+ "date": "2026-09-03",
+ "createdAt": 1792613136832,
+ "updatedAt": 1792613136832,
+ "rev": "70838e05fa97"
+}

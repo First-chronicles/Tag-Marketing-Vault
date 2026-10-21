@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kim's Tag Marketing Vault (Desktop)</title>
+<link rel="stylesheet" href="css/vault.css">
+</head>
+<body>
+<div class="app" id="app">
+  <aside class="side" id="side" aria-label="Library navigation"></aside>
+  <main class="main" id="main">
+    <div class="topbar">
+      <button class="icon-btn lg" id="menuBtn" aria-label="Open menu"><svg class="i" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M2.5 4h11M2.5 8h11M2.5 12h11"/></svg></button>
+      <strong id="topTitle">Kim's Tag Marketing Vault</strong>
+    </div>
+    <div class="wrap" id="view"><div class="loading">Loading your prompts…</div></div>
+  </main>
+</div>
+<input type="file" id="importFile" accept=".json,application/json" hidden>
+<input type="file" id="imgFile" accept="image/png,image/jpeg,image/gif,image/webp" multiple hidden>
+<script src="data/seed.js"></script>
+<script src="data/sources.js"></script>
+<script src="js/vault.js"></script>
+</body>
+</html>

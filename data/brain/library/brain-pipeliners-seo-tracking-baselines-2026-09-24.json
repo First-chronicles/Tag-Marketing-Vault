@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - SEO Tracking Baselines 2026-09-24",
+ "cat": "brain-pipeliners",
+ "group": "Reports",
+ "body": "> Report · Pipeliners · 2026-09-24\n\n# Summary\nRollup of the three baseline write-ups in the seo-tracking folder (Search Atlas, SEMrush, technical), captured Sep 23 to 24, 2026 as phase 1 of the Jun vs Sep SEO report. Screenshots for each are in the same folder.\n\n# Search Atlas baseline (searchatlas-baseline-june2026.md)\n- Site Explorer project 233578, US: organic keywords 345 (June) to 507 (Sep), +47%; estimated traffic 885 to 552, -37.6% (both read from the same 1Y chart). Third-party estimate, not GSC clicks.\n- Rank Tracker project 34164 (Phoenix and US rows, desktop, last update Sep 15): 111 keywords, average position 13, 19 ranking rows (top 3: 1, top 10: 4, top 20: 19), 92 not ranking. \"florence pipe break repair\" #1 in Phoenix.\n\n# SEMrush baseline (semrush-baseline-sep-2026.md)\n- Snapshot Sep 22, 2026 (US, desktop): organic traffic 574 (shown -54%), keywords 519, Authority Score 18, 414 referring domains, 1.4K backlinks.\n- Intent mix: informational 54.4%, commercial 33%, navigational 6.9%, transactional 5.8%.\n- A June SEMrush baseline could not be captured on the current plan. Local position tracking pending.\n\n# Technical baseline (technical-baseline.md)\n- Search Atlas Site Audit 41385. Only scores survive for past crawls: June 16 = 909 (closest to June 1), then 913 to 935 through summer.\n- Fresh crawl Sep 23: Site Health 911, 246 pages found, 215 crawled, 3,374 issue instances.\n- Errors: 47 pages missing meta descriptions, 5 orphaned, 4 non-indexable in sitemap, 2 non-unique titles. Warnings include H1 length (37), redirecting internal links (25), Core Web Vitals failed.\n- Issue totals are not comparable across crawls because new check types were added.\n\n# Files in this folder (rollups only)\n- The three baseline md files, GSC and GA4 evidence files, and the screenshots (searchatlas-, semrush-, tech-, gsc-, phase1- prefixes).\n- Report PDFs, case study, playbook and comparisons have their own notes.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - SEO Performance Report Jun vs Sep 2026](lib:brain-pipeliners-seo-performance-report-jun-vs-sep-2026), [Search Atlas](lib:brain-search-atlas)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/seo-tracking",
+ "date": "2026-09-24",
+ "createdAt": 1792613290915,
+ "updatedAt": 1792613567089,
+ "rev": "fa19aa6c93b2"
+}

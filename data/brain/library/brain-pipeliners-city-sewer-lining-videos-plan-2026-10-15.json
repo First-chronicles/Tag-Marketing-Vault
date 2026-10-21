@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - City Sewer Lining Videos Plan 2026-10-15",
+ "cat": "brain-pipeliners",
+ "group": "Plans",
+ "body": "> Plan · Pipeliners · 2026-10-15\n\n# Summary\nPlanning doc for short city-specific sewer lining videos. Status: planning, nothing generated. Next step was Kim approving the Mesa script, then storyboard sketches.\n\n# Brief (Kim's choices)\n- Process shown: sewer lining only (camera, hydro jet, liner in, cure, camera check).\n- Local part fully unique per city (house style, scenery, main problem, one real local fact).\n- AI voiceover with burned-in captions; 9:16 vertical, about 30 seconds.\n- Ending: Pipeliners logo and \"Book a camera inspection\", with no phone number (protects call tracking).\n- Review flow: script, sketch frames, finished video. Kim approves scripts. Rollout Mesa first, then 3-5 cities by GSC demand.\n\n# Defaults (to confirm)\nHyperFrames animated cutaway, clean 2D light style with navy #1a446f accents, Arizona look only, YouTube Shorts on the PipelinersUSA channel plus a city page embed (a separate page edit needing its own OK). The liner access method is not named.\n\n# Content rules\n\"Pipeliners\" only; no \"pipe lining\"/\"pipelining\" nouns, \"pipeline\" or \"pigging\"; claims limited to no digging, 50+ year liner, 20-year warranty and camera footage before quoting; never #1/best, 24/7, same day, prices, pipe bursting, repipes or competitors; no em dashes; local facts only from the live city page or the Oct 2 city audit.\n\n# Mesa script draft\nAbout 70 words over six shots: roots cracking an old line under a mid-century Mesa ranch, camera footage, hydro jetting, liner in and curing, final camera pass with the yard untouched, close card (\"Designed for 50+ years, with a 20-year warranty. Pipeliners, based in Mesa.\").\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Decisions and Rules](lib:brain-pipeliners-decisions-and-rules), [Video Notes Project](lib:brain-video-notes-project)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/city-videos/PLAN - City Sewer Lining Videos.md",
+ "date": "2026-10-15",
+ "createdAt": 1792613057326,
+ "updatedAt": 1792613057326,
+ "rev": "02df2e64ef56"
+}

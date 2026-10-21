@@ -1,0 +1,14 @@
+{
+ "name": "Instant Indexing Setup",
+ "cat": "brain-sops",
+ "group": "",
+ "body": "> Sop · 2026-06-11\n\n# Summary\nInstructions Kim prepared for Scott on June 11 2026 to give Alphalete Trenchless and Summit Plumbing Pros the same \"Instant Indexing\" ability Pipeliners already had via Rank Math. At the time both sites ran Yoast, so the plan uses the free standalone \"Instant Indexing\" plugin by Rank Math, which works next to Yoast. It needs a Google Cloud service account connected to Search Console.\n\n# Steps\n- **Part 1 (Scott, about 10 min):** in Google Cloud, create a project (e.g. \"TAG Instant Indexing\"), enable the Web Search Indexing API, create a service account \"instant-indexing\" with no roles, create a JSON key and send it to Kim securely (it is a credential; not by plain email). Copy the service account email.\n- **Part 2 (Scott, about 2 min per site):** in each Search Console property, Settings, Users and permissions, add the service account email as **Owner** (lower permission is rejected by the Indexing API).\n- **Part 3 (Kim):** install the plugin on each site, paste the JSON key under Rank Math, Instant Indexing, Google API Settings; submit URLs in the Console tab (\"Publish/update URL\", default quota 200 URLs per day).\n\n# Interim and expectations\n- Scott can request indexing manually via URL Inspection meanwhile (roughly 10 to 12 per property per day; best for money pages and top cities).\n- Scott asked to export the Indexing, Pages report (indexed and not-indexed with reasons) for both properties so Kim can track status per page.\n- Google officially documents the Indexing API only for job posting and livestream pages; for normal pages it is a strong nudge, not a guarantee. Reliable levers remain manual requests, XML sitemaps and internal links. Confirm results in the Pages report after one to two weeks.\n\n# Properties\n- alphaletetrenchless.com (Alphalete Trenchless)\n- Summit Plumbing Pros property\n\n# Related\n- [GSC Indexing Tracker](lib:brain-gsc-indexing-tracker), [Google Search Console](lib:brain-google-search-console), [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [SOPs and Guides Index](lib:brain-sops-and-guides-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "_Shared (All Clients)/SOPs and Guides/Instant Indexing Setup - Alphalete & Summit (for Scott).docx",
+ "date": "2026-06-11",
+ "createdAt": 1792613120877,
+ "updatedAt": 1792613120877,
+ "rev": "fa3238c95d7c"
+}

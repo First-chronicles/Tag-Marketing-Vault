@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - SEO Progress Report 2026-09-24",
+ "cat": "brain-summit",
+ "group": "Reports",
+ "body": "> Report · Summit Az · 2026-09-24\n\n# Summary\n16-page case-study style progress report covering June 19 to September 23 2026: \"Fixing the foundations of a 200-page plumbing site before chasing rankings.\" Client: Summit Plumbing Pros, Mesa, Arizona (ROC 338366). Platform: WordPress, Elementor, Rank Math, Search Atlas, GSC, GA4. Findings are footnoted to dated work reports.\n\n# Headline results\n- 780 broken icons restored across 116 pages by restoring 64 deleted Media Library records (no page edits).\n- 142 pages moved onto one Summit design (Poppins and Montserrat, brand colours) from Elementor defaults.\n- 176 of 200 pages indexed; only 10 real pages missing out of 53 flagged URLs.\n- Site health 93/100 (score 929 to 931); 216 pages crawled, 188 indexable; 218 terms in positions 4 to 20.\n- Local map pack: 3rd for emergency plumbing in its own area, 13 of 39 top-3 pins on a 1 mile grid around the Mesa office (rescanned 2026-09-23).\n\n# Problems found\nAfter-hours, \"2 AM\", flat-rate and \"within the hour\" claims on 10 emergency pages while hours were Monday to Saturday 8 to 5; wrong opening hours in page data; 7 pages naming the wrong city; a live placeholder pricing page; only 4 of 176 indexed pages configured in Rank Math; 13 double-H1 pages; hidden Utah business information and an empty license number on the About page; no blog; near-duplicate city pages (two at 70% identical); authority 9/100.\n\n# Work done\nClaims and hours corrected sitewide, wrong cities fixed, pricing page made private, FAQ pricing replaced with free-estimate CTA, competitor mentions removed from drafts, Rank Math tracker built and 29 titles rewritten, duplicate H1s removed, sewer page FAQ and schema added and page data cut from 230 KB to 92 KB, blog built from zero with a single-post template.\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Summit AZ - Work Folders Index](lib:brain-summit-az-work-folders-index)\n- [Summit AZ - Performance Report 2026-09-23](lib:brain-summit-az-performance-report-2026-09-23), [Summit AZ - Page Tracker](lib:brain-summit-az-page-tracker), [Summit AZ - Backups Log](lib:brain-summit-az-backups-log)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/perf-tracker/Summit-SEO-Progress-Report-2026-09-24.pdf",
+ "date": "2026-09-24",
+ "createdAt": 1792612997634,
+ "updatedAt": 1792612997635,
+ "rev": "15cc32fd5705"
+}

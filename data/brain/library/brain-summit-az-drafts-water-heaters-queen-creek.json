@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Drafts - Water Heaters Queen Creek",
+ "cat": "brain-summit",
+ "group": "Drafts",
+ "body": "> Plan · Summit Az · 2026-05-29\n\n# Summary\nMissing-city draft for `water-heater-services-queen-creek`, templated on Water Heater Services Chandler (ID 4181). The Queen Creek page existed but was private (ID 4691) per the 2026-05-20 snapshot.\n\n# Key facts\n- Primary keyword \"water heater services in Queen Creek\"; supporting terms such as hot water heater service, water heater company, tankless water heater services.\n- GEO entities: Southwest Gas; Encanterra, Ironwood Crossing, Harvest, Cortina, Hastings Farms, San Tan Heights; Riggs and Combs Road; brands Rheem, A.O. Smith, Bradford White, Navien, Rinnai, Bosch, State; 2003 to 2012 first-build cohort.\n- 7-question FAQ; Service + Plumber + areaServed schema.\n- Structure mirrors Chandler with a $50 off coupon block; links to `/water-heaters/`, `/contact/`, tankless Queen Creek and 2 to 3 nearby cities.\n- Note: the draft cites a \"10 to 12 year service life\"; under the no-overpromising rule any lifespan claim needs a source before publishing.\n- The live page (ID 5772) shows a 2026-06-17 post date in `_sheet\\pages_live.csv`; staged files are in [Summit AZ - WP Staging Pages](lib:brain-summit-az-wp-staging-pages).\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Summit AZ - Work Folders Index](lib:brain-summit-az-work-folders-index)\n- [Summit AZ - Drafts Folder Overview](lib:brain-summit-az-drafts-folder-overview)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/drafts/summit-water-heaters",
+ "date": "2026-05-29",
+ "createdAt": 1792613129766,
+ "updatedAt": 1792613129767,
+ "rev": "002d586b7468"
+}

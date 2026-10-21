@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Blog - Sewer Smell in House",
+ "cat": "brain-pipeliners",
+ "group": "Blogs",
+ "body": "> Blog · Pipeliners · 2026-09-17\n\n# Summary\nOne topic with three source files plus a build folder:\n- `blog-drafts\\sewer-smell-in-house.md` (June 25 draft, never published; generic causes and fixes).\n- `blog-drafts\\sewer-smell-in-house-fall-2026.md` (Sep 17 seasonal draft, the version that went live).\n- `blog-drafts\\sewer-smell-keyword-research-2026-09-17.md` (Search Atlas research).\n- `blog-sewer-smell\\` (build script, card, FAQ JSON-LD, inbound links script, SEO entry, images).\n\n# Key facts\n- **Focus keyword:** sewer smell in house (3,650/mo, KD 11). Supporting: house smells like sewer 1,480 (KD 19), sewer gas smell in house 1,000, bathroom smells like sewage 2,900, is sewer gas dangerous 1,600. Arizona-only volume unavailable.\n- **SEO title:** Sewer Smell in House? What to Check This Fall in Arizona. Angle: homes reopening after summer and returning winter residents (dry P-traps).\n- **Status:** published Sep 16 as post 18137 (per the handoff).\n- **Next:** the Oct 1 content plan schedules a refresh to drop the \"this fall\" framing so it can rank year-round (sewer smell in bathroom 4,400 / KD 29).\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Blog Index](lib:brain-pipeliners-blog-index), [Pipeliners - Content Strategy 2026-10-01](lib:brain-pipeliners-content-strategy-2026-10-01)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/blog-drafts/sewer-smell-in-house-fall-2026.md",
+ "date": "2026-09-17",
+ "createdAt": 1792613346122,
+ "updatedAt": 1792613346123,
+ "rev": "aee699b01eac"
+}

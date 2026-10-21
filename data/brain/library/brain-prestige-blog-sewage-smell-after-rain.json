@@ -1,0 +1,14 @@
+{
+ "name": "Prestige - Blog - Sewage Smell After Rain",
+ "cat": "brain-prestige",
+ "group": "Blogs",
+ "body": "> Blog · Prestige · 2026-08-01\n\n# Brief\n- Title: Why Does My House Smell Like Sewage After It Rains?\n- Slug: /blog/sewage-smell-after-rain/. Role: support. Intent: informational (TOFU). About 2,000 words.\n- Primary keyword: sewage smell after rain. Secondaries: why does my drain back up when it rains, toilet gurgles when it rains, plumbing problems after a storm, plumbing after hurricane, sewer backup Bluffton SC.\n- Author: Matt Milunec.\n\n# Angle\nStorm water gets into a sewer system not built to carry it. Saturated ground pushes groundwater into cracked pipes and loose joints (the EPA's \"inflow and infiltration\" is cited), and sewer gas is forced up through the drains instead of out the roof vent. Sections cover why it only happens after rain, the rotten egg smell, drains backing up and toilets gurgling in rain, a post-storm checklist, when it is an emergency, what a plumber will do, and an FAQ.\n\n# Flag status (from the draft)\n- Author page resolved. The Hilton Head utility question is resolved by keeping utility references generic.\n- First-hand proof is optional, with suggested questions to text Matt and image options (an original labeled diagram, or a real storm-call photo).\n- Gated for Scott: pricing, free estimate or inspection language, warranties, emergency rates.\n\n# Status\nDrip Day 2 (scheduled 2026-08-03). Not yet published per the cluster list.\n\n# Related\n- [Prestige - Sewer Cluster Rollout Plan 2026-08-01](lib:brain-prestige-sewer-cluster-rollout-plan-2026-08-01), [Prestige - Blog - Sewer Backup](lib:brain-prestige-blog-sewer-backup), [Prestige Plumbing (Hub)](lib:brain-prestige-plumbing-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Prestige Plumbing/drafts/blog/sewage-smell-after-rain/sewage-smell-after-rain.md",
+ "date": "2026-08-01",
+ "createdAt": 1792613561462,
+ "updatedAt": 1792613561462,
+ "rev": "d0230a37d1f6"
+}

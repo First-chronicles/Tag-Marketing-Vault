@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Website Tracker Sheet Data",
+ "cat": "brain-summit",
+ "group": "Trackers",
+ "body": "> Tracker · Summit Az · 2026-06-23\n\n# Summary\nData and build scripts behind the Summit AZ website tracker workbook (`build_workbook.py` writes `Summit-AZ-Website-Tracker.xlsx` to the root folder; the workbook itself is a root file covered on the hub side). Snapshot from mid to late June 2026.\n\n# Key facts\n- `combined.csv` (159 rows): Service Page (City) 120, Service Page (General) 23, Core Page 6, Blog Post 5, Landing Page (PPC) 3, Legal 2. Columns: type, service or category, city, title, URL.\n- `pages.csv` / `pages_live.csv`: about 155 published pages with IDs and post dates (newest: `/blog` page 2026-06-18, Queen Creek water heater and Scottsdale leak detection pages 2026-06-17).\n- `posts_live.csv`: the 9 posts live by 2026-06-22 (IDs 5779 to 5830). `blogs.csv`: the first 5 posts with categories (Drains and Sewers, Water Heaters, Leaks and Pipes).\n- `ssh_err.txt`: a failed WP-CLI run (wrong path, not a WordPress install). `e1.txt` and `e2.txt` are empty.\n\n# Prestige flag\n`build_prestige.py` and `add_prestige_blog_calendar.py` in this folder build the Prestige Plumbing website tracker (`Prestige-Plumbing-Website-Tracker.xlsx` at the root) and add a blog calendar. They are Prestige work, not Summit. See [Prestige Plumbing (Hub)](lib:brain-prestige-plumbing-hub).\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Summit AZ - Work Folders Index](lib:brain-summit-az-work-folders-index)\n- [Summit AZ - Page Tracker](lib:brain-summit-az-page-tracker)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/_sheet",
+ "date": "2026-06-23",
+ "createdAt": 1792613122624,
+ "updatedAt": 1792613122624,
+ "rev": "c69aaef14d9d"
+}

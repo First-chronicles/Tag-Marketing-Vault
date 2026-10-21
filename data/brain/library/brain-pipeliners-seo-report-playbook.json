@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - SEO Report Playbook",
+ "cat": "brain-pipeliners",
+ "group": "Reports",
+ "body": "> Guide · Pipeliners · 2026-09-25\n\n# Summary\nA reusable playbook explaining how the Pipeliners SEO Performance Report (Jun vs Sep 2026, 23 pages) was built, so the same report can be produced for another client. It records the 16 prompts Kim gave in order, the step-by-step process, eight copy-and-fill prompts, and lessons learned.\n\n# Key points\n- Step 0 setup: use the GSC Domain property (it also counts http and GBP clicks); find the Search Atlas Site Explorer project, Site Audit ID and Rank Tracker project; confirm the GA4 property on every export (a wrong-client export has happened before); create `<Client>\\seo-tracking\\`.\n- Step 1 GSC baseline month: Web, United States, all 4 metrics; exact impressions from the Days tab because the card rounds.\n- Step 2 SEMrush (optional, Kim screenshots): US database, not Worldwide; use the current snapshot if the plan cannot show the baseline month.\n- Steps 3 and 4 Search Atlas: hover the baseline and current months on the same Historical Metrics chart; use the existing rank tracker project.\n- Step 5 Site Audit: only the score survives for past crawls; recrawl and capture Error + Issue.\n- Step 6 GSC comparison: same number of days in each month; optional branded split.\n- Step 7 GA4: landing page and traffic acquisition with the Organic traffic comparison, all-users acquisition, and generate_lead by week. Current period in the main date box.\n- Step 8 PDF: trimmed screenshots, close-ups, set sections, house rules (plain language, no em dashes, no competitor names, no banners, estimates labelled).\n\n# Lessons learned\n- Decide the comparison window first. GA4 shows \"0%\" for pages new since the baseline. Search Atlas freezes in a background tab. Search Atlas traffic is modelled; GSC and GA4 outrank it when they disagree.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - SEO Performance Report Jun vs Sep 2026](lib:brain-pipeliners-seo-performance-report-jun-vs-sep-2026), [SOPs and Guides Index](lib:brain-sops-and-guides-index), [Search Atlas](lib:brain-search-atlas), [Google Search Console](lib:brain-google-search-console)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/seo-tracking/REPORT-PLAYBOOK.md",
+ "date": "2026-09-25",
+ "createdAt": 1792613290913,
+ "updatedAt": 1792613567086,
+ "rev": "e19ae5384c8e"
+}

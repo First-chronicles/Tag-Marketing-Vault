@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - AI Answer Batch 1 2026-09-29",
+ "cat": "brain-pipeliners",
+ "group": "Audits",
+ "body": "> Report · Pipeliners · 2026-09-29\n\n# Summary\nWork folder for \"AI-answer readiness, batch 1\" (Sep 29, 2026): six ad-free blog posts got only the pieces they were missing for AI answers (answer-first blocks and a short FAQ with matching schema). No write notes exist in the folder; this summary comes from the script headers and the after/summary.json file.\n\n# Key findings\n- Posts: 13740 /what-causes-pinhole-leaks-in-copper-pipes/, 13684 /cipp-vs-traditional-sewer-line-replacement-pros-and-cons/, 13736 /14-warning-signs-your-sewer-pipes-may-be-leaking/, 14947 /is-trenchless-sewer-repair-more-expensive-than-digging/, 13720 /should-i-diy-pipe-repair/, 14832 /reline-vs-replace-best-options-for-drain-and-sewer-pipes/.\n- Each got 3 to 4 FAQ questions (for example on pinhole leaks: can an epoxy coating stop them, how to find one you cannot see, repipe or coat, is one pinhole a sign of more).\n- Claims allowed: client service pages (20 to 30% savings vs digging, UV LED liners with a 50-year life expectancy, ePIPE process and NSF/ANSI 61), the site's own cost post (curing times, job length), and Kim-confirmed claims (24/7, leak-locating equipment). No new prices, warranties or unverified claims.\n- Apply script was a guarded dry run unless explicitly enabled, and required live content to equal the saved \"before\" copy. A follow-up script converted CRLF to LF in the six posts.\n\n# Files in this folder (rollups only)\n- `before/` and `after/` content HTML and FAQ JSON per post, `after/summary.json`, `batch1-preview.html`, `live/` desktop and mobile HTML and headers. PHP and Python scripts not summarized.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - AI Answer Batch 2 2026-09-29](lib:brain-pipeliners-ai-answer-batch-2-2026-09-29), [Pipeliners - AI Answer Batch 3 2026-09-29](lib:brain-pipeliners-ai-answer-batch-3-2026-09-29), [Pipeliners - AI Answer City Headings 2026-09-29](lib:brain-pipeliners-ai-answer-city-headings-2026-09-29)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/aimode-batch1-2026-09-29",
+ "date": "2026-09-29",
+ "createdAt": 1792613507476,
+ "updatedAt": 1792613567245,
+ "rev": "732aeecf72d8"
+}

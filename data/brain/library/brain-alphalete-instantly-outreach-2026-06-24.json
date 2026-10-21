@@ -1,0 +1,14 @@
+{
+ "name": "Alphalete - Instantly Outreach 2026-06-24",
+ "cat": "brain-alphalete",
+ "group": "Reports",
+ "body": "> Report · Alphalete · 2026-06-24\n\n# Summary\nRaw exports from the Instantly cold-email account pulled Jun 24 to 25 2026: five lead export files and two reply threads. The folder contains personal contact data, so its contents were not opened or copied for this vault. Results below come from the Oct 1 session handoff.\n\n# Results (per the handoff)\n- May campaign: 764 emails sent, 2 replies.\n- \"June 2026 - Alphalete Trenchless\" campaign targeting school districts and facilities: 2 \"Interested\" replies. One (a school district planning a sewer lining bid) was rated a real lead; the other was rated low fit. The two reply thread files in this folder match these.\n- No outreach activity was recorded after late June.\n\n# Files\n- `all_leads.json` to `all_leads5.json`: lead list exports (personal data, not summarized).\n- `eng_thread.json`, `np_thread.json`: the two reply threads.\n\n# Notes\nThe Instantly API key lives in the shared `.env` [redacted] and must never be printed or copied.\n\n# Related\n- [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub), [Instantly AI](lib:brain-instantly-ai), [Alphalete - Session Handoff 2026-10-01](lib:brain-alphalete-session-handoff-2026-10-01)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Alphalete Trenchless Pipelining/instantly-outreach-2026-06-24",
+ "date": "2026-06-24",
+ "createdAt": 1792613250320,
+ "updatedAt": 1792613250320,
+ "rev": "5b2f23807a7f"
+}

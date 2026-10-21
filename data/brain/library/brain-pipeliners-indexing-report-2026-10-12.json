@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Indexing Report 2026-10-12",
+ "cat": "brain-pipeliners",
+ "group": "Reports",
+ "body": "> Report · Pipeliners · 2026-10-12\n\n# Summary\nA breakdown of the GSC Page indexing report dated Oct 9 (pulled Oct 12): 96 indexed (was 104 on Sep 21) and 168 not indexed, with live status checks, plus a read-only on-page review of four real pages that were not indexed.\n\n# Key findings\n- Most of the 168 are intended: 80 excluded by noindex (admin-ajax popup checks, GHL form URLs, archives, the estimate offer page), 38 blocked by GHL's own robots.txt, 12 404s (old pagination, old author, never-existed posts), 4 redirects.\n- Real pages not indexed: /pipe-lining-for-potable-water/ (dropped after Sep 23), /understanding-pipe-restoration-repiping-vs-pipelining/ (Google saw the Sep 28 rewrite and still passed), /whole-house-repipe/, /epoxy-pipe-lining/ (edit not yet seen), /blog/, /leak-detection-services-in-phoenix-arizona/ (never crawled), /pipeline-locating-what-it-is-and-why-its-important/.\n- The 104 to 96 drop is mostly intended: archives noindexed Sep 14 and Oct 1, and merged posts. All 37 city pages and service pages still indexed.\n- Ad check could not run (Google Ads token expired).\n\n# Four-page review recommendations\n- /pipe-lining-for-potable-water/: fact error (describes drain CIPP on an ePIPE page); merge into /epoxy-pipe-lining/ with a short drinking-water safety section. Merged Oct 12.\n- /pipeline-locating.../: rebuild as /sewer-line-locating/ (\"sewer line locator\" 720/mo) with a 301; needs confirmation that crews locate and mark lines.\n- /understanding-pipe-restoration.../: add a featured image and Article schema, remove a stray OTTO H2, then request indexing. Repipe wording must not change.\n- /whole-house-repipe/: leave it (Pipeliners does not do full repipes).\n\n# Files in this folder (rollups only)\n- `not-indexed-168-breakdown.md`, `four-page-onpage-review.md`, `indexed-96-2026-10-09.txt`, `sitemap-2026-10-12.txt`.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Not-Indexed Improvements 2026-10-12](lib:brain-pipeliners-not-indexed-improvements-2026-10-12), [GSC Indexing Tracker](lib:brain-gsc-indexing-tracker), [Google Search Console](lib:brain-google-search-console)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/reports/indexing-2026-10-12",
+ "date": "2026-10-12",
+ "createdAt": 1792613209739,
+ "updatedAt": 1792613567036,
+ "rev": "93d4173fd7a9"
+}

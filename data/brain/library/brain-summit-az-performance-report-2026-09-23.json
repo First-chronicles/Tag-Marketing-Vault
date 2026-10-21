@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Performance Report 2026-09-23",
+ "cat": "brain-summit",
+ "group": "Reports",
+ "body": "> Report · Summit Az · 2026-09-23\n\n# Summary\n13-page plain-English client report, \"More people clicked. Fewer people saw us.\" Compares June 1 to 30 with Aug 24 to Sep 22 2026 (30 days each). HTML sources: `dashboard.html`, `dashboard-technical-backup.html` and `case-study.html` in the same folder.\n\n# Key numbers\n- Clicks 28 to 38 (+36%); impressions 17,800 to 11,400 (-36%); CTR 0.2% to 0.3%; average position 28 to 27 (page 3).\n- Moved up: Mesa sewer line repair 40 to 18, Queen Creek plumbing 49 to 26, San Tan Valley 43 to 25, slab leaks 47 to 30, Phoenix pipe lining 42 to 25, /plumbing/ 24 to 9, Fountain Hills drain cleaning new at 9.\n- Moved down: homepage 17 to 24 (about two thirds of all clicks come from it), plumber near me 15 to 24, emergency plumber tempe 21 to 33; three local queries dropped out.\n- 55 of 127 clicks were brand searches. 17 pages hold half the impressions and earned 2 clicks. Some impressions are other places named Summit or Mesa (Indiana, Louisiana, Costa Mesa) and can never convert.\n\n# Recommended fixes\n- Quick wins: find what takes the click on the Tempe water softener and slab leak pages; give \"emergency plumber tempe\" a proper page (2,495 impressions, 0 clicks, wrong page ranking); explain the homepage slip to Scott (homepage is off limits under the current agreement).\n- Bigger: decide on pages stuck on page 3 to 6; confirm what counts as a lead in GA4 (rotating GHL numbers); always take a before measurement.\n\n# Caveats in the report\n- The new site was built from a copy of the Utah site and its GA connection came along: Arizona data went to the Utah GA account from Sep 3 to Sep 10; Scott reconnected it Sep 12.\n- No pre-deploy speed baseline for the Sep 16 image and script work. September is a transition month (relaunch Sep 3, 86 new pages Sep 2).\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Summit AZ - Work Folders Index](lib:brain-summit-az-work-folders-index)\n- [Summit AZ - Perf Tracker](lib:brain-summit-az-perf-tracker), [Summit AZ - SEO Progress Report 2026-09-24](lib:brain-summit-az-seo-progress-report-2026-09-24), [Summit AZ - 90-Day Before After 2026-09-23](lib:brain-summit-az-90-day-before-after-2026-09-23)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/perf-tracker/Summit-Performance-Report-2026-09-23.pdf",
+ "date": "2026-09-23",
+ "createdAt": 1792612997619,
+ "updatedAt": 1792612997620,
+ "rev": "e0672689ef8f"
+}

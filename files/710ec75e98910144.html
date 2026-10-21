@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Low-Hanging Fruit Keywords</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Roboto:wght@400;500&display=swap">
+<style>
+@page{size:Letter;margin:0}
+:root{
+  --brand:#1A446F; --brand-2:#2D6A9F; --brand-bg:#E8EFF7; --ink:#1B2430; --ink-2:#4E5B6D; --ink-3:#8190A3;
+  --line:#DCE3EC; --paper:#FFFFFF; --soft:#F4F7FA;
+  --ok:#17774A; --ok-bg:#DDF2E6; --bad:#B3261E; --bad-bg:#FBE3E1; --warn:#9A5B00; --warn-bg:#FBEBD0;
+  --hl:#FFE89A;
+  --g-blue:#1A73E8; --g-purple:#5E35B1; --g-orange:#E8710A; --g-link:#1A0DAB; --g-green:#188038;
+  --sans:"IBM Plex Sans",Arial,sans-serif; --mono:"IBM Plex Mono",Consolas,monospace; --goog:Roboto,Arial,sans-serif;
+}
+*{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+html,body{margin:0;background:#E9EDF2}
+body{font:12.5px/1.55 var(--sans);color:var(--ink)}
+.page{width:8.5in;height:11in;background:var(--paper);margin:0 auto 18px;padding:.6in .65in .55in;position:relative;overflow:hidden;page-break-after:always;display:flex;flex-direction:column;gap:14px}
+.page:last-child{page-break-after:auto}
+@media print{html,body{background:#fff}.page{margin:0}}
+.foot{position:absolute;left:.65in;right:.65in;bottom:.3in;display:flex;justify-content:space-between;font-size:9.5px;color:var(--ink-3);border-top:1px solid var(--line);padding-top:6px}
+h1{font:700 34px/1.12 var(--sans);margin:0;letter-spacing:-.02em;color:var(--brand)}
+h2{font:700 21px/1.2 var(--sans);margin:0;color:var(--ink);display:flex;align-items:center;gap:12px}
+h3{font:600 14px/1.3 var(--sans);margin:0 0 6px;color:var(--ink)}
+p{margin:0}
+.step{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--brand);color:#fff;font:700 16px var(--sans);flex:none}
+.lead{font-size:14px;color:var(--ink-2);max-width:62ch}
+.box{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.row{display:grid;gap:14px}
+.c2{grid-template-columns:1fr 1fr}
+.c3{grid-template-columns:repeat(3,1fr)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
+.pass,.fail,.warn{border-radius:10px;padding:12px 14px;border:1px solid}
+.pass{background:var(--ok-bg);border-color:#B5DEC6}
+.fail{background:var(--bad-bg);border-color:#F1C2BE}
+.warn{background:var(--warn-bg);border-color:#EED3A6}
+.tag{display:inline-block;font:700 10.5px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;padding:4px 8px;border-radius:999px}
+.tag.ok{background:var(--ok);color:#fff}.tag.bad{background:var(--bad);color:#fff}.tag.wa{background:var(--warn);color:#fff}
+.hl{background:var(--hl);border-radius:3px;padding:0 2px}
+.callout{position:absolute;background:var(--brand);color:#fff;font:600 11px/1.3 var(--sans);padding:6px 9px;border-radius:7px;box-shadow:0 3px 10px rgba(0,0,0,.18);max-width:190px}
+.num{display:inline-flex;width:18px;height:18px;border-radius:50%;background:#fff;color:var(--brand);font:700 11px var(--sans);align-items:center;justify-content:center;margin-right:6px}
+.mono{font-family:var(--mono)}
+small,.small{font-size:10.5px;color:var(--ink-3)}
+
+/* ---------- Search Console mockup ---------- */
+.gsc{border:1px solid #D5DCE4;border-radius:10px;overflow:hidden;background:#F8FAFD;font-family:var(--goog);position:relative}
+.gsc .top{display:flex;align-items:center;gap:10px;background:#fff;padding:8px 12px;border-bottom:1px solid #E3E8EE;font-size:12px;color:#3C4043}
+.gsc .logo{font:500 13px var(--goog);color:#5F6368}
+.gsc .logo b{color:#1A73E8;font-weight:500}
+.gsc .bar{display:flex;flex-wrap:wrap;gap:6px;padding:10px 12px;align-items:center}
+.chip{border:1px solid #C9D0D8;border-radius:6px;background:#fff;padding:4px 9px;font-size:11px;color:#3C4043;white-space:nowrap}
+.chip.on{background:#D3E3FD;border-color:#A8C7FA;color:#0B57D0}
+.chip.add{border-style:solid}
+.cards{display:flex;gap:0;margin:0 12px;border-radius:8px;overflow:hidden}
+.card{flex:1;padding:8px 10px;color:#fff;font-size:10px;min-width:0}
+.card b{display:block;font:400 20px/1.2 var(--goog);margin-top:2px}
+.card.cl{background:var(--g-blue)}.card.im{background:var(--g-purple)}.card.ct{background:#fff;color:#5F6368;border:1px solid #E3E8EE}.card.po{background:var(--g-orange)}
+.tabs{display:flex;gap:0;margin:10px 12px 0;background:#fff;border:1px solid #E3E8EE;border-bottom:0;border-radius:8px 8px 0 0;font-size:10.5px;color:#5F6368;text-transform:uppercase;letter-spacing:.04em}
+.tabs span{flex:1;text-align:center;padding:8px 4px}
+.tabs span.on{color:#1A73E8;box-shadow:inset 0 -2px 0 #1A73E8;font-weight:500}
+.gtable{margin:0 12px 12px;background:#fff;border:1px solid #E3E8EE;border-radius:0 0 8px 8px;font-size:11px}
+.gtable .tr{display:grid;grid-template-columns:1fr 60px 80px 60px;padding:7px 10px;border-top:1px solid #EEF1F4;align-items:center}
+.gtable .tr.h{color:#5F6368;font-size:10px;border-top:0}
+.gtable .tr span:not(:first-child){text-align:right;font-variant-numeric:tabular-nums}
+.gtable .u{color:#3C4043;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mark{outline:3px solid #F9AB00;outline-offset:2px;border-radius:6px}
+.dlg{position:absolute;background:#fff;border-radius:10px;box-shadow:0 8px 28px rgba(0,0,0,.22);padding:12px 14px;font-size:11.5px;color:#202124;width:250px}
+.dlg .t{font:500 13px var(--goog);margin-bottom:8px}
+.dlg .f{border:1px solid #C9D0D8;border-radius:6px;padding:6px 8px;margin-bottom:6px;display:flex;justify-content:space-between}
+.dlg .btns{display:flex;justify-content:flex-end;gap:10px;margin-top:6px;color:#1A73E8;font-weight:500}
+
+/* bars */
+.days{display:flex;align-items:flex-end;gap:3px;height:70px;padding:0 4px;border-bottom:1px solid #C9D0D8}
+.days i{flex:1;background:var(--g-purple);border-radius:2px 2px 0 0;min-height:0}
+.days i.z{background:#E6E9EE;height:2px}
+.axis{display:flex;justify-content:space-between;font-size:9.5px;color:var(--ink-3);padding:3px 2px 0}
+
+/* google result + page anatomy */
+.serp{border:1px solid var(--line);border-radius:10px;padding:14px 240px 14px 16px;background:#fff;font-family:var(--goog);position:relative}
+.serp .site{display:flex;align-items:center;gap:8px;font-size:12px;color:#202124}
+.serp .fav{width:22px;height:22px;border-radius:50%;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;font:700 10px var(--sans)}
+.serp .crumb{font-size:11px;color:#4D5156}
+.serp .ttl{font-size:18px;color:var(--g-link);margin:6px 0 3px;line-height:1.3}
+.serp .desc{font-size:12.5px;color:#4D5156;line-height:1.5}
+.pageview{border:1px solid var(--line);border-radius:10px;background:#fff;overflow:hidden;position:relative}
+.pageview .chrome{background:#EEF1F5;padding:6px 10px;display:flex;gap:6px;align-items:center}
+.pageview .chrome i{width:8px;height:8px;border-radius:50%;background:#C9D0D8;display:inline-block}
+.pageview .chrome span{margin-left:8px;background:#fff;border-radius:6px;padding:2px 10px;font-size:10px;color:#5F6368;flex:1}
+.pageview .body{padding:16px 18px;display:flex;flex-direction:column;gap:9px}
+.pageview .hero{background:linear-gradient(180deg,#1A446F,#12324F);color:#fff;border-radius:8px;padding:14px 16px}
+.pageview .hero .h1{font:700 18px/1.25 var(--sans)}
+.pageview .hero p{font-size:11px;opacity:.9;margin-top:5px}
+.pageview .h2{font:700 13.5px/1.3 var(--sans);color:var(--brand)}
+.pageview .ans{border-left:4px solid var(--brand-2);background:var(--brand-bg);padding:8px 10px;font-size:11px;border-radius:0 6px 6px 0}
+.pageview .txt{font-size:11px;color:var(--ink-2)}
+.pageview .faq{border:1px solid var(--line);border-radius:6px;padding:7px 10px;font-size:11px;display:flex;justify-content:space-between}
+.lbl{position:absolute;right:-6px;transform:translateX(100%);font:600 10.5px/1.25 var(--sans);color:var(--brand);width:130px}
+.lbl::before{content:"";position:absolute;left:-22px;top:7px;width:18px;border-top:2px solid var(--brand)}
+
+/* link map */
+.map{position:relative;height:250px}
+.node{position:absolute;background:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 11px;font-size:11px;box-shadow:0 2px 6px rgba(20,40,70,.06)}
+.node b{display:block;font-size:11.5px;color:var(--ink)}
+.node.target{background:var(--brand);color:#fff;border-color:var(--brand)}
+.node.target b{color:#fff}
+.anchor{position:absolute;font:500 10.5px var(--mono);background:var(--hl);padding:2px 6px;border-radius:4px;white-space:nowrap}
+
+/* timeline */
+.tl{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-top:6px}
+.tl::before{content:"";position:absolute;left:12%;right:12%;top:17px;border-top:3px dashed #B7C3D1}
+.tl div{text-align:center;position:relative;padding:0 6px}
+.tl .dot{width:36px;height:36px;border-radius:50%;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto 6px;font:700 12px var(--sans);position:relative}
+.tl .dot.w{background:#fff;color:var(--brand);border:3px solid var(--brand)}
+.tl b{display:block;font-size:12px}
+.tl span{font-size:10.5px;color:var(--ink-2)}
+
+table.plain{border-collapse:collapse;width:100%;font-size:11.5px}
+table.plain th,table.plain td{border-bottom:1px solid var(--line);padding:8px 8px;text-align:left;vertical-align:top}
+table.plain th{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-2)}
+.check{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-bottom:1px dashed var(--line);font-size:12.5px}
+.check i{width:16px;height:16px;border:2px solid var(--brand);border-radius:4px;flex:none;margin-top:2px}
+</style></head>
+<body>
+
+<!-- COVER -->
+<section class="page" style="justify-content:space-between;padding-top:.9in">
+  <div style="display:flex;flex-direction:column;gap:16px">
+    <span class="tag ok" style="background:var(--brand);align-self:flex-start">Pipeliners SEO Tutorial</span>
+    <h1>How to Use Low-Hanging Fruit Keywords</h1>
+    <p class="lead" style="font-size:16px">A step-by-step picture guide: how to find keywords Google already shows us for, and how to move them from page 2 or 3 up to page 1, without guessing.</p>
+  </div>
+
+  <div class="box" style="background:#fff;padding:18px 20px">
+    <h3 style="font-size:15px">What "low-hanging fruit" means</h3>
+    <p style="margin-bottom:12px;color:var(--ink-2)">A search Google <b>already</b> shows one of our pages for, again and again, just not high enough to get clicks. The page is close. A few small, focused fixes can push it up.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;text-align:center">
+      <div style="background:var(--ok-bg);border-radius:10px;padding:14px 8px"><div style="font:700 20px var(--sans);color:var(--ok)">1 – 7</div><div class="small" style="color:var(--ink-2)">Top of page 1.<br>Already winning. Protect it.</div></div>
+      <div style="background:var(--hl);border-radius:10px;padding:14px 8px;outline:3px solid #E0B400"><div style="font:700 20px var(--sans);color:#6B5000">8 – 30</div><div class="small" style="color:#4A3A00"><b>The low-hanging fruit zone.</b><br>Close enough to push up.</div></div>
+      <div style="background:var(--soft);border-radius:10px;padding:14px 8px"><div style="font:700 20px var(--sans);color:var(--ink-3)">31+</div><div class="small">Too far for a quick fix.<br>Needs bigger work.</div></div>
+    </div>
+    <p class="small" style="margin-top:8px">Numbers are Google's average position. Page 1 = positions 1 to 10, page 2 = 11 to 20, page 3 = 21 to 30.</p>
+  </div>
+
+  <div class="row c3">
+    <div class="box"><h3>The 6 steps</h3><p class="small" style="color:var(--ink-2);font-size:11.5px">1 Confirm it's real<br>2 Match the right page<br>3 Put the keyword where Google reads first<br>4 Add what's missing<br>5 Link to it<br>6 Tell Google, then wait</p></div>
+    <div class="box"><h3>You need</h3><p class="small" style="color:var(--ink-2);font-size:11.5px">Search Console access (pipelinersusa.com Domain property), the page in WordPress, and 30 minutes per keyword.</p></div>
+    <div class="box"><h3>House rules</h3><p class="small" style="color:var(--ink-2);font-size:11.5px">No prices or unverified claims. "Pipeliners", not "Pipeliners USA". No em dashes. Never touch the homepage, phone numbers or Google Ads pages.</p></div>
+  </div>
+  <div class="foot"><span>Pipeliners · Low-hanging fruit keywords</span><span>Prepared Sep 19, 2026 · Data: Google Search Console</span></div>
+</section>
+
+<!-- STEP 1 -->
+<section class="page">
+  <h2><span class="step">1</span>Confirm it's real</h2>
+  <p class="lead">Before changing anything, check that Google shows us for this search <b>regularly</b>. One lucky day is not a ranking.</p>
+
+  <div class="gsc" style="height:300px">
+    <div class="top"><span class="logo"><b>Google</b> Search Console</span><span class="chip">pipelinersusa.com</span><span style="margin-left:auto;font-size:11px">Performance</span></div>
+    <div class="bar">
+      <span class="chip">7 days</span><span class="chip on mark">28 days</span><span class="chip">3 months</span>
+      <span class="chip">Search type: Web</span>
+      <span class="chip on mark">Query: cipp pipe lining cost ✕</span>
+      <span class="chip add">+ Add filter</span>
+    </div>
+    <div class="cards"><div class="card cl">Total clicks<b>0</b></div><div class="card im">Total impressions<b>22</b></div><div class="card ct">Average CTR<b style="color:#3C4043">0%</b></div><div class="card po">Average position<b>54.9</b></div></div>
+    <div class="tabs"><span>Queries</span><span>Pages</span><span>Countries</span><span>Devices</span><span class="on mark">Days</span></div>
+    <div class="dlg" style="right:14px;top:168px">
+      <div class="t">+ Add filter → Query</div>
+      <div class="f"><span>Exact query</span><span>▾</span></div>
+      <div class="f"><span>cipp pipe lining cost</span><span></span></div>
+      <div class="btns"><span style="color:#5F6368">Cancel</span><span>Apply</span></div>
+    </div>
+  </div>
+  <div class="row c3" style="font-size:11.5px">
+    <div><span class="num" style="background:var(--brand);color:#fff">1</span>In Search Console, open <b>Performance</b> and pick <b>28 days</b>.</div>
+    <div><span class="num" style="background:var(--brand);color:#fff">2</span>Click <b>+ Add filter → Query</b>. Choose <b>Exact query</b>, type the keyword, and click <b>Apply</b>.</div>
+    <div><span class="num" style="background:var(--brand);color:#fff">3</span>Open the <b>Days</b> tab. Count how many different days it shows up.</div>
+  </div>
+
+  <div class="row c2">
+    <div class="pass">
+      <span class="tag ok">Pass</span>
+      <h3 style="margin-top:8px">"cipp pipe lining cost"</h3>
+      <div class="days"><i class="z"></i><i class="z"></i><i class="z"></i><i class="z"></i><i class="z"></i><i class="z"></i><i class="z"></i><i class="z"></i><i class="z"></i><i class="z"></i><i class="z"></i><i style="height:10%"></i><i style="height:20%"></i><i class="z"></i><i class="z"></i><i class="z"></i><i class="z"></i><i style="height:10%"></i><i class="z"></i><i style="height:30%"></i><i style="height:10%"></i><i style="height:20%"></i><i style="height:100%"></i><i class="z"></i><i style="height:20%"></i><i class="z"></i><i class="z"></i><i class="z"></i></div>
+      <div class="axis"><span>Aug 19</span><span>Sep 1</span><span>Sep 15</span></div>
+      <p style="margin-top:6px;font-size:11.5px">22 impressions on <b>8 different days</b>. Google keeps showing it. <b>Real.</b></p>
+    </div>
+    <div class="fail">
+      <span class="tag bad">Fail</span>
+      <h3 style="margin-top:8px">"main line clog phoenix"</h3>
+      <div class="days"><i class="z"></i><i class="z"></i><i class="z"></i><i class="z"></i><i style="height:100%;background:var(--bad)"></i><i style="height:17%;background:var(--bad)"></i><i class="z"></i><i class="z"></i><i class="z"></i><i class="z"></i><i class="z"></i><i class="z"></i><i class="z"></i><i class="z"></i><i class="z"></i><i class="z"></i><i class="z"></i><i class="z"></i><i class="z"></i><i class="z"></i><i class="z"></i><i class="z"></i><i class="z"></i><i class="z"></i><i class="z"></i><i class="z"></i><i class="z"></i><i class="z"></i></div>
+      <div class="axis"><span>Aug 19</span><span>Sep 1</span><span>Sep 15</span></div>
+      <p style="margin-top:6px;font-size:11.5px">7 impressions, but <b>6 on one day</b> (Aug 23), then nothing for 3 weeks. <b>A burst, not a ranking.</b></p>
+    </div>
+  </div>
+
+  <div class="box">
+    <h3>It's real when all 3 are true</h3>
+    <ul class="clean">
+      <li>Seen <b>3+ times</b> on <b>2+ different days</b> (more days is better).</li>
+      <li>Average position between <b>8 and 30</b>.</li>
+      <li><b>One page</b> gets it, or one page clearly gets most of it (check the <b>Pages</b> tab, next step).</li>
+    </ul>
+  </div>
+  <div class="foot"><span>Step 1 of 6 · Confirm it's real</span><span>Real Pipeliners data, Aug 19 – Sep 15, 2026</span></div>
+</section>
+
+<!-- STEP 2 -->
+<section class="page">
+  <h2><span class="step">2</span>Match it to the right page</h2>
+  <p class="lead">Pick the page Google <b>already</b> shows for the keyword. Don't create a new page for the same keyword; that splits Google's attention.</p>
+
+  <div class="gsc">
+    <div class="top"><span class="logo"><b>Google</b> Search Console</span><span class="chip">pipelinersusa.com</span><span style="margin-left:auto;font-size:11px">Performance</span></div>
+    <div class="bar"><span class="chip on">28 days</span><span class="chip on">Query: cipp pipe lining cost ✕</span></div>
+    <div class="tabs"><span>Queries</span><span class="on mark">Pages</span><span>Countries</span><span>Devices</span><span>Days</span></div>
+    <div class="gtable">
+      <div class="tr h"><span>Top pages</span><span>Clicks</span><span>Impressions</span><span>Position</span></div>
+      <div class="tr" style="background:#FFF8DC"><span class="u">pipelinersusa.com/cipp-vs-traditional-sewer-line-replacement-pros-and-cons/</span><span>0</span><span>19</span><span>63.1</span></div>
+      <div class="tr"><span class="u">pipelinersusa.com/what-is-cipp/</span><span>0</span><span>3</span><span>3.0</span></div>
+    </div>
+  </div>
+  <div class="row c3" style="font-size:11.5px">
+    <div><span class="num" style="background:var(--brand);color:#fff">1</span>Keep the same query filter and open the <b>Pages</b> tab.</div>
+    <div><span class="num" style="background:var(--brand);color:#fff">2</span>The page with the <b>most impressions</b> is usually the one Google prefers.</div>
+    <div><span class="num" style="background:var(--brand);color:#fff">3</span>If two pages split it, pick <b>one</b> and give the other a different job.</div>
+  </div>
+
+  <div class="warn">
+    <span class="tag wa">What this example tells us</span>
+    <p style="margin-top:8px;font-size:12px">"cipp pipe lining cost" is split: the CIPP vs Traditional post gets 19 impressions at position <b>63</b> (too far down), and What is CIPP gets 3 at position 3, but only on Aug 30 and 31. It's a real search, but <b>not low-hanging fruit yet</b>, and it's a cost topic, so the wording needs Scott's OK first.</p>
+  </div>
+
+  <div class="row c2">
+    <div class="box">
+      <h3>Does the page really answer it?</h3>
+      <ul class="clean">
+        <li>A <b>cost</b> search needs a cost answer (what drives the price, no prices).</li>
+        <li>A <b>Phoenix / Mesa</b> search needs local detail, usually on the city page.</li>
+        <li>A <b>"how to" / "what is"</b> search needs a clear explanation, usually a blog post.</li>
+        <li>A <b>"near me" / "company"</b> search needs a service page with a clear call to action.</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>Stop if…</h3>
+      <ul class="clean">
+        <li>The only page ranking is the <b>homepage</b> or a <b>Google Ads page</b>. Those are off-limits.</li>
+        <li>The keyword names <b>another company</b>.</li>
+        <li>It's a service Pipeliners <b>doesn't offer</b> or Scott hasn't confirmed.</li>
+        <li>The page is <b>on hold</b> for a scheduled review.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot"><span>Step 2 of 6 · Match it to the right page</span><span>Real Pipeliners data, Aug 19 – Sep 15, 2026</span></div>
+</section>
+
+<!-- STEP 3 -->
+<section class="page">
+  <h2><span class="step">3</span>Put the keyword where Google reads first</h2>
+  <p class="lead">One keyword per page, used naturally in 5 places. Real example from the live Chandler page (quick win, Sep 16).</p>
+
+  <div class="serp">
+    <div class="site"><span class="fav">P</span><div><div>Pipeliners</div><div class="crumb">https://pipelinersusa.com › chandler</div></div></div>
+    <div class="ttl"><span class="hl">Sewer Line Repair</span> &amp; Repiping <span class="hl">in Chandler, AZ</span> | Pipeliners</div>
+    <div class="desc"><span class="hl">Sewer line repair in Chandler, AZ</span> without trenching the yard, plus repiping for homes and businesses. A camera inspection comes first. Call 480-535-6503.</div>
+    <div class="callout" style="right:14px;top:10px"><span class="num">A</span>SEO title: keyword near the start</div>
+    <div class="callout" style="right:14px;bottom:10px"><span class="num">E</span>Meta description: keyword + a reason to click</div>
+  </div>
+  <p class="small" style="margin-top:-6px">↑ How the page looks in Google search results.</p>
+
+  <div style="display:grid;grid-template-columns:1fr 150px;gap:0">
+    <div class="pageview">
+      <div class="chrome"><i></i><i></i><i></i><span>pipelinersusa.com/chandler/</span></div>
+      <div class="body">
+        <div class="hero"><div class="h1"><span class="hl" style="color:#1B2430">Sewer Line Repair</span> &amp; Repiping <span class="hl" style="color:#1B2430">in Chandler, AZ</span></div><p>Trenchless sewer and water line repair across Chandler…</p></div>
+        <div class="txt">For <span class="hl">sewer line repair in Chandler, AZ</span>, Pipeliners starts with a camera inspection, then fixes the line from the inside…</div>
+        <div class="h2">What Does <span class="hl">Sewer Line Repair in Chandler, AZ</span> Involve?</div>
+        <div class="ans"><b>Answer first (40–60 words):</b> A camera finds the break or root intrusion, the line is cleaned, and a liner is cured in place, so the yard and driveway stay intact…</div>
+        <div class="faq"><span>How long does sewer line repair take in Chandler?</span><span>+</span></div>
+      </div>
+    </div>
+    <div style="position:relative">
+      <div class="lbl" style="left:0;top:48px;transform:none;padding-left:26px"><span class="num" style="background:var(--brand);color:#fff">B</span>H1: same idea, reworded is fine</div>
+      <div class="lbl" style="left:0;top:112px;transform:none;padding-left:26px"><span class="num" style="background:var(--brand);color:#fff">C</span>First 100 words: once, in a sentence that answers</div>
+      <div class="lbl" style="left:0;top:160px;transform:none;padding-left:26px"><span class="num" style="background:var(--brand);color:#fff">D</span>One H2 phrased as the question, then a short direct answer</div>
+      <div class="lbl" style="left:0;top:238px;transform:none;padding-left:26px">Optional: 1–2 FAQs (Step 4)</div>
+    </div>
+  </div>
+
+  <div class="row c2">
+    <div class="pass"><span class="tag ok">Do</span><ul class="clean" style="margin-top:8px"><li>Use the keyword the way a person would say it.</li><li>Keep title under ~60 characters, meta under ~155.</li><li>Write the answer under the H2 so it makes sense on its own. AI answers quote this part.</li></ul></div>
+    <div class="fail"><span class="tag bad">Don't</span><ul class="clean" style="margin-top:8px"><li>Repeat the keyword over and over (keyword stuffing).</li><li>Change only the title. Update all 5 places together.</li><li>Put two different main keywords on one page.</li></ul></div>
+  </div>
+  <p class="small">Where to edit: titles, meta descriptions and many H1s on this site are managed in <b>OTTO (Search Atlas)</b>, not in WordPress. Body text and H2s are edited in WordPress/Elementor. After an OTTO change, purge that one page's cache only.</p>
+  <div class="foot"><span>Step 3 of 6 · Put the keyword where Google reads first</span><span>Example: pipelinersusa.com/chandler/ (live Sep 16, 2026)</span></div>
+</section>
+
+<!-- STEP 4 + 5 -->
+<section class="page">
+  <h2><span class="step">4</span>Add what the page is missing</h2>
+  <p class="lead">Google moves a page up when it answers the search better than the pages above it. Add one short section or 1–2 FAQs, not a full rewrite.</p>
+  <div class="row c2">
+    <div class="box">
+      <h3>Good additions</h3>
+      <ul class="clean">
+        <li>A short section that answers the exact question.</li>
+        <li>1–2 FAQs people really ask (check the <b>Queries</b> tab for wording).</li>
+        <li>Arizona detail: caliche soil, clay and cast iron pipes, desert tree roots.</li>
+        <li>How the job works: camera inspection first, then the repair.</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>Never add</h3>
+      <ul class="clean">
+        <li>Prices, "free", warranty years, "only company that…" claims unless Scott confirms them.</li>
+        <li>Links to competitors or untrusted sites.</li>
+        <li>Services Pipeliners doesn't offer (for example gas lines).</li>
+        <li>Filler or AI-sounding phrases.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 style="margin-top:6px"><span class="step">5</span>Link to it from related pages</h2>
+  <p class="lead">Add 2–3 links from related posts or city pages, using the keyword (or a close version) as the link text.</p>
+  <div class="map">
+    <div class="node" style="left:0;top:8px;width:190px"><b>Related blog post</b>e.g. a post that already talks about sewer repair</div>
+    <div class="node" style="left:0;top:98px;width:190px"><b>Nearby city page</b>e.g. Gilbert or Mesa page, "areas we also serve"</div>
+    <div class="node" style="left:0;top:188px;width:190px"><b>Related guide</b>e.g. the UV cured lining guide</div>
+    <svg style="position:absolute;left:0;top:0;width:100%;height:100%" viewBox="0 0 680 250" preserveAspectRatio="none" aria-hidden="true">
+      <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1A446F"/></marker></defs>
+      <path d="M200,32 C330,32 350,125 455,125" stroke="#1A446F" stroke-width="2" fill="none" marker-end="url(#ar)"/>
+      <path d="M200,122 L455,125" stroke="#1A446F" stroke-width="2" fill="none" marker-end="url(#ar)"/>
+      <path d="M200,212 C330,212 350,125 455,125" stroke="#1A446F" stroke-width="2" fill="none" marker-end="url(#ar)"/>
+    </svg>
+    <div class="anchor" style="left:238px;top:34px">"sewer line repair in Chandler"</div>
+    <div class="anchor" style="left:258px;top:104px">"Chandler sewer line repair"</div>
+    <div class="anchor" style="left:238px;top:190px">"sewer line repair in Chandler, AZ"</div>
+    <div class="node target" style="right:0;top:92px;width:200px"><b>Target page</b>pipelinersusa.com/chandler/</div>
+  </div>
+  <div class="row c2">
+    <div class="pass"><span class="tag ok">Do</span><ul class="clean" style="margin-top:8px"><li>Place the link inside a sentence where it makes sense.</li><li>Vary the wording slightly between the 2–3 links.</li></ul></div>
+    <div class="fail"><span class="tag bad">Don't</span><ul class="clean" style="margin-top:8px"><li>Use "click here" or "here!" as link text.</li><li>Add links from the homepage or Google Ads pages.</li></ul></div>
+  </div>
+  <div class="foot"><span>Steps 4 and 5 of 6</span><span>Pipeliners · Low-hanging fruit keywords</span></div>
+</section>
+
+<!-- STEP 6 -->
+<section class="page">
+  <h2><span class="step">6</span>Tell Google, then wait</h2>
+  <p class="lead">Ask Google to re-read the page, then leave it alone for 4 weeks. Changing it again too soon makes it impossible to tell what worked.</p>
+
+  <div class="gsc" style="height:210px">
+    <div class="top"><span class="logo"><b>Google</b> Search Console</span><span class="chip mark" style="flex:1;max-width:380px">🔍 Inspect any URL in "pipelinersusa.com" — https://pipelinersusa.com/chandler/</span></div>
+    <div style="margin:14px 14px 0;background:#fff;border:1px solid #E3E8EE;border-radius:8px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center">
+      <div><div style="font:500 14px var(--goog);color:#188038">✓ URL is on Google</div><div style="font-size:11px;color:#5F6368;margin-top:3px">It can appear in Google Search results</div></div>
+      <span class="chip mark" style="background:#1A73E8;color:#fff;border-color:#1A73E8;padding:7px 12px">REQUEST INDEXING</span>
+    </div>
+    <div class="callout" style="left:18px;bottom:14px"><span class="num">1</span>Paste the page URL in the top search box and press Enter</div>
+    <div class="callout" style="right:18px;bottom:14px"><span class="num">2</span>Click "Request indexing" (free). Wait 1–2 minutes.</div>
+  </div>
+  <p class="small">Use only the free Request indexing button in Search Console. Don't use paid indexing tools. Don't request indexing for a page that wasn't improved; Google won't change its mind.</p>
+
+  <div class="box">
+    <h3>The waiting plan</h3>
+    <div class="tl">
+      <div><div class="dot">Day 0</div><b>Make the change</b><span>Write down the date and what changed (change log).</span></div>
+      <div><div class="dot w">Day 1</div><b>Request indexing</b><span>Free button in Search Console.</span></div>
+      <div><div class="dot w">4 wks</div><b>Don't touch</b><span>No more edits to this page.</span></div>
+      <div><div class="dot">Day 28</div><b>Compare</b><span>Same 28-day length, before vs after.</span></div>
+    </div>
+  </div>
+
+  <div class="row c2">
+    <div class="box">
+      <h3>How to compare fairly</h3>
+      <ul class="clean">
+        <li>Search Console → Date → <b>Compare</b> → two 28-day windows.</li>
+        <li>Same keyword filter, same page.</li>
+        <li>Look at position, impressions, then clicks.</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>What counts as a win</h3>
+      <ul class="clean">
+        <li>Average position moves up (lower number).</li>
+        <li>More impressions on more days.</li>
+        <li>First clicks from that keyword.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot"><span>Step 6 of 6 · Tell Google, then wait</span><span>Pipeliners · Low-hanging fruit keywords</span></div>
+</section>
+
+<!-- WHERE TO START + CHECKLIST -->
+<section class="page">
+  <h2>Where our blog keywords stand today</h2>
+  <p class="lead">Checked day by day in Search Console (Aug 19 – Sep 15, 2026). <b>No blog keyword is ready yet.</b> Next check: <b>Oct 16</b>.</p>
+  <table class="plain">
+    <thead><tr><th>Keyword</th><th>Page</th><th>Position</th><th>Seen</th><th>Ready?</th></tr></thead>
+    <tbody>
+      <tr><td><b>cipp pipe lining cost</b></td><td>CIPP vs Traditional (19) · What is CIPP (3)</td><td class="mono">63 / 3</td><td>22 times, 8 days</td><td><span class="tag wa">Not yet</span><br><span class="small">Real search, but split across 2 posts, and the main one sits at 63. Cost wording needs Scott.</span></td></tr>
+      <tr><td><b>slip lining contractors</b></td><td>How Plumbers Use CIPP Lining</td><td class="mono">17</td><td>3 times, 2 days</td><td><span class="tag wa">Watch</span><br><span class="small">Re-check Oct 16. Scott to confirm Pipeliners does slip lining.</span></td></tr>
+      <tr><td><b>main line clog phoenix</b></td><td>Phoenix Sewer Line Problems</td><td class="mono">29</td><td>7 times, but 6 on Aug 23</td><td><span class="tag bad">No</span><br><span class="small">One-day burst. Nothing since Aug 24.</span></td></tr>
+      <tr><td><b>sewer pipe liners</b></td><td>3 posts at once</td><td class="mono">12 – 19</td><td>7 times, Sep 3 – 6</td><td><span class="tag bad">No</span><br><span class="small">Short burst; posts shown side by side, not competing.</span></td></tr>
+      <tr><td>The other 9 page-2 keywords</td><td>Various</td><td class="mono">11 – 19</td><td>once each</td><td><span class="tag bad">No</span><br><span class="small">Watch only.</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="box" style="margin-top:4px">
+    <h3 style="font-size:15px">One-page checklist (print this)</h3>
+    <div class="check"><i></i><span><b>Real?</b> 3+ impressions on 2+ days, position 8–30, one main page.</span></div>
+    <div class="check"><i></i><span><b>Right page?</b> The page Google already shows. Not the homepage or an Ads page. A service we offer.</span></div>
+    <div class="check"><i></i><span><b>5 places:</b> SEO title · H1 · first 100 words · one question H2 + short answer · meta description.</span></div>
+    <div class="check"><i></i><span><b>Missing piece:</b> one short section or 1–2 FAQs. No prices or unverified claims.</span></div>
+    <div class="check"><i></i><span><b>Links:</b> 2–3 links from related pages with keyword link text.</span></div>
+    <div class="check"><i></i><span><b>Log it:</b> date + what changed in the change log.</span></div>
+    <div class="check"><i></i><span><b>Tell Google:</b> free Request indexing.</span></div>
+    <div class="check" style="border-bottom:0"><i></i><span><b>Wait 4 weeks,</b> then compare the same 28-day windows.</span></div>
+  </div>
+  <div class="foot"><span>Status and checklist</span><span>Pipeliners · Low-hanging fruit keywords · Sep 19, 2026</span></div>
+</section>
+
+</body></html>

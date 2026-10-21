@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Site Speed Audit and Tracker 2026-07-14",
+ "cat": "brain-pipeliners",
+ "group": "Audits",
+ "body": "> Audit · Pipeliners · 2026-07-14\n\n# Summary\nTwo linked files: `pipeliners-sitespeed-audit-2026-07-14.md` (read-only audit written for Scott) and `pipeliners-sitespeed-tracker.md` (a living homepage tracker that ties each slow PageSpeed metric to its cause and logs scores).\n\n# Audit findings\n- It corrects the July 13 audit: images were already served as WebP (hero about 52 KB), so \"16.9 MB of unoptimized images\" was wrong.\n- Real causes: every LiteSpeed page optimization was OFF (23 stylesheets and 22 scripts unminified and undeferred) and three oversized homepage videos (37.5 + 18.1 + 11.3 MB = 66.9 MB).\n- LiteSpeed Cache is the right plugin for Hostinger; do not buy WP Rocket.\n- Fix order: safe toggles first (CSS/JS/HTML minify, font-display swap, image and iframe lazy-load), compress videos with poster images, test combine/defer/critical CSS one at a time, final mobile retest. `wp-content/uploads` holds 499 MB of `.bk` backup copies (disk only, not served).\n\n# Tracker log\n- Baseline Jul 14: mobile 21, desktop 55; LCP 6.9s, TBT 1,670 ms, CLS 0.331, SI 9.3s.\n- After Phase 1 toggles: mobile 45; CLS 0.331 to 0.001, TBT to 850 ms, but LCP regressed to 9.4s (lazy-load delaying the hero).\n- Phase 2: videos 67 MB to 19 MB (720 wide, audio stripped), in-place swap, Hostinger CDN flushed; poster images not added.\n- Later lesson recorded in the handoff: JS Minify broke the pixfort footer and stays OFF. The case study reports mobile PSI 21 to 43 overall.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Audits and Reports Index](lib:brain-pipeliners-audits-and-reports-index), [Pipeliners - Full Site Audit 2026-07-13](lib:brain-pipeliners-full-site-audit-2026-07-13)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/pipeliners-sitespeed-audit-2026-07-14.md",
+ "date": "2026-07-14",
+ "createdAt": 1792613171236,
+ "updatedAt": 1792613171236,
+ "rev": "552f7f55df10"
+}

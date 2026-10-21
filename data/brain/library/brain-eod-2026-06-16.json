@@ -1,0 +1,14 @@
+{
+ "name": "EOD 2026-06-16",
+ "cat": "brain-eod",
+ "group": "2026-06 June",
+ "body": "> Eod · 2026-06-16\n\nTuesday overnight session (into 6/17). Google Search Console crawl and indexing pass across three sites.\n\n# Pipeliners\nSee [Pipeliners (Hub)](lib:brain-pipeliners-hub).\n- GSC: 72 indexed vs 275 not indexed. Only 171 truly \"not yet indexed\"; filtered to about 60 real pages after removing 54 leaked admin-ajax URLs, 26 feed URLs and archives. None of the 22 /service-areas/ city pages were indexed.\n- Requested indexing on 13 service-area pages until \"Quota Exceeded\", confirming the manual cap is about 13 per property per day.\n- Root cause: MetaSync (OTTO) virtual sitemap only crawls the top 100 pages (site has 106) and excludes Elementor-built pages. With approval, raised OTTO \"Pages to Crawl\" from 100 to 500.\n- Flagged the popup plugin leaking `admin-ajax.php?action=pix_check_popup_status` URLs.\n\n# Summit Plumbing Pros AZ\nSee [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub).\n- Healthy: 98 indexed, 16 not (12 intentional). Requested indexing on /expert-drain-line-services/ and /phoenix-plumbing/. Nothing pending.\n\n# Alphalete Trenchless\nSee [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub).\n- Discovered the site was rebuilt: 23 of 26 \"Crawled, not indexed\" URLs now 404. New Yoast build has about 227 pages and retargets Colorado Springs.\n- GSC had only the old `/sitemap.xml` (now 301, 0 pages). Submitted the new `sitemap_index.xml`.\n- Added 22 old-to-new 301 redirects in `.htaccess` (backup `.htaccess.bak-2026-06-16`), all verified.\n\n# Other\n- Installed the `web3-premium-website-generator` skill at user level.\n- GSC properties on the account: pipelinersusa.com, summitplumbingpros.com, alphaletetrenchless.com, summitplumbingut.com, tagmktg.com.\n\n# Follow-ups\n- Pipeliners: keep about 13 index requests per day; verify the OTTO 500-page crawl picked up city pages in about 3 days; open a Search Atlas ticket on the Elementor exclusion; block admin-ajax URLs in robots.txt.\n- Alphalete: not-indexed pass on new pages once processed; remove stale old sitemap from GSC.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub), [Google Search Console](lib:brain-google-search-console), [Search Atlas](lib:brain-search-atlas), [GSC Indexing Tracker](lib:brain-gsc-indexing-tracker), [EOD Reports Index](lib:brain-eod-reports-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "_Shared (All Clients)/EOD Reports/EOD Report 2026-06-16.txt",
+ "date": "2026-06-16",
+ "createdAt": 1792612701367,
+ "updatedAt": 1792612701377,
+ "rev": "657c3cc449d8"
+}

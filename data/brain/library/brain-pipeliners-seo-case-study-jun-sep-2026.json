@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - SEO Case Study Jun-Sep 2026",
+ "cat": "brain-pipeliners",
+ "group": "Reports",
+ "body": "> Report · Pipeliners · 2026-09-24\n\n# Summary\nAn 8-page client-facing case study prepared by TAG Marketing in September 2026: \"How We Grew Google Visibility for a Phoenix-Area Trenchless Sewer Company by 47% in 3 Months\". June 2026 is the baseline and September the 3-month milestone. June and September are compared on the same 21 days because September was not finished.\n\n# Key findings\n- Headline: ranking keywords up 47% (345 to 507, Search Atlas US). Google impressions up 4.1% (13,983 to 14,555, GSC). Organic engagement rate up 13.9% (48.5% to 55.2%, GA4). #1 in Phoenix for \"florence pipe break repair\" (Rank Tracker).\n- Clicks held steady (31 to 32), organic visits 99 to 96, Site Health 909 to 911, organic leads 0 in both periods (stated plainly, no lead increase claimed).\n- The challenge: organic was about 7% of visits, no leads came from organic, average position 44, and technical debt (hidden OTTO keyword blocks, city copy hidden on mobile, thin city pages).\n- Work listed with go-live dates: hidden words cut from 20,648 to 481 (Sep 12), city copy made visible on mobile on all 37 pages (Aug 28), plugin FAQs moved into real on-page FAQs on 4 pages (Aug 27), 36 unstyled headings fixed (Sep 2), dead sitemaps removed (Sep 15), 5xx errors 8 to 0, title and meta audit 37 of 37 clean (Aug 31), Tempe, Buckeye and Florence rewrites, focus keyword alignment on 9 pages (Sep 16 to 17), \"here!\" links replaced.\n- New organic landing pages: /gilbert and four blog posts got organic visits for the first time.\n\n# Decisions and status\n- Next measurements: full-month September pull (Oct 3) and city-page reviews on Oct 9 and Oct 22.\n- Built with `build_case_study.py` (ReportLab), not summarized.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - SEO Performance Report Jun vs Sep 2026](lib:brain-pipeliners-seo-performance-report-jun-vs-sep-2026), [Pipeliners - SEO Report Playbook](lib:brain-pipeliners-seo-report-playbook), [Search Atlas](lib:brain-search-atlas), [Google Search Console](lib:brain-google-search-console)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/seo-tracking/Pipeliners-SEO-Case-Study-Jun-Sep-2026.pdf",
+ "date": "2026-09-24",
+ "createdAt": 1792613290911,
+ "updatedAt": 1792613567085,
+ "rev": "1e0eefa1e7d9"
+}

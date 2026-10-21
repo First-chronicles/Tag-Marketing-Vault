@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Lesson Fix Steps 2026-10-08",
+ "cat": "brain-pipeliners",
+ "group": "Plans",
+ "body": "> Plan · Pipeliners · 2026-10-08\n\n# Summary\nFix steps for Pipeliners drawn from the Local SEO and AI SEO lessons, prepared 2026-10-08 after a read-only live check. Claude made no changes in this document. It repeats the ground rules (homepage never, ad check first, never touch phones, never purge all, OTTO deploy one URL only, back up then verify).\n\n# What the live check found\n1. llms.txt and llms-full.txt said \"Hours: Open 24 hours (24/7)\".\n2. Self-serving review stars (4.9 / 122) in schema on 33 city pages, not shown on the page.\n3. 32 of 52 posts had no Article/BlogPosting schema.\n4. City-page schema hours said open 00:00-23:59 every day; GBP also lists 24 hours.\n5. Wrong phone numbers off-site: Birdeye and the Ace DuraFlo list show (480) 969-7978; the brand AI Overview shows (480) 269-1874.\n6. Homepage schema is ProfilePage/Organization, not Plumber (homepage is off limits).\nAlready fine: robots.txt allows all crawlers; city pages have Service + Plumber + FAQPage with 8 sameAs; one H1 per page checked.\n\n# Steps\n- **Step 1:** remove the 24/7 line from both llms files (backup, delete one line, verify, hPanel CDN flush if needed).\n- **Step 2:** remove aggregateRating from city-page OTTO Service schema. Kim decided REMOVE on Oct 8 (one test page first).\n- **Step 3:** add BlogPosting schema via the existing `pipeliners-article-schema.php` mu-plugin and `_pipeliners_article_jsonld` meta (headline from live H1, author Jake Shaker, publisher Pipeliners, real dates), after showing 2 samples.\n- **Step 4:** a message for Scott about GBP hours, the unknown phone numbers, Bing Places and homepage schema type.\n- **Not changing:** robots.txt, phone numbers, llms.txt name and phone (only with explicit approval), \"residential and commercial\" in llms.txt, the footer H3, paid indexers, review gating and similar tactics.\n\n# Status (from later backups)\nThe `fix-backups` folder shows `2026-10-08_llms-247` (llms backups), `2026-10-08_schema-hours-rating` (hours and rating removed from 32 city-page schemas) and `2026-10-16_article-schema` (Article schema on 31 posts), so steps 1-3 appear to have been carried out. Step 4 (Scott) is not confirmed here.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Lesson Takeaways 2026-10-08](lib:brain-lesson-takeaways-2026-10-08), [Local SEO Lesson](lib:brain-local-seo-lesson), [AI SEO Masterclass](lib:brain-ai-seo-masterclass), [Pipeliners - Fix Log](lib:brain-pipeliners-fix-log)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/Pipeliners-Lesson-Fix-Steps-2026-10-08.md",
+ "date": "2026-10-08",
+ "createdAt": 1792613057325,
+ "updatedAt": 1792613057326,
+ "rev": "2b4c164786e1"
+}

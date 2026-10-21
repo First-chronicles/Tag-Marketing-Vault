@@ -1,0 +1,14 @@
+{
+ "name": "SearchFit SEO Skills Guide",
+ "cat": "brain-sops",
+ "group": "",
+ "body": "> Guide · 2026-09-30\n\n# Summary\nAn 11-slide plain-English deck explaining the 17 skills that ship with the SearchFit SEO plugin for Claude Code. python-pptx is not installed, so the slide text was read directly from the pptx XML. The 17 names cover 14 distinct jobs in 6 groups, because three jobs appear under two names each.\n\n# The six groups\n1. **Content planning and writing** (an assembly line): `content-strategy` (calendar and topic gaps), `create-topic` (research one topic), `content-brief` (outline one article), `create-content` (full article with title, meta, headings, links, schema).\n2. **Keywords:** `keyword-clustering` / `keyword-cluster` sorts a keyword list into groups and maps each group to a page.\n3. **On-page and schema:** `on-page-seo` (tune one page), `seo-check` (quick check of title, meta, headings, images, structured data), `schema-markup` / `generate-schema` (paste-ready JSON-LD).\n4. **Site-wide audits:** `seo-audit`, `technical-seo` (speed, Core Web Vitals, mobile, robots.txt, sitemap, crawl/index), `broken-links` (404s), `internal-linking` (orphan pages).\n5. **AI search:** `ai-visibility` analyzes how a brand appears in ChatGPT, Claude, Gemini and Perplexity answers and suggests improvements (GEO/AEO).\n6. **Translation:** `content-translation` / `translate-content` translates, re-researches keywords, adds hreflang and adapts for local culture.\n\n# Duplicate pairs\nThe deck's best guess (not confirmed from the plugin files) is that one name in each pair triggers automatically and the other is the typed command. Either gets the same job done.\n\n# Cautions for TAG use (slide 11)\n- The skills are general purpose and do not know TAG rules ([SEO Blog Writing Standards](lib:brain-seo-blog-writing-standards), client wording preferences); review output before shipping.\n- They do not claim a real search-volume source; keep validating keywords in [Search Atlas](lib:brain-search-atlas) and Keyword Planner.\n- Client sites stay hands-off: output should be a fix list applied manually.\n- The guide was built from each skill's short description, not its full instructions, so details may differ.\n\nThe Session Handoff of 2026-10-01 records the related decision: client blogs still go through the seo-blog-writer agent plus the blog standards.\n\n# Related\n- [SOPs and Guides Index](lib:brain-sops-and-guides-index), [Claude Code Agents](lib:brain-claude-code-agents), [Session Handoff 2026-10-01 (All Clients)](lib:brain-session-handoff-2026-10-01-all-clients)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "_Shared (All Clients)/SOPs and Guides/SearchFit-SEO-Skills-Guide.pptx",
+ "date": "2026-09-30",
+ "createdAt": 1792613130024,
+ "updatedAt": 1792613130024,
+ "rev": "09facce28b76"
+}

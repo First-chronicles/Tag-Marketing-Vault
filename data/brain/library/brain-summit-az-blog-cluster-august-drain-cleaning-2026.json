@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Blog Cluster - August Drain Cleaning 2026",
+ "cat": "brain-summit",
+ "group": "Blogs",
+ "body": "> Blog · Summit Az · 2026-07-21\n\n# Summary\nFull pillar plus four supporting posts for the August slot: a commercial (MOFU) drain-cleaning hub kept separate from the July monsoon pillar (storm backups) and the existing prevention post. Keyword intent was checked against live SERPs because Summit's Brand Vault was not provisioned. The bare term \"drain cleaning\" is service intent and routes to `/drain-cleaning/`.\n\n# Posts (keyword)\n- Pillar: Why Your Drain Smells or Backs Up in Summer (why does my drain smell / back up in summer). Live 2026-07-31 at `/blog/drain-smells-backs-up-summer/`.\n- 1: Why Does My Drain Smell in Summer? (why does my drain smell).\n- 2: Signs You Need Professional Drain Cleaning (signs you need drain cleaning). Live 2026-07-20.\n- 3: Why Chemical Drain Cleaners Can Damage AZ Pipes (are chemical drain cleaners bad). Live 2026-07-31.\n- 4: How Often Should You Have Drains Cleaned? (how often drain cleaning). Live 2026-07-31.\nLive dates from the 2026-10-12 page tracker; Post 1 has no matching slug in the tracker.\n\n# Key facts\n- Author: Ty Lemieux. Category Drains and Sewers; featured image 1400x730.\n- September (hydro jetting vs snaking) and November (garbage disposal) angles were deliberately protected.\n- External links: City of Mesa FOG, ADWR, NOAA drought.gov. Post 3 needs one more .gov/.edu source.\n- Holds: pricing, free estimate and financing language held for Scott; `[FIRST-HAND DETAIL]` placeholders; canonical city-page pattern unresolved.\n\n# Open items in the file\n1. Confirm no drain pillar went live before publishing.\n2. Scott's call on pricing language.\n3. First-hand details and one more .gov/.edu for Post 3.\n4. Confirm canonical city-page pattern.\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Summit AZ - Work Folders Index](lib:brain-summit-az-work-folders-index), [Summit AZ - Blogs Folder Overview](lib:brain-summit-az-blogs-folder-overview)\n- [SEO Blog Writing Standards](lib:brain-seo-blog-writing-standards), [Blog Master List](lib:brain-blog-master-list)\n- [Summit AZ - Blog - Drain Smells Like Sewage](lib:brain-summit-az-blog-drain-smells-like-sewage), [Summit AZ - Blog - Hydro Jetting vs Snaking](lib:brain-summit-az-blog-hydro-jetting-vs-snaking)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/blog-clusters-2026-07/Summit_August_Drain_Cleaning_Cluster_Pillar_Plus_4.md",
+ "date": "2026-07-21",
+ "createdAt": 1792612916502,
+ "updatedAt": 1792612916502,
+ "rev": "b36dc99e0853"
+}

@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Guardian Blog Fix Drafts 2026-10-09",
+ "cat": "brain-pipeliners",
+ "group": "Blogs",
+ "body": "> Blog · Pipeliners · 2026-10-09\n\n# Summary\nFour drafts written from the Oct 8-9 guardian audit of existing posts (the audit itself is in the audits index). Each lists exactly what changes, for approval.\n\n# Drafts\n1. **`1-5-signs-repipe-DRAFT.md`**, /5-signs-you-need-to-repipe-your-home-in-arizona/ (post 13742): small fixes only. OTTO Service schema serviceType \"Repiping Services\" to \"ePIPE Pipe Restoration\", description rewritten, Repiping removed from the services list, an H2 en dash fixed, image alt cleaned, footer date to October 2026. Signs, lifespan list, \"save thousands\", ePIPE steps and FAQ left alone under the repipe wording rule.\n2. **`2-old-sewer-pipes-DRAFT.md`**, /signs-of-outdated-sewer-drain-pipes/ (post 13722): cut from about 5,555 to about 1,500 words. Focus \"old sewer pipes\" (aligned Sep 23) kept in title, H1, meta, first 100 words, an H2 and a 49-word answer. Removed: pipe bursting, \"comprehensive warranties\", \"a leader in pipe restoration\", full replacement claims, basements. Kept 7 images, 4 FAQs and the Scott Vincent reviewer line.\n3. **`3-14-warning-signs-DRAFT.md`**: PASS, no copy change; optional OTTO BlogPosting fix. See [Pipeliners - Blog - Sewer Line Leak Warning Signs](lib:brain-pipeliners-blog-sewer-line-leak-warning-signs).\n4. **`4-sewer-line-repair-without-digging-MERGED-DRAFT.md`**: merge /trenchless-sewer-repair/ (15575) into /repair-sewer-line-without-digging/ (15361) because blogs must not target \"trenchless sewer repair\". See [Pipeliners - Blog - Trenchless Sewer Repair](lib:brain-pipeliners-blog-trenchless-sewer-repair).\n\n# Status\nEach draft said \"not live, ad check still needed\". The `fix-backups\\2026-10-09_guardian-blogs\\` set holds after-state HTML for 13722, 13742 and 15361 (plus a 15361 FAQ file and a 15575 before-state), which indicates drafts 1, 2 and 4 were applied.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Blog Index](lib:brain-pipeliners-blog-index), [Pipeliners - Audits and Reports Index](lib:brain-pipeliners-audits-and-reports-index), [Pipeliners - Fix Log](lib:brain-pipeliners-fix-log)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/blog-drafts/guardian-fixes-2026-10-09",
+ "date": "2026-10-09",
+ "createdAt": 1792613383666,
+ "updatedAt": 1792613383666,
+ "rev": "9626930b0b7e"
+}

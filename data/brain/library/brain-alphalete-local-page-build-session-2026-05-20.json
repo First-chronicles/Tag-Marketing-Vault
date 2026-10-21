@@ -1,0 +1,14 @@
+{
+ "name": "Alphalete - Local Page Build Session 2026-05-20",
+ "cat": "brain-alphalete",
+ "group": "Local Pages",
+ "body": "> Report · Alphalete · 2026-05-20\n\nAlso: `alphalete-trenchless-website\\context\\site-audit-tracking.docx` (May 27)\n\n# Summary\nThe session that created most of the programmatic local pages. On May 20 2026 local coverage was expanded to all 44 cities across the target services: **105 new city service pages** were generated, given Yoast SEO, and published. The same session repaired about 2,200 broken internal links across 78 pages and filled 255 missing image metadata fields.\n\n# How the pages were built\n1. Pulled a template page's Elementor data over SSH with wp-cli.\n2. Mapped every text-bearing widget (headings, paragraphs, icon boxes, FAQ items, JSON-LD, HTML widgets).\n3. Wrote 3 copy variants per shared section and 3 FAQ pools, with the city woven into hero, intro, area headings and one FAQ.\n4. A Node.js generator built each city's Elementor JSON with a deterministic variant mix.\n5. Uploaded via SCP and created pages with `wp eval-file` (parent, author, Yoast meta, cache flush), then spot-checked.\n\n# Templates used\n- Drain cleaning: Buffalo Creek (ID 9381), 21 pages created, parent 5543 (`/service-areas/`).\n- Commercial trenchless pipelining: Black Forest (ID 12379), 43 pages, parent 5381 (`/services/`), with rebuilt per-page FAQ schema and an \"Areas We Also Serve\" widget.\n- Further services are covered in the full report.\n\n# May 27 coverage audit (site-audit-tracking.docx)\n- 44 cities defined in `alphalete_city_coords()` in the mu-plugin. Across trenchless, drain and hydro: 132 expected, 131 published.\n- Only gap: `drain-cleaning-services-in-manitou-springs` (ID 12389) left as a draft.\n- Recommended next: a meta-completeness sweep (after an Apr 22 title bleed-through), a thin-content scan under about 400 words, and snapshots for future comparison. Full DB backup noted at `~/alphalete-pre-seo-backup.sql`.\n\n# Why it matters now\nThese variant-built pages are the \"about 237 mostly programmatic pages\" that later audits flagged as near-duplicates (95% identical in the Jul 22 baseline) and the root of the June to August indexing problems.\n\n# Related\n- [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub), [Alphalete - Website Repo and mu-plugins](lib:brain-alphalete-website-repo-and-mu-plugins), [Alphalete - Local Page Rewrite Briefs 2026-07-14](lib:brain-alphalete-local-page-rewrite-briefs-2026-07-14), [Alphalete - SEO Baseline 2026-07-22](lib:brain-alphalete-seo-baseline-2026-07-22)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Alphalete Trenchless Pipelining/alphalete-trenchless-website/context/session-report-2026-05-20.docx",
+ "date": "2026-05-20",
+ "createdAt": 1792613058193,
+ "updatedAt": 1792613058193,
+ "rev": "0d52f2cec677"
+}

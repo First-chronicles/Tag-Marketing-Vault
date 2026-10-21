@@ -1,0 +1,14 @@
+{
+ "name": "Tools and Integrations Index",
+ "cat": "brain-tools",
+ "group": "",
+ "body": "> Index · 2026-10-22\n\n# Summary\nEvery tool and integration TAG Marketing uses with Claude Code, with access method and standing rules. Credentials are never stored in this vault; notes point to where they live and mark them [redacted].\n\n# Platforms and data\n- [Search Atlas](lib:brain-search-atlas): SEO platform, OTTO/MetaSync, rank tracking, LLM visibility (connector failing since Sep 29, Chrome fallback).\n- [Google Search Console](lib:brain-google-search-console): source of truth for search data and indexing requests.\n- [Google Business Profile](lib:brain-google-business-profile): read-only for Claude; per-client rules.\n- [Google Ads MCC](lib:brain-google-ads-mcc): MCC 805-257-4115, read-only, copy-paste recommendations.\n- [Google Ads Validation Work](lib:brain-google-ads-validation-work): May 2026 conversion-tracking audit across all three accounts.\n- [GoHighLevel](lib:brain-gohighlevel): CRM and forms, read-only tokens per sub-account.\n- [WhatConverts](lib:brain-whatconverts): Alphalete call tracking and DNI.\n- [Keystone CRM](lib:brain-keystone-crm): internal work CRM, leads, meetings.\n\n# Content and outreach\n- [Higgsfield](lib:brain-higgsfield): AI images on Scott's credits.\n- [Instantly AI](lib:brain-instantly-ai): cold email (v1 API).\n\n# Hosting and access\n- [NameHero Hosting](lib:brain-namehero-hosting): tagmktg.com and Prestige; disk quota blocker.\n- [SSH Client Aliases](lib:brain-ssh-client-aliases): summit, alphalete, pipeliners, namehero.\n\n# Claude Code setup\n- [Claude Code Agents](lib:brain-claude-code-agents): 7 user-level subagents, skills and plugins.\n- [Documentation Screenshots](lib:brain-documentation-screenshots): screenshot evidence system and capture tool.\n- Setup guides: [Claude Code Setup Guide](lib:brain-claude-code-setup-guide), [Google Ads MCP Setup SOP](lib:brain-google-ads-mcp-setup-sop), [Instant Indexing Setup](lib:brain-instant-indexing-setup).\n\n# Related\n- [Home](lib:brain-home), [Projects Index](lib:brain-projects-index), [Learning Index](lib:brain-learning-index), [SOPs and Guides Index](lib:brain-sops-and-guides-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "",
+ "date": "2026-10-22",
+ "createdAt": 1792613347326,
+ "updatedAt": 1792613347326,
+ "rev": "c1737569382d"
+}

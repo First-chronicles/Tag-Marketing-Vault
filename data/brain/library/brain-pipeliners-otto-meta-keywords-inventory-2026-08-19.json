@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - OTTO Meta Keywords Inventory 2026-08-19",
+ "cat": "brain-pipeliners",
+ "group": "Audits",
+ "body": "> Audit · Pipeliners · 2026-08-19\n\n# Summary\nData exports from the Aug 18-19 OTTO meta-keyword work, folded into one note:\n- `otto-meta-keywords-full-inventory.csv`: 157 OTTO URLs classified against WordPress post type (55 posts, 48 pages, 19 category archives, 14 date archives, 7 author archives, 6 blog index, 5 tag archives, 2 system templates, home). 105 had meta keywords, 52 were missing. Actions: 105 Done, 24 \"Generate + deploy\", 28 skipped as archives or templates.\n- `otto-missing-meta-keywords.csv`: the 52 missing rows.\n- `pipeliners-meta-keywords-2026-08-19.csv`: proposed primary keyword and meta keyword sets for 24 URLs (for example /free-sewer-inspection/ \"free sewer camera inspection Phoenix\", leak detection \"leak detection Phoenix AZ\", backwater valve post \"backwater valve\").\n- `pipeliners-tracker-update-2026-08-19.tsv`: the same 24 rows with deployed status (\"Done 8/19/26\" and notes).\n\n# Context\nPer the handoff, Kim first said not to deploy meta keywords, then approved; 24 keyword sets were deployed in OTTO on Aug 18-19. Meta keywords carry little ranking weight; the work mainly cleaned up OTTO's own targeting (for example, junk terms on Buckeye).\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Audits and Reports Index](lib:brain-pipeliners-audits-and-reports-index), [Pipeliners - Keyword Map 2026-08-19](lib:brain-pipeliners-keyword-map-2026-08-19), [Search Atlas](lib:brain-search-atlas)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/otto-meta-keywords-full-inventory.csv",
+ "date": "2026-08-19",
+ "createdAt": 1792613171240,
+ "updatedAt": 1792613171240,
+ "rev": "5ec0fe0b4ad0"
+}

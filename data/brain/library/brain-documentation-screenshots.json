@@ -1,0 +1,14 @@
+{
+ "name": "Documentation Screenshots",
+ "cat": "brain-tools",
+ "group": "",
+ "body": "> Tool · 2026-10-16\n\n# Summary\n`Documentation\\` holds real screenshots taken whenever a page is audited, updated or re-checked, so every claim in a report has a picture behind it. Nothing is overwritten or deleted. Alphalete's part of the folder is covered in the Alphalete notes; this note covers the structure, the tool and the non-Alphalete folders.\n\n# Structure and naming\n- Per client: `Summit Plumbing Pros`, `Pipeliners`, `Alphalete`, `Other-unknown`, each with `Capture Log.md` and four subfolders: Screenshot from GSC, from Search Atlast (folder name spelled that way), from Website, from other (tracker, GBP, GA4, Keystone).\n- File names: `YYYY-MM-DD_<stage>_<page-or-topic>[_desktop|_mobile].png`. Duplicates get `-2`, `-3`.\n- Stages follow the page workflow: baseline, audit, before, after, check (2 to 4 week re-check), tracker.\n\n# Capture tool (`_tools\\capture.py`)\n- `website` mode: headless Chrome full-page shots at desktop 1440 and mobile 390, logged automatically.\n- `add` mode: files an existing screenshot (GSC, Search Atlas, tracker) with client, source, stage, page and reason.\n- GSC shots are taken in Kim's signed-in Chrome; the window must be visible.\n\n# Current contents (Oct 22, 2026)\n- **Summit Plumbing Pros:** 51 screenshots (10 GSC, 41 website) logged in `Capture Log.md`:\n  - Oct 8: after/check shots and GSC numbers for pages rewritten Sep 26 and Oct 3 (sewer line repair Queen Creek and Mesa, tankless water heater installation Queen Creek, water leak detection Apache Junction) plus a baseline of emergency plumbing services (112 of 163 impressions were brand searches). Re-checks due Oct 17, Oct 24 and Oct 31.\n  - Oct 9: schema accuracy audit shots (about, home warranty, shower/bath, faucet/toilet, pipe lining Tempe) and after shots of schema fixes and the fixture installation rewrites in Gilbert, Tempe and Apache Junction.\n  - Oct 16: before/after of the /plumbing/ page update (services list, Why Choose section), approved by Kim. Several log rows show a broken page path (`C:/Program Files/Git/plumbing/`), a Git Bash path-conversion artifact.\n- **Pipeliners** and **Other-unknown:** folders created, no screenshots yet.\n\n# Related\n- [Tools and Integrations Index](lib:brain-tools-and-integrations-index), [Summit AZ - Work Folders Index](lib:brain-summit-az-work-folders-index), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Google Search Console](lib:brain-google-search-console)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Documentation",
+ "date": "2026-10-16",
+ "createdAt": 1792613347322,
+ "updatedAt": 1792613347322,
+ "rev": "f4fefa45a1d0"
+}

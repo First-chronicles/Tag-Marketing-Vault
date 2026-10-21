@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Service Page Rewrites and Claim Cleanup",
+ "cat": "brain-summit",
+ "group": "City Pages",
+ "body": "> Plan · Summit Az · 2026-10-08\n\n# Summary\nStatewide service pages (no city) rewritten or cleaned of claims that break the business rules. Four draft files: two full rewrites (Sep 25), a hub claim cleanup (Sep 25) and a 4-page claim cleanup (Oct 8).\n\n# Files\n| File | Pages | What | Status |\n|---|---|---|---|\n| `Summit-AZ-Faucet-Toilet-Draft-2026-09-25.md` | /faucet-and-toilet-plumbing-services/ (10181) | Rewrite from generic filler on \"plumber for toilet repair\" (33,100 / KD 28); 3 maintenance headings became searched questions; 5 unapproved claims removed; hero now \"Serving Mesa and the East Valley\" | Live Sep 25 |\n| `Summit-AZ-Shower-Bath-Draft-2026-09-25.md` | /shower-bath-repair-installation-services/ (10237) | Rewrite on \"shower repair\" (1,900 / 16); removed warranty and guarantee claims, shower door and cracked tub services, remodel builds; EPA WaterSense leak figures | Live Sep 25 |\n| `Summit-AZ-Hub-Claim-Cleanup-Draft-2026-09-25.md` | /fixture-installation-services/, /garbage-disposals/, /water-heaters/ | 46 exact-phrase edits: guarantees, years of experience, \"leading\" claims, speed claims, maintenance plans, \"bonded\", puffery, a spliced sentence. Brand pillars and coupons kept | Live (handoff: 46 hub claim edits) |\n| `Summit-AZ-Claim-Cleanup-Draft-2026-10-08.md` | /water-softeners/, /leaking-pipe-repair-in-arizona/, /pipe-lining-apache-junction/, /pipe-lining-chandler/ | \"Summit Plumbing\" to \"Summit Plumbing Pros\", \"years of industry experience\", em dashes, \"same-day\" button, epoxy and \"50+ years\" claims | Partly applied |\n\n# Decisions and status\n- Oct 7 to 8 (change log): Kim approved \"only the brand-name fixes\" on /water-softeners/ (17 instances, experience claim removed) and the em dash fix on the leaking pipe page. The epoxy and button changes on the other pages were not recorded as applied.\n- /home-warranty-plumbing/ was excluded (keep, noindex or remove is Scott's decision).\n- Faucet and shower pages: Oct 7 boost added a 3-question FAQ to the shower page and FAQPage plus Service schema to both. Oct 9 schema recheck: their 10-city areaServed matches visible text.\n\n# Related\n- [Summit AZ - City Pages Index](lib:brain-summit-az-city-pages-index), [Summit AZ - Pipe Lining City Pages](lib:brain-summit-az-pipe-lining-city-pages), [Summit AZ - 7 Page Boost 2026-10-07](lib:brain-summit-az-7-page-boost-2026-10-07), [Summit AZ - Decisions and Rules](lib:brain-summit-az-decisions-and-rules), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros",
+ "date": "2026-10-08",
+ "createdAt": 1792613062989,
+ "updatedAt": 1792613062991,
+ "rev": "fef7f4507a48"
+}

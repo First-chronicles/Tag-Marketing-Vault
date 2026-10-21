@@ -1,0 +1,14 @@
+{
+ "name": "Higgsfield",
+ "cat": "brain-tools",
+ "group": "",
+ "body": "> Tool · 2026-10-01\n\n# Summary\nHiggsfield is the AI image (and video/audio) generator TAG uses for blog featured images, GBP-style photos and city images. It is connected to Claude Code as a user-scope MCP server on **Scott's paid Plus account** (scott@tagmktg.com). Every generation spends Scott's credits, so cost is preflighted first.\n\n# Workflow (from the agency handoff)\n1. Preflight the cost.\n2. Generate on Scott's account.\n3. Show results in chat for approval.\n4. Save keepers as JPG (quality 92, kebab-case names) to the client's `higgsfield-images\\` folder.\n5. Blog headers: 16:9, about 1920px wide, under about 300 KB, no text in the image.\n\n# Client image rules\n- **Pipeliners:** images must look like Arizona (no lawns or basements), 4-inch residential pipe scale, no logos, text or fake crests.\n- **Alphalete:** Higgsfield, not GHL AI; Alphalete frame design with the real logo composited, realistic field work, no digging scenes.\n- **Summit AZ:** blog publishing uses a Higgsfield photo plus a branded 1400x730 banner (navy panel, logo, headline).\n- **GBP (Scott's rule):** internal pipe damage or lining work only, never under-sink plumbing.\n\n# History\n- Jul 24, 2026: replaced 3 AI/cartoon images on a Pipeliners Mesa sewer-camera blog.\n- Aug 20: 48 broken Pipeliners blog images replaced with Higgsfield images.\n- Aug 26: 11 aerial city images generated for Pipeliners (Nano Banana model, 1K).\n\n# Shared folder (`Higgsfield\\`)\n14 stock-style plumbing and sewer JPGs (for example basement sewer cleanout, CIPP liner feeding a sewer pipe, collapsed sewer pipe, tree roots in a cracked pipe, pipe bursting head, roof vent pipe, slow kitchen sink) plus the Oswald font used for banners. Images are not individually noted.\n\n# Related\n- [Tools and Integrations Index](lib:brain-tools-and-integrations-index), [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Google Business Profile](lib:brain-google-business-profile)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Higgsfield",
+ "date": "2026-10-01",
+ "createdAt": 1792613347321,
+ "updatedAt": 1792613347321,
+ "rev": "6b7e2ee43e6b"
+}

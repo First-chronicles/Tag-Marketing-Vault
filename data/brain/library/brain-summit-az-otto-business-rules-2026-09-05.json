@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - OTTO Business Rules 2026-09-05",
+ "cat": "brain-summit",
+ "group": "",
+ "body": "> Guide · Summit Az · 2026-09-05\n\n# Summary\nThe \"Protected Business Configuration\": the approved source of truth for any OTTO or AI-generated SEO content on summitplumbingpros.com. Anything not listed is not approved for titles, metas, headings, body copy, schema, alt text or FAQs. Referenced by CLAUDE.md as the full detail behind the business guardrails.\n\n# Key facts\n- Verified facts: name, Mesa address, default phone (480) 447-7008, email, AZ ROC #338366, primary market Mesa and the East Valley.\n- Phone caveat: GHL dynamic number insertion rotates the displayed number. Never \"correct\" it and never let OTTO write a phone number into content or schema.\n- Approved areas: the 10 cities only. No county-level targeting. No Utah, ever.\n- All 15 services approved (the six extra live services were resolved and approved by Kim on Sep 5).\n- Approved claims and their scope: licensed and insured (sitewide), free estimates (sitewide), \"same-day for most calls\" (never guaranteed), financing (homepage only), upfront pricing, locally operated. At that date 24/7 was listed as emergency-pages-only; later rules (Sep 25, Scott) removed 24/7 entirely.\n\n# Prohibited\n- Services or cities outside the lists, invented pricing, promotions, guarantees, certifications, history, staff or project counts, statistics, reviews or testimonials.\n- Hidden text of any kind, keyword lists, near-duplicate location copy.\n- Schema for anything not visibly on the page; edits to phones, forms, tracking or conversion elements.\n\n# Technical guardrails\n- No canonical, robots or indexing changes without approval. No Elementor layout or CSS changes.\n- `/404-page/` stays published and noindex. Legal pages are left alone. Internal links must be relevant and point to live, indexable pages.\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Summit AZ - Project Guide (CLAUDE.md)](lib:brain-summit-az-project-guide-claude-md), [Summit AZ - OTTO Review 2026-09-11](lib:brain-summit-az-otto-review-2026-09-11), [Summit AZ - Decisions and Rules](lib:brain-summit-az-decisions-and-rules), [Search Atlas](lib:brain-search-atlas)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/Summit-AZ-OTTO-Business-Rules-2026-09-05.md",
+ "date": "2026-09-05",
+ "createdAt": 1792612829942,
+ "updatedAt": 1792612829943,
+ "rev": "4adedaec0437"
+}

@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - City Local Facts Research 2026-10-02",
+ "cat": "brain-pipeliners",
+ "group": "City Pages",
+ "body": "> Research · Pipeliners · 2026-10-02\n\n# Summary\nVerified local facts for the city pages, researched Oct 2, 2026 (read-only web research). Each fact is labelled VERIFIED (page loaded and quoted), UNVERIFIED (search index or blocked page; check by hand) or NOT FOUND. No plumbing companies are named.\n\n# Key findings\n- Covers 24 cities in priority order (Buckeye, Florence, Maricopa, Fort McDowell, Fountain Hills, Casa Grande, Apache Junction, Cave Creek, Tolleson, Laveen, Paradise Valley, Goodyear, Avondale, Sun City, Coolidge, San Tan Valley, Tempe, Glendale, Phoenix, Mesa, Scottsdale, Chandler, Gilbert, Peoria) plus cross-cutting topics: earth fissures and subsidence, expansive and collapsible soils, caliche.\n- Typical facts per city: who provides sewer service, who is responsible for the sewer lateral (usually the homeowner, quoted from city code), cleanout rules and local infrastructure notes.\n- Cross-cutting: for privately owned ACC-regulated sewer utilities (for example EPCOR in Sun City and San Tan Valley, Global Water in Maricopa), the customer maintains everything on their side of the point of collection (A.A.C. R14-2-605(C)); EPCOR's guide says the owner is responsible for lateral leaks, stoppages and root intrusion up to the right-of-way line.\n- Example (Buckeye, verified): about 275 miles of city sewer lines feeding four reclamation facilities; City Code 16-5-2(B) makes the user maintain the building sewer at their expense; homes 20+ years old may lack a cleanout.\n- Sites that blocked automated loading (verify by hand): Tolleson, Peoria, Avondale, Goodyear municipal codes, Phoenix municipal codes, ADWR. Tempe's Orangeburg pipe page now returns \"Page Not Found\".\n\n# Decisions and status\n- Intended as the only source for local claims on rebuilt city pages; unverified items must be opened in a browser first. External links must return 200 twice before use.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - City Page Audit 2026-10-02](lib:brain-pipeliners-city-page-audit-2026-10-02), [Pipeliners - Avondale Keyword Research 2026-10-10](lib:brain-pipeliners-avondale-keyword-research-2026-10-10)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/city-page-audit-2026-10-02/local-facts-research.md",
+ "date": "2026-10-02",
+ "createdAt": 1792613567300,
+ "updatedAt": 1792613567300,
+ "rev": "1f2dd92ef855"
+}

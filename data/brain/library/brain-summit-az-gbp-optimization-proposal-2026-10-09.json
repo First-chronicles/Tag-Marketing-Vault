@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - GBP Optimization Proposal 2026-10-09",
+ "cat": "brain-summit",
+ "group": "Plans",
+ "body": "> Plan · Summit Az · 2026-10-09\n\n# Summary\nA proposal (no changes made) to make the Google Business Profile accurate, remove duplicates and unsupported claims, and keep it active weekly. GBP is managed by Scott; TAG only proposes. Snapshot read from the live profile on Oct 9: 76% complete, 525 reviews at 4.79, 33 unanswered, 29 services, 18 gallery items, 11 posts (last Jul 22, 2026).\n\n# Proposals\n- Business info: keep name, primary category Plumber and the 10 service-area cities. Keep \"Drainage service\"; check \"Sewage disposal service\" (usually a septic category) against the top 3 Mesa results. Keep the address shown unless Scott says customers never visit. Keep phone (480) 470-8706 (GHL tracking). Switch the website link to https with full UTM source, medium and the existing campaign name; add UTM to the appointment link.\n- Hours: keep Mon to Sat 8 to 5; leave holiday hours unless Scott raises them.\n- New description: residential, Mesa-based, East Valley cities, the approved services list, hours and ROC #338366; no pricing, review, experience or 24/7 claims.\n- Services: merge duplicates (drain cleaning twice, pipe liner vs pipe lining, leak detection, water heater variants, emergency), remove Sump Pump Repair, add Tankless, Slab Leak and Plumbing Maintenance, rewrite descriptions to match the website.\n- Photos: remove the duplicated cover and logo; add 3 to 5 real job photos weekly and short videos; no stamped CompanyCam-style photos; keep AI photo automation paused.\n- Posts: one a week on a 4-week service and city rotation (sewer Mesa, leak detection Queen Creek, drain Tempe, pipe lining Mesa), each with a real photo and a service page link. Remove the 2022 \"24 hr\" post and the 2025 \"exclusive online offers\" post; confirm the Jul 2026 Mesa Community Fund free leak detection post.\n- Reviews: reply to all 33 (one-star first), drafts to Scott; automate review requests through GoHighLevel after each job.\n\n# Questions for Scott\n1. Do customers visit the Mesa office? 2. Does Summit offer shower installation? 3. Is the Mesa Community Fund program real and active?\n\n# Related\n- [Summit AZ - Competitor Tracking 2026-10-09](lib:brain-summit-az-competitor-tracking-2026-10-09), [Summit AZ - Homepage GBP Alignment 2026-10-21](lib:brain-summit-az-homepage-gbp-alignment-2026-10-21), [Summit AZ - GBP Post Proposals 2026-08-17](lib:brain-summit-az-gbp-post-proposals-2026-08-17), [Google Business Profile](lib:brain-google-business-profile), [GoHighLevel](lib:brain-gohighlevel), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/Summit-AZ-GBP-Optimization-Proposal-2026-10-09.md",
+ "date": "2026-10-09",
+ "createdAt": 1792613349810,
+ "updatedAt": 1792613349810,
+ "rev": "021c5c0a9b17"
+}

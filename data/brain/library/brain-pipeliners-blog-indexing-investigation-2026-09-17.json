@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Blog Indexing Investigation 2026-09-17",
+ "cat": "brain-pipeliners",
+ "group": "Audits",
+ "body": "> Audit · Pipeliners · 2026-09-17\n\n# Summary\nRead-only investigation into why 22 blog posts were not in Google (Sep 17, 2026). Nothing was technically blocking them: all load, are indexable, self-canonical and in the sitemap. Google was choosing not to index them.\n\n# Key findings\n- Bulk upload: 27 posts were published at the same two timestamps on Mar 5, 2025. Of 28 batch posts, 18 are not indexed (64%); of 26 posts written one at a time, only 1 is not indexed.\n- Thin and generic: not-indexed batch posts have a median 665 words vs 1,109 for indexed batch posts; most lack subheadings, images and local detail, and use stock AI phrases.\n- Topic overlap with stronger indexed Pipeliners pages (cost, what trenchless is, corrosion, tree roots, leaks, warning signs, myths).\n- No links: 12 of 22 get no in-content links.\n- Some were only ever found through the old broken sitemaps; the 2025 homeowners guide was unknown to Google.\n\n# Decisions and status\n- Per-post recommendations: improve (cost guide, myths, gurgling drains, checkup post, leak detection rewrite pending Scott), merge (what is trenchless, tree roots, pipelining myths, DIY leak tips and others) or update.\n- These fed the blog merges draft (live Sep 19) and the not-indexed improvement rounds of Sep 28 to 29.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Blog Merges Draft 2026-09-17](lib:brain-pipeliners-blog-merges-draft-2026-09-17), [Pipeliners - Not-Indexed Improvements 2026-09-28](lib:brain-pipeliners-not-indexed-improvements-2026-09-28), [GSC Indexing Tracker](lib:brain-gsc-indexing-tracker)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/seo-baseline-2026-09-10/blog-indexing-investigation-2026-09-17.md",
+ "date": "2026-09-17",
+ "createdAt": 1792613376400,
+ "updatedAt": 1792613567141,
+ "rev": "96785fb78e8f"
+}

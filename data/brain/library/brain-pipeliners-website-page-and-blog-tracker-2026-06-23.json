@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Website Page and Blog Tracker 2026-06-23",
+ "cat": "brain-pipeliners",
+ "group": "",
+ "body": "> Tracker · Pipeliners · 2026-06-23\n\n# Summary\nThe first page inventory spreadsheet, built 2026-06-23. A master overview of core, service, city and blog URLs with title, page type, target keyword, meta fields, an \"Indexed?\" check (from a site: search proxy, to be confirmed in GSC), last updated date, status and notes. It was later superseded by the Website Pages tracker artifact.\n\n# Key facts\n- Core and Service tab (22 rows): homepage target \"trenchless pipe repair phoenix\", /services/ \"trenchless sewer services phoenix\", /services-areas/ \"pipe repair service areas arizona\", and the service pages (/trenchless-drain-pipe-repair/, /hydro-jetting/, /epipe-restoration/, /leak-detection-services-in-phoenix-arizona/, /pipelining-methods-phoenix/, /trenchless-pipe-repair-service-areas-in-arizona/, /phoenix-sewer-line-problems/).\n- The leak detection service page was flagged \"live but not surfacing in index\", top priority to submit in GSC.\n- Per-service tabs and blog rows follow (truncated in this summary).\n- A 404 row was fixed in this file during the June 22-23 session.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Website Pages Tracker](lib:brain-pipeliners-website-pages-tracker), [GSC Indexing Tracker](lib:brain-gsc-indexing-tracker)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/Pipeliners Website Page & Blog Tracker.xlsx",
+ "date": "2026-06-23",
+ "createdAt": 1792613057323,
+ "updatedAt": 1792613057323,
+ "rev": "5e7565478870"
+}

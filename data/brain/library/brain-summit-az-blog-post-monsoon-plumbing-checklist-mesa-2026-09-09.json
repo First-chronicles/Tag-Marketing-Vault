@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Blog Post-Monsoon Plumbing Checklist Mesa 2026-09-09",
+ "cat": "brain-summit",
+ "group": "Blogs",
+ "body": "> Blog · Summit Az · 2026-09-09\n\n# Summary\nSEO-ready draft \"Your Post-Monsoon Plumbing Checklist for Mesa and East Valley Homes\", prepared Sep 9, 2026. Status in the file: DRAFT awaiting Kim's approval. No publish record for it was found in the SEO change log or the Oct 1 handoff blog list, so treat it as unpublished.\n\n# Rank Math settings (proposed)\n- Focus keyword: \"plumbing checklist Mesa AZ\". Secondaries: post monsoon plumbing inspection, fall plumbing maintenance Mesa, water heater flush Mesa AZ, East Valley plumber.\n- Title: \"Plumbing Checklist for Mesa AZ Homes After Monsoon Season\" (57). Meta 145 characters.\n- Slug: `post-monsoon-plumbing-checklist-mesa` (evergreen; \"september\" dropped so the post can be refreshed each year).\n\n# Content\n- A 7-point checklist: clear storm debris from outdoor drains, slab leak warning signs, flush the water heater, test water pressure, service the softener, exercise shutoff valves, run unused fixtures.\n- Links to the Mesa drain cleaning page and related posts.\n\n# Decisions and status\n- Note for reuse: the focus keyword was chosen before the Sep 15 rule set (keyword research with volume 100+). Re-check volume and the current monsoon cluster before publishing.\n\n# Related\n- [Summit AZ - Blog Index](lib:brain-summit-az-blog-index), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [SEO Blog Writing Standards](lib:brain-seo-blog-writing-standards)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/Summit-AZ-Blog-PostMonsoon-Checklist-Mesa-2026-09-09.md",
+ "date": "2026-09-09",
+ "createdAt": 1792612920065,
+ "updatedAt": 1792612920066,
+ "rev": "7a2830f39101"
+}

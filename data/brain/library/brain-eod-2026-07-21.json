@@ -1,0 +1,14 @@
+{
+ "name": "EOD 2026-07-21",
+ "cat": "brain-eod",
+ "group": "2026-07 July",
+ "body": "> Eod · Pipeliners · 2026-07-21\n\nTuesday. Pipeliners-only session: monsoon pillar refresh (August update).\n\n# Pipeliners\nSee [Pipeliners (Hub)](lib:brain-pipeliners-hub).\n- Published the refresh in place at /monsoon-season-pipe-problems/ after a full backup.\n- Added 2 H2 sections (how a plumber diagnoses a monsoon sewer problem, long-term repair options), expanded Key Takeaways to 6 bullets and FAQs to 7.\n- Replaced 2 generic homepage links with 8 real internal destinations (hydro jetting, trenchless drain pipe repair, what is CIPP, cracked vs collapsed, Mesa camera inspection guide, tree roots, Chandler, contact).\n- Kept the July 6 published date, slug, H1 and featured image; only the modified date changed.\n- Pre-publish checks: 0 em dashes, 149-character meta, no pricing, free-quote or warranty language, all links live.\n- Added FAQPage JSON-LD with all 7 visible questions (the pillar was missing it, unlike its 4 supporting posts).\n- Focus keyphrase: \"why does my sewer back up when it rains\".\n\n# Follow-ups\n- Optional GSC re-index request for the pillar.\n- Scott to decide on pricing, free-quote or warranty language.\n- Decide named author vs \"Pipeliners\" byline (E-E-A-T).\n- Next: September \"post-monsoon inspections\" cluster.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [SEO Blog Writing Standards](lib:brain-seo-blog-writing-standards), [EOD Reports Index](lib:brain-eod-reports-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/EOD Report 2026-07-21.txt",
+ "date": "2026-07-21",
+ "createdAt": 1792612762705,
+ "updatedAt": 1792612762706,
+ "rev": "ccd281951669"
+}

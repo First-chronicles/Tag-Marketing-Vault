@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Blog - Sewer Scope Inspection",
+ "cat": "brain-pipeliners",
+ "group": "Blogs",
+ "body": "> Blog · Pipeliners · 2026-10-13\n\n# Summary\nPlanned guide #5 of the content plan (\"Sewer scope before you buy\"), moved earlier. Sources: `blog-drafts\\what-is-a-sewer-scope-inspection-draft-2026-10-13.md` (draft v1) and the build folder `blog-sewer-scope\\` (build script, article schema, card, FAQ JSON-LD, inbound links script, a 24/7 removal script, SEO meta before/new).\n\n# Key facts\n- **Focus keyword:** what is a sewer scope inspection (180/mo, KD 12, informational). Supporting: what is a sewer scope 260, home inspection sewer scope 140, sewer scope 2,400; \"sewer scope inspection\" (3,600) is reserved for the planned camera inspection hub.\n- **Title:** What Is a Sewer Scope Inspection? A Buyer's Guide. **H1:** What Is a Sewer Scope Inspection? What Home Buyers Should Know. Slug /what-is-a-sewer-scope-inspection/.\n- Google People Also Ask questions (Phoenix results) shaped the FAQ.\n- **Status:** the draft says \"not built, not published\" on Oct 13, but the SEO meta entry assigns post ID 18428 and `fix-backups\\2026-10-13_sewer-scope\\` holds pre-launch backups of inbound-link posts, so it was likely published around Oct 13. Confirm live.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Blog Index](lib:brain-pipeliners-blog-index), [Pipeliners - Seasonal Keyword Research 2026-10-13](lib:brain-pipeliners-seasonal-keyword-research-2026-10-13), [Pipeliners - Content Strategy 2026-10-01](lib:brain-pipeliners-content-strategy-2026-10-01)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/blog-drafts/what-is-a-sewer-scope-inspection-draft-2026-10-13.md",
+ "date": "2026-10-13",
+ "createdAt": 1792613346125,
+ "updatedAt": 1792613346126,
+ "rev": "16b574a69975"
+}

@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Keyword Targeting Audit 2026-10-01",
+ "cat": "brain-summit",
+ "group": "Audits",
+ "body": "> Audit · Summit Az · 2026-10-01\n\n# Summary\nRead-only audit of 185 indexable pages and posts: each page's Rank Math primary focus keyword compared with the searches it actually ranks for in the GSC web UI (Sep 2 to 29 and Jul 1 to Sep 29). Workbook sheets include a Summary and a Conflicts list.\n\n# Results\n- Primary keyword set on 180 of 185 (missing: /blog/, privacy, terms, /repiping/, /home-warranty-plumbing/). No two pages share a primary keyword.\n- Intent match: 174 yes, 2 no (both blog posts).\n- Correct URL ranking for its keyword: 57 pages. Another URL ranks instead: 28 pages.\n- Keyword not yet visible in GSC: 95 pages (mostly low-traffic city pages). Zero impressions: 39 pages in 28 days, 14 in 3 months.\n- Cannibalization: 17 pages clearly, 51 slightly; 137 searches show two or more Summit pages.\n- Caveat: 56 pages were rewritten after Sep 24, so re-check after Oct 24.\n\n# Conflicts (top items)\n1. High: emergency searches land on the Tempe plumbing hub (\"emergency plumber tempe\" 2,203 impressions at 28.7 vs 18 on the Tempe emergency page; the hub is 21% of site impressions with 0 clicks).\n2. High: tankless pages rank for \"water heater repair/replacement [city]\" in 5 cities while water heater pages get almost nothing.\n3. High: \"drain cleaning mesa az\" goes to /drain-cleaning/, not the Mesa page (3 impressions in 3 months).\n4. Medium: Mesa sewer searches split across three pages (Mesa page leads).\n5. Medium: no-city head terms rotate between city pages (normal).\n6. Medium: slab leak searches split between /slab-leaks/ and city leak pages.\n7. Medium: blog posts holding service keywords (signs of a slab leak; trenchless sewer repair).\n\n# Decisions and status\n- Done Oct 1: the two blog focus keyword changes (row 7 and the trenchless post).\n- Waiting on Kim (handoff): tankless pages strictly tankless plus links to city water heater pages, /drain-cleaning/ link to the Mesa drain page, Tempe hub link to Tempe emergency page. The Tempe fix depends on the emergency-search strategy call.\n\n# Related\n- [Summit AZ - Water Heater and Tankless City Pages](lib:brain-summit-az-water-heater-and-tankless-city-pages), [Summit AZ - General Plumbing Batch 2 Report 2026-09-03](lib:brain-summit-az-general-plumbing-batch-2-report-2026-09-03), [Summit AZ - Session Handoff 2026-10-01](lib:brain-summit-az-session-handoff-2026-10-01), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/Summit-AZ-Keyword-Targeting-Audit-2026-10-01.xlsx",
+ "date": "2026-10-01",
+ "createdAt": 1792613271809,
+ "updatedAt": 1792613271810,
+ "rev": "d179d8f89cbf"
+}

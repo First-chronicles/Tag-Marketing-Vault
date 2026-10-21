@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Blog Water Softener Maintenance Checklist 2026-09-26",
+ "cat": "brain-summit",
+ "group": "Blogs",
+ "body": "> Blog · Summit Az · 2026-09-26\n\n# Summary\nSupporting blog B3: \"Water Softener Maintenance Checklist for Hard Arizona Water\" (about 1,500 words). Saved in WordPress as post 11525 with featured image 11526 (Higgsfield photo plus the standard Summit banner). The Oct 1 handoff lists it as published Sep 25 at `/blog/water-softener-maintenance-checklist/`.\n\n# Keywords (Search Atlas project 5028616)\n- Focus: \"water softener maintenance\" 14,800 / KD 25.\n- Secondary: \"salt bridge water softener\" 4,400 / KD 22 (own H2), \"water softener regeneration frequency\" 590 / KD 25, \"how often to add salt to water softener\" 260 / KD 15.\n- \"water softener maintenance arizona\" is used only as a local modifier in the title and H1.\n\n# Cannibalization handling\n- `/water-softeners/` already owns the service version and the \"water softener maintenance arizona\" Rank Math keyword, so the post is an owner how-to, its slug and focus keyword avoid \"arizona\" and \"near me\", and it sends service intent to `/water-softeners/` with a \"repair and maintenance\" anchor.\n\n# Content\n- Short answer up front: check salt monthly, break up salt bridges, match the hardness setting, yearly check.\n- Only outside facts are from the City of Mesa water quality page (12 to 22 gpg, gpg as the setting unit, sodium rise per grain, irrigation upstream of the softener).\n- Hub: `/blog/are-water-softeners-worth-it/`. Money pages: `/water-softeners/`, then `/plumbing-maintenance/`.\n\n# Decisions and status\n- Early check Oct 5: the new post had 16 impressions and \"water softener maintenance checklist\" at position 6.4 (see [Summit AZ - Early Performance Check 2026-10-05](lib:brain-summit-az-early-performance-check-2026-10-05)).\n\n# Related\n- [Summit AZ - Blog Index](lib:brain-summit-az-blog-index), [Summit AZ - Blog Salt-Free vs Salt-Based Softeners 2026-09-18](lib:brain-summit-az-blog-salt-free-vs-salt-based-softeners-2026-09-18), [Summit AZ - Supporting Blog Plan 2026-09-18](lib:brain-summit-az-supporting-blog-plan-2026-09-18), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Higgsfield](lib:brain-higgsfield)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/Summit-AZ-Blog-B3-Draft-Softener-Maintenance-2026-09-26.md",
+ "date": "2026-09-26",
+ "createdAt": 1792612897831,
+ "updatedAt": 1792612897831,
+ "rev": "01a2f2e84355"
+}

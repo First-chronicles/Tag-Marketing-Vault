@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Search Checkup and Technical Audit 2026-09-28",
+ "cat": "brain-pipeliners",
+ "group": "Reports",
+ "body": "> Report · Pipeliners · 2026-09-28\n\n# Summary\n\"Pipeliners Search Checkup\" (`search-checkup.html`, versions v1 to v6 kept): a plain-language explanation of the September traffic drop plus a live technical SEO audit. Checked Sep 28, updated Sep 29, Google data through Sep 25. Compared Aug 20 to Sep 16 with Sep 17 to 25, per day.\n\n# Key findings\n- Impressions down 46% since Sep 17, almost entirely at position 50+ (page 5 and deeper). Page-1 impressions held (101 vs 95 a day). The same September drop happened in 2025 (it started Sep 12, when Google stopped serving 100 results per page to rank trackers). No penalty.\n- The drop that matters is clicks: 0.9 a day vs 1.9. Most were lost from the GBP website link (0.86 to 0.22 a day) even though the listing was shown as often. GBP website clicks down 58% (38 to 16), calls 22 to 16, views flat at about 1,198.\n- Clicks have been sliding since May (about 3.3 a day in May, 2 in summer, 0.9 since Sep 17).\n- Lost deep searches were national how-it-works queries (\"cipp lining\", \"cured in place pipe lining\", underground leak queries) where the site sat on pages 7 to 9.\n- Technical score 67/100 (33 of 49 checks): crawlability 78, indexation 62, performance 44, mobile 80, security 67, structured data 75, URL structure 80.\n- Performance: 0 good mobile CWV URLs; home page Lighthouse 47, LCP 7.8 s; home page 21.5 MB with 19.9 MB of self-hosted video.\n- Other items: no HSTS, admin username visible at /wp-json/wp/v2/users, robots.txt blocks /wp-includes/ (MetaSync rewrites the file), 4 noindexed URLs in the sitemap, http://www two-hop redirect, 4 links to redirects.\n- A public /error_log was first rated critical; on Sep 29 it was reviewed (routine plugin and hosting notes, no passwords or customer data) and fixing it was skipped for now.\n\n# Decisions and status\n- None of the technical fixes were made; several touch the server or protected pages and need approval.\n- GBP click drop kept on the list as on hold.\n\n# Files in this folder (rollups only)\n- `search-checkup.html` (final) and `search-checkup.v1` to `v6.html` (earlier versions).\n- `tech_section.html`, `daily.txt` (daily clicks and impressions since Mar 1), PSI JSON, crawl and OTTO scan outputs, saved page HTML (`home.html`, `tech/`), Python scripts.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Technical Errors Audit 2026-09-30](lib:brain-pipeliners-technical-errors-audit-2026-09-30), [Google Business Profile](lib:brain-google-business-profile), [Google Search Console](lib:brain-google-search-console)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/reports/perf-audit-2026-09-28",
+ "date": "2026-09-28",
+ "createdAt": 1792613209733,
+ "updatedAt": 1792613567033,
+ "rev": "493b58028f11"
+}

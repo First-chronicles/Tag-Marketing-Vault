@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Low-Hanging Fruit Keyword Tutorial 2026-09-19",
+ "cat": "brain-pipeliners",
+ "group": "Reports",
+ "body": "> Guide · Pipeliners · 2026-09-19\n\n# Summary\nA 7-page picture tutorial (PDF and HTML) showing how to find keywords Google already shows Pipeliners for and move them from page 2 or 3 to page 1 without guessing. Uses real Pipeliners GSC data from Aug 19 to Sep 15, 2026.\n\n# Key points\n- Position bands: 1 to 7 is the top of page 1 (protect it), 8 to 30 is the low-hanging fruit zone, 31+ needs bigger work.\n- Six steps: 1 confirm it is real, 2 match the right page, 3 put the keyword where Google reads first, 4 add what is missing, 5 link to it, 6 tell Google, then wait.\n- \"Real\" means seen 3+ times on 2+ days, average position 8 to 30, and one page clearly owning it. Example pass: \"cipp pipe lining cost\" (22 impressions on 8 days). Example fail: \"main line clog phoenix\" (6 of 7 impressions on one day).\n- If two pages split a keyword, pick one and give the other a different job; do not create a new page for the same keyword.\n- Match intent: cost searches need a cost answer (no prices), local searches need city detail, how-to searches need an explanation, near-me searches need a service page with a call to action.\n- Stop if the only ranking page is the homepage or a Google Ads page.\n- House rules repeated: no prices or unverified claims, \"Pipeliners\" not \"Pipeliners USA\", no em dashes, never touch the homepage, phone numbers or Google Ads pages.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Blog Rankings and Low-Hanging Fruit 2026-09-19](lib:brain-pipeliners-blog-rankings-and-low-hanging-fruit-2026-09-19), [Google Search Console](lib:brain-google-search-console), [SOPs and Guides Index](lib:brain-sops-and-guides-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/reports/blog-rankings/tutorial/Pipeliners-Low-Hanging-Fruit-Keyword-Tutorial.pdf",
+ "date": "2026-09-19",
+ "createdAt": 1792613134545,
+ "updatedAt": 1792613566982,
+ "rev": "deb28300a178"
+}

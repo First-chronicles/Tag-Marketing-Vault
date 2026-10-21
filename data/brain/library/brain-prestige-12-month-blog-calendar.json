@@ -1,0 +1,14 @@
+{
+ "name": "Prestige - 12-Month Blog Calendar",
+ "cat": "brain-prestige",
+ "group": "",
+ "body": "> Plan · Prestige · 2026-06-26\n\n# Version 1: seasonal calendar (one post per month)\nBuilt around SC Lowcountry seasonal drivers. Each month has a working title, primary keyword and intent.\n- Jan: cold snap pipe protection. Feb: water heater noise. Mar: spring checklist. Apr: vacation rental prep (Hilton Head).\n- May: water quality test [pillar]. Jun: hurricane prep. Jul: drain cleaning vs hydro jetting [pillar]. Aug: hidden water leak signs [pillar].\n- Sep: after-the-storm plumbing. Oct: reopening a seasonal home (Sun City snowbirds). Nov: Thanksgiving plumbing. Dec: holiday hosting (BOFU).\n- Pillars: May (water quality and filtration), Jul (drains), Aug (leak detection). Coastal differentiators: Jun and Sep. Audience differentiators: Apr (rentals) and Oct (seasonal homes).\n\n# Version 2: tracker workbook calendar (24 posts, 2 per month, Jul 2026 to Jun 2027)\nEach post links to its money page. Keyphrases are marked as CANDIDATES to validate in Search Atlas and Keyword Planner before drafting. All 24 rows were marked \"Not started\" when the workbook was pulled (2026-06-24). Examples: vacation rental plumbing checklist, how often to clean drains, signs you need a new water heater, hurricane plumbing prep, well water vs city water (Ridgeland), prevent frozen pipes, how to test for hard water, comfort height vs standard toilet (Sun City), when to call an emergency plumber.\n\n# What actually shipped\nThe July pillar (drain cleaning vs hydro jetting) went live July 7, and the August hidden-leak pillar was published June 26 ahead of schedule. Supporting clusters followed (see [Prestige - July Drain Cluster 2026-07](lib:brain-prestige-july-drain-cluster-2026-07) and [Prestige - August Hidden Leak Cluster 2026-07](lib:brain-prestige-august-hidden-leak-cluster-2026-07)). A sewer cluster was drafted in August ([Prestige - Sewer Cluster Rollout Plan 2026-08-01](lib:brain-prestige-sewer-cluster-rollout-plan-2026-08-01)).\n\n# Related\n- [Prestige Plumbing (Hub)](lib:brain-prestige-plumbing-hub), [Prestige - Blog Inventory and Tracker](lib:brain-prestige-blog-inventory-and-tracker), [SEO Blog Writing Standards](lib:brain-seo-blog-writing-standards), [Search Atlas](lib:brain-search-atlas)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Prestige Plumbing/blog-calendar-12-month.md",
+ "date": "2026-06-26",
+ "createdAt": 1792613497906,
+ "updatedAt": 1792613497907,
+ "rev": "33f58e5ed632"
+}

@@ -1,0 +1,14 @@
+{
+ "name": "Local SEO Lesson - NAP Consistency and Map Embeds",
+ "cat": "brain-learning",
+ "group": "Local SEO Lesson",
+ "body": "> Lesson · 2026-10-08\n\n# Summary\nA citation and NAP playbook built around paid LocalRank.so citations, tiered with cheap PBN posts that carry the NAP and a map embed, then local guest posts for competitive niches.\n\n# Steps (as taught)\n1. Buy LocalRank.so citations; wait 2 weeks.\n2. Buy the \"SuperBoost\" citation tier; wait 2 weeks.\n3. Tier the citations with PBN posts that link to them and include NAP, LocalBusiness schema and a Google Maps embed; wait 2 weeks.\n4. Buy local guest posts carrying the NAP and map embed (competitive industries).\n- Index everything; unindexed citations are said to be useless. Check with `site:` searches.\n- If not in the map pack after 4 weeks, add more citations and PBN posts.\n- Competitor check: search the #1 competitor's exact name in quotes; the result count hints at how many citations you need.\n- Map embed comes from the GBP share button; LocalBusiness schema from a generator tool.\n\n# TAG caution\nPBN tiering is a link scheme. The citation, schema and map-embed parts are fine; the PBN parts are not used for TAG clients.\n\n# How this applies to TAG clients\n- Map embeds on contact pages and consistent NAP in schema match TAG practice; Summit city-service pages already emit Plumber schema through a mu-plugin.\n- Before \"fixing\" NAP, confirm which numbers are intentional tracking numbers (Summit GHL DNI, Alphalete [WhatConverts](lib:brain-whatconverts)).\n- Indexing checks run through [Google Search Console](lib:brain-google-search-console) and the [GSC Indexing Tracker](lib:brain-gsc-indexing-tracker).\n\n# Related\n- [Local SEO Lesson](lib:brain-local-seo-lesson), [Learning Index](lib:brain-learning-index), [Lesson Takeaways 2026-10-08](lib:brain-lesson-takeaways-2026-10-08), [Google Search Console](lib:brain-google-search-console)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Local SEO lesson/NAP Consistency + Map Embeds - Local SEO Masterclass · Local Rank Academy.pdf",
+ "date": "2026-10-08",
+ "createdAt": 1792613193369,
+ "updatedAt": 1792613193370,
+ "rev": "869c2117e11b"
+}

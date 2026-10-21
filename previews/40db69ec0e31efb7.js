@@ -1,0 +1,1 @@
+window.__vaultPreview("40db69ec0e31efb7",{"text":"Error: This does not seem to be a WordPress installation.\nThe used path is: /home/customer/\nPass --path=`path/to/wordpress` or run `wp core download`.\n"});

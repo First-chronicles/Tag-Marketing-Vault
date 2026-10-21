@@ -1,0 +1,14 @@
+{
+ "name": "EOD 2026-09-09",
+ "cat": "brain-eod",
+ "group": "2026-09 September",
+ "body": "> Eod · Summit Az · 2026-09-09\n\nTuesday. Summit AZ on-page cleanup.\n\n# Summit Plumbing Pros AZ\nSee [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub).\n- Rebuilt the Sewer Line Repair page hero to match Drain Cleaning and Emergency Plumbing (breadcrumbs, intro, buttons, blue gradient). Hid the theme title bar so the page has one H1. Removed a sentence wrongly marked up as a heading.\n- Added a Related Services row and a 5-question Sewer Line Repair FAQ with FAQ schema (no prices; cost question points to the free estimate form). Page data dropped from 230KB to 92KB. Indexing requested in GSC.\n- Removed the duplicate theme H1 on 12 more pages; every Elementor page now has a single H1.\n- Turned off the plugin-generated grey \"Other Cities / Other Services\" link box above the footer on local pages (duplicated the styled \"Areas We Also Serve\" buttons). Checked all 126 pages: box gone, 121 city pages keep their buttons, schema intact. Locations directory left alone.\n- All live and verified on desktop and mobile, backups saved.\n\n# Follow-ups\n- Kim to click a Sewer Line FAQ question to confirm it expands.\n- Optional: make Related Services and FAQ headings H2 for consistency.\n- Two tankless landing pages (free-tankless-quote v2 and v3) have no H1; needs a copy decision.\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [EOD Reports Index](lib:brain-eod-reports-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/EOD Report 2026-09-09.txt",
+ "date": "2026-09-09",
+ "createdAt": 1792612771825,
+ "updatedAt": 1792612771825,
+ "rev": "721a9829aca6"
+}

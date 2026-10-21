@@ -1,0 +1,317 @@
+<title>Summit Organic Scorecard</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&amp;family=Source+Sans+3:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#F2F4F3; --surface:#FFFFFF; --ink:#17211F; --muted:#56635F; --line:#D8DEDB; --soft:#E9EDEB;
+  --az:#A24A22; --az-tint:#F6E7DF; --ut:#2D6480; --ut-tint:#E2EDF3;
+  --good:#1D7446; --good-tint:#E1F1E7; --bad:#AE3232; --bad-tint:#F7E3E3; --warn:#8F6200; --warn-tint:#F5ECD6;
+  --na:#6B7672; --na-tint:#ECEFEE;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#101614; --surface:#171F1D; --ink:#E4EAE7; --muted:#9AA7A2; --line:#2A3431; --soft:#1E2826;
+    --az:#E38D62; --az-tint:#3A251B; --ut:#7DB6D3; --ut-tint:#1A2D38;
+    --good:#63C58F; --good-tint:#16301F; --bad:#EE8080; --bad-tint:#3A1D1D; --warn:#E2B252; --warn-tint:#352A12;
+    --na:#9AA7A2; --na-tint:#222B29;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#101614; --surface:#171F1D; --ink:#E4EAE7; --muted:#9AA7A2; --line:#2A3431; --soft:#1E2826;
+  --az:#E38D62; --az-tint:#3A251B; --ut:#7DB6D3; --ut-tint:#1A2D38;
+  --good:#63C58F; --good-tint:#16301F; --bad:#EE8080; --bad-tint:#3A1D1D; --warn:#E2B252; --warn-tint:#352A12;
+  --na:#9AA7A2; --na-tint:#222B29;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.55;padding-inline:16px;padding-block:0 64px}
+.wrap{max-width:1160px;margin:0 auto}
+h1,h2,h3{font-family:Archivo,"Arial Narrow",system-ui,sans-serif;text-wrap:balance;margin:0;line-height:1.15}
+h1{font-size:clamp(28px,4vw,40px);font-weight:700;letter-spacing:-.01em}
+h2{font-size:24px;font-weight:700}
+h3{font-size:18px;font-weight:600}
+p{margin:0;max-width:72ch}
+a{color:inherit}
+.muted{color:var(--muted)}
+.small{font-size:14px}
+header.top{padding-block:36px 20px;display:grid;gap:14px;border-bottom:1px solid var(--line)}
+.eyebrow{font-family:Archivo,sans-serif;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.windows{display:flex;flex-wrap:wrap;gap:8px}
+.win{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:8px 12px;font-size:14px;font-variant-numeric:tabular-nums}
+.win b{font-family:Archivo,sans-serif;font-weight:600;margin-right:6px}
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding-block:10px;overflow-x:auto;white-space:nowrap}
+nav.toc a{display:inline-block;font-size:14px;text-decoration:none;color:var(--muted);padding:4px 10px;border-radius:4px}
+nav.toc a:hover,nav.toc a:focus-visible{background:var(--soft);color:var(--ink);outline:none}
+section{padding-block:36px 8px;display:grid;gap:18px;scroll-margin-top:56px}
+.sec-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.sec-num{font-family:Archivo,sans-serif;font-size:14px;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums}
+.op{display:grid;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:18px}
+.op.az{border-top:3px solid var(--az)}
+.op.ut{border-top:3px solid var(--ut)}
+.tag{display:inline-block;font-family:Archivo,sans-serif;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:4px}
+.tag.az{background:var(--az-tint);color:var(--az)}
+.tag.ut{background:var(--ut-tint);color:var(--ut)}
+.pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:16px}
+.callout{background:var(--warn-tint);border-left:3px solid var(--warn);padding:12px 14px;border-radius:4px;font-size:15px}
+.callout b{color:var(--warn)}
+ul.tight{margin:0;padding-left:20px;display:grid;gap:6px}
+ul.tight li{max-width:78ch}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums}
+th,td{padding:8px 10px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+th{font-family:Archivo,sans-serif;font-weight:600;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);background:var(--soft);white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td.n{text-align:right;white-space:nowrap}
+td.grp{font-family:Archivo,sans-serif;font-weight:600;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--bg)}
+td.src{color:var(--muted);font-size:13px;min-width:140px}
+.d{display:inline-block;font-size:12px;font-weight:700;padding:1px 6px;border-radius:3px;white-space:nowrap}
+.d.up{background:var(--good-tint);color:var(--good)}
+.d.dn{background:var(--bad-tint);color:var(--bad)}
+.d.fl{background:var(--na-tint);color:var(--na)}
+.na{color:var(--na);font-style:italic;white-space:nowrap}
+.sev{display:inline-block;font-size:12px;font-weight:700;padding:1px 6px;border-radius:3px}
+.sev.c{background:var(--bad);color:var(--surface)}
+.sev.h{background:var(--bad-tint);color:var(--bad)}
+.sev.m{background:var(--warn-tint);color:var(--warn)}
+.sev.l{background:var(--na-tint);color:var(--na)}
+code{font-family:ui-monospace,"Cascadia Mono",Consolas,monospace;font-size:.88em;background:var(--soft);padding:0 4px;border-radius:3px;overflow-wrap:anywhere}
+.qa{display:grid;gap:10px}
+.qa dt{font-family:Archivo,sans-serif;font-weight:600;font-size:15px}
+.qa dd{margin:0 0 6px 0;max-width:78ch}
+.bucket{font-family:Archivo,sans-serif;font-size:12px;font-weight:600;white-space:nowrap}
+footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);font-size:14px;color:var(--muted);display:grid;gap:6px}
+.single{display:grid;gap:16px}
+</style>
+<div class="wrap">
+<header class="top">
+<div class="eyebrow">Summit Plumbing Pros (Arizona) · Organic SEO · Pulled 2026-09-16 · Version 3 · Read only</div>
+<h1>Summit Organic Scorecard</h1>
+<p class="muted">Arizona only: summitplumbingpros.com, Google Business Profile 93167 (Mesa), phone 480-447-7008. Every window ends 2026-09-14 because Search Console data lags about two days.</p>
+<div class="windows">
+<div class="win"><b>30 days</b>Aug 16 to Sep 14, 2026 vs Jul 17 to Aug 15, 2026</div>
+<div class="win"><b>28 days</b>Aug 18 to Sep 14, 2026 vs Jul 21 to Aug 17, 2026</div>
+<div class="win"><b>7 days</b>Sep 8 to Sep 14, 2026 vs Sep 1 to Sep 7, 2026</div>
+</div>
+<div class="callout"><b>Sources.</b> Search totals come straight from Google Search Console. Leads come from TAG CRM (Arizona caller area codes). Keyword detail uses the Search Atlas copy of Search Console, which undercounts. <b>Limits:</b> GA4 recorded zero sessions Sep 4 to Sep 10; BrightLocal and GoHighLevel call reports by tracking number were not available.</div>
+</header>
+<nav aria-label="Sections" class="toc">
+<a href="#s1">1 Summary</a><a href="#s2">2 KPIs</a><a href="#s3">3 Winners</a><a href="#s4">4 Declines</a><a href="#s5">5 Quick wins</a><a href="#s6">6 Issues</a><a href="#s7">7 Leads</a><a href="#s8">8 Action plan</a><a href="#s9">9 Decision</a>
+</nav>
+<section id="s1">
+<div class="sec-head"><span class="sec-num">01</span><h2>Executive summary</h2></div>
+<div class="single">
+<div class="op az">
+
+<p><b>Improved:</b> Search Console clicks rose to 42 from 40 (28 days) and 12 from 7 (7 days), with average position improving from 28.9 to 26.6. Business Profile calls rose to 69 from 56 (30 days). TAG CRM shows 23 Arizona leads in the last 28 days vs 19, with 13 from the Business Profile.</p>
+<p><b>Declined:</b> impressions fell 5.6% (28 days). On the 30-day view, CRM leads tagged Organic Search fell from 6 to 3, and none of the 3 are booked (3 were booked the period before). Mesa, Gilbert, Queen Creek and Chandler city pages lost impressions after the Sep 3 relaunch.</p>
+<p><b>Most important action:</b> the Business Profile drives most booked leads (7 of 12), so clean it up now, (the city-page schema hours were fixed on Sep 17).</p>
+</div>
+
+</div>
+</section>
+<section id="s2">
+<div class="sec-head"><span class="sec-num">02</span><h2>KPI comparison</h2></div>
+<div class="op az">
+
+<div class="tbl"><table>
+<thead><tr><th>Metric</th><th>Last 30</th><th>Prev 30</th><th>Chg</th><th>Last 28</th><th>Prev 28</th><th>Chg</th><th>Last 7</th><th>Prev 7</th><th>Chg</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td class="grp" colspan="11">Search Console (web UI, all countries)</td></tr>
+<tr><td>Organic clicks</td><td class="n">44</td><td class="n">41</td><td class="n"><span class="d up">+7.3%</span></td><td class="n">42</td><td class="n">40</td><td class="n"><span class="d up">+5.0%</span></td><td class="n">12</td><td class="n">7</td><td class="n"><span class="d up">+71.4%</span></td><td class="src">GSC</td></tr>
+<tr><td>Impressions</td><td class="n">11,454</td><td class="n">12,266</td><td class="n"><span class="d dn">-6.6%</span></td><td class="n">10,639</td><td class="n">11,268</td><td class="n"><span class="d dn">-5.6%</span></td><td class="n">3,177</td><td class="n">2,477</td><td class="n"><span class="d up">+28.3%</span></td><td class="src">GSC, sum of device rows</td></tr>
+<tr><td>CTR</td><td class="n">0.38%</td><td class="n">0.33%</td><td class="n"><span class="d up">+14.9%</span></td><td class="n">0.39%</td><td class="n">0.35%</td><td class="n"><span class="d up">+11.2%</span></td><td class="n">0.38%</td><td class="n">0.28%</td><td class="n"><span class="d up">+33.6%</span></td><td class="src">Calculated from GSC</td></tr>
+<tr><td>Average position</td><td class="n">26.5</td><td class="n">29.1</td><td class="n"><span class="d up">2.6 better</span></td><td class="n">26.6</td><td class="n">28.9</td><td class="n"><span class="d up">2.3 better</span></td><td class="n">28.1</td><td class="n">28.5</td><td class="n"><span class="d fl">0.4 better</span></td><td class="src">GSC</td></tr>
+<tr><td>Mobile clicks / impr / pos</td><td class="n">19 / 5,148 / 24.4</td><td class="n">17 / 5,607 / 26.1</td><td class="n"><span class="d up">+2 clicks</span></td><td class="n">18 / 4,747 / 24.5</td><td class="n">18 / 5,154 / 25.6</td><td class="n"><span class="d fl">0 clicks</span></td><td class="n">4 / 1,367 / 26.9</td><td class="n">3 / 1,059 / 26.8</td><td class="n"><span class="d up">+1 click</span></td><td class="src">GSC device</td></tr>
+<tr><td>Desktop clicks / impr / pos</td><td class="n">25 / 6,293 / 28.3</td><td class="n">24 / 6,528 / 31.6</td><td class="n"><span class="d up">+1 click</span></td><td class="n">24 / 5,881 / 28.2</td><td class="n">22 / 5,982 / 31.7</td><td class="n"><span class="d up">+2 clicks</span></td><td class="n">8 / 1,809 / 29.0</td><td class="n">4 / 1,413 / 29.7</td><td class="n"><span class="d up">+4 clicks</span></td><td class="src">GSC device</td></tr>
+<tr><td>Branded clicks / impr</td><td class="n">17 / 806</td><td class="n">14 / 590</td><td class="n"><span class="d up">+21%</span></td><td class="n">15 / 757</td><td class="n">14 / 580</td><td class="n"><span class="d up">+7%</span></td><td class="n">2 / 104</td><td class="n">2 / 132</td><td class="n"><span class="d fl">0%</span></td><td class="src">Search Atlas GSC copy, US, "summit plumbing" rows</td></tr>
+<tr><td>Non-branded clicks (visible queries)</td><td class="n">2</td><td class="n">0</td><td class="n"><span class="d up">+2</span></td><td class="n">2</td><td class="n">0</td><td class="n"><span class="d up">+2</span></td><td class="n">1</td><td class="n">1</td><td class="n"><span class="d fl">0</span></td><td class="src">Search Atlas GSC copy, US; most clicks are on hidden queries</td></tr>
+<tr><td>Keywords 1-3 / 4-10 / 11-20 / 21-50</td><td class="n">11 / 83 / 131 / 456</td><td class="n">20 / 57 / 217 / 490</td><td class="n"><span class="d fl">top 3 down</span></td><td class="n">11 / 79 / 126 / 448</td><td class="n">20 / 56 / 188 / 441</td><td class="n"><span class="d fl">4-10 up 41%</span></td><td class="n">6 / 52 / 78 / 269</td><td class="n">6 / 38 / 76 / 254</td><td class="n"><span class="d up">4-10 up 37%</span></td><td class="src">Search Atlas GSC copy, US</td></tr>
+<tr><td class="grp" colspan="11">GA4 property 459518259 (zero sessions Sep 4 to Sep 10 in every current window and in Prev 7)</td></tr>
+<tr><td>Organic users</td><td class="n">80</td><td class="n">95</td><td class="n"><span class="d dn">-15.8%</span></td><td class="n">72</td><td class="n">92</td><td class="n"><span class="d dn">-21.7%</span></td><td class="n">7</td><td class="n">14</td><td class="n"><span class="d dn">-50.0%</span></td><td class="src">GA4 (tracking gap)</td></tr>
+<tr><td>Organic sessions</td><td class="n">108</td><td class="n">160</td><td class="n"><span class="d dn">-32.5%</span></td><td class="n">98</td><td class="n">159</td><td class="n"><span class="d dn">-38.4%</span></td><td class="n">11</td><td class="n">21</td><td class="n"><span class="d dn">-47.6%</span></td><td class="src">GA4 (tracking gap)</td></tr>
+<tr><td>Organic engaged sessions</td><td class="n">83</td><td class="n">119</td><td class="n"><span class="d dn">-30.3%</span></td><td class="n">75</td><td class="n">119</td><td class="n"><span class="d dn">-37.0%</span></td><td class="n">10</td><td class="n">16</td><td class="n"><span class="d dn">-37.5%</span></td><td class="src">Derived: sessions x engagement rate</td></tr>
+<tr><td class="grp" colspan="11">TAG CRM leads (Arizona caller area codes only)</td></tr>
+<tr><td>All leads</td><td class="n">23</td><td class="n">28</td><td class="n"><span class="d dn">-17.9%</span></td><td class="n">23</td><td class="n">19</td><td class="n"><span class="d up">+21.1%</span></td><td class="n">5</td><td class="n">6</td><td class="n"><span class="d dn">-16.7%</span></td><td class="src">TAG CRM Leads</td></tr>
+<tr><td>Calls / forms / chats</td><td class="n">18 / 3 / 2</td><td class="n">19 / 2 / 7</td><td class="n"><span class="d fl">calls -1</span></td><td class="n">18 / 3 / 2</td><td class="n">13 / 0 / 6</td><td class="n"><span class="d up">calls +5</span></td><td class="n">5 / 0 / 0</td><td class="n">4 / 1 / 1</td><td class="n"><span class="d fl">calls +1</span></td><td class="src">TAG CRM</td></tr>
+<tr><td>Leads from Organic Search</td><td class="n">3</td><td class="n">6</td><td class="n"><span class="d dn">-50.0%</span></td><td class="n">3</td><td class="n">2</td><td class="n"><span class="d up">+1</span></td><td class="n">1</td><td class="n">0</td><td class="n"><span class="d up">+1</span></td><td class="src">TAG CRM source field</td></tr>
+<tr><td>Leads from Website (Organic/Direct)</td><td class="n">1</td><td class="n">1</td><td class="n"><span class="d fl">0</span></td><td class="n">1</td><td class="n">1</td><td class="n"><span class="d fl">0</span></td><td class="n">0</td><td class="n">1</td><td class="n"><span class="d fl">-1</span></td><td class="src">TAG CRM (website default number)</td></tr>
+<tr><td>Leads from Business Profile</td><td class="n">13</td><td class="n">13</td><td class="n"><span class="d fl">0%</span></td><td class="n">13</td><td class="n">10</td><td class="n"><span class="d up">+30.0%</span></td><td class="n">3</td><td class="n">2</td><td class="n"><span class="d up">+1</span></td><td class="src">TAG CRM source field</td></tr>
+<tr><td>Booked (all / GBP / organic)</td><td class="n">12 / 7 / 0</td><td class="n">14 / 9 / 3</td><td class="n"><span class="d dn">organic -3</span></td><td class="n">12 / 7 / 0</td><td class="n">10 / 6 / 2</td><td class="n"><span class="d dn">organic -2</span></td><td class="n">1 / 0 / 0</td><td class="n">3 / 1 / 0</td><td class="n"><span class="d dn">-2</span></td><td class="src">TAG CRM status "Booked"</td></tr>
+<tr><td>CRM Value field (all / GBP / organic)</td><td class="n">$5,160 / $3,155 / $0</td><td class="n">$7,855 / $5,890 / $1,205</td><td class="n"><span class="d dn">-34%</span></td><td class="n">$5,160 / $3,155 / $0</td><td class="n">$5,525 / $3,635 / $1,130</td><td class="n"><span class="d dn">-7%</span></td><td class="n">$0</td><td class="n">$490 / $175 / $0</td><td class="n"><span class="d dn">-$490</span></td><td class="src">TAG CRM Value column; not confirmed revenue</td></tr>
+<tr><td>Estimate requests; qualified leads</td><td class="na" colspan="9">Data unavailable (CRM has no estimate-request type; "Booked" shown above instead of qualified)</td><td class="src">TAG CRM</td></tr>
+<tr><td>Leads with no identifiable state</td><td class="n">15</td><td class="n">10</td><td class="n">n/a</td><td class="n">12</td><td class="n">13</td><td class="n">n/a</td><td class="n">3</td><td class="n">2</td><td class="n">n/a</td><td class="src">TAG CRM; not counted as Arizona</td></tr>
+<tr><td class="grp" colspan="11">Google Business Profile 93167 (Mesa)</td></tr>
+<tr><td>Profile views</td><td class="n">570</td><td class="n">663</td><td class="n"><span class="d dn">-14.0%</span></td><td class="n">534</td><td class="n">662</td><td class="n"><span class="d dn">-19.3%</span></td><td class="n">129</td><td class="n">153</td><td class="n"><span class="d dn">-15.7%</span></td><td class="src">Search Atlas GBP</td></tr>
+<tr><td>Calls</td><td class="n">69</td><td class="n">56</td><td class="n"><span class="d up">+23.2%</span></td><td class="n">63</td><td class="n">58</td><td class="n"><span class="d up">+8.6%</span></td><td class="n">21</td><td class="n">9</td><td class="n"><span class="d up">+133.3%</span></td><td class="src">Search Atlas GBP</td></tr>
+<tr><td>Website clicks</td><td class="n">41</td><td class="n">34</td><td class="n"><span class="d up">+20.6%</span></td><td class="n">38</td><td class="n">32</td><td class="n"><span class="d up">+18.8%</span></td><td class="n">8</td><td class="n">8</td><td class="n"><span class="d fl">0%</span></td><td class="src">Search Atlas GBP</td></tr>
+<tr><td>Direction requests</td><td class="n">42</td><td class="n">44</td><td class="n"><span class="d fl">-4.5%</span></td><td class="n">40</td><td class="n">42</td><td class="n"><span class="d fl">-4.8%</span></td><td class="n">8</td><td class="n">8</td><td class="n"><span class="d fl">0%</span></td><td class="src">Search Atlas GBP</td></tr>
+<tr><td>New reviews</td><td class="n">9</td><td class="n">4</td><td class="n"><span class="d up">+5</span></td><td class="n">8</td><td class="n">5</td><td class="n"><span class="d up">+3</span></td><td class="n">3</td><td class="n">2</td><td class="n"><span class="d up">+1</span></td><td class="src">Search Atlas GBP</td></tr>
+<tr><td class="grp" colspan="11">Local rankings and indexing (snapshot dates)</td></tr>
+<tr><td>Map grid "emergency plumbing services" (1 mi)</td><td colspan="9">Avg 4.6 on Sep 1 (14 of 39 pins top 3) vs 9.0 on Aug 1. No scan inside the 7-day windows.</td><td class="src">Search Atlas heatmap</td></tr>
+<tr><td>Map grid "plumber mesa az" (0.33 mi)</td><td colspan="9">Avg 11.8 on Aug 22 (0 pins top 3) vs 13.5 on Jul 22.</td><td class="src">Search Atlas heatmap</td></tr>
+<tr><td>Indexed / not indexed</td><td colspan="9">186 indexed, 54 not indexed: 16 crawled not indexed, 12 discovered not indexed, 8 redirects, 6 alternate canonical, 5 noindex, 4 not found, 1 redirect error, 1 soft 404, 1 blocked 403. Report last updated Sep 4.</td><td class="src">GSC Page indexing</td></tr>
+</tbody>
+</table></div>
+</div>
+
+<div class="op az">
+
+<h3>SEO work completed in each window</h3>
+<div class="tbl"><table>
+<thead><tr><th>Window</th><th>Work logged</th><th>What changed after</th></tr></thead>
+<tbody>
+<tr><td>Prev 30 / Prev 28 (Jul 17 to Aug 17)</td><td>No TAG changes logged.</td><td>Baseline.</td></tr>
+<tr><td>Prev 7 (Sep 1 to 7)</td><td>Sep 3 relaunch replaced the database (new page IDs; 16 H1s, 21 metas, 5 titles differed), GA4 tag switched, Rank Math on, menu dropped Pipe Lining, Garbage Disposals, Water Filtration and Water Pressure. Sep 4: OTTO fixes live about one hour. Sep 5: 10 titles.</td><td>Top-3 keywords 20 to 11 and several city pages lost broad queries. Clicks still rose slightly. Timing matches the relaunch; cause not proven.</td></tr>
+<tr><td>Last 7 (Sep 8 to 14)</td><td>Broken links fixed; design restyle on 142 pages; 34 focus keywords, 337 alts, 16 titles; GA4 reconnected Sep 12; indexing requested for 13 pages; Sep 14 title/H1 changes on /drain-cleaning/, /plumbing/, /water-heaters/.</td><td>Clicks 12 vs 7 and impressions +28%; all nine city water-leak-detection pages began getting impressions.</td></tr>
+<tr><td>After all windows (Sep 15)</td><td>Rank Math: 29 titles, 91 keyword boxes, 122 meta descriptions. Blog restyle.</td><td>Not measurable yet.</td></tr>
+</tbody>
+</table></div>
+<p class="small muted">Source: Summit-AZ-SEO-Change-Log.csv. </p>
+</div>
+</section>
+<section id="s3">
+<div class="sec-head"><span class="sec-num">03</span><h2>Winning queries, pages and cities</h2></div>
+<div class="op az">
+
+<div class="tbl"><table>
+<thead><tr><th>Item</th><th>Current</th><th>Previous</th><th>Evidence</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td>Site clicks and CTR</td><td class="n">42 clicks, 0.39%</td><td class="n">40, 0.35%</td><td>Desktop gained 2 clicks and 3.5 positions.</td><td class="src">GSC, 28 days</td></tr>
+<tr><td>Business Profile leads</td><td class="n">13 leads, 7 booked</td><td class="n">10, 6 booked</td><td>Largest booked-lead source; GBP calls 63 vs 58.</td><td class="src">TAG CRM; GBP, 28 days</td></tr>
+<tr><td>/slab-leaks/</td><td class="n">354 impr, pos 32</td><td class="n">149, pos 38</td><td>Picks up Chandler, Apache Junction and Mesa slab leak queries.</td><td class="src">Search Atlas GSC copy, 28 days</td></tr>
+<tr><td>/tankless-water-heater-installation-queen-creek/</td><td class="n">259 impr, pos 15</td><td class="n">147, pos 18</td><td>"water heater installation queen creek" +6 positions to 14.</td><td class="src">Search Atlas GSC copy, 28 days</td></tr>
+<tr><td>/drain-cleaning-services-fountain-hills/</td><td class="n">147 impr, pos 8</td><td class="n">57, pos 21</td><td>Tracker shows "drain cleaning fountain hills" at 9 (new).</td><td class="src">Search Atlas GSC copy; rank tracker</td></tr>
+<tr><td>City water-leak-detection pages (9)</td><td class="n">Impressions in last 7</td><td class="n">Near 0</td><td>Apache Junction page at position 10; "slab leak repair apache junction" tracked at 8.</td><td class="src">Search Atlas GSC copy, 7 days; rank tracker</td></tr>
+<tr><td>Apache Junction (city)</td><td class="n">333 impr, 1 click</td><td class="n">310, 0</td><td>Only priority city with a click.</td><td class="src">Search Atlas GSC copy, 28 days</td></tr>
+<tr><td>Map grid "emergency plumbing services"</td><td class="n">Avg 4.6 (Sep 1)</td><td class="n">9.0 (Aug 1)</td><td>14 of 39 pins top 3.</td><td class="src">Search Atlas heatmap</td></tr>
+</tbody>
+</table></div>
+</div>
+
+</section>
+<section id="s4">
+<div class="sec-head"><span class="sec-num">04</span><h2>Declining queries, pages and cities</h2></div>
+<div class="op az">
+
+<div class="tbl"><table>
+<thead><tr><th>Item</th><th>Current</th><th>Previous</th><th>Likely cause (evidence)</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td>Organic Search leads (30 days)</td><td class="n">3 leads, 0 booked, $0</td><td class="n">6, 3 booked, $1,205</td><td>Fewer organic leads while clicks held; 7 days of GA4 missing, so landing pages cannot be traced.</td><td class="src">TAG CRM</td></tr>
+<tr><td>Impressions</td><td class="n">10,639</td><td class="n">11,268</td><td>Top-3 keywords 20 to 11 after the Sep 3 relaunch.</td><td class="src">GSC; Search Atlas GSC copy</td></tr>
+<tr><td>/drain-cleaning/</td><td class="n">172 impr, pos 34</td><td class="n">702, pos 38</td><td>Lost broad drain queries after the relaunch.</td><td class="src">Search Atlas GSC copy, 28 days</td></tr>
+<tr><td>/general-plumbing-services-queen-creek/</td><td class="n">29 impr</td><td class="n">309</td><td>New copy swapped in on 6 general plumbing city pages Sep 3.</td><td class="src">Search Atlas GSC copy; change log</td></tr>
+<tr><td>/general-plumbing-services-in-gilbert/</td><td class="n">156 impr</td><td class="n">268</td><td>Same pattern; now mostly branded impressions at position 15.</td><td class="src">Search Atlas GSC copy</td></tr>
+<tr><td>/orangeburg-pipe-repair-in-mesa-az/</td><td class="n">31 impr</td><td class="n">212</td><td>Lost "orangeburg pipe repair near me" from position 1. Cause not confirmed.</td><td class="src">Search Atlas GSC copy</td></tr>
+<tr><td>Pages at 0 impressions</td><td colspan="2">/sewer-line-repair-chandler/ (39 before), /tankless-water-heater-installation-tempe/ (36), -mesa/ (9), -chandler/ (8)</td><td>New page IDs after the relaunch; 28 URLs sit in crawled/discovered not indexed.</td><td class="src">Search Atlas GSC copy; GSC indexing</td></tr>
+<tr><td>"emergency plumber tempe"</td><td class="n">833 impr, pos 34</td><td class="n">-8 positions</td><td>Ranking with the Tempe general page, not /emergency-plumber-in-tempe/.</td><td class="src">Search Atlas GSC copy</td></tr>
+<tr><td>Mesa / Queen Creek / Gilbert / Chandler</td><td class="n">331 / 308 / 166 / 112</td><td class="n">596 / 480 / 269 / 166</td><td>Page losses above; Chandler pages are near copies of Mesa.</td><td class="src">Search Atlas GSC copy; live crawl</td></tr>
+<tr><td>GBP views</td><td class="n">534</td><td class="n">662</td><td>Mobile search views -35%; calls still up. Cause Data unavailable.</td><td class="src">Search Atlas GBP</td></tr>
+</tbody>
+</table></div>
+</div>
+
+</section>
+<section id="s5">
+<div class="sec-head"><span class="sec-num">05</span><h2>Quick opportunities</h2></div>
+<div class="op az">
+
+<p class="small muted">Every Arizona page change needs Kim's approval and goes through Rank Math or Elementor, never OTTO. The homepage is excluded.</p>
+<div class="tbl"><table>
+<thead><tr><th>Page</th><th>Evidence (28 days)</th><th>Exact recommendation</th><th>Type</th></tr></thead>
+<tbody>
+
+<tr><td>/water-heater-services-queen-creek/</td><td>7 Queen Creek water heater queries, 209 impr, pos 12 to 18, all on the tankless page; this page fell 17 to 0.</td><td>Add an H2 section "Water Heater Installation and Replacement in Queen Creek" using facts verified for Queen Creek (6 to 17 grains hardness per the Town). Request indexing.</td><td>Content</td></tr>
+<tr><td>/drain-cleaning-services-fountain-hills/</td><td>147 impr, pos 8, 0 clicks; description contains the phone number.</td><td>Meta description: "Drain cleaning in Fountain Hills, AZ for slow sinks, backed-up tubs and main line clogs. Licensed plumbers, upfront pricing and free estimates."</td><td>Meta description</td></tr>
+<tr><td>/drain-cleaning-services-gilbert/</td><td>Priority city; description has the phone number and "Same-day service" without "for most calls".</td><td>Meta description: "Drain cleaning in Gilbert, AZ for slow drains, backups and main line clogs. Same-day service for most calls, licensed plumbers and free estimates."</td><td>Meta description</td></tr>
+
+
+<tr><td>/pipe-lining-mesa/</td><td>"epoxy pipe lining mesa az" pos 6.</td><td>Fix the known wrong-city sentence ("options for Apache Junction homeowners") first.</td><td>Local relevance</td></tr>
+</tbody>
+</table></div>
+</div>
+
+</section>
+<section id="s6">
+<div class="sec-head"><span class="sec-num">06</span><h2>Technical and local SEO issues</h2></div>
+<div class="op az">
+
+<div class="tbl"><table>
+<thead><tr><th>Severity</th><th>URL or listing</th><th>Evidence</th><th>Location</th><th>Exact correction</th></tr></thead>
+<tbody>
+<tr><td><span class="sev l">Fixed</span></td><td>Schema hours (all pages, /about/)</td><td>Was 7 days 9-5 (Rank Math) and 7-6 / Sat 8-2 (/about/).</td><td>All cities</td><td>Fixed Sep 17: Mon-Sat 08:00 to 17:00, matching GBP.</td></tr>
+<tr><td><span class="sev h">High</span></td><td>/drain-cleaning-services-chandler/, /general-plumbing-services-chandler/</td><td>26 of 29 and 22 of 23 content blocks match the Mesa pages.</td><td>Chandler</td><td>Rewrite intro, "problems in Chandler homes", services and utility sections with Chandler facts (Ocotillo, Fulton Ranch, Sun Lakes; City of Chandler water report).</td></tr>
+<tr><td><span class="sev m">Medium</span></td><td>28 URLs crawled or discovered, not indexed</td><td>16 crawled not indexed, 12 discovered not indexed (Sep 4).</td><td>Sitewide</td><td>Export both lists in GSC; request indexing for approved-service city pages; leave the rest.</td></tr>
+<tr><td><span class="sev m">Medium</span></td><td>GBP 93167</td><td>24 unreplied reviews; missing Slab Leak Detection and Repair, Plumbing Maintenance, Tankless Water Heater Installation; duplicate service pairs; "Sewage disposal service" category; "Sump pump repair".</td><td>Mesa listing</td><td>Reply newest first; add the 3 services; remove duplicates and Sump pump repair; replace the sewage category.</td></tr>
+<tr><td><span class="sev m">Medium</span></td><td>GBP website link</td><td><code>http://www.summitplumbingpros.com/?utm_campaign=gmb</code></td><td>Mesa listing</td><td>Set to <code>https://www.summitplumbingpros.com/?utm_source=google&amp;utm_medium=organic&amp;utm_campaign=gmb</code>.</td></tr>
+<tr><td><span class="sev m">Medium</span></td><td>Duplicated blocks: Tempe vs Queen Creek drain; water heater and leak city pages</td><td>15 identical blocks; 20 to 23 identical paragraphs.</td><td>Tempe, Queen Creek, Mesa, Gilbert</td><td>Add one verified local section per page; vary FAQ answers.</td></tr>
+<tr><td><span class="sev m">Medium</span></td><td>Heatmap "plumber mesa az"</td><td>0.33 mile radius; not rescanned since Aug 22; no grids for the other 5 cities.</td><td>Mesa</td><td>Add a separate 3 to 5 mile Mesa grid. Other cities' map pack: Data unavailable until grids exist.</td></tr>
+<tr><td><span class="sev m">Medium</span></td><td>OTTO (pixel not installed)</td><td>1,889 approved fixes waiting, none live.</td><td>Sitewide</td><td>Keep snippet 23 off; follow the activation safety procedure before any change.</td></tr>
+<tr><td><span class="sev m">Medium</span></td><td>GA4 459518259</td><td>0 sessions Sep 4 to 10; GTM-KMH3PXPV not reconnected.</td><td>Sitewide</td><td>Recover Sep 3 to 12 Arizona sessions from property 529636373 with a hostname filter.</td></tr>
+<tr><td><span class="sev l">Low</span></td><td><code>/%3Futm_campaign=gmb</code></td><td>Returns 404.</td><td>Sitewide</td><td>Rank Math 301 to /.</td></tr>
+<tr><td><span class="sev l">Low</span></td><td>Water leak detection pages: Apache Junction, Gilbert, Tempe</td><td>H1 ends in lowercase "az".</td><td>3 cities</td><td>Change to ", AZ".</td></tr>
+<tr><td><span class="sev l">Low</span></td><td>Mobile performance</td><td>PageSpeed quota exceeded; OTTO: large DOM on 127 pages.</td><td>Sitewide</td><td>Run Lighthouse mobile manually. Results: Data unavailable.</td></tr>
+</tbody>
+</table></div>
+<p class="small muted">Checked and clean (Sep 16): city pages return 200 with self canonicals, index/follow, no Utah schema, no 24/7 wording, correct nearby-city links, sitemap 186 URLs all 200. Phone: raw HTML defaults to 480-447-7008 with no hard-coded pool numbers and GoHighLevel swaps it client-side, so no NAP phone issue is flagged.</p>
+</div>
+
+</section>
+<section id="s7">
+<div class="sec-head"><span class="sec-num">07</span><h2>Leads and business impact</h2></div>
+<div class="single">
+<div class="op az">
+
+<ul class="tight">
+<li><b>Business Profile is the booked-lead engine.</b> Last 28 days: 13 CRM leads from the profile, 7 booked, $3,155 in the Value field. GBP calls 63. Source: TAG CRM and Search Atlas GBP, Aug 18 to Sep 14.</li>
+<li><b>Organic Search leads are small and slipped.</b> Last 30 days: 3 leads (1 call, 2 forms), 0 booked, vs 6 leads, 3 booked and $1,205 the period before. Last 28 days: 3 vs 2. Source: TAG CRM.</li>
+<li><b>Website default number:</b> 1 "Website (Organic/Direct)" lead in each 30-day window, so dynamic number insertion is passing leads through with a source label. Pool-number mapping by source: Data unavailable.</li>
+<li><b>Clicks vs leads:</b> 42 organic clicks produced about 3 to 4 tagged organic or website leads in 28 days. That is correlation only; the CRM does not store landing pages, so no lead is credited to a specific page.</li>
+<li><b>Unassigned leads:</b> 12 leads in the last 28 days had no phone area code (mostly chats), so they are not counted as Arizona.</li>
+<li><b>Attribution risks:</b> GA4 missed Sep 4 to 10; the GBP link has no utm_source or utm_medium; the CRM Value field ($5,160 in 30 days) differs from the CRM dashboard's attributed revenue, so treat it as an estimate.</li>
+<li><b>Pages with traffic but no leads:</b> /general-plumbing-services-in-tempe/ (2,322 impressions, 0 clicks). Pages with leads despite low traffic: Data unavailable.</li>
+</ul>
+</div>
+
+</div>
+</section>
+<section id="s8">
+<div class="sec-head"><span class="sec-num">08</span><h2>Prioritized action plan</h2></div>
+<p class="small muted">Deadlines: Do now by 2026-09-18. Within 7 days by 2026-09-23. Within 30 days by 2026-10-16 (Arizona content work waits for the Oct 2 review). Every site, Rank Math or GBP change needs Kim's approval first.</p>
+<div class="op az">
+
+<div class="tbl"><table>
+<thead><tr><th>Priority</th><th>Exact action</th><th>Affected</th><th>Supporting evidence</th><th>Expected benefit</th><th>Effort</th><th>Deadline</th></tr></thead>
+<tbody>
+<tr><td><span class="bucket">1 · Not in scope</span></td><td>Business Profile changes are off limits (Kim, Sep 17). Profile metrics are reported only.</td><td>GBP 93167</td><td>n/a</td><td>n/a</td><td>None</td><td>n/a</td></tr>
+<tr><td><span class="bucket">2 · Done Sep 17</span></td><td>Schema hours set to match GBP (Mon-Sat 08:00 to 17:00, no Sunday) in Rank Math and on /about/. /pricing/ demo page set to Private.</td><td>All pages, /about/, /pricing/</td><td>Verified live.</td><td>Consistent hours signal with GBP.</td><td>Done</td><td>Closed</td></tr>
+<tr><td><span class="bucket">3 · Within 7 days</span></td><td>Open the 3 Organic Search CRM leads (Aug 16 to Sep 14) and note what they asked for and why none booked; export the 28 crawled/discovered-not-indexed URLs and request indexing for approved-service city pages.</td><td>TAG CRM; GSC indexing</td><td>Organic leads 6 to 3, booked 3 to 0; 28 URLs not indexed.</td><td>Finds whether the organic lead drop is volume or quality; gets lost city pages back in the index.</td><td>Low</td><td>2026-09-23</td></tr>
+<tr><td><span class="bucket">4 · Done Sep 17</span></td><td>Checked the 3 internal links (Tempe general to /emergency-plumber-in-tempe/, /slab-leaks/ to city leak pages, sewer page to /sewer-line-repair-mesa/): all already exist. No change needed.</td><td>Tempe, Mesa, Chandler, Apache Junction</td><td>Live page data, Sep 17.</td><td>Cannibalization is not caused by missing links; monitor after the Oct 2 review.</td><td>None</td><td>Closed</td></tr>
+<tr><td><span class="bucket">5 · Within 30 days</span></td><td>Rewrite duplicated blocks on /drain-cleaning-services-chandler/ and /general-plumbing-services-chandler/; add the Queen Creek water heater installation section; rebuild /general-plumbing-services-in-mesa/ once Scott answers.</td><td>Chandler, Queen Creek, Mesa</td><td>26 of 29 blocks copied; QC water heater queries at pos 12-18; Mesa impr 596 to 331.</td><td>Removes doorway-style duplication.</td><td>High</td><td>2026-10-16</td></tr>
+<tr><td><span class="bucket">Monitor</span></td><td>Daily GA4 sessions above zero; clicks and CTR on the 122 pages changed Sep 15; CRM organic and GBP leads weekly; heatmap rescans around Oct 1.</td><td>Sitewide</td><td>Sep 15 Rank Math batches.</td><td>Early read on recent work.</td><td>Low</td><td>Through 2026-09-23</td></tr>
+</tbody>
+</table></div>
+</div>
+
+</section>
+<section id="s9">
+<div class="sec-head"><span class="sec-num">09</span><h2>Final decision</h2></div>
+<div class="single">
+<div class="op az">
+
+<dl class="qa">
+<dt>What is helping Summit appear organically?</dt>
+<dd>The Mesa Business Profile (517 reviews, 4.8 rating, 13 CRM leads and 7 bookings in 28 days), brand searches, and pages such as Fountain Hills drain (position 8), /slab-leaks/ and Queen Creek tankless.</dd>
+<dt>What is preventing further growth?</dt>
+<dd>City pages that lost broad queries after the Sep 3 relaunch, near-identical Chandler and Mesa copy, parent pages outranking city pages, 28 pages not indexed, and organic leads that are few and not booking.</dd>
+<dt>Fastest opportunity pages and cities</dt>
+<dd>Queen Creek water heater queries (position 12 to 18), Tempe emergency routing to /emergency-plumber-in-tempe/, Apache Junction leak pages (8 to 10), /sewer-line-repair-mesa/ (18).</dd>
+<dt>What should the SEO team work on first?</dt>
+<dd>Business Profile cleanup and schema hours, then the 3 organic CRM leads and the not-indexed list.</dd>
+<dt>Monitor in the next 7 days</dt>
+<dd>GA4 sessions daily, clicks on pages changed Sep 15, CRM organic and GBP leads, GBP calls vs views.</dd>
+</dl>
+</div>
+
+</div>
+</section>
+<footer><div>Sources: Google Search Console web UI; TAG CRM Leads (client "Summit Plumbing Pros", Arizona area codes, times converted to Arizona); Search Atlas (GSC copy for keyword detail, GA4 459518259, GBP 93167, heatmaps, rank tracker 84536, OTTO audit); live crawl on 2026-09-16; Summit-AZ-SEO-Change-Log.csv.</div><div>Snapshot: Summit-AZ-Organic-Snapshot-2026-09-16.md. Nothing was changed on the website, Rank Math, OTTO, GBP or TAG CRM.</div></footer>
+</div>

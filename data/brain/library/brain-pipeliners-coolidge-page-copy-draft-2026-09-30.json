@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Coolidge Page Copy Draft 2026-09-30",
+ "cat": "brain-pipeliners",
+ "group": "City Pages",
+ "body": "> Plan · Pipeliners · 2026-09-30\n\n# Summary\nFull draft copy for https://pipelinersusa.com/coolidge/ built from the Batch 1 brief. Draft only; every local fact comes from the live page, and claims needing Scott are marked [CONFIRM].\n\n# Contents\n- SEO settings: title \"Sewer Line Repair & Repiping in Coolidge, AZ | Pipeliners\" (57 chars), meta (152 chars), keep /coolidge/, Service + FAQPage in OTTO matched to the FAQ.\n- Hero H1 and an intro naming clay, cast iron and bituminized fibre (Orangeburg) laterals and camera-first work.\n- 4 benefit cards (one flagged [CONFIRM] on the 30% savings, since then approved).\n- H2 sections: how trenchless repair works in Coolidge (1925 town history, cotton era pipe types), when to replace instead of line (Orangeburg deforms), \"Do you repipe homes in Coolidge?\" (ePIPE vs whole-house repipe), clearing clogs camera-first, hidden leak detection [CONFIRM], and an FAQ.\n\n# Status against current rules\nThe repipe section says \"Yes. Pipeliners repipes Coolidge homes\", which conflicts with Scott's Oct 1 answer (no full repipes) and the rule against adding repipe claims. Coolidge was later restructured (Oct 10) and given Quick Facts (Oct 13); see [Pipeliners - Fix Log](lib:brain-pipeliners-fix-log).\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - City Pages Batch 1 Briefs 2026-09-30](lib:brain-pipeliners-city-pages-batch-1-briefs-2026-09-30), [Pipeliners - Decisions and Rules](lib:brain-pipeliners-decisions-and-rules)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/coolidge-page-copy-draft.md",
+ "date": "2026-09-30",
+ "createdAt": 1792613264477,
+ "updatedAt": 1792613264478,
+ "rev": "cc8d1ef9f119"
+}

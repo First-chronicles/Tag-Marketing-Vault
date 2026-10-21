@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Context - Google Ads Weekly Sheet Session 2026-05-26",
+ "cat": "brain-summit",
+ "group": "Context",
+ "body": "> Log · Summit Az · 2026-05-26\n\n# Summary\nSession log for the Summit Google Ads weekly tracking sheet update (account 140-101-3750), run by Kim via Claude Code and the Google Ads MCP server in read-only mode; Kim applies changes manually. L1 = 2026-05-25; search terms window 2026-05-15 to 2026-05-26.\n\n# Key findings\n- 3 enabled campaigns: Navien Tankless Install (PHX Metro), Branded Defense (PHX), Local Services (LSA, not visible via the API).\n- L1: Navien 5 clicks, 45 impressions, $128.08, 0 conversions, all from the Conversion Intent ad group. Brand 2 clicks, $4.06.\n- 40 enabled positive keywords in 5 ad groups; 503 keyword rows across 15 campaigns (13 removed).\n- HIGH: the \"SP - Master Negatives\" shared list (1,507 entries) is not attached to any active campaign, and it contains `navien` PHRASE, which would block the Navien campaign if attached as-is.\n- No Search Terms Log existed; this run became the baseline.\n\n# Recommendations (for Kim to apply)\n- 6 keyword adds (PHRASE) such as water heater replacement mesa az and water heater repair phoenix; 2 more for review.\n- 22 immediate negatives (DIY phrasing like yourself and myself, handyman, lowe's, wrong states, Rheem and RV SKUs, home warranty brand).\n- Needs review: rheem, ao smith, home warranty, venting, the water heater guy.\n- Decide the Master Negatives strategy; create a Search Terms Log tab; pull L7 and L30 next.\n\n# Data files folded into this note\n- `context\\search_terms_2026-05-15_to_2026-05-26.csv` (127 search term rows), `context\\all_keywords.csv` (503 keyword rows), `context\\shared_negatives.csv` (1,507 shared negative entries).\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Summit AZ - Work Folders Index](lib:brain-summit-az-work-folders-index)\n- [Google Ads MCC](lib:brain-google-ads-mcc), [Search Terms Check Log](lib:brain-search-terms-check-log)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/context/ga_sheet_new_tab_2026-05-26.tsv",
+ "date": "2026-05-26",
+ "createdAt": 1792613122652,
+ "updatedAt": 1792613122652,
+ "rev": "5a2e917e8ff2"
+}

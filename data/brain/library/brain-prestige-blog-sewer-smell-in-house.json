@@ -1,0 +1,14 @@
+{
+ "name": "Prestige - Blog - Sewer Smell in House",
+ "cat": "brain-prestige",
+ "group": "Blogs",
+ "body": "> Blog · Prestige · 2026-08-01\n\n# Brief\n- Title: Sewer Smell in the House? How to Find the Source and Fix It\n- Slug: /blog/sewer-smell-in-house/. Role: Support 1, the cluster hub and router. Intent: informational. About 1,670 words.\n- Primary keyword: sewer smell in house. Secondaries: why does my house smell like sewage, sewer gas smell in house, sewer smell comes and goes, rotten egg smell in the house, is sewer gas dangerous.\n\n# Angle\nFour sources cover nearly every case: a dried-out trap (the most common), a failed toilet seal, a vent problem, or the sewer line itself (the least common and the only big repair). Sections cover the causes, room-by-room and by-timing tracking, whether sewer gas is dangerous, the fix for each cause, when to call a plumber, and an FAQ.\n\n# Cannibalization control\n- The live post drain-smells-like-sewage covers one drain, trap or vent and stays the deep-dive. This hub links to it.\n- sewage-smell-after-rain covers weather-triggered infiltration and is linked, not repeated.\n- This post is the whole-house router, adding non-drain causes (wax ring, vent stack) and the diagnostic.\n\n# Flag status\n- Depends on the pillar and the rain post being live, because its down-links would 404 otherwise. Publish after both.\n- First-hand proof is optional. Gated for Scott: pricing, free language, warranties, emergency rates.\n\n# Status\nDrip Day 4 (scheduled 2026-08-05). Not yet published per the cluster list.\n\n# Related\n- [Prestige - Sewer Cluster Rollout Plan 2026-08-01](lib:brain-prestige-sewer-cluster-rollout-plan-2026-08-01), [Prestige - Blog - Sewage Smell After Rain](lib:brain-prestige-blog-sewage-smell-after-rain), [Prestige Plumbing (Hub)](lib:brain-prestige-plumbing-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Prestige Plumbing/drafts/blog/sewer-smell-in-house/sewer-smell-in-house.md",
+ "date": "2026-08-01",
+ "createdAt": 1792613568663,
+ "updatedAt": 1792613568664,
+ "rev": "babb61f7df85"
+}

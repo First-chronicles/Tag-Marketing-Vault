@@ -1,0 +1,14 @@
+{
+ "name": "Local SEO Lesson - Module 13 Conducting a Local SEO Audit",
+ "cat": "brain-learning",
+ "group": "Local SEO Lesson",
+ "body": "> Lesson · 2026-10-08\n\n# Summary\nA checklist-driven local SEO audit, run at onboarding and every 6 to 12 months.\n\n# Audit areas\n1. Tools: Screaming Frog, GSC, SEO Minion, MozBar.\n2. On-page: unique titles with location, meta descriptions, one relevant H1, keyword-aligned content, thin pages, contact page with NAP.\n3. GBP and citations: GBP matches the site; sample 5 to 10 major citations; list missing listings.\n4. Backlinks: GSC Links report or Ahrefs; toxic links (rarely an issue for small local sites); competitor link gaps.\n5. Technical: speed, mobile usability, crawl errors, `site:` index check, HTTPS, duplicates.\n6. Competitor benchmarking: reviews, content, FAQs, links.\n7. Report and action plan: issues ranked high, medium, low; fix quick wins immediately.\n\n# How this applies to TAG clients\n- TAG has a dedicated read-only auditor subagent for this (local-seo-auditor, see [Claude Code Agents](lib:brain-claude-code-agents)).\n- Audit evidence goes into [Documentation Screenshots](lib:brain-documentation-screenshots) (audit stage) so every finding has a picture.\n\n# Related\n- [Local SEO Lesson](lib:brain-local-seo-lesson), [Learning Index](lib:brain-learning-index), [Lesson Takeaways 2026-10-08](lib:brain-lesson-takeaways-2026-10-08)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Local SEO lesson/Module 13_ Conducting a Local SEO Audit - Local SEO Masterclass · Local Rank Academy.pdf",
+ "date": "2026-10-08",
+ "createdAt": 1792613193377,
+ "updatedAt": 1792613193377,
+ "rev": "bce7e8d3b905"
+}

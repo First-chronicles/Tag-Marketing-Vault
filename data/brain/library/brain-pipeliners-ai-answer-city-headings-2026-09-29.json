@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - AI Answer City Headings 2026-09-29",
+ "cat": "brain-pipeliners",
+ "group": "City Pages",
+ "body": "> Report · Pipeliners · 2026-09-29\n\n# Summary\nCity-page question headings added Sep 29, 2026 on six city pages: Avondale, Carefree, Goodyear, Rio Verde, Sun City and Surprise. The guarded apply script required the live `_elementor_data` to equal the saved \"before\" copy and was a dry run unless explicitly enabled.\n\n# Key findings\n- Purpose (per later notes): give each page a question-style heading for AI answers. Later drafts found the text under these headings was not yet a 40 to 60 word answer-first block (for example Avondale, Goodyear and Sun City in the Oct 9 strengthen drafts).\n- The SEO Results Scorecard flags these Sep 29 changes as falling inside other measurement windows.\n\n# Files in this folder (rollups only)\n- `before/` and `after/` Elementor JSON per city, `before/live-*.html`, `live/`, `apply_city.php`.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Local Page Strengthen Drafts 2026-10-09](lib:brain-pipeliners-local-page-strengthen-drafts-2026-10-09), [Pipeliners - SEO Results Scorecard 2026-10-12](lib:brain-pipeliners-seo-results-scorecard-2026-10-12)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/aimode-city-2026-09-29",
+ "date": "2026-09-29",
+ "createdAt": 1792613507479,
+ "updatedAt": 1792613567247,
+ "rev": "f8552ed4dfe2"
+}

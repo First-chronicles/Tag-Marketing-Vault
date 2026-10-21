@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Page Tracker",
+ "cat": "brain-summit",
+ "group": "Trackers",
+ "body": "> Tracker · Summit Az · 2026-10-13\n\n# Summary\nRead-only page tracker for every published Summit AZ page and post. `sync.py` pulls all pages and posts from WordPress over SSH (WP-CLI plus Rank Math postmeta), fetches each live URL to read the SEO title, meta description, robots and canonical as Google sees them, merges GSC index status and GSC performance, then writes `data.json` and builds `tracker.html` from `template.html`. Run `python sync.py` (or `--no-ssh` to reuse `wp_pages.json`).\n\n# Latest state (sync 2026-10-12, GSC checked 2026-10-13)\n- 224 rows: 135 local (service x city), 37 service, 33 blog, 10 other, 9 core.\n- `index_status.csv` (205 paths): 181 plain \"Indexed\" plus a handful indexed via URL Inspection on Oct 7; the rest are \"Discovered/Crawled, not indexed\", \"unknown to Google\" or not in the GSC report, most with new internal links and indexing re-requested on Oct 7. `/blog/grease-in-drain/` was published Oct 12 and requested for indexing Oct 13.\n- GSC performance (`perf_meta.json`, pulled Oct 7, last 28 days vs prior 28): clicks 41 vs 38, impressions 11.9K vs 10.4K, average position 25 vs 26.2. Per-page rows in `perf_gsc.csv` (184 paths).\n- Each row carries Rank Math title, focus keyword (`kw`, `kwMore`), description, redirect target, index status and note, HTTP code, published and modified dates.\n\n# Files in this folder\n- `sync.py`, `dump_pages.php`: the sync pipeline (scripts, not summarized further).\n- `tracker.html`, `template.html`, `data.json`, `wp_pages.json`: current build and data.\n- Backups: `index_status.backup-20260917/0923/0925/0930/1007/1013.csv`, `data.backup-2026-09-30.json`, template and tracker backups `pre-kwcheck` (2026-10-01, before a keyword check feature) and `pre-perf` (2026-10-07, before the performance columns).\n- `perf_raw.txt`: raw GSC paste used to build `perf_gsc.csv`.\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Summit AZ - Work Folders Index](lib:brain-summit-az-work-folders-index)\n- [GSC Indexing Tracker](lib:brain-gsc-indexing-tracker), [Google Search Console](lib:brain-google-search-console), [Summit AZ - Perf Tracker](lib:brain-summit-az-perf-tracker)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/page-tracker",
+ "date": "2026-10-13",
+ "createdAt": 1792613122606,
+ "updatedAt": 1792613122607,
+ "rev": "ec050b79d750"
+}

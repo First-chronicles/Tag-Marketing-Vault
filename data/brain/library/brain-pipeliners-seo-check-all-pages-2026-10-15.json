@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - SEO Check All Pages 2026-10-15",
+ "cat": "brain-pipeliners",
+ "group": "Reports",
+ "body": "> Report · Pipeliners · 2026-10-15\n\n# Summary\nAn on-page SEO scorecard of 100 live URLs (52 pages, 48 posts) run Oct 15, 2026 and re-run Oct 16 after fixes. Each row has a score, an issue list, a house-style check, title and meta lengths, H1 and H2 counts, heading skips, images without alt, schema types, internal links, weak anchors, canonical, robots and og:title.\n\n# Key findings\n- Average score 95.4 before and 97.1 after.\n- Most common issues before: skipped heading levels (42 pages), posts with no Article schema (31), missing og/twitter tags (4 to 5), short titles (4), missing metas (3, mostly noindex utility pages).\n- House-style flags: \"Pipeliners USA\" on 25 URLs and \"pipe lining/pipelining\" on 10.\n- Lowest scores were noindex utility pages (/thank-you/ 61, /sales-cost-estimator/ 69) and /contact/ (77).\n- After the Oct 16 pass: Article schema added to the posts that lacked it (31 posts per the change log) and og/twitter tags fixed on /contact/, /should-i-diy-pipe-repair/, /trenchless-drain-pipe-repair/ and /fort-mcdowell/. 13 posts reached 100. Heading-skip issues remained.\n\n# Files in this folder (rollups only)\n- `seo_check_all_pages.csv` (Oct 15) and `seo_check_all_pages_after_2026-10-16.csv`.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - SEO Change Log](lib:brain-pipeliners-seo-change-log), [Pipeliners - Schema Accuracy Audit 2026-10-08](lib:brain-pipeliners-schema-accuracy-audit-2026-10-08)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/reports/seo-check-2026-10-15",
+ "date": "2026-10-15",
+ "createdAt": 1792613209741,
+ "updatedAt": 1792613567037,
+ "rev": "b7f9eb2946f0"
+}

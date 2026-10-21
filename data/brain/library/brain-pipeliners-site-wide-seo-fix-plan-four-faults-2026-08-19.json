@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Site-Wide SEO Fix Plan Four Faults 2026-08-19",
+ "cat": "brain-pipeliners",
+ "group": "Plans",
+ "body": "> Plan · Pipeliners · 2026-08-19\n\n# Summary\nA Word doc (19 Aug 2026) of remediation steps for four faults that repeat on the three priority URLs: /buckeye/, the homepage and /paradise-valley/. Data: GSC (US) May 19 to Aug 17 vs Feb 18 to May 18. Proposals only. Constraint noted throughout: Rank Math is deactivated, so titles, H1s, metas and schema are set in OTTO; Elementor caches must be cleared and the CDN purged for changes to show.\n\n# The four faults\n1. **Rebuild the H2 layer:** query-matching headings sat at H3/H4 while H2s held filler (\"Understanding Trenchless Technology\" was byte-identical on two pages). Rule: one H2 per query family with a service noun and the city; never reuse an H2 across city pages. Keep \"Pipe Repair in Buckeye\" (position 6) intact. Homepage retreats to brand and statewide so /phoenix/ can consolidate, in two phases.\n2. **One FAQPage per URL:** Buckeye and Paradise Valley emitted two FAQPage blocks (36 questions). Keep the mu-plugin as the single emitter, cut to about 8 questions matched to GSC queries, enforce visible parity. Notes that FAQ rich results were retired for most sites in Aug 2023.\n3. **Add LocalBusiness schema:** none existed. A sitewide Plumber/LocalBusiness entity with confirm-first values (phone, review count, exact geo, real hours).\n4. **Citations and links:** claim Tier 1 citations after fixing NAP, then manufacturer and trade directories (Perma-Liner, ePIPE/ACE DuraFlo installer list, NASSCO, chambers, ROC lookup). Do not disavow the spam profile; do not repeat press-release syndication.\n\nAlso flagged: rendering defects (empty white bands, black video blocks), likely LiteSpeed JS Minify.\n\n# Superseded points\nThe tables propose \"Emergency & Same-Day\" H2s, price sections and 24/7 hours. Since Oct 1 these are banned (no 24/7, no same day, no prices).\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Schema and Headings Report 2026-08-19](lib:brain-pipeliners-schema-and-headings-report-2026-08-19), [Pipeliners - Schema Markup Package 2026-08-19](lib:brain-pipeliners-schema-markup-package-2026-08-19), [Pipeliners - Decisions and Rules](lib:brain-pipeliners-decisions-and-rules)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/Pipeliners - Site-Wide SEO Fix Plan (Four Faults).docx",
+ "date": "2026-08-19",
+ "createdAt": 1792613171241,
+ "updatedAt": 1792613171241,
+ "rev": "854a12b201fa"
+}

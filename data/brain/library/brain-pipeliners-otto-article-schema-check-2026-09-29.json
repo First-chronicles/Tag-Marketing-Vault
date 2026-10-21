@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - OTTO Article Schema Check 2026-09-29",
+ "cat": "brain-pipeliners",
+ "group": "Audits",
+ "body": "> Audit · Pipeliners · 2026-09-29\n\n# Summary\nWorking files from Sep 29, 2026 on the OTTO-injected Article schema (including the `articleBody` text) for three posts: /cipp-vs-traditional-sewer-line-replacement-pros-and-cons/, /a-homeowners-guide-to-detecting-and-preventing-root-intrusion-in-pipes/ and /common-myths-about-trenchless-sewer-repair-debunked/. No written notes; details come from the saved files.\n\n# Key findings\n- The folder holds the original OTTO schema for three OTTO records, the OTTO page payloads (header meta, og and twitter tags, schema blocks) and live desktop and mobile HTML plus headers for two posts.\n- Per the files, OTTO was serving cached pages (OTTO cache HIT). The articleBody in OTTO schema still carried old post text, which is the likely reason for the check after the Sep 29 content edits.\n\n# Files in this folder (rollups only)\n- `original-schema-*.json`, `payload-*.json`, `live-*.html`, `h-*.txt`.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Search Atlas](lib:brain-search-atlas), [Pipeliners - Schema Accuracy Audit 2026-10-08](lib:brain-pipeliners-schema-accuracy-audit-2026-10-08)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/otto-articlebody-2026-09-29",
+ "date": "2026-09-29",
+ "createdAt": 1792613507481,
+ "updatedAt": 1792613567248,
+ "rev": "8dbb294ae836"
+}

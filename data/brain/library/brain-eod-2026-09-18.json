@@ -1,0 +1,14 @@
+{
+ "name": "EOD 2026-09-18",
+ "cat": "brain-eod",
+ "group": "2026-09 September",
+ "body": "> Eod · Alphalete · 2026-09-18\n\nSource: `C:\\TAG Marketing Claude\\Alphalete Trenchless Pipelining\\EOD Report 2026-09-18.txt`\n\nFriday. Alphalete-only report. The .md and .txt files are two formats of the same report (the .md uses Problem / What was done / Result blocks; the .txt is a plain-text version with the same facts).\n\n# Alphalete Trenchless\nSee [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub).\n- Search Console duplicate canonical (4 URLs) from the Jul 17 blog move: site already correct; indexing requested and validation started Sep 17. Google takes 2 to 4 weeks.\n- Rewrote \"Trenchless vs Traditional Sewer Repair\" (1,160 to 1,800 words): comparison table, CIPP vs pipe bursting, cost factors, Colorado section, 2 FAQs, 3 added keywords (sewer pipe lining vs replacement 90/mo, is trenchless sewer repair cheaper 40/mo, sewer line repair options 50/mo). Wikipedia swapped for 2 EPA sources.\n- Hydro jetting service page: an old blog URL held 1,002 impressions while the service page had 32 ever. Repointed the old URL to the service page; removed a tracking parameter crediting visits to ChatGPT, fixed a mislinked icon, softened 2 overpromises, updated FAQ and schema; added 2 Scott-approved sections plus a Denver mention (852 to 1,135 words). Indexing requested.\n- Keyword audit (GSC 7-day, 28-day, 3-month): no useful position #2 terms; 92 page-2 keywords, 28 relevant. Blogs hold nearly all visibility (one post 15,841 impressions); service pages almost none. Old pre-move URLs still hold signal (cast iron post 790 vs 49). Semrush estimates not used for decisions.\n- Audit fixes: indexing requested for the cast iron post; what-is post now links to the process post so it owns \"how does trenchless sewer repair work\"; metas added to the how-often post (page 1, 0.7% CTR) and the process post.\n- Meta descriptions: 48 of 48 blog posts now have one (up from 11). 37 updated, all 70 to 158 characters, unique, no prices, phones or warranty claims.\n\n# Follow-ups\n- Scott: confirm the cast iron branch-connection FAQ wording, the \"18 to 24 month\" jetting interval, and whether Aurora is a service area.\n- Oct 14 to 16: re-measure and decide which post owns \"pros and cons\".\n- Canonical validation completes 2 to 4 weeks from Sep 17.\n\n# Related\n- [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub), [Google Search Console](lib:brain-google-search-console), [EOD Reports Index](lib:brain-eod-reports-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Alphalete Trenchless Pipelining/EOD Report 2026-09-18.md",
+ "date": "2026-09-18",
+ "createdAt": 1792612865141,
+ "updatedAt": 1792612865142,
+ "rev": "9da94f00a8f8"
+}

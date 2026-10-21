@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Blog - Tankless Water Heater Descaling",
+ "cat": "brain-summit",
+ "group": "Blogs",
+ "body": "> Blog · Summit Az · 2026-09-17\n\n# Summary\nDraft for Kim titled \"Tankless Water Heater Descaling: How Often in Arizona Hard Water\". File status says draft, not published anywhere, but the page tracker shows `/blog/tankless-water-heater-descaling-arizona/` published 2026-09-16 with this keyphrase, so the live post and this file are the same topic (dates differ by a day; confirm which version is live).\n\n# Key facts\n- Focus keyphrase: tankless water heater descaling (5,400 US monthly searches, KD 21, Search Atlas). Old focus \"how often to flush a tankless water heater\" (40 / 29) retired.\n- Secondary phrases with volume: tankless water heater maintenance (18,100 / 25), descale tankless water heater (5,400 / 19), flush service (880 / 10), how often to flush (390 / 24), hard water (260 / 27). Transactional and step-by-step terms deliberately left to service pages.\n- Rank Math SEO title has no brand suffix (would exceed 60 chars). Slug `tankless-water-heater-descaling-arizona`.\n- Internal links: 5 unique URLs confirmed live 2026-09-17. Brief slugs for the hard-water and tankless-vs-tank posts were wrong; live slugs used and only the tankless-vs-tank post linked.\n- energy.gov pages returned 404 to the fetch tool, so no DOE link was cited.\n- Pre-publish checklist: keyphrase placement pass, Arizona only, no Utah mention.\n\n# Versions\n- `.md` and `.html` in `blogs\\drafts\\`; banner `tankless-water-heater-descaling-arizona.jpg/.png` plus `_make_banner_tankless_descaling.py`.\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Summit AZ - Work Folders Index](lib:brain-summit-az-work-folders-index), [Summit AZ - Blogs Folder Overview](lib:brain-summit-az-blogs-folder-overview)\n- [SEO Blog Writing Standards](lib:brain-seo-blog-writing-standards), [Blog Master List](lib:brain-blog-master-list)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/blogs/drafts/Summit-AZ-Blog-Tankless-Flushing-2026-09-17.md",
+ "date": "2026-09-17",
+ "createdAt": 1792612916473,
+ "updatedAt": 1792612916473,
+ "rev": "19344664ff27"
+}

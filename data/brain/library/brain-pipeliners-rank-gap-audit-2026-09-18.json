@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Rank Gap Audit 2026-09-18",
+ "cat": "brain-pipeliners",
+ "group": "Reports",
+ "body": "> Report · Pipeliners · 2026-09-18\n\n# Summary\nAudit of the keywords Semrush showed at #2 and on page 2 (US desktop, Sep 15 to 16) checked against GSC (https property via the Search Atlas API). Built as a sheet-style HTML report on Sep 18. Changes C6 to C8 were applied Sep 17; the rest was pending.\n\n# Key findings\n- 25 qualifying keywords, 0 clicks in every window (7 days, 28 days, 3 months).\n- \"trenchless sewer repair mesa\" at #2 in Semrush is the GBP / local-pack slot (credited to the GBP UTM URL), not an organic page. Organically /mesa/ sits around position 42 (pages 4 to 7).\n- 7 rows actionable now on 4 pages not edited in the last two weeks (San Tan Valley 2, Paradise Valley 3, Apache Junction 1, Fort McDowell 1). 8 rows on HOLD on pages edited Sep 15 to 16 (Buckeye, Fountain Hills, Florence) until their scheduled reads (Buckeye Sep 30, others Oct 9). 5 monitor, 5 excluded.\n- Semrush \"-54% traffic\" is a modeled estimate; GSC real clicks were flat to slightly down. Do not report -54% as a real loss.\n- GSC and Semrush disagree by 10 to 40 positions on several city terms.\n\n# Decisions and status\n- Risks to avoid: re-editing pages mid-measurement, H1 fixes that bypass the OTTO override layer, chasing false relevance (gas, competitor brands).\n- GBP-side moves are report-only (Kim's call).\n\n# Files in this folder (rollups only)\n- `pipeliners-rank-gap-audit.html`: the audit sheet.\n- `gsc_windows.csv`: GSC metrics per keyword per window.\n- `sheet-template.html`, `crawl.json`, `build.py`: build files.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Blog Rankings and Low-Hanging Fruit 2026-09-19](lib:brain-pipeliners-blog-rankings-and-low-hanging-fruit-2026-09-19), [Search Atlas](lib:brain-search-atlas), [Google Search Console](lib:brain-google-search-console)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/reports/rank-gap-audit-2026-09-18",
+ "date": "2026-09-18",
+ "createdAt": 1792613134544,
+ "updatedAt": 1792613566981,
+ "rev": "367d0b9aeb65"
+}

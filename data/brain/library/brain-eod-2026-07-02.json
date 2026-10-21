@@ -1,0 +1,14 @@
+{
+ "name": "EOD 2026-07-02",
+ "cat": "brain-eod",
+ "group": "2026-07 July",
+ "body": "> Eod · 2026-07-02\n\nSource: `C:\\TAG Marketing Claude\\_Shared (All Clients)\\EOD Reports\\EOD Report 2026-07-02.txt`\n\nThursday. Two single-client sessions.\n\n# Alphalete Trenchless\nFile: `EOD Report 2026-07-02 Alphalete.txt`. See [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub).\n- Diagnosed \"Not available\" Yoast SEO and Readability scores on all 20 blog posts: Elementor-built posts never saved through the block editor, so Yoast never cached scores.\n- Fix: open and save each post in the block editor. Proved on 2 posts, then applied to the remaining 7.\n- Result: 0 \"Not available\"; 17 posts green on both scores; 3 orange for real content issues (passive voice over 10% and repeated sentence openers): How Long Does Trenchless Sewer Repair Take?, Tree Roots in Sewer Line?, Sewer Line Repair Without Digging.\n\n# Pipeliners\nFile: `EOD Report 2026-07-02.txt`. See [Pipeliners (Hub)](lib:brain-pipeliners-hub).\n- Sidebar Social Links widget cleanup: removed theme-vendor (pixfort) X/Twitter and Dribbble placeholders, pointed Facebook and Instagram to the real Pipeliners accounts, added LinkedIn. Now 3 verified icons, live.\n\n# Follow-ups\n- Alphalete: fix passive voice and sentence openers on the 3 orange posts via Elementor (no deadline).\n- Pipeliners: none; footer and other widget social links could be a separate pass.\n\n# Related\n- [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub), [Pipeliners (Hub)](lib:brain-pipeliners-hub), [EOD Reports Index](lib:brain-eod-reports-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "_Shared (All Clients)/EOD Reports/EOD Report 2026-07-02 Alphalete.txt",
+ "date": "2026-07-02",
+ "createdAt": 1792612756498,
+ "updatedAt": 1792612756499,
+ "rev": "8e623cd7036a"
+}

@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - WP Staging Pages",
+ "cat": "brain-summit",
+ "group": "Drafts",
+ "body": "> Log · Summit Az · 2026-06-18\n\n# Summary\nWP-ready HTML bodies, metadata and FAQ JSON staged on 2026-06-18 for two batches of city pages, built from the late May drafts.\n\n# Batch 2 (`meta-batch2.json`)\n- New pages: drain cleaning Fountain Hills, water leak detection Scottsdale, water heater services Queen Creek.\n- Rebuilt to fix broken canonicals: water heater services Fountain Hills, Gilbert, San Tan Valley (their canonicals pointed at other pages; the 2026-06-23 audit confirmed them self-canonical).\n- Each entry: slug, title, focus keyword, SEO title, meta description and 5 FAQs (also in `faqs\\*.json`).\n\n# Water softener batch (`water-softener\\meta.json`)\n- Mesa, Phoenix, Queen Creek, Scottsdale, Tempe installation pages with focus keyword \"water softener installation in {city}\", SEO title, meta and 5 FAQs each.\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Summit AZ - Work Folders Index](lib:brain-summit-az-work-folders-index)\n- [Summit AZ - Drafts Folder Overview](lib:brain-summit-az-drafts-folder-overview)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/wp-staging",
+ "date": "2026-06-18",
+ "createdAt": 1792613128008,
+ "updatedAt": 1792613128008,
+ "rev": "37cad78b7e14"
+}

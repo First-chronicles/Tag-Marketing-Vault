@@ -1,0 +1,248 @@
+<title>Pipeliners Organic Scorecard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  --ground:#F4F6F5; --paper:#FFFFFF; --ink:#16211E; --muted:#56635F; --line:#D5DCD9; --soft:#E9EEEC;
+  --accent:#1D5B6E; --accent-soft:#DCEBEF;
+  --good:#256B45; --good-soft:#E0F0E6; --warn:#946010; --warn-soft:#F7ECD6; --bad:#A83A2A; --bad-soft:#F6E1DD;
+  --na:#6B7471; --na-soft:#ECEEED;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#101614; --paper:#17201D; --ink:#E4ECE9; --muted:#9AA8A3; --line:#2C3834; --soft:#1E2925;
+    --accent:#7FC0D3; --accent-soft:#1B3540;
+    --good:#7CCB9C; --good-soft:#173226; --warn:#E3B45F; --warn-soft:#3A2D14; --bad:#F09383; --bad-soft:#3D1E19;
+    --na:#9AA3A0; --na-soft:#232B28;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#101614; --paper:#17201D; --ink:#E4ECE9; --muted:#9AA8A3; --line:#2C3834; --soft:#1E2925;
+  --accent:#7FC0D3; --accent-soft:#1B3540;
+  --good:#7CCB9C; --good-soft:#173226; --warn:#E3B45F; --warn-soft:#3A2D14; --bad:#F09383; --bad-soft:#3D1E19;
+  --na:#9AA3A0; --na-soft:#232B28;
+}
+body{background:var(--ground);color:var(--ink);font:15px/1.6 "IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px;padding-block:28px 64px}
+h1,h2,h3{font-family:Archivo,"IBM Plex Sans",system-ui,sans-serif;text-wrap:balance;line-height:1.2;margin:0}
+h1{font-size:clamp(1.7rem,3.6vw,2.4rem);font-weight:800;letter-spacing:-.01em}
+h2{font-size:1.35rem;font-weight:800;margin-bottom:12px;display:flex;gap:10px;align-items:baseline}
+h2 .n{font-family:"IBM Plex Mono",monospace;font-size:.85rem;color:var(--accent);font-weight:600}
+h3{font-size:1.02rem;font-weight:700;margin:18px 0 8px}
+p{margin:0 0 10px;max-width:72ch}
+.mono,td.num,th.num{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+header{display:grid;gap:10px;border-bottom:2px solid var(--ink);padding-bottom:18px;margin-bottom:22px}
+.windows{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.win{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:6px 10px;font-size:.82rem}
+.win b{font-family:Archivo,sans-serif}
+section{margin-top:34px}
+.summary{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:6px;padding:16px 18px}
+.summary p{margin:0 0 6px}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--paper)}
+table{border-collapse:collapse;width:100%;font-size:.86rem}
+th,td{padding:7px 10px;text-align:left;vertical-align:top;border-bottom:1px solid var(--soft)}
+th{background:var(--soft);font-weight:600;font-size:.78rem;white-space:nowrap}
+td.num,th.num{text-align:right;white-space:nowrap}
+tr.grp td{background:var(--accent-soft);font-weight:600;font-family:Archivo,sans-serif;font-size:.82rem}
+.up{color:var(--good);font-weight:600}.down{color:var(--bad);font-weight:600}.flat{color:var(--muted)}
+.na{color:var(--na);font-style:italic}
+.src{color:var(--muted);font-size:.78rem}
+.pill{display:inline-block;padding:1px 8px;border-radius:999px;font-size:.72rem;font-weight:600;white-space:nowrap;font-family:"IBM Plex Sans",sans-serif}
+.p-crit{background:var(--bad-soft);color:var(--bad)}.p-high{background:var(--warn-soft);color:var(--warn)}
+.p-med{background:var(--accent-soft);color:var(--accent)}.p-low{background:var(--na-soft);color:var(--na)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.box{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:14px 16px}
+.box ul{margin:0;padding-left:18px}.box li{margin:4px 0}
+.note{font-size:.84rem;color:var(--muted);max-width:none}
+.top5{counter-reset:t;list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.top5 li{counter-increment:t;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:10px 14px 10px 48px;position:relative}
+.top5 li::before{content:counter(t);position:absolute;left:14px;top:9px;font-family:Archivo,sans-serif;font-weight:800;font-size:1.2rem;color:var(--accent)}
+dl.decide{display:grid;gap:10px;margin:0}
+dl.decide div{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:12px 16px}
+dt{font-family:Archivo,sans-serif;font-weight:700;margin-bottom:4px}
+dd{margin:0}
+footer{margin-top:40px;border-top:1px solid var(--line);padding-top:14px;font-size:.8rem;color:var(--muted)}
+code{font-family:"IBM Plex Mono",monospace;font-size:.85em;background:var(--soft);padding:0 4px;border-radius:3px;word-break:break-word}
+a{color:var(--accent)}
+@media print{
+  @page{size:A4 landscape;margin:10mm}
+  body{font-size:10px;background:#fff}
+  .wrap{max-width:none;padding:0}
+  .tbl{overflow:visible;border:0}
+  table{font-size:8.5px;table-layout:auto}
+  th,td{padding:3px 5px}
+  th,td.num,td.num,.pill{white-space:normal}
+  tr{break-inside:avoid}
+  section{break-inside:auto}
+}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">Pipeliners · Mesa, AZ · Snapshot Sep 16, 2026</div>
+  <h1>Organic SEO report</h1>
+  <p class="note">Every period ends <b>Sep 12</b>, the last full day of Google data. Each number is only compared with its own previous period.</p>
+  <div class="windows">
+    <div class="win"><b>30 days</b> <span class="mono">Aug 14 – Sep 12</span> vs <span class="mono">Jul 15 – Aug 13</span></div>
+    <div class="win"><b>28 days</b> <span class="mono">Aug 16 – Sep 12</span> vs <span class="mono">Jul 19 – Aug 15</span></div>
+    <div class="win"><b>7 days</b> <span class="mono">Sep 6 – Sep 12</span> vs <span class="mono">Aug 30 – Sep 5</span></div>
+  </div>
+</header>
+
+<section>
+<h2><span class="n">1</span>Summary</h2>
+<div class="summary">
+<p><b>Better:</b> leads from the Google Business Profile more than doubled (24 vs 11), and organic search leads rose to 4, with 3 booked jobs.</p>
+<p><b>Worse:</b> clicks from non-brand searches fell 20% (39 vs 49), and keywords on page 1 dropped from 59 to 33.</p>
+<p><b>Biggest opportunity:</b> the Florence page for "florence pipe break repair", which slipped from position 4 to 15.</p>
+<p><b>Main concern:</b> growth is coming from the brand and the Business Profile, not from new rankings.</p>
+<p><b>Also check:</b> an unconfirmed phone number, (480) 969-7978, is listed on Birdeye and one installer directory.</p>
+</div>
+</section>
+
+<section>
+<h2><span class="n">2</span>Key numbers</h2>
+<div class="tbl"><table>
+<thead><tr><th>Metric</th><th class="num">30 days</th><th class="num">Before</th><th class="num">Change</th><th class="num">28 days</th><th class="num">Before</th><th class="num">Change</th><th class="num">7 days</th><th class="num">Before</th><th class="num">Change</th><th>Source</th></tr></thead>
+<tbody>
+<tr class="grp"><td colspan="11">Google search</td></tr>
+<tr><td>Clicks</td><td class="num">60</td><td class="num">63</td><td class="num down">−5%</td><td class="num">56</td><td class="num">60</td><td class="num down">−7%</td><td class="num">19</td><td class="num">6</td><td class="num up">+217%</td><td class="src">Search Console</td></tr>
+<tr><td>Impressions</td><td class="num">26,447</td><td class="num">26,747</td><td class="num down">−1%</td><td class="num">25,064</td><td class="num">24,553</td><td class="num up">+2%</td><td class="num">5,550</td><td class="num">7,147</td><td class="num down">−22%</td><td class="src">Search Console</td></tr>
+<tr><td>Click rate</td><td class="num">0.23%</td><td class="num">0.24%</td><td class="num down">−4%</td><td class="num">0.22%</td><td class="num">0.24%</td><td class="num down">−9%</td><td class="num">0.34%</td><td class="num">0.08%</td><td class="num up">+307%</td><td class="src">Search Console</td></tr>
+<tr><td>Average position</td><td class="num">48.4</td><td class="num">44.3</td><td class="num down">4 worse</td><td class="num">48.6</td><td class="num">44.3</td><td class="num down">4 worse</td><td class="num">50.4</td><td class="num">46.1</td><td class="num down">4 worse</td><td class="src">Search Console</td></tr>
+<tr><td>Brand clicks</td><td class="num">21</td><td class="num">14</td><td class="num up">+50%</td><td class="num">19</td><td class="num">16</td><td class="num up">+19%</td><td class="num">7</td><td class="num">3</td><td class="num up">+133%</td><td class="src">Search Console</td></tr>
+<tr><td>Non-brand clicks</td><td class="num">39</td><td class="num">49</td><td class="num down">−20%</td><td class="num">37</td><td class="num">44</td><td class="num down">−16%</td><td class="num">12</td><td class="num">3</td><td class="num up">+300%</td><td class="src">Search Console</td></tr>
+<tr><td>Desktop · mobile clicks</td><td class="num">35 · 25</td><td class="num">36 · 27</td><td class="num down">−3% · −7%</td><td class="num">33 · 23</td><td class="num">34 · 26</td><td class="num down">−3% · −12%</td><td class="num">12 · 7</td><td class="num">2 · 4</td><td class="num up">+500% · +75%</td><td class="src">Search Console</td></tr>
+<tr><td>Keywords at #1–3 · #4–10</td><td class="num">24 · 33</td><td class="num">16 · 59</td><td class="num down">+50% · −44%</td><td class="num">24 · 33</td><td class="num">15 · 51</td><td class="num down">+60% · −35%</td><td class="num">7 · 20</td><td class="num">17 · 36</td><td class="num down">−59% · −44%</td><td class="src">Search Atlas</td></tr>
+<tr><td>Keywords at #11–20 · #21–50</td><td class="num">136 · 463</td><td class="num">177 · 541</td><td class="num down">−23% · −14%</td><td class="num">136 · 458</td><td class="num">169 · 508</td><td class="num down">−20% · −10%</td><td class="num">96 · 298</td><td class="num">121 · 292</td><td class="num">−21% · +2%</td><td class="src">Search Atlas</td></tr>
+<tr class="grp"><td colspan="11">Website visits from organic search (GA4)</td></tr>
+<tr><td>Sessions · users</td><td class="num">174 · 101</td><td class="num">179 · 114</td><td class="num down">−3% · −11%</td><td class="num">159 · 93</td><td class="num">166 · 106</td><td class="num down">−4% · −12%</td><td class="num">34 · 27</td><td class="num">33 · 17</td><td class="num up">+3% · +59%</td><td class="src">GA4</td></tr>
+<tr><td>Engaged sessions</td><td class="num">93</td><td class="num">102</td><td class="num down">−9%</td><td class="num">87</td><td class="num">94</td><td class="num down">−7%</td><td class="num">20</td><td class="num">19</td><td class="num up">+5%</td><td class="src">GA4</td></tr>
+<tr class="grp"><td colspan="11">Leads</td></tr>
+<tr><td>Organic search leads · booked</td><td class="num">4 · 3</td><td class="num">2 · 0</td><td class="num up">+100%</td><td class="num">3 · 2</td><td class="num">3 · 1</td><td class="num flat">0%</td><td class="num">1 · 0</td><td class="num">0 · 0</td><td class="num flat">–</td><td class="src">TAG CRM</td></tr>
+<tr><td>Business Profile leads · booked</td><td class="num">24 · 5</td><td class="num">11 · 4</td><td class="num up">+118%</td><td class="num">23 · 5</td><td class="num">11 · 4</td><td class="num up">+109%</td><td class="num">8 · 1</td><td class="num">5 · 0</td><td class="num up">+60%</td><td class="src">TAG CRM</td></tr>
+<tr><td>Forms (all sources)</td><td class="num">2</td><td class="num">6</td><td class="num down">−67%</td><td class="num">2</td><td class="num">5</td><td class="num down">−60%</td><td class="num">0</td><td class="num">0</td><td class="num flat">–</td><td class="src">TAG CRM</td></tr>
+<tr><td>Free-estimate requests</td><td class="num na" colspan="9">Data unavailable</td><td class="src">TAG CRM</td></tr>
+<tr class="grp"><td colspan="11">Google Business Profile</td></tr>
+<tr><td>Views</td><td class="num">1,266</td><td class="num">1,067</td><td class="num up">+19%</td><td class="num">1,180</td><td class="num">1,057</td><td class="num up">+12%</td><td class="num">241</td><td class="num">371</td><td class="num down">−35%</td><td class="src">Business Profile</td></tr>
+<tr><td>Calls · website clicks</td><td class="num">20 · 29</td><td class="num">19 · 30</td><td class="num flat">+5% · −3%</td><td class="num">19 · 29</td><td class="num">17 · 28</td><td class="num up">+12% · +4%</td><td class="num">5 · 9</td><td class="num">1 · 2</td><td class="num up">+400% · +350%</td><td class="src">Business Profile</td></tr>
+<tr><td>Direction requests</td><td class="num">39</td><td class="num">65</td><td class="num down">−40%</td><td class="num">38</td><td class="num">53</td><td class="num down">−28%</td><td class="num">9</td><td class="num">6</td><td class="num up">+50%</td><td class="src">Business Profile</td></tr>
+<tr class="grp"><td colspan="11">Pages in Google (today only, no history)</td></tr>
+<tr><td>Indexed · not indexed</td><td class="num" colspan="9" style="text-align:left">104 indexed · 173 not indexed (56 set to noindex, 43 crawled but not indexed, 42 blocked by robots.txt)</td><td class="src">Search Console</td></tr>
+</tbody></table></div>
+<p class="note">Search Console numbers include clicks on the Business Profile's website link (27 of the 60 clicks in the last 30 days). Keyword positions come from the website-only data in Search Atlas. Lead sources are the CRM's own labels; no lead records which page it came from.</p>
+</section>
+
+<section>
+<h2><span class="n">3</span>What's working</h2>
+<div class="box"><ul>
+<li><b>Business Profile:</b> the #1 lead source (24 leads, 5 booked, $27,590 in 30 days), with 123 reviews at 4.99★.</li>
+<li><b>Brand searches:</b> clicks up 50% (21 vs 14).</li>
+<li><b>Last 7 days:</b> Google clicks jumped to 19 from 6.</li>
+<li><b>City pages moving up:</b> Mesa (position 48 to 39), Tempe (31 to 25), Sun City (34 to 24) and San Tan Valley (33 to 25), likely from the late-August city page updates.</li>
+</ul></div>
+</section>
+
+<section>
+<h2><span class="n">4</span>What's slipping</h2>
+<div class="box"><ul>
+<li><b>Page 1 keywords:</b> down from 59 to 33, which is why non-brand clicks fell.</li>
+<li><b>Buckeye:</b> impressions halved (733 to 360) after the Sep 1 rewrite dropped the "pipe break" wording. That section was added back Sep 15.</li>
+<li><b>Florence:</b> "florence pipe break repair" slipped from #4 to #15. The page mentions "pipe break" only once.</li>
+<li><b>Epoxy pipe lining page:</b> impressions fell from 125 to 14.</li>
+<li><b>7 blog pages</b> lost most of their impressions. Checked Sep 17: 3 are no longer in Google (cost guide, what is trenchless pipe repair, tree roots) and 4 are indexed but near zero. They need improving or merging before asking Google to re-index.</li>
+<li><b>Business Profile directions:</b> down 40%, and no new reviews since Jul 5.</li>
+</ul></div>
+</section>
+
+<section>
+<h2><span class="n">5</span>Quick wins</h2>
+<p class="note"><b>Update Sep 17:</b> all 5 quick wins below are now live (approved by Kim). Correction: the Phoenix heading was already "Phoenix Trenchless Pipe Repair &amp; Restoration | Pipeliners USA", not just "Phoenix"; it is now "Trenchless Sewer Repair in Phoenix, AZ".</p>
+<div class="tbl"><table>
+<thead><tr><th>Page</th><th>Search (impressions @ position)</th><th>Fix</th></tr></thead>
+<tbody>
+<tr><td><code>/florence/</code></td><td>florence pipe break repair (96 @15)</td><td>Add a "Pipe Break Repair in Florence, AZ" section and FAQ; match the heading to the title.</td></tr>
+<tr><td><code>/phoenix/</code></td><td>sewer pipe relining in phoenix (121 @40); page has 1,187 impressions and 0 clicks</td><td>Change the heading to "Trenchless Sewer Repair in Phoenix, AZ"; add a short answer near the top and links from popular blog posts.</td></tr>
+<tr><td><code>/chandler/</code></td><td>sewer line repair in chandler az (191 @44)</td><td>Use that one phrase in the title, heading, description and first paragraph.</td></tr>
+<tr><td><code>/hydro-jetting/</code></td><td>hydro jetting phoenix az (65 @74)</td><td>Change the heading to "Hydro Jetting Drain Cleaning in Phoenix, AZ"; add Hydro Jetting to the Business Profile.</td></tr>
+<tr><td><code>/queen-creek/</code></td><td>sewer line repair queen creek (17 @12)</td><td>Change the heading to "Sewer Line Repair in Queen Creek, AZ".</td></tr>
+</tbody></table></div>
+<p class="note">Pages changed Sep 15-16 (Tempe, Mesa, Gilbert, Fountain Hills, Fort McDowell, Maricopa, Litchfield Park, Buckeye) are left alone so their results can be measured.</p>
+</section>
+
+<section>
+<h2><span class="n">6</span>Issues to fix</h2>
+<div class="tbl"><table>
+<thead><tr><th>Severity</th><th>Issue</th><th>Where</th><th>Fix</th></tr></thead>
+<tbody>
+<tr><td><span class="pill p-high">High</span></td><td>Unconfirmed phone number (480) 969-7978</td><td>Birdeye, Ace DuraFlo directory</td><td>Ask the owner; correct it to 480-447-5345 if it isn't a tracking line.</td></tr>
+<tr><td><span class="pill p-high">High</span></td><td>Chat and form leads arrive without a source or page</td><td>TAG CRM (10 "Other" leads in 30 days)</td><td>Send the source and landing page with each chat and form.</td></tr>
+<tr><td><span class="pill p-high">High</span></td><td>Star rating in the page code (4.9 / 122) isn't shown on the page</td><td>33 city pages</td><td>Show the real Google rating (4.99 / 123) or remove it from the code. Kim decides.</td></tr>
+<tr><td><span class="pill p-high">High</span></td><td>Missing or city-name-only headings <b>(fixed Sep 17)</b></td><td>/services/, /sun-city/, /sun-city-west/, /sun-lakes/. Correction: Avondale, Goodyear and San Tan Valley already had proper headings.</td><td>Done: "Service in City, AZ" headings.</td></tr>
+<tr><td><span class="pill p-high">High</span></td><td>Few links to key pages</td><td>/mesa/ (8 pages link to it), /phoenix/ (6), /epoxy-pipe-lining/ (5)</td><td>Add links from high-traffic blog posts.</td></tr>
+<tr><td><span class="pill p-high">High</span></td><td>60 hidden broken links on the homepage</td><td>Homepage (OTTO)</td><td>Turn off the old OTTO link block. Ask Kim first.</td></tr>
+<tr><td><span class="pill p-med">Medium</span></td><td>No commercial or multifamily page</td><td>/commercial/ goes to a blog post</td><td>Build the page with a real project example.</td></tr>
+<tr><td><span class="pill p-med">Medium</span></td><td>Business Profile lists 12 services Pipeliners doesn't offer; Hydro Jetting is missing</td><td>Business Profile</td><td>Fix the services list and description.</td></tr>
+<tr><td><span class="pill p-med">Medium</span></td><td>"Pipeliners USA" used instead of "Pipeliners"</td><td>57 titles, 18 headings</td><td>Update in OTTO.</td></tr>
+</tbody></table></div>
+<p class="note">480-535-6503 and 480-680-9480 are intentional call-tracking numbers, not errors.</p>
+</section>
+
+<section>
+<h2><span class="n">7</span>Leads</h2>
+<div class="box"><ul>
+<li>In the last 30 days, the Business Profile and organic search brought in <b>28 of 69 leads and 8 of 14 booked jobs</b>. Google Ads brought in 4 leads and 1 booking.</li>
+<li>Organic search: 4 leads, 3 booked ($17,600). That's a small number, so treat it as a direction, not a trend.</li>
+<li>These are the CRM's source labels, not proof that a specific page or ranking produced a job.</li>
+</ul></div>
+</section>
+
+<section>
+<h2><span class="n">8</span>Action plan</h2>
+<h3>Top 5</h3>
+<ol class="top5">
+<li><b>Florence:</b> add the pipe-break section and FAQ.</li>
+<li><b>Phoenix:</b> focus the heading on trenchless sewer repair and add links from blog posts.</li>
+<li><b>Business Profile:</b> fix the services list and ask recently booked customers for reviews.</li>
+<li><b>Chandler:</b> focus the page on "sewer line repair in Chandler, AZ".</li>
+<li><b>CRM:</b> send the source and page with every chat and form.</li>
+</ol>
+<div class="tbl" style="margin-top:16px"><table>
+<thead><tr><th>When</th><th>Action</th><th>Where</th><th>Why</th><th>Effort</th><th>Deadline</th></tr></thead>
+<tbody>
+<tr class="grp"><td colspan="6">Do now</td></tr>
+<tr><td><span class="pill p-crit">Now</span></td><td>Confirm (480) 969-7978 and correct the listings</td><td>Birdeye, Ace DuraFlo</td><td>A wrong number can lose calls</td><td>Small</td><td class="mono">Sep 18</td></tr>
+<tr><td><span class="pill p-crit">Now</span></td><td>Add the source and page to chats and forms</td><td>Website, TAG CRM</td><td>10 leads with no source</td><td>Medium</td><td class="mono">Sep 18</td></tr>
+<tr><td><span class="pill p-crit">Now</span></td><td>Ask booked customers for Google reviews</td><td>Business Profile</td><td>No reviews since Jul 5</td><td>Small</td><td class="mono">Sep 18</td></tr>
+<tr class="grp"><td colspan="6">Within 7 days</td></tr>
+<tr><td><span class="pill p-high">7 days</span></td><td>Pipe-break section, FAQ and heading</td><td>/florence/</td><td>96 impressions @15, was @4</td><td>Medium</td><td class="mono">Sep 23</td></tr>
+<tr><td><span class="pill p-high">7 days</span></td><td>New heading, short answer, links from blog posts</td><td>/phoenix/</td><td>1,187 impressions, 0 clicks</td><td>Medium</td><td class="mono">Sep 23</td></tr>
+<tr><td><span class="pill p-high">7 days</span></td><td>Fix the services list and description</td><td>Business Profile</td><td>Directions −40%</td><td>Medium</td><td class="mono">Sep 23</td></tr>
+<tr><td><span class="pill p-high">7 days</span></td><td>Fix missing and city-only headings; decide on the star rating code</td><td>/services/ and 6 city pages; 33 city pages</td><td>Weak or risky signals</td><td>Small</td><td class="mono">Sep 23</td></tr>
+<tr class="grp"><td colspan="6">Within 30 days</td></tr>
+<tr><td><span class="pill p-med">30 days</span></td><td>Focus the page on "sewer line repair in Chandler, AZ"</td><td>/chandler/</td><td>191 impressions @44</td><td>Medium</td><td class="mono">Oct 16</td></tr>
+<tr><td><span class="pill p-med">30 days</span></td><td>Build a commercial and multifamily page</td><td>New page</td><td>Priority service with no page</td><td>Large</td><td class="mono">Oct 16</td></tr>
+<tr><td><span class="pill p-med">30 days</span></td><td>Check the 7 zero-impression blog pages in Search Console</td><td>7 blog pages</td><td>They may have dropped out of Google</td><td>Small</td><td class="mono">Oct 16</td></tr>
+<tr class="grp"><td colspan="6">Monitor</td></tr>
+<tr><td><span class="pill p-low">Watch</span></td><td>Results on the pages changed Sep 15-16</td><td>Tempe, Mesa, Gilbert, Fountain Hills, Fort McDowell, Maricopa, Litchfield Park</td><td>Measure the new titles and headings</td><td>Small</td><td class="mono">Oct 9</td></tr>
+<tr><td><span class="pill p-low">Watch</span></td><td>Whether "buckeye pipe break repair" comes back</td><td>/buckeye/</td><td>Section added back Sep 15</td><td>Small</td><td class="mono">Sep 30</td></tr>
+<tr><td><span class="pill p-low">Watch</span></td><td>Non-brand clicks, page 1 keywords, and CRM leads from organic and the Business Profile</td><td>Search Console, TAG CRM</td><td>Early warning</td><td>Small</td><td class="mono">Weekly</td></tr>
+</tbody></table></div>
+</section>
+
+<section>
+<h2><span class="n">9</span>Final answers</h2>
+<dl class="decide">
+<div><dt>What's helping Pipeliners rank?</dt><dd>The Business Profile and its reviews, brand searches, and city pages that name both the service and the city.</dd></div>
+<div><dt>What's holding growth back?</dt><dd>Fewer page 1 keywords, weak headings and links on key pages, no commercial page, and a Business Profile services list that doesn't match the business.</dd></div>
+<div><dt>Fastest opportunity?</dt><dd>/florence/ for "florence pipe break repair".</dd></div>
+<div><dt>What to do first?</dt><dd>Confirm the (480) 969-7978 listings, then fix the Florence page.</dd></div>
+<div><dt>What to watch this week?</dt><dd>The pages changed Sep 15-16, non-brand clicks, page 1 keywords, and CRM leads from organic search and the Business Profile.</dd></div>
+</dl>
+</section>
+
+<footer>
+Sources: Search Console domain property (read Sep 16) · Search Atlas (Search Console website data, GA4, Business Profile, rank tracking) · TAG CRM Lead Manager · site crawl Sep 16. The detailed version, with a source for every row, is saved as <code>pipeliners-organic-seo-report-2026-09-16-DETAILED.html</code>.
+</footer>
+</div>

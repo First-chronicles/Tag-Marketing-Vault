@@ -1,0 +1,14 @@
+{
+ "name": "Local SEO Lesson - Module 1 Local SEO Fundamentals",
+ "cat": "brain-learning",
+ "group": "Local SEO Lesson",
+ "body": "> Lesson · 2026-10-08\n\n# Summary\nFoundation lesson: what local SEO is, how local results are laid out and which factors drive them.\n\n# Key concepts\n- Local SEO targets map pack and local organic results for people searching \"right now\" (about 56% of on-the-go mobile searches have local intent, per the lesson).\n- The local 3-pack sits above organic results.\n- Google's three local ranking pillars: **proximity**, **relevance**, **prominence**.\n- Local SEO often beats traditional advertising on ROI because the searcher is ready to buy (for example \"emergency plumber [city]\").\n- SEO is long term; results come from doing every step consistently.\n\n# Implementation steps\n1. Baseline search for the business name and \"[service] in [city]\"; note map pack and organic presence.\n2. Make sure a Google account exists for GBP, GA4 and GSC.\n3. Gather the master business info: exact name, address, phone, URL, hours, short description.\n\n# How this applies to TAG clients\n- TAG baselines live in the [SEO Tracker](lib:brain-seo-tracker) and [Documentation Screenshots](lib:brain-documentation-screenshots) (baseline stage).\n- Master NAP data per client lives in each company profile (for example [Pipeliners - Company Profile](lib:brain-pipeliners-company-profile)).\n\n# Related\n- [Local SEO Lesson](lib:brain-local-seo-lesson), [Learning Index](lib:brain-learning-index), [Lesson Takeaways 2026-10-08](lib:brain-lesson-takeaways-2026-10-08)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Local SEO lesson/Module 1_ Introduction to Local SEO Fundamentals - Local SEO Masterclass · Local Rank Academy.pdf",
+ "date": "2026-10-08",
+ "createdAt": 1792613193370,
+ "updatedAt": 1792613193370,
+ "rev": "ec432067a750"
+}

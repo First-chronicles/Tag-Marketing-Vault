@@ -1,0 +1,191 @@
+<title>Pipeliners Indexing Report</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --ground:#EDF1F3; --surface:#FFFFFF; --surface-2:#F5F8F9;
+  --line:#D3DCE1; --ink:#15212A; --ink-2:#4E6472; --ink-3:#748795;
+  --accent:#0F6E8C; --good:#1B6B46; --good-bg:#D9EDE2; --warn:#8A5A00; --warn-bg:#FBEBCB;
+  --hold:#455A66; --hold-bg:#E2E8EB;
+  --sans:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#101A21; --surface:#17242D; --surface-2:#1C2C36;
+  --line:#2C404C; --ink:#E6EDF1; --ink-2:#A9BCC7; --ink-3:#8298A5;
+  --accent:#6FC3DE; --good:#8FD9B4; --good-bg:#17402E; --warn:#F0C673; --warn-bg:#45340F;
+  --hold:#C2D1D9; --hold-bg:#25343D;
+}}
+:root[data-theme="dark"]{
+  --ground:#101A21; --surface:#17242D; --surface-2:#1C2C36;
+  --line:#2C404C; --ink:#E6EDF1; --ink-2:#A9BCC7; --ink-3:#8298A5;
+  --accent:#6FC3DE; --good:#8FD9B4; --good-bg:#17402E; --warn:#F0C673; --warn-bg:#45340F;
+  --hold:#C2D1D9; --hold-bg:#25343D;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font:16px/1.55 var(--sans)}
+.wrap{max-width:940px;margin:0 auto;padding-block:32px 56px;padding-left:16px;padding-right:16px;display:flex;flex-direction:column;gap:30px}
+header{display:flex;flex-direction:column;gap:6px}
+.eyebrow{font:500 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+h1{margin:0;font-size:31px;font-weight:700;letter-spacing:-.02em;text-wrap:balance}
+.sub{margin:0;color:var(--ink-2);font-size:15px}
+h2{margin:0 0 2px;font-size:20px;font-weight:600;letter-spacing:-.01em}
+h3{margin:0;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+p{margin:0}
+section{display:flex;flex-direction:column;gap:14px}
+.block{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:14px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+@media (max-width:640px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:2px}
+.stat b{font-size:26px;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.stat span{font-size:13px;color:var(--ink-2)}
+.stat.up b{color:var(--good)}
+.tablebox{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:620px;font-size:14.5px}
+caption{text-align:left;color:var(--ink-2);font-size:13.5px;padding-bottom:10px}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+thead th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);font-weight:600;border-bottom:1.5px solid var(--line)}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:nth-child(even) td{background:var(--surface-2)}
+td a{color:var(--accent);text-decoration:none;font-family:var(--mono);font-size:13px;word-break:break-word}
+td a:hover{text-decoration:underline}
+.pill{display:inline-block;border-radius:20px;padding:2px 10px;font-size:12.5px;font-weight:600;white-space:nowrap}
+.p-good{background:var(--good-bg);color:var(--good)}
+.p-warn{background:var(--warn-bg);color:var(--warn)}
+.p-hold{background:var(--hold-bg);color:var(--hold)}
+ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:7px}
+li::marker{color:var(--ink-3)}
+.lede{color:var(--ink-2);font-size:15px}
+.rule{height:1px;background:var(--line);border:0;margin:0}
+.foot{color:var(--ink-3);font-size:13.5px}
+a.plain{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Pipeliners &middot; End of day &middot; Sep 22&ndash;23, 2026</div>
+    <h1>Getting unindexed pages into Google</h1>
+    <p class="sub">Free Search Console indexing requests on pipelinersusa.com, with the before and after for every page touched.</p>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><b>28</b><span>Pages not in Google at the start</span></div>
+    <div class="stat"><b>9</b><span>Genuinely ready to submit</span></div>
+    <div class="stat up"><b>+7</b><span>Pages now in Google</span></div>
+    <div class="stat"><b>1</b><span>Still waiting on Google</span></div>
+  </div>
+
+  <section>
+    <h2>Baseline: what was not in Google</h2>
+    <p class="lede">The Website Pages tracker listed 114 pages. 86 were in Google and 28 were not. Checking all 28 on the live site showed most of them should not be submitted at all.</p>
+    <div class="block">
+      <div class="tablebox">
+        <table>
+          <caption>The 28 pages, grouped by what they actually needed</caption>
+          <thead><tr><th>Group</th><th>Count</th><th>What it means</th></tr></thead>
+          <tbody>
+            <tr><td>Ready to submit</td><td>6</td><td>Live, open to Google, in the sitemap, and simply never indexed</td></tr>
+            <tr><td>Already requested earlier</td><td>3</td><td>Submitted Sep 14 and Sep 19, needed a status check, not another request</td></tr>
+            <tr><td>Merged into other posts</td><td>9</td><td>Now redirect elsewhere, so there is nothing left to index</td></tr>
+            <tr><td>Kept out of Google on purpose</td><td>4</td><td>Thank you, sales estimator, an ads page and an empty category</td></tr>
+            <tr><td>Waiting on the Sep 17 merges</td><td>4</td><td>Submit after the merge goes live, not before</td></tr>
+            <tr><td>Waiting on content</td><td>2</td><td>Google already passed on one; the other is copied text, pending Scott</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Result: the 9 pages handled</h2>
+    <div class="block">
+      <div class="tablebox">
+        <table>
+          <caption>Status before, and status when rechecked on Sep 23</caption>
+          <thead><tr><th>Page</th><th>Before</th><th>Now</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><a href="https://pipelinersusa.com/2024-homeowners-plumbing-guide/">/2024-homeowners-plumbing-guide/</a></td>
+              <td>Google knew of it, had never crawled it</td>
+              <td><span class="pill p-good">In Google</span></td>
+            </tr>
+            <tr>
+              <td><a href="https://pipelinersusa.com/are-your-pipes-due-for-a-checkup/">/are-your-pipes-due-for-a-checkup/</a></td>
+              <td>Crawled Jul 26, not indexed</td>
+              <td><span class="pill p-good">In Google</span></td>
+            </tr>
+            <tr>
+              <td><a href="https://pipelinersusa.com/do-gurgling-drains-indicate-a-bigger-issue/">/do-gurgling-drains-indicate-a-bigger-issue/</a></td>
+              <td>Crawled, not indexed</td>
+              <td><span class="pill p-good">In Google</span></td>
+            </tr>
+            <tr>
+              <td><a href="https://pipelinersusa.com/pipe-lining-for-potable-water/">/pipe-lining-for-potable-water/</a></td>
+              <td>Google knew of it, had never crawled it</td>
+              <td><span class="pill p-good">In Google</span></td>
+            </tr>
+            <tr>
+              <td><a href="https://pipelinersusa.com/sewer-line-maintenance/">/sewer-line-maintenance/</a></td>
+              <td>In Google, tracker said otherwise</td>
+              <td><span class="pill p-good">In Google</span></td>
+            </tr>
+            <tr>
+              <td><a href="https://pipelinersusa.com/free-video-inspection/">/free-video-inspection/</a></td>
+              <td>Google's last visit hit a 404</td>
+              <td><span class="pill p-warn">Requested, not yet indexed</span></td>
+            </tr>
+            <tr>
+              <td><a href="https://pipelinersusa.com/blog/">/blog/</a></td>
+              <td>Requested Sep 14, unconfirmed</td>
+              <td><span class="pill p-good">In Google</span></td>
+            </tr>
+            <tr>
+              <td><a href="https://pipelinersusa.com/5-signs-you-need-to-repipe-your-home-in-arizona/">/5-signs-you-need-to-repipe-your-home-in-arizona/</a></td>
+              <td>Requested Sep 14, unconfirmed</td>
+              <td><span class="pill p-good">In Google</span></td>
+            </tr>
+            <tr>
+              <td><a href="https://pipelinersusa.com/clay-sewer-pipe/">/clay-sewer-pipe/</a></td>
+              <td>Requested Sep 19, unconfirmed</td>
+              <td><span class="pill p-good">In Google</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <hr class="rule">
+      <p class="lede"><strong>The tracker now reads 93 pages in Google, up from 86.</strong> Four of the six pages submitted were indexed within hours, and the three older requests turned out to have worked.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>What was done</h2>
+    <div class="block">
+      <ul>
+        <li>Checked all 28 pages the tracker flagged, on the live site, to separate real candidates from redirects, noindexed pages and pages waiting on other work.</li>
+        <li>Submitted the 6 ready pages through the free Search Console "Request indexing" button. No paid indexing service was used.</li>
+        <li>Confirmed the three earlier requests from Sep 14 and Sep 19 are now indexed.</li>
+        <li>Hit Google's daily submission limit partway through the second batch, so the six merged pages were not submitted.</li>
+        <li>Rechecked every submitted page the next day and updated the <a class="plain" href="https://claude.ai/artifact/UHmTcm1feD5CdnMKSHPQq1">Website Pages tracker</a>, with the previous status written into each note.</li>
+        <li>Scheduled the six remaining requests to run automatically tonight, Sep 23 at 11:45 PM, once the daily limit resets.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Pending</h2>
+    <div class="block">
+      <ul>
+        <li><strong>Tonight, 11:45 PM.</strong> Recrawl requests for the six pages that took in merged content on Sep 18 and 19: <a href="https://pipelinersusa.com/corroded-pipes/">/corroded-pipes/</a>, <a href="https://pipelinersusa.com/repair-sewer-line-without-digging/">/repair-sewer-line-without-digging/</a>, <a href="https://pipelinersusa.com/how-to-get-rid-of-tree-roots-in-sewer-line/">/how-to-get-rid-of-tree-roots-in-sewer-line/</a>, <a href="https://pipelinersusa.com/is-trenchless-sewer-repair-more-expensive-than-digging/">/is-trenchless-sewer-repair-more-expensive-than-digging/</a>, <a href="https://pipelinersusa.com/how-to-determine-if-you-have-an-underground-water-leak/">/how-to-determine-if-you-have-an-underground-water-leak/</a>, <a href="https://pipelinersusa.com/top-10-signs-your-home-needs-pipe-restoration/">/top-10-signs-your-home-needs-pipe-restoration/</a>. This app and Chrome both need to be open for it to run.</li>
+        <li><strong><a href="https://pipelinersusa.com/free-video-inspection/">/free-video-inspection/</a> needs content.</strong> The page is live and in the sitemap, but it holds only 78 words, and Google's record still shows the old 404. Recheck in a week; if it is still out, the fix is more text on the page, not another request.</li>
+        <li><strong>Two decisions for Kim.</strong> Should <a href="https://pipelinersusa.com/pipelining/">/pipelining/</a> be in Google, or stay an ads-only page? And should <a href="https://pipelinersusa.com/pipeline-locating-what-it-is-and-why-its-important/">/pipeline-locating-what-it-is-and-why-its-important/</a> be rewritten or retired?</li>
+        <li><strong>Four pages wait on the Sep 17 merges</strong> before they are worth submitting.</li>
+        <li><strong><a href="https://pipelinersusa.com/leak-detection-services-in-phoenix-arizona/">/leak-detection-services-in-phoenix-arizona/</a></strong> still needs original copy from Scott.</li>
+        <li><strong>Share pin.</strong> The public tracker link still shows an older pinned version, so viewers will not see these updates until the pin is moved.</li>
+      </ul>
+    </div>
+  </section>
+
+  <p class="foot">Source: Google Search Console URL Inspection, property pipelinersusa.com, checked Sep 23, 2026. Indexing status can change on Google's side at any time.</p>
+</div>

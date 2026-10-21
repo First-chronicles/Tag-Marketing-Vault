@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Local Pages Programmatic Plan 2026-09-30",
+ "cat": "brain-pipeliners",
+ "group": "Plans",
+ "body": "> Plan · Pipeliners · 2026-09-30\n\n# Summary\nRead-only programmatic SEO audit and plan for the 37 city pages, prepared 2026-09-30.\n\n# Current state found\n- All 37 load, indexable, self-canonical, 1,175 to 2,379 words; 55-95% unique text (max sibling overlap 34%).\n- Local proof thin: few ZIPs, no real local job, no customer review per city.\n- About 10 H1s still said \"Pipeliners USA\"; Scottsdale's H1 said \"Expert Plumbing Services\".\n- 2 clicks in 90 days across all 37 (Mesa 1, Phoenix 1); most rank 20 to 60.\n\n# Tiers (GSC, Jun 28 to Sep 28, US)\n- **Tier 1 core metro / near page 1 (9):** Glendale 4,372 impressions, Phoenix 2,427, Buckeye 1,700 (position 22), Tempe 1,504, Mesa 1,453, Florence 1,244 (25), Peoria 1,036, Chandler 891, Gilbert 538, Scottsdale 286.\n- **Tier 2 keep (21):** Litchfield Park through Casa Grande.\n- **Tier 3 merge or noindex (7):** Carefree 82, Superior 61, Youngtown 40, Rio Verde 37, Laveen 23, El Mirage 13, Sacaton 1. Suggested merge targets listed; merges need 301s and Kim's approval.\n\n# Plan\nPause first and let the Aug/Sep rewrites settle (earliest start early November), confirm client facts, then Tier 1 local proof pages one at a time, a lighter Tier 2 pass, and Tier 3 merges after approval. No new service x city pages for now; city-specific demand to cover (Buckeye pipe break and water line, copper repipe in Sun City/West and Glendale, Fort McDowell drain cleaning, Florence water line, San Tan Valley main line backup, Maricopa sewer lining).\n\n# Notes\nWritten before the Oct 1 claims update and the Oct 10 decision to restructure and rebuild every city page to the Avondale layout (see [Pipeliners - Workflow Skills](lib:brain-pipeliners-workflow-skills) and [Pipeliners - Fix Log](lib:brain-pipeliners-fix-log)). Tier 3 merge remains Kim's decision.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - City Pages Batch 1 Briefs 2026-09-30](lib:brain-pipeliners-city-pages-batch-1-briefs-2026-09-30)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/local-pages-programmatic-plan-2026-09.md",
+ "date": "2026-09-30",
+ "createdAt": 1792613171243,
+ "updatedAt": 1792613171243,
+ "rev": "55fed03b0bfd"
+}

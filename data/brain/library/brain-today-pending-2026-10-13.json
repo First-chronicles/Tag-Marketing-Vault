@@ -1,0 +1,14 @@
+{
+ "name": "Today Pending 2026-10-13",
+ "cat": "brain-trackers",
+ "group": "",
+ "body": "> Tracker · 2026-10-13\n\n# Summary\nDaily task list for Tuesday Oct 13 2026, built from Keystone \"My Work\" open tasks and the follow-ups in the 2026-10-08 EOD. It excludes Prestige and Summit Utah; \"Summit\" here means Arizona.\n\n# Doable today\n| # | Task | Client | Est. | Status |\n|---|---|---|---|---|\n| 1 | Daily GBP and social posting | Summit AZ | 1h | not started |\n| 2 | Daily GBP post | Pipeliners | 15m | not started |\n| 3 | Alphalete sitemap check in GSC, then close task (36 days overdue) | Alphalete | 1h | not started |\n| 4 | Not-indexed pages and priority URL requests in GSC | Pipeliners | 30m | in progress (2 requested, 4 left) |\n| 5 | Weekly GEO/AI-search blog (author Jake Shaker) | Pipeliners | 2h | not started |\n| 6 | Reconnect the Google Ads connector (token expired Oct 8) | All | 10m | not started |\n| 7 | Ad check, then remove hidden 4.9/122 rating on 1 Pipeliners test city page | Pipeliners | 1h | not started |\n| 8 | Set up Bing Webmaster Tools for Summit AZ, Pipeliners, Alphalete | All | 45m | not started |\n| 9 | Mark generate_lead as a key event in Alphalete GA4 | Alphalete | 10m | not started |\n\n# Waiting or scheduled\n- Scott (Summit AZ): Rank Math business details, Article to None default schema, epoxy and \"50+ years\" wording, /home-warranty-plumbing/ decision.\n- Scott (Pipeliners): GBP 24 hours, wrong numbers on Birdeye, Ace DuraFlo and a Google AI answer, Bing Places, homepage schema type.\n- Agency owner (Alphalete): one official phone, real hours, legal name, warranty wording, \"free\" inspection.\n- Scheduled rechecks: Oct 15 (Summit AZ homepage and llms.txt); Oct 21 (Summit AZ brand pages, Pipeliners and Alphalete llms files), then Alphalete Article schema.\n- Need a plan first: Alphalete \"Clean up all the old local pages\" and \"Create Local Pages\".\n- Keystone housekeeping: two tasks 36 days overdue need new due dates or closing.\n\n# Related\n- [Trackers and Logs Index](lib:brain-trackers-and-logs-index), [GSC Indexing Tracker](lib:brain-gsc-indexing-tracker), [Keystone CRM](lib:brain-keystone-crm), [EOD Reports Index](lib:brain-eod-reports-index), [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "_Shared (All Clients)/Trackers and Logs/Today-Pending-2026-10-13.md",
+ "date": "2026-10-13",
+ "createdAt": 1792613233907,
+ "updatedAt": 1792613233908,
+ "rev": "bd79fb102944"
+}

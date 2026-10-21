@@ -1,0 +1,14 @@
+{
+ "name": "EOD 2026-06-18",
+ "cat": "brain-eod",
+ "group": "2026-06 June",
+ "body": "> Eod · Pipeliners · 2026-06-18\n\nThursday. Pipeliners-only session: audit of the 4 Monday board tasks, then Task 1 (alt text, blog schema, FAQ sections).\n\n# Pipeliners\nSee [Pipeliners (Hub)](lib:brain-pipeliners-hub).\n- Alt text: /epipe-restoration/ went from 1/14 to 14/14 images with descriptive alt; 2 homepage before/after images fixed. Set via the media library over SSH. About 160 orphaned theme-demo images left alone.\n- Blog schema: wrong \"Course\" schema on /hydro-jetting/, /pipelining-myths-debunked/ and /trenchless-drain-pipe-lining/ is injected by OTTO, so it is a dashboard fix. Steps documented. Earlier city-page fix holding (Service live on 12 of 14 priority pages, Course removed from all 14).\n- Drafted a Search Atlas support ticket (`pipeliners-searchatlas-support-ticket-2026-06-18.md`).\n- FAQ sections: 19 of 37 city pages have the FAQ accordion, 18 missing. Built a proof on Goodyear (page 13770): 7 local Q&As, FAQPage schema verified live, backup saved.\n- Google Ads bid strategy (Task 3): keep Search at Maximize Conversions, no tCPA, $60/day; restart a 5 to 7 day hold once real leads land. Impression collapse and $15 to $25 CPCs show Smart Bidding starved of signal.\n- Attribution (Task 4): same root problem. GHL Chatbot and GHL Form Fill conversions have include-in-Conversions OFF; Form Fill has near-zero uploads. Last 30 days Search spent $1,817 for 7 real leads but only 1 counted. GCLID capture verified working. Audit saved to `pipeliners-ghl-attribution-audit-2026-06-18.md`.\n\n# Follow-ups\n- Kim to review Goodyear FAQ, then batch the other 17 city pages (fix Avondale duplicate H1 in the same pass).\n- Kim to fix the 3 blog pages in the OTTO dashboard and send the support ticket.\n- Google Ads and GHL: turn on include-in-Conversions for Chatbot and Form Fill, confirm Calls conversion, fix GCLID uploads in the GHL workflow, add brand exclusions to pMax, then restart the bid hold.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Search Atlas](lib:brain-search-atlas), [GoHighLevel](lib:brain-gohighlevel), [Google Ads MCC](lib:brain-google-ads-mcc), [EOD Reports Index](lib:brain-eod-reports-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "_Shared (All Clients)/EOD Reports/EOD Report 2026-06-18.txt",
+ "date": "2026-06-18",
+ "createdAt": 1792612710020,
+ "updatedAt": 1792612710020,
+ "rev": "f1f42f4c611f"
+}

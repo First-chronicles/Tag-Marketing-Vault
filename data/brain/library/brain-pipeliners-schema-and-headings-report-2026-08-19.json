@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Schema and Headings Report 2026-08-19",
+ "cat": "brain-pipeliners",
+ "group": "Reports",
+ "body": "> Report · Pipeliners · 2026-08-19\n\n# Summary\nWork report \"City page schema + heading fixes\" (Aug 18-19).\n\n# Problems found\n- The 3 priority pages (/buckeye/, homepage, /paradise-valley/) had 5,836 impressions and 27 clicks in 90 days, all brand.\n- No LocalBusiness schema anywhere; the same generic H2 block copied across pages; Buckeye's visible H1 showed \"| Pipeliners USA\"; Buckeye drew 441 impressions for gas line work Pipeliners does not sell.\n\n# Done\n- Audited the 3 pages against the live top 10.\n- Built and deployed Service + LocalBusiness schema to all 37 city pages from GBP data (37 of 37 verified).\n- Rewrote the Buckeye and homepage H1s, promoted service headings to H2 on Buckeye and Paradise Valley, rewrote the generic H2 block on 4 pages.\n- Found that OTTO was targeting Buckeye at \"gas line repair buckeye\" with 20 junk keyword terms (including \"ohio state university\").\n- Protected two rankings (\"Pipe Repair in Buckeye\" position 6, \"Trenchless Sewer Repair in Paradise Valley\" position 8). Fixed broken /avondale/ schema.\n\n# Trade-offs noted\nOTTO caps edits at 2,000 characters; the 4.9 rating in schema was not visible on page (Kim left it then); OTTO schema 4517 showed deployed but rendered nowhere; blank bands and black video blocks pointed to LiteSpeed JS Minify.\n\n# Superseded\n- The report says GBP confirmed Pipeliners is \"genuinely open 24/7\" and suggests adding 24/7, prices and review counts to copy. Scott's Oct 1 answers reverse this: no 24/7, no prices. The 24/7 hours and the rating were removed from 32 city-page schemas on Oct 8.\n- Gas line work: confirmed not a service.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Schema Markup Package 2026-08-19](lib:brain-pipeliners-schema-markup-package-2026-08-19), [Pipeliners - Site-Wide SEO Fix Plan Four Faults 2026-08-19](lib:brain-pipeliners-site-wide-seo-fix-plan-four-faults-2026-08-19), [Pipeliners - Audits and Reports Index](lib:brain-pipeliners-audits-and-reports-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/Report 2026-08-19 Schema + Headings.txt",
+ "date": "2026-08-19",
+ "createdAt": 1792613264475,
+ "updatedAt": 1792613264475,
+ "rev": "f01f8061104e"
+}

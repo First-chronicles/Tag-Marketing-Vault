@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - SEO Case Study Mar-Aug 2026",
+ "cat": "brain-pipeliners",
+ "group": "Reports",
+ "body": "> Report · Pipeliners · 2026-09-14\n\n# Summary\nA 6-page SEO case study (PDF plus `pipeliners-seo-case-study.html` source in `portfolio\\`), built Sep 14 and restyled to the Pipeliners brand with the logo removed. Written in Kim's voice as SEO Specialist, TAG Marketing. Data: GSC URL-prefix property pulled Sep 15; Mar 1 to Aug 31, 2026 vs Sep 2025 to Feb 2026.\n\n# Headline numbers\n- Impressions +46% (124.7k vs 85.7k; monthly average 20,786 vs 14,276).\n- Average position 55.7 to 48.2; mobile 58.0 to 40.9 with mobile CTR up 47%.\n- Indexed pages 72 to 105 (GSC Pages report, June to early September).\n- Mobile PageSpeed 21 to 43.\n- Clicks held steady (213 vs 211); first matched 28-day read +27% (30 to 38).\n- All 19 city pages with 1,000+ impressions moved up (median 10 places; Buckeye 40 to 26, Tempe 47 to 32). Main service page inbound links 35 to 74.\n\n# Story\nDiagnosis graded like a sewer camera report (brand-only traffic, city pages seen but not clicked, pages missing from Google, templated city pages with wrong-city leaks, site hygiene, slow mobile), then month-by-month work (April cleanup, June indexing and posts, July speed and monsoon cluster, August city page rebuild), judgment calls (dropped gas-line targeting, protected the paid page, paused OTTO autopilot, corrected a mismatched-window read, verified from outside) and limits (clicks still the open problem, URL-prefix property undercounts GBP clicks, Ads conversion tracking broken since late July).\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Audits and Reports Index](lib:brain-pipeliners-audits-and-reports-index), [Google Search Console](lib:brain-google-search-console)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/portfolio/Pipeliners-SEO-Case-Study-Mar-Aug-2026.pdf",
+ "date": "2026-09-14",
+ "createdAt": 1792613264476,
+ "updatedAt": 1792613264476,
+ "rev": "e69fce06c3e5"
+}

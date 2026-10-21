@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Website Tracker 2026-06-23",
+ "cat": "brain-summit",
+ "group": "Trackers",
+ "body": "> Tracker · Summit Az · 2026-06-23\n\n# Summary\nThe first full inventory of every published page and blog post on summitplumbingpros.com, pulled live on Jun 23, 2026, before the Sep 3 relaunch. It shows the site architecture that the later work is built on.\n\n# Contents\n- Overview tab: 164 pages and posts in total.\n- Core and service pages: 35 (home, contact, main service hubs, PPC landing pages, legal).\n- City page tabs, 10 cities each: Emergency Plumbing, General Plumbing, Drain Cleaning, Water Heaters, Tankless Water Heaters, Water Softeners, Water Leak Detection, Sewer Line Repair, Pipe Lining, Water Pressure, Garbage Disposal, Fixture Installation (12 services x 10 cities = 120).\n- Blogs by Kim: 9 published posts at that date.\n- Each row lists page type, service or topic, title, URL, slug and notes.\n\n# Decisions and status\n- Superseded by the live page tracker in `page-tracker\\` (202 URLs by Sep 30) and the Sep 2026 Rank Math trackers. Keep as the June reference point.\n\n# Related\n- [Summit AZ - Rank Math Optimization Trackers 2026-09](lib:brain-summit-az-rank-math-optimization-trackers-2026-09), [Summit AZ - Blog Trackers](lib:brain-summit-az-blog-trackers), [Summit AZ - Work Folders Index](lib:brain-summit-az-work-folders-index), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/Summit-AZ-Website-Tracker.xlsx",
+ "date": "2026-06-23",
+ "createdAt": 1792613463241,
+ "updatedAt": 1792613463242,
+ "rev": "a3de5a9a46b2"
+}

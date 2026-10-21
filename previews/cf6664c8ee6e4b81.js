@@ -1,0 +1,1 @@
+window.__vaultPreview("cf6664c8ee6e4b81",{"text":"# Append this block to ~/.ssh/config.\n\nHost pipeliners\n    HostName 77.37.58.118\n    User u916326661\n    Port 65002\n    IdentityFile ~/.ssh/hostinger_pipeliners\n    IdentitiesOnly yes\n    ServerAliveInterval 60\n    AddKeysToAgent yes\n    UseKeychain yes\n"});

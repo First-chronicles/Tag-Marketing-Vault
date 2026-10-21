@@ -1,0 +1,322 @@
+<title>Pipeliners Search Checkup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+:root{
+  --bg:#f3f5f8; --surface:#ffffff; --surface-2:#eef2f6; --ink:#15212d; --ink-2:#4b5a6a; --muted:#6c7a89; --line:#dbe2ea;
+  --accent:#1a446f; --accent-soft:#e3ebf4;
+  --s1:#2a78d6; --s2:#eb6834; --s-before:#9aa7b5;
+  --good:#1d7f47; --good-bg:#e3f3ea; --watch:#9a6700; --watch-bg:#fbf0d6; --fix:#b8322b; --fix-bg:#fbe5e3;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif; --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0e141b; --surface:#16202b; --surface-2:#1c2835; --ink:#e7eef5; --ink-2:#b3c1cf; --muted:#8fa0b1; --line:#2a3847;
+    --accent:#8db8e6; --accent-soft:#1d2e42;
+    --s1:#3987e5; --s2:#d95926; --s-before:#6d7c8c;
+    --good:#5cc98a; --good-bg:#15301f; --watch:#e8b84a; --watch-bg:#33280f; --fix:#f07a70; --fix-bg:#3a1a18;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0e141b; --surface:#16202b; --surface-2:#1c2835; --ink:#e7eef5; --ink-2:#b3c1cf; --muted:#8fa0b1; --line:#2a3847;
+  --accent:#8db8e6; --accent-soft:#1d2e42;
+  --s1:#3987e5; --s2:#d95926; --s-before:#6d7c8c;
+  --good:#5cc98a; --good-bg:#15301f; --watch:#e8b84a; --watch-bg:#33280f; --fix:#f07a70; --fix-bg:#3a1a18;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 var(--body);padding-inline:16px;padding-block:28px 56px}
+.wrap{max-width:1080px;margin:0 auto;display:grid;gap:28px}
+h1,h2,h3{font-family:var(--display);letter-spacing:.01em;line-height:1.1;text-wrap:balance;margin:0}
+h1{font-size:clamp(34px,5vw,48px);font-weight:700;color:var(--accent)}
+h2{font-size:28px;font-weight:600}
+h3{font-size:20px;font-weight:600}
+p{margin:0;max-width:68ch}
+.eyebrow{font:600 12px/1 var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+header{display:grid;gap:10px;padding-bottom:18px;border-bottom:2px solid var(--accent)}
+.meta{display:flex;flex-wrap:wrap;gap:6px 18px;color:var(--ink-2);font-size:14px}
+section{display:grid;gap:14px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px}
+.answer{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px;display:grid;gap:16px}
+.answer .lead{font-size:19px;line-height:1.5;max-width:72ch}
+.findings{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.finding{display:grid;gap:8px;align-content:start;padding:16px;border-radius:8px;background:var(--surface-2)}
+.finding p{font-size:15px;color:var(--ink-2)}
+.chip{display:inline-flex;align-items:center;gap:6px;justify-self:start;font:700 12px/1 var(--body);letter-spacing:.06em;text-transform:uppercase;padding:6px 9px;border-radius:999px}
+.chip::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+.chip.good{color:var(--good);background:var(--good-bg)} .chip.watch{color:var(--watch);background:var(--watch-bg)} .chip.fix{color:var(--fix);background:var(--fix-bg)}
+.kpis{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;display:grid;gap:6px;align-content:start}
+.kpi .label{font-size:13px;color:var(--muted);font-weight:600}
+.kpi .val{font:600 34px/1 var(--display);font-variant-numeric:tabular-nums}
+.kpi .from{font-size:13px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.delta{font:700 13px/1 var(--body);font-variant-numeric:tabular-nums}
+.delta.down{color:var(--fix)} .delta.flat{color:var(--muted)} .delta.up{color:var(--good)}
+.kpi .note{font-size:13px;color:var(--muted);line-height:1.4}
+.grid2{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}
+.chart{width:100%;height:auto;display:block}
+.chart text{fill:var(--muted);font:12px var(--body)}
+.chart .lbl{fill:var(--ink);font-weight:600}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--ink-2)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:14px;height:3px;border-radius:2px;display:inline-block}
+.legend i.dot{width:10px;height:10px;border-radius:50%}
+.caption{font-size:14px;color:var(--ink-2)}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14.5px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:600 12px/1.2 var(--body);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+td.num,th.num{text-align:right;white-space:nowrap}
+.checks{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.check{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;padding:14px;background:var(--surface);border:1px solid var(--line);border-radius:8px}
+.check .chip{grid-row:span 2;align-self:start}
+.check b{font-weight:700}
+.check span{font-size:14px;color:var(--ink-2)}
+.actions{display:grid;gap:10px;counter-reset:a}
+.action{display:grid;grid-template-columns:32px 1fr;gap:4px 14px;padding:16px;background:var(--surface);border:1px solid var(--line);border-radius:8px}
+.action::before{counter-increment:a;content:counter(a);grid-row:span 3;font:700 24px/1 var(--display);color:var(--accent)}
+.action h3{font-size:19px}
+.action p{font-size:15px;color:var(--ink-2)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.tag{font:600 12px/1 var(--body);padding:5px 8px;border-radius:6px;background:var(--accent-soft);color:var(--accent)}
+.foot{font-size:13.5px;color:var(--muted);display:grid;gap:6px}
+.tip{position:fixed;pointer-events:none;background:var(--ink);color:var(--bg);font:13px/1.35 var(--body);padding:7px 9px;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.18);z-index:5;white-space:nowrap}
+@media (prefers-reduced-motion:no-preference){.panel,.answer{transition:border-color .2s}}
+.overall{display:grid;gap:14px 24px;grid-template-columns:auto 1fr;align-items:center}
+.overall>div{display:grid;gap:4px}
+.big{font:700 56px/1 var(--display);color:var(--accent);font-variant-numeric:tabular-nums}
+.big small{font-size:22px;color:var(--muted);margin-left:2px}
+.scores{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
+.score{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px;display:grid;gap:5px;align-content:start}
+.score .label{font-size:13px;color:var(--muted);font-weight:600}
+.score .val{font:600 32px/1 var(--display);font-variant-numeric:tabular-nums}
+.score .from{font-size:12.5px;color:var(--ink-2)}
+.bar{height:6px;border-radius:3px;background:var(--surface-2);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent);border-radius:3px}
+.cats{display:grid;gap:8px}
+details.cat{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:2px 14px}
+details.cat summary{cursor:pointer;display:flex;justify-content:space-between;gap:12px;padding:11px 0}
+details.cat summary .from{font-size:13.5px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+details.cat summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+details.cat[open] summary{border-bottom:1px solid var(--line);margin-bottom:4px}
+table.ck td:first-child{width:74px}
+td.src{font-size:13px;color:var(--muted)}
+.mk{display:inline-block;font:700 11px/1 var(--body);letter-spacing:.05em;text-transform:uppercase;padding:5px 7px;border-radius:5px}
+.mk.ok{color:var(--good);background:var(--good-bg)} .mk.no{color:var(--fix);background:var(--fix-bg)} .mk.wa{color:var(--watch);background:var(--watch-bg)}
+ul.done{margin:0;padding:0;list-style:none;display:grid;gap:10px;font-size:15px;color:var(--ink-2)}
+ul.done li{display:flex;gap:10px;align-items:baseline}
+ul.done .chip{flex:none}
+@media (max-width:560px){.overall{grid-template-columns:1fr}}
+
+</style>
+
+<div class="wrap">
+<header>
+  <span class="eyebrow">pipelinersusa.com · Google Search audit</span>
+  <h1>Pipeliners Search Checkup</h1>
+  <div class="meta"><span>Checked Sep 28, 2026 (final)</span><span>Google data through Sep 25 (last 2 days still filling in)</span><span>Compared: Aug 20 to Sep 16 vs Sep 17 to 25, per day</span></div>
+</header>
+
+<section class="answer" aria-labelledby="short">
+  <span class="eyebrow" id="short">The short answer</span>
+  <p class="lead">Two different things are going on. The big drop in Google "impressions" since Sep 17 is mostly not real customers: it is page-5-and-deeper listings that almost nobody sees, and the same thing happened in September last year. The drop that does matter is clicks, and most of those were lost from the Google Business Profile listing, not the website's rankings.</p>
+  <div class="findings">
+    <div class="finding"><span class="chip watch">Watch, not an emergency</span><h3>Impressions down 46%</h3><p>Almost all of the loss is at ranking position 50+. Page-1 impressions held steady and rankings did not move. The site was not penalized.</p></div>
+    <div class="finding"><span class="chip fix">Needs action</span><h3>Business Profile clicks down 58%</h3><p>The listing was shown just as often (1,198 vs 1,201 views), but website clicks fell from 38 to 16 and calls from 22 to 16.</p></div>
+    <div class="finding"><span class="chip fix">Needs action</span><h3>Clicks have been sliding since May</h3><p>About 3.3 clicks a day in May, about 2 a day in summer, 0.9 a day since Sep 17. Few pages rank on page 1, and every mobile page loads slowly.</p></div>
+    <div class="finding"><span class="chip watch">Technical score 67/100</span><h3>Sound for Google, one urgent fix</h3><p>All 116 pages load, Google reports no crawl problems, penalties or security issues, and nothing technical explains the drop. The server error log is publicly downloadable and mobile pages load slowly; both are listed below.</p></div>
+  </div>
+</section>
+
+<section aria-labelledby="nums">
+  <h2 id="nums">Before and after Sep 17</h2>
+  <div class="kpis">
+    <div class="kpi"><span class="label">Google impressions / day</span><span class="val">465</span><span class="from">was 866 &nbsp;<span class="delta down">−46%</span></span><span class="note">Mostly deep-page listings</span></div>
+    <div class="kpi"><span class="label">Page-1 impressions / day</span><span class="val">101</span><span class="from">was 95 &nbsp;<span class="delta up">+6%</span></span><span class="note">Real visibility held</span></div>
+    <div class="kpi"><span class="label">Google clicks / day</span><span class="val">0.9</span><span class="from">was 1.9 &nbsp;<span class="delta down">−52%</span></span><span class="note">8 clicks in 9 days vs 52 in 28</span></div>
+    <div class="kpi"><span class="label">Business Profile website clicks</span><span class="val">16</span><span class="from">was 38 &nbsp;<span class="delta down">−58%</span></span><span class="note">29 days to Sep 26 vs the 29 before</span></div>
+    <div class="kpi"><span class="label">Business Profile calls</span><span class="val">16</span><span class="from">was 22 &nbsp;<span class="delta down">−27%</span></span><span class="note">Views flat at 1,198; avg rank #2</span></div>
+  </div>
+</section>
+
+<section aria-labelledby="c1">
+  <div class="grid2">
+    <div class="panel" style="display:grid;gap:12px">
+      <h3 id="c1">Same September drop as last year</h3>
+      <p class="caption">Daily Google impressions, Sep 1 to 27. In 2025 the drop started Sep 12, when Google stopped serving 100 results per page to rank-tracking tools. In 2026 it started Sep 17.</p>
+      <div class="legend"><span><i style="background:var(--s1)"></i>2026</span><span><i style="background:var(--s2)"></i>2025</span></div>
+      <svg id="yoy" class="chart" viewBox="0 0 520 250" role="img" aria-label="Line chart of daily impressions in September 2026 and September 2025"></svg>
+    </div>
+    <div class="panel" style="display:grid;gap:12px">
+      <h3>Where the impressions went</h3>
+      <p class="caption">Impressions per day, grouped by where Pipeliners ranked. The loss sits almost entirely below position 50 (page 5 and deeper). Page 1 did not drop.</p>
+      <div class="legend"><span><i class="dot" style="background:var(--s-before)"></i>Aug 20 to Sep 16</span><span><i class="dot" style="background:var(--s1)"></i>Sep 17 to 25</span></div>
+      <svg id="pos" class="chart" viewBox="0 0 520 250" role="img" aria-label="Before and after impressions per day by ranking position"></svg>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="c3">
+  <div class="panel" style="display:grid;gap:12px">
+    <h3 id="c3">Weekly Google clicks since March</h3>
+    <p class="caption">This is the trend that matters for leads. Clicks peaked in late April and May, dropped in June and July, recovered in August, and fell again in September. The last bar covers a week that is still filling in.</p>
+    <svg id="weekly" class="chart" viewBox="0 0 1000 240" role="img" aria-label="Bar chart of weekly Google clicks from March to September 2026"></svg>
+  </div>
+</section>
+
+<section aria-labelledby="where">
+  <h2 id="where">Where the clicks were lost</h2>
+  <div class="grid2">
+    <div class="panel tablewrap">
+      <table>
+        <thead><tr><th>Source</th><th class="num">Clicks / day before</th><th class="num">After</th><th class="num">Impr. / day before</th><th class="num">After</th></tr></thead>
+        <tbody>
+          <tr><td><b>Business Profile website link</b></td><td class="num">0.86</td><td class="num">0.22</td><td class="num">170</td><td class="num">187</td></tr>
+          <tr><td>Home page</td><td class="num">0.75</td><td class="num">0.56</td><td class="num">32</td><td class="num">18</td></tr>
+          <tr><td>Service pages</td><td class="num">0.14</td><td class="num">0</td><td class="num">83</td><td class="num">48</td></tr>
+          <tr><td>City pages (37)</td><td class="num">0.07</td><td class="num">0</td><td class="num">303</td><td class="num">167</td></tr>
+          <tr><td>Blog posts (51)</td><td class="num">0.07</td><td class="num">0.11</td><td class="num">387</td><td class="num">114</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="panel" style="display:grid;gap:10px;align-content:start">
+      <h3>What this tells us</h3>
+      <p class="caption">The Business Profile link was shown more after Sep 17, not less, yet its clicks fell by three quarters. The branded search "pipeliners usa" still ranks #1 but went from 11 clicks to 0. People are still finding the business; fewer of them are tapping through. City and blog pages lost impressions, but they were getting almost no clicks before either, so that part of the drop costs very little.</p>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="lost">
+  <h2 id="lost">Searches that stopped showing Pipeliners</h2>
+  <div class="panel tablewrap">
+    <table>
+      <thead><tr><th>Search</th><th class="num">Impr. / day before</th><th class="num">After</th><th class="num">Position before</th><th class="num">After</th></tr></thead>
+      <tbody>
+        <tr><td>cipp lining</td><td class="num">23.6</td><td class="num">6.2</td><td class="num">75.6</td><td class="num">82.7</td></tr>
+        <tr><td>cured in place pipe lining</td><td class="num">14.1</td><td class="num">3.9</td><td class="num">75.4</td><td class="num">69.8</td></tr>
+        <tr><td>how to find a water leak underground</td><td class="num">12.7</td><td class="num">3.0</td><td class="num">82.6</td><td class="num">86.7</td></tr>
+        <tr><td>cipp sewer lining</td><td class="num">11.6</td><td class="num">2.3</td><td class="num">74.4</td><td class="num">80.1</td></tr>
+        <tr><td>cipp</td><td class="num">10.9</td><td class="num">0</td><td class="num">86.1</td><td class="num">gone</td></tr>
+        <tr><td>underground leak detection</td><td class="num">9.9</td><td class="num">0.3</td><td class="num">76.8</td><td class="num">79.3</td></tr>
+        <tr><td>what causes pinhole leaks in copper plumbing</td><td class="num">8.8</td><td class="num">2.4</td><td class="num">72.9</td><td class="num">75.9</td></tr>
+        <tr><td>trenchless sewer repair</td><td class="num">8.3</td><td class="num">2.6</td><td class="num">1.1</td><td class="num">1.2</td></tr>
+      </tbody>
+    </table>
+    <p class="caption" style="margin-top:12px">Nearly every lost search is a national "how does it work" question where Pipeliners sat on page 7 to 9. Across the 43 biggest deep-ranking searches, the median position moved only 1.5 spots, while impressions fell about 70%. Rankings stayed put; Google simply showed or counted far fewer of those deep listings.</p>
+  </div>
+</section>
+
+<section aria-labelledby="tech">
+  <h2 id="tech">Technical SEO audit</h2>
+  <p class="caption">Run live on Sep 28, 2026, between about 15:00 and 15:35 UTC. Every result comes from the live site, Google Search Console or Google PageSpeed Insights, and the source is shown on each line. A score is the share of checks passed, so each one traces back to the list below. "Watch" items count as not passed.</p>
+  <div class="overall panel"><div><span class="eyebrow">Overall</span><span class="big">67<small>/100</small></span><span class="from">33 of 49 checks passed</span></div><p class="caption">The site is crawlable, indexable and served securely over HTTPS. The weak spots are page speed on phones and three security settings. One of them is urgent: anyone can download the server error log.</p></div>
+  <div class="scores"><div class="score"><span class="label">Crawlability</span><span class="val">78</span><span class="from">7 of 9 checks passed</span><div class="bar"><i style="width:78%"></i></div></div><div class="score"><span class="label">Indexation</span><span class="val">62</span><span class="from">5 of 8 checks passed</span><div class="bar"><i style="width:62%"></i></div></div><div class="score"><span class="label">Performance</span><span class="val">44</span><span class="from">4 of 9 checks passed</span><div class="bar"><i style="width:44%"></i></div></div><div class="score"><span class="label">Mobile</span><span class="val">80</span><span class="from">4 of 5 checks passed</span><div class="bar"><i style="width:80%"></i></div></div><div class="score"><span class="label">Security</span><span class="val">67</span><span class="from">6 of 9 checks passed</span><div class="bar"><i style="width:67%"></i></div></div><div class="score"><span class="label">Structured data</span><span class="val">75</span><span class="from">3 of 4 checks passed</span><div class="bar"><i style="width:75%"></i></div></div><div class="score"><span class="label">URL structure</span><span class="val">80</span><span class="from">4 of 5 checks passed</span><div class="bar"><i style="width:80%"></i></div></div></div>
+  <div class="cats"><details class="cat"><summary><b>Crawlability</b><span class="from">7 of 9 passed</span></summary><div class="tablewrap"><table class="ck"><thead><tr><th>Result</th><th>Check</th><th>Source</th></tr></thead><tbody><tr><td><span class="mk ok">Pass</span></td><td>robots.txt exists (200) and has no "Disallow: /"</td><td class="src">robots.txt</td></tr><tr><td><span class="mk ok">Pass</span></td><td>Sitemap declared in robots.txt; sitemap_index.xml and sitemap.xml both return 200</td><td class="src">robots.txt, sitemap</td></tr><tr><td><span class="mk ok">Pass</span></td><td>116 sitemap URLs; every one returns 200 and has a lastmod date</td><td class="src">sitemap + crawl</td></tr><tr><td><span class="mk no">Fail</span></td><td>4 noindexed URLs are listed in the sitemap: /free-sewer-repair-estimate/ (ad page), /category/uncategorized/, /tag/pipe-lining/, /tag/trenchless-sewer-repair/</td><td class="src">crawl</td></tr><tr><td><span class="mk no">Fail</span></td><td>robots.txt blocks /wp-includes/, which holds 7 scripts the pages load (jQuery, jQuery UI, imagesloaded)</td><td class="src">robots.txt + home page source</td></tr><tr><td><span class="mk ok">Pass</span></td><td>116 of 116 pages carry a self-referencing canonical</td><td class="src">crawl</td></tr><tr><td><span class="mk ok">Pass</span></td><td>Google crawl host status: "No problems" on all 4 hosts</td><td class="src">Search Console crawl stats</td></tr><tr><td><span class="mk ok">Pass</span></td><td>No page sends a noindex header by mistake</td><td class="src">crawl</td></tr><tr><td><span class="mk ok">Pass</span></td><td>Hidden OTTO links to 404 pages removed from the home page today (122 to 0)</td><td class="src">home page source</td></tr></tbody></table></div></details><details class="cat"><summary><b>Indexation</b><span class="from">5 of 8 passed</span></summary><div class="tablewrap"><table class="ck"><thead><tr><th>Result</th><th>Check</th><th>Source</th></tr></thead><tbody><tr><td><span class="mk ok">Pass</span></td><td>All 116 sitemap pages return 200; no 5xx found</td><td class="src">crawl</td></tr><tr><td><span class="mk ok">Pass</span></td><td>http and www versions 301 to https://pipelinersusa.com/</td><td class="src">live request</td></tr><tr><td><span class="mk no">Fail</span></td><td>http://www. takes 2 redirects to reach the final URL</td><td class="src">live request</td></tr><tr><td><span class="mk ok">Pass</span></td><td>Duplicate forms (/PHOENIX/, /phoenix, /index.php) redirect or canonicalize to the real page</td><td class="src">live request</td></tr><tr><td><span class="mk no">Fail</span></td><td>4 visible links point at redirects: /how-can-trenchless-pipe-lining-fix-damaged-pipes/ (from 2 posts), /how-to-identify-if-you-have-tree-roots-in-your-sewer-line/, /terms/ (ad page)</td><td class="src">crawl</td></tr><tr><td><span class="mk no">Fail</span></td><td>10 real pages not indexed yet (5 improved and sent to Google today)</td><td class="src">Search Console</td></tr><tr><td><span class="mk ok">Pass</span></td><td>104 pages indexed; the rest of the not-indexed list is feeds, archives and admin URLs</td><td class="src">Search Console</td></tr><tr><td><span class="mk ok">Pass</span></td><td>No soft-404 or server-error bucket in Page indexing</td><td class="src">Search Console</td></tr></tbody></table></div></details><details class="cat" open><summary><b>Performance</b><span class="from">4 of 9 passed</span></summary><div class="tablewrap"><table class="ck"><thead><tr><th>Result</th><th>Check</th><th>Source</th></tr></thead><tbody><tr><td><span class="mk no">Fail</span></td><td>Core Web Vitals, mobile field data: 0 good URLs, 65 "needs improvement" (LCP over 2.5 s)</td><td class="src">Search Console CWV</td></tr><tr><td><span class="mk no">Fail</span></td><td>Home page mobile Lighthouse: Performance 47; LCP 7.8 s, TBT 670 ms, Speed Index 8.1 s</td><td class="src">PageSpeed Insights, 15:31 UTC</td></tr><tr><td><span class="mk no">Fail</span></td><td>Home page weighs 21.5 MB; its 3 self-hosted videos are 19.9 MB (Phoenix 8.4 MB, Scottsdale 6.3 MB, Mesa 5.2 MB)</td><td class="src">PageSpeed + live request</td></tr><tr><td><span class="mk no">Fail</span></td><td>Render-blocking files cost about 1.4 s; 497 KB of unused JavaScript; 24 CSS and 22 JS files</td><td class="src">PageSpeed + home page source</td></tr><tr><td><span class="mk wa">Watch</span></td><td>Server response (TTFB) median about 220 ms over 18 requests on 6 pages; target is under 200 ms</td><td class="src">live requests</td></tr><tr><td><span class="mk ok">Pass</span></td><td>Brotli compression on</td><td class="src">response headers</td></tr><tr><td><span class="mk ok">Pass</span></td><td>HTTP/3 advertised</td><td class="src">response headers</td></tr><tr><td><span class="mk ok">Pass</span></td><td>Static files cached for 1 year</td><td class="src">response headers</td></tr><tr><td><span class="mk ok">Pass</span></td><td>WebP images, lazy-loading, CSS and HTML minify, font-display swap already on</td><td class="src">LiteSpeed settings</td></tr></tbody></table></div></details><details class="cat"><summary><b>Mobile</b><span class="from">4 of 5 passed</span></summary><div class="tablewrap"><table class="ck"><thead><tr><th>Result</th><th>Check</th><th>Source</th></tr></thead><tbody><tr><td><span class="mk ok">Pass</span></td><td>Mobile viewport tag on 116 of 116 pages</td><td class="src">crawl</td></tr><tr><td><span class="mk ok">Pass</span></td><td>Layout shift (CLS) 0 on the home page</td><td class="src">PageSpeed</td></tr><tr><td><span class="mk ok">Pass</span></td><td>Accessibility 95, Best Practices 96</td><td class="src">PageSpeed</td></tr><tr><td><span class="mk ok">Pass</span></td><td>Lighthouse SEO 92; the only flag is 1 link with non-descriptive text</td><td class="src">PageSpeed</td></tr><tr><td><span class="mk no">Fail</span></td><td>Main content appears slowly on phones (see Performance)</td><td class="src">Search Console CWV</td></tr></tbody></table></div></details><details class="cat" open><summary><b>Security</b><span class="from">6 of 9 passed</span></summary><div class="tablewrap"><table class="ck"><thead><tr><th>Result</th><th>Check</th><th>Source</th></tr></thead><tbody><tr><td><span class="mk no">Fail</span></td><td>The server error log is public: /error_log returns 200, 978 lines, last written Sep 18</td><td class="src">live request</td></tr><tr><td><span class="mk no">Fail</span></td><td>The public users endpoint lists the admin login name</td><td class="src">live request</td></tr><tr><td><span class="mk no">Fail</span></td><td>No HSTS header</td><td class="src">response headers</td></tr><tr><td><span class="mk ok">Pass</span></td><td>Search Console HTTPS report: 61 HTTPS URLs, 0 non-HTTPS</td><td class="src">Search Console</td></tr><tr><td><span class="mk ok">Pass</span></td><td>http redirects to https with a 301</td><td class="src">live request</td></tr><tr><td><span class="mk ok">Pass</span></td><td>No mixed http content on any page</td><td class="src">crawl</td></tr><tr><td><span class="mk ok">Pass</span></td><td>.env, .git and wp-config backups are blocked (403)</td><td class="src">live request</td></tr><tr><td><span class="mk ok">Pass</span></td><td>Security issues: none</td><td class="src">Search Console</td></tr><tr><td><span class="mk ok">Pass</span></td><td>Manual actions: none</td><td class="src">Search Console</td></tr></tbody></table></div></details><details class="cat"><summary><b>Structured data</b><span class="from">3 of 4 passed</span></summary><div class="tablewrap"><table class="ck"><thead><tr><th>Result</th><th>Check</th><th>Source</th></tr></thead><tbody><tr><td><span class="mk ok">Pass</span></td><td>Schema on 116 of 116 pages</td><td class="src">crawl</td></tr><tr><td><span class="mk ok">Pass</span></td><td>Breadcrumbs: 64 valid, 0 invalid</td><td class="src">Search Console</td></tr><tr><td><span class="mk wa">Watch</span></td><td>Google still lists 2 invalid items from its Aug 17 to 18 crawl: a review snippet on /tempe/ and vacation-rental markup on /gilbert/. Both are already gone from the live pages</td><td class="src">Search Console + live pages</td></tr><tr><td><span class="mk ok">Pass</span></td><td>Live schema types match the business (services, FAQ, breadcrumbs)</td><td class="src">live pages</td></tr></tbody></table></div></details><details class="cat"><summary><b>URL structure</b><span class="from">4 of 5 passed</span></summary><div class="tablewrap"><table class="ck"><thead><tr><th>Result</th><th>Check</th><th>Source</th></tr></thead><tbody><tr><td><span class="mk ok">Pass</span></td><td>All URLs lowercase with hyphens</td><td class="src">sitemap</td></tr><tr><td><span class="mk ok">Pass</span></td><td>No query parameters in sitemap URLs</td><td class="src">sitemap</td></tr><tr><td><span class="mk ok">Pass</span></td><td>Maximum depth of 2 folders</td><td class="src">sitemap</td></tr><tr><td><span class="mk ok">Pass</span></td><td>Page language set: lang="en-US"</td><td class="src">home page source</td></tr><tr><td><span class="mk wa">Watch</span></td><td>2 slugs are over 75 characters (leave them; changing live URLs costs more than it gains)</td><td class="src">sitemap</td></tr></tbody></table></div></details></div>
+  <div class="panel" style="display:grid;gap:10px">
+    <h3>Priority fixes</h3>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Priority</th><th>Issue</th><th>How to fix</th></tr></thead>
+      <tbody>
+        <tr><td><span class="chip fix">Critical</span></td><td>Public error log at /error_log (978 lines)</td><td>Delete or move the file, block it in .htaccess, and send PHP logging to a folder outside the website.</td></tr>
+        <tr><td><span class="chip fix">High</span></td><td>Slow mobile pages (home page LCP 7.8 s; 0 good URLs)</td><td>Replace the 3 self-hosted videos (19.9 MB) with compressed files or a click-to-play poster, then test LiteSpeed JS defer and CSS combine one at a time. JS minify stays off because it breaks the footer.</td></tr>
+        <tr><td><span class="chip fix">High</span></td><td>No HSTS header</td><td>Add Strict-Transport-Security in hPanel or .htaccess after confirming every subdomain is on HTTPS.</td></tr>
+        <tr><td><span class="chip watch">Medium</span></td><td>Admin login name visible at /wp-json/wp/v2/users</td><td>Limit the users endpoint to logged-in users.</td></tr>
+        <tr><td><span class="chip watch">Medium</span></td><td>robots.txt blocks /wp-includes/ scripts</td><td>Remove that line in the MetaSync robots.txt settings. MetaSync rewrites the file, so the change has to be made there.</td></tr>
+        <tr><td><span class="chip watch">Medium</span></td><td>4 noindexed URLs in the sitemap</td><td>Add them to the MetaSync sitemap exclusion list; add the 3 archive pages once Google shows them as excluded.</td></tr>
+        <tr><td><span class="chip good">Low</span></td><td>Old invalid items in Google (/tempe/, /gilbert/)</td><td>Click "Validate fix" in the Review snippets and Vacation rental reports. The live pages are already clean.</td></tr>
+        <tr><td><span class="chip good">Low</span></td><td>4 links to redirects, 20 images without alt text, 1 title at 61 characters, 2 category pages sharing one title</td><td>Point the links at the final URLs and add alt text the next time each page is edited.</td></tr>
+      </tbody>
+    </table></div>
+    <p class="caption">None of these fixes has been made yet. Several touch the server or protected pages and need approval first.</p>
+  </div>
+</section>
+
+<section aria-labelledby="todo">
+  <h2 id="todo">What to do next</h2>
+  <div class="actions">
+    <div class="action"><h3>Close the public error log</h3><p>Anyone can download /error_log today. It holds 978 lines of server messages. This is the one urgent technical fix.</p><div class="tags"><span class="tag">Website</span><span class="tag">Needs approval</span><span class="tag">Today</span></div></div>
+    <div class="action"><h3>Look at the Business Profile listing on a phone</h3><p>The listing's clicks and calls fell while views held. Check what a searcher sees today: the website button, hours, photos, the latest post (none published since Jul 7; two are waiting in review) and the newest reviews. This is the single biggest source of lost clicks.</p><div class="tags"><span class="tag">Business Profile owner</span><span class="tag">This week</span></div></div>
+    <div class="action"><h3>Review the Search ad campaign</h3><p>Ad clicks fell from 240 a week (Aug 31) to 52 and then 21, while cost per click rose from about $2 to about $24 in the week of Sep 14. Website conversion tracking has also been silent since late July, so the campaign is bidding without lead data.</p><div class="tags"><span class="tag">Ads manager</span><span class="tag">This week</span></div></div>
+    <div class="action"><h3>Speed up mobile pages</h3><p>Most LiteSpeed optimizations are already on. The biggest remaining weight is the 3 home page videos (19.9 MB). Shrinking them, then testing JS defer and CSS combine one at a time, is the route to a faster LCP.</p><div class="tags"><span class="tag">Website</span><span class="tag">Needs approval</span></div></div>
+    <div class="action"><h3>Judge progress by clicks, not total impressions</h3><p>Track clicks, page-1 impressions and Business Profile actions. Total impressions will stay low while deep listings are not counted, and that number has little to do with leads. Recheck the 5 pages sent for indexing on Oct 1 to 3, and the full baseline on Oct 9.</p><div class="tags"><span class="tag">Reporting</span><span class="tag">Ongoing</span></div></div>
+  </div>
+  <div class="panel" style="display:grid;gap:8px">
+    <h3>Done today</h3>
+    <ul class="done">
+      <li><span class="chip good">Done</span><span>Removed the 122 hidden OTTO links from the home page (20 pointed to dead pages). Nothing visible changed.</span></li>
+      <li><span class="chip good">Done</span><span>Replaced the competitor link on /phoenix-sewer-line-problems/ with a Seattle Public Utilities source.</span></li>
+      <li><span class="chip good">Done</span><span>Rewrote 4 unindexed posts, added 5 internal links, and requested indexing for 5 pages.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="foot" aria-label="Sources">
+  <span class="eyebrow">Sources and method</span>
+  <p>Google Search Console (domain property, all searches incl. the Business Profile link), Business Profile performance via Search Atlas (read-only), Google Ads (read-only), Google crawl stats, Core Web Vitals, HTTPS, enhancement, security and manual-action reports, Google PageSpeed Insights (live mobile test of the home page), live HTTP requests, and my own crawl of the live sitemap on Sep 28. A PageSpeed test of /phoenix/ did not finish and is not reported. "Before" is Aug 20 to Sep 16 (28 days); "after" is Sep 17 to 25 (9 days); both are shown per day so the lengths compare fairly. Google also flagged ranking volatility on Sep 15 and Sep 23 to 24, 2026, without confirming an update.</p>
+</section>
+</div>
+
+<div class="tip" id="tip" hidden></div>
+
+<script>
+const S26=[1037,959,1158,853,739,862,990,735,1141,550,685,587,526,888,753,832,330,485,280,276,569,801,437,579,427,370,308];
+const S25=[761,892,904,1112,925,620,1365,772,775,687,793,376,306,142,258,154,136,249,478,394,115,103,207,187,78,342,316];
+const WK=[["Mar 2",21],["Mar 9",12],["Mar 16",23],["Mar 23",12],["Mar 30",19],["Apr 6",15],["Apr 13",21],["Apr 20",25],["Apr 27",33],["May 4",24],["May 11",24],["May 18",19],["May 25",12],["Jun 1",9],["Jun 8",11],["Jun 15",13],["Jun 22",13],["Jun 29",19],["Jul 6",7],["Jul 13",11],["Jul 20",13],["Jul 27",12],["Aug 3",16],["Aug 10",23],["Aug 17",21],["Aug 24",6],["Aug 31",9],["Sep 7",16],["Sep 14",10],["Sep 21",7]];
+const POS=[["Page 1 (1–10)",94.9,100.8],["Page 2 (11–20)",75.0,61.0],["21–50",155.8,111.7],["51 and deeper",422.1,134.4]];
+const NS="http://www.w3.org/2000/svg";
+const el=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e};
+const tip=document.getElementById('tip');
+function showTip(ev,html){tip.innerHTML=html;tip.hidden=false;const x=Math.min(ev.clientX+14,window.innerWidth-tip.offsetWidth-8);tip.style.left=x+'px';tip.style.top=(ev.clientY-tip.offsetHeight-12)+'px'}
+function hideTip(){tip.hidden=true}
+
+// 1. YoY line chart
+(function(){
+  const svg=document.getElementById('yoy'),W=520,H=250,L=44,R=14,T=14,B=34,max=1400;
+  const x=i=>L+i*(W-L-R)/(S26.length-1), y=v=>T+(H-T-B)*(1-v/max);
+  for(const v of [0,350,700,1050,1400]){el('line',{x1:L,x2:W-R,y1:y(v),y2:y(v),stroke:'var(--line)','stroke-width':1},svg);const t=el('text',{x:L-8,y:y(v)+4,'text-anchor':'end'},svg);t.textContent=v.toLocaleString()}
+  [1,8,15,22,27].forEach(d=>{const t=el('text',{x:x(d-1),y:H-12,'text-anchor':'middle'},svg);t.textContent='Sep '+d});
+  const mark=(i,label,color)=>{el('line',{x1:x(i),x2:x(i),y1:T,y2:H-B,stroke:color,'stroke-width':1,'stroke-dasharray':'3 3'},svg);const t=el('text',{x:x(i)+4,y:T+10,class:'lbl'},svg);t.textContent=label};
+  mark(11,'Sep 12, 2025','var(--s2)'); mark(16,'Sep 17, 2026','var(--s1)');
+  const path=(arr,c)=>el('path',{d:arr.map((v,i)=>(i?'L':'M')+x(i).toFixed(1)+' '+y(v).toFixed(1)).join(' '),fill:'none',stroke:c,'stroke-width':2,'stroke-linejoin':'round','stroke-linecap':'round'},svg);
+  path(S25,'var(--s2)'); path(S26,'var(--s1)');
+  const cross=el('line',{y1:T,y2:H-B,stroke:'var(--muted)','stroke-width':1,opacity:0},svg);
+  const d1=el('circle',{r:4,fill:'var(--s1)',stroke:'var(--surface)','stroke-width':2,opacity:0},svg), d2=el('circle',{r:4,fill:'var(--s2)',stroke:'var(--surface)','stroke-width':2,opacity:0},svg);
+  const hit=el('rect',{x:L,y:T,width:W-L-R,height:H-T-B,fill:'transparent'},svg);
+  hit.addEventListener('mousemove',ev=>{const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)*W/r.width;const i=Math.max(0,Math.min(S26.length-1,Math.round((px-L)/((W-L-R)/(S26.length-1)))));
+    cross.setAttribute('x1',x(i));cross.setAttribute('x2',x(i));cross.setAttribute('opacity',1);d1.setAttribute('cx',x(i));d1.setAttribute('cy',y(S26[i]));d1.setAttribute('opacity',1);d2.setAttribute('cx',x(i));d2.setAttribute('cy',y(S25[i]));d2.setAttribute('opacity',1);
+    showTip(ev,`<b>Sep ${i+1}</b><br>2026: ${S26[i].toLocaleString()}<br>2025: ${S25[i].toLocaleString()}`)});
+  hit.addEventListener('mouseleave',()=>{cross.setAttribute('opacity',0);d1.setAttribute('opacity',0);d2.setAttribute('opacity',0);hideTip()});
+})();
+
+// 2. Dumbbell by position
+(function(){
+  const svg=document.getElementById('pos'),W=520,H=250,L=118,R=40,T=10,B=30,max=450,rowH=(H-T-B)/POS.length;
+  const x=v=>L+(W-L-R)*v/max;
+  for(const v of [0,150,300,450]){el('line',{x1:x(v),x2:x(v),y1:T,y2:H-B,stroke:'var(--line)','stroke-width':1},svg);const t=el('text',{x:x(v),y:H-10,'text-anchor':'middle'},svg);t.textContent=v}
+  POS.forEach(([lab,b,a],k)=>{const cy=T+rowH*k+rowH/2;
+    const t=el('text',{x:L-10,y:cy+4,'text-anchor':'end',class:'lbl'},svg);t.textContent=lab;
+    el('line',{x1:x(Math.min(a,b)),x2:x(Math.max(a,b)),y1:cy,y2:cy,stroke:'var(--muted)','stroke-width':2},svg);
+    el('circle',{cx:x(b),cy,r:6,fill:'var(--s-before)',stroke:'var(--surface)','stroke-width':2},svg);
+    el('circle',{cx:x(a),cy,r:6,fill:'var(--s1)',stroke:'var(--surface)','stroke-width':2},svg);
+    const lv=el('text',{x:x(Math.max(a,b))+10,y:cy+4},svg);lv.textContent=Math.round(b)+' → '+Math.round(a);
+    const hit=el('rect',{x:0,y:cy-rowH/2,width:W,height:rowH,fill:'transparent'},svg);
+    hit.addEventListener('mousemove',ev=>showTip(ev,`<b>${lab}</b><br>Before: ${b.toFixed(0)} / day<br>After: ${a.toFixed(0)} / day`));hit.addEventListener('mouseleave',hideTip);
+  });
+})();
+
+// 3. Weekly clicks bars
+(function(){
+  const svg=document.getElementById('weekly'),W=1000,H=240,L=36,R=10,T=14,B=34,max=35,n=WK.length,bw=(W-L-R)/n;
+  const y=v=>T+(H-T-B)*(1-v/max);
+  for(const v of [0,10,20,30]){el('line',{x1:L,x2:W-R,y1:y(v),y2:y(v),stroke:'var(--line)','stroke-width':1},svg);const t=el('text',{x:L-8,y:y(v)+4,'text-anchor':'end'},svg);t.textContent=v}
+  WK.forEach(([lab,v],i)=>{const bx=L+i*bw+2,h=y(0)-y(v),last=i===n-1;
+    const r=el('path',{d:`M${bx} ${y(0)} V${y(v)+Math.min(4,h)} Q${bx} ${y(v)} ${bx+4} ${y(v)} H${bx+bw-8} Q${bx+bw-4} ${y(v)} ${bx+bw-4} ${y(v)+Math.min(4,h)} V${y(0)} Z`,fill:'var(--accent)',opacity:last?0.45:1},svg);
+    if(i%4===0){const t=el('text',{x:bx+(bw-4)/2,y:H-12,'text-anchor':'middle'},svg);t.textContent=lab}
+    const hit=el('rect',{x:L+i*bw,y:T,width:bw,height:H-T-B,fill:'transparent'},svg);
+    hit.addEventListener('mousemove',ev=>showTip(ev,`<b>Week of ${lab}</b><br>${v} clicks${last?' (still filling in)':''}`));hit.addEventListener('mouseleave',hideTip);
+  });
+  const pk=8,t=el('text',{x:L+pk*bw+bw/2,y:y(33)-6,'text-anchor':'middle',class:'lbl'},svg);t.textContent='33';
+})();
+</script>

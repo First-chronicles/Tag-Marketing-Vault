@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Sewer Batch 1 Report 2026-09-03",
+ "cat": "brain-summit",
+ "group": "Audits",
+ "body": "> Audit · Summit Az · 2026-09-03\n\n# Summary\nPre-implementation report (nothing changed on the live site) for batch 1 of the local pages plan: five sewer line repair city pages (Phoenix, Tempe, Mesa, Chandler, San Tan Valley) and the parent /sewer-line-repair-and-replacement/. Every statement is tagged [VERIFIED], [EVIDENCE-BASED], [ASSUMPTION] or [CONFIRM]. Versions: `.md` and `.pdf` (same content). Query data: `Summit-AZ-Sewer-Batch1-GSC-Queries-2026-09-03.csv` (about 315 page/query rows with class labels).\n\n# Key findings\n- The five pages were the strongest local pages on the site: 4,468 impressions in three months and zero clicks. Chandler ranked 4 for \"sewer line repair chandler az\" and 3 for \"residential sewer line repair\".\n- They are not city-swap copies (3 to 8% shared text). The problems were unsupported local claims, generic mid-page sections, heading noise, no real images and a parent page competing with Mesa.\n- Cannibalization: the parent page (230 impressions at 41) and the Orangeburg page (93 at 55) competed with the Mesa page (201 at 21) for \"sewer line repair in mesa az\". An OTTO meta started the parent page with \"Mesa\".\n- Eleven unsupported claims: neighborhood pipe materials, named neighborhoods, satisfaction guarantee, 24/7 dispatch, pipe bursting, Chandler permit statements, itemized written estimates, \"cost-effective\", \"fast\", \"no upselling\", \"show you the camera footage\".\n- \"Trenchless sewer line replacement\" was presented as confirmed; pipe bursting was treated as unconfirmed.\n- Sources: the Company Avatar (the only business source; a \"Product Marketing Context\" file did not exist), GSC via Search Atlas, OTTO exports, live site, GBP.\n\n# Decisions and status\n- Recommended order: fix the parent page and Mesa split, then Tempe, Phoenix, Chandler, San Tan Valley, published within one week.\n- The batch waited on Scott's confirmations (see [Summit AZ - Local Pages Phase 1 and Batch Plan 2026-09-03](lib:brain-summit-az-local-pages-phase-1-and-batch-plan-2026-09-03)). Later work on Mesa, Fountain Hills and Queen Creek sewer pages is in [Summit AZ - Sewer Line Repair City Pages](lib:brain-summit-az-sewer-line-repair-city-pages).\n\n# Related\n- [Summit AZ - City Pages Index](lib:brain-summit-az-city-pages-index), [Summit AZ - General Plumbing Batch 2 Report 2026-09-03](lib:brain-summit-az-general-plumbing-batch-2-report-2026-09-03), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/Summit-AZ-Sewer-Batch1-Report-2026-09-03.md",
+ "date": "2026-09-03",
+ "createdAt": 1792613104756,
+ "updatedAt": 1792613104756,
+ "rev": "13eee314d5cc"
+}

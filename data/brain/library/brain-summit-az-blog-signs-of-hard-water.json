@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Blog - Signs of Hard Water",
+ "cat": "brain-summit",
+ "group": "Blogs",
+ "body": "> Blog · Summit Az · 2026-06-18\n\n# Summary\nInformational post converted from the Utah Summit site for the Arizona site. Explains the common signs of hard water, why Phoenix metro and East Valley water is so hard, and what Chandler homeowners can do about scale. Published 2026-06-18 at `/blog/signs-of-hard-water-in-your-home/` (June batch post ID 5779 in `_sheet\\posts_live.csv`).\n\n# Key facts\n- Focus keyphrase: signs of hard water. SEO title (54 chars): \"Signs of Hard Water in Your Home: Arizona Guide\".\n- Internal links: water softener installation Chandler (money page), Gilbert city page, sibling posts (new water heater, prevent clogged drains), contact. Reciprocal cluster links to `/blog/low-water-pressure-mesa/` and `/blog/low-water-pressure-shower-only/` were to be added only after those posts went live (Aug 2026).\n- External source: USGS Water Science School, Hardness of Water.\n- Verification block: keyphrase placements pass, single H1, cannibalization pass (city pages hold the transactional \"water softener installation\" intent).\n\n# Utah flag\n- A Utah original exists at `blogs\\_utah_originals\\signs-of-hard-water-in-your-home.md` (Utah/Wasatch Front wording, \"A Utah Guide\" title). It is the source the AZ version was localized from. Do not publish it on the AZ site.\n- The featured image filename `signs-of-hard-water-scale-utah-faucet.png` was kept on purpose (image reuse); only the alt text was changed to Arizona.\n\n# Versions\n- `signs-of-hard-water-in-your-home.md` (AZ draft with META and Verification blocks) and `.html` (WP-ready body).\n- Banner and inline images under `blogs\\banners\\` and `blogs\\images\\`.\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Summit AZ - Work Folders Index](lib:brain-summit-az-work-folders-index), [Summit AZ - Blogs Folder Overview](lib:brain-summit-az-blogs-folder-overview)\n- [SEO Blog Writing Standards](lib:brain-seo-blog-writing-standards), [Blog Master List](lib:brain-blog-master-list)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/blogs/signs-of-hard-water-in-your-home.md",
+ "date": "2026-06-18",
+ "createdAt": 1792612842937,
+ "updatedAt": 1792612842938,
+ "rev": "cb9185e5af90"
+}

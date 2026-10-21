@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Blog - Monsoon Plumbing Tips",
+ "cat": "brain-summit",
+ "group": "Blogs",
+ "body": "> Blog · Summit Az · 2026-06-25\n\n# Summary\nDraft from the July 2026 batch (see [Summit AZ - Blog - July 2026 Batch Brief](lib:brain-summit-az-blog-july-2026-batch-brief)), written to the brief's META BLOCK, article and Verification format.\n\n# Key facts\n- Focus keyphrase: monsoon plumbing tips. SEO title: \"Monsoon Plumbing Tips: An Arizona Guide (39 chars)\".\n- Quick answer: Clear drains and gutters before storm season, keep debris away from yard drains and cleanouts, and know sewer backup warning signs.\n- Links: sewer line pillar, drain cleaning pillar, drain cleaning Chandler, emergency plumbing pillar, prevent-clogged-drains sibling, contact. External: Ready.gov Floods.\n- Verification block: keyphrase placements, single H1, no em dashes, cannibalization and Arizona localization all marked PASS; Kim to confirm internal URLs and .gov links load in a browser.\n\n# Status\n- Slug `monsoon-season-plumbing` was pre-assigned and does not contain the exact keyphrase; the file flags this and recommends keeping it for sibling-link consistency. The live monsoon pillar is a different post, `/blog/monsoon-season-plumbing-backups/` (published 2026-07-06), so this draft looks superseded and would compete with it.\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Summit AZ - Work Folders Index](lib:brain-summit-az-work-folders-index), [Summit AZ - Blogs Folder Overview](lib:brain-summit-az-blogs-folder-overview)\n- [SEO Blog Writing Standards](lib:brain-seo-blog-writing-standards), [Blog Master List](lib:brain-blog-master-list)\n- [Summit AZ - Blog - July 2026 Batch Brief](lib:brain-summit-az-blog-july-2026-batch-brief)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/blogs/monsoon-season-plumbing.md",
+ "date": "2026-06-25",
+ "createdAt": 1792612916300,
+ "updatedAt": 1792612916301,
+ "rev": "0273e81d323f"
+}

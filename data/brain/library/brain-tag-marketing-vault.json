@@ -1,0 +1,14 @@
+{
+ "name": "Tag Marketing Vault",
+ "cat": "brain-projects",
+ "group": "",
+ "body": "> Project · 2026-10-22\n\n# Summary\nKim's private Tag Marketing Vault is a personal knowledge app (prompts, platform accounts, tasks, notes and course lessons). The online version is a claude.ai artifact (claude.ai/artifact/47BvZWWeqCK3wK1rk4V3bS); `Tag Marketing Vault\\` is a desktop copy built from the same source, mainly so it can play full-size course videos from local paths.\n\n# Structure (desktop copy)\n- `index.html`, `css/vault.css`, `js/vault.js`: the generated page.\n- `src/vault-artifact.html`: the source, identical to the published page. Edit this, not the generated files.\n- `tools/build_desktop.py`: regenerates the page and `data/seed.js` from `src/` and `data/`.\n- `data/seed.js`: starting data exported from the online vault.\n- `data/live/`: exported items as JSON, one file per item. Currently `library/` (a Local SEO lesson set, 10 Local SEO lesson pages and a GBP review resource) and `prompts/` (3 sample prompts: GBP post, keyword plus city, LSI startup).\n- `assets/`: images.\n\n# Sections in the app\nPrompt Library, Learning Center, Resources and Templates, AI and Automations, Platform Accounts, a **Login Credentials** section, tasks and notes. The Logins section exists in the app; its contents are private and are not copied into this vault.\n\n# How saving works\n- The desktop copy saves to the browser on this PC and does not sync with the online vault. Use Export backup and Import to move data.\n- Rebuilding the seed adds new pages (for example new course notes) without overwriting pages already edited.\n- Videos: \"Add video\" with a full local path; the online vault shows the path as a card because browsers cannot play local files from a website.\n- Design preferences: light mode, no emojis, minimal fields.\n\n# Related\n- [Projects Index](lib:brain-projects-index), [Video Notes Project](lib:brain-video-notes-project), [Learning Index](lib:brain-learning-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Tag Marketing Vault/README.md",
+ "date": "2026-10-22",
+ "createdAt": 1792613414806,
+ "updatedAt": 1792613414806,
+ "rev": "82aba497546a"
+}

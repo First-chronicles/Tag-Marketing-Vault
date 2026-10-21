@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Image Alt Audit 2026-09-30",
+ "cat": "brain-summit",
+ "group": "Audits",
+ "body": "> Audit · Summit Az · 2026-09-30\n\n# Summary\nImage alt text audit across all 202 live pages and posts (1,237 image tags). None were missing, but weak or wrong alts were found and rewritten. Status: APPROVED by Kim and APPLIED Sep 30; all alts verified live. Server backups in `~/tmp/bk-alt-20260930/`. Every image was viewed before its alt was written. The issue list is `Summit-AZ-Image-Alt-Audit-2026-09-30.csv` (36 rows: issue, page, image file, current alt).\n\n# Issue groups\n- Placeholder \"Image link\" on 7 pages (/about/, /contact/, /drain-cleaning/, /home-warranty-plumbing/, /service-areas/, /summit-plumbing-locations/): replaced with descriptions matching the same photos elsewhere (technicians in a kitchen, branded polos, service van).\n- Garbage disposal pages: camera filename \"Dsc03489\" or a stock caption replaced with a unique description per photo.\n- Wrong city: Mesa and Tempe pages carrying Chandler or Mesa wording in alts.\n- Stock-photo captions and other weak alts.\n\n# Key decision\n- Mesa and Chandler share library photos, so shared images get city-neutral alt text (recorded as a standing footgun).\n- 27 weak or wrong alts fixed on 25 URLs (case study log). Separately, the media library still had 194 of 351 images with no saved alt (none empty on live pages) as of Oct 1.\n\n# Related\n- [Summit AZ - SEO Audit Baseline 2026-09-10](lib:brain-summit-az-seo-audit-baseline-2026-09-10), [Summit AZ - Case Study Scrapbook](lib:brain-summit-az-case-study-scrapbook), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/Summit-AZ-Image-Alt-Drafts-2026-09-30.md",
+ "date": "2026-09-30",
+ "createdAt": 1792613261973,
+ "updatedAt": 1792613261973,
+ "rev": "a9ed993e87bc"
+}

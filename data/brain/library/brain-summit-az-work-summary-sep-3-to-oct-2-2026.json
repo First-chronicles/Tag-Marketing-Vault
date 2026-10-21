@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Work Summary Sep 3 to Oct 2 2026",
+ "cat": "brain-summit",
+ "group": "Reports",
+ "body": "> Report · Summit Az · 2026-10-06\n\n# Summary\nA month-in-review compiled from the Summit sections of 21 Keystone CRM daily reports (Sep 3 to Oct 2, 2026). Every report day also included the daily GBP photo post. Useful as the client-facing story of the first month after the relaunch.\n\n# Workstreams and results\n1. Post-relaunch cleanup (Sep 3 to 8): 6 general plumbing city pages redesigned; Arizona-only footer; 62 broken links on 32 pages repointed; Redirection plugin and Rank Math sitemap repaired (sitemap 91 URLs with dead Utah pages to 200 correct URLs); breadcrumb schema on; duplicate forms removed on 116 pages.\n2. OTTO safety (Sep 4 to 11): about 2,070 \"deployed\" fixes found; pixel test showed they would all go live, so it was turned off; business rules doc written; 219 unsafe changes found. OTTO now only crawls and audits.\n3. Claims (Sep 8 to 25): 24/7 removed from 108 pages; hours changed to Mon to Sat 8 to 5; emergency city pages cleaned; 46 hub edits; Gas Line Installation removed; Utah coordinates fixed on /about/.\n4. Design (Sep 7 to 11): 142 pages matched to the drain cleaning design; 780 broken icons restored; invisible and dark-on-dark text fixed; card boxes, mobile gap and the blank Emergency page fixed; Locations page rebuilt with 10 city cards.\n5. Internal linking (Sep 8 to 25): correct city buttons on 134 pages; 110 hub links; slab leaks 3 to 14 links; no orphan pages.\n6. Rank Math (Sep 9 to 30): fully optimized indexed pages 4 to 78 of 176; FAQs on all 14 parent service pages; alts fixed.\n7. Duplicate page rewrites (Sep 24 to 25): 18 pages live with unique copy.\n8. Blogs: 5 published (garbage disposal, tankless descaling, salt-free vs salt, softener maintenance, snowbird).\n9. Indexing: about 54 URLs submitted on 8 days; 11 still unindexed Sep 30.\n10. Tracking: GA4 misrouting found (fixed by Scott Sep 12); Aug 28 to Sep 28 34 clicks, 11,800 impressions, 1,468 ranking keywords; technical health 93/100; AI visibility 1.8%.\n\n# Still open as of Oct 2\n- Terms page choice, emergency-search strategy, /home-warranty-plumbing/, epoxy lining, claims on Orangeburg, softener and emergency pages, homepage title and meta (Scott), re-check of 11 unindexed pages, ranking reviews Oct 10 and Oct 24, two oversized images on the Emergency page.\n\n# Related\n- [Summit AZ - Work Reports Sep 2026](lib:brain-summit-az-work-reports-sep-2026), [Summit AZ - Session Handoff 2026-10-01](lib:brain-summit-az-session-handoff-2026-10-01), [Keystone CRM](lib:brain-keystone-crm), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/Summit-AZ-Work-Summary-Sep3-Oct2-2026.md",
+ "date": "2026-10-06",
+ "createdAt": 1792613416719,
+ "updatedAt": 1792613416719,
+ "rev": "5fc057ebfdbc"
+}

@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Blog - Drain Smells Like Sewage",
+ "cat": "brain-summit",
+ "group": "Blogs",
+ "body": "> Blog · Summit Az · 2026-06-25\n\n# Summary\nDraft from the July 2026 batch (see [Summit AZ - Blog - July 2026 Batch Brief](lib:brain-summit-az-blog-july-2026-batch-brief)), written to the brief's META BLOCK, article and Verification format.\n\n# Key facts\n- Focus keyphrase: drain smells like sewage. SEO title: \"Why Your Drain Smells Like Sewage (Fixes) (41 chars)\".\n- Quick answer: Most common cause is a dry P-trap (water evaporates fast in Arizona heat), then biofilm buildup, vent problems, or a sewer line issue.\n- Links: drain cleaning pillar, garbage disposals pillar, sewer line pillar, sewer-backup and slow-sink siblings, contact. External: CDC/ATSDR hydrogen sulfide statement.\n- Verification block: keyphrase placements, single H1, no em dashes, cannibalization and Arizona localization all marked PASS; Kim to confirm internal URLs and .gov links load in a browser.\n\n# Status\n- Not published under this slug. The topic overlaps the August cluster pillar `/blog/drain-smells-backs-up-summer/` (published 2026-07-31), so publishing this draft now would risk cannibalization.\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Summit AZ - Work Folders Index](lib:brain-summit-az-work-folders-index), [Summit AZ - Blogs Folder Overview](lib:brain-summit-az-blogs-folder-overview)\n- [SEO Blog Writing Standards](lib:brain-seo-blog-writing-standards), [Blog Master List](lib:brain-blog-master-list)\n- [Summit AZ - Blog - July 2026 Batch Brief](lib:brain-summit-az-blog-july-2026-batch-brief)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/blogs/drain-smells-like-sewage.md",
+ "date": "2026-06-25",
+ "createdAt": 1792612916344,
+ "updatedAt": 1792612916344,
+ "rev": "d76ba123f63b"
+}

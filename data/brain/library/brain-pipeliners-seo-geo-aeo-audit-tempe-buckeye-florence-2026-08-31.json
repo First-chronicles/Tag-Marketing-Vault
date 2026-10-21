@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - SEO GEO AEO Audit Tempe Buckeye Florence 2026-08-31",
+ "cat": "brain-pipeliners",
+ "group": "Audits",
+ "body": "> Audit · Pipeliners · 2026-08-31\n\n# Summary\nA Word report \"SEO / GEO / AEO Audit Report, Full Audit: Tempe, Buckeye, Florence\" dated Aug 31, 2026, produced with an SEO audit skill. It also looked at /services-areas/, /about-us/, /free-sewer-inspection/ and robots.txt.\n\n# Key findings\n- Scores: SEO 6/10, GEO 7/10, AEO 7/10 (combined 20/30).\n- The three city pages are technically sound (about 5,200 to 5,600 words each, one H1, Plumber + LocalBusiness schema, 8 to 11 localized FAQs) and already ranked: 77 keywords across the site sat at positions 4 to 10.\n- They earned zero clicks: 2,564 impressions over 89 days and no non-brand clicks. The failure is in the search listing, not the page.\n- Proof on the same site: /free-sewer-inspection/ ranked around position 62 yet had about 1.9% CTR because its meta ended with a phone number and call to action.\n- All three titles were misaligned with measured demand (Tempe omitted \"Line\" while 903 impressions came from \"sewer line repair\"), and every page's title contradicted its own og:title. Buckeye had no brand token.\n- GEO: strong local specificity but no author or source citations. AEO: excellent FAQ layer but no direct-answer block above the fold.\n\n# Decisions and status\n- Recommendation: rewrite nine fields (3 titles, 3 metas, 3 og:titles), covering 63% of the striking-distance opportunity. Deployed the same day (see the rewrites note).\n- A lock file (`~$...docx`) in the folder is an Office temp file, not content.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Title Meta Rewrites Tempe Buckeye Florence 2026-08-31](lib:brain-pipeliners-title-meta-rewrites-tempe-buckeye-florence-2026-08-31), [Pipeliners - Performance Snapshot Summary 2026-08-31](lib:brain-pipeliners-performance-snapshot-summary-2026-08-31)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/seo-audits/seo-audit-pipelinersusa-com-2026-08-31.docx",
+ "date": "2026-08-31",
+ "createdAt": 1792613442053,
+ "updatedAt": 1792613567193,
+ "rev": "f7063e701c98"
+}

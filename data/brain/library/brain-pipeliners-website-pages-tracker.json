@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Website Pages Tracker",
+ "cat": "brain-pipeliners",
+ "group": "",
+ "body": "> Tracker · Pipeliners · 2026-10-13\n\n# Summary\nBuild folder for the \"Pipeliners Website Pages\" tracker artifact (https://claude.ai/artifact/UHmTcm1feD5CdnMKSHPQq1). The tracker lists every live page with type, Google index status, clicks, impressions, word count, FAQ presence, last update, ad-protected flag, status and notes. The artifact saves Kim's edits into itself, so the live version is re-read before every republish.\n\n# Key facts\n- `pages.json` holds 116 page records: 57 Blog, 37 Local, 11 Core, 5 Service, 4 Service guide, 2 Ad page.\n- Fields per page: id, name, path, type, google, clicks, shown, words, faq, updated, protected, status, note, draft, published, impr.\n- An \"Impressions (GSC)\" column was added to every tab on Sep 29, and a \"Leads by source\" tab carries the monthly Keystone CRM pull (next Oct 29 per the handoff).\n- `template.html` is the page template (v9 and v10 backups kept); `website-pages-2026-10-13.html` is the latest rendered build.\n- Supporting data: `gsc_top_queries.json`, `live_crawl.json` (and a Sep 16 crawl), `pub_dates.json`, `wp_changed.tsv` (WordPress modified dates per post).\n\n# Versions and backups\nDated `pages.backup-*.json` and `pipeliners-website-pages.backup-*.html` files from Sep 16 to Oct 2 record the state before each refresh (pre-merge notes, quick wins, indexing, blog keyword alignment, audit, local, core, services and keyword checks). They are history only.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Website Page and Blog Tracker 2026-06-23](lib:brain-pipeliners-website-page-and-blog-tracker-2026-06-23), [Pipeliners - Blog Index](lib:brain-pipeliners-blog-index), [Keystone CRM](lib:brain-keystone-crm), [Google Search Console](lib:brain-google-search-console)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/website-pages-sheet",
+ "date": "2026-10-13",
+ "createdAt": 1792613057322,
+ "updatedAt": 1792613057323,
+ "rev": "0ef2405a1664"
+}

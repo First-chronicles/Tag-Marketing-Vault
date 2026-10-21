@@ -1,0 +1,14 @@
+{
+ "name": "EOD 2026-10-09",
+ "cat": "brain-eod",
+ "group": "2026-10 October",
+ "body": "> Eod · Summit Az · 2026-10-09\n\nFriday. Summit AZ schema cleanup and fixture page rewrites.\n\n# Summit Plumbing Pros AZ\nSee [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub).\n- Removed About page schema that listed unverified payment methods, a blank license, a broken logo and old links.\n- Turned off Article schema on 149 service, city and legal pages in Rank Math; blog posts keep it.\n- 24 pages showed login names (\"kim\", \"scott-admin\") as author; changed to \"Summit Plumbing Pros\".\n- Removed the \"$$\" price claim from 123 city pages.\n- 16 \"crawled, not indexed\" URLs: 10 are feeds and system files; of 6 real pages, drain cleaning Tempe now indexed, Queen Creek and Scottsdale drain not recrawled since Sep 25, and 3 fixture installation pages were copies.\n- Rewrote fixture installation Tempe, Gilbert and Apache Junction with local facts from city websites (approved first), 2 links each; now 13 to 17% similar to other city pages (was up to 77%), banned claims removed.\n- Removed inner links that split clickable cards on 4 fixture pages (Queen Creek broken since Sep 25).\n- Gilbert page: cut generic filler and added 4 more Town of Gilbert facts; EPA numbers now appear once.\n\n# Follow-ups\n- Home warranty page: keep or remove decision.\n- Oct 23: check Google for schema issues and whether rewritten pages are indexed.\n- Same generic-text review for Tempe and Apache Junction fixture pages.\n- Ask Scott about common fixture problems, standard install checks, and customer-bought fixtures.\n- Request indexing for the 4 fixture pages and the Queen Creek and Scottsdale drain pages.\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [EOD Reports Index](lib:brain-eod-reports-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/EOD Report 2026-10-09.txt",
+ "date": "2026-10-09",
+ "createdAt": 1792612972166,
+ "updatedAt": 1792612972166,
+ "rev": "43bdd0525652"
+}

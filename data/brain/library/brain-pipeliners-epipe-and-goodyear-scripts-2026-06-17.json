@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - ePIPE and Goodyear Scripts 2026-06-17",
+ "cat": "brain-pipeliners",
+ "group": "City Pages",
+ "body": "> Report · Pipeliners · 2026-06-17\n\n# Summary\nScript-only folder from Jun 17, 2026 for two jobs: building a Goodyear-specific FAQ section and finding images with missing alt text on the ePIPE restoration page. No written notes; details come from script comments.\n\n# Key findings\n- Goodyear (post 13770): a section cloned from the Phoenix page was adapted with 7 Goodyear-specific questions and answers, the leading Phoenix city image removed and any \"Phoenix\" text switched to Goodyear. A push script replaced the page's Elementor data (with `wp_slash`) and cleared the Elementor CSS cache.\n- ePIPE page (13626): scripts parsed its Elementor data and the media library to list rendered images with empty alt text.\n- Note: this predates the later rule against injecting visible Elementor content via WP-CLI.\n\n# Files in this folder (rollups only)\n- `_build_goodyear_faq.py`, `push_goodyear.php`, `_parse_epipe_imgs.py`, `_map_alt.py`, `_epipe_alt.sh`, `_more_alt.sh`, `epipe_13626_eldata.json` (Elementor dump).\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Image Alt Audit 2026-09-30](lib:brain-pipeliners-image-alt-audit-2026-09-30)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/epipe-goodyear-scripts-2026-06-17",
+ "date": "2026-06-17",
+ "createdAt": 1792613507485,
+ "updatedAt": 1792613567252,
+ "rev": "3db5eba5e4b4"
+}

@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - AI Answer Batch 3 2026-09-29",
+ "cat": "brain-pipeliners",
+ "group": "Audits",
+ "body": "> Report · Pipeliners · 2026-09-29\n\n# Summary\nA one-post third batch of the Sep 29, 2026 AI-answer work. It covers post 15586 (/epoxy-pipe-lining/). The folder holds the before and after content, the live HTML and response headers, and the guarded apply script. No written notes; details come from file names and headers.\n\n# Key findings\n- The saved headers show OTTO serving the page from cache (OTTO cache HIT) on Sep 28.\n- The Oct 12 indexing report lists /epoxy-pipe-lining/ as edited Sep 28 but not yet seen by Google, with indexing requested Oct 12.\n\n# Files in this folder (rollups only)\n- `before/content-15586.html`, `after/content-15586.html`, `live.html`, `h.txt` (headers), `apply_b3.php`.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - AI Answer Batch 1 2026-09-29](lib:brain-pipeliners-ai-answer-batch-1-2026-09-29), [Pipeliners - Indexing Report 2026-10-12](lib:brain-pipeliners-indexing-report-2026-10-12)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/aimode-batch3-2026-09-29",
+ "date": "2026-09-29",
+ "createdAt": 1792613507478,
+ "updatedAt": 1792613567246,
+ "rev": "61c1d4411070"
+}

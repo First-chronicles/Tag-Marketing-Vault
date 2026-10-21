@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Organic Snapshot 2026-09-16",
+ "cat": "brain-summit",
+ "group": "Reports",
+ "body": "> Report · Summit Az · 2026-09-16\n\n# Summary\nArizona organic SEO snapshot (v2), pulled read-only Sep 16, 2026 with matched windows (30, 28 and 7 days). v2 replaced v1 by using the GSC web UI for totals and TAG CRM (Keystone) for leads. Arizona only; the Utah equivalent is [Summit AZ - Utah Organic Snapshot 2026-09-16](lib:brain-summit-az-utah-organic-snapshot-2026-09-16). An HTML view, `Summit-Organic-Performance-2026-09-16.html`, sits in the folder.\n\n# KPIs (L30 vs P30)\n- GSC: 44 clicks (+7.3%), 11,454 impressions (-6.6%), CTR 0.38%, position 26.5 (2.6 better).\n- Non-brand clicks on visible queries: 2. Keywords in positions 1 to 3 / 4 to 10 / 11 to 20: 11 / 83 / 131.\n- GA4 organic sessions 108 vs 160, but GA4 has a gap Sep 4 to 10 (tag misrouted to Utah).\n- CRM Arizona leads 23 (18 calls, 3 forms, 2 chats); organic search leads 3, GBP 13; booked 12 (7 GBP, 0 organic). The CRM \"Value\" field is not revenue.\n- GBP: 570 views, 69 calls (+23%), 41 website clicks, 42 direction requests, 9 new reviews.\n\n# Top issues\n1. Schema openingHours said 7 days 9 to 5 on the 24 priority city pages; GBP says Mon to Sat 8 to 5.\n2. Chandler drain and general plumbing pages were near-copies of Mesa.\n3. Organic CRM leads fell 6 to 3 with none booked.\n4. GBP: 24 unreplied reviews, 3 approved services missing, http website link with campaign-only UTM.\n5. 16 crawled-not-indexed and 12 discovered-not-indexed URLs.\n6. The Tempe general hub takes emergency queries.\n\n# Map pack and rank tracker\n- \"emergency plumbing services\" avg 4.6 (14 of 39 pins top 3); \"plumber mesa az\" avg 11.8 (0 pins top 3). 0 of 21 tracked Chandler, Gilbert, Queen Creek and Tempe keywords ranking.\n\n# Related\n- [Summit AZ - Page and Blog Performance 2026-09-21](lib:brain-summit-az-page-and-blog-performance-2026-09-21), [Summit AZ - Case Study Scrapbook](lib:brain-summit-az-case-study-scrapbook), [Keystone CRM](lib:brain-keystone-crm), [Google Business Profile](lib:brain-google-business-profile), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/Summit-AZ-Organic-Snapshot-2026-09-16.md",
+ "date": "2026-09-16",
+ "createdAt": 1792613426570,
+ "updatedAt": 1792613426570,
+ "rev": "2fc22baf11d6"
+}

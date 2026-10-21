@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Blog Audit 2026-09-29",
+ "cat": "brain-pipeliners",
+ "group": "Audits",
+ "body": "> Audit · Pipeliners · 2026-09-29\n\n# Summary\nAudit of all 63 blog posts (51 published, 11 draft, 1 private) on Sep 29, 2026, built from a database read, a live crawl and an external link status check. Main output: `blog-audit-2026-09-29.csv` with words, SEO title, title and meta lengths, schema types, Article schema, featured image, internal links in and out, 90-day GSC impressions and flags.\n\n# Key findings\n- 32 posts had no Article or BlogPosting schema; 12 had no featured image.\n- 20 had fewer than 3 contextual internal links; 11 were orphans (no post or page links to them).\n- 11 rows are retired posts that now 301 to a merge target.\n- 9 posts used \"here\" anchors; 7 were thin (under 800 words).\n- House style: \"Pipeliners USA\" in 7 titles and in the body of 9 posts.\n- Minor: 2 posts typed AboutPage, 2 with body images missing alt, 1 heading skip, 1 private post that 404s publicly.\n\n# Decisions and status\n- Article schema for posts that lacked it was added Oct 16 (per the change log and the Oct 15 SEO check).\n\n# Files in this folder (rollups only)\n- `blog-audit-2026-09-29.csv`: the audit.\n- `ext_status.tsv`, `live/status.tsv`, `checkurls.txt`, `urls.txt`: link and URL status checks.\n- Saved HTML, JSON, PHP, Python and shell scripts: not summarized.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - SEO Check All Pages 2026-10-15](lib:brain-pipeliners-seo-check-all-pages-2026-10-15), [Blog Master List](lib:brain-blog-master-list)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/blog-audit-2026-09-29",
+ "date": "2026-09-29",
+ "createdAt": 1792613442056,
+ "updatedAt": 1792613567196,
+ "rev": "cf73208040d7"
+}

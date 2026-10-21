@@ -1,0 +1,14 @@
+{
+ "name": "Keystone CRM",
+ "cat": "brain-tools",
+ "group": "",
+ "body": "> Tool · 2026-10-01\n\n# Summary\nKeystone (keystone.so) is TAG's internal work CRM: tasks, recurring work, client lead records and Scott's meeting recordings (Fathom). Claude drives it read-only through Kim-Main Chrome; Kim signs in and Claude never enters passwords.\n\n# How it is used\n- **Tasks:** `keystone.so/my-work`. Recurring work is set up as templates on `/recurring-tasks`.\n- **Leads by source:** the Leads page per client (custom date range works through the URL). It is the lead source for the [SEO Tracker](lib:brain-seo-tracker) and the [Client Report Dashboard](lib:brain-client-report-dashboard) (leads, jobs booked, revenue). The default view hides AI-flagged non-leads.\n- **Meetings:** 33 Fathom meetings (Jun 4 to Aug 20, 2026) were read and summarized; 27 were not attributed to a client, so their action items do not reach client portals; 79 action items were open as of Aug 20.\n- Summit's custom lead form sends to GHL, Keystone and email.\n- Monthly manual leads-by-source pull for the Website Pages sheet; next noted for Oct 29.\n\n# Pending (from handoffs)\n- Close the stale \"Shift Google Ads budget to LSA\" action item.\n- Recreate a weekly Google Ads recurrence for the new Ads owner (Kim's Ads tasks were deleted Jul 16).\n- \"Verify GHL sync + fix attribution\" (Pipeliners) is unowned.\n\n# Related\n- [Tools and Integrations Index](lib:brain-tools-and-integrations-index), [TAG CRM](lib:brain-tag-crm), [SEO Tracker](lib:brain-seo-tracker), [Client Report Dashboard](lib:brain-client-report-dashboard), [Google Ads MCC](lib:brain-google-ads-mcc)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "_Shared (All Clients)/Session Handoff 2026-10-01.md",
+ "date": "2026-10-01",
+ "createdAt": 1792613347324,
+ "updatedAt": 1792613347324,
+ "rev": "4b329e998076"
+}

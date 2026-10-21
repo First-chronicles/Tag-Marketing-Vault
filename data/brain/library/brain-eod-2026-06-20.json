@@ -1,0 +1,14 @@
+{
+ "name": "EOD 2026-06-20",
+ "cat": "brain-eod",
+ "group": "2026-06 June",
+ "body": "> Eod · 2026-06-20\n\nSaturday. Summit blog page polish and Alphalete local page fixes.\n\n# Summit Plumbing Pros AZ\nSee [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub).\n- Blog page: fixed blurry featured images (size Large) and cut-off banners (ratio 0.52), removed the Archives widget.\n- Added a Blog link to the footer nav.\n\n# Alphalete Trenchless\nSee [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub).\n- Fixed wrong ZIP codes on 10 trenchless sewer repair local pages (Denver, Colorado Springs, Pueblo, Castle Rock, Parker, Monument, Fountain, Canon City, Guffey, Littleton), verified live.\n- Created Google Drive files: Local Pages Indexing Tracker, Wrong ZIP Codes Audit (93 pages), Littleton and Lone Tree local page drafts.\n- Wove one unique local paragraph into 8 of 10 Littleton and Lone Tree pages via Elementor (2 already localized were skipped).\n\n# Follow-ups\n- 83 of 93 Alphalete wrong-ZIP pages remain.\n- 3 Lone Tree pages still show Colorado Springs ZIPs.\n- Hydro Lone Tree page has draft instructions visible live; needs cleanup.\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub), [EOD Reports Index](lib:brain-eod-reports-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/EOD Report 2026-06-20.txt",
+ "date": "2026-06-20",
+ "createdAt": 1792612722719,
+ "updatedAt": 1792612722728,
+ "rev": "46e03c576812"
+}

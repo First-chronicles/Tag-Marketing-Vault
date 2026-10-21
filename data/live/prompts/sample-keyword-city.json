@@ -1,0 +1,21 @@
+{
+  "category": "Keyword Research",
+  "client": "Pipeliners",
+  "createdAt": 1792517967001,
+  "deleted": false,
+  "deletedAt": 0,
+  "favorite": false,
+  "folderId": "",
+  "icon": "🔑",
+  "notes": "Sample prompt. Works best when the real page URL is filled in.",
+  "status": "Draft",
+  "tags": [
+    "city page",
+    "cannibalization"
+  ],
+  "text": "/local-seo-intelligence\n\nClient: Pipeliners\nTask: keyword research\nLocation: [City], AZ\nService: [Service]\nPage URL: https://pipelinersusa.com/[city-slug]/\nNotes: Check for cannibalization with nearby city pages before recommending anything new. Use Search Atlas and GSC only. Mark any missing metric as NOT AVAILABLE.",
+  "title": "Keyword research for a city page",
+  "tool": "Claude",
+  "updatedAt": 1792517967001,
+  "versions": []
+}

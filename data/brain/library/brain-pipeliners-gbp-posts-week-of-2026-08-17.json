@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - GBP Posts Week of 2026-08-17",
+ "cat": "brain-pipeliners",
+ "group": "",
+ "body": "> Plan · Pipeliners · 2026-08-14\n\n# Summary\nA Word doc of daily Google Business Profile post proposals for Monday Aug 17 to Friday Aug 21, 2026, each with a photo from `Pipeliners Photos\\`, a short caption and a longer commercial-intent caption. Proposal only; nothing was posted (GBP is read-only for Claude).\n\n# Topics\n- Mon: sewer camera inspection and drain diagnosis.\n- Tue: root intrusion in the sewer line.\n- Wed: everyday plumbing repairs (under-sink work).\n- Thu: commercial trenchless pipe lining.\n- Fri: trenchless CIPP sewer lining.\n\n# Issues against current rules\n- Every caption uses the phone number 480-269-1874, which the Oct 1 handoff lists as an old or unknown number. Never hardcode numbers in new content.\n- Wednesday mentions water heaters, repipes and general fixture work, which Pipeliners does not offer.\n- Thursday promises commercial work (scope unconfirmed by Scott) and uses \"pipe lining\" as a noun.\n- Do not reuse this copy as is.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Google Business Profile](lib:brain-google-business-profile), [Pipeliners - Decisions and Rules](lib:brain-pipeliners-decisions-and-rules), [Pipeliners - Photos and Image Library](lib:brain-pipeliners-photos-and-image-library)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/Pipeliners GBP Posts - Week of Aug 17.docx",
+ "date": "2026-08-14",
+ "createdAt": 1792613057324,
+ "updatedAt": 1792613057325,
+ "rev": "e6e8f10f8f85"
+}

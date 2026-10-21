@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Design Audit Local Pages 2026-08-26",
+ "cat": "brain-pipeliners",
+ "group": "Audits",
+ "body": "> Audit · Pipeliners · 2026-08-26\n\n# Summary\nA running log of city-page design standardization on 2026-08-26. The file as saved begins at section F (earlier sections are not in it) and covers sections F to I.\n\n# F. CTA v2 rollout\n- Added to the 29 city pages with no CTA; Cave Creek retro-fixed; all 30 verified.\n- **Call-tracking bug found:** GHL `number_pool.js` only swaps numbers in its pool list. CTA templates had hardcoded (480) 447-5345 and (623) 286-3774, which never swapped, so those calls were not attributed. Fixed on 30 pages by using the source number (480) 535-6503 (which swaps) with a number-free aria-label.\n- Still open then: 7 CTA v1 pages with the static (623) 286-3774 (Chandler, Avondale, Casa Grande, Apache Junction, Carefree, Anthem, Sacaton), empty alt on the CTA logo.\n\n# G. FAQ design rollout\nTemplate 16699 applied to 18 pages (1,283 widgets compared, 0 content changes). Remaining: 6 nested-accordion pages (Phoenix, Sun City, Mesa, Buckeye, Anthem, Sacaton), 6 OTTO-delivered FAQ pages, 7 with no FAQ. Tempe served 2 FAQPage blocks.\n\n# H. Localized FAQs deployed\n8 localized questions each on Surprise, Sun City West, Tolleson, Laveen, Sun Lakes and Rio Verde (Cave Creek skipped, done by hand mid-session). One FAQPage block each, verified. Drafts: [Pipeliners - City FAQ Drafts 7 Pages 2026-08-26](lib:brain-pipeliners-city-faq-drafts-7-pages-2026-08-26).\n\n# I. Reviews block\nTemplate 16703 added to 13 pages; 36 of 37 city pages then carried it (Queen Creek partial). The star image has an empty alt.\n\n# Superseded claims\nThe FAQ answers used \"same-day water\" and \"licensed ePIPE partners\", which are now on the do-not-claim list (Oct 1). Later sessions reworked these pages; see [Pipeliners - Fix Log](lib:brain-pipeliners-fix-log).\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Audits and Reports Index](lib:brain-pipeliners-audits-and-reports-index), [GoHighLevel](lib:brain-gohighlevel), [Pipeliners - Work Report 2026-08-27](lib:brain-pipeliners-work-report-2026-08-27)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/design-audit-local-pages-2026-08-26.md",
+ "date": "2026-08-26",
+ "createdAt": 1792613171237,
+ "updatedAt": 1792613171238,
+ "rev": "c71f5c1d5c37"
+}

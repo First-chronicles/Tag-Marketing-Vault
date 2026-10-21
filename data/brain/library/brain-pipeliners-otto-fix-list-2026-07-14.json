@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - OTTO Fix List 2026-07-14",
+ "cat": "brain-pipeliners",
+ "group": "Plans",
+ "body": "> Plan · Pipeliners · 2026-07-14\n\n# Summary\nA dashboard fix list for items OTTO injects (not stored in WordPress), dated 2026-07-14, with steps to reach each field in Search Atlas OTTO.\n\n# Items\n- **Weak H1s:** /tempe/, /scottsdale/ and /sun-city/ had bare city names (Sun City with a double space); set to \"Trenchless Pipe Repair in <City>, AZ | Pipeliners USA\".\n- **Peoria:** broken divider character in the H1 and a dated \"in 2025\" title.\n- **Stale schema:** Peoria, Glendale and Litchfield Park still carried the old boilerplate Service description (\"refined method for rectifying\"); city-specific replacements provided. Spot-check 9 other rewritten pages.\n- Order: H1s, then schema, then spot checks, then redeploy and verify.\n\n# Note\nThe proposed H1s end in \"| Pipeliners USA\", which the later naming rule replaces with \"Pipeliners\". OTTO later took over all titles and H1s and the city pages were reworked many times.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Search Atlas](lib:brain-search-atlas), [Pipeliners - City Page Rewrite Baseline 2026-07-14](lib:brain-pipeliners-city-page-rewrite-baseline-2026-07-14)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/pipeliners-OTTO-fix-list-2026-07-14.md",
+ "date": "2026-07-14",
+ "createdAt": 1792613171243,
+ "updatedAt": 1792613171243,
+ "rev": "dd29aaaed041"
+}

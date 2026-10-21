@@ -1,0 +1,433 @@
+<title>Alphalete Search Health</title>
+<meta name="description" content="SEO dashboard for alphaletetrenchless.com, Aug 12 to Sep 8, 2026 vs the previous 28 days.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Montserrat:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#F3F4F9; --surface:#FFFFFF; --surface-2:#F7F8FC; --ink:#15163A; --ink-2:#44476A; --muted:#6B6E8E; --line:#E0E2EE; --line-2:#EDEEF5;
+  --brand:#1A1B5E; --brand-ink:#FFFFFF; --brand-sub:#C9CBEF; --accent:#F06F23;
+  --s1:#3D42B0; --s2:#D35A10; --s3:#008FB0; --s1-soft:rgba(61,66,176,.14);
+  --crit:#B42318; --crit-bg:#FDECEA; --warn:#9A5B00; --warn-bg:#FFF4DD; --good:#067647; --good-bg:#E4F6EC; --info-bg:#ECEDFB;
+  --zone1:rgba(6,118,71,.07); --zone2:rgba(154,91,0,.06); --zone3:rgba(107,110,142,.06);
+  --shadow:0 1px 2px rgba(21,22,58,.06),0 2px 8px rgba(21,22,58,.04);
+  --display:"Oswald","Arial Narrow",Impact,sans-serif;
+  --body:"Montserrat",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0C0D22; --surface:#15163A; --surface-2:#1A1C44; --ink:#ECEDF8; --ink-2:#C4C6E4; --muted:#9A9DC0; --line:#2B2D58; --line-2:#222449;
+    --brand:#1B1D52; --brand-ink:#FFFFFF; --brand-sub:#AEB2EA; --accent:#FF8A45;
+    --s1:#767CE0; --s2:#DC6420; --s3:#0098B8; --s1-soft:rgba(118,124,224,.18);
+    --crit:#F97066; --crit-bg:rgba(249,112,102,.13); --warn:#FDB022; --warn-bg:rgba(253,176,34,.12); --good:#47CD89; --good-bg:rgba(71,205,137,.12); --info-bg:rgba(118,124,224,.14);
+    --zone1:rgba(71,205,137,.07); --zone2:rgba(253,176,34,.06); --zone3:rgba(154,157,192,.06);
+    --shadow:0 1px 2px rgba(0,0,0,.3);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0C0D22; --surface:#15163A; --surface-2:#1A1C44; --ink:#ECEDF8; --ink-2:#C4C6E4; --muted:#9A9DC0; --line:#2B2D58; --line-2:#222449;
+  --brand:#1B1D52; --brand-ink:#FFFFFF; --brand-sub:#AEB2EA; --accent:#FF8A45;
+  --s1:#767CE0; --s2:#DC6420; --s3:#0098B8; --s1-soft:rgba(118,124,224,.18);
+  --crit:#F97066; --crit-bg:rgba(249,112,102,.13); --warn:#FDB022; --warn-bg:rgba(253,176,34,.12); --good:#47CD89; --good-bg:rgba(71,205,137,.12); --info-bg:rgba(118,124,224,.14);
+  --zone1:rgba(71,205,137,.07); --zone2:rgba(253,176,34,.06); --zone3:rgba(154,157,192,.06);
+  --shadow:0 1px 2px rgba(0,0,0,.3);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px 56px}
+h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:.01em;margin:0;text-wrap:balance}
+.num{font-variant-numeric:tabular-nums}
+.mono{font-family:var(--mono);font-size:12.5px}
+a{color:var(--s1)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+
+/* header */
+.top{background:var(--brand);color:var(--brand-ink)}
+.top .wrap{padding-top:22px;padding-bottom:22px;display:grid;grid-template-columns:1fr auto;gap:18px 32px;align-items:end}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--brand-sub)}
+.top h1{font-size:34px;line-height:1.1;margin-top:4px}
+.top h1 span{color:var(--accent)}
+.period{margin-top:6px;color:var(--brand-sub);font-size:13px}
+.verdict{display:flex;gap:14px;align-items:center;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:12px 16px;max-width:430px}
+.verdict .badge{font-family:var(--display);font-size:20px;letter-spacing:.04em;text-transform:uppercase;background:var(--accent);color:#1A1B5E;padding:4px 12px;border-radius:6px;white-space:nowrap}
+.verdict p{margin:0;font-size:13px;line-height:1.45}
+nav.jump{display:flex;flex-wrap:wrap;gap:6px 18px;padding:12px 0 0;font-size:12.5px;font-weight:600}
+nav.jump a{color:var(--brand-sub);text-decoration:none}
+nav.jump a:hover{color:#fff;text-decoration:underline}
+
+section{margin-top:28px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+.sec-head h2{font-size:22px}
+.sec-head p{margin:0;color:var(--muted);font-size:13px;max-width:62ch}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;box-shadow:var(--shadow)}
+.panel h3{font-size:16px;margin-bottom:4px}
+.panel .sub{color:var(--muted);font-size:12.5px;margin:0 0 12px}
+.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.grid-3-2{display:grid;grid-template-columns:3fr 2fr;gap:16px}
+
+/* KPIs */
+.kpis{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-top:22px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:4px;box-shadow:var(--shadow)}
+.kpi .lab{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.kpi .val{font-family:var(--display);font-size:32px;line-height:1.05;font-weight:500}
+.kpi .was{font-size:12px;color:var(--muted)}
+.chip{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;width:fit-content}
+.chip.good{background:var(--good-bg);color:var(--good)}
+.chip.warn{background:var(--warn-bg);color:var(--warn)}
+.chip.crit{background:var(--crit-bg);color:var(--crit)}
+.chip.info{background:var(--info-bg);color:var(--s1)}
+.chip.neutral{background:var(--line-2);color:var(--ink-2)}
+.kpi .note{font-size:12px;color:var(--ink-2);margin-top:2px}
+
+/* charts */
+svg{display:block;width:100%;height:auto;overflow:visible}
+svg text{fill:var(--muted);font-family:var(--body);font-size:11px}
+svg .t-ink{fill:var(--ink);font-weight:600}
+svg .t-ink2{fill:var(--ink-2)}
+.grid-line{stroke:var(--line-2);stroke-width:1}
+.axis-line{stroke:var(--line);stroke-width:1}
+.hit{fill:transparent;cursor:crosshair}
+details.table{margin-top:10px;font-size:12.5px}
+details.table summary{cursor:pointer;color:var(--s1);font-weight:600;width:fit-content}
+.tbl-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 10px;border-bottom:1px solid var(--line-2);vertical-align:top}
+td.r,th.r{text-align:right}
+tr:last-child td{border-bottom:0}
+
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12px;color:var(--ink-2);margin-bottom:8px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+
+#tip{position:fixed;pointer-events:none;z-index:50;background:var(--ink);color:var(--surface);font-size:12px;line-height:1.4;padding:7px 10px;border-radius:8px;max-width:260px;opacity:0;transition:opacity .08s;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+#tip b{font-weight:700}
+
+/* fix-first list */
+.fix{display:grid;gap:10px}
+.fix-item{display:grid;grid-template-columns:6px 1fr auto;gap:0 16px;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+.fix-item .stripe{background:var(--crit)}
+.fix-item.warnl .stripe{background:var(--warn)}
+.fix-item.done .stripe{background:var(--good)}
+.fix-item.done h3{color:var(--ink-2)}
+.fix-item .body{padding:13px 0}
+.fix-item h3{font-family:var(--body);font-size:14.5px;font-weight:700;letter-spacing:0}
+.fix-item p{margin:3px 0 0;color:var(--ink-2);font-size:13px;max-width:78ch}
+.fix-item .meta{padding:13px 16px 13px 0;display:flex;flex-direction:column;align-items:flex-end;gap:6px;text-align:right}
+.fix-item .where{font-size:11.5px;color:var(--muted)}
+.fix-item .n{font-family:var(--display);font-size:22px;line-height:1}
+
+/* service cards */
+.svc{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.svc-card{border:1px solid var(--line);border-radius:10px;padding:12px;background:var(--surface-2);display:flex;flex-direction:column;gap:6px}
+.svc-card .name{font-weight:700;font-size:13px}
+.svc-card .url{color:var(--muted);word-break:break-all}
+.svc-card .foot{display:flex;justify-content:space-between;align-items:center;gap:6px;margin-top:auto;font-size:12px;color:var(--muted)}
+
+/* stacked bars */
+.stack{display:flex;gap:2px;height:30px;border-radius:6px;overflow:hidden}
+.stack div{height:100%}
+.stack-row{display:grid;grid-template-columns:150px 1fr 60px;gap:12px;align-items:center;margin:10px 0}
+.stack-row .l{font-size:12.5px;font-weight:600}
+.stack-row .v{font-family:var(--display);font-size:18px;text-align:right}
+
+/* plan */
+.plan{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.plan-col{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow)}
+.plan-col.hold{background:var(--surface-2);box-shadow:none;border-style:dashed}
+.plan-col h3{font-size:16px}
+.plan-col .when{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.plan-col ul{margin:0;padding-left:18px;display:grid;gap:6px;font-size:13px;color:var(--ink-2)}
+
+.foot-note{margin-top:28px;color:var(--muted);font-size:12px;line-height:1.6;max-width:110ch}
+.foot-note b{color:var(--ink-2)}
+.explain{font-size:12.5px;color:var(--ink-2);background:var(--surface-2);border:1px solid var(--line-2);border-radius:8px;padding:10px 12px;margin-top:12px}
+
+@media (max-width:1000px){
+  .kpis{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .svc{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .plan{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid-3-2{grid-template-columns:1fr}
+}
+@media (max-width:720px){
+  .top .wrap{grid-template-columns:1fr}
+  .grid-2{grid-template-columns:1fr}
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fix-item{grid-template-columns:6px 1fr}
+  .fix-item .meta{grid-column:2;align-items:flex-start;text-align:left;padding:0 0 13px}
+  .stack-row{grid-template-columns:110px 1fr 48px}
+  .plan{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">alphaletetrenchless.com · SEO dashboard</div>
+      <h1>Alphalete <span>Search Health</span></h1>
+      <div class="period">Google Search: Aug 12 to Sep 8, 2026 vs the 28 days before · GA4: Aug 14 to Sep 10 · Prepared Sep 11, 2026 · Read-only audit, nothing changed on the site</div>
+      <nav class="jump" aria-label="Sections">
+        <a href="#change">What changed</a><a href="#fix">Fix first</a><a href="#services">Service pages</a><a href="#google">Where we rank</a><a href="#tracking">Tracking</a><a href="#local">City pages</a><a href="#plan">Plan</a><a href="#baseline">Baseline</a>
+      </nav>
+    </div>
+    <div class="verdict" role="status">
+      <span class="badge">Mixed</span>
+      <p><b>More people see us on Google, but clicks and leads haven't followed yet.</b> Most new visibility is from one blog post shown across the US, and 5 of 8 service pages still aren't in Google.</p>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="kpis" aria-label="Headline numbers">
+    <div class="kpi"><span class="lab">Google impressions</span><span class="val num">24.5K</span><span class="chip good">▲ 457%</span><span class="was">was 4.4K</span></div>
+    <div class="kpi"><span class="lab">Google clicks</span><span class="val num">38</span><span class="chip warn">▼ 39%</span><span class="was">was 62 · US only: 25 vs 21</span></div>
+    <div class="kpi"><span class="lab">Click-through rate</span><span class="val num">0.2%</span><span class="chip crit">▼ from 1.4%</span><span class="was">new impressions rank low</span></div>
+    <div class="kpi"><span class="lab">Avg position</span><span class="val num">20.3</span><span class="chip neutral">● flat</span><span class="was">was 20.4 · page 2 of Google</span></div>
+    <div class="kpi"><span class="lab">Pages in Google</span><span class="val num">79</span><span class="chip good">▲ from 19</span><span class="was">86 still not in Google</span></div>
+    <div class="kpi"><span class="lab">Leads tracked in GA4</span><span class="val num">0</span><span class="chip crit">✕ not set up</span><span class="was">0 key events, all reports</span></div>
+  </div>
+
+  <section id="change">
+    <div class="sec-head"><h2>What changed</h2><p>Impressions jumped in mid-August. Clicks per week barely moved. US data only, so internal team visits from the Philippines don't skew it.</p></div>
+    <div class="grid-3-2">
+      <div class="panel">
+        <h3>Weekly Google impressions (US)</h3>
+        <p class="sub">Hover a week for the numbers</p>
+        <div id="chart-weekly"></div>
+        <div id="chart-clicks" style="margin-top:6px"></div>
+        <details class="table"><summary>View as table</summary><div class="tbl-wrap"><table id="tbl-weekly"></table></div></details>
+      </div>
+      <div class="panel">
+        <h3>Which pages earned the impressions</h3>
+        <p class="sub">Google impressions by page type, Aug 12 to Sep 8</p>
+        <div id="chart-sources"></div>
+        <div class="explain"><b>The story in one line:</b> a single blog post, <span class="mono">/blog/what-is-trenchless-sewer-repair/</span>, shows up for national searches like "trenchless sewer repair" at about position 23. That's 13,889 impressions and 1 click. The service pages that actually sell got 29.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fix">
+    <div class="sec-head"><h2>Fix first</h2><p>Highest-impact problems, all confirmed in the data. Each needs your OK before anyone touches the site, except the last one, which only inspects.</p></div>
+    <div class="fix">
+      <div class="fix-item done"><div class="stripe"></div><div class="body"><h3>Remove hidden text that OTTO adds to 5 pages</h3><p>Done Sep 11. The hidden keyword lists, 11-question FAQ, extra headings and hidden links were rolled back in OTTO and the cache was cleared. A scan of all 150 live pages finds none left. Nothing visible changed. We check the Durango and About-page numbers again on Oct 12.</p></div><div class="meta"><span class="n num">0 left</span><span class="chip good">✓ Done</span><span class="where">OTTO · verified live</span></div></div>
+      <div class="fix-item"><div class="stripe"></div><div class="body"><h3>Get the service pages into Google</h3><p>7 of 8 service pages are "discovered, never crawled": Google knows they exist but has never visited them. Only Hydro Jetting is indexed. <b>Sep 11: links fixed, sitemap cleaned. Sep 12: Drain Cleaning and Camera Inspection indexed; 7 new internal links added; indexing requested for the other 5.</b> Next: check again Sep 19.</p></div><div class="meta"><span class="n num">5 of 8</span><span class="chip warn">Requested</span><span class="where">Waiting on Google</span></div></div>
+      <div class="fix-item done"><div class="stripe"></div><div class="body"><h3>Fix the links to the camera inspection page</h3><p>Done Sep 11. The old redirecting link sat in the site footer, 31 blog posts, the Drain Cleaning page, 6 page templates and 2 code snippets. All 80 links now point straight to <span class="mono">/services/sewer-camera-inspection/</span>, and 5 pages' share-link tags were corrected. A re-crawl finds 0 old links.</p></div><div class="meta"><span class="n num">0 left</span><span class="chip good">✓ Done</span><span class="where">WordPress · verified live</span></div></div>
+      <div class="fix-item"><div class="stripe"></div><div class="body"><h3>Turn on lead tracking in GA4</h3><p>No form fills or phone clicks are marked as key events, so we can't see which pages bring leads. Mark the real lead events and test them.</p></div><div class="meta"><span class="n num">0 leads</span><span class="chip crit">Critical</span><span class="where">GA4 / Tag Manager · needs approval</span></div></div>
+      <div class="fix-item"><div class="stripe"></div><div class="body"><h3>Add the GA4 tag to the ad landing pages</h3><p><span class="mono">/pipelining/</span> and <span class="mono">/free-sewer-inspection/</span> got 197 of 247 Google Ads clicks, but they don't load the GA4 tag, so those visits never show up in GA4.</p></div><div class="meta"><span class="n num">197 clicks</span><span class="chip crit">Critical</span><span class="where">Landing page files · needs approval</span></div></div>
+      <div class="fix-item warnl"><div class="stripe"></div><div class="body"><h3>Make the homepage search snippet show</h3><p>OTTO says a meta description is live on the homepage and Contact page, but none is in the page. The homepage sits at position 8 for "trenchless pipe lining colorado service companies" and gets 0 clicks.</p></div><div class="meta"><span class="n num">463 views</span><span class="chip warn">High</span><span class="where">OTTO · needs approval</span></div></div>
+      <div class="fix-item warnl"><div class="stripe"></div><div class="body"><h3>Find out why the pros-and-cons post vanished</h3><p>It went from about 140 impressions a day to 0 on Aug 27. Inspect it in Search Console before editing any trenchless blog post.</p></div><div class="meta"><span class="n num">0 / day</span><span class="chip warn">High</span><span class="where">Search Console · inspect only</span></div></div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="sec-head"><h2>Service pages and indexing</h2><p>"Indexed" means Google can show the page in results. Page impressions below are from Aug 12 to Sep 8.</p></div>
+    <div class="grid-3-2">
+      <div class="panel">
+        <h3>The 8 service pages</h3>
+        <p class="sub">Google URL Inspection, Sep 12 (Drain Cleaning and Camera Inspection became indexed after the Sep 4 report)</p>
+        <div class="svc" id="svc"></div>
+      </div>
+      <div class="panel">
+        <h3>All 165 pages Google knows about</h3>
+        <p class="sub">Indexed vs not, report dated Sep 4</p>
+        <div class="legend"><span><i style="background:var(--s1)"></i>Indexed</span><span><i style="background:var(--s2)"></i>Known, never crawled</span><span><i style="background:var(--s3)"></i>Other (redirects, 404s)</span></div>
+        <div class="stack" id="idx-stack" role="img" aria-label="79 indexed, 73 never crawled, 13 other"></div>
+        <table style="margin-top:14px">
+          <tr><td>Indexed</td><td class="r num"><b>79</b></td><td class="r"><span class="chip good">up from 19 on Jul 27</span></td></tr>
+          <tr><td>Known, never crawled</td><td class="r num"><b>73</b></td><td class="r"><span class="chip crit">7 service pages, ~40 posts</span></td></tr>
+          <tr><td>Redirects, 404s, duplicates</td><td class="r num"><b>13</b></td><td class="r"><span class="chip neutral">mostly old URLs, expected</span></td></tr>
+        </table>
+        <p class="sub" style="margin:12px 0 0">No manual actions or security issues. The sitemap reads fine. Sep 11: cleaned from 114 to 110 URLs (4 pages that didn't belong were removed).</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="google">
+    <div class="sec-head"><h2>Where we rank on Google</h2><p>Positions 1 to 10 are page 1. The closer a dot is to the left, the more clicks it can win. Hover for impressions.</p></div>
+    <div class="panel">
+      <h3>Key searches by average position</h3>
+      <p class="sub">Average position blends many searches, devices and locations, so treat it as a range, not an exact rank</p>
+      <div id="chart-rank"></div>
+      <details class="table"><summary>View as table</summary><div class="tbl-wrap"><table id="tbl-rank"></table></div></details>
+      <div class="explain"><b>Closest wins:</b> Sedalia, Woodland Park, Florence and the homepage are already on page 1 with 0 clicks, so better titles and snippets should pay off fast. <b>Wrong page ranking:</b> "hydro jetting colorado springs co" shows an old blog link instead of the Hydro Jetting service page.</div>
+    </div>
+  </section>
+
+  <section id="tracking">
+    <div class="sec-head"><h2>Tracking and traffic</h2><p>From the GA4 reports you uploaded (last 28 days, all visitors). Only the top 10 rows were in the files.</p></div>
+    <div class="grid-2">
+      <div class="panel">
+        <h3>Visits by channel</h3>
+        <p class="sub">GA4 sessions, Aug 14 to Sep 10 (557 total)</p>
+        <div id="chart-channels"></div>
+        <div class="explain">Organic Search visitors stay longest (1m 11s vs 18s for Direct). Direct is 67% of visits, and its spikes on Aug 26, Aug 31, Sep 3 and Sep 7 <b>don't</b> line up with ad clicks, so where they come from is still unknown.</div>
+      </div>
+      <div class="panel">
+        <h3>Ad clicks that GA4 can't see</h3>
+        <p class="sub">Google Ads clicks vs GA4 paid visits, Aug 14 to Sep 10</p>
+        <div class="legend"><span><i style="background:var(--s2)"></i>Landed on pages without GA4</span><span><i style="background:var(--s1)"></i>Landed on WordPress pages (tracked)</span></div>
+        <div class="stack-row"><span class="l">Google Ads clicks</span><div class="stack" id="ads-stack" role="img" aria-label="244 ad clicks with a landing page: 197 to untracked pages, 47 to tracked pages"></div><span class="v num">244</span></div>
+        <div class="stack-row"><span class="l">GA4 paid visits</span><div class="stack" id="ga-stack" role="img" aria-label="35 paid sessions in GA4"></div><span class="v num">35</span></div>
+        <table style="margin-top:8px">
+          <tr><td class="mono">/pipelining/</td><td class="r num">192 clicks</td><td class="r"><span class="chip crit">no GA4 tag</span></td></tr>
+          <tr><td class="mono">/free-sewer-inspection/</td><td class="r num">5 clicks</td><td class="r"><span class="chip crit">no GA4 tag</span></td></tr>
+          <tr><td>WordPress pages</td><td class="r num">47 clicks</td><td class="r"><span class="chip good">tracked</span></td></tr>
+        </table>
+        <p class="sub" style="margin:10px 0 0">247 ad clicks in total; 3 had no landing page recorded. Google Ads counted 18 conversions over the same period from its own tags. GA4 recorded none.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="local">
+    <div class="sec-head"><h2>City pages</h2><p>43 of 44 city pages are now in Google. Together they earned 4,370 impressions and 8 clicks. These are the busiest ones.</p></div>
+    <div class="panel">
+      <div class="tbl-wrap"><table id="tbl-local"></table></div>
+      <div class="explain">Seven commercial city pages (Parker, Castle Rock, Littleton, Cañon City, Pueblo, Fountain, Lone Tree) are 77 to 80% the same text, and the people searching want residential repair. Rewrite them with real local detail once Scott confirms which service each city should lead with. <b>Don't add new city pages.</b></div>
+    </div>
+  </section>
+
+  <section id="plan">
+    <div class="sec-head"><h2>Plan</h2><p>Full detail for all 30 issues is in the Issue Tracker file. Every item needs approval before any change.</p></div>
+    <div class="plan">
+      <div class="plan-col"><div class="when">Now · next 2 weeks</div><h3>Stop the damage</h3><ul><li><s>Remove OTTO hidden text (5 pages)</s> ✓ done Sep 11</li><li><s>Fix the camera-page links</s> ✓ done Sep 11</li><li>Turn on GA4 lead tracking</li><li>Add GA4 to the ad landing pages</li><li>Make the homepage snippet show</li><li>Inspect the pros-and-cons post</li></ul></div>
+      <div class="plan-col"><div class="when">30 to 60 days</div><h3>Get found and clicked</h3><ul><li><s>Clean the sitemap</s> ✓ done Sep 11</li><li><s>Request indexing for the service pages</s> ✓ 5 requested Sep 12</li><li><s>Link to service pages from the busiest pages</s> ✓ 7 links Sep 12</li><li>Write snippets for the top 10 pages with none</li><li>Fix ~40 links that point to old URLs</li><li>Resolve the CIPP costs 404</li><li>Reply to 16 Google reviews</li></ul></div>
+      <div class="plan-col"><div class="when">60 to 180 days</div><h3>Grow leads</h3><ul><li>Lead forms on service pages and city hubs</li><li>Rewrite the 7 look-alike commercial city pages</li><li>Project photos and case studies on service pages</li><li>Match the Google Business Profile to the site</li><li>Local citations and links</li><li>Speed up images and scripts</li></ul></div>
+      <div class="plan-col hold"><div class="when">Don't change yet</div><h3>Hold</h3><ul><li>Don't noindex or merge city pages</li><li>Don't turn Rank Math or Yoast back on</li><li>Don't swap phone numbers site-wide</li><li>Don't chase national or Durango/Aspen searches</li><li>Don't bulk-deploy OTTO's 95 pending snippets</li><li>Don't merge blog posts until the drop is explained</li></ul></div>
+    </div>
+  </section>
+
+  <section id="baseline">
+    <div class="sec-head"><h2>Baseline to beat</h2><p>These are today's numbers. Every future change gets measured against them. The per-page version (139 URLs) is in the Baseline CSV.</p></div>
+    <div class="panel">
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Metric</th><th class="r">Baseline</th><th>Period</th><th>Source</th><th>Target direction</th></tr></thead>
+        <tbody>
+          <tr><td>US Google clicks</td><td class="r num"><b>25</b></td><td>Aug 12 to Sep 8</td><td>Search Console</td><td><span class="chip good">▲ up</span></td></tr>
+          <tr><td>Google impressions (all)</td><td class="r num"><b>24.5K</b></td><td>Aug 12 to Sep 8</td><td>Search Console</td><td><span class="chip neutral">hold or grow locally</span></td></tr>
+          <tr><td>Click-through rate</td><td class="r num"><b>0.2%</b></td><td>Aug 12 to Sep 8</td><td>Search Console</td><td><span class="chip good">▲ up</span></td></tr>
+          <tr><td>Pages indexed</td><td class="r num"><b>79</b></td><td>Report of Sep 4</td><td>Search Console</td><td><span class="chip good">▲ up</span></td></tr>
+          <tr><td>Service pages indexed</td><td class="r num"><b>1 of 8</b></td><td>Report of Sep 4</td><td>Search Console</td><td><span class="chip good">▲ 8 of 8</span></td></tr>
+          <tr><td>Service page impressions</td><td class="r num"><b>29</b></td><td>Aug 12 to Sep 8</td><td>Search Console</td><td><span class="chip good">▲ up</span></td></tr>
+          <tr><td>Colorado Springs hub position</td><td class="r num"><b>16.8</b></td><td>Aug 12 to Sep 8</td><td>Search Console</td><td><span class="chip good">▼ lower is better</span></td></tr>
+          <tr><td>Organic Search visits</td><td class="r num"><b>113</b></td><td>Aug 14 to Sep 10</td><td>GA4 upload</td><td><span class="chip good">▲ up</span></td></tr>
+          <tr><td>Leads (GA4 key events)</td><td class="r num"><b>0</b></td><td>Aug 14 to Sep 10</td><td>GA4 upload</td><td><span class="chip good">▲ measurable</span></td></tr>
+          <tr><td>GA4 paid visits vs ad clicks</td><td class="r num"><b>35 / 247</b></td><td>Aug 14 to Sep 10</td><td>GA4 + Google Ads</td><td><span class="chip good">▲ close the gap</span></td></tr>
+          <tr><td>Hidden OTTO blocks</td><td class="r num"><b>9 on 5 pages</b></td><td>Sep 11</td><td>Live page source</td><td><span class="chip good">✓ 0 since Sep 11</span></td></tr>
+        </tbody>
+      </table></div>
+      <div class="explain"><b>When to check again:</b> <b>Sep 25</b> quick check (hidden text gone, menu fixed, tracking firing, indexing status). <b>Oct 12</b> first full review (Sep 10 to Oct 7 vs this baseline). <b>Nov 9</b> 60-day review, adding rankings and Google Business Profile calls.</div>
+    </div>
+  </section>
+
+  <p class="foot-note"><b>Sources:</b> Google Search Console (property https://alphaletetrenchless.com/, data through Sep 8), 9 uploaded GA4 PDFs (no comparison period, top 10 rows only), Search Atlas / OTTO project and site audit (Sep 7), a live crawl of 194 URLs (Sep 11), WordPress via read-only wp-cli, and a read-only Google Ads check. <b>Limits:</b> GA4 had no prior period, so it shows no trend; 34 of 38 clicks are hidden at the query level by Google; no Core Web Vitals field data; Google Business Profile details came from the Search Atlas sync and still need checking in GBP.</p>
+</main>
+
+<div id="tip" role="tooltip"></div>
+
+<script>
+(function(){
+  const tip=document.getElementById('tip');
+  function showTip(e,html){tip.innerHTML=html;tip.style.opacity=1;const x=Math.min(e.clientX+14,window.innerWidth-tip.offsetWidth-10);const y=Math.max(10,e.clientY-tip.offsetHeight-12);tip.style.left=x+'px';tip.style.top=y+'px';}
+  function hideTip(){tip.style.opacity=0;}
+  function bindTips(root){root.querySelectorAll('[data-tip]').forEach(el=>{el.addEventListener('mousemove',e=>showTip(e,el.getAttribute('data-tip')));el.addEventListener('mouseleave',hideTip);el.addEventListener('focus',e=>{const r=el.getBoundingClientRect();showTip({clientX:r.left+r.width/2,clientY:r.top},el.getAttribute('data-tip'))});el.addEventListener('blur',hideTip);});}
+  const NS='http://www.w3.org/2000/svg';
+  const fmt=n=>n.toLocaleString('en-US');
+
+  /* weekly impressions area + clicks strip */
+  const weeks=[['Jul 21',709,5],['Jul 28',810,9],['Aug 4',946,2],['Aug 11',2606,4],['Aug 18',6530,5],['Aug 25',6337,7],['Sep 1',6739,8]];
+  (function(){
+    const W=640,H=230,m={l:44,r:14,t:16,b:26},iw=W-m.l-m.r,ih=H-m.t-m.b,max=8000;
+    const x=i=>m.l+i*(iw/(weeks.length-1)), y=v=>m.t+ih-(v/max)*ih;
+    let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Weekly US impressions rose from 709 to 6,739">`;
+    [0,2000,4000,6000,8000].forEach(v=>{s+=`<line class="grid-line" x1="${m.l}" x2="${W-m.r}" y1="${y(v)}" y2="${y(v)}"/><text x="${m.l-8}" y="${y(v)+4}" text-anchor="end">${v?v/1000+'K':'0'}</text>`});
+    const pts=weeks.map((w,i)=>[x(i),y(w[1])]);
+    s+=`<path d="M${pts[0][0]},${y(0)} L${pts.map(p=>p.join(',')).join(' L')} L${pts[pts.length-1][0]},${y(0)} Z" fill="var(--s1-soft)"/>`;
+    s+=`<path d="M${pts.map(p=>p.join(',')).join(' L')}" fill="none" stroke="var(--s1)" stroke-width="2" stroke-linejoin="round"/>`;
+    // annotation Aug 16
+    const ax=x(3)+ (x(4)-x(3))*0.15;
+    s+=`<line x1="${ax}" x2="${ax}" y1="${m.t}" y2="${y(0)}" stroke="var(--s2)" stroke-width="1" stroke-dasharray="3 3"/><text x="${ax-6}" y="${m.t+10}" text-anchor="end" class="t-ink2">Aug 16: one blog post</text><text x="${ax-6}" y="${m.t+24}" text-anchor="end" class="t-ink2">starts ranking nationally</text>`;
+    weeks.forEach((w,i)=>{s+=`<text x="${x(i)}" y="${H-6}" text-anchor="middle">${w[0]}</text>`;});
+    pts.forEach((p,i)=>{const last=i===pts.length-1;s+=`<circle cx="${p[0]}" cy="${p[1]}" r="${last?5:3.5}" fill="var(--s1)" stroke="var(--surface)" stroke-width="2"/>`;});
+    s+=`<text x="${pts[6][0]-8}" y="${pts[6][1]-12}" text-anchor="end" class="t-ink">6,739</text>`;
+    weeks.forEach((w,i)=>{const bw=iw/(weeks.length-1);s+=`<rect class="hit" tabindex="0" x="${x(i)-bw/2}" y="${m.t}" width="${bw}" height="${ih}" data-tip="<b>Week of ${w[0]}</b><br>${fmt(w[1])} US impressions<br>${w[2]} US clicks"/>`;});
+    s+='</svg>';
+    document.getElementById('chart-weekly').innerHTML=s;
+    // clicks strip
+    const H2=74,mt=18,ih2=36,cmax=10;
+    let c=`<svg viewBox="0 0 ${W} ${H2}" role="img" aria-label="Weekly US clicks stayed between 2 and 9"><text x="${m.l}" y="11" class="t-ink2">US clicks per week (its own scale)</text>`;
+    weeks.forEach((w,i)=>{const h=(w[2]/cmax)*ih2, bx=x(i)-9;c+=`<rect x="${bx}" y="${mt+ih2-h}" width="18" height="${h}" rx="3" fill="var(--s3)"/><text x="${x(i)}" y="${mt+ih2+14}" text-anchor="middle" class="t-ink">${w[2]}</text>`;});
+    c+=`<line class="axis-line" x1="${m.l}" x2="${W-m.r}" y1="${mt+ih2}" y2="${mt+ih2}"/></svg>`;
+    document.getElementById('chart-clicks').innerHTML=c;
+    document.getElementById('tbl-weekly').innerHTML='<thead><tr><th>Week of</th><th class="r">US impressions</th><th class="r">US clicks</th></tr></thead><tbody>'+weeks.map(w=>`<tr><td>${w[0]}</td><td class="r num">${fmt(w[1])}</td><td class="r num">${w[2]}</td></tr>`).join('')+'</tbody>';
+  })();
+
+  /* impression sources (horizontal bars) */
+  (function(){
+    const d=[['One blog post (what-is)',13889,1,true],['Other blog posts',5202,14],['City pages',4370,8],['Homepage',1402,10],['Old moved URLs',1178,4],['Other pages',348,1],['Service pages',29,0,'crit']];
+    const W=460,rowH=30,lw=150,vw=70,H=d.length*rowH+4,bw=W-lw-vw,max=14000;
+    let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Impressions by page type">`;
+    d.forEach((r,i)=>{const y=i*rowH+4, w=Math.max(2,(r[1]/max)*bw);
+      s+=`<text x="${lw-10}" y="${y+15}" text-anchor="end" class="${r[3]==='crit'?'t-ink':'t-ink2'}">${r[0]}</text>`;
+      s+=`<rect x="${lw}" y="${y+4}" width="${w}" height="16" rx="4" fill="${r[3]===true?'var(--s2)':'var(--s1)'}"/>`;
+      s+=`<text x="${lw+w+6}" y="${y+16}" class="t-ink">${fmt(r[1])}</text>`;
+      s+=`<rect class="hit" tabindex="0" x="0" y="${y}" width="${W}" height="${rowH}" data-tip="<b>${r[0]}</b><br>${fmt(r[1])} impressions · ${r[2]} clicks"/>`;});
+    s+='</svg>';
+    document.getElementById('chart-sources').innerHTML=s;
+  })();
+
+  /* service cards */
+  const svc=[['Services hub','/services/',5,false],['Residential pipelining','/services/residential-trenchless-pipelining/',0,false],['Commercial pipelining','/services/commercial-trenchless-pipelining/',0,false],['Hydro jetting','/services/hydro-jetting/',23,true],['Sewer camera inspection','/services/sewer-camera-inspection/',1,true],['Drain cleaning','/services/drain-cleaning/',0,true],['Commercial, Colorado Springs','/services/commercial-trenchless-pipelining-colorado-springs/',0,false],['Commercial, Denver','/services/commercial-trenchless-pipelining-denver/',0,false]];
+  document.getElementById('svc').innerHTML=svc.map(s=>`<div class="svc-card"><span class="name">${s[0]}</span><span class="url mono">${s[1]}</span><div class="foot"><span class="chip ${s[3]?'good':'crit'}">${s[3]?'✓ Indexed':'✕ Never crawled'}</span><span class="num">${s[2]} impr</span></div></div>`).join('');
+
+  /* index stack */
+  (function(){
+    const parts=[[79,'var(--s1)','Indexed: 79 pages'],[73,'var(--s2)','Known, never crawled: 73 pages'],[13,'var(--s3)','Redirects, 404s, duplicates, noindex: 13 pages']];
+    const el=document.getElementById('idx-stack');
+    el.innerHTML=parts.map(p=>`<div tabindex="0" style="flex:${p[0]};background:${p[1]}" data-tip="${p[2]}"></div>`).join('');
+    const a=document.getElementById('ads-stack');a.innerHTML=`<div tabindex="0" style="flex:197;background:var(--s2)" data-tip="197 clicks to /pipelining/ and /free-sewer-inspection/ (no GA4 tag)"></div><div tabindex="0" style="flex:47;background:var(--s1)" data-tip="47 clicks to WordPress pages (tracked)"></div>`;
+    const g=document.getElementById('ga-stack');g.style.width=(35/244*100)+'%';g.innerHTML=`<div tabindex="0" style="flex:1;background:var(--s1)" data-tip="35 Paid Search sessions recorded in GA4"></div>`;
+  })();
+
+  /* rank dot plot */
+  const rk=[['clogged drain sedalia co','/sedalia/',4.2,28,0],['sewer line repair woodland park','/woodland-park/',5.4,44,0],['drain cleaning florence','/florence/',6.2,38,0],['trenchless pipe lining colorado service companies','homepage',8.3,463,0],['hydro jetting colorado springs co','old blog URL (should be service page)',10.2,148,0],['no dig sewer repair colorado springs','/colorado-springs/',13.4,39,0],['trenchless sewer repair colorado springs','/colorado-springs/',18.8,57,0],['trenchless sewer repair parker co','/parker/',20.4,75,0],['trenchless sewer repair denver','/denver/',20.9,118,0],['trenchless sewer repair (national)','what-is blog post',22.9,5876,0]];
+  (function(){
+    const W=1100,lw=330,m={r:30,t:30,b:26},rowH=26,H=m.t+rk.length*rowH+m.b,iw=W-lw-m.r,min=1,max=30;
+    const x=p=>lw+((p-min)/(max-min))*iw;
+    let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Average Google position for 10 key searches">`;
+    const zones=[[1,10.5,'var(--zone1)','Page 1'],[10.5,20.5,'var(--zone2)','Page 2'],[20.5,30,'var(--zone3)','Page 3+']];
+    zones.forEach(z=>{s+=`<rect x="${x(z[0])}" y="${m.t-6}" width="${x(z[1])-x(z[0])}" height="${rk.length*rowH+6}" fill="${z[2]}"/><text x="${(x(z[0])+x(z[1]))/2}" y="${m.t-12}" text-anchor="middle" class="t-ink2">${z[3]}</text>`;});
+    [1,5,10,15,20,25,30].forEach(t=>{s+=`<line class="grid-line" x1="${x(t)}" x2="${x(t)}" y1="${m.t-6}" y2="${m.t+rk.length*rowH}"/><text x="${x(t)}" y="${H-6}" text-anchor="middle">${t}</text>`;});
+    rk.forEach((r,i)=>{const y=m.t+i*rowH+rowH/2;
+      s+=`<text x="${lw-12}" y="${y+4}" text-anchor="end" class="t-ink2">${r[0]}</text>`;
+      s+=`<line x1="${x(1)}" x2="${x(r[2])}" y1="${y}" y2="${y}" stroke="var(--line)" stroke-width="1"/>`;
+      s+=`<circle cx="${x(r[2])}" cy="${y}" r="6" fill="${r[2]<=10.5?'var(--s1)':'var(--s2)'}" stroke="var(--surface)" stroke-width="2"/>`;
+      s+=`<text x="${x(r[2])+11}" y="${y+4}" class="t-ink">${r[2]}</text>`;
+      s+=`<rect class="hit" tabindex="0" x="0" y="${y-rowH/2}" width="${W}" height="${rowH}" data-tip="<b>${r[0]}</b><br>Position ${r[2]} · ${fmt(r[3])} impressions · ${r[4]} clicks<br>Ranking page: ${r[1]}"/>`;});
+    s+='</svg>';
+    document.getElementById('chart-rank').innerHTML=s;
+    document.getElementById('tbl-rank').innerHTML='<thead><tr><th>Search</th><th>Ranking page</th><th class="r">Position</th><th class="r">Impressions</th><th class="r">Clicks</th></tr></thead><tbody>'+rk.map(r=>`<tr><td>${r[0]}</td><td class="mono">${r[1]}</td><td class="r num">${r[2]}</td><td class="r num">${fmt(r[3])}</td><td class="r num">${r[4]}</td></tr>`).join('')+'</tbody>';
+  })();
+
+  /* channels */
+  (function(){
+    const d=[['Direct',371,'18s'],['Organic Search',113,'1m 11s'],['Paid Search',35,'41s'],['Unassigned',27,'10s'],['Organic Social',8,'2s'],['Referral',6,'3s'],['AI Assistant',3,'1m 51s'],['Cross-network',1,'0s']];
+    const W=460,rowH=28,lw=118,vw=44,H=d.length*rowH+4,bw=W-lw-vw,max=380;
+    let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="GA4 sessions by channel">`;
+    d.forEach((r,i)=>{const y=i*rowH+4,w=Math.max(2,(r[1]/max)*bw),org=r[0]==='Organic Search';
+      s+=`<text x="${lw-10}" y="${y+15}" text-anchor="end" class="${org?'t-ink':'t-ink2'}">${r[0]}</text>`;
+      s+=`<rect x="${lw}" y="${y+4}" width="${w}" height="15" rx="4" fill="${org?'var(--s2)':'var(--s1)'}"/>`;
+      s+=`<text x="${lw+w+6}" y="${y+16}" class="t-ink">${r[1]}</text>`;
+      s+=`<rect class="hit" tabindex="0" x="0" y="${y}" width="${W}" height="${rowH}" data-tip="<b>${r[0]}</b><br>${r[1]} sessions · avg ${r[2]} engaged<br>0 key events"/>`;});
+    s+='</svg>';
+    document.getElementById('chart-channels').innerHTML=s;
+  })();
+
+  /* local table */
+  const loc=[['Colorado Springs','/colorado-springs/',471,16.8,2,'Metro hub, no lead form','info'],['Denver','/denver/',438,19.8,1,'Metro hub, no lead form','info'],['Parker','/parker/',234,15.8,0,'Commercial page, residential searches','warn'],['Woodland Park','/woodland-park/',229,12.9,1,'Position 5 for "sewer line repair"','good'],['Littleton','/littleton/',175,12.1,0,'79% same as Cañon City','warn'],['Florence','/florence/',152,14.2,0,'Position 6 for "drain cleaning"','good'],['Victor','/victor/',151,12.6,0,'Shows for "home inspection" searches','neutral'],['Castle Rock','/castle-rock/',148,23.7,0,'79% same as Parker','warn'],['Sedalia','/sedalia/',145,11.6,0,'Position 4 for "clogged drain"','good'],['Cañon City','/canon-city/',121,22.6,0,'No snippet; 80% same as Pueblo','warn'],['Pueblo','/pueblo/',115,11.3,0,'Commercial page, residential searches','warn']];
+  document.getElementById('tbl-local').innerHTML='<thead><tr><th>City</th><th>Page</th><th class="r">Impressions</th><th class="r">Avg position</th><th class="r">Clicks</th><th>What to know</th></tr></thead><tbody>'+loc.map(r=>`<tr><td><b>${r[0]}</b></td><td class="mono">${r[1]}</td><td class="r num">${fmt(r[2])}</td><td class="r num">${r[3]}</td><td class="r num">${r[4]}</td><td><span class="chip ${r[6]}">${r[5]}</span></td></tr>`).join('')+'</tbody>';
+
+  bindTips(document);
+})();
+</script>

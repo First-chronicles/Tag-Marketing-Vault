@@ -1,0 +1,14 @@
+{
+ "name": "Prestige - Not Indexed Pages 2026-08-05",
+ "cat": "brain-prestige",
+ "group": "",
+ "body": "> Report · Prestige · 2026-08-05\n\n# Summary\nThis compares the GSC Page indexing report (`sc-domain:prestigeplumbingsc.com`, last updated 7/24/26) against sitemap.xml, checked 2026-08-05. The sitemap had 40 URLs. GSC showed 17 indexed and 23 not indexed. GSC only \"knew about\" 20 of the 40 (17 indexed plus 3 \"Page with redirect\"), so most of the money pages had not even been crawled.\n\n# Not indexed (23)\n- Service pages (7, highest priority): the `/services/` hub, water-heaters, tankless, drain-cleaning, leak-detection-repair, toilets-faucets-fixtures, emergency-plumbing.\n- Service-area pages (7): the `/service-areas/` hub and all 6 cities.\n- Core (3): about, contact, the blog index.\n- Blog posts (6): water-heater-cost-bluffton-sc, tankless-vs-tank-water-heater, what-not-to-put-down-drain, tree-roots-in-sewer-line, water-softener-vs-water-filter, toilet-silently-leaking.\n\n# Root cause\nThe sitemap was healthy (Success, last read Jul 21, 40 discovered). The file calls it a crawl-queue delay, not a sitemap or quality problem. The 3 \"Page with redirect\" URLs are likely alternate forms (non-www, no trailing slash) and worth one URL inspection.\n\n# Actions and status\n- 2026-08-05: indexing was requested for 9 URLs (the 7 service pages, the service-areas hub and Bluffton) before hitting the daily quota (about 10 per property per day).\n- 14 were still to request the next day: the other 5 cities, about, contact, the blog hub and 6 blog posts.\n- Next steps from the file: finish the requests, add internal links from indexed pages to the un-indexed money pages, and re-check in 1 to 2 weeks.\n- Note: the city URLs changed on 2026-08-12, so the city requests made here point at old URLs (see [Prestige - SEO Baseline Audit 2026-08-12](lib:brain-prestige-seo-baseline-audit-2026-08-12)).\n\n# Related\n- [Prestige Plumbing (Hub)](lib:brain-prestige-plumbing-hub), [Google Search Console](lib:brain-google-search-console), [GSC Indexing Tracker](lib:brain-gsc-indexing-tracker)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Prestige Plumbing/not-indexed-pages.md",
+ "date": "2026-08-05",
+ "createdAt": 1792613474156,
+ "updatedAt": 1792613474156,
+ "rev": "e502cf1c157a"
+}

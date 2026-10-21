@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Search Atlas Audit 2026-07-20",
+ "cat": "brain-summit",
+ "group": "Audits",
+ "body": "> Audit · Summit Az · 2026-07-20\n\n# Summary\nFour-page SEO and technical audit prepared by TAG from Search Atlas/OTTO plus GSC (Search Atlas audit #120252, crawl of 192 pages completed Jul 5).\n\n# Verdicts\n- Link testing: NEEDS WORK. 11 broken 4xx links, 13 redirects, 169 internal links that redirect (across 155 pages), 4 orphan pages, 12 pages with too few internal links.\n- Responsiveness: HEALTHY layout at 1280px and 375px. Mobile performance is the real issue: 181 non-WebP images, 123 large-DOM pages, 19 images over 100 KB, 11 JS files over 300 KB, compression off.\n- Indexability: HEALTHY. 159 indexable, 33 not (23 non-200, 10 X-Robots noindex, 1 meta noindex). Sitemap verified Success in GSC (170 pages, read Jul 18).\n- Organic: UNDERPERFORM. 90 days: 122 clicks, 57,540 impressions. Domain Power 10 caps rankings on page 3.\n\n# Top 3 actions\n1. Repoint the 169 redirecting internal links and fix the 11 broken links.\n2. Push the Tempe page (position about 23 with 20K impressions).\n3. Authority building.\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Summit AZ - Work Folders Index](lib:brain-summit-az-work-folders-index)\n- [Search Atlas](lib:brain-search-atlas), [Summit AZ - Search Atlas Progress vs Baseline 2026-07-21](lib:brain-summit-az-search-atlas-progress-vs-baseline-2026-07-21), [Summit AZ - Tempe Page Optimization Brief 2026-07-21](lib:brain-summit-az-tempe-page-optimization-brief-2026-07-21)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/search-atlas/Summit-Plumbing-Audit-2026-07-20.pdf",
+ "date": "2026-07-20",
+ "createdAt": 1792612997556,
+ "updatedAt": 1792612997557,
+ "rev": "248c9043b9a4"
+}

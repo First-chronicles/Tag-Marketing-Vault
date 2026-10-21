@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - 7 Page Boost 2026-10-07",
+ "cat": "brain-summit",
+ "group": "City Pages",
+ "body": "> Plan · Summit Az · 2026-10-07\n\n# Summary\nDraft (Oct 7) to get seven rewritten pages indexed. URL Inspection showed 3 pages unknown to Google, 2 discovered but never crawled and 2 last crawled in July, before the Sep 25 rewrites. Content was already unique (under 20% overlap), so the fix was stronger crawl paths, then Request Indexing. The companion ops file `Summit-AZ-7-Page-Boost-Ops-2026-10-07.json` holds the machine edits.\n\n# Target pages\n- Garbage disposal Phoenix, water pressure Phoenix, water heater Phoenix, drain cleaning Queen Creek, drain cleaning Scottsdale, faucet and toilet, shower and bath.\n\n# Changes\n1. 13 new in-text links from indexed pages that already earn impressions (leak detection Phoenix, emergency Phoenix, Queen Creek and Scottsdale, /plumbing/, /plumbing-maintenance/, four blog posts), using the house underline style. Homepage untouched.\n2. Water pressure Phoenix retargeted to \"PRV replacement Phoenix\" (480 / KD 19, approved by Kim): H1, subheading, intro, focus keyword, title, meta.\n3. Drain Queen Creek and Scottsdale: question-style H2s and city-localized Related Services buttons.\n4. Shower page: new 3-question FAQ with FAQPage schema; faucet page: FAQPage schema for its existing 3 Q&As; Service schema on both.\n5. Request Indexing for all 7.\n\n# Decisions and status\n- All applied Oct 7 per the change log. Indexing confirmed requested for all 7 (Quota Exceeded on /plumbing/). On Oct 8 the 9 linking pages were also submitted for recrawl.\n\n# Related\n- [Summit AZ - City Pages Index](lib:brain-summit-az-city-pages-index), [Summit AZ - Drain Cleaning City Pages](lib:brain-summit-az-drain-cleaning-city-pages), [Summit AZ - Water Pressure City Pages](lib:brain-summit-az-water-pressure-city-pages), [Summit AZ - Service Page Rewrites and Claim Cleanup](lib:brain-summit-az-service-page-rewrites-and-claim-cleanup), [GSC Indexing Tracker](lib:brain-gsc-indexing-tracker), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/Summit-AZ-7-Page-Boost-Draft-2026-10-07.md",
+ "date": "2026-10-07",
+ "createdAt": 1792613082448,
+ "updatedAt": 1792613082448,
+ "rev": "04b611f77327"
+}

@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Internal Linking Plan 2026-08-27",
+ "cat": "brain-pipeliners",
+ "group": "Plans",
+ "body": "> Plan · Pipeliners · 2026-08-27\n\n# Summary\nResearch and audit only (nothing edited). Part 1 lists 2026 internal linking guidance (2-5 contextual links per 1,000 words, under 150 links per page, 3-click depth, hub-and-spoke plus spoke cross-links, descriptive anchors, body links over nav links). Part 2 audits all 108 published URLs, excluding nav and footer.\n\n# Key findings\n- 366 contextual internal links site-wide (about 3.4 per URL); 35 of 108 URLs had no outbound body link.\n- /services-areas/ linked to only 1 of 37 cities in its body.\n- 20 of 37 city pages had zero contextual inbound links; 12 more had only the generic Services page. Only Mesa, Phoenix, Chandler, Tempe and Scottsdale were well linked (from monsoon posts).\n- City pages were dead ends: 64 links to /services/, 52 to /contact/, only 3 to a specific service page, 0 city-to-city, 0 to blogs.\n- Anchors: \"here!\" 73 times, \"contact us\" 53, empty 16; 39% of links meaningless.\n- 27 of 56 blog posts had no contextual inbound link.\n- The nav was a 48-item wall with all 37 cities in one dropdown.\n\n# Action list (as proposed)\n1. Rebuild /services-areas/ to link all 37 cities by region (note: later standing rule says never edit live /services-areas/ without asking; its city list is script-built).\n2. Three contextual service links per city page.\n3. Cross-link genuine neighbors by cluster (West Valley, Northwest, East Valley, Northeast, Pinal).\n4. Replace \"here!\" and empty anchors with human judgement.\n5. Reconnect the 27 stranded posts.\n\n# Status (from the handoff)\nBy Oct 1: 968 body links, 0 broken; \"here!\" anchors down from 73 to 11; internal links rolled out to city pages; orphan fix Oct 1.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Anthem Page Audit 2026-08-27](lib:brain-pipeliners-anthem-page-audit-2026-08-27), [Pipeliners - Work Report 2026-08-27](lib:brain-pipeliners-work-report-2026-08-27)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/internal-linking-plan-2026-08-27.md",
+ "date": "2026-08-27",
+ "createdAt": 1792613171242,
+ "updatedAt": 1792613171242,
+ "rev": "85a3b713d2ff"
+}

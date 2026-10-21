@@ -1,0 +1,940 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>OTTO Image Schema Draft</title>
+<style>body{font-family:Inter,Arial,sans-serif;background:#f6f8fb;color:#1f2937;margin:0;padding:24px 16px}main{max-width:1100px;margin:auto}h1{color:#1A4570;margin:0 0 6px}.lead{color:#4B5563;margin:0 0 24px}section{background:#fff;border:1px solid #e5e7eb;border-left:5px solid #1A4570;border-radius:12px;padding:18px 20px;margin:0 0 18px}h2{font-size:18px;margin:0}h2 a{color:#1A4570}.m{color:#6b7280;font-size:13px;margin:4px 0 12px}img{width:260px;border-radius:10px;display:block;margin:0 0 12px}.g{display:grid;grid-template-columns:1fr 1fr;gap:14px}h3{font-size:13px;text-transform:uppercase;letter-spacing:.04em;margin:0 0 6px;color:#4B5563}pre{white-space:pre-wrap;word-break:break-word;font-size:12px;border-radius:8px;padding:12px;margin:0}.old{background:#fdecec;border:1px solid #f5c2c2}.new{background:#eaf6ee;border:1px solid #bfe3ca}@media(max-width:760px){.g{grid-template-columns:1fr}img{width:100%}}</style></head>
+<body><main><h1>OTTO image schema: draft for review (v2, specialist-reviewed)</h1><p class="lead">34 city pages, 36 OTTO entries. Left: what OTTO serves now (old Perma-Liner diagram). Right: the draft, pointing only to that page's own new image. Nothing is changed yet.</p><p class="lead"><b>v2 changes after review:</b> removed contentLocation (the photo was not taken in that city), replaced copyrightHolder with creditText "Pipeliners", added an @id so duplicate entries on Phoenix and Chandler merge into one image.</p>
+<section><h2>1. <a href="https://pipelinersusa.com/phoenix/" target="_blank">pipelinersusa.com/phoenix/</a></h2>
+<p class="m">OTTO entry 228080960 &middot; page ID 50700888</p>
+<img src="https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-phoenix-az.webp" alt="Old corroded sewer pipe beside the same pipe with a new seamless liner, Phoenix, AZ" loading="lazy">
+<div class="g"><div><h3>Now (old)</h3><pre class="old">{
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;caption&quot;: &quot;Cross-section of an old host pipe with a new cured-in-place liner inside it.&quot;,
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2025/03/Untitled-1300-x-700-px-1-1024x551.jpg&quot;
+}</pre></div><div><h3>Draft (new)</h3><pre class="new">{
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;@id&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-phoenix-az.webp#image&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-phoenix-az.webp&quot;,
+ &quot;url&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-phoenix-az.webp&quot;,
+ &quot;name&quot;: &quot;Trenchless Sewer Liner Repair in Phoenix, AZ&quot;,
+ &quot;caption&quot;: &quot;Old sewer pipe (left) and the same pipe after trenchless relining (right) in Phoenix, AZ.&quot;,
+ &quot;description&quot;: &quot;Old corroded sewer pipe beside the same pipe with a new seamless liner, Phoenix, AZ&quot;,
+ &quot;width&quot;: 1300,
+ &quot;height&quot;: 727,
+ &quot;encodingFormat&quot;: &quot;image/webp&quot;,
+ &quot;creator&quot;: {
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;Pipeliners&quot;,
+  &quot;url&quot;: &quot;https://pipelinersusa.com/&quot;
+ },
+ &quot;creditText&quot;: &quot;Pipeliners&quot;
+}</pre></div></div></section><section><h2>2. <a href="https://pipelinersusa.com/phoenix/" target="_blank">pipelinersusa.com/phoenix/</a></h2>
+<p class="m">OTTO entry 259956279 &middot; page ID 50700888</p>
+<img src="https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-phoenix-az.webp" alt="Old corroded sewer pipe beside the same pipe with a new seamless liner, Phoenix, AZ" loading="lazy">
+<div class="g"><div><h3>Now (old)</h3><pre class="old">{
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;caption&quot;: &quot;Old host pipe and new Perma-Liner reline by Pipeliners USA in Apache Junction, showcasing trenchless repair methods.&quot;,
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2025/03/Untitled-1300-x-700-px-1-1024x551.jpg.webp&quot;
+}</pre></div><div><h3>Draft (new)</h3><pre class="new">{
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;@id&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-phoenix-az.webp#image&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-phoenix-az.webp&quot;,
+ &quot;url&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-phoenix-az.webp&quot;,
+ &quot;name&quot;: &quot;Trenchless Sewer Liner Repair in Phoenix, AZ&quot;,
+ &quot;caption&quot;: &quot;Old sewer pipe (left) and the same pipe after trenchless relining (right) in Phoenix, AZ.&quot;,
+ &quot;description&quot;: &quot;Old corroded sewer pipe beside the same pipe with a new seamless liner, Phoenix, AZ&quot;,
+ &quot;width&quot;: 1300,
+ &quot;height&quot;: 727,
+ &quot;encodingFormat&quot;: &quot;image/webp&quot;,
+ &quot;creator&quot;: {
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;Pipeliners&quot;,
+  &quot;url&quot;: &quot;https://pipelinersusa.com/&quot;
+ },
+ &quot;creditText&quot;: &quot;Pipeliners&quot;
+}</pre></div></div></section><section><h2>3. <a href="https://pipelinersusa.com/gilbert/" target="_blank">pipelinersusa.com/gilbert/</a></h2>
+<p class="m">OTTO entry 228080668 &middot; page ID 28896499</p>
+<img src="https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-gilbert-az.webp" alt="Old corroded sewer pipe beside the same pipe with a new seamless liner, Gilbert, AZ" loading="lazy">
+<div class="g"><div><h3>Now (old)</h3><pre class="old">{
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;caption&quot;: &quot;Cross-section of an old host pipe with a new cured-in-place liner inside it.&quot;,
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2025/03/Untitled-1300-x-700-px-1-1024x551.jpg&quot;
+}</pre></div><div><h3>Draft (new)</h3><pre class="new">{
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;@id&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-gilbert-az.webp#image&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-gilbert-az.webp&quot;,
+ &quot;url&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-gilbert-az.webp&quot;,
+ &quot;name&quot;: &quot;Trenchless Sewer Liner Repair in Gilbert, AZ&quot;,
+ &quot;caption&quot;: &quot;Old sewer pipe (left) and the same pipe after trenchless relining (right) in Gilbert, AZ.&quot;,
+ &quot;description&quot;: &quot;Old corroded sewer pipe beside the same pipe with a new seamless liner, Gilbert, AZ&quot;,
+ &quot;width&quot;: 1300,
+ &quot;height&quot;: 727,
+ &quot;encodingFormat&quot;: &quot;image/webp&quot;,
+ &quot;creator&quot;: {
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;Pipeliners&quot;,
+  &quot;url&quot;: &quot;https://pipelinersusa.com/&quot;
+ },
+ &quot;creditText&quot;: &quot;Pipeliners&quot;
+}</pre></div></div></section><section><h2>4. <a href="https://pipelinersusa.com/tempe/" target="_blank">pipelinersusa.com/tempe/</a></h2>
+<p class="m">OTTO entry 228080902 &middot; page ID 39332539</p>
+<img src="https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-tempe-az.webp" alt="Old corroded sewer pipe beside the same pipe with a new seamless liner, Tempe, AZ" loading="lazy">
+<div class="g"><div><h3>Now (old)</h3><pre class="old">{
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;caption&quot;: &quot;Cross-section of an old host pipe with a new cured-in-place liner inside it.&quot;,
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2025/03/Untitled-1300-x-700-px-1-1024x551.jpg&quot;
+}</pre></div><div><h3>Draft (new)</h3><pre class="new">{
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;@id&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-tempe-az.webp#image&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-tempe-az.webp&quot;,
+ &quot;url&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-tempe-az.webp&quot;,
+ &quot;name&quot;: &quot;Trenchless Sewer Liner Repair in Tempe, AZ&quot;,
+ &quot;caption&quot;: &quot;Old sewer pipe (left) and the same pipe after trenchless relining (right) in Tempe, AZ.&quot;,
+ &quot;description&quot;: &quot;Old corroded sewer pipe beside the same pipe with a new seamless liner, Tempe, AZ&quot;,
+ &quot;width&quot;: 1300,
+ &quot;height&quot;: 727,
+ &quot;encodingFormat&quot;: &quot;image/webp&quot;,
+ &quot;creator&quot;: {
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;Pipeliners&quot;,
+  &quot;url&quot;: &quot;https://pipelinersusa.com/&quot;
+ },
+ &quot;creditText&quot;: &quot;Pipeliners&quot;
+}</pre></div></div></section><section><h2>5. <a href="https://pipelinersusa.com/chandler/" target="_blank">pipelinersusa.com/chandler/</a></h2>
+<p class="m">OTTO entry 228080685 &middot; page ID 28896502</p>
+<img src="https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-chandler-az.webp" alt="Old corroded sewer pipe beside the same pipe with a new seamless liner, Chandler, AZ" loading="lazy">
+<div class="g"><div><h3>Now (old)</h3><pre class="old">{
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;caption&quot;: &quot;Cross-section of an old host pipe with a new cured-in-place liner inside it.&quot;,
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2025/03/Untitled-1300-x-700-px-1-1024x551.jpg&quot;
+}</pre></div><div><h3>Draft (new)</h3><pre class="new">{
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;@id&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-chandler-az.webp#image&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-chandler-az.webp&quot;,
+ &quot;url&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-chandler-az.webp&quot;,
+ &quot;name&quot;: &quot;Trenchless Sewer Liner Repair in Chandler, AZ&quot;,
+ &quot;caption&quot;: &quot;Old sewer pipe (left) and the same pipe after trenchless relining (right) in Chandler, AZ.&quot;,
+ &quot;description&quot;: &quot;Old corroded sewer pipe beside the same pipe with a new seamless liner, Chandler, AZ&quot;,
+ &quot;width&quot;: 1300,
+ &quot;height&quot;: 727,
+ &quot;encodingFormat&quot;: &quot;image/webp&quot;,
+ &quot;creator&quot;: {
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;Pipeliners&quot;,
+  &quot;url&quot;: &quot;https://pipelinersusa.com/&quot;
+ },
+ &quot;creditText&quot;: &quot;Pipeliners&quot;
+}</pre></div></div></section><section><h2>6. <a href="https://pipelinersusa.com/chandler/" target="_blank">pipelinersusa.com/chandler/</a></h2>
+<p class="m">OTTO entry 259956261 &middot; page ID 28896502</p>
+<img src="https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-chandler-az.webp" alt="Old corroded sewer pipe beside the same pipe with a new seamless liner, Chandler, AZ" loading="lazy">
+<div class="g"><div><h3>Now (old)</h3><pre class="old">{
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;caption&quot;: &quot;Old host pipe and new Perma-Liner reline by Pipeliners USA in Apache Junction, showcasing trenchless repair methods.&quot;,
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2025/03/Untitled-1300-x-700-px-1-1024x551.jpg.webp&quot;
+}</pre></div><div><h3>Draft (new)</h3><pre class="new">{
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;@id&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-chandler-az.webp#image&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-chandler-az.webp&quot;,
+ &quot;url&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-chandler-az.webp&quot;,
+ &quot;name&quot;: &quot;Trenchless Sewer Liner Repair in Chandler, AZ&quot;,
+ &quot;caption&quot;: &quot;Old sewer pipe (left) and the same pipe after trenchless relining (right) in Chandler, AZ.&quot;,
+ &quot;description&quot;: &quot;Old corroded sewer pipe beside the same pipe with a new seamless liner, Chandler, AZ&quot;,
+ &quot;width&quot;: 1300,
+ &quot;height&quot;: 727,
+ &quot;encodingFormat&quot;: &quot;image/webp&quot;,
+ &quot;creator&quot;: {
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;Pipeliners&quot;,
+  &quot;url&quot;: &quot;https://pipelinersusa.com/&quot;
+ },
+ &quot;creditText&quot;: &quot;Pipeliners&quot;
+}</pre></div></div></section><section><h2>7. <a href="https://pipelinersusa.com/glendale/" target="_blank">pipelinersusa.com/glendale/</a></h2>
+<p class="m">OTTO entry 228080938 &middot; page ID 39332545</p>
+<img src="https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-glendale-az.webp" alt="Old corroded sewer pipe beside the same pipe with a new seamless liner, Glendale, AZ" loading="lazy">
+<div class="g"><div><h3>Now (old)</h3><pre class="old">{
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;caption&quot;: &quot;Cross-section of an old host pipe with a new cured-in-place liner inside it.&quot;,
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2025/03/Untitled-1300-x-700-px-1-1024x551.jpg&quot;
+}</pre></div><div><h3>Draft (new)</h3><pre class="new">{
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;@id&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-glendale-az.webp#image&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-glendale-az.webp&quot;,
+ &quot;url&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-glendale-az.webp&quot;,
+ &quot;name&quot;: &quot;Trenchless Sewer Liner Repair in Glendale, AZ&quot;,
+ &quot;caption&quot;: &quot;Old sewer pipe (left) and the same pipe after trenchless relining (right) in Glendale, AZ.&quot;,
+ &quot;description&quot;: &quot;Old corroded sewer pipe beside the same pipe with a new seamless liner, Glendale, AZ&quot;,
+ &quot;width&quot;: 1300,
+ &quot;height&quot;: 727,
+ &quot;encodingFormat&quot;: &quot;image/webp&quot;,
+ &quot;creator&quot;: {
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;Pipeliners&quot;,
+  &quot;url&quot;: &quot;https://pipelinersusa.com/&quot;
+ },
+ &quot;creditText&quot;: &quot;Pipeliners&quot;
+}</pre></div></div></section><section><h2>8. <a href="https://pipelinersusa.com/peoria/" target="_blank">pipelinersusa.com/peoria/</a></h2>
+<p class="m">OTTO entry 228080967 &middot; page ID 50700889</p>
+<img src="https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-peoria-az.webp" alt="Old corroded sewer pipe beside the same pipe with a new seamless liner, Peoria, AZ" loading="lazy">
+<div class="g"><div><h3>Now (old)</h3><pre class="old">{
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;caption&quot;: &quot;Cross-section of an old host pipe with a new cured-in-place liner inside it.&quot;,
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2025/03/Untitled-1300-x-700-px-1-1024x551.jpg&quot;
+}</pre></div><div><h3>Draft (new)</h3><pre class="new">{
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;@id&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-peoria-az.webp#image&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-peoria-az.webp&quot;,
+ &quot;url&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-peoria-az.webp&quot;,
+ &quot;name&quot;: &quot;Trenchless Sewer Liner Repair in Peoria, AZ&quot;,
+ &quot;caption&quot;: &quot;Old sewer pipe (left) and the same pipe after trenchless relining (right) in Peoria, AZ.&quot;,
+ &quot;description&quot;: &quot;Old corroded sewer pipe beside the same pipe with a new seamless liner, Peoria, AZ&quot;,
+ &quot;width&quot;: 1300,
+ &quot;height&quot;: 727,
+ &quot;encodingFormat&quot;: &quot;image/webp&quot;,
+ &quot;creator&quot;: {
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;Pipeliners&quot;,
+  &quot;url&quot;: &quot;https://pipelinersusa.com/&quot;
+ },
+ &quot;creditText&quot;: &quot;Pipeliners&quot;
+}</pre></div></div></section><section><h2>9. <a href="https://pipelinersusa.com/surprise/" target="_blank">pipelinersusa.com/surprise/</a></h2>
+<p class="m">OTTO entry 228080709 &middot; page ID 28896506</p>
+<img src="https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-surprise-az.webp" alt="Old corroded sewer pipe beside the same pipe with a new seamless liner, Surprise, AZ" loading="lazy">
+<div class="g"><div><h3>Now (old)</h3><pre class="old">{
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;caption&quot;: &quot;Cross-section of an old host pipe with a new cured-in-place liner inside it.&quot;,
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2025/03/Untitled-1300-x-700-px-1-1024x551.jpg&quot;
+}</pre></div><div><h3>Draft (new)</h3><pre class="new">{
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;@id&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-surprise-az.webp#image&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-surprise-az.webp&quot;,
+ &quot;url&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-surprise-az.webp&quot;,
+ &quot;name&quot;: &quot;Trenchless Sewer Liner Repair in Surprise, AZ&quot;,
+ &quot;caption&quot;: &quot;Old sewer pipe (left) and the same pipe after trenchless relining (right) in Surprise, AZ.&quot;,
+ &quot;description&quot;: &quot;Old corroded sewer pipe beside the same pipe with a new seamless liner, Surprise, AZ&quot;,
+ &quot;width&quot;: 1300,
+ &quot;height&quot;: 727,
+ &quot;encodingFormat&quot;: &quot;image/webp&quot;,
+ &quot;creator&quot;: {
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;Pipeliners&quot;,
+  &quot;url&quot;: &quot;https://pipelinersusa.com/&quot;
+ },
+ &quot;creditText&quot;: &quot;Pipeliners&quot;
+}</pre></div></div></section><section><h2>10. <a href="https://pipelinersusa.com/goodyear/" target="_blank">pipelinersusa.com/goodyear/</a></h2>
+<p class="m">OTTO entry 228080891 &middot; page ID 39332537</p>
+<img src="https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-goodyear-az.webp" alt="Old corroded sewer pipe beside the same pipe with a new seamless liner, Goodyear, AZ" loading="lazy">
+<div class="g"><div><h3>Now (old)</h3><pre class="old">{
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;caption&quot;: &quot;Cross-section of an old host pipe with a new cured-in-place liner inside it.&quot;,
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2025/03/Untitled-1300-x-700-px-1-1024x551.jpg&quot;
+}</pre></div><div><h3>Draft (new)</h3><pre class="new">{
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;@id&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-goodyear-az.webp#image&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-goodyear-az.webp&quot;,
+ &quot;url&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-goodyear-az.webp&quot;,
+ &quot;name&quot;: &quot;Trenchless Sewer Liner Repair in Goodyear, AZ&quot;,
+ &quot;caption&quot;: &quot;Old sewer pipe (left) and the same pipe after trenchless relining (right) in Goodyear, AZ.&quot;,
+ &quot;description&quot;: &quot;Old corroded sewer pipe beside the same pipe with a new seamless liner, Goodyear, AZ&quot;,
+ &quot;width&quot;: 1300,
+ &quot;height&quot;: 727,
+ &quot;encodingFormat&quot;: &quot;image/webp&quot;,
+ &quot;creator&quot;: {
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;Pipeliners&quot;,
+  &quot;url&quot;: &quot;https://pipelinersusa.com/&quot;
+ },
+ &quot;creditText&quot;: &quot;Pipeliners&quot;
+}</pre></div></div></section><section><h2>11. <a href="https://pipelinersusa.com/sun-city/" target="_blank">pipelinersusa.com/sun-city/</a></h2>
+<p class="m">OTTO entry 228080926 &middot; page ID 39332543</p>
+<img src="https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-sun-city-az.webp" alt="Old corroded sewer pipe beside the same pipe with a new seamless liner, Sun City, AZ" loading="lazy">
+<div class="g"><div><h3>Now (old)</h3><pre class="old">{
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;caption&quot;: &quot;Cross-section of an old host pipe with a new cured-in-place liner inside it.&quot;,
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2025/03/Untitled-1300-x-700-px-1-1024x551.jpg&quot;
+}</pre></div><div><h3>Draft (new)</h3><pre class="new">{
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;@id&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-sun-city-az.webp#image&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-sun-city-az.webp&quot;,
+ &quot;url&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-sun-city-az.webp&quot;,
+ &quot;name&quot;: &quot;Trenchless Sewer Liner Repair in Sun City, AZ&quot;,
+ &quot;caption&quot;: &quot;Old sewer pipe (left) and the same pipe after trenchless relining (right) in Sun City, AZ.&quot;,
+ &quot;description&quot;: &quot;Old corroded sewer pipe beside the same pipe with a new seamless liner, Sun City, AZ&quot;,
+ &quot;width&quot;: 1300,
+ &quot;height&quot;: 727,
+ &quot;encodingFormat&quot;: &quot;image/webp&quot;,
+ &quot;creator&quot;: {
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;Pipeliners&quot;,
+  &quot;url&quot;: &quot;https://pipelinersusa.com/&quot;
+ },
+ &quot;creditText&quot;: &quot;Pipeliners&quot;
+}</pre></div></div></section><section><h2>12. <a href="https://pipelinersusa.com/sun-city-west/" target="_blank">pipelinersusa.com/sun-city-west/</a></h2>
+<p class="m">OTTO entry 228080733 &middot; page ID 28896510</p>
+<img src="https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-sun-city-west-az.webp" alt="Old corroded sewer pipe beside the same pipe with a new seamless liner, Sun City West, AZ" loading="lazy">
+<div class="g"><div><h3>Now (old)</h3><pre class="old">{
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;caption&quot;: &quot;Cross-section of an old host pipe with a new cured-in-place liner inside it.&quot;,
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2025/03/Untitled-1300-x-700-px-1-1024x551.jpg&quot;
+}</pre></div><div><h3>Draft (new)</h3><pre class="new">{
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;@id&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-sun-city-west-az.webp#image&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-sun-city-west-az.webp&quot;,
+ &quot;url&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-sun-city-west-az.webp&quot;,
+ &quot;name&quot;: &quot;Trenchless Sewer Liner Repair in Sun City West, AZ&quot;,
+ &quot;caption&quot;: &quot;Old sewer pipe (left) and the same pipe after trenchless relining (right) in Sun City West, AZ.&quot;,
+ &quot;description&quot;: &quot;Old corroded sewer pipe beside the same pipe with a new seamless liner, Sun City West, AZ&quot;,
+ &quot;width&quot;: 1300,
+ &quot;height&quot;: 727,
+ &quot;encodingFormat&quot;: &quot;image/webp&quot;,
+ &quot;creator&quot;: {
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;Pipeliners&quot;,
+  &quot;url&quot;: &quot;https://pipelinersusa.com/&quot;
+ },
+ &quot;creditText&quot;: &quot;Pipeliners&quot;
+}</pre></div></div></section><section><h2>13. <a href="https://pipelinersusa.com/casa-grande/" target="_blank">pipelinersusa.com/casa-grande/</a></h2>
+<p class="m">OTTO entry 228080769 &middot; page ID 28896517</p>
+<img src="https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-casa-grande-az.webp" alt="Old corroded sewer pipe beside the same pipe with a new seamless liner, Casa Grande, AZ" loading="lazy">
+<div class="g"><div><h3>Now (old)</h3><pre class="old">{
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;caption&quot;: &quot;Cross-section of an old host pipe with a new cured-in-place liner inside it.&quot;,
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2025/03/Untitled-1300-x-700-px-1-1024x551.jpg&quot;
+}</pre></div><div><h3>Draft (new)</h3><pre class="new">{
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;@id&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-casa-grande-az.webp#image&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-casa-grande-az.webp&quot;,
+ &quot;url&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-casa-grande-az.webp&quot;,
+ &quot;name&quot;: &quot;Trenchless Sewer Liner Repair in Casa Grande, AZ&quot;,
+ &quot;caption&quot;: &quot;Old sewer pipe (left) and the same pipe after trenchless relining (right) in Casa Grande, AZ.&quot;,
+ &quot;description&quot;: &quot;Old corroded sewer pipe beside the same pipe with a new seamless liner, Casa Grande, AZ&quot;,
+ &quot;width&quot;: 1300,
+ &quot;height&quot;: 727,
+ &quot;encodingFormat&quot;: &quot;image/webp&quot;,
+ &quot;creator&quot;: {
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;Pipeliners&quot;,
+  &quot;url&quot;: &quot;https://pipelinersusa.com/&quot;
+ },
+ &quot;creditText&quot;: &quot;Pipeliners&quot;
+}</pre></div></div></section><section><h2>14. <a href="https://pipelinersusa.com/maricopa/" target="_blank">pipelinersusa.com/maricopa/</a></h2>
+<p class="m">OTTO entry 228080640 &middot; page ID 28896494</p>
+<img src="https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-maricopa-az.webp" alt="Old corroded sewer pipe beside the same pipe with a new seamless liner, Maricopa, AZ" loading="lazy">
+<div class="g"><div><h3>Now (old)</h3><pre class="old">{
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;caption&quot;: &quot;Cross-section of an old host pipe with a new cured-in-place liner inside it.&quot;,
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2025/03/Untitled-1300-x-700-px-1-1024x551.jpg&quot;
+}</pre></div><div><h3>Draft (new)</h3><pre class="new">{
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;@id&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-maricopa-az.webp#image&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-maricopa-az.webp&quot;,
+ &quot;url&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-maricopa-az.webp&quot;,
+ &quot;name&quot;: &quot;Trenchless Sewer Liner Repair in Maricopa, AZ&quot;,
+ &quot;caption&quot;: &quot;Old sewer pipe (left) and the same pipe after trenchless relining (right) in Maricopa, AZ.&quot;,
+ &quot;description&quot;: &quot;Old corroded sewer pipe beside the same pipe with a new seamless liner, Maricopa, AZ&quot;,
+ &quot;width&quot;: 1300,
+ &quot;height&quot;: 727,
+ &quot;encodingFormat&quot;: &quot;image/webp&quot;,
+ &quot;creator&quot;: {
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;Pipeliners&quot;,
+  &quot;url&quot;: &quot;https://pipelinersusa.com/&quot;
+ },
+ &quot;creditText&quot;: &quot;Pipeliners&quot;
+}</pre></div></div></section><section><h2>15. <a href="https://pipelinersusa.com/apache-junction/" target="_blank">pipelinersusa.com/apache-junction/</a></h2>
+<p class="m">OTTO entry 228080748 &middot; page ID 28896513</p>
+<img src="https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-apache-junction-az.webp" alt="Old corroded sewer pipe beside the same pipe with a new seamless liner, Apache Junction, AZ" loading="lazy">
+<div class="g"><div><h3>Now (old)</h3><pre class="old">{
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;caption&quot;: &quot;Cross-section of an old host pipe with a new cured-in-place liner inside it.&quot;,
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2025/03/Untitled-1300-x-700-px-1-1024x551.jpg&quot;
+}</pre></div><div><h3>Draft (new)</h3><pre class="new">{
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;@id&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-apache-junction-az.webp#image&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-apache-junction-az.webp&quot;,
+ &quot;url&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-apache-junction-az.webp&quot;,
+ &quot;name&quot;: &quot;Trenchless Sewer Liner Repair in Apache Junction, AZ&quot;,
+ &quot;caption&quot;: &quot;Old sewer pipe (left) and the same pipe after trenchless relining (right) in Apache Junction, AZ.&quot;,
+ &quot;description&quot;: &quot;Old corroded sewer pipe beside the same pipe with a new seamless liner, Apache Junction, AZ&quot;,
+ &quot;width&quot;: 1300,
+ &quot;height&quot;: 727,
+ &quot;encodingFormat&quot;: &quot;image/webp&quot;,
+ &quot;creator&quot;: {
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;Pipeliners&quot;,
+  &quot;url&quot;: &quot;https://pipelinersusa.com/&quot;
+ },
+ &quot;creditText&quot;: &quot;Pipeliners&quot;
+}</pre></div></div></section><section><h2>16. <a href="https://pipelinersusa.com/mesa/" target="_blank">pipelinersusa.com/mesa/</a></h2>
+<p class="m">OTTO entry 228080916 &middot; page ID 39332541</p>
+<img src="https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-mesa-az.webp" alt="Old corroded sewer pipe beside the same pipe with a new seamless liner, Mesa, AZ" loading="lazy">
+<div class="g"><div><h3>Now (old)</h3><pre class="old">{
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;caption&quot;: &quot;Cross-section of an old host pipe with a new cured-in-place liner inside it.&quot;,
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2025/03/Untitled-1300-x-700-px-1-1024x551.jpg&quot;
+}</pre></div><div><h3>Draft (new)</h3><pre class="new">{
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;@id&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-mesa-az.webp#image&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-mesa-az.webp&quot;,
+ &quot;url&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-mesa-az.webp&quot;,
+ &quot;name&quot;: &quot;Trenchless Sewer Liner Repair in Mesa, AZ&quot;,
+ &quot;caption&quot;: &quot;Old sewer pipe (left) and the same pipe after trenchless relining (right) in Mesa, AZ.&quot;,
+ &quot;description&quot;: &quot;Old corroded sewer pipe beside the same pipe with a new seamless liner, Mesa, AZ&quot;,
+ &quot;width&quot;: 1300,
+ &quot;height&quot;: 727,
+ &quot;encodingFormat&quot;: &quot;image/webp&quot;,
+ &quot;creator&quot;: {
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;Pipeliners&quot;,
+  &quot;url&quot;: &quot;https://pipelinersusa.com/&quot;
+ },
+ &quot;creditText&quot;: &quot;Pipeliners&quot;
+}</pre></div></div></section><section><h2>17. <a href="https://pipelinersusa.com/san-tan-valley/" target="_blank">pipelinersusa.com/san-tan-valley/</a></h2>
+<p class="m">OTTO entry 228080849 &middot; page ID 39332531</p>
+<img src="https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-san-tan-valley-az.webp" alt="Old corroded sewer pipe beside the same pipe with a new seamless liner, San Tan Valley, AZ" loading="lazy">
+<div class="g"><div><h3>Now (old)</h3><pre class="old">{
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;caption&quot;: &quot;Cross-section of an old host pipe with a new cured-in-place liner inside it.&quot;,
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2025/03/Untitled-1300-x-700-px-1-1024x551.jpg&quot;
+}</pre></div><div><h3>Draft (new)</h3><pre class="new">{
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;@id&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-san-tan-valley-az.webp#image&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-san-tan-valley-az.webp&quot;,
+ &quot;url&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-san-tan-valley-az.webp&quot;,
+ &quot;name&quot;: &quot;Trenchless Sewer Liner Repair in San Tan Valley, AZ&quot;,
+ &quot;caption&quot;: &quot;Old sewer pipe (left) and the same pipe after trenchless relining (right) in San Tan Valley, AZ.&quot;,
+ &quot;description&quot;: &quot;Old corroded sewer pipe beside the same pipe with a new seamless liner, San Tan Valley, AZ&quot;,
+ &quot;width&quot;: 1300,
+ &quot;height&quot;: 727,
+ &quot;encodingFormat&quot;: &quot;image/webp&quot;,
+ &quot;creator&quot;: {
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;Pipeliners&quot;,
+  &quot;url&quot;: &quot;https://pipelinersusa.com/&quot;
+ },
+ &quot;creditText&quot;: &quot;Pipeliners&quot;
+}</pre></div></div></section><section><h2>18. <a href="https://pipelinersusa.com/fountain-hills/" target="_blank">pipelinersusa.com/fountain-hills/</a></h2>
+<p class="m">OTTO entry 228080722 &middot; page ID 28896508</p>
+<img src="https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-fountain-hills-az.webp" alt="Old corroded sewer pipe beside the same pipe with a new seamless liner, Fountain Hills, AZ" loading="lazy">
+<div class="g"><div><h3>Now (old)</h3><pre class="old">{
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;caption&quot;: &quot;Cross-section of an old host pipe with a new cured-in-place liner inside it.&quot;,
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2025/03/Untitled-1300-x-700-px-1-1024x551.jpg&quot;
+}</pre></div><div><h3>Draft (new)</h3><pre class="new">{
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;@id&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-fountain-hills-az.webp#image&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-fountain-hills-az.webp&quot;,
+ &quot;url&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-fountain-hills-az.webp&quot;,
+ &quot;name&quot;: &quot;Trenchless Sewer Liner Repair in Fountain Hills, AZ&quot;,
+ &quot;caption&quot;: &quot;Old sewer pipe (left) and the same pipe after trenchless relining (right) in Fountain Hills, AZ.&quot;,
+ &quot;description&quot;: &quot;Old corroded sewer pipe beside the same pipe with a new seamless liner, Fountain Hills, AZ&quot;,
+ &quot;width&quot;: 1300,
+ &quot;height&quot;: 727,
+ &quot;encodingFormat&quot;: &quot;image/webp&quot;,
+ &quot;creator&quot;: {
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;Pipeliners&quot;,
+  &quot;url&quot;: &quot;https://pipelinersusa.com/&quot;
+ },
+ &quot;creditText&quot;: &quot;Pipeliners&quot;
+}</pre></div></div></section><section><h2>19. <a href="https://pipelinersusa.com/paradise-valley/" target="_blank">pipelinersusa.com/paradise-valley/</a></h2>
+<p class="m">OTTO entry 228080628 &middot; page ID 28896492</p>
+<img src="https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-paradise-valley-az.webp" alt="Old corroded sewer pipe beside the same pipe with a new seamless liner, Paradise Valley, AZ" loading="lazy">
+<div class="g"><div><h3>Now (old)</h3><pre class="old">{
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;caption&quot;: &quot;Cross-section of an old host pipe with a new cured-in-place liner inside it.&quot;,
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2025/03/Untitled-1300-x-700-px-1-1024x551.jpg&quot;
+}</pre></div><div><h3>Draft (new)</h3><pre class="new">{
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;@id&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-paradise-valley-az.webp#image&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-paradise-valley-az.webp&quot;,
+ &quot;url&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-paradise-valley-az.webp&quot;,
+ &quot;name&quot;: &quot;Trenchless Sewer Liner Repair in Paradise Valley, AZ&quot;,
+ &quot;caption&quot;: &quot;Old sewer pipe (left) and the same pipe after trenchless relining (right) in Paradise Valley, AZ.&quot;,
+ &quot;description&quot;: &quot;Old corroded sewer pipe beside the same pipe with a new seamless liner, Paradise Valley, AZ&quot;,
+ &quot;width&quot;: 1300,
+ &quot;height&quot;: 727,
+ &quot;encodingFormat&quot;: &quot;image/webp&quot;,
+ &quot;creator&quot;: {
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;Pipeliners&quot;,
+  &quot;url&quot;: &quot;https://pipelinersusa.com/&quot;
+ },
+ &quot;creditText&quot;: &quot;Pipeliners&quot;
+}</pre></div></div></section><section><h2>20. <a href="https://pipelinersusa.com/coolidge/" target="_blank">pipelinersusa.com/coolidge/</a></h2>
+<p class="m">OTTO entry 228080872 &middot; page ID 39332535</p>
+<img src="https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-coolidge-az.webp" alt="Old corroded sewer pipe beside the same pipe with a new seamless liner, Coolidge, AZ" loading="lazy">
+<div class="g"><div><h3>Now (old)</h3><pre class="old">{
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;caption&quot;: &quot;Cross-section of an old host pipe with a new cured-in-place liner inside it.&quot;,
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2025/03/Untitled-1300-x-700-px-1-1024x551.jpg&quot;
+}</pre></div><div><h3>Draft (new)</h3><pre class="new">{
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;@id&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-coolidge-az.webp#image&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-coolidge-az.webp&quot;,
+ &quot;url&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-coolidge-az.webp&quot;,
+ &quot;name&quot;: &quot;Trenchless Sewer Liner Repair in Coolidge, AZ&quot;,
+ &quot;caption&quot;: &quot;Old sewer pipe (left) and the same pipe after trenchless relining (right) in Coolidge, AZ.&quot;,
+ &quot;description&quot;: &quot;Old corroded sewer pipe beside the same pipe with a new seamless liner, Coolidge, AZ&quot;,
+ &quot;width&quot;: 1300,
+ &quot;height&quot;: 727,
+ &quot;encodingFormat&quot;: &quot;image/webp&quot;,
+ &quot;creator&quot;: {
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;Pipeliners&quot;,
+  &quot;url&quot;: &quot;https://pipelinersusa.com/&quot;
+ },
+ &quot;creditText&quot;: &quot;Pipeliners&quot;
+}</pre></div></div></section><section><h2>21. <a href="https://pipelinersusa.com/florence/" target="_blank">pipelinersusa.com/florence/</a></h2>
+<p class="m">OTTO entry 228080728 &middot; page ID 28896509</p>
+<img src="https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-florence-az.webp" alt="Old corroded sewer pipe beside the same pipe with a new seamless liner, Florence, AZ" loading="lazy">
+<div class="g"><div><h3>Now (old)</h3><pre class="old">{
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;caption&quot;: &quot;Cross-section of an old host pipe with a new cured-in-place liner inside it.&quot;,
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2025/03/Untitled-1300-x-700-px-1-1024x551.jpg&quot;
+}</pre></div><div><h3>Draft (new)</h3><pre class="new">{
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;@id&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-florence-az.webp#image&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-florence-az.webp&quot;,
+ &quot;url&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-florence-az.webp&quot;,
+ &quot;name&quot;: &quot;Trenchless Sewer Liner Repair in Florence, AZ&quot;,
+ &quot;caption&quot;: &quot;Old sewer pipe (left) and the same pipe after trenchless relining (right) in Florence, AZ.&quot;,
+ &quot;description&quot;: &quot;Old corroded sewer pipe beside the same pipe with a new seamless liner, Florence, AZ&quot;,
+ &quot;width&quot;: 1300,
+ &quot;height&quot;: 727,
+ &quot;encodingFormat&quot;: &quot;image/webp&quot;,
+ &quot;creator&quot;: {
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;Pipeliners&quot;,
+  &quot;url&quot;: &quot;https://pipelinersusa.com/&quot;
+ },
+ &quot;creditText&quot;: &quot;Pipeliners&quot;
+}</pre></div></div></section><section><h2>22. <a href="https://pipelinersusa.com/queen-creek/" target="_blank">pipelinersusa.com/queen-creek/</a></h2>
+<p class="m">OTTO entry 228080691 &middot; page ID 28896503</p>
+<img src="https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-queen-creek-az.webp" alt="Old corroded sewer pipe beside the same pipe with a new seamless liner, Queen Creek, AZ" loading="lazy">
+<div class="g"><div><h3>Now (old)</h3><pre class="old">{
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;caption&quot;: &quot;Cross-section of an old host pipe with a new cured-in-place liner inside it.&quot;,
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2025/03/Untitled-1300-x-700-px-1-1024x551.jpg&quot;
+}</pre></div><div><h3>Draft (new)</h3><pre class="new">{
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;@id&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-queen-creek-az.webp#image&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-queen-creek-az.webp&quot;,
+ &quot;url&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-queen-creek-az.webp&quot;,
+ &quot;name&quot;: &quot;Trenchless Sewer Liner Repair in Queen Creek, AZ&quot;,
+ &quot;caption&quot;: &quot;Old sewer pipe (left) and the same pipe after trenchless relining (right) in Queen Creek, AZ.&quot;,
+ &quot;description&quot;: &quot;Old corroded sewer pipe beside the same pipe with a new seamless liner, Queen Creek, AZ&quot;,
+ &quot;width&quot;: 1300,
+ &quot;height&quot;: 727,
+ &quot;encodingFormat&quot;: &quot;image/webp&quot;,
+ &quot;creator&quot;: {
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;Pipeliners&quot;,
+  &quot;url&quot;: &quot;https://pipelinersusa.com/&quot;
+ },
+ &quot;creditText&quot;: &quot;Pipeliners&quot;
+}</pre></div></div></section><section><h2>23. <a href="https://pipelinersusa.com/buckeye/" target="_blank">pipelinersusa.com/buckeye/</a></h2>
+<p class="m">OTTO entry 228080651 &middot; page ID 28896496</p>
+<img src="https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-buckeye-az.webp" alt="Old corroded sewer pipe beside the same pipe with a new seamless liner, Buckeye, AZ" loading="lazy">
+<div class="g"><div><h3>Now (old)</h3><pre class="old">{
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;caption&quot;: &quot;Cross-section of an old host pipe with a new cured-in-place liner inside it.&quot;,
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2025/03/Untitled-1300-x-700-px-1-1024x551.jpg&quot;
+}</pre></div><div><h3>Draft (new)</h3><pre class="new">{
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;@id&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-buckeye-az.webp#image&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-buckeye-az.webp&quot;,
+ &quot;url&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-buckeye-az.webp&quot;,
+ &quot;name&quot;: &quot;Trenchless Sewer Liner Repair in Buckeye, AZ&quot;,
+ &quot;caption&quot;: &quot;Old sewer pipe (left) and the same pipe after trenchless relining (right) in Buckeye, AZ.&quot;,
+ &quot;description&quot;: &quot;Old corroded sewer pipe beside the same pipe with a new seamless liner, Buckeye, AZ&quot;,
+ &quot;width&quot;: 1300,
+ &quot;height&quot;: 727,
+ &quot;encodingFormat&quot;: &quot;image/webp&quot;,
+ &quot;creator&quot;: {
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;Pipeliners&quot;,
+  &quot;url&quot;: &quot;https://pipelinersusa.com/&quot;
+ },
+ &quot;creditText&quot;: &quot;Pipeliners&quot;
+}</pre></div></div></section><section><h2>24. <a href="https://pipelinersusa.com/superior/" target="_blank">pipelinersusa.com/superior/</a></h2>
+<p class="m">OTTO entry 228080743 &middot; page ID 28896512</p>
+<img src="https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-superior-az.webp" alt="Old corroded sewer pipe beside the same pipe with a new seamless liner, Superior, AZ" loading="lazy">
+<div class="g"><div><h3>Now (old)</h3><pre class="old">{
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;caption&quot;: &quot;Cross-section of an old host pipe with a new cured-in-place liner inside it.&quot;,
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2025/03/Untitled-1300-x-700-px-1-1024x551.jpg&quot;
+}</pre></div><div><h3>Draft (new)</h3><pre class="new">{
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;@id&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-superior-az.webp#image&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-superior-az.webp&quot;,
+ &quot;url&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-superior-az.webp&quot;,
+ &quot;name&quot;: &quot;Trenchless Sewer Liner Repair in Superior, AZ&quot;,
+ &quot;caption&quot;: &quot;Old sewer pipe (left) and the same pipe after trenchless relining (right) in Superior, AZ.&quot;,
+ &quot;description&quot;: &quot;Old corroded sewer pipe beside the same pipe with a new seamless liner, Superior, AZ&quot;,
+ &quot;width&quot;: 1300,
+ &quot;height&quot;: 727,
+ &quot;encodingFormat&quot;: &quot;image/webp&quot;,
+ &quot;creator&quot;: {
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;Pipeliners&quot;,
+  &quot;url&quot;: &quot;https://pipelinersusa.com/&quot;
+ },
+ &quot;creditText&quot;: &quot;Pipeliners&quot;
+}</pre></div></div></section><section><h2>25. <a href="https://pipelinersusa.com/el-mirage/" target="_blank">pipelinersusa.com/el-mirage/</a></h2>
+<p class="m">OTTO entry 228080855 &middot; page ID 39332532</p>
+<img src="https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-el-mirage-az.webp" alt="Old corroded sewer pipe beside the same pipe with a new seamless liner, El Mirage, AZ" loading="lazy">
+<div class="g"><div><h3>Now (old)</h3><pre class="old">{
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;caption&quot;: &quot;Cross-section of an old host pipe with a new cured-in-place liner inside it.&quot;,
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2025/03/Untitled-1300-x-700-px-1-1024x551.jpg&quot;
+}</pre></div><div><h3>Draft (new)</h3><pre class="new">{
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;@id&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-el-mirage-az.webp#image&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-el-mirage-az.webp&quot;,
+ &quot;url&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-el-mirage-az.webp&quot;,
+ &quot;name&quot;: &quot;Trenchless Sewer Liner Repair in El Mirage, AZ&quot;,
+ &quot;caption&quot;: &quot;Old sewer pipe (left) and the same pipe after trenchless relining (right) in El Mirage, AZ.&quot;,
+ &quot;description&quot;: &quot;Old corroded sewer pipe beside the same pipe with a new seamless liner, El Mirage, AZ&quot;,
+ &quot;width&quot;: 1300,
+ &quot;height&quot;: 727,
+ &quot;encodingFormat&quot;: &quot;image/webp&quot;,
+ &quot;creator&quot;: {
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;Pipeliners&quot;,
+  &quot;url&quot;: &quot;https://pipelinersusa.com/&quot;
+ },
+ &quot;creditText&quot;: &quot;Pipeliners&quot;
+}</pre></div></div></section><section><h2>26. <a href="https://pipelinersusa.com/cave-creek/" target="_blank">pipelinersusa.com/cave-creek/</a></h2>
+<p class="m">OTTO entry 228080908 &middot; page ID 39332540</p>
+<img src="https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-cave-creek-az.webp" alt="Old corroded sewer pipe beside the same pipe with a new seamless liner, Cave Creek, AZ" loading="lazy">
+<div class="g"><div><h3>Now (old)</h3><pre class="old">{
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;caption&quot;: &quot;Cross-section of an old host pipe with a new cured-in-place liner inside it.&quot;,
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2025/03/Untitled-1300-x-700-px-1-1024x551.jpg&quot;
+}</pre></div><div><h3>Draft (new)</h3><pre class="new">{
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;@id&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-cave-creek-az.webp#image&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-cave-creek-az.webp&quot;,
+ &quot;url&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-cave-creek-az.webp&quot;,
+ &quot;name&quot;: &quot;Trenchless Sewer Liner Repair in Cave Creek, AZ&quot;,
+ &quot;caption&quot;: &quot;Old sewer pipe (left) and the same pipe after trenchless relining (right) in Cave Creek, AZ.&quot;,
+ &quot;description&quot;: &quot;Old corroded sewer pipe beside the same pipe with a new seamless liner, Cave Creek, AZ&quot;,
+ &quot;width&quot;: 1300,
+ &quot;height&quot;: 727,
+ &quot;encodingFormat&quot;: &quot;image/webp&quot;,
+ &quot;creator&quot;: {
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;Pipeliners&quot;,
+  &quot;url&quot;: &quot;https://pipelinersusa.com/&quot;
+ },
+ &quot;creditText&quot;: &quot;Pipeliners&quot;
+}</pre></div></div></section><section><h2>27. <a href="https://pipelinersusa.com/carefree/" target="_blank">pipelinersusa.com/carefree/</a></h2>
+<p class="m">OTTO entry 228080921 &middot; page ID 39332542</p>
+<img src="https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-carefree-az.webp" alt="Old corroded sewer pipe beside the same pipe with a new seamless liner, Carefree, AZ" loading="lazy">
+<div class="g"><div><h3>Now (old)</h3><pre class="old">{
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;caption&quot;: &quot;Cross-section of an old host pipe with a new cured-in-place liner inside it.&quot;,
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2025/03/Untitled-1300-x-700-px-1-1024x551.jpg&quot;
+}</pre></div><div><h3>Draft (new)</h3><pre class="new">{
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;@id&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-carefree-az.webp#image&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-carefree-az.webp&quot;,
+ &quot;url&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-carefree-az.webp&quot;,
+ &quot;name&quot;: &quot;Trenchless Sewer Liner Repair in Carefree, AZ&quot;,
+ &quot;caption&quot;: &quot;Old sewer pipe (left) and the same pipe after trenchless relining (right) in Carefree, AZ.&quot;,
+ &quot;description&quot;: &quot;Old corroded sewer pipe beside the same pipe with a new seamless liner, Carefree, AZ&quot;,
+ &quot;width&quot;: 1300,
+ &quot;height&quot;: 727,
+ &quot;encodingFormat&quot;: &quot;image/webp&quot;,
+ &quot;creator&quot;: {
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;Pipeliners&quot;,
+  &quot;url&quot;: &quot;https://pipelinersusa.com/&quot;
+ },
+ &quot;creditText&quot;: &quot;Pipeliners&quot;
+}</pre></div></div></section><section><h2>28. <a href="https://pipelinersusa.com/tolleson/" target="_blank">pipelinersusa.com/tolleson/</a></h2>
+<p class="m">OTTO entry 228080896 &middot; page ID 39332538</p>
+<img src="https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-tolleson-az.webp" alt="Old corroded sewer pipe beside the same pipe with a new seamless liner, Tolleson, AZ" loading="lazy">
+<div class="g"><div><h3>Now (old)</h3><pre class="old">{
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;caption&quot;: &quot;Cross-section of an old host pipe with a new cured-in-place liner inside it.&quot;,
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2025/03/Untitled-1300-x-700-px-1-1024x551.jpg&quot;
+}</pre></div><div><h3>Draft (new)</h3><pre class="new">{
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;@id&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-tolleson-az.webp#image&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-tolleson-az.webp&quot;,
+ &quot;url&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-tolleson-az.webp&quot;,
+ &quot;name&quot;: &quot;Trenchless Sewer Liner Repair in Tolleson, AZ&quot;,
+ &quot;caption&quot;: &quot;Old sewer pipe (left) and the same pipe after trenchless relining (right) in Tolleson, AZ.&quot;,
+ &quot;description&quot;: &quot;Old corroded sewer pipe beside the same pipe with a new seamless liner, Tolleson, AZ&quot;,
+ &quot;width&quot;: 1300,
+ &quot;height&quot;: 727,
+ &quot;encodingFormat&quot;: &quot;image/webp&quot;,
+ &quot;creator&quot;: {
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;Pipeliners&quot;,
+  &quot;url&quot;: &quot;https://pipelinersusa.com/&quot;
+ },
+ &quot;creditText&quot;: &quot;Pipeliners&quot;
+}</pre></div></div></section><section><h2>29. <a href="https://pipelinersusa.com/laveen/" target="_blank">pipelinersusa.com/laveen/</a></h2>
+<p class="m">OTTO entry 228080662 &middot; page ID 28896498</p>
+<img src="https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-laveen-az.webp" alt="Old corroded sewer pipe beside the same pipe with a new seamless liner, Laveen, AZ" loading="lazy">
+<div class="g"><div><h3>Now (old)</h3><pre class="old">{
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;caption&quot;: &quot;Cross-section of an old host pipe with a new cured-in-place liner inside it.&quot;,
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2025/03/Untitled-1300-x-700-px-1-1024x551.jpg&quot;
+}</pre></div><div><h3>Draft (new)</h3><pre class="new">{
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;@id&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-laveen-az.webp#image&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-laveen-az.webp&quot;,
+ &quot;url&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-laveen-az.webp&quot;,
+ &quot;name&quot;: &quot;Trenchless Sewer Liner Repair in Laveen, AZ&quot;,
+ &quot;caption&quot;: &quot;Old sewer pipe (left) and the same pipe after trenchless relining (right) in Laveen, AZ.&quot;,
+ &quot;description&quot;: &quot;Old corroded sewer pipe beside the same pipe with a new seamless liner, Laveen, AZ&quot;,
+ &quot;width&quot;: 1300,
+ &quot;height&quot;: 727,
+ &quot;encodingFormat&quot;: &quot;image/webp&quot;,
+ &quot;creator&quot;: {
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;Pipeliners&quot;,
+  &quot;url&quot;: &quot;https://pipelinersusa.com/&quot;
+ },
+ &quot;creditText&quot;: &quot;Pipeliners&quot;
+}</pre></div></div></section><section><h2>30. <a href="https://pipelinersusa.com/youngtown/" target="_blank">pipelinersusa.com/youngtown/</a></h2>
+<p class="m">OTTO entry 228080866 &middot; page ID 39332534</p>
+<img src="https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-youngtown-az.webp" alt="Old corroded sewer pipe beside the same pipe with a new seamless liner, Youngtown, AZ" loading="lazy">
+<div class="g"><div><h3>Now (old)</h3><pre class="old">{
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;caption&quot;: &quot;Cross-section of an old host pipe with a new cured-in-place liner inside it.&quot;,
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2025/03/Untitled-1300-x-700-px-1-1024x551.jpg&quot;
+}</pre></div><div><h3>Draft (new)</h3><pre class="new">{
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;@id&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-youngtown-az.webp#image&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-youngtown-az.webp&quot;,
+ &quot;url&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-youngtown-az.webp&quot;,
+ &quot;name&quot;: &quot;Trenchless Sewer Liner Repair in Youngtown, AZ&quot;,
+ &quot;caption&quot;: &quot;Old sewer pipe (left) and the same pipe after trenchless relining (right) in Youngtown, AZ.&quot;,
+ &quot;description&quot;: &quot;Old corroded sewer pipe beside the same pipe with a new seamless liner, Youngtown, AZ&quot;,
+ &quot;width&quot;: 1300,
+ &quot;height&quot;: 727,
+ &quot;encodingFormat&quot;: &quot;image/webp&quot;,
+ &quot;creator&quot;: {
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;Pipeliners&quot;,
+  &quot;url&quot;: &quot;https://pipelinersusa.com/&quot;
+ },
+ &quot;creditText&quot;: &quot;Pipeliners&quot;
+}</pre></div></div></section><section><h2>31. <a href="https://pipelinersusa.com/gold-canyon/" target="_blank">pipelinersusa.com/gold-canyon/</a></h2>
+<p class="m">OTTO entry 228080658 &middot; page ID 28896497</p>
+<img src="https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-gold-canyon-az.webp" alt="Old corroded sewer pipe beside the same pipe with a new seamless liner, Gold Canyon, AZ" loading="lazy">
+<div class="g"><div><h3>Now (old)</h3><pre class="old">{
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;caption&quot;: &quot;Cross-section of an old host pipe with a new cured-in-place liner inside it.&quot;,
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2025/03/Untitled-1300-x-700-px-1-1024x551.jpg&quot;
+}</pre></div><div><h3>Draft (new)</h3><pre class="new">{
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;@id&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-gold-canyon-az.webp#image&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-gold-canyon-az.webp&quot;,
+ &quot;url&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-gold-canyon-az.webp&quot;,
+ &quot;name&quot;: &quot;Trenchless Sewer Liner Repair in Gold Canyon, AZ&quot;,
+ &quot;caption&quot;: &quot;Old sewer pipe (left) and the same pipe after trenchless relining (right) in Gold Canyon, AZ.&quot;,
+ &quot;description&quot;: &quot;Old corroded sewer pipe beside the same pipe with a new seamless liner, Gold Canyon, AZ&quot;,
+ &quot;width&quot;: 1300,
+ &quot;height&quot;: 727,
+ &quot;encodingFormat&quot;: &quot;image/webp&quot;,
+ &quot;creator&quot;: {
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;Pipeliners&quot;,
+  &quot;url&quot;: &quot;https://pipelinersusa.com/&quot;
+ },
+ &quot;creditText&quot;: &quot;Pipeliners&quot;
+}</pre></div></div></section><section><h2>32. <a href="https://pipelinersusa.com/sun-lakes/" target="_blank">pipelinersusa.com/sun-lakes/</a></h2>
+<p class="m">OTTO entry 228080738 &middot; page ID 28896511</p>
+<img src="https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-sun-lakes-az.webp" alt="Old corroded sewer pipe beside the same pipe with a new seamless liner, Sun Lakes, AZ" loading="lazy">
+<div class="g"><div><h3>Now (old)</h3><pre class="old">{
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;caption&quot;: &quot;Cross-section of an old host pipe with a new cured-in-place liner inside it.&quot;,
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2025/03/Untitled-1300-x-700-px-1-1024x551.jpg&quot;
+}</pre></div><div><h3>Draft (new)</h3><pre class="new">{
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;@id&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-sun-lakes-az.webp#image&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-sun-lakes-az.webp&quot;,
+ &quot;url&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-sun-lakes-az.webp&quot;,
+ &quot;name&quot;: &quot;Trenchless Sewer Liner Repair in Sun Lakes, AZ&quot;,
+ &quot;caption&quot;: &quot;Old sewer pipe (left) and the same pipe after trenchless relining (right) in Sun Lakes, AZ.&quot;,
+ &quot;description&quot;: &quot;Old corroded sewer pipe beside the same pipe with a new seamless liner, Sun Lakes, AZ&quot;,
+ &quot;width&quot;: 1300,
+ &quot;height&quot;: 727,
+ &quot;encodingFormat&quot;: &quot;image/webp&quot;,
+ &quot;creator&quot;: {
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;Pipeliners&quot;,
+  &quot;url&quot;: &quot;https://pipelinersusa.com/&quot;
+ },
+ &quot;creditText&quot;: &quot;Pipeliners&quot;
+}</pre></div></div></section><section><h2>33. <a href="https://pipelinersusa.com/fort-mcdowell/" target="_blank">pipelinersusa.com/fort-mcdowell/</a></h2>
+<p class="m">OTTO entry 228080844 &middot; page ID 39332530</p>
+<img src="https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-fort-mcdowell-az.webp" alt="Old corroded sewer pipe beside the same pipe with a new seamless liner, Fort McDowell, AZ" loading="lazy">
+<div class="g"><div><h3>Now (old)</h3><pre class="old">{
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;caption&quot;: &quot;Cross-section of an old host pipe with a new cured-in-place liner inside it.&quot;,
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2025/03/Untitled-1300-x-700-px-1-1024x551.jpg&quot;
+}</pre></div><div><h3>Draft (new)</h3><pre class="new">{
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;@id&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-fort-mcdowell-az.webp#image&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-fort-mcdowell-az.webp&quot;,
+ &quot;url&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-fort-mcdowell-az.webp&quot;,
+ &quot;name&quot;: &quot;Trenchless Sewer Liner Repair in Fort McDowell, AZ&quot;,
+ &quot;caption&quot;: &quot;Old sewer pipe (left) and the same pipe after trenchless relining (right) in Fort McDowell, AZ.&quot;,
+ &quot;description&quot;: &quot;Old corroded sewer pipe beside the same pipe with a new seamless liner, Fort McDowell, AZ&quot;,
+ &quot;width&quot;: 1300,
+ &quot;height&quot;: 727,
+ &quot;encodingFormat&quot;: &quot;image/webp&quot;,
+ &quot;creator&quot;: {
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;Pipeliners&quot;,
+  &quot;url&quot;: &quot;https://pipelinersusa.com/&quot;
+ },
+ &quot;creditText&quot;: &quot;Pipeliners&quot;
+}</pre></div></div></section><section><h2>34. <a href="https://pipelinersusa.com/sacaton/" target="_blank">pipelinersusa.com/sacaton/</a></h2>
+<p class="m">OTTO entry 228080645 &middot; page ID 28896495</p>
+<img src="https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-sacaton-az.webp" alt="Old corroded sewer pipe beside the same pipe with a new seamless liner, Sacaton, AZ" loading="lazy">
+<div class="g"><div><h3>Now (old)</h3><pre class="old">{
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;caption&quot;: &quot;Cross-section of an old host pipe with a new cured-in-place liner inside it.&quot;,
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2025/03/Untitled-1300-x-700-px-1-1024x551.jpg&quot;
+}</pre></div><div><h3>Draft (new)</h3><pre class="new">{
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;@id&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-sacaton-az.webp#image&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-sacaton-az.webp&quot;,
+ &quot;url&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-sacaton-az.webp&quot;,
+ &quot;name&quot;: &quot;Trenchless Sewer Liner Repair in Sacaton, AZ&quot;,
+ &quot;caption&quot;: &quot;Old sewer pipe (left) and the same pipe after trenchless relining (right) in Sacaton, AZ.&quot;,
+ &quot;description&quot;: &quot;Old corroded sewer pipe beside the same pipe with a new seamless liner, Sacaton, AZ&quot;,
+ &quot;width&quot;: 1300,
+ &quot;height&quot;: 727,
+ &quot;encodingFormat&quot;: &quot;image/webp&quot;,
+ &quot;creator&quot;: {
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;Pipeliners&quot;,
+  &quot;url&quot;: &quot;https://pipelinersusa.com/&quot;
+ },
+ &quot;creditText&quot;: &quot;Pipeliners&quot;
+}</pre></div></div></section><section><h2>35. <a href="https://pipelinersusa.com/litchfield-park/" target="_blank">pipelinersusa.com/litchfield-park/</a></h2>
+<p class="m">OTTO entry 228080758 &middot; page ID 28896515</p>
+<img src="https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-litchfield-park-az.webp" alt="Old corroded sewer pipe beside the same pipe with a new seamless liner, Litchfield Park, AZ" loading="lazy">
+<div class="g"><div><h3>Now (old)</h3><pre class="old">{
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;caption&quot;: &quot;Cross-section of an old host pipe with a new cured-in-place liner inside it.&quot;,
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2025/03/Untitled-1300-x-700-px-1-1024x551.jpg&quot;
+}</pre></div><div><h3>Draft (new)</h3><pre class="new">{
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;@id&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-litchfield-park-az.webp#image&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-litchfield-park-az.webp&quot;,
+ &quot;url&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-litchfield-park-az.webp&quot;,
+ &quot;name&quot;: &quot;Trenchless Sewer Liner Repair in Litchfield Park, AZ&quot;,
+ &quot;caption&quot;: &quot;Old sewer pipe (left) and the same pipe after trenchless relining (right) in Litchfield Park, AZ.&quot;,
+ &quot;description&quot;: &quot;Old corroded sewer pipe beside the same pipe with a new seamless liner, Litchfield Park, AZ&quot;,
+ &quot;width&quot;: 1300,
+ &quot;height&quot;: 727,
+ &quot;encodingFormat&quot;: &quot;image/webp&quot;,
+ &quot;creator&quot;: {
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;Pipeliners&quot;,
+  &quot;url&quot;: &quot;https://pipelinersusa.com/&quot;
+ },
+ &quot;creditText&quot;: &quot;Pipeliners&quot;
+}</pre></div></div></section><section><h2>36. <a href="https://pipelinersusa.com/rio-verde/" target="_blank">pipelinersusa.com/rio-verde/</a></h2>
+<p class="m">OTTO entry 228080680 &middot; page ID 28896501</p>
+<img src="https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-rio-verde-az.webp" alt="Old corroded sewer pipe beside the same pipe with a new seamless liner, Rio Verde, AZ" loading="lazy">
+<div class="g"><div><h3>Now (old)</h3><pre class="old">{
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;caption&quot;: &quot;Cross-section of an old host pipe with a new cured-in-place liner inside it.&quot;,
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2025/03/Untitled-1300-x-700-px-1-1024x551.jpg&quot;
+}</pre></div><div><h3>Draft (new)</h3><pre class="new">{
+ &quot;@context&quot;: &quot;https://schema.org/&quot;,
+ &quot;@type&quot;: &quot;ImageObject&quot;,
+ &quot;@id&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-rio-verde-az.webp#image&quot;,
+ &quot;contentUrl&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-rio-verde-az.webp&quot;,
+ &quot;url&quot;: &quot;https://pipelinersusa.com/wp-content/uploads/2026/10/trenchless-sewer-liner-rio-verde-az.webp&quot;,
+ &quot;name&quot;: &quot;Trenchless Sewer Liner Repair in Rio Verde, AZ&quot;,
+ &quot;caption&quot;: &quot;Old sewer pipe (left) and the same pipe after trenchless relining (right) in Rio Verde, AZ.&quot;,
+ &quot;description&quot;: &quot;Old corroded sewer pipe beside the same pipe with a new seamless liner, Rio Verde, AZ&quot;,
+ &quot;width&quot;: 1300,
+ &quot;height&quot;: 727,
+ &quot;encodingFormat&quot;: &quot;image/webp&quot;,
+ &quot;creator&quot;: {
+  &quot;@type&quot;: &quot;Organization&quot;,
+  &quot;name&quot;: &quot;Pipeliners&quot;,
+  &quot;url&quot;: &quot;https://pipelinersusa.com/&quot;
+ },
+ &quot;creditText&quot;: &quot;Pipeliners&quot;
+}</pre></div></div></section></main></body></html>

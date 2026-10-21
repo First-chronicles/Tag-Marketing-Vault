@@ -1,0 +1,544 @@
+<title>Pipeliners SEO Case Study</title>
+<meta name="description" content="SEO case study, March to August 2026: technical, indexing, local and content work for a Phoenix trenchless sewer contractor.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+<style>
+  /* Pipeliners brand: Inter, navy #1A446F, grey text #495057, orange accent #E57302 (pipelinersusa.com) */
+  :root {
+    color-scheme: light;
+    --ground: #E9ECEF;
+    --paper: #FFFFFF;
+    --wash: #F8F9FA;
+    --ink: #212529;
+    --text: #495057;
+    --muted: #6C757D;
+    --rule: #DEE2E6;
+    --navy: #1A446F;
+    --navy-deep: #12314F;
+    --navy-soft: #E3EBF3;
+    --on-navy: #D6E2EE;
+    --orange: #E57302;
+    --orange-ink: #B35400;
+    --orange-soft: #FDF0E2;
+    --sans: "Inter", Arial, Helvetica, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    margin: 0; background: var(--ground); color: var(--text);
+    font-family: var(--sans); font-size: 15.5px; line-height: 1.6; letter-spacing: -0.01em;
+    font-feature-settings: "cv11", "ss01";
+  }
+  .sheet {
+    max-width: 900px; margin: 36px auto; background: var(--paper);
+    padding: 0 64px 44px; border: 1px solid var(--rule);
+  }
+  h1, h2, h3 { font-family: var(--sans); text-wrap: balance; margin: 0; }
+  h1 { font-size: 46px; line-height: 1.02; font-weight: 900; letter-spacing: -0.03em; text-transform: uppercase; color: #fff; max-width: 18ch; }
+  h2 { font-size: 27px; line-height: 1.15; font-weight: 800; letter-spacing: -0.025em; color: var(--navy); }
+  h3 { font-size: 18px; line-height: 1.3; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); }
+  p { margin: 0; max-width: 68ch; }
+  strong { color: var(--ink); font-weight: 700; }
+  .label {
+    font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--orange-ink); font-weight: 800;
+  }
+  .num { font-variant-numeric: tabular-nums; }
+
+  /* ---------- cover: mirrors the site's navy hero with an uppercase 900 headline ---------- */
+  header.cover {
+    background: var(--navy); margin: 0 -64px; padding: 34px 64px 42px;
+    display: grid; gap: 18px; position: relative;
+  }
+  header.cover::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 5px; background: var(--orange); }
+  .brandbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.18); }
+  .brandbar img { height: 30px; width: auto; display: block; }
+  .brandbar span { font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 800; color: var(--on-navy); }
+  .cover .kicker { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 800; color: #fff; margin-top: 6px; }
+  .dek { font-size: 17px; line-height: 1.55; color: var(--on-navy); max-width: 62ch; }
+  .facts {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px 28px;
+    margin: 0; padding: 26px 0 0;
+  }
+  .facts div { display: grid; gap: 3px; align-content: start; }
+  .facts dt { font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 800; }
+  .facts dd { margin: 0; font-size: 14px; line-height: 1.45; color: var(--ink); }
+
+  /* ---------- headline results ---------- */
+  .glance { margin-top: 30px; background: var(--wash); border: 1px solid var(--rule); border-top: 4px solid var(--navy); padding: 22px 24px 20px; }
+  .glance .label { margin-bottom: 14px; display: block; }
+  .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+  .kpi { padding: 0 18px; border-left: 1px solid var(--rule); display: grid; gap: 4px; align-content: start; }
+  .kpi:first-child { padding-left: 0; border-left: 0; }
+  .kpi b { white-space: nowrap; font-weight: 900; font-size: 30px; line-height: 1; letter-spacing: -0.035em; color: var(--navy); font-variant-numeric: tabular-nums; }
+  .kpi b .arrow { color: var(--orange); font-weight: 700; }
+  .kpi span { font-size: 14px; font-weight: 800; line-height: 1.25; color: var(--ink); letter-spacing: -0.015em; }
+  .kpi small { font-size: 12px; line-height: 1.4; color: var(--muted); }
+  .glance .caveat { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--rule); font-size: 14px; max-width: none; }
+  .glance .caveat strong { color: var(--orange-ink); font-weight: 800; }
+
+  /* ---------- sections ---------- */
+  section { margin-top: 46px; display: grid; gap: 16px; }
+  section > header { display: grid; gap: 6px; }
+  .lede { font-size: 15.5px; }
+
+  /* diagnosis log */
+  .log-wrap { overflow-x: auto; }
+  table.log { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .log th { text-align: left; font-weight: 800; font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; background: var(--navy); padding: 9px 12px; }
+  .log td { padding: 12px 12px; border-bottom: 1px solid var(--rule); vertical-align: top; line-height: 1.5; }
+  .log tbody tr:nth-child(even) td { background: var(--wash); }
+  .log td:first-child { width: 62px; }
+  .log td.find { width: 34%; font-weight: 700; color: var(--ink); }
+  .log .src { display: block; font-size: 11px; color: var(--muted); margin-top: 5px; font-weight: 600; letter-spacing: 0; }
+  .grade { display: inline-grid; place-items: center; width: 30px; height: 30px; font-weight: 900; font-size: 14px; border: 1.5px solid var(--orange); color: var(--orange-ink); border-radius: 4px; font-variant-numeric: tabular-nums; }
+  .grade.g5 { background: var(--orange); border-color: var(--orange); color: #fff; }
+  .grade.g4 { background: var(--orange-soft); }
+  .grade.g3 { border-color: #ADB5BD; color: var(--muted); }
+  .legend-note { font-size: 13px; color: var(--muted); }
+  .legend-note .grade { width: 20px; height: 20px; font-size: 11px; vertical-align: -5px; margin: 0 2px; }
+
+  /* timeline */
+  .run { display: grid; gap: 0; }
+  .leg { display: grid; grid-template-columns: 104px 26px 1fr; gap: 0 14px; break-inside: avoid; }
+  .leg .when { font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--orange-ink); font-weight: 800; padding-top: 3px; text-align: right; }
+  .leg .spine { position: relative; }
+  .leg .spine::before { content: ""; position: absolute; left: 11px; top: 0; bottom: 0; width: 4px; background: var(--navy-soft); }
+  .leg .spine::after { content: ""; position: absolute; left: 4px; top: 4px; width: 18px; height: 18px; border-radius: 50%; background: var(--navy); box-shadow: 0 0 0 4px var(--paper); }
+  .leg:first-child .spine::before { top: 10px; }
+  .leg:last-child .spine::before { bottom: auto; height: 14px; }
+  .leg .body { padding-bottom: 24px; display: grid; gap: 6px; }
+  .leg ul { margin: 2px 0 0; padding-left: 18px; display: grid; gap: 5px; font-size: 14px; line-height: 1.5; max-width: 70ch; }
+  .leg li::marker { color: var(--orange); }
+
+  /* charts */
+  figure { margin: 0; display: grid; gap: 10px; break-inside: avoid; }
+  figure h3 { font-size: 17px; }
+  figcaption { font-size: 13px; color: var(--muted); max-width: 74ch; }
+  .chart-box { overflow-x: auto; border-top: 1px solid var(--rule); padding-top: 10px; }
+  svg.chart { width: 100%; min-width: 560px; height: auto; display: block; font-family: var(--sans); }
+  .chart .grid { stroke: var(--rule); stroke-width: 1; }
+  .chart .axis { stroke: var(--ink); stroke-width: 1.2; }
+  .chart .tick { font-size: 11px; fill: var(--muted); font-weight: 500; }
+  .chart .bar { fill: var(--navy); }
+  .chart .val { font-size: 12px; fill: var(--ink); font-weight: 800; }
+  .chart .mon { font-size: 14px; font-weight: 800; fill: var(--ink); }
+  .chart .clk { font-size: 11px; fill: var(--muted); font-weight: 500; }
+  .chart .avg { stroke: var(--orange); stroke-width: 2; stroke-dasharray: 7 5; fill: none; }
+  .chart .city { font-size: 13px; font-weight: 600; fill: var(--ink); }
+  .chart .link { stroke: var(--navy); stroke-width: 2.4; opacity: 0.25; }
+  .chart .before { fill: var(--paper); stroke: #868E96; stroke-width: 1.6; }
+  .chart .after { fill: var(--navy); }
+  .chart .delta { font-size: 12px; font-weight: 800; fill: var(--orange-ink); }
+  .keys { display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 12.5px; color: var(--muted); }
+  .keys span { display: inline-flex; align-items: center; gap: 7px; }
+  .sw { display: inline-block; width: 14px; height: 10px; background: var(--navy); }
+  .sw.dash { height: 0; border-top: 2px dashed var(--orange); width: 20px; background: none; }
+  .sw.dot { width: 10px; height: 10px; border-radius: 50%; background: var(--navy); }
+  .sw.ring { width: 10px; height: 10px; border-radius: 50%; border: 1.6px solid #868E96; background: var(--paper); }
+
+  .pair { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .stat { border-top: 3px solid var(--navy); padding-top: 10px; display: grid; gap: 4px; align-content: start; }
+  .stat b { font-size: 24px; font-weight: 900; line-height: 1.05; letter-spacing: -0.03em; color: var(--navy); font-variant-numeric: tabular-nums; }
+  .stat span { font-size: 13px; line-height: 1.45; color: var(--muted); }
+  .stat.signal { border-top-color: var(--orange); }
+  .stat.signal b { color: var(--orange-ink); }
+
+  /* judgment calls */
+  .calls { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 32px; }
+  .call { display: grid; gap: 5px; align-content: start; break-inside: avoid; padding-left: 14px; border-left: 3px solid var(--navy-soft); }
+  .call h3 { font-size: 16px; color: var(--navy); }
+  .call p { font-size: 14px; line-height: 1.55; }
+
+  .next { display: grid; gap: 0; margin: 0; }
+  .next div { display: grid; grid-template-columns: 170px 1fr; gap: 16px; padding: 13px 0; border-top: 1px solid var(--rule); break-inside: avoid; }
+  .next dt { font-size: 15px; font-weight: 800; line-height: 1.3; color: var(--ink); letter-spacing: -0.015em; }
+  .next dd { margin: 0; font-size: 14px; line-height: 1.55; max-width: 66ch; }
+
+  footer.method { margin-top: 44px; padding-top: 16px; border-top: 3px solid var(--navy); display: grid; gap: 8px; }
+  footer.method p { font-size: 11.5px; line-height: 1.55; color: var(--muted); max-width: none; }
+  footer.method .by { font-size: 15px; font-weight: 800; color: var(--navy); letter-spacing: -0.015em; }
+
+  a { color: var(--navy); }
+  a:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
+
+  @media screen and (max-width: 760px) {
+    .sheet { margin: 0; padding: 0 22px 32px; border: 0; }
+    header.cover { margin: 0 -22px; padding: 26px 22px 32px; }
+    h1 { font-size: 32px; }
+    .facts { grid-template-columns: 1fr 1fr; }
+    .kpis { grid-template-columns: 1fr 1fr; gap: 18px 0; }
+    .kpi:nth-child(3) { padding-left: 0; border-left: 0; }
+    .pair, .calls { grid-template-columns: 1fr; }
+    .leg { grid-template-columns: 68px 26px 1fr; gap: 0 10px; }
+    .next div { grid-template-columns: 1fr; gap: 4px; }
+  }
+
+  @page { size: Letter; margin: 0.5in 0.55in; }
+  @media print {
+    body { background: #fff; font-size: 13px; line-height: 1.5; }
+    .sheet { max-width: none; margin: 0; padding: 0; border: 0; }
+    header.cover { margin: 0; padding: 24px 30px 30px; }
+    h1 { font-size: 38px; max-width: 20ch; }
+    h2 { font-size: 23px; }
+    .dek { font-size: 14.5px; }
+    .lede { font-size: 13.5px; }
+    .log td, .leg ul, .call p, .next dd { font-size: 12.5px; }
+    .glance { margin-top: 22px; padding: 16px 18px 14px; }
+    .kpi { padding: 0 12px; }
+    .kpi b { font-size: 25px; }
+    .kpi small { font-size: 11px; }
+    figure.bars svg.chart { width: auto; max-width: 100%; max-height: 2.5in; margin: 0 auto; }
+    figure.dumb svg.chart { width: auto; max-width: 100%; max-height: 4.1in; margin: 0 auto; }
+    .facts { padding-top: 18px; }
+    .leg .body { padding-bottom: 14px; }
+    section { margin-top: 28px; gap: 12px; }
+    .glance, figure, .leg, .call, .next div, tr, .pair { break-inside: avoid; }
+    h2, section > header { break-after: avoid; }
+    svg.chart { min-width: 0; }
+    .chart-box { overflow: visible; }
+  }
+</style>
+
+<main class="sheet">
+  <header class="cover">
+    <div class="brandbar"><span>SEO case study · March to August 2026</span></div>
+    <span class="kicker">Pipeliners · Mesa, Arizona</span>
+    <h1>Rebuilding search for a Phoenix trenchless sewer contractor</h1>
+    <p class="dek">Pipeliners repairs sewer, drain and water lines without digging, across 37 cities in the Phoenix metro. In early 2026, Google mostly knew it by its brand name. Over six months I audited the site down to the server, fixed what was keeping pages out of Google, and rebuilt the city pages meant to bring in local jobs. Here is what I found, what I changed, and what the data shows.</p>
+  </header>
+
+  <dl class="facts">
+    <div><dt>Client</dt><dd>Pipeliners<br>pipelinersusa.com</dd></div>
+    <div><dt>Business</dt><dd>Trenchless sewer, drain and water line repair</dd></div>
+    <div><dt>Market</dt><dd>Phoenix metro, Arizona<br>37 city landing pages</dd></div>
+    <div><dt>My role</dt><dd>SEO Specialist, TAG Marketing (agency)</dd></div>
+    <div><dt>Scope</dt><dd>Technical SEO, indexing, on-page, local SEO, schema, content, reporting</dd></div>
+    <div><dt>Stack</dt><dd>Search Console, Search Atlas (OTTO), PageSpeed Insights, WordPress + Elementor, WP-CLI, Google Business Profile, Claude Code</dd></div>
+  </dl>
+
+  <div class="glance">
+    <span class="label">Mar to Aug 2026 vs the six months before</span>
+    <div class="kpis">
+      <div class="kpi"><b>+46%</b><span>Search impressions</span><small>124.7k, up from 85.7k in Sep 2025 to Feb 2026</small></div>
+      <div class="kpi"><b>55.7<span class="arrow"> → </span>48.2</b><span>Average position</span><small>7.5 places higher, weighted across devices</small></div>
+      <div class="kpi"><b>72<span class="arrow"> → </span>105</b><span>Pages in Google's index</span><small>Search Console Pages report, June to early September</small></div>
+      <div class="kpi"><b>21<span class="arrow"> → </span>43</b><span>Mobile PageSpeed</span><small>Homepage, Google PSI, before and after the speed work</small></div>
+    </div>
+    <p class="caveat"><strong>Clicks held steady: 213 vs 211.</strong> Google showed the site far more often, but searchers were not yet choosing it. That gap became the focus in August, and it is the part of this story that is still being measured.</p>
+  </div>
+
+  <section>
+    <header>
+      <span class="label">The starting point</span>
+      <h2>All the parts of a local SEO program, none of them working together</h2>
+    </header>
+    <p class="lede">The site had a service page for each core offer, 37 city landing pages, more than 40 blog posts and an automated SEO platform (Search Atlas OTTO) rewriting pages as they loaded. Pages were missing from Google, several city pages were copies of each other, the mobile homepage scored 21 out of 100, and the automation was quietly overriding edits made in WordPress. Paid search was running at the same time, so every change also had to leave the ad landing pages alone.</p>
+  </section>
+
+  <section>
+    <header>
+      <span class="label">Diagnosis</span>
+      <h2>What the audit turned up</h2>
+      <p class="legend-note">Graded the way a sewer camera report grades pipe defects: <span class="grade g5">5</span> fix now, <span class="grade g4">4</span> fix soon, <span class="grade g3">3</span> plan for it.</p>
+    </header>
+    <div class="log-wrap">
+      <table class="log">
+        <thead><tr><th>Grade</th><th>Finding</th><th>Evidence</th></tr></thead>
+        <tbody>
+          <tr><td><span class="grade g5">5</span></td><td class="find">Almost nobody found the site through a buying search</td><td>About 800 of roughly 927 estimated monthly visits came from the brand name. The 14 transactional keywords the site ranked for drew no traffic.<span class="src">Search Atlas Site Explorer · Jul 2026</span></td></tr>
+          <tr><td><span class="grade g5">5</span></td><td class="find">City pages were seen but not clicked</td><td>37 city pages earned 6,940 impressions and 1 click in 28 days. 77 queries sat on page one with zero clicks, so the listing was the bottleneck, not the ranking.<span class="src">Search Console · Jul 28 to Aug 24</span></td></tr>
+          <tr><td><span class="grade g4">4</span></td><td class="find">Real pages were missing from Google</td><td>72 pages indexed and 275 not, including city service-area pages and blog posts. The service-area pages were missing from every sitemap, partly because the SEO platform only crawled the top 100 of the site's 106 pages.<span class="src">Search Console · Jun 2026</span></td></tr>
+          <tr><td><span class="grade g4">4</span></td><td class="find">City pages were templated, with errors</td><td>The El Mirage page was a copy of the Coolidge page and named the wrong city 23 times. Mesa and Paradise Valley had the same kind of leak.<span class="src">Server audit · Apr 2026</span></td></tr>
+          <tr><td><span class="grade g4">4</span></td><td class="find">Site hygiene was a liability</td><td>An unrecognized administrator account, a full-site backup sitting in a public folder, and inactive plugins left installed.<span class="src">Server audit · Apr 2026</span></td></tr>
+          <tr><td><span class="grade g3">3</span></td><td class="find">The mobile site was slow and jumpy</td><td>Mobile PageSpeed 21, layout shift 0.331 (the target is under 0.1) and 66.9 MB of homepage background video.<span class="src">Google PSI · Jul 2026</span></td></tr>
+          <tr><td><span class="grade g3">3</span></td><td class="find">The automation optimized for the wrong things</td><td>It targeted the Buckeye page at "gas line repair", a service the company does not offer, along with terms like "spring semester". 20 of 107 page titles missed their own page's topic.<span class="src">OTTO audit · Aug 2026</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <header>
+      <span class="label">The work</span>
+      <h2>Four phases, each unblocking the next</h2>
+    </header>
+    <div class="run">
+      <div class="leg">
+        <div class="when">Mar to Apr</div><div class="spine" aria-hidden="true"></div>
+        <div class="body">
+          <h3>Audit and stabilize</h3>
+          <ul>
+            <li>Ran a full technical audit with server access (WP-CLI over SSH), not just a crawler, and took a full database backup before touching anything.</li>
+            <li>Removed the unknown admin account, moved the exposed backup out of public reach, and cleared version leaks and dead plugins.</li>
+            <li>Fixed the wrong-city copy on 3 city pages, including the fully cloned El Mirage page.</li>
+            <li>Set thin category and tag archives to noindex; turned on breadcrumbs and automatic image alt text.</li>
+            <li>Found that the SEO platform rewrites HTML as each page loads, which changed how every later edit had to be made and checked.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="leg">
+        <div class="when">May to Jun</div><div class="spine" aria-hidden="true"></div>
+        <div class="body">
+          <h3>Get the pages into Google</h3>
+          <ul>
+            <li>Traced the indexing gap to its cause: the platform's crawl limit kept the service-area pages out of the sitemap. Raised the limit from 100 to 500 pages.</li>
+            <li>Requested indexing for the service-area pages by hand while the fix took effect, working within Search Console's limit of about 13 requests a day.</li>
+            <li>Published 8 new blog posts, including 6 topic guides with FAQ sections and FAQ schema.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="leg">
+        <div class="when">Jul</div><div class="spine" aria-hidden="true"></div>
+        <div class="body">
+          <h3>Speed, a full re-audit and a seasonal content cluster</h3>
+          <ul>
+            <li>Re-encoded the homepage videos from 66.9 MB to 19 MB, turned on safe caching options and stopped the hero image from lazy-loading. Layout shift fell from 0.331 to 0.001.</li>
+            <li>Caught a minification setting that made the footer disappear, rolled it back and documented it so it stays off.</li>
+            <li>Re-audited the whole site across Search Console, Search Atlas, Google Business Profile and AI search visibility.</li>
+            <li>Rewrote titles and meta descriptions for 20 priority pages and verified all 20 live.</li>
+            <li>Launched a 7-post monsoon season cluster (a pillar page plus six supporting posts), published July to mid August to match Arizona's storm season.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="leg">
+        <div class="when">Aug</div><div class="spine" aria-hidden="true"></div>
+        <div class="body">
+          <h3>Rebuild the city pages</h3>
+          <ul>
+            <li>Deployed Service and LocalBusiness schema to all 37 city pages using verified Google Business Profile data.</li>
+            <li>Moved the last 5 automation-injected FAQs into the pages themselves, so all 37 city pages show the same questions their FAQ schema declares. That removed a hidden 30-question block that broke Google's structured data rules.</li>
+            <li>Added 6 to 7 descriptive links on each city page, pointing to the service pages and supporting guides. The main service page went from 35 to 74 internal links pointing at it.</li>
+            <li>Audited 131 automated page titles against the live pages, pulled the off-topic gas line terms and paused autopilot so reviewed titles would not be overwritten.</li>
+            <li>Locked a clean 28-day baseline, then rewrote titles for the top opportunity pages from page-level query data.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <header>
+      <span class="label">Results</span>
+      <h2>More visibility, better rankings, clicks still to win</h2>
+    </header>
+
+    <figure class="bars">
+      <h3>Every month beat the prior six-month average</h3>
+      <div class="chart-box">
+<svg viewBox="0 0 720 252" role="img" aria-labelledby="c1t" class="chart">
+<title id="c1t">Monthly Google impressions, March to August 2026, against the prior six-month average</title>
+<line x1="50" x2="700" y1="200.0" y2="200.0" class="grid"/>
+<text x="42" y="204.0" class="tick" text-anchor="end">0k</text>
+<line x1="50" x2="700" y1="164.0" y2="164.0" class="grid"/>
+<text x="42" y="168.0" class="tick" text-anchor="end">5k</text>
+<line x1="50" x2="700" y1="128.0" y2="128.0" class="grid"/>
+<text x="42" y="132.0" class="tick" text-anchor="end">10k</text>
+<line x1="50" x2="700" y1="92.0" y2="92.0" class="grid"/>
+<text x="42" y="96.0" class="tick" text-anchor="end">15k</text>
+<line x1="50" x2="700" y1="56.0" y2="56.0" class="grid"/>
+<text x="42" y="60.0" class="tick" text-anchor="end">20k</text>
+<line x1="50" x2="700" y1="20.0" y2="20.0" class="grid"/>
+<text x="42" y="24.0" class="tick" text-anchor="end">25k</text>
+<rect x="76.2" y="58.0" width="56" height="142.0" class="bar"/>
+<text x="104.2" y="51.0" class="val" text-anchor="middle">19.7k</text>
+<text x="104.2" y="222" class="mon" text-anchor="middle">Mar</text>
+<text x="104.2" y="242" class="clk" text-anchor="middle">35 clicks</text>
+<rect x="184.5" y="67.1" width="56" height="132.9" class="bar"/>
+<text x="212.5" y="60.1" class="val" text-anchor="middle">18.5k</text>
+<text x="212.5" y="222" class="mon" text-anchor="middle">Apr</text>
+<text x="212.5" y="242" class="clk" text-anchor="middle">46 clicks</text>
+<rect x="292.8" y="47.5" width="56" height="152.5" class="bar"/>
+<text x="320.8" y="40.5" class="val" text-anchor="middle">21.2k</text>
+<text x="320.8" y="222" class="mon" text-anchor="middle">May</text>
+<text x="320.8" y="242" class="clk" text-anchor="middle">32 clicks</text>
+<rect x="401.2" y="69.7" width="56" height="130.3" class="bar"/>
+<text x="429.2" y="62.7" class="val" text-anchor="middle">18.1k</text>
+<text x="429.2" y="222" class="mon" text-anchor="middle">Jun</text>
+<text x="429.2" y="242" class="clk" text-anchor="middle">34 clicks</text>
+<rect x="509.5" y="24.0" width="56" height="176.0" class="bar"/>
+<text x="537.5" y="17.0" class="val" text-anchor="middle">24.4k</text>
+<text x="537.5" y="222" class="mon" text-anchor="middle">Jul</text>
+<text x="537.5" y="242" class="clk" text-anchor="middle">29 clicks</text>
+<rect x="617.8" y="35.7" width="56" height="164.3" class="bar"/>
+<text x="645.8" y="28.7" class="val" text-anchor="middle">22.8k</text>
+<text x="645.8" y="222" class="mon" text-anchor="middle">Aug</text>
+<text x="645.8" y="242" class="clk" text-anchor="middle">37 clicks</text>
+<line x1="50" x2="700" y1="97.2" y2="97.2" class="avg"/>
+<line x1="50" x2="700" y1="200" y2="200" class="axis"/>
+</svg>
+      </div>
+      <div class="keys">
+        <span><i class="sw"></i>Impressions per month</span>
+        <span><i class="sw dash"></i>Sep 2025 to Feb 2026 monthly average (14,276)</span>
+      </div>
+      <figcaption>Impressions averaged 20,786 a month from March to August, 46% above the previous six months. Clicks held near 35 a month.</figcaption>
+    </figure>
+
+    <figure class="dumb" style="margin-top: 18px;">
+      <h3>All 19 city pages with 1,000+ impressions moved up</h3>
+      <div class="chart-box">
+<svg viewBox="0 0 720 408" role="img" aria-labelledby="c2t" class="chart">
+<title id="c2t">Average Google position for 19 city pages, before and after</title>
+<line x1="150" x2="150" y1="26" y2="398" class="grid"/>
+<text x="150" y="18" class="tick" text-anchor="middle">20</text>
+<line x1="220" x2="220" y1="26" y2="398" class="grid"/>
+<text x="220" y="18" class="tick" text-anchor="middle">30</text>
+<line x1="290" x2="290" y1="26" y2="398" class="grid"/>
+<text x="290" y="18" class="tick" text-anchor="middle">40</text>
+<line x1="360" x2="360" y1="26" y2="398" class="grid"/>
+<text x="360" y="18" class="tick" text-anchor="middle">50</text>
+<line x1="430" x2="430" y1="26" y2="398" class="grid"/>
+<text x="430" y="18" class="tick" text-anchor="middle">60</text>
+<line x1="500" x2="500" y1="26" y2="398" class="grid"/>
+<text x="500" y="18" class="tick" text-anchor="middle">70</text>
+<line x1="570" x2="570" y1="26" y2="398" class="grid"/>
+<text x="570" y="18" class="tick" text-anchor="middle">80</text>
+<line x1="640" x2="640" y1="26" y2="398" class="grid"/>
+<text x="640" y="18" class="tick" text-anchor="middle">90</text>
+<text x="686" y="18" class="tick" text-anchor="middle">gain</text>
+<text x="138" y="48" class="city" text-anchor="end">Buckeye</text>
+<line x1="192" x2="290" y1="44" y2="44" class="link"/>
+<circle cx="290" cy="44" r="4.5" class="before"/>
+<circle cx="192" cy="44" r="5" class="after"/>
+<text x="686" y="48" class="delta" text-anchor="middle">14</text>
+<text x="138" y="67" class="city" text-anchor="end">Goodyear</text>
+<line x1="192" x2="381" y1="63" y2="63" class="link"/>
+<circle cx="381" cy="63" r="4.5" class="before"/>
+<circle cx="192" cy="63" r="5" class="after"/>
+<text x="686" y="67" class="delta" text-anchor="middle">27</text>
+<text x="138" y="86" class="city" text-anchor="end">Fort McDowell</text>
+<line x1="192" x2="213" y1="82" y2="82" class="link"/>
+<circle cx="213" cy="82" r="4.5" class="before"/>
+<circle cx="192" cy="82" r="5" class="after"/>
+<text x="686" y="86" class="delta" text-anchor="middle">3</text>
+<text x="138" y="105" class="city" text-anchor="end">Maricopa</text>
+<line x1="206" x2="220" y1="101" y2="101" class="link"/>
+<circle cx="220" cy="101" r="4.5" class="before"/>
+<circle cx="206" cy="101" r="5" class="after"/>
+<text x="686" y="105" class="delta" text-anchor="middle">2</text>
+<text x="138" y="124" class="city" text-anchor="end">Florence</text>
+<line x1="213" x2="262" y1="120" y2="120" class="link"/>
+<circle cx="262" cy="120" r="4.5" class="before"/>
+<circle cx="213" cy="120" r="5" class="after"/>
+<text x="686" y="124" class="delta" text-anchor="middle">7</text>
+<text x="138" y="143" class="city" text-anchor="end">Tempe</text>
+<line x1="234" x2="339" y1="139" y2="139" class="link"/>
+<circle cx="339" cy="139" r="4.5" class="before"/>
+<circle cx="234" cy="139" r="5" class="after"/>
+<text x="686" y="143" class="delta" text-anchor="middle">15</text>
+<text x="138" y="162" class="city" text-anchor="end">Paradise Valley</text>
+<line x1="241" x2="367" y1="158" y2="158" class="link"/>
+<circle cx="367" cy="158" r="4.5" class="before"/>
+<circle cx="241" cy="158" r="5" class="after"/>
+<text x="686" y="162" class="delta" text-anchor="middle">18</text>
+<text x="138" y="181" class="city" text-anchor="end">Avondale</text>
+<line x1="248" x2="374" y1="177" y2="177" class="link"/>
+<circle cx="374" cy="177" r="4.5" class="before"/>
+<circle cx="248" cy="177" r="5" class="after"/>
+<text x="686" y="181" class="delta" text-anchor="middle">18</text>
+<text x="138" y="200" class="city" text-anchor="end">Litchfield Park</text>
+<line x1="262" x2="325" y1="196" y2="196" class="link"/>
+<circle cx="325" cy="196" r="4.5" class="before"/>
+<circle cx="262" cy="196" r="5" class="after"/>
+<text x="686" y="200" class="delta" text-anchor="middle">9</text>
+<text x="138" y="219" class="city" text-anchor="end">Peoria</text>
+<line x1="269" x2="276" y1="215" y2="215" class="link"/>
+<circle cx="276" cy="215" r="4.5" class="before"/>
+<circle cx="269" cy="215" r="5" class="after"/>
+<text x="686" y="219" class="delta" text-anchor="middle">1</text>
+<text x="138" y="238" class="city" text-anchor="end">Sun City</text>
+<line x1="276" x2="395" y1="234" y2="234" class="link"/>
+<circle cx="395" cy="234" r="4.5" class="before"/>
+<circle cx="276" cy="234" r="5" class="after"/>
+<text x="686" y="238" class="delta" text-anchor="middle">17</text>
+<text x="138" y="257" class="city" text-anchor="end">Sun Lakes</text>
+<line x1="283" x2="339" y1="253" y2="253" class="link"/>
+<circle cx="339" cy="253" r="4.5" class="before"/>
+<circle cx="283" cy="253" r="5" class="after"/>
+<text x="686" y="257" class="delta" text-anchor="middle">8</text>
+<text x="138" y="276" class="city" text-anchor="end">San Tan Valley</text>
+<line x1="297" x2="367" y1="272" y2="272" class="link"/>
+<circle cx="367" cy="272" r="4.5" class="before"/>
+<circle cx="297" cy="272" r="5" class="after"/>
+<text x="686" y="276" class="delta" text-anchor="middle">10</text>
+<text x="138" y="295" class="city" text-anchor="end">Chandler</text>
+<line x1="297" x2="318" y1="291" y2="291" class="link"/>
+<circle cx="318" cy="291" r="4.5" class="before"/>
+<circle cx="297" cy="291" r="5" class="after"/>
+<text x="686" y="295" class="delta" text-anchor="middle">3</text>
+<text x="138" y="314" class="city" text-anchor="end">Scottsdale</text>
+<line x1="346" x2="535" y1="310" y2="310" class="link"/>
+<circle cx="535" cy="310" r="4.5" class="before"/>
+<circle cx="346" cy="310" r="5" class="after"/>
+<text x="686" y="314" class="delta" text-anchor="middle">27</text>
+<text x="138" y="333" class="city" text-anchor="end">Gilbert</text>
+<line x1="374" x2="437" y1="329" y2="329" class="link"/>
+<circle cx="437" cy="329" r="4.5" class="before"/>
+<circle cx="374" cy="329" r="5" class="after"/>
+<text x="686" y="333" class="delta" text-anchor="middle">9</text>
+<text x="138" y="352" class="city" text-anchor="end">Mesa</text>
+<line x1="381" x2="423" y1="348" y2="348" class="link"/>
+<circle cx="423" cy="348" r="4.5" class="before"/>
+<circle cx="381" cy="348" r="5" class="after"/>
+<text x="686" y="352" class="delta" text-anchor="middle">6</text>
+<text x="138" y="371" class="city" text-anchor="end">Phoenix</text>
+<line x1="402" x2="528" y1="367" y2="367" class="link"/>
+<circle cx="528" cy="367" r="4.5" class="before"/>
+<circle cx="402" cy="367" r="5" class="after"/>
+<text x="686" y="371" class="delta" text-anchor="middle">18</text>
+<text x="138" y="390" class="city" text-anchor="end">Glendale</text>
+<line x1="416" x2="619" y1="386" y2="386" class="link"/>
+<circle cx="619" cy="386" r="4.5" class="before"/>
+<circle cx="416" cy="386" r="5" class="after"/>
+<text x="686" y="390" class="delta" text-anchor="middle">29</text>
+</svg>
+      </div>
+      <div class="keys">
+        <span><i class="sw ring"></i>Sep 2025 to Feb 2026</span>
+        <span><i class="sw dot"></i>Mar to Aug 2026</span>
+        <span>Lower is better · gain = places moved up</span>
+      </div>
+      <figcaption>Average Google position per page. Median gain: 10 places. Buckeye moved from 40 to 26 and Tempe from 47 to 32; both are among the pages with the most local demand.</figcaption>
+    </figure>
+
+    <div class="pair">
+      <div class="stat"><b>58.0 → 40.9</b><span>Mobile average position, with mobile click-through up 47% (0.185% to 0.272%), over the same months as the speed work</span></div>
+      <div class="stat"><b>35 → 74</b><span>Internal links pointing at the main service page after the city-page linking rollout</span></div>
+      <div class="stat signal"><b>+27% clicks</b><span>First read on matched 28-day windows (Jun 30 to Jul 27 vs Jul 28 to Aug 24): 30 to 38 clicks, CTR 0.146% to 0.191%. Small numbers, so a direction rather than a verdict.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <header>
+      <span class="label">Judgment calls</span>
+      <h2>Decisions that mattered as much as the fixes</h2>
+    </header>
+    <div class="calls">
+      <div class="call"><h3>Turned down traffic the business couldn't use</h3><p>Buckeye drew 441 impressions for gas line searches. Pipeliners doesn't do gas work, so I removed that targeting knowing impressions would drop.</p></div>
+      <div class="call"><h3>Withdrew my own recommendation</h3><p>I had planned a new title for the Florence page. Page-level data showed it already ranked 7th for its main query, so I left it alone rather than risk a regression.</p></div>
+      <div class="call"><h3>Protected the paid traffic</h3><p>Before editing, I pulled Google Ads landing-page data: one page took 81 of 84 paid clicks, so it stayed untouched. The same check surfaced zero recorded conversions across all campaigns, which I flagged for a tracking review.</p></div>
+      <div class="call"><h3>Paused the automation on purpose</h3><p>Autopilot would have overwritten reviewed titles on its next weekly crawl. I switched it off and documented the cost: new posts now need their metadata set by hand.</p></div>
+      <div class="call"><h3>Corrected my own read</h3><p>Comparing a 90-day window with a 28-day one made rankings look like they had collapsed. Re-run on matched windows, position had improved and clicks were up 27%. Every report since uses matched windows.</p></div>
+      <div class="call"><h3>Verified from outside, every time</h3><p>Because the automation rewrites pages as they load, I checked each change on the live page instead of trusting the dashboard. Its "deployed" flag and what visitors actually saw did not always match.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <header>
+      <span class="label">Limits and next steps</span>
+      <h2>What this doesn't show yet</h2>
+    </header>
+    <dl class="next">
+      <div><dt>Clicks are the open problem</dt><dd>Rankings and visibility improved; clicks have not followed yet. The August title and snippet work on the city pages is the response, with re-measurement set for Sep 24 and Oct 22 against the locked baseline.</dd></div>
+      <div><dt>The click counts run low</dt><dd>These figures come from the https URL-prefix property in Search Console. Clicks on the Google Business Profile's website link land on a tagged http URL that this property can't see, and that link accounts for about half of Google clicks. Reporting has since moved to the Domain property.</dd></div>
+      <div><dt>Leads need tracking</dt><dd>Google Ads conversion tracking went quiet in late July, so organic leads can't be counted reliably yet. Fixing that is what will tie this work to revenue.</dd></div>
+    </dl>
+  </section>
+
+  <footer class="method">
+    <p class="by">Prepared by Kim · SEO Specialist, TAG Marketing</p>
+    <p>Data: Google Search Console, https://pipelinersusa.com/ URL-prefix property, all countries, summed across devices, pulled Sep 15, 2026. Prior period Sep 1, 2025 to Feb 28, 2026; reporting period Mar 1 to Aug 31, 2026. Average position is weighted by impressions across devices. City-page positions are Search Console page averages as reported by Search Atlas. Index counts from the Search Console Pages report (Jun 12 and Sep 2, 2026). PageSpeed from Google PSI lab runs on Jul 14, 2026. Seasonal demand differs between the two periods, so period comparisons show direction, not a controlled effect.</p>
+  </footer>
+</main>

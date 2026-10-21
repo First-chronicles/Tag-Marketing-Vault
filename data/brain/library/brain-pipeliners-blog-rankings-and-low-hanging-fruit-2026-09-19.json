@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Blog Rankings and Low-Hanging Fruit 2026-09-19",
+ "cat": "brain-pipeliners",
+ "group": "Reports",
+ "body": "> Report · Pipeliners · 2026-09-19\n\n# Summary\nFolder of keyword-position reports built Sep 15 to 19: a blog keyword positions dashboard, a page-2 blog keyword optimization plan, a sitewide low-hanging-fruit list and a picture tutorial. Data window Aug 19 to Sep 15, 2026 (28 days, GSC Domain property).\n\n# Key findings\n- Blog keyword positions (`blog-keyword-positions.html`): which posts show on Google pages 1 to 3 and for which searches; one-off and competitor-name searches hidden by default.\n- Page-2 plan (`plan-2026-09-19/page2-keyword-plan-2026-09-19.md`): 13 rows, nearly all low confidence (seen once or a short burst). Every blog row had 0 impressions in the prior period. Actions are mostly \"no change, monitor\", review date Oct 16. Cost wording waits on Scott (no prices). \"pipeline restoration services\" ignored (\"pipeline\" is not used as a generic term).\n- \"sewer pipe liners\" check: a 4-day burst (Sep 3 to 6), several posts shown side by side, under 1% shared phrases, no page targets it. Decision: normal ranking variation, not cannibalization.\n- Sitewide low-hanging fruit (`sitewide-lhf-2026-09-19`): 253 page and query rows. Top items: /florence/ \"florence pipe break repair\" 104 impressions at 10.1, /tempe/ \"sewer line repair in tempe az\" 93 at 23.3, /buckeye/ \"buckeye az pipe break repair\" 79 at 12.8, /sun-city/ \"sewer line repair in sun city az\" 69 at 24.1.\n\n# Files in this folder (rollups only)\n- `blog-keyword-positions.html`, `template.html`, `kw-2026-09-15.json`, `meta.json`: dashboard and data.\n- `plan-2026-09-19/`: page-2 keyword plan (md and HTML).\n- `sitewide-lhf-2026-09-19/`: CSV and HTML of low-hanging fruit.\n- `tutorial/`: the low-hanging fruit tutorial (HTML, PDF, screenshots).\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Low-Hanging Fruit Keyword Tutorial 2026-09-19](lib:brain-pipeliners-low-hanging-fruit-keyword-tutorial-2026-09-19), [Pipeliners - Position 8-20 Keywords 2026-10-03](lib:brain-pipeliners-position-8-20-keywords-2026-10-03), [Google Search Console](lib:brain-google-search-console)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/reports/blog-rankings",
+ "date": "2026-09-19",
+ "createdAt": 1792613134544,
+ "updatedAt": 1792613566982,
+ "rev": "e0c2c64a63ac"
+}

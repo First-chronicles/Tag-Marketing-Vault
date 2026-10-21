@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Repipe Wording Check 2026-10-01",
+ "cat": "brain-pipeliners",
+ "group": "Audits",
+ "body": "> Audit · Pipeliners · 2026-10-01\n\n# Summary\nA read-only check from Oct 1, 2026, the day Scott confirmed Pipeliners does not do full repipes. The script lists every sentence mentioning repiping in posts 13742 (/5-signs-you-need-to-repipe-your-home-in-arizona/) and 13682 (the repiping vs relining post), with word counts. Before copies of the /sun-city/ and /tolleson/ pages were saved.\n\n# Key findings\n- Later notes record the outcome as a standing rule: existing repipe wording stays as it is and no new repipe claims are added (the \"repipe wording rule\"). Tolleson was held pending repipe wording.\n\n# Files in this folder (rollups only)\n- `rp.php` (read-only listing script), `sun-city.before.html`, `tolleson.before.html`.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - City Page Audit 2026-10-02](lib:brain-pipeliners-city-page-audit-2026-10-02), [Pipeliners - Indexing Report 2026-10-12](lib:brain-pipeliners-indexing-report-2026-10-12)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/repipe-reangle-2026-10-01",
+ "date": "2026-10-01",
+ "createdAt": 1792613507484,
+ "updatedAt": 1792613567251,
+ "rev": "c5983a3564d1"
+}

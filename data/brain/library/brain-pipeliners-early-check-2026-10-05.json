@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Early Check 2026-10-05",
+ "cat": "brain-pipeliners",
+ "group": "Reports",
+ "body": "> Report · Pipeliners · 2026-10-05\n\n# Summary\nA small data file (`data.txt`) used for an early read on Oct 5, 2026 of pages edited in late September and early October. Each line lists a URL, clicks, impressions and average position for three GSC windows, and the last crawl or change status.\n\n# Key findings\n- 28 pages covered: blog posts from the AI-answer and not-indexed batches and the city pages edited Sep 25 to Oct 5.\n- Status notes record whether Google had crawled the page after the change (for example \"/sun-city/ Oct 5 (after)\", \"/reline-vs-replace.../ Sep 28 (BEFORE change)\", \"/maricopa/ Sep 25 (before); indexing requested Oct 5\").\n- Three posts were NOT INDEXED at the time: /5-signs-you-need-to-repipe-your-home-in-arizona/, /14-warning-signs-your-sewer-pipes-may-be-leaking/, /signs-of-outdated-sewer-drain-pipes/.\n- Clicks were 0 for every page except one /scottsdale/ click.\n\n# Decisions and status\n- Too early to judge most changes; full reads were scheduled later (see the SEO Results Scorecard).\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - SEO Results Scorecard 2026-10-12](lib:brain-pipeliners-seo-results-scorecard-2026-10-12), [Google Search Console](lib:brain-google-search-console)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/reports/early-check-2026-10-05",
+ "date": "2026-10-05",
+ "createdAt": 1792613209738,
+ "updatedAt": 1792613567035,
+ "rev": "010167abd2ec"
+}

@@ -1,0 +1,14 @@
+{
+ "name": "Projects Index",
+ "cat": "brain-projects",
+ "group": "",
+ "body": "> Index · 2026-10-22\n\n# Summary\nInternal projects Kim builds and runs alongside client work.\n\n# Projects\n- [AIO SEO CRM](lib:brain-aio-seo-crm): Next.js + Supabase SEO CRM (foundation, Client Brain, Content Writing modules).\n- [TAG CRM](lib:brain-tag-crm): single-file localStorage CRM prototype; automations simulated.\n- [Tag Marketing Vault](lib:brain-tag-marketing-vault): private knowledge vault (online artifact plus desktop copy).\n- [Client Report Dashboard](lib:brain-client-report-dashboard): monthly client performance report artifact and its data pipeline.\n- [SEO Tracker](lib:brain-seo-tracker): on-demand SEO / AEO / GEO visibility tracker artifact.\n- [Video Notes Project](lib:brain-video-notes-project): local video transcription into course notes (in progress).\n\n# Related\n- [Home](lib:brain-home), [Tools and Integrations Index](lib:brain-tools-and-integrations-index), [Learning Index](lib:brain-learning-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "",
+ "date": "2026-10-22",
+ "createdAt": 1792613414808,
+ "updatedAt": 1792613414808,
+ "rev": "6433172d86d3"
+}

@@ -1,0 +1,767 @@
+<title>Summit Performance Impact Report</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Montserrat:wght@400;500;600;700&display=swap">
+<style>
+  /* ---- Summit Plumbing Pros brand tokens ----
+     navy #042B4B  mid #1B72B8  brand blue #0b97d4  logo cyan #00B3FB
+     panel #F1F5F9  ink #212529  Poppins headings / Montserrat body      */
+  :root{
+    --paper:#F1F5F9;
+    --surface:#FFFFFF;
+    --surface-sunk:#E8EEF4;
+    --ink:#212529;
+    --ink-soft:#52606D;
+    --ink-faint:#7B8794;
+    --heading:#042B4B;
+    --rule:#D8E2EA;
+    --rule-soft:#E7EDF2;
+    --navy:#042B4B;
+    --navy-mid:#1B72B8;
+    --brand:#0B97D4;
+    --brand-soft:#E3F2FA;
+    --cyan:#00B3FB;
+    --tint:#B3DCFF;
+    --good:#0F7A4F;
+    --good-bg:#DCF0E6;
+    --warn:#9A6A10;
+    --warn-bg:#F7E9CE;
+    --poor:#B5392C;
+    --poor-bg:#F8DFDB;
+    --shadow:0 1px 2px rgba(4,43,75,.06), 0 8px 24px -16px rgba(4,43,75,.30);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#061826;
+      --surface:#0D2A45;
+      --surface-sunk:#0A2238;
+      --ink:#E8EFF5;
+      --ink-soft:#A9BECF;
+      --ink-faint:#7E97AC;
+      --heading:#EAF4FB;
+      --rule:#1D3E5C;
+      --rule-soft:#16324B;
+      --navy:#042B4B;
+      --navy-mid:#1B72B8;
+      --brand:#48B4E6;
+      --brand-soft:#0C334F;
+      --cyan:#4FC4FF;
+      --tint:#B3DCFF;
+      --good:#52C48C;
+      --good-bg:#10362A;
+      --warn:#E0B04E;
+      --warn-bg:#382C12;
+      --poor:#EE8A7A;
+      --poor-bg:#3A1E1A;
+      --shadow:0 1px 2px rgba(0,0,0,.45), 0 10px 26px -16px rgba(0,0,0,.85);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#061826;
+    --surface:#0D2A45;
+    --surface-sunk:#0A2238;
+    --ink:#E8EFF5;
+    --ink-soft:#A9BECF;
+    --ink-faint:#7E97AC;
+    --heading:#EAF4FB;
+    --rule:#1D3E5C;
+    --rule-soft:#16324B;
+    --navy:#042B4B;
+    --navy-mid:#1B72B8;
+    --brand:#48B4E6;
+    --brand-soft:#0C334F;
+    --cyan:#4FC4FF;
+    --tint:#B3DCFF;
+    --good:#52C48C;
+    --good-bg:#10362A;
+    --warn:#E0B04E;
+    --warn-bg:#382C12;
+    --poor:#EE8A7A;
+    --poor-bg:#3A1E1A;
+    --shadow:0 1px 2px rgba(0,0,0,.45), 0 10px 26px -16px rgba(0,0,0,.85);
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Montserrat","Helvetica Neue",Arial,sans-serif;
+    font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding-inline:24px;padding-block:0 72px}
+
+  h1,h2,h3,h4{margin:0;font-family:"Poppins","Helvetica Neue",Arial,sans-serif;
+    font-weight:600;color:var(--heading);text-wrap:balance;letter-spacing:-.01em}
+  h1{font-size:clamp(28px,4.6vw,42px);line-height:1.14;color:#fff;letter-spacing:-.02em}
+  h2{font-size:clamp(21px,2.5vw,27px);line-height:1.24}
+  h3{font-size:16px;line-height:1.35}
+  h4{font-size:14px;line-height:1.4}
+  p{margin:0}
+  .num{font-variant-numeric:tabular-nums}
+  .slug{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12.5px}
+
+  /* eyebrow + short rule, the motif used across summitplumbingpros.com */
+  .eyebrow{display:block;font-size:12px;font-weight:600;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--brand)}
+  .eyebrow.on-navy{color:var(--tint)}
+  .rule{display:block;width:62px;height:3px;background:var(--brand);border-radius:2px;margin-top:9px}
+  .rule.on-navy{background:var(--cyan)}
+
+  /* ---------- masthead ---------- */
+  .logobar{background:#fff;border-bottom:1px solid #E1E8EE}
+  .logobar-in{max-width:1180px;margin:0 auto;padding:16px 24px;
+    display:flex;align-items:center;gap:18px;flex-wrap:wrap;justify-content:space-between}
+  .logobar .logo{display:block;height:44px;width:auto}
+  /* 16 of the 17 paths carry no fill and render black, which is correct on the white bar.
+     The mountain keeps its own inline fill of rgb(0,179,251). */
+  .logobar .doc{font-family:"Poppins",Arial,sans-serif;font-size:12px;font-weight:500;
+    letter-spacing:.15em;text-transform:uppercase;color:#52606D}
+
+  .hero{background:linear-gradient(135deg,#1B72B8 0%,#042B4B 100%);color:#fff}
+  .hero-in{max-width:1180px;margin:0 auto;padding:40px 24px 34px}
+  .hero h1{margin-top:14px;max-width:20ch}
+  .hero h1 em{font-style:normal;color:var(--tint)}
+  .hero .sub{margin-top:16px;max-width:64ch;color:#D7E7F3;font-size:15px;line-height:1.7}
+  .meta{display:flex;flex-wrap:wrap;gap:14px 34px;margin-top:26px;
+    padding-top:22px;border-top:1px solid rgba(255,255,255,.18)}
+  .meta div{display:flex;flex-direction:column;gap:2px}
+  .meta .k{font-size:10.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:#8FB9D6}
+  .meta .v{font-size:13.5px;color:#fff;font-variant-numeric:tabular-nums}
+
+  /* ---------- comparison strip ---------- */
+  .cmp{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
+  .cstep{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.17);
+    border-radius:10px;padding:15px 16px 14px;display:flex;flex-direction:column;gap:7px;min-width:0}
+  .cstep .cl{font-size:12.5px;font-weight:600;color:#BCD8EA}
+  .cpair{display:flex;align-items:baseline;gap:9px;font-variant-numeric:tabular-nums;line-height:1.05}
+  .cpair .was{font-size:15px;color:#8FB9D6}
+  .cpair .arw{font-size:13px;color:#8FB9D6}
+  .cpair .now{font-family:"Poppins",Arial,sans-serif;font-size:29px;font-weight:600;
+    letter-spacing:-.02em;color:#fff}
+  .cstep .cd{font-size:12px;font-weight:600;font-variant-numeric:tabular-nums}
+  .cd.up{color:#7FE3B4} .cd.down{color:#FFB3A6}
+  .cstep.lose .now{color:#FFC7BC}
+
+  /* ---------- section nav ---------- */
+  .toc{background:var(--surface);border-bottom:1px solid var(--rule);position:sticky;
+    top:env(safe-area-inset-top,0px);z-index:20}
+  .toc-in{max-width:1180px;margin:0 auto;padding:0 24px;display:flex;gap:4px;
+    overflow-x:auto;scrollbar-width:none}
+  .toc-in::-webkit-scrollbar{display:none}
+  .toc a{flex:none;padding:13px 13px 11px;font-size:12.5px;font-weight:600;color:var(--ink-soft);
+    text-decoration:none;border-bottom:3px solid transparent;white-space:nowrap}
+  .toc a:hover{color:var(--brand);border-bottom-color:var(--rule)}
+
+  /* ---------- sections ---------- */
+  section{margin-top:56px;scroll-margin-top:72px}
+  .sec-head{margin-bottom:22px}
+  .sec-head h2{margin-top:10px}
+  .sec-head .lede{margin-top:12px;font-size:16.5px;line-height:1.65;color:var(--ink-soft);max-width:72ch}
+  .sec-head .lede strong{color:var(--ink);font-weight:600}
+
+  /* ---------- chips ---------- */
+  .chip{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;font-weight:700;
+    letter-spacing:.07em;text-transform:uppercase;padding:3px 8px;border-radius:20px;white-space:nowrap}
+  .chip.good{background:var(--good-bg);color:var(--good)}
+  .chip.warn{background:var(--warn-bg);color:var(--warn)}
+  .chip.poor{background:var(--poor-bg);color:var(--poor)}
+  .chip.neutral{background:var(--surface-sunk);color:var(--ink-soft)}
+  .chip.brand{background:var(--brand-soft);color:var(--brand)}
+  .dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex:none}
+
+  /* ---------- tiles ---------- */
+  .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .tile{background:var(--surface);border:1px solid var(--rule);border-radius:10px;
+    padding:18px 18px 16px;display:flex;flex-direction:column;gap:4px;box-shadow:var(--shadow)}
+  .tile .label{font-size:12.5px;color:var(--ink-soft);font-weight:600}
+  .tile .big{font-family:"Poppins",Arial,sans-serif;font-variant-numeric:tabular-nums;
+    font-size:30px;font-weight:600;line-height:1.12;letter-spacing:-.02em;margin-top:6px;color:var(--heading)}
+  .tile .prior{font-size:12px;color:var(--ink-faint);font-variant-numeric:tabular-nums}
+  .tile.alarm{border-color:var(--poor)}
+  .tile.alarm .big{color:var(--poor)}
+  .tile.okay .big{color:var(--good)}
+
+  /* ---------- tables ---------- */
+  .scroller{overflow-x:auto;border:1px solid var(--rule);border-radius:10px;
+    background:var(--surface);box-shadow:var(--shadow)}
+  table{border-collapse:collapse;width:100%;min-width:600px;font-size:13.5px}
+  th,td{padding:11px 15px;text-align:left;border-bottom:1px solid var(--rule-soft);vertical-align:middle}
+  thead th{font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--ink-faint);background:var(--surface-sunk);border-bottom:1px solid var(--rule);white-space:nowrap}
+  tbody tr:last-child td{border-bottom:none}
+  td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  td.name{font-weight:600;color:var(--heading)}
+  td.url{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px}
+  caption{caption-side:bottom;text-align:left;padding:11px 15px;font-size:12px;
+    color:var(--ink-faint);border-top:1px solid var(--rule-soft);line-height:1.55}
+  .bad{color:var(--poor);font-weight:600}
+  .warnc{color:var(--warn);font-weight:600}
+  .okc{color:var(--good);font-weight:600}
+
+  /* ---------- callouts ---------- */
+  .callout{border:1px solid var(--rule);border-radius:10px;background:var(--surface);
+    padding:18px 20px;display:flex;flex-direction:column;gap:9px;box-shadow:var(--shadow)}
+  .callout p{font-size:14px;color:var(--ink-soft);line-height:1.7}
+  .callout.tintbg{background:var(--brand-soft);border-color:var(--brand)}
+  .callout.tintbg p{color:var(--ink)}
+  .callout.alarm{border-color:var(--poor);background:var(--poor-bg)}
+  .callout.alarm p{color:var(--ink)}
+  .callout.plain{background:var(--surface-sunk);box-shadow:none}
+  ol.steps,ul.acts{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:10px;
+    font-size:14px;line-height:1.7;color:var(--ink-soft)}
+  ol.steps strong,ul.acts strong{color:var(--ink);font-weight:700}
+  ol.steps li::marker{color:var(--brand);font-weight:700}
+
+  /* ---------- win / lose lists ---------- */
+  .winlose{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .wl{border:1px solid var(--rule);border-radius:10px;background:var(--surface);
+    overflow:hidden;box-shadow:var(--shadow)}
+  .wl h3{padding:13px 16px;border-bottom:1px solid var(--rule);background:var(--surface-sunk);font-size:14.5px}
+  .wl.up h3{border-left:4px solid var(--good)}
+  .wl.down h3{border-left:4px solid var(--poor)}
+  .wl ul{margin:0;padding:12px 16px 14px 32px;display:flex;flex-direction:column;gap:9px;
+    font-size:13.5px;line-height:1.6;color:var(--ink-soft)}
+  .wl li::marker{color:var(--ink-faint)}
+  .wl .m{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;color:var(--ink)}
+  .wl strong{color:var(--heading);font-variant-numeric:tabular-nums}
+
+  /* ---------- evidence screenshots ---------- */
+  .shot{margin:0;border:1px solid var(--rule);border-radius:10px;overflow:hidden;
+    background:var(--surface);box-shadow:var(--shadow)}
+  .shot .frame{background:#fff;padding:12px;border-bottom:1px solid var(--rule)}
+  .shot .frame img{display:block;width:100%;height:auto;border-radius:4px}
+  .shot .frame.tall{max-height:540px;overflow-y:auto}
+  .shot figcaption{margin:0;padding:13px 16px;font-size:12.5px;line-height:1.6;
+    color:var(--ink-soft);display:flex;flex-direction:column;gap:5px}
+  .shot .src{font-size:11.5px;color:var(--ink-faint)}
+
+  .stack{display:flex;flex-direction:column;gap:18px}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .sub-head{margin-top:10px}
+  .sub-head h3{font-size:17px;color:var(--heading)}
+  .sub-head .line{display:block;width:44px;height:3px;background:var(--brand);
+    border-radius:2px;margin-bottom:10px}
+
+  footer{margin-top:64px;background:var(--navy);color:#B7D2E4}
+  .foot-in{max-width:1180px;margin:0 auto;padding:26px 24px;display:flex;flex-wrap:wrap;
+    gap:14px 40px;justify-content:space-between;font-size:12px;line-height:1.7}
+  footer strong{color:#fff;font-weight:600}
+  a{color:var(--brand);text-underline-offset:2px}
+  a:focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:3px}
+
+  @media (max-width:900px){
+    .tiles{grid-template-columns:repeat(2,1fr)}
+    .cmp{grid-template-columns:repeat(2,1fr)}
+    .two,.winlose{grid-template-columns:1fr}
+  }
+  @media (max-width:540px){
+    .tiles,.cmp{grid-template-columns:1fr}
+    .logobar .logo{height:36px}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+  .print-note{display:none}
+  @media print{
+    .print-note{display:block;font-size:9pt;color:var(--ink-faint);margin-top:4px}
+    /* pin the light palette: a dark OS must not produce a dark PDF */
+    :root{
+      --paper:#FFFFFF; --surface:#FFFFFF; --surface-sunk:#EFF4F8;
+      --ink:#212529; --ink-soft:#44525E; --ink-faint:#6B7A87;
+      --heading:#042B4B; --rule:#CFDBE5; --rule-soft:#E4EBF1;
+      --brand:#0B6E9E; --brand-soft:#E8F4FB;
+      --good:#0C6642; --good-bg:#DFF1E8;
+      --warn:#7E5709; --warn-bg:#F8EBD3;
+      --poor:#9C2F24; --poor-bg:#F9E2DE;
+      --shadow:none;
+      color-scheme:light;
+    }
+    @page{size:Letter;margin:12mm 11mm 14mm}
+    html,body{background:#fff}
+    body{font-size:10.5pt;line-height:1.55}
+
+    /* let brand colour actually print */
+    .logobar,.hero,.cstep,.chip,.tile,.callout,.wl h3,thead th,footer,
+    .rule,.sub-head .line,.shot .frame{
+      -webkit-print-color-adjust:exact;print-color-adjust:exact;
+    }
+
+    .toc{display:none}
+    .wrap{max-width:none;padding-inline:0;padding-block:0}
+    .logobar-in{max-width:none;padding:0 0 12px}
+    .hero-in{max-width:none;padding:24px 16px 22px}
+    .foot-in{max-width:none;padding:16px}
+    .hero,.footer{border-radius:4px}
+    footer{margin-top:28px;border-radius:4px}
+    h1{font-size:26pt}
+    h2{font-size:16pt}
+    h3{font-size:11.5pt}
+    .sec-head .lede{font-size:11pt}
+    .cpair .now{font-size:20pt}
+    .tile .big{font-size:19pt}
+
+    /* keep related things on one page */
+    section{break-inside:auto;margin-top:26px}
+    .sec-head{break-after:avoid}
+    .callout,.wl,.tile,figure.shot,.cstep{break-inside:avoid}
+    table{break-inside:auto}
+    thead{display:table-header-group}
+    tr{break-inside:avoid}
+    caption{break-before:avoid}
+    .scroller{overflow:visible;break-inside:auto}
+    table{min-width:0}
+
+    /* two per row reads better than four on paper */
+    .tiles,.cmp{grid-template-columns:repeat(2,1fr)}
+
+    /* scrollable evidence panes cannot scroll on paper: fit each to one page */
+    .shot .frame.tall{max-height:none;overflow:visible}
+    .shot .frame.tall img{max-height:200mm;width:auto;max-width:100%;margin:0 auto}
+
+    a{color:var(--brand);text-decoration:none}
+    footer{break-inside:avoid}
+  }
+</style>
+
+<header>
+  <div class="logobar">
+    <div class="logobar-in">
+      <svg class="logo" role="img" aria-label="Summit Plumbing Pros" focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:serif="http://www.serif.com/" viewBox="0 0 5445 2805" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">    <g transform="matrix(1,0,0,1,-2158.79,-1154.56)">        <g transform="matrix(1.56141,0,0,0.691796,-4460.82,620.572)">            <path d="M5885.93,2459.32L4717.69,2614.99L5774.58,771.886L5961.91,1368.16L5786.02,1687.82C5754.78,1739.39 5743.9,1812.46 5757.48,1879.56C5771.07,1946.67 5807.05,1997.64 5851.91,2013.34L5943.04,2045.23C5968.13,2054.01 5988.74,2081.15 5998.11,2117.74C6007.47,2154.32 6004.36,2195.6 5989.82,2228L5885.93,2459.32ZM5456.09,1508.93L5754.49,1268.7L5879.47,1368.16L5766.1,1010.15L5456.09,1508.93ZM7248.19,2614.99L6052.59,2472.34L6159.01,2164.21C6182.19,2097.1 6182.13,2016.85 6158.86,1949.82C6135.59,1882.79 6092.12,1837.65 6042.71,1829.21L5964.26,1815.82C5942.47,1812.1 5923.39,1791.82 5913.55,1761.92C5903.7,1732.02 5904.44,1696.55 5915.49,1667.66L6142.25,1145.74L6188.34,1220.47L6302.96,950.936L7248.19,2614.99ZM6179.77,1449.28L6309.72,1338.09L6539.12,1523L6309.72,1146.48L6179.77,1449.28ZM6162.85,1278.32L6146.23,1261.4L6093.38,1378.49L6143.69,1322.31L6162.85,1278.32Z" style="fill:rgb(0,179,251);"></path>        </g>        <g transform="matrix(0.470858,0,0,0.470858,565.366,1878.53)">            <g transform="matrix(2666.67,0,0,2666.67,3349.43,3412.79)">                <path d="M0.318,0.016C0.259,0.016 0.203,0.009 0.148,-0.004C0.093,-0.017 0.048,-0.035 0.013,-0.056L0.089,-0.228C0.122,-0.209 0.16,-0.193 0.201,-0.182C0.242,-0.17 0.281,-0.164 0.32,-0.164C0.343,-0.164 0.361,-0.166 0.374,-0.169C0.387,-0.172 0.396,-0.176 0.402,-0.182C0.408,-0.187 0.411,-0.194 0.411,-0.202C0.411,-0.215 0.404,-0.225 0.39,-0.232C0.376,-0.239 0.358,-0.245 0.335,-0.251C0.312,-0.256 0.286,-0.261 0.259,-0.267C0.232,-0.272 0.204,-0.28 0.177,-0.289C0.149,-0.298 0.124,-0.311 0.101,-0.326C0.078,-0.341 0.059,-0.362 0.045,-0.387C0.031,-0.411 0.024,-0.443 0.024,-0.48C0.024,-0.523 0.036,-0.563 0.061,-0.599C0.085,-0.634 0.121,-0.663 0.17,-0.684C0.218,-0.705 0.278,-0.716 0.35,-0.716C0.397,-0.716 0.444,-0.711 0.49,-0.701C0.536,-0.691 0.577,-0.676 0.614,-0.655L0.543,-0.484C0.508,-0.501 0.475,-0.514 0.443,-0.523C0.41,-0.532 0.379,-0.536 0.348,-0.536C0.325,-0.536 0.307,-0.534 0.294,-0.53C0.281,-0.526 0.271,-0.521 0.266,-0.514C0.26,-0.507 0.257,-0.5 0.257,-0.492C0.257,-0.48 0.264,-0.471 0.278,-0.464C0.292,-0.456 0.311,-0.451 0.334,-0.446C0.357,-0.441 0.382,-0.436 0.41,-0.431C0.437,-0.426 0.465,-0.418 0.492,-0.409C0.519,-0.4 0.545,-0.387 0.568,-0.372C0.591,-0.357 0.609,-0.337 0.623,-0.312C0.637,-0.287 0.644,-0.257 0.644,-0.22C0.644,-0.177 0.632,-0.138 0.608,-0.103C0.583,-0.067 0.547,-0.038 0.499,-0.017C0.451,0.005 0.391,0.016 0.318,0.016Z" style="fill-rule:nonzero;"></path>            </g>            <g transform="matrix(2666.67,0,0,2666.67,5101.43,3412.79)">                <path d="M0.392,0.016C0.285,0.016 0.201,-0.013 0.141,-0.071C0.081,-0.129 0.051,-0.21 0.051,-0.315L0.051,-0.7L0.287,-0.7L0.287,-0.322C0.287,-0.269 0.297,-0.231 0.316,-0.209C0.335,-0.186 0.361,-0.175 0.394,-0.175C0.427,-0.175 0.454,-0.186 0.473,-0.209C0.492,-0.231 0.501,-0.269 0.501,-0.322L0.501,-0.7L0.733,-0.7L0.733,-0.315C0.733,-0.21 0.703,-0.129 0.643,-0.071C0.583,-0.013 0.499,0.016 0.392,0.016Z" style="fill-rule:nonzero;"></path>            </g>            <g transform="matrix(2666.67,0,0,2666.67,7192.09,3412.79)">                <path d="M0.057,-0L0.057,-0.7L0.251,-0.7L0.531,-0.243L0.429,-0.243L0.701,-0.7L0.895,-0.7L0.897,-0L0.682,-0L0.68,-0.376L0.714,-0.376L0.528,-0.063L0.424,-0.063L0.23,-0.376L0.272,-0.376L0.272,-0L0.057,-0Z" style="fill-rule:nonzero;"></path>            </g>            <g transform="matrix(2666.67,0,0,2666.67,9736.09,3412.79)">                <path d="M0.057,-0L0.057,-0.7L0.251,-0.7L0.531,-0.243L0.429,-0.243L0.701,-0.7L0.895,-0.7L0.897,-0L0.682,-0L0.68,-0.376L0.714,-0.376L0.528,-0.063L0.424,-0.063L0.23,-0.376L0.272,-0.376L0.272,-0L0.057,-0Z" style="fill-rule:nonzero;"></path>            </g>            <g transform="matrix(2666.67,0,0,2666.67,12280.1,3412.79)">                <rect x="0.057" y="-0.7" width="0.236" height="0.7"></rect>            </g>            <g transform="matrix(2666.67,0,0,2666.67,13213.4,3412.79)">                <path d="M0.209,-0L0.209,-0.517L0.004,-0.517L0.004,-0.7L0.65,-0.7L0.65,-0.517L0.445,-0.517L0.445,-0L0.209,-0Z" style="fill-rule:nonzero;"></path>            </g>        </g>        <g transform="matrix(0.146573,0,0,0.146573,2249.83,3453.1)">            <g transform="matrix(2666.67,0,0,2666.67,2681.04,3412.79)">                <path d="M0.07,-0L0.07,-0.7L0.39,-0.7C0.454,-0.7 0.509,-0.69 0.556,-0.669C0.602,-0.648 0.638,-0.618 0.663,-0.579C0.689,-0.54 0.701,-0.494 0.701,-0.441C0.701,-0.388 0.689,-0.343 0.663,-0.304C0.638,-0.265 0.602,-0.235 0.556,-0.214C0.509,-0.193 0.454,-0.183 0.39,-0.183L0.18,-0.183L0.268,-0.269L0.268,-0L0.07,-0ZM0.268,-0.248L0.18,-0.339L0.378,-0.339C0.419,-0.339 0.45,-0.348 0.471,-0.366C0.491,-0.384 0.501,-0.409 0.501,-0.441C0.501,-0.473 0.491,-0.499 0.471,-0.517C0.45,-0.535 0.419,-0.544 0.378,-0.544L0.18,-0.544L0.268,-0.635L0.268,-0.248Z" style="fill-rule:nonzero;"></path>            </g>            <g transform="matrix(2666.67,0,0,2666.67,5153.32,3412.79)">                <path d="M0.07,-0L0.07,-0.7L0.268,-0.7L0.268,-0.157L0.602,-0.157L0.602,-0L0.07,-0Z" style="fill-rule:nonzero;"></path>            </g>            <g transform="matrix(2666.67,0,0,2666.67,7274.61,3412.79)">                <path d="M0.393,0.014C0.29,0.014 0.209,-0.014 0.151,-0.071C0.093,-0.128 0.064,-0.208 0.064,-0.312L0.064,-0.7L0.262,-0.7L0.262,-0.318C0.262,-0.258 0.274,-0.215 0.298,-0.189C0.321,-0.163 0.353,-0.15 0.395,-0.15C0.436,-0.15 0.469,-0.163 0.492,-0.189C0.515,-0.215 0.527,-0.258 0.527,-0.318L0.527,-0.7L0.722,-0.7L0.722,-0.312C0.722,-0.208 0.693,-0.128 0.635,-0.071C0.577,-0.014 0.496,0.014 0.393,0.014Z" style="fill-rule:nonzero;"></path>            </g>            <g transform="matrix(2666.67,0,0,2666.67,9903.57,3412.79)">                <path d="M0.07,-0L0.07,-0.7L0.233,-0.7L0.523,-0.224L0.437,-0.224L0.719,-0.7L0.882,-0.7L0.884,-0L0.702,-0L0.7,-0.423L0.731,-0.423L0.52,-0.069L0.432,-0.069L0.215,-0.423L0.253,-0.423L0.253,-0L0.07,-0Z" style="fill-rule:nonzero;"></path>            </g>            <g transform="matrix(2666.67,0,0,2666.67,12981.7,3412.79)">                <path d="M0.07,-0L0.07,-0.7L0.428,-0.7C0.52,-0.7 0.589,-0.683 0.634,-0.649C0.679,-0.615 0.702,-0.571 0.702,-0.517C0.702,-0.481 0.692,-0.45 0.674,-0.423C0.655,-0.395 0.628,-0.374 0.594,-0.359C0.56,-0.343 0.519,-0.335 0.471,-0.335L0.491,-0.383C0.54,-0.383 0.583,-0.376 0.62,-0.361C0.656,-0.346 0.685,-0.324 0.705,-0.295C0.726,-0.267 0.736,-0.233 0.736,-0.192C0.736,-0.132 0.711,-0.084 0.663,-0.051C0.614,-0.017 0.542,-0 0.448,-0L0.07,-0ZM0.266,-0.143L0.432,-0.143C0.466,-0.143 0.492,-0.149 0.51,-0.16C0.527,-0.172 0.536,-0.19 0.536,-0.214C0.536,-0.238 0.527,-0.256 0.51,-0.268C0.492,-0.279 0.466,-0.285 0.432,-0.285L0.252,-0.285L0.252,-0.422L0.402,-0.422C0.435,-0.422 0.46,-0.427 0.477,-0.439C0.494,-0.45 0.502,-0.467 0.502,-0.49C0.502,-0.512 0.494,-0.529 0.477,-0.54C0.46,-0.552 0.435,-0.557 0.402,-0.557L0.266,-0.557L0.266,-0.143Z" style="fill-rule:nonzero;"></path>            </g>            <g transform="matrix(2666.67,0,0,2666.67,15564.8,3412.79)">                <rect x="0.07" y="-0.7" width="0.198" height="0.7"></rect>            </g>            <g transform="matrix(2666.67,0,0,2666.67,17001.7,3412.79)">                <path d="M0.07,-0L0.07,-0.7L0.233,-0.7L0.619,-0.234L0.542,-0.234L0.542,-0.7L0.736,-0.7L0.736,-0L0.573,-0L0.187,-0.466L0.264,-0.466L0.264,-0L0.07,-0Z" style="fill-rule:nonzero;"></path>            </g>            <g transform="matrix(2666.67,0,0,2666.67,19684.8,3412.79)">                <path d="M0.42,0.014C0.364,0.014 0.313,0.005 0.266,-0.013C0.219,-0.03 0.178,-0.055 0.144,-0.088C0.109,-0.121 0.082,-0.159 0.063,-0.203C0.044,-0.248 0.034,-0.297 0.034,-0.35C0.034,-0.403 0.044,-0.452 0.063,-0.497C0.082,-0.541 0.109,-0.579 0.144,-0.612C0.179,-0.645 0.22,-0.67 0.268,-0.687C0.315,-0.705 0.367,-0.714 0.424,-0.714C0.49,-0.714 0.549,-0.703 0.601,-0.681C0.653,-0.659 0.696,-0.628 0.73,-0.586L0.604,-0.472C0.58,-0.498 0.554,-0.518 0.526,-0.531C0.499,-0.544 0.468,-0.55 0.434,-0.55C0.404,-0.55 0.377,-0.546 0.352,-0.536C0.328,-0.527 0.307,-0.513 0.289,-0.496C0.272,-0.478 0.258,-0.457 0.248,-0.432C0.239,-0.408 0.234,-0.38 0.234,-0.35C0.234,-0.321 0.239,-0.294 0.248,-0.269C0.258,-0.244 0.272,-0.223 0.289,-0.205C0.307,-0.188 0.327,-0.174 0.352,-0.164C0.376,-0.154 0.402,-0.15 0.432,-0.15C0.461,-0.15 0.49,-0.154 0.518,-0.164C0.546,-0.174 0.574,-0.19 0.603,-0.214L0.714,-0.075C0.674,-0.046 0.627,-0.024 0.575,-0.009C0.523,0.006 0.471,0.014 0.42,0.014ZM0.539,-0.101L0.539,-0.365L0.714,-0.365L0.714,-0.075L0.539,-0.101Z" style="fill-rule:nonzero;"></path>            </g>            <g transform="matrix(2666.67,0,0,2666.67,23581.5,3412.79)">                <path d="M0.07,-0L0.07,-0.7L0.39,-0.7C0.454,-0.7 0.509,-0.69 0.556,-0.669C0.602,-0.648 0.638,-0.618 0.663,-0.579C0.689,-0.54 0.701,-0.494 0.701,-0.441C0.701,-0.388 0.689,-0.343 0.663,-0.304C0.638,-0.265 0.602,-0.235 0.556,-0.214C0.509,-0.193 0.454,-0.183 0.39,-0.183L0.18,-0.183L0.268,-0.269L0.268,-0L0.07,-0ZM0.268,-0.248L0.18,-0.339L0.378,-0.339C0.419,-0.339 0.45,-0.348 0.471,-0.366C0.491,-0.384 0.501,-0.409 0.501,-0.441C0.501,-0.473 0.491,-0.499 0.471,-0.517C0.45,-0.535 0.419,-0.544 0.378,-0.544L0.18,-0.544L0.268,-0.635L0.268,-0.248Z" style="fill-rule:nonzero;"></path>            </g>            <g transform="matrix(2666.67,0,0,2666.67,26053.7,3412.79)">                <path d="M0.07,-0L0.07,-0.7L0.39,-0.7C0.454,-0.7 0.509,-0.69 0.556,-0.669C0.602,-0.648 0.638,-0.618 0.663,-0.579C0.689,-0.54 0.701,-0.494 0.701,-0.441C0.701,-0.388 0.689,-0.343 0.663,-0.304C0.638,-0.266 0.602,-0.237 0.556,-0.216C0.509,-0.196 0.454,-0.186 0.39,-0.186L0.18,-0.186L0.268,-0.269L0.268,-0L0.07,-0ZM0.503,-0L0.329,-0.255L0.54,-0.255L0.715,-0L0.503,-0ZM0.268,-0.248L0.18,-0.339L0.378,-0.339C0.419,-0.339 0.45,-0.348 0.471,-0.366C0.491,-0.384 0.501,-0.409 0.501,-0.441C0.501,-0.473 0.491,-0.499 0.471,-0.517C0.45,-0.535 0.419,-0.544 0.378,-0.544L0.18,-0.544L0.268,-0.635L0.268,-0.248Z" style="fill-rule:nonzero;"></path>            </g>            <g transform="matrix(2666.67,0,0,2666.67,28560.5,3412.79)">                <path d="M0.423,0.014C0.367,0.014 0.316,0.005 0.268,-0.013C0.221,-0.031 0.179,-0.057 0.145,-0.089C0.11,-0.122 0.083,-0.161 0.063,-0.205C0.044,-0.249 0.034,-0.298 0.034,-0.35C0.034,-0.403 0.044,-0.451 0.063,-0.495C0.083,-0.539 0.11,-0.578 0.145,-0.611C0.179,-0.643 0.221,-0.669 0.268,-0.687C0.315,-0.705 0.367,-0.714 0.423,-0.714C0.479,-0.714 0.531,-0.705 0.578,-0.687C0.625,-0.669 0.666,-0.644 0.701,-0.611C0.736,-0.578 0.763,-0.539 0.783,-0.495C0.802,-0.451 0.812,-0.403 0.812,-0.35C0.812,-0.298 0.802,-0.249 0.783,-0.205C0.763,-0.16 0.736,-0.122 0.701,-0.089C0.666,-0.056 0.625,-0.031 0.578,-0.013C0.531,0.005 0.48,0.014 0.423,0.014ZM0.423,-0.15C0.45,-0.15 0.475,-0.154 0.497,-0.164C0.52,-0.173 0.54,-0.187 0.557,-0.204C0.575,-0.222 0.588,-0.243 0.597,-0.268C0.607,-0.292 0.612,-0.32 0.612,-0.35C0.612,-0.38 0.607,-0.408 0.597,-0.432C0.588,-0.457 0.575,-0.478 0.557,-0.496C0.54,-0.513 0.52,-0.527 0.498,-0.536C0.475,-0.546 0.45,-0.55 0.423,-0.55C0.396,-0.55 0.371,-0.546 0.349,-0.536C0.326,-0.527 0.306,-0.513 0.288,-0.496C0.271,-0.478 0.258,-0.457 0.248,-0.432C0.239,-0.408 0.234,-0.38 0.234,-0.35C0.234,-0.32 0.239,-0.292 0.248,-0.268C0.258,-0.243 0.271,-0.222 0.288,-0.204C0.306,-0.187 0.326,-0.173 0.349,-0.164C0.371,-0.154 0.396,-0.15 0.423,-0.15Z" style="fill-rule:nonzero;"></path>            </g>            <g transform="matrix(2666.67,0,0,2666.67,31349.4,3412.79)">                <path d="M0.316,0.014C0.258,0.014 0.203,0.007 0.15,-0.007C0.097,-0.022 0.054,-0.04 0.021,-0.063L0.086,-0.209C0.117,-0.189 0.154,-0.172 0.195,-0.159C0.236,-0.147 0.277,-0.14 0.317,-0.14C0.345,-0.14 0.367,-0.143 0.383,-0.148C0.399,-0.152 0.411,-0.159 0.419,-0.168C0.427,-0.176 0.431,-0.186 0.431,-0.197C0.431,-0.213 0.423,-0.226 0.409,-0.235C0.395,-0.244 0.376,-0.252 0.352,-0.258C0.329,-0.264 0.303,-0.27 0.275,-0.276C0.246,-0.282 0.218,-0.29 0.19,-0.299C0.161,-0.308 0.135,-0.32 0.112,-0.335C0.088,-0.35 0.069,-0.37 0.055,-0.395C0.041,-0.419 0.033,-0.45 0.033,-0.487C0.033,-0.529 0.045,-0.567 0.068,-0.601C0.091,-0.635 0.125,-0.663 0.171,-0.683C0.217,-0.704 0.274,-0.714 0.343,-0.714C0.389,-0.714 0.434,-0.709 0.478,-0.699C0.523,-0.688 0.562,-0.673 0.597,-0.653L0.536,-0.506C0.503,-0.524 0.47,-0.538 0.437,-0.546C0.404,-0.555 0.373,-0.56 0.342,-0.56C0.315,-0.56 0.293,-0.557 0.276,-0.551C0.259,-0.545 0.247,-0.538 0.24,-0.529C0.233,-0.519 0.229,-0.509 0.229,-0.497C0.229,-0.482 0.236,-0.47 0.251,-0.461C0.265,-0.452 0.284,-0.444 0.308,-0.439C0.331,-0.433 0.357,-0.427 0.385,-0.421C0.414,-0.415 0.442,-0.408 0.47,-0.399C0.498,-0.39 0.524,-0.378 0.548,-0.363C0.571,-0.348 0.59,-0.328 0.605,-0.304C0.619,-0.279 0.626,-0.249 0.626,-0.212C0.626,-0.171 0.615,-0.134 0.592,-0.1C0.569,-0.065 0.534,-0.038 0.489,-0.017C0.443,0.003 0.385,0.014 0.316,0.014Z" style="fill-rule:nonzero;"></path>            </g>        </g>    </g></svg>
+      <span class="doc">Performance Report &middot; September 2026</span>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="hero-in">
+      <span class="eyebrow on-navy">How Summit is doing in Google</span>
+      <span class="rule on-navy"></span>
+      <h1>More people clicked. <em>Fewer people saw us.</em></h1>
+      <p class="sub">We compared two matching months: <strong>June</strong>, before the new website,
+      against <strong>late August into September</strong>, after it. Clicks from Google went up.
+      The number of times Summit appeared in Google went down. Here is what that actually means, in
+      plain English, and what we should do about it.</p>
+
+      <div class="cmp">
+        <div class="cstep">
+          <span class="cl">People who clicked through</span>
+          <span class="cpair"><span class="was">28</span><span class="arw">&rarr;</span><span class="now">38</span></span>
+          <span class="cd up">10 more &middot; up 36&percnt;</span>
+        </div>
+        <div class="cstep lose">
+          <span class="cl">Times Summit showed up</span>
+          <span class="cpair"><span class="was">17,800</span><span class="arw">&rarr;</span><span class="now">11,400</span></span>
+          <span class="cd down">6,400 fewer &middot; down 36&percnt;</span>
+        </div>
+        <div class="cstep">
+          <span class="cl">How often people clicked</span>
+          <span class="cpair"><span class="was">0.2&percnt;</span><span class="arw">&rarr;</span><span class="now">0.3&percnt;</span></span>
+          <span class="cd up">slightly better</span>
+        </div>
+        <div class="cstep">
+          <span class="cl">Average spot in results</span>
+          <span class="cpair"><span class="was">28</span><span class="arw">&rarr;</span><span class="now">27</span></span>
+          <span class="cd up">still page 3</span>
+        </div>
+      </div>
+
+      <div class="meta">
+        <div><span class="k">Before</span><span class="v">June 1 &ndash; 30, 2026</span></div>
+        <div><span class="k">After</span><span class="v">Aug 24 &ndash; Sep 22, 2026</span></div>
+        <div><span class="k">Both periods</span><span class="v">30 days each</span></div>
+        <div><span class="k">Website</span><span class="v">summitplumbingpros.com</span></div>
+        <div><span class="k">Prepared by</span><span class="v">TAG Marketing</span></div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="toc" aria-label="Report sections">
+    <div class="toc-in">
+      <a href="#short">The short version</a>
+      <a href="#numbers">What the numbers say</a>
+      <a href="#better-worse">Better and worse</a>
+      <a href="#main">The main problem</a>
+      <a href="#fix">What to fix first</a>
+      <a href="#careful">What we cannot say yet</a>
+      <a href="#detail">The detail</a>
+    </div>
+  </nav>
+</header>
+
+<div class="wrap">
+
+  <!-- ============ short version ============ -->
+  <section id="short">
+    <div class="sec-head">
+      <span class="eyebrow">Start here</span>
+      <span class="rule"></span>
+      <h2>The short version</h2>
+    </div>
+
+    <div class="stack">
+      <div class="callout tintbg">
+        <ol class="steps">
+          <li><strong>More people clicked through to the website from Google.</strong> 28 in June,
+          38 in September. That is a real improvement.</li>
+          <li><strong>Summit showed up in Google far less often.</strong> Most of that is fine. Those
+          were searches where Summit was sitting on page 4 or 5, where nobody ever clicks.</li>
+          <li><strong>But a few important searches got worse.</strong> "plumber near me" and
+          "emergency plumber tempe" both slipped, and three local searches disappeared completely.</li>
+          <li><strong>The home page slipped too</strong>, and that is the page that brings in about two
+          thirds of all clicks.</li>
+          <li><strong>The biggest issue is not on this page at all.</strong> Almost half of Summit's
+          clicks come from people typing the company name. People searching for a plumber, who do not
+          know Summit yet, mostly are not finding it.</li>
+        </ol>
+      </div>
+
+      <div class="two">
+        <div class="callout">
+          <h3>Why the website was rebuilt in the middle of this</h3>
+          <p>The new site went live on <strong>September 3</strong>, right in the middle of the "after"
+          period. 86 new pages went live the day before that.</p>
+          <p>That means September is a <strong>transition month</strong>, not a final score. A lot of
+          the movement in this report is Google re-sorting a site that changed a great deal, all at once.</p>
+        </div>
+        <div class="callout">
+          <h3>A quick note on what these words mean</h3>
+          <p><strong>Showed up</strong> means Summit appeared somewhere in Google's results, even on
+          page 5 where nobody looks.</p>
+          <p><strong>Clicked through</strong> means somebody actually chose Summit and visited the site.</p>
+          <p><strong>Average spot</strong> is where Summit typically sits. Spot 27 means page 3.
+          Roughly 9 in 10 people never go past page 1.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ numbers ============ -->
+  <section id="numbers">
+    <div class="sec-head">
+      <span class="eyebrow">Section 01</span>
+      <span class="rule"></span>
+      <h2>What the numbers say</h2>
+      <p class="lede">Two matching 30-day periods, measured by Google itself.</p>
+    </div>
+
+    <div class="scroller">
+      <table>
+        <caption>Source: Google Search Console. Both periods are 30 days, so they compare fairly.</caption>
+        <thead><tr><th>What we measured</th><th class="n">June</th><th class="n">September</th><th>What it means</th></tr></thead>
+        <tbody>
+          <tr><td class="name">People who clicked through</td><td class="n">28</td><td class="n okc">38</td>
+            <td>10 more visits from Google. <span class="chip good"><span class="dot"></span>Good</span></td></tr>
+          <tr><td class="name">Times Summit showed up</td><td class="n">17,800</td><td class="n bad">11,400</td>
+            <td>Seen less often, but mostly in places nobody clicks. <span class="chip warn"><span class="dot"></span>Mixed</span></td></tr>
+          <tr><td class="name">How often people clicked</td><td class="n">0.2&percnt;</td><td class="n okc">0.3&percnt;</td>
+            <td>When Summit does show up, slightly more people choose it. <span class="chip good"><span class="dot"></span>Good</span></td></tr>
+          <tr><td class="name">Average spot in results</td><td class="n">28</td><td class="n okc">27</td>
+            <td>A little better, but still page 3. <span class="chip warn"><span class="dot"></span>Long way to go</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout" style="margin-top:18px">
+      <h3>Fewer people seeing us sounds bad. Usually it is not.</h3>
+      <p>Think of it like a phone book that listed Summit on page 40. Being removed from page 40 costs
+      nothing, because nobody was turning to page 40.</p>
+      <p>That is most of what happened. Pages that were sitting at spot 40 to 50 moved up into the
+      twenties, and shed all the pointless listings on the way. Queen Creek went from spot 49 to 26.
+      San Tan Valley went from 43 to 25. The Mesa sewer page went from 40 to <strong>18</strong>, the
+      biggest jump on the whole site.</p>
+    </div>
+  </section>
+
+  <!-- ============ better / worse ============ -->
+  <section id="better-worse">
+    <div class="sec-head">
+      <span class="eyebrow">Section 02</span>
+      <span class="rule"></span>
+      <h2>What got better, what got worse</h2>
+      <p class="lede">Lower spot numbers are better. Spot 5 is near the top of page 1. Spot 40 is page 4.</p>
+    </div>
+
+    <div class="winlose">
+      <div class="wl up">
+        <h3>Moved up</h3>
+        <ul>
+          <li>Mesa sewer line repair &nbsp;<strong>40 &rarr; 18</strong></li>
+          <li>Queen Creek plumbing &nbsp;<strong>49 &rarr; 26</strong></li>
+          <li>San Tan Valley plumbing &nbsp;<strong>43 &rarr; 25</strong></li>
+          <li>Slab leaks &nbsp;<strong>47 &rarr; 30</strong></li>
+          <li>Phoenix pipe lining &nbsp;<strong>42 &rarr; 25</strong></li>
+          <li>Main plumbing page &nbsp;<strong>24 &rarr; 9</strong></li>
+          <li>Fountain Hills drain cleaning &nbsp;<strong>new, at spot 9</strong></li>
+        </ul>
+      </div>
+      <div class="wl down">
+        <h3>Moved down</h3>
+        <ul>
+          <li><strong>The home page</strong> &nbsp;17 &rarr; 24, and 3 fewer clicks</li>
+          <li>"plumber near me" &nbsp;15 &rarr; 24</li>
+          <li>"emergency plumber tempe" &nbsp;21 &rarr; 33</li>
+          <li>"plumber tempe az" &nbsp;32 &rarr; 59</li>
+          <li>"drain cleaning mesa az" &nbsp;<strong>gone entirely</strong></li>
+          <li>"plumber gilbert az" &nbsp;<strong>gone entirely</strong></li>
+          <li>"licensed plumber in tempe az" &nbsp;<strong>gone entirely</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout alarm" style="margin-top:18px">
+      <h3>The home page slipping is the one that matters most</h3>
+      <p>It dropped from spot 17 to spot 24 and lost 3 clicks. That sounds small, but the home page
+      brings in <strong>about two thirds of every click Summit gets from Google</strong>. When it moves,
+      everything moves.</p>
+      <p>We are not touching the home page. It is off limits under the current agreement, so this is
+      flagged for Scott to decide on, not something we have changed.</p>
+    </div>
+  </section>
+
+  <!-- ============ main problem ============ -->
+  <section id="main">
+    <div class="sec-head">
+      <span class="eyebrow">Section 03</span>
+      <span class="rule"></span>
+      <h2>The main problem</h2>
+      <p class="lede">People who already know Summit can find it. People looking for a plumber cannot.</p>
+    </div>
+
+    <div class="stack">
+      <div class="callout alarm">
+        <h3>Almost half of all clicks come from people typing the company name</h3>
+        <p><strong>55 out of 127 clicks</strong> came from searches containing the word "Summit".
+        Those people already knew the business. They found it easily, at around spot 8.</p>
+        <p>Take those away and Summit earned roughly <strong>72 clicks from 46,000 appearances</strong>
+        in front of people who did not know the name. That is the real gap, and it is what any growth
+        work has to close.</p>
+      </div>
+
+      <div class="two">
+        <div class="callout">
+          <h3>Half the visibility earns nothing</h3>
+          <p>17 pages account for <strong>half of everywhere Summit appears in Google</strong>, and
+          between them they produced <strong>2 clicks</strong>.</p>
+          <p>10 of those went live on September 2 and are simply too new to judge. Give them until
+          November. The other 7 have been live for months and are the real concern.</p>
+        </div>
+        <div class="callout">
+          <h3>Some searches we can never win</h3>
+          <p>There are other towns in America called Summit, and Google is matching them to us. Real
+          searches Summit is appearing for include <strong>"water heater replacement mount summit"</strong>
+          (that is Indiana) and <strong>"hall summit"</strong> (Louisiana).</p>
+          <p>We also appear for "costa mesa sewer line repair", which is California matching on the word
+          Mesa. None of these can ever turn into a customer.</p>
+        </div>
+      </div>
+
+      <div class="callout alarm">
+        <h3>One page is answering the wrong question</h3>
+        <p>The single biggest search Summit appears for, outside of the company name, is
+        <strong>"emergency plumber tempe"</strong>. It appeared 2,495 times and got <strong>zero
+        clicks</strong>, sitting at spot 28.</p>
+        <p>The page Google is sending those people to is the general Tempe plumbing page, not an
+        emergency page. Summit has emergency pages. They are not the ones showing up.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ fix first ============ -->
+  <section id="fix">
+    <div class="sec-head">
+      <span class="eyebrow">Section 04</span>
+      <span class="rule"></span>
+      <h2>What to fix first</h2>
+      <p class="lede">In order. The first two are the cheapest wins available.</p>
+    </div>
+
+    <div class="two">
+      <div class="callout tintbg">
+        <h3>Quick wins</h3>
+        <ol class="steps">
+          <li><strong>Two pages are already close to page 1 and getting nothing.</strong> The Tempe water
+          softener page sits between spot 9 and 14 for its main searches and has never been clicked.
+          Slab leaks is the same. Something is sitting above them taking the click, most likely the map
+          results. Worth an hour to find out.</li>
+          <li><strong>Give "emergency plumber tempe" a proper page.</strong> 2,495 appearances, zero
+          clicks, currently answered by the wrong page.</li>
+          <li><strong>Work out why the home page slipped</strong> and report to Scott.</li>
+        </ol>
+      </div>
+      <div class="callout plain">
+        <h3>Bigger jobs</h3>
+        <ol class="steps">
+          <li><strong>Decide about the 5 pages stuck on page 3 to 6.</strong> Nothing we write in a title
+          will pull a page from spot 42 to page 1. Either commit to properly ranking them or stop
+          counting them as opportunity.</li>
+          <li><strong>Check what counts as a lead in Analytics.</strong> Summit's phone numbers rotate,
+          so call tracking may be missing calls. Worth confirming before anyone reads anything into the
+          lead numbers.</li>
+          <li><strong>Take a before picture every time from now on.</strong> We cannot prove what the
+          September speed work achieved because no measurement was taken beforehand. That stops now.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ careful ============ -->
+  <section id="careful">
+    <div class="sec-head">
+      <span class="eyebrow">Section 05</span>
+      <span class="rule"></span>
+      <h2>What we cannot say yet</h2>
+      <p class="lede">Three honest limits. Worth reading before anyone draws a conclusion.</p>
+    </div>
+
+    <div class="stack">
+      <div class="callout alarm">
+        <h3>A week of September traffic went to the wrong account</h3>
+        <p>The new website was built from a copy of Summit's Utah site, and the Google Analytics
+        connection came with it. From <strong>the afternoon of September 3 until September 10</strong>,
+        Arizona's visitor data was recorded in the <strong>Utah</strong> account instead.</p>
+        <p>The traffic is not lost, it is just filed in the wrong drawer. Scott reconnected it properly
+        on September 12. <strong>But every September visitor number is about a week short</strong>, so
+        no drop in visits should be treated as a real decline until that week is recovered.</p>
+      </div>
+
+      <div class="two">
+        <div class="callout">
+          <h3>We cannot yet prove the speed work helped</h3>
+          <p>Images and scripts were optimised on September 16. No speed measurement was taken before
+          that, and Google does not publish real visitor speed data for this site because it does not get
+          enough traffic yet.</p>
+          <p>So the speed work may well have helped. We simply cannot show it. From the next change
+          onward we will take a before reading every time.</p>
+        </div>
+        <div class="callout">
+          <h3>September is a transition month</h3>
+          <p>A brand new website, 86 new pages, and an analytics fault all landed inside the "after"
+          period. That is far too much at once to call September a pass or a fail.</p>
+          <p>The fair read is: the direction is encouraging, the foundations moved, and the next clean
+          comparison is <strong>October</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ detail ============ -->
+  <section id="detail">
+    <div class="sec-head">
+      <span class="eyebrow">Section 06</span>
+      <span class="rule"></span>
+      <h2>The detail</h2>
+      <p class="lede">The full figures and the screenshots behind every number above. Skip this unless
+      you want to check the working.</p>
+    </div>
+
+    <div class="stack">
+      <div class="sub-head"><span class="line"></span><h3>The full picture, June 1 to September 23</h3></div>
+      <div class="tiles">
+        <div class="tile"><span class="label">Times shown in Google</span><span class="big">63,300</span><span class="prior">115 days</span></div>
+        <div class="tile alarm"><span class="label">Clicks</span><span class="big">148</span><span class="prior">about 1 a day</span></div>
+        <div class="tile alarm"><span class="label">Click rate</span><span class="big">0.23&percnt;</span><span class="prior">normal for page 3</span></div>
+        <div class="tile alarm"><span class="label">Average spot</span><span class="big">28.5</span><span class="prior">page 3</span></div>
+      </div>
+
+      <figure class="shot">
+        <div class="frame tall"><img src="shots/gsc-performance-jun-sep.webp" alt="Google Search Console performance report showing 148 clicks, 63.3 thousand impressions, 0.2 percent click-through rate and average position 28.5 across 203 pages."></div>
+        <figcaption>
+          <span>Google's own report for the full window.</span>
+          <span class="src">Google Search Console &middot; Performance &middot; from June 1 2026</span>
+        </figcaption>
+      </figure>
+
+      <div class="sub-head"><span class="line"></span><h3>The 7 established pages that earn nothing</h3></div>
+      <div class="scroller">
+        <table>
+          <caption>Lower spot numbers are better. "Best search" is the closest any of that page's
+          searches gets to page 1.</caption>
+          <thead><tr><th>Page</th><th class="n">Times shown</th><th class="n">Average spot</th><th class="n">Best search</th><th>Why it earns nothing</th></tr></thead>
+          <tbody>
+            <tr><td class="url">Tempe water softeners</td><td class="n">602</td><td class="n">23</td><td class="n okc">9</td><td>Close to page 1 already. Something is taking the click.</td></tr>
+            <tr><td class="url">Slab leaks</td><td class="n">693</td><td class="n">32</td><td class="n okc">10</td><td>Same. Worth checking first.</td></tr>
+            <tr><td class="url">Tempe general plumbing</td><td class="n">11,900</td><td class="n bad">29</td><td class="n">18</td><td>Wrong page for what people are searching.</td></tr>
+            <tr><td class="url">San Tan Valley plumbing</td><td class="n">482</td><td class="n bad">28</td><td class="n">27</td><td>Too far down to be clicked.</td></tr>
+            <tr><td class="url">Water heaters</td><td class="n">807</td><td class="n bad">33</td><td class="n">14</td><td>Too far down, plus wrong-state searches.</td></tr>
+            <tr><td class="url">Sewer line repair</td><td class="n">646</td><td class="n bad">42</td><td class="n">17</td><td>Too far down, plus wrong-state searches.</td></tr>
+            <tr><td class="url">Queen Creek plumbing</td><td class="n">928</td><td class="n bad">43</td><td class="n">40</td><td>Too far down to be clicked.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-head"><span class="line"></span><h3>Visitors to the website</h3></div>
+      <div class="tiles">
+        <div class="tile"><span class="label">Total visits</span><span class="big">1,532</span><span class="prior">all sources, 115 days</span></div>
+        <div class="tile"><span class="label">From Google, free</span><span class="big">503</span><span class="prior">33&percnt; of all visits</span></div>
+        <div class="tile alarm"><span class="label">Average time on site</span><span class="big">27 s</span><span class="prior">per visit</span></div>
+        <div class="tile alarm"><span class="label">Leads recorded</span><span class="big">25</span><span class="prior">needs verifying</span></div>
+      </div>
+
+      <figure class="shot">
+        <div class="frame"><img src="shots/ga4-landing-jun-sep.png" alt="Google Analytics landing page report for June 1 to September 23 2026 showing 1,531 sessions, 1,180 active users, 27 second average engagement time and 25 key events."></div>
+        <figcaption>
+          <span>The Arizona Analytics account, June 1 to September 23. Remember a week of September is
+          missing from this, as explained above.</span>
+          <span class="src">Google Analytics property 459518259 &middot; Arizona</span>
+        </figcaption>
+      </figure>
+
+      <div class="callout">
+        <h3>Free Google visits, June against September</h3>
+        <p><strong>126 visits in June, 95 in September</strong>, which looks like a 25 percent drop.
+        It almost certainly is not, because a week of September is sitting in the Utah account.
+        Do not report this as a decline until that week is recovered.</p>
+      </div>
+
+      <div class="sub-head"><span class="line"></span><h3>Website speed</h3></div>
+      <div class="two">
+        <div class="callout alarm">
+          <h3>Google has no real speed data for this site</h3>
+          <p>Google only publishes real-visitor speed scores once a site gets enough traffic. Summit is
+          below that line, so both Search Console and PageSpeed report <strong>"No data"</strong>.</p>
+          <p>This means speed cannot help or hurt Summit's ranking right now, because Google has no
+          speed data to judge it on. It still matters for visitors, which is why the test below is worth
+          looking at.</p>
+        </div>
+        <div class="callout">
+          <h3>The test result, home page on a phone</h3>
+          <p>Score <strong>38 out of 100</strong>. The main content takes <strong>5 seconds</strong>
+          to appear, where under 2.5 is considered good.</p>
+          <p>The biggest cause is <strong>1,225 KB of unused code</strong>, not images. Images are only
+          175 KB of the possible saving, so more image compression will not move this much. The scripts
+          are the work.</p>
+        </div>
+      </div>
+
+      <div class="two">
+        <figure class="shot">
+          <div class="frame"><img src="shots/gsc-experience-nodata.png" alt="Search Console Experience section showing Core Web Vitals as No data for both Mobile and Desktop."></div>
+          <figcaption>
+            <span>Search Console: speed data reads <strong>No data</strong> for both mobile and desktop.</span>
+            <span class="src">Google Search Console &middot; Experience &middot; 2026-09-23</span>
+          </figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="frame tall"><img src="shots/psi-homepage-mobile.webp" alt="PageSpeed Insights report for the Summit homepage on mobile showing No Data for real users and a performance score of 38."></div>
+          <figcaption>
+            <span>PageSpeed test of the home page. The real-visitor panel at the top also reads
+            <strong>No Data</strong>.</span>
+            <span class="src">pagespeed.web.dev &middot; 2026-09-23</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="callout plain">
+        <h3>Where these numbers come from</h3>
+        <p>Google Search Console, read directly from Google's own interface, for the two 30-day windows
+        and for the full June 1 to September 23 period. Google Analytics property 459518259, the Arizona
+        account, read through the Analytics API. One PageSpeed test of the home page on September 23.</p>
+        <p>Nothing here is estimated or guessed. Every figure traces back to one of the screenshots on
+        this page or to a direct reading from Google.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="foot-in">
+    <span><strong>Summit Plumbing Pros</strong> &middot; Mesa, Arizona &middot; ROC 338366</span>
+    <span>Google Search Console &middot; Google Analytics &middot; PageSpeed Insights</span>
+    <span>Prepared by <strong>TAG Marketing</strong> &middot; 23 September 2026</span>
+  </div>
+</footer>

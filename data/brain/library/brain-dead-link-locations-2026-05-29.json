@@ -1,0 +1,14 @@
+{
+ "name": "Dead Link Locations 2026-05-29",
+ "cat": "brain-trackers",
+ "group": "",
+ "body": "> Report · 2026-05-29\n\n# Summary\nFollow-up to [Broken Link Report 2026-05-29](lib:brain-broken-link-report-2026-05-29), produced by `link_locator.py`. For each dead or malformed link it records the page, the href, the link text, the parent element and CSS class, the nearest heading and the structural section (main, nav, footer). This tells Kim exactly which Elementor widget to edit. About 53 entries: Summit 26, Pipeliners 18, Alphalete 9.\n\n# Sections\n- **Summit:** the 5 Water Softener \"Areas We Serve\" cards (`ssp-area-card`) on /water-softeners/ pointing to missing city pages; links on /old-cracked-and-corroded-pipes/ including the malformed `http://Summit Plumbing` href in the \"Protect Your Home from Costly Water Damage\" section.\n- **Alphalete:** homepage promo box \"Trenchless Pipelining Learn more\" (under \"Trenchless Solutions In Colorado\") to /services/residential-pipelining; /services/ cards and \"Learn More About CIPP\" button to /pipelining and /inspection.\n- **Pipeliners-video:** embedded mp4 files that no longer exist on /scottsdale/, /leak-detection-services-in-phoenix-arizona/ and /when-is-pipe-descaling-necessary/.\n- **Pipeliners-blog:** in-content links to dead posts (/is-pipelining-worth-it/, the 2024 repair-guide slug) and /reviews from /buckeye/ and other pages.\n- **Summit-phone, Alphalete-phone, Pipeliners-phone:** call buttons and text whose href is a bare or malformed phone number (`http://(480) ...`, `http://tel(480) ...`, `http://480-680-9480`) instead of a proper `tel:` link, for example on Pipeliners /litchfield-park/, /queen-creek/ and /free-sewer-inspection/.\n\n# Fix guidance implied by the report\n- Point area cards and buttons at live slugs or build the missing pages.\n- Replace every phone href with `tel:+1...` format.\n- Remove or replace dead video embeds and links to deleted posts.\n- Client sites are read-only for Claude, so these are manual Elementor fixes for Kim.\n\n# Related\n- [Broken Link Report 2026-05-29](lib:brain-broken-link-report-2026-05-29), [Trackers and Logs Index](lib:brain-trackers-and-logs-index), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub), [Pipeliners (Hub)](lib:brain-pipeliners-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "_Shared (All Clients)/Multi-Client Reports/dead_link_locations.md",
+ "date": "2026-05-29",
+ "createdAt": 1792613280967,
+ "updatedAt": 1792613280967,
+ "rev": "7b537abec21e"
+}

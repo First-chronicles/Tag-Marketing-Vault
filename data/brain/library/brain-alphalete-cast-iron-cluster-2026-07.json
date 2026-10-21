@@ -1,0 +1,14 @@
+{
+ "name": "Alphalete - Cast Iron Cluster 2026-07",
+ "cat": "brain-alphalete",
+ "group": "Blogs",
+ "body": "> Blog · Alphalete · 2026-07-13\n\nAlso: `Blogs\\alphalete-cast-iron-supporting-posts.md`\n\n# Summary\nA pillar plus 4 supporting posts on cast iron sewer pipe for older Colorado Springs homes. The Jul 21 blog tracker lists all five as published Jul 13 2026 and indexed. The drafts were written with root-level slugs (the site's structure at the time); blogs moved under `/blog/` on Jul 17.\n\n# Posts\n| Role | Title | Focus keyword | Draft slug |\n|---|---|---|---|\n| Pillar | Cast Iron Sewer Pipe Problems in Colorado Springs: Signs, Causes, and Your Repair Options | cast iron sewer pipe problems | /cast-iron-sewer-pipe-problems-colorado-springs/ |\n| 1 | Signs Your Cast Iron Sewer Pipes Are Failing | signs of cast iron pipe failure | /signs-cast-iron-pipes-failing-colorado-springs/ |\n| 2 | How Long Do Cast Iron Sewer Pipes Last? | how long do cast iron sewer pipes last | /how-long-do-cast-iron-sewer-pipes-last/ |\n| 3 | Can Cast Iron Pipes Be Relined? CIPP for Cast Iron Explained | can cast iron pipes be relined | /can-cast-iron-pipes-be-relined/ |\n| 4 | Cast Iron vs. PVC Sewer Pipe: What Older Colorado Springs Homes Should Know | cast iron vs pvc sewer pipe | /cast-iron-vs-pvc-sewer-pipe/ |\n\n# Content approach\n- Answer-first openings (homes built before the early 1980s likely have cast iron that corrodes from the inside).\n- Intent: informational plus homeowner decision (MOFU). Schema per post: Article + FAQPage + BreadcrumbList, with JSON-LD included in the drafts.\n- External sources: NASSCO, ATSDR/CDC, Colorado Geological Survey, Colorado Planning for Hazards, Colorado Springs Utilities. Lifespan ranges stated as generally cited industry figures, not hyperlinked.\n- Feature images: branded 1400x730 header per post; the lifespan and vs-PVC posts needed real cast iron photos.\n- Held for the Agency owner: no cost figures and no free-inspection language. The 20-year warranty / 50+ year liner figures were noted as appearing on the client's own pages but not used.\n\n# Later notes\n- The Sep 11 crawl found `/signs-cast-iron-pipes-failing-colorado-springs/` returning 404 at the old root path and the cast-iron-vs-PVC old root URL losing impressions after the move (expected 301s).\n- `can-cast-iron-pipes-be-relined` was due for review on Oct 21 per the handoff.\n\n# Related\n- [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub), [Alphalete - Blog Index](lib:brain-alphalete-blog-index), [SEO Blog Writing Standards](lib:brain-seo-blog-writing-standards)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Alphalete Trenchless Pipelining/Blogs/alphalete-cast-iron-sewer-pipe-pillar.md",
+ "date": "2026-07-13",
+ "createdAt": 1792613112506,
+ "updatedAt": 1792613112506,
+ "rev": "4d4485b5a85e"
+}

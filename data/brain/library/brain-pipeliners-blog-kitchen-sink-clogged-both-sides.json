@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Blog - Kitchen Sink Clogged Both Sides",
+ "cat": "brain-pipeliners",
+ "group": "Blogs",
+ "body": "> Blog · Pipeliners · 2026-10-02\n\n# Summary\nSources: `blog-drafts\\kitchen-sink-clogged-both-sides.md` (draft v2, with a v3 trap-wording fix) and the build folder `blog-kitchen-sink-clogged\\` (Elementor build script, `elementor_data.json`, card, FAQ JSON-LD, post content, `create_draft.php`, `publish.php`).\n\n# Key facts\n- **Focus keyword:** kitchen sink clogged on both sides (880/mo, KD 19, CPC $18.90; Search Atlas saved project 5053186). Not chased: \"clogged kitchen sink\" 6,600 (KD 71), \"slow draining sink\" (KD 66).\n- **Title:** Kitchen Sink Clogged on Both Sides? Causes and Fixes. **H1:** Kitchen Sink Clogged on Both Sides? What It Means and How to Fix It. Slug /kitchen-sink-clogged-both-sides/ (was free).\n- Low cannibalization risk; an old drain-care draft already 301s to /sewer-line-maintenance/.\n- Schema: BlogPosting from the article schema mu-plugin, FAQPage from `_pipeliners_faq_jsonld` (5 FAQs), title and meta via the post-seo-meta mu-plugin.\n- **Status:** approved Oct 2 and built as Elementor draft post 18219. `publish.php` publishes 18219 with Article schema, the SEO meta entry and 2 inbound links; the `fix-backups\\2026-10-02_kitchen-sink-publish\\` set (backups of posts 18123 and 18157) indicates it was published around Oct 2. Confirm live.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Blog Index](lib:brain-pipeliners-blog-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/blog-drafts/kitchen-sink-clogged-both-sides.md",
+ "date": "2026-10-02",
+ "createdAt": 1792613346125,
+ "updatedAt": 1792613346125,
+ "rev": "9aac5aad00f7"
+}

@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Early Performance Check 2026-10-05",
+ "cat": "brain-summit",
+ "group": "Reports",
+ "body": "> Report · Summit Az · 2026-10-05\n\n# Summary\nFirst read on the pages updated Sep 25 to Oct 3, from the GSC web UI per page (data through Oct 4). Sep 25/26 rewrites compared Sep 11 to 24 vs Sep 27 to Oct 4 per day; site-wide impressions per day fell 10%, so a page only counts as \"up\" if it beat that. Data files: `Summit-AZ-Early-Check-Page-Metrics-2026-10-05.csv` (33 page rows, before and after) and `Summit-AZ-Early-Check-GSC-Raw-2026-10-05.json`.\n\n# Bottom line\n- Oct 1 to 3 changes: too early (2 to 3 days of data).\n- Sep 25/26 rewrites: 5 early positive, 3 no meaningful change, 1 drop, 10 not judgeable (7 not yet indexed).\n- Clicks still 0 or 1 per page; nothing shows in leads yet.\n\n# Positive movement\n- /sewer-line-repair-mesa/: impressions per day 5.7 to 12.8 (+124%); new \"sewer line repair\" at 9.2 and \"sewer line replacement\" at 8.0.\n- /water-leak-detection-queen-creek/: target terms gained 7 to 12 positions.\n- /tankless-water-heater-installation-queen-creek/: +50% impressions; \"tankless water heater repair queen creek az\" 14.3 to 7.7.\n- /plumbing-fixture-installation-in-queen-creek/: first impressions (7 at 10.6).\n- New /blog/water-softener-maintenance-checklist/: 16 impressions, target term at 6.4.\n\n# No change or negative\n- Leak detection Apache Junction (slab leak term 10.4 to 8.0, rest flat), pipe lining Mesa (own terms flat; page average pulled down by a sewer query).\n- Leak detection STV impressions per day -61% but target positions held; /garbage-disposals/ lost only out-of-area impressions; water pressure Scottsdale small and leaning negative.\n\n# Not indexed (Oct 5)\n- Water pressure, garbage disposal and water heater Phoenix, faucet and toilet, shower and bath (discovered, never crawled); drain cleaning Scottsdale and Queen Creek (last crawled July, before the rewrite). Not crawled since the rewrite means not yet evaluated, not failed. This led to [Summit AZ - 7 Page Boost 2026-10-07](lib:brain-summit-az-7-page-boost-2026-10-07).\n- New snowbird post: 15 impressions at 8.7 in its first days.\n\n# Related\n- [Summit AZ - City Pages Index](lib:brain-summit-az-city-pages-index), [Summit AZ - Case Study Scrapbook](lib:brain-summit-az-case-study-scrapbook), [Summit AZ - Striking Distance Keywords 2026-10-03](lib:brain-summit-az-striking-distance-keywords-2026-10-03), [Google Search Console](lib:brain-google-search-console), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/Summit-AZ-Early-Performance-Check-2026-10-05.md",
+ "date": "2026-10-05",
+ "createdAt": 1792613297124,
+ "updatedAt": 1792613297125,
+ "rev": "c80114ca9747"
+}

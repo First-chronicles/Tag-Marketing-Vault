@@ -1,0 +1,465 @@
+<title>Summit AZ SEO Baseline</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Montserrat:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#EDF2F6; --surface:#FFFFFF; --panel:#F4F7FA; --line:#DCE4EB; --line-soft:#E8EEF3;
+  --ink:#14222E; --ink-2:#4A5B69; --ink-3:#7A8A97;
+  --navy:#042B4B; --navy-2:#0D2137; --on-navy:#FFFFFF; --on-navy-2:#B7CCDD;
+  --blue:#0B97D4; --blue-wash:rgba(11,151,212,.10); --blue-zone:rgba(11,151,212,.08);
+  --crit:#C23A2F; --crit-bg:#FBEAE8; --warn:#A86E00; --warn-bg:#FCF1DC; --good:#1E7F55; --good-bg:#E4F4EC;
+  --low:#5E7080; --low-bg:#EAEFF3;
+  --shadow:0 1px 2px rgba(4,43,75,.06),0 4px 16px rgba(4,43,75,.06);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#08131C; --surface:#0F1E2A; --panel:#132533; --line:#223747; --line-soft:#1A2D3B;
+    --ink:#E3ECF3; --ink-2:#A9BBC9; --ink-3:#7D91A1;
+    --navy:#06243D; --navy-2:#0A1A28; --on-navy:#F2F7FB; --on-navy-2:#9FB9CE;
+    --blue:#3DB3E6; --blue-wash:rgba(61,179,230,.14); --blue-zone:rgba(61,179,230,.09);
+    --crit:#F07A6F; --crit-bg:rgba(240,122,111,.14); --warn:#E5B04A; --warn-bg:rgba(229,176,74,.14); --good:#5CC795; --good-bg:rgba(92,199,149,.14);
+    --low:#9DB0BF; --low-bg:rgba(157,176,191,.14);
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.25);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#08131C; --surface:#0F1E2A; --panel:#132533; --line:#223747; --line-soft:#1A2D3B;
+  --ink:#E3ECF3; --ink-2:#A9BBC9; --ink-3:#7D91A1;
+  --navy:#06243D; --navy-2:#0A1A28; --on-navy:#F2F7FB; --on-navy-2:#9FB9CE;
+  --blue:#3DB3E6; --blue-wash:rgba(61,179,230,.14); --blue-zone:rgba(61,179,230,.09);
+  --crit:#F07A6F; --crit-bg:rgba(240,122,111,.14); --warn:#E5B04A; --warn-bg:rgba(229,176,74,.14); --good:#5CC795; --good-bg:rgba(92,199,149,.14);
+  --low:#9DB0BF; --low-bg:rgba(157,176,191,.14);
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font:400 14px/1.55 Montserrat,"Segoe UI",system-ui,sans-serif;margin:0}
+h1,h2,h3{font-family:Poppins,"Segoe UI",system-ui,sans-serif;text-wrap:balance;margin:0}
+.mono{font-family:"IBM Plex Mono",Consolas,monospace}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+
+/* header band */
+.band{background:linear-gradient(135deg,#1B72B8 0%,var(--navy) 55%,var(--navy-2) 100%);color:var(--on-navy);padding:28px 0 72px}
+.band .top{display:flex;flex-wrap:wrap;gap:12px 32px;align-items:flex-end;justify-content:space-between}
+.eyebrow{font:500 12px/1 Montserrat,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#7FD0F2}
+.band h1{font-size:30px;font-weight:600;letter-spacing:-.02em;margin-top:8px}
+.band .meta{display:flex;flex-wrap:wrap;gap:6px 18px;color:var(--on-navy-2);font-size:13px}
+.band .meta b{color:var(--on-navy);font-weight:600}
+.readonly{display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:4px 10px;font-size:12px;color:var(--on-navy)}
+.readonly::before{content:"";width:7px;height:7px;border-radius:50%;background:#5CC795}
+
+/* KPI strip overlaps the band */
+.kpis{display:grid;grid-template-columns:1.35fr repeat(5,1fr);gap:1px;background:var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);margin-top:-48px}
+.kpi{background:var(--surface);padding:18px 18px 16px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.kpi .lbl{font-size:12px;color:var(--ink-2);font-weight:500}
+.kpi .val{font:600 30px/1.05 Poppins,sans-serif;letter-spacing:-.02em}
+.kpi.hero .val{font-size:52px}
+.kpi .sub{font-size:12px;color:var(--ink-3)}
+.delta{font-size:12px;font-weight:600;display:inline-flex;gap:4px;align-items:center}
+.delta.down{color:var(--crit)} .delta.flat{color:var(--ink-2)}
+.meter{height:6px;border-radius:3px;background:var(--warn-bg);overflow:hidden}
+.meter i{display:block;height:100%;background:var(--warn);border-radius:3px}
+
+main{display:flex;flex-direction:column;gap:28px;padding:28px 0 56px}
+.grid2{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:28px;align-items:start}
+.panel{background:var(--surface);border:1px solid var(--line-soft);border-radius:12px;box-shadow:var(--shadow)}
+.ph{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between;padding:18px 20px 14px;border-bottom:1px solid var(--line-soft)}
+.ph h2{font-size:17px;font-weight:600}
+.ph p{margin:2px 0 0;color:var(--ink-2);font-size:13px}
+.pb{padding:16px 20px 20px}
+
+/* fix list */
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{font:600 12px/1 Montserrat,sans-serif;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:999px;padding:7px 12px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--surface)}
+.chip:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.fixes{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.fix{display:grid;grid-template-columns:4px 1fr;gap:0 14px;padding:14px 20px;border-bottom:1px solid var(--line-soft)}
+.fix:last-child{border-bottom:0}
+.fix .stripe{border-radius:2px;grid-row:1/4}
+.fix[data-sev="high"] .stripe{background:var(--crit)}
+.fix[data-sev="medium"] .stripe{background:var(--warn)}
+.fix[data-sev="low"] .stripe{background:var(--low)}
+.fix .row1{display:flex;gap:8px 10px;align-items:baseline;flex-wrap:wrap}
+.fix h3{font-size:14.5px;font-weight:600;letter-spacing:-.005em}
+.sev{font:600 10.5px/1 Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:4px 7px;border-radius:4px}
+.sev.high{background:var(--crit-bg);color:var(--crit)} .sev.medium{background:var(--warn-bg);color:var(--warn)} .sev.low{background:var(--low-bg);color:var(--low)}
+.fix .ev{color:var(--ink-2);margin:4px 0 0;font-size:13px}
+.fix .act{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;margin-top:8px;font-size:12.5px}
+.fix .act .do{color:var(--ink)}
+.fix .act .do b{font-weight:600}
+.done{font:600 10.5px/1 Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:4px 7px;border-radius:4px;background:var(--good-bg);color:var(--good)}
+.fix.is-done h3{color:var(--ink-2)}
+.fix.is-done .stripe{background:var(--good)}
+.fix .act .do.ok b{color:var(--good)}
+.who{font-size:11.5px;font-weight:600;color:var(--ink-2);border:1px dashed var(--line);border-radius:4px;padding:3px 7px;white-space:nowrap}
+code,.slug{font-family:"IBM Plex Mono",Consolas,monospace;font-size:12px;background:var(--panel);border-radius:4px;padding:1px 5px;color:var(--ink);overflow-wrap:anywhere}
+.fixcount{font-size:12px;color:var(--ink-3)}
+
+/* health */
+.checks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.check{display:grid;grid-template-columns:22px 1fr auto;gap:10px;align-items:center;padding:10px 20px;border-bottom:1px solid var(--line-soft)}
+.check:last-child{border-bottom:0}
+.tick{width:18px;height:18px;border-radius:50%;background:var(--good-bg);color:var(--good);display:grid;place-items:center;font-size:11px;font-weight:700}
+.tick.warn{background:var(--warn-bg);color:var(--warn)}
+.check .n{font:600 13px/1 "IBM Plex Mono",monospace;color:var(--ink-2);font-variant-numeric:tabular-nums}
+
+.side{display:flex;flex-direction:column;gap:28px}
+.callout{padding:16px 20px;display:flex;flex-direction:column;gap:8px}
+.callout h3{font-size:14.5px;font-weight:600;display:flex;gap:8px;align-items:center}
+.callout ul{margin:0;padding-left:18px;color:var(--ink-2);font-size:13px;display:flex;flex-direction:column;gap:4px}
+.lock{font:600 10.5px/1 Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;background:var(--navy);color:var(--on-navy);padding:4px 7px;border-radius:4px}
+
+/* charts */
+.charts{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px}
+.bars{display:flex;flex-direction:column;gap:9px;position:relative}
+.bar{display:grid;grid-template-columns:minmax(150px,38%) 1fr;gap:12px;align-items:center}
+.bar .pg{font-size:12px;overflow-wrap:anywhere;line-height:1.3;color:var(--ink)}
+.bar .pg span{display:block;color:var(--ink-3);font-size:11px}
+.track{position:relative;height:18px}
+.track .fill{position:absolute;left:0;top:0;height:18px;background:var(--blue);border-radius:0 4px 4px 0;min-width:2px}
+.track .v{position:absolute;top:0;line-height:18px;font:500 12px/18px "IBM Plex Mono",monospace;color:var(--ink);font-variant-numeric:tabular-nums;white-space:nowrap;padding-left:6px}
+.axisx{display:grid;grid-template-columns:minmax(150px,38%) 1fr;gap:12px;margin-top:6px}
+.axisx .ticks{position:relative;height:16px;font:400 11px/16px "IBM Plex Mono",monospace;color:var(--ink-3)}
+.axisx .ticks span{position:absolute;transform:translateX(-50%)}
+.axisx .ticks span:first-child{transform:none}
+.axisx .ticks span:last-child{transform:translateX(-100%)}
+.gridlines{position:absolute;inset:0 0 0 calc(38% + 12px);pointer-events:none}
+.gridlines i{position:absolute;top:0;bottom:0;width:1px;background:var(--line-soft)}
+
+.dots{display:flex;flex-direction:column;gap:0}
+.drow{display:grid;grid-template-columns:minmax(150px,40%) 1fr 44px;gap:12px;align-items:center;height:30px}
+.drow .q{font-size:12px;line-height:1.25;color:var(--ink)}
+.drow .imp{font:500 11.5px "IBM Plex Mono",monospace;color:var(--ink-3);text-align:right;font-variant-numeric:tabular-nums}
+.dtrack{position:relative;height:30px}
+.dtrack::before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:var(--line-soft)}
+.zone{position:absolute;top:0;bottom:0;left:0;background:var(--blue-zone);border-right:1px solid var(--blue)}
+.dot{position:absolute;top:50%;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 2px var(--surface);cursor:default}
+.dot::after{content:"";position:absolute;inset:-8px}
+.dhead{display:grid;grid-template-columns:minmax(150px,40%) 1fr 44px;gap:12px;font-size:11px;color:var(--ink-3);padding-bottom:6px;text-transform:uppercase;letter-spacing:.06em}
+.dhead .zlbl{position:relative;height:14px}
+.dhead .zlbl span{position:absolute;white-space:nowrap}
+.dticks{display:grid;grid-template-columns:minmax(150px,40%) 1fr 44px;gap:12px;margin-top:4px}
+.dticks .t{position:relative;height:16px;font:400 11px/16px "IBM Plex Mono",monospace;color:var(--ink-3)}
+.dticks .t span{position:absolute;transform:translateX(-50%)}
+.note{font-size:12px;color:var(--ink-3);margin:12px 0 0}
+
+/* audit table */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{text-align:left;padding:10px 20px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+th{font:600 11px/1.2 Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+td.num{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+td .strike{color:var(--ink-3);text-decoration:line-through}
+tr:last-child td{border-bottom:0}
+
+.foot{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;color:var(--ink-3);font-size:12px;border-top:1px solid var(--line);padding-top:16px}
+.remeasure{font:600 13px Poppins,sans-serif;color:var(--ink)}
+
+#tip{position:fixed;z-index:10;pointer-events:none;background:var(--ink);color:var(--surface);font-size:12px;line-height:1.4;padding:7px 10px;border-radius:6px;max-width:260px;box-shadow:var(--shadow)}
+
+@media (max-width:1020px){
+  .kpis{grid-template-columns:repeat(3,1fr)}
+  .kpi.hero{grid-column:span 3}
+  .grid2,.charts{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .kpi.hero{grid-column:span 2}
+  .bar,.axisx{grid-template-columns:120px 1fr}
+  .gridlines{left:132px}
+  .drow,.dhead,.dticks{grid-template-columns:120px 1fr 36px}
+  .fix{padding:14px 16px}
+}
+@media (prefers-reduced-motion:no-preference){ .chip{transition:background .15s,color .15s} }
+</style>
+
+<header class="band">
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <div class="eyebrow">Summit Plumbing Pros &middot; Arizona</div>
+        <h1>SEO Audit &amp; Baseline</h1>
+      </div>
+      <div class="meta">
+        <span>Site <b class="mono">summitplumbingpros.com</b></span>
+        <span>Captured <b>Sep 10, 2026</b></span>
+        <span>GSC window <b>Aug 12 to Sep 8</b> vs prior 28 days (US)</span>
+        <span class="readonly">High, medium and 3 low fixes applied Sep 10 to 11</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <section class="kpis" aria-label="Baseline numbers">
+    <div class="kpi hero">
+      <span class="lbl">Organic clicks, last 28 days</span>
+      <span class="val">37</span>
+      <span class="delta flat">&minus;1 vs 38 prior</span>
+      <span class="sub">Every click we can trace came from a brand search</span>
+    </div>
+    <div class="kpi">
+      <span class="lbl">Impressions</span>
+      <span class="val">10,011</span>
+      <span class="delta down">&darr; 13% vs 11,571</span>
+    </div>
+    <div class="kpi">
+      <span class="lbl">Avg position</span>
+      <span class="val">23.1</span>
+      <span class="delta down">&darr; from 21.2</span>
+    </div>
+    <div class="kpi">
+      <span class="lbl">Domain Authority</span>
+      <span class="val">6</span>
+      <span class="sub">~23 referring domains</span>
+    </div>
+    <div class="kpi">
+      <span class="lbl">Mobile speed</span>
+      <span class="val">69<span style="font-size:15px;color:var(--ink-3);font-weight:500">/100</span></span>
+      <div class="meter" aria-hidden="true"><i style="width:69%"></i></div>
+      <span class="sub">/drain-cleaning/ &middot; LCP 3.0 s</span>
+    </div>
+    <div class="kpi">
+      <span class="lbl">Pages crawled</span>
+      <span class="val">189</span>
+      <span class="sub">all return 200 &middot; 15 noindexed</span>
+    </div>
+  </section>
+
+  <main>
+    <div class="grid2">
+      <section class="panel" aria-labelledby="fixes-h">
+        <div class="ph">
+          <div>
+            <h2 id="fixes-h">Fix list</h2>
+            <p>High items fixed Sep 10, medium items Sep 11. Full recheck against the baseline found no unintended changes. Backups on the server. Nothing deployed from OTTO.</p>
+          </div>
+          <div class="chips" role="group" aria-label="Filter by priority">
+            <button class="chip" data-f="all" aria-pressed="true">All 15</button>
+            <button class="chip" data-f="high" aria-pressed="false">High 5 &middot; fixed</button>
+            <button class="chip" data-f="medium" aria-pressed="false">Medium 5 &middot; done</button>
+            <button class="chip" data-f="low" aria-pressed="false">Low 5 &middot; 3 done</button>
+          </div>
+        </div>
+        <ul class="fixes" id="fixes">
+          <li class="fix is-done" data-sev="high"><span class="stripe"></span>
+            <div class="row1"><span class="sev high">High</span><span class="done">Fixed Sep 10</span><h3><span class="slug">/plumbing-repair/</span> had no internal links</h3></div>
+            <p class="ev">The only real service page that no page links to. GSC: "Crawled, currently not indexed".</p>
+            <div class="act"><span class="do ok"><b>Done:</b> 5 links added from /plumbing/ and the Phoenix, Tempe, Chandler and Mesa pages</span></div>
+          </li>
+          <li class="fix is-done" data-sev="high"><span class="stripe"></span>
+            <div class="row1"><span class="sev high">High</span><span class="done">Fixed Sep 10</span><h3>Emergency city pages were invisible in Google</h3></div>
+            <p class="ev">The general Tempe page takes 876 impressions for "emergency plumber tempe" (pos 35). <span class="slug">/emergency-plumber-in-tempe/</span> gets 0, and the other 9 emergency city pages get almost none.</p>
+            <div class="act"><span class="do ok"><b>Done:</b> Tempe page confirmed indexed. All 10 general city pages now link to their own emergency page, plus 3 FAQ links.</span></div>
+          </li>
+          <li class="fix is-done" data-sev="high"><span class="stripe"></span>
+            <div class="row1"><span class="sev high">High</span><span class="done">Fixed Sep 10</span><h3><span class="slug">/thank-you-page/</span> was back in Google's index</h3></div>
+            <p class="ev">Its July noindex was a Yoast setting and did not carry over to Rank Math. <span class="slug">/free-tankless-quote/</span> may have the same problem.</p>
+            <div class="act"><span class="do ok"><b>Done:</b> both noindexed in Rank Math. The tankless page is confirmed as the Google Ads landing page.</span></div>
+          </li>
+          <li class="fix is-done" data-sev="high"><span class="stripe"></span>
+            <div class="row1"><span class="sev high">High</span><span class="done">Fixed Sep 10</span><h3><span class="slug">/drain-cleaning-special/</span> sent conflicting robots tags</h3></div>
+            <p class="ev">A hard-coded "noindex,follow" plus Rank Math's "index, follow". Google obeys noindex, yet the page is in the sitemap. No page links to it.</p>
+            <div class="act"><span class="do ok"><b>Done:</b> it is the paid A/B test page, noindexed on purpose. Rank Math now agrees and it left the sitemap.</span></div>
+          </li>
+          <li class="fix is-done" data-sev="high"><span class="stripe"></span>
+            <div class="row1"><span class="sev high">High</span><span class="done">Fixed Sep 10</span><h3>A 24/7 claim was still live</h3></div>
+            <p class="ev"><span class="slug">/emergency-plumber-in-gilbert/</span> says "around-the-clock emergency plumbing services". Missed in the 9/9 cleanup.</p>
+            <div class="act"><span class="do ok"><b>Done:</b> claim removed, no new wording added. Sitewide sweep found no others.</span></div>
+          </li>
+          <li class="fix is-done" data-sev="medium"><span class="stripe"></span>
+            <div class="row1"><span class="sev medium">Medium</span><span class="done">Fixed Sep 11</span><h3>Focus keywords were missing or too generic</h3></div>
+            <p class="ev">28 indexable URLs have none (18 blog posts, plus /pipe-lining-phoenix/ with 238 impressions). 11 city pages share a keyword with no city in it (5 tankless, 4 softener, 2 pipe lining).</p>
+            <div class="act"><span class="do ok"><b>Done:</b> 34 pages set in Rank Math (2 more found in the recheck). No two indexable pages share a primary keyword. Repiping and home warranty left blank (not approved services).</span></div>
+          </li>
+          <li class="fix is-done" data-sev="medium"><span class="stripe"></span>
+            <div class="row1"><span class="sev medium">Medium</span><span class="done">Fixed Sep 11</span><h3>337 images had no alt text</h3></div>
+            <p class="ev">188 of them are the white Summit logo in the site header. The rest come from about 50 repeated images.</p>
+            <div class="act"><span class="do ok"><b>Done:</b> now 0. Footer logo and 26 blog images got alt; 23 deleted media records restored under their original IDs, which also fixed a broken image.</span></div>
+          </li>
+          <li class="fix is-done" data-sev="medium"><span class="stripe"></span>
+            <div class="row1"><span class="sev medium">Medium</span><span class="done">Fixed Sep 11</span><h3>Pages had too few internal links</h3></div>
+            <p class="ev">/water-filtration-systems/ (an approved service) and /slow-drains/: 2 each. /slab-leaks/: 3, despite 352 impressions. /common-pipe-problems&hellip; and /orangeburg&hellip;: 1. Mesa FAQs page: 0.</p>
+            <div class="act"><span class="do ok"><b>Done:</b> 30 contextual links added. Slab leaks 3 to 14, water filtration and slow drains 2 to 7, Orangeburg and pipe problems 1 to 4, Mesa FAQs 0 to 3.</span></div>
+          </li>
+          <li class="fix is-done" data-sev="medium"><span class="stripe"></span>
+            <div class="row1"><span class="sev medium">Medium</span><span class="done">Fixed Sep 11</span><h3>Rank tracker was not a usable baseline</h3></div>
+            <p class="ev">38 keywords: mostly brand terms, duplicates and junk ("summitmechanicalplumbingandhe"). No location set.</p>
+            <div class="act"><span class="do ok"><b>Done:</b> 33 local keywords added, each tracked from its own city. Old junk keywords kept until Kim says delete.</span></div>
+          </li>
+          <li class="fix" data-sev="medium"><span class="stripe"></span>
+            <div class="row1"><span class="sev medium">Medium</span><span class="done">Tested Sep 11</span><h3>Mobile speed is fair, not good</h3></div>
+            <p class="ev">69/100. Render-blocking files cost ~1 s, 129 KB of unused JavaScript, 11 long tasks. Typical Elementor load.</p>
+            <div class="act"><span class="do"><b>Tested:</b> SiteGround font optimization gave no gain, reverted. The rest is Elementor, theme and tracking scripts.</span><span class="who">Scott &middot; tracking scripts</span></div>
+          </li>
+          <li class="fix is-done" data-sev="low"><span class="stripe"></span>
+            <div class="row1"><span class="sev low">Low</span><span class="done">Fixed Sep 11</span><h3>Titles ran long</h3></div>
+            <p class="ev">105 of 189 over 60 characters, 32 over 70. The " | Summit Plumbing Pros" suffix takes 23.</p>
+            <div class="act"><span class="do ok"><b>Done:</b> 16 shortened to 55 to 69 characters, keyword first. 15 city titles already show keyword and city in full and were left alone on purpose.</span></div>
+          </li>
+          <li class="fix is-done" data-sev="low"><span class="stripe"></span>
+            <div class="row1"><span class="sev low">Low</span><span class="done">Fixed Sep 11</span><h3>Blog category pages had no meta description</h3></div>
+            <p class="ev">4 pages under /blog/category/.</p>
+            <div class="act"><span class="do ok"><b>Done:</b> added for all 4 categories with posts.</span></div>
+          </li>
+          <li class="fix is-done" data-sev="low"><span class="stripe"></span>
+            <div class="row1"><span class="sev low">Low</span><span class="done">Fixed Sep 11</span><h3>H1 was printed twice on 2 blog posts</h3></div>
+            <p class="ev"><span class="slug">/blog/water-pressure-too-high-prv/</span> and <span class="slug">/blog/low-water-pressure-mesa/</span></p>
+            <div class="act"><span class="do ok"><b>Done:</b> extra H1 removed from both posts. One H1 each now.</span></div>
+          </li>
+          <li class="fix" data-sev="low"><span class="stripe"></span>
+            <div class="row1"><span class="sev low">Low</span><h3>Business schema is split across blocks</h3></div>
+            <p class="ev">Rank Math's business block plus separate Plumber blocks from the location plugin, with no shared ID. Service pages are typed "Article".</p>
+            <div class="act"><span class="do"><b>Fix:</b> make Rank Math the single source</span><span class="who">Scott &middot; plugin file</span></div>
+          </li>
+          <li class="fix" data-sev="low"><span class="stripe"></span>
+            <div class="row1"><span class="sev low">Low</span><h3>Backlinks are mostly low-quality directories</h3></div>
+            <p class="ev">378 backlinks, ~23 real referring domains. No clean citation base yet.</p>
+            <div class="act"><span class="do"><b>Fix:</b> local citations, GBP and local links. This is the real ranking ceiling.</span><span class="who">Off-page plan</span></div>
+          </li>
+        </ul>
+      </section>
+
+      <div class="side">
+        <section class="panel" aria-labelledby="health-h">
+          <div class="ph"><div><h2 id="health-h">What is healthy</h2><p>Checked live on all 189 sitemap URLs</p></div></div>
+          <ul class="checks">
+            <li class="check"><span class="tick">&#10003;</span><span>Pages return 200</span><span class="n">189/189</span></li>
+            <li class="check"><span class="tick">&#10003;</span><span>Self-referencing canonical</span><span class="n">189/189</span></li>
+            <li class="check"><span class="tick">&#10003;</span><span>Broken or redirecting internal links</span><span class="n">0</span></li>
+            <li class="check"><span class="tick">&#10003;</span><span>Unique title on every page</span><span class="n">189/189</span></li>
+            <li class="check"><span class="tick">&#10003;</span><span>Duplicate meta descriptions</span><span class="n">0</span></li>
+            <li class="check"><span class="tick">&#10003;</span><span>Exactly one H1</span><span class="n">186/189</span></li>
+            <li class="check"><span class="tick">&#10003;</span><span>One FAQ schema block per FAQ page</span><span class="n">164</span></li>
+            <li class="check"><span class="tick">&#10003;</span><span>Open Graph image</span><span class="n">189/189</span></li>
+            <li class="check"><span class="tick">&#10003;</span><span>Median content length</span><span class="n">1,414 words</span></li>
+            <li class="check"><span class="tick">&#10003;</span><span>OTTO off, Rank Math output is live</span><span class="n">snippet 23 off</span></li>
+          </ul>
+        </section>
+
+        <section class="panel callout" aria-labelledby="home-h">
+          <h3 id="home-h"><span class="lock">Report only</span> Homepage (off limits)</h3>
+          <ul>
+            <li>The H1 "Phoenix Valley's Trusted Plumbers for Every Home" appears twice.</li>
+            <li>The meta description is 287 characters. Google shows about 155.</li>
+          </ul>
+          <p class="note" style="margin:0">For Kim to pass to Scott. Not fixed.</p>
+        </section>
+
+        <section class="panel callout" aria-labelledby="dec-h">
+          <h3 id="dec-h">Open questions for Kim</h3>
+          <ul>
+            <li><code>/plumbing-repair/</code> lists "Gas Line Repairs". Gas lines are not on the approved services list. Does Summit do this?</li>
+            <li>The <code>/free-tankless-quote/</code> ad page says "Navien-certified" and "Same-Day Available". Neither is verified.</li>
+            <li>Resubmit the edited pages in Search Console: /plumbing/, the 9 other general city pages, the Gilbert emergency page and the 25 pages that got new links.</li>
+            <li>Delete the old brand-heavy and junk keywords from the rank tracker? Removal also deletes their history.</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+
+    <div class="charts">
+      <section class="panel" aria-labelledby="imp-h">
+        <div class="ph"><div><h2 id="imp-h">Where impressions land</h2><p>Top 10 pages by GSC impressions, last 28 days. Grey text is average position.</p></div></div>
+        <div class="pb">
+          <div class="bars" id="bars"><div class="gridlines" id="grid"></div></div>
+          <div class="axisx"><span></span><div class="ticks" id="bticks"></div></div>
+          <p class="note">The top page ranks for emergency searches it does not target. Eight of these ten got zero clicks.</p>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="q-h">
+        <div class="ph"><div><h2 id="q-h">Closest to page 1</h2><p>Non-branded searches ranking in positions 1 to 20. Shaded zone is page 1.</p></div></div>
+        <div class="pb">
+          <div class="dhead"><span>Search</span><div class="zlbl"><span style="left:0">Page 1</span><span style="left:calc(9.5/19*100% + 6px)">Page 2</span></div><span style="text-align:right">Impr.</span></div>
+          <div class="dots" id="dots"></div>
+          <div class="dticks"><span></span><div class="t" id="dticks"></div><span></span></div>
+          <p class="note">Scottsdale softener and Fountain Hills drain and sewer terms are already on page 1. Mesa sewer and Queen Creek water heater terms are one push away.</p>
+        </div>
+      </section>
+    </div>
+
+    <section class="panel" aria-labelledby="sa-h">
+      <div class="ph"><div><h2 id="sa-h">Search Atlas audit (Sep 4) vs live check</h2><p>Most counts did not hold up, same as July. Always verify before acting.</p></div></div>
+      <div class="tbl">
+        <table>
+          <thead><tr><th>Issue</th><th>Search Atlas said</th><th>Live today</th><th>Verdict</th></tr></thead>
+          <tbody>
+            <tr><td>Pages with multiple H1s</td><td class="num"><span class="strike">116</span></td><td class="num">3</td><td>Homepage + 2 blog posts</td></tr>
+            <tr><td>Internal links that redirect</td><td class="num"><span class="strike">201</span></td><td class="num">0</td><td>Not reproduced</td></tr>
+            <tr><td>Pages not in sitemap</td><td class="num"><span class="strike">147</span></td><td class="num">0</td><td>Every indexable page is listed</td></tr>
+            <tr><td>Broken (4xx) URLs</td><td class="num"><span class="strike">12</span></td><td class="num">0</td><td>None in internal links</td></tr>
+            <tr><td>Images missing alt</td><td class="num">201</td><td class="num">337</td><td>Real. Mostly the header logo</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="foot">
+      <span>Sources: live server crawl, Rank Math database, Google Search Console (via Search Atlas), Search Atlas Site Explorer and rank tracker, PageSpeed Insights. Per-page detail: Summit-AZ-SEO-Baseline-Pages-2026-09-10.csv</span>
+      <span class="remeasure">Re-measure: Oct 10, 2026</span>
+    </div>
+  </main>
+</div>
+<div id="tip" hidden></div>
+
+<script>
+(function(){
+  // Filter chips
+  var chips=document.querySelectorAll('.chip'), fixes=document.querySelectorAll('.fix');
+  chips.forEach(function(c){c.addEventListener('click',function(){
+    var f=c.getAttribute('data-f');
+    chips.forEach(function(x){x.setAttribute('aria-pressed',x===c?'true':'false')});
+    fixes.forEach(function(li){li.hidden=!(f==='all'||li.getAttribute('data-sev')===f)});
+  })});
+
+  // Impressions bars
+  var pages=[
+    ['/general-plumbing-services-in-tempe/',1924,25,0],['/ (homepage)',1158,16,11],['/contact/',466,8,1],
+    ['/drain-cleaning/',408,40,0],['/slab-leaks/',352,35,0],['/water-softener-installation-scottsdale/',273,28,0],
+    ['/tankless-water-heater-installation-queen-creek/',248,16,0],['/pipe-lining-phoenix/',238,25,0],
+    ['/general-plumbing-services-apache-junction/',219,41,0],['/water-softeners/',198,49,0]];
+  var MAX=2000, bars=document.getElementById('bars'), grid=document.getElementById('grid'), bt=document.getElementById('bticks');
+  [0,500,1000,1500,2000].forEach(function(t){
+    var p=t/MAX*100;
+    var s=document.createElement('span');s.style.left=p+'%';s.textContent=t.toLocaleString('en-US');bt.appendChild(s);
+    if(t>0){var g=document.createElement('i');g.style.left='calc('+p+'% )';grid.appendChild(g);}
+  });
+  pages.forEach(function(d){
+    var w=d[1]/MAX*100, row=document.createElement('div');row.className='bar';
+    row.innerHTML='<div class="pg mono">'+d[0]+'<span>pos '+d[2]+' &middot; '+d[3]+' click'+(d[3]===1?'':'s')+'</span></div>'+
+      '<div class="track"><div class="fill" style="width:'+w+'%" tabindex="0" data-tip="'+d[0]+'|'+d[1].toLocaleString('en-US')+' impressions &middot; avg position '+d[2]+' &middot; '+d[3]+' clicks"></div>'+
+      (w>82 ? '<span class="v" style="right:'+(100-w)+'%;padding:0 8px 0 0;color:#fff">'
+            : '<span class="v" style="left:'+w+'%">')+d[1].toLocaleString('en-US')+'</span></div>';
+    bars.appendChild(row);
+  });
+
+  // Page-1 dot plot, position 1..20
+  var qs=[['water softener maintenance scottsdale',2,17],['water softener scottsdale',3,21],['drain cleaning fountain hills az',7,27],
+    ['clogged drain fountain hills',7,21],['high water pressure fix mesa az',7,6],['sewer line repair fountain hills',8,29],
+    ['slab leak repair apache junction',8,23],['epoxy pipe lining mesa az',12,30],['sewer line replacement mesa',12,31],
+    ['tankless water heater installation queen creek az',13,32],['water heater installation queen creek',14,50],['sewer line repair mesa az',18,52]];
+  var X=function(p){return (p-1)/19*100}, dots=document.getElementById('dots'), dt=document.getElementById('dticks');
+  [1,5,10,15,20].forEach(function(t){var s=document.createElement('span');s.style.left=X(t)+'%';s.textContent=t;dt.appendChild(s)});
+  qs.forEach(function(q){
+    var r=document.createElement('div');r.className='drow';
+    r.innerHTML='<span class="q">'+q[0]+'</span><div class="dtrack"><div class="zone" style="width:'+X(10.5)+'%"></div>'+
+      '<span class="dot" tabindex="0" style="left:'+X(q[1])+'%" data-tip="'+q[0]+'|Average position '+q[1]+' &middot; '+q[2]+' impressions"></span></div>'+
+      '<span class="imp">'+q[2]+'</span>';
+    dots.appendChild(r);
+  });
+
+  // Tooltip
+  var tip=document.getElementById('tip');
+  function show(e){var t=e.target.closest('[data-tip]');if(!t)return;var p=t.getAttribute('data-tip').split('|');
+    tip.innerHTML='<b>'+p[0]+'</b><br>'+p[1];tip.hidden=false;place(e,t)}
+  function place(e,t){var r=t.getBoundingClientRect(),x=(e.clientX||r.left+r.width/2)+12,y=(e.clientY||r.top)-10-tip.offsetHeight;
+    if(x+tip.offsetWidth>innerWidth-8)x=innerWidth-tip.offsetWidth-8; if(y<8)y=r.bottom+10; tip.style.left=x+'px';tip.style.top=y+'px'}
+  function hide(){tip.hidden=true}
+  document.addEventListener('pointerover',show);
+  document.addEventListener('pointermove',function(e){if(!tip.hidden&&e.target.closest('[data-tip]'))place(e,e.target.closest('[data-tip]'));});
+  document.addEventListener('pointerout',function(e){if(e.target.closest('[data-tip]'))hide()});
+  document.addEventListener('focusin',show);document.addEventListener('focusout',hide);
+})();
+</script>

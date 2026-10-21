@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Blog Grease in Drain 2026-10-13",
+ "cat": "brain-summit",
+ "group": "Blogs",
+ "body": "> Blog · Summit Az · 2026-10-13\n\n# Summary\nA seasonal Thanksgiving post: \"Grease in Drain? What to Do Before It Ruins Thanksgiving\" (about 1,650 words). The draft file says nothing was in WordPress yet on Oct 13; the change log records that Kim approved it and it was published the same day as post 11570 at `/blog/grease-in-drain/` (category Drains & Sewers) with BlogPosting and FAQPage (5 questions) schema.\n\n# Keywords (Search Atlas project 5116872)\n- Focus: \"grease in drain\" 390 / KD 22.\n- Supporting: \"can you put grease down the drain\" 480 / KD 39 (own H2), \"how to get rid of grease in drain\" 90 / KD 41 (own H2).\n- Cannibalization check: no page used the phrase and GSC showed 0 \"grease\" impressions in 3 months.\n- Title (62): \"Grease in Drain: How to Clear It Safely | Summit Plumbing Pros\". Meta 151 characters.\n\n# Content and sources\n- People Also Ask questions answered in the FAQ (how to dissolve grease, does Drano work, what happens, how long buildup takes).\n- Sources checked in a browser: City of Mesa, City of Tempe and City of Chandler fats, oils and grease pages. A 2016 Mesa news story was deliberately not used (outdated).\n- Summit facts limited to the verified profile: Mesa-based, East Valley, Mon to Sat 8 to 5, free estimates, camera inspection. No prices, 24/7, warranties or reviews.\n\n# Decisions and status\n- Internal links added from posts 10592 and 10118; an FAQ answer in post 10118 was reworded so it no longer recommends flushing with hot water (it conflicted with the city guidance).\n- Publish target was early November, ahead of Thanksgiving (Nov 26, 2026).\n\n# Related\n- [Summit AZ - Blog Index](lib:brain-summit-az-blog-index), [Summit AZ - SEO Change Log](lib:brain-summit-az-seo-change-log), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [SEO Blog Writing Standards](lib:brain-seo-blog-writing-standards)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/Summit-AZ-Blog-Grease-In-Drain-Draft-2026-10-13.md",
+ "date": "2026-10-13",
+ "createdAt": 1792612912774,
+ "updatedAt": 1792612912775,
+ "rev": "ca6fda0da48c"
+}

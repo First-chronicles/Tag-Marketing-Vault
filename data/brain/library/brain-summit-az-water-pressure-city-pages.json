@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Water Pressure City Pages",
+ "cat": "brain-summit",
+ "group": "City Pages",
+ "body": "> Plan · Summit Az · 2026-09-26\n\n# Summary\nRewrite drafts for the Phoenix and Scottsdale water pressure pages, both city-swap copies. Applied live Sep 25 and 26 per the handoff. Phoenix was later retargeted (Oct 7) to \"PRV replacement Phoenix\".\n\n# Pages\n| City | ID | Draft file | Before | Main keyword |\n|---|---|---|---|---|\n| Phoenix | 10283 | `Summit-AZ-Water-Pressure-Phoenix-Draft-2026-09-25.md` | Discovered not indexed; 67% same as Scottsdale | water pressure repair (176 / KD 26), plus prv replacement (522 / 19), how to fix low water pressure in house (633 / 23), high water pressure in house (265 / 26) |\n| Scottsdale | 10286 | `Summit-AZ-Water-Pressure-Scottsdale-Draft-2026-09-26.md` | 92% same as Mesa; never said \"low water pressure\" or explained the PRV | water pressure repair (170 / KD 26), low water pressure (3,600 / KD 42, exception), PRV replacement carried over |\n\n# Local facts used\n- Phoenix (phoenix.gov): normal range 40 to 100 psi, above 80 psi needs owner action, the city owns street to meter and the homeowner owns everything after, including the PRV.\n- Scottsdale: elevation-driven 40 to 120 psi range, the 1995 PRV rule, 2025 hardness figures.\n\n# Fixes\n- Three identical \"Testing & Diagnostics\" boxes replaced with distinct ones (Pressure Testing, PRV Replacement, Scale & Pipe Checks).\n- \"Same-day water pressure service\" FAQ replaced; a typo removed; empty photo alt proposed.\n\n# Decisions and status\n- Oct 7 boost: Phoenix H1, subheading, intro, focus keyword, title and meta moved to \"PRV replacement Phoenix\" (480 / KD 19, Kim approved), plus new inbound links.\n\n# Related\n- [Summit AZ - City Pages Index](lib:brain-summit-az-city-pages-index), [Summit AZ - 7 Page Boost 2026-10-07](lib:brain-summit-az-7-page-boost-2026-10-07), [Summit AZ - Low-Hanging Fruit Plan 2026-09-26](lib:brain-summit-az-low-hanging-fruit-plan-2026-09-26), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros",
+ "date": "2026-09-26",
+ "createdAt": 1792613018687,
+ "updatedAt": 1792613018688,
+ "rev": "3de14fd2193a"
+}

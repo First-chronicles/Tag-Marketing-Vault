@@ -1,0 +1,14 @@
+{
+ "name": "EOD 2026-05-27",
+ "cat": "brain-eod",
+ "group": "2026-05 May",
+ "body": "> Eod · 2026-05-27\n\nSource: `C:\\TAG Marketing Claude\\google-ads\\validation\\eod_report_2026-05-27_pipeliners.txt`\n\nTuesday. Two reports for the same day: the weekly Alphalete Google Ads review and a Pipeliners conflicting-negatives cleanup.\n\n# Alphalete Trenchless\nFile: `eod_report_2026-05-27.txt`. Account 140-061-4219. See [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub).\n- Weekly review of the two enabled campaigns (AT | CIPP Residential | Search | CO Springs and Denver). Validation also surfaced a paused third campaign (AT | CIPP Commercial | Search | CO + Denver) and two paused EXACT ad groups.\n- Performance: L7 41 clicks, $410.24, 0 conversions. L30 166 clicks, $1,671.38, 6 conversions, $278.56 CPL.\n- Audited the 554 existing negatives first, then added 177 campaign-level negatives (83 CO Springs, 94 Denver), all verbatim from the search terms report (phrase match mostly, exact for question queries).\n- Added 33 positive keywords (26 Denver PHRASE, 7 CO Springs PHRASE), all verbatim CIPP/trenchless search terms.\n- Kept cost-research and \"near me\" queries in play to keep collecting data. Skipped 11-word queries (over Google's 10-word limit) and terms that would self-block.\n- Findings: zero conversions in the last 7 days (check site conversion tracking); Denver's \".\" shared negative list is empty while CO Springs has 188; CO Springs L30 CPL $476.71 vs Denver $179.49.\n\n# Pipeliners\nFile: `eod_report_2026-05-27_pipeliners.txt`. Account 721-909-5860. See [Pipeliners (Hub)](lib:brain-pipeliners-hub).\n- Cleared both items in the \"Remove conflicting negative keywords\" recommendation.\n- Conflict 1: broad `plumbing` in the shared list was blocking `trenchless plumbing` and `plumbing pipe lining` across 3 enabled campaigns. Removed only that row (54 negatives kept). Renamed the list from \"New by Kim\" to \"Pipeliners | Universal Exclusions\".\n- Conflict 2: removed the campaign negative `pipe lining maintenance cost calculator` from \"OTTO - Ads - Cured-In-Place Pipe Lining\".\n\n# Follow-ups\n- Alphalete: decide shared list vs per-campaign for 67 universal exclusion negatives; 3 keyword unpauses deferred; check conversion tracking.\n- Pipeliners (low priority): review `fix`, `at joint` and `pipe companies` in the Universal Exclusions list for over-blocking.\n\n# Related\n- [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub), [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Google Ads MCC](lib:brain-google-ads-mcc), [EOD Reports Index](lib:brain-eod-reports-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "google-ads/validation/eod_report_2026-05-27.txt",
+ "date": "2026-05-27",
+ "createdAt": 1792612658704,
+ "updatedAt": 1792612658704,
+ "rev": "3adb50fa0520"
+}

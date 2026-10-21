@@ -1,0 +1,1 @@
+window.__vaultPreview("5e4c56c6e3fbf7a1",{"text":"{\"otto_url_id\":317298234,\"meta_description\":\"How long do cast iron pipes last? Often 50 to 100 years, but many fail after 25 to 40. Learn what shortens their life, the warning signs and your options.\",\"twitter_description\":\"same as meta\"}\n"});

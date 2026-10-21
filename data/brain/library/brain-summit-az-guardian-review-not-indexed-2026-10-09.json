@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Guardian Review Not-Indexed 2026-10-09",
+ "cat": "brain-summit",
+ "group": "Audits",
+ "body": "> Audit · Summit Az · 2026-10-09\n\n# Summary\nAn \"SEO Compliance and Quality Guardian\" review (read-only) of the six pages in GSC's \"Crawled - currently not indexed\" report (last updated Oct 4). Site-wide context on Oct 9: 187 indexed, 59 not indexed.\n\n# Verdicts\n| Page | Status | Decision |\n|---|---|---|\n| /drain-cleaning-services-tempe/ | Indexed (crawled Oct 4) | PASS, monitor |\n| /drain-cleaning-services-queen-creek/ | Crawled not indexed, last crawl Jul 25 | PASS, request indexing |\n| /drain-cleaning-services-scottsdale/ | Crawled not indexed, last crawl Jul 24 | PASS, request indexing |\n| /plumbing-fixture-installation-in-apache-junction/ | Crawled not indexed, Jul 23 | BLOCK (major improvement) |\n| /plumbing-fixture-installation-in-tempe/ | Crawled not indexed, Jul 23 | BLOCK |\n| /plumbing-fixture-installation-in-gilbert/ | Crawled not indexed, Jul 7 | BLOCK |\n\nBLOCK applies to the live copy, not to taking pages down; the safer path was a rewrite through drafts and approval.\n\n# Key findings\n- All six pass technical checks: 200, index/follow, self canonical, in the sitemap, 1,440 to 1,630 words, 15 to 18 in-content inbound links, Plumber/Service/FAQPage/BreadcrumbList schema, no rating markup. Hidden elements are form messages, not spam.\n- Drain pages: claims match the verified profile, local facts are sourced, only shared template text (about 13%) overlaps.\n- Fixture pages: confirmed doorway or scaled-content pattern (Gilbert about 77% and Tempe about 75% shared with Mesa), plus banned claims and pasted junk code.\n- Baseline: 0 impressions for all six in the Search Atlas mirror (Aug 11 to Oct 8).\n\n# Decisions and status\n- The three fixture pages were rewritten and applied the same day (Oct 9); see [Summit AZ - Fixture Installation City Pages](lib:brain-summit-az-fixture-installation-city-pages). Measure from Oct 9.\n\n# Related\n- [Summit AZ - Drain Cleaning City Pages](lib:brain-summit-az-drain-cleaning-city-pages), [Summit AZ - City Pages Index](lib:brain-summit-az-city-pages-index), [GSC Indexing Tracker](lib:brain-gsc-indexing-tracker), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/Summit-AZ-Guardian-Review-Not-Indexed-2026-10-09.md",
+ "date": "2026-10-09",
+ "createdAt": 1792613325977,
+ "updatedAt": 1792613325978,
+ "rev": "4b820634d969"
+}

@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Citation Audit 2026-09-24",
+ "cat": "brain-pipeliners",
+ "group": "Audits",
+ "body": "> Audit · Pipeliners · 2026-09-24\n\n# Summary\nA read-only check of about 29 directories and listings for Pipeliners name, address, phone and website consistency (`citations.csv`). Many directories block automated fetches (HTTP 403 or Cloudflare), so several rows are \"Could not check\" or rely on search snippets.\n\n# Key findings\n- Found with correct name and the 633 W 2nd Ave, Mesa address: Yelp, Nextdoor, Superpages, Manta, Facebook, Birdeye, EZlocal, Central Index, SewerRepairHub, Ace DuraFlo installer locator.\n- Unknown number (480) 969-7978 (owner must confirm): Birdeye (verified on page; profile UNCLAIMED, category \"Contractors\" not Plumber), Ace DuraFlo installer list (verified on page), Superpages and Manta (from search summaries only).\n- Nextdoor's website link carries the GBP UTM tags, so Nextdoor clicks are reported as GBP traffic.\n- Likely missing (not confirmed): BBB, Angi, HomeAdvisor, Thumbtack. Not in the Mesa Chamber member directory. location.com listing now 404 but still indexed.\n- Possible name variant \"Pipeliners LLC\" on ZoomInfo (not attributed).\n- Shared address: Schroeder Plumbing / On Services also list 633 W 2nd Ave; owner to confirm the relationship. The 969-7978 number does not appear on the On Services site.\n- GBP included as a reference row only (read-only rule).\n\n# Decisions and status\n- Owner actions: confirm what 969-7978 is, claim Birdeye, correct listings. Feeds section C of the local SEO plan.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Local SEO AEO AIO Plan 2026-10-10](lib:brain-pipeliners-local-seo-aeo-aio-plan-2026-10-10), [Google Business Profile](lib:brain-google-business-profile)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/reports/citation-audit-2026-09-24",
+ "date": "2026-09-24",
+ "createdAt": 1792613209731,
+ "updatedAt": 1792613567031,
+ "rev": "414b31f2d8c1"
+}

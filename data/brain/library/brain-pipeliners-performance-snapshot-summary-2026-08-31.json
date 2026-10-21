@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Performance Snapshot Summary 2026-08-31",
+ "cat": "brain-pipeliners",
+ "group": "Reports",
+ "body": "> Report · Pipeliners · 2026-08-31\n\n# Summary\nPerformance snapshot with the baseline locked Aug 31, 2026 (GSC URL-prefix property, Global). It defines the core problem the late-August city page work set out to fix.\n\n# Key findings\n- Site totals, Jun 30 to Jul 27 vs Jul 28 to Aug 24: clicks 30 to 38 (+27%), impressions 20,617 to 19,851, CTR 0.146% to 0.191%, position 48.5 to 47.7.\n- Mobile CTR is 2.4x desktop and mobile gets 18% of impressions.\n- Core problem: 37 city pages, 6,940 impressions, 1 click in 28 days.\n- 77 keywords already rank at positions 4 to 10 and earn zero clicks (for example \"pipelining florence or\" 113 at 9, \"buckeye pipe break repair\" 105 at 7). The snippet is the bottleneck, not the rank.\n- Upside: 67 tracked striking-distance queries with 4,063 impressions; Tempe 28%, Buckeye 22%, Florence 13%, so three cities hold 63% of the upside.\n- Biggest single item: \"sewer line repair in tempe az\", 556 impressions at position 19.\n- Do not chase \"gas line repair buckeye\" (Pipeliners does not do gas lines).\n\n# Decisions and status\n- Next action at the time: rewrite titles and metas for Tempe, Buckeye and Florence (done Aug 31).\n- Data files: `city-pages.csv` (28 city pages, both windows), `low-hanging-fruit.csv` (67 queries in 3 tiers), `city-37-title-meta-audit.csv` and `city-37-service-coverage.csv` (37-page audits used in the Sep 1 report).\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Performance Tracking Method 2026-08-31](lib:brain-pipeliners-performance-tracking-method-2026-08-31), [Pipeliners - Title Meta Rewrites Tempe Buckeye Florence 2026-08-31](lib:brain-pipeliners-title-meta-rewrites-tempe-buckeye-florence-2026-08-31), [Pipeliners - City Page Optimization Report 2026-09-01](lib:brain-pipeliners-city-page-optimization-report-2026-09-01)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/performance-tracking/SUMMARY.md",
+ "date": "2026-08-31",
+ "createdAt": 1792613290916,
+ "updatedAt": 1792613567090,
+ "rev": "01c92ae6986c"
+}

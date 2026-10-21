@@ -1,0 +1,14 @@
+{
+ "name": "EOD 2026-09-30",
+ "cat": "brain-eod",
+ "group": "2026-09 September",
+ "body": "> Eod · Summit Az · 2026-09-30\n\nWednesday. Summit AZ image fixes, technical check and keyword targeting check.\n\n# Summit Plumbing Pros AZ\nSee [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub).\n- Alt text: 27 images on 25 pages had placeholder, filename, wrong-city or stock text; rewritten after viewing each image, approved and live.\n- Replaced the water filter graphic on 10 water softener city pages with a real Summit softener install photo, and the stock heating photo on 10 water heater city pages with 3 real install photos.\n- Technical check (404s, server errors, broken links, redirects, http/https, duplicates, orphans, depth): all clear except /terms-of-use/ and /terms-of-service/ being the same page.\n- Keyword check of 185 pages (Rank Math keyword vs what ranks in GSC): no shared keywords, but on 28 pages a different page ranks. Biggest: Tempe plumbing page takes emergency searches, tankless pages outrank water heater pages in 5 cities, statewide drain cleaning outranks Mesa. File: `Summit-AZ-Keyword-Targeting-Audit-2026-10-01.xlsx`.\n- Retargeted 2 blog posts to what they already rank for (\"signs of a slab leak\", \"trenchless sewer repair\").\n- 14 pages had no Google views in 3 months: 3 indexed, 11 not. Requested indexing for 5 (4 others requested Sep 30).\n\n# Follow-ups\n- Kim: choose which terms page stays; decide other fixes on the keyword audit Conflicts sheet.\n- Scott: does Summit want \"emergency plumber\" searches at all (not 24/7)? Decides the Tempe fix.\n- Re-check the 11 unindexed pages in about a week; Oct 24 rankings for Sep 25 to 26 rewrites.\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Google Search Console](lib:brain-google-search-console), [EOD Reports Index](lib:brain-eod-reports-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/EOD Report 2026-09-30.txt",
+ "date": "2026-09-30",
+ "createdAt": 1792612939580,
+ "updatedAt": 1792612939580,
+ "rev": "02ea23bd9c71"
+}

@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Search Atlas Zero-Click Prompt 2026-07-22",
+ "cat": "brain-pipeliners",
+ "group": "Plans",
+ "body": "> Plan · Pipeliners · 2026-07-22\n\n# Summary\nA prompt written for the Search Atlas agent to fix 8 pages that earn impressions but no clicks. It is not for writing new pages.\n\n# The problem it states\nGSC, 90 days to 2026-07-22: 98 clicks, 58,060 impressions, 0.40% CTR, average position 28.4 (US only 0.15% CTR, position 47.1).\n\n# Pages in order\n/what-is-cipp/ (7,263 impressions, 0 clicks, position 74), /how-plumbers-use-cured-in-place-pipe-lining.../ (4,819), /glendale/ (3,513), /reline-vs-replace.../ (2,848), /phoenix/ (2,418), /tempe/ (2,072), /buckeye/ (1,726), /mesa/ (1,570). /epoxy-pipe-lining/ was excluded because it was declining for an undiagnosed reason.\n\n# Rules it gives\n- Titles 50-60 characters, keyword first, a specificity hook, \"| Pipeliners\", city in the first 40 characters for city pages.\n- Metas 155-160 characters with one concrete specific and a soft CTA.\n- AEO \"ski ramp\": direct answer first, question H2s with 1-2 sentence answers, no hedging, entity density, Key Takeaways at the end, everything in raw HTML.\n- GEO: genuinely local specifics per city page, NAP matching GBP, links to service pages and 2-3 neighboring cities.\n- Schema must match visible content; internal links with descriptive anchors.\n- Platform note: titles in Rank Math, H1s and schema in OTTO.\n\n# Superseded points (check before reuse)\n- It lists pipe bursting as a service (Pipeliners does not offer it).\n- It says titles live in Rank Math; Rank Math was later found deactivated and OTTO owns titles and metas.\n- It gives the GBP number (480) 447-5345 as the NAP phone; the copy phone is now (480) 535-6503.\n- It suggests price ranges as specifics; new copy may not include prices.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Search Atlas](lib:brain-search-atlas), [Pipeliners - Decisions and Rules](lib:brain-pipeliners-decisions-and-rules)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/PROMPT-searchatlas-zero-click-seo-aeo-geo.md",
+ "date": "2026-07-22",
+ "createdAt": 1792613057327,
+ "updatedAt": 1792613057327,
+ "rev": "75a78b78edc1"
+}

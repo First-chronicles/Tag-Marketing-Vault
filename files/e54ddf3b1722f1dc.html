@@ -1,0 +1,44 @@
+<section aria-labelledby="tech">
+  <h2 id="tech">Technical SEO audit</h2>
+  <p class="caption">Run live on Sep 28, 2026, between about 15:00 and 15:35 UTC. Every result comes from the live site, Google Search Console or Google PageSpeed Insights, and the source is shown on each line. A score is the share of checks passed, so each one traces back to the list below. "Watch" items count as not passed.</p>
+  <div class="overall panel"><div><span class="eyebrow">Overall</span><span class="big">{OVERALL}<small>/100</small></span><span class="from">{TP} of {TT} checks passed</span></div><p class="caption">The site is crawlable, indexable and served securely over HTTPS. The weak spots are page speed on phones and three security settings. One of them is urgent: anyone can download the server error log.</p></div>
+  <div class="scores">{CARDS}</div>
+  <div class="cats">{DETAILS}</div>
+  <div class="panel" style="display:grid;gap:10px">
+    <h3>Priority fixes</h3>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Priority</th><th>Issue</th><th>How to fix</th></tr></thead>
+      <tbody>
+        <tr><td><span class="chip fix">Critical</span></td><td>Public error log at /error_log (978 lines)</td><td>Delete or move the file, block it in .htaccess, and send PHP logging to a folder outside the website.</td></tr>
+        <tr><td><span class="chip fix">High</span></td><td>Slow mobile pages (home page LCP 7.8 s; 0 good URLs)</td><td>Replace the 3 self-hosted videos (19.9 MB) with compressed files or a click-to-play poster, then test LiteSpeed JS defer and CSS combine one at a time. JS minify stays off because it breaks the footer.</td></tr>
+        <tr><td><span class="chip fix">High</span></td><td>No HSTS header</td><td>Add Strict-Transport-Security in hPanel or .htaccess after confirming every subdomain is on HTTPS.</td></tr>
+        <tr><td><span class="chip watch">Medium</span></td><td>Admin login name visible at /wp-json/wp/v2/users</td><td>Limit the users endpoint to logged-in users.</td></tr>
+        <tr><td><span class="chip watch">Medium</span></td><td>robots.txt blocks /wp-includes/ scripts</td><td>Remove that line in the MetaSync robots.txt settings. MetaSync rewrites the file, so the change has to be made there.</td></tr>
+        <tr><td><span class="chip watch">Medium</span></td><td>4 noindexed URLs in the sitemap</td><td>Add them to the MetaSync sitemap exclusion list; add the 3 archive pages once Google shows them as excluded.</td></tr>
+        <tr><td><span class="chip good">Low</span></td><td>Old invalid items in Google (/tempe/, /gilbert/)</td><td>Click "Validate fix" in the Review snippets and Vacation rental reports. The live pages are already clean.</td></tr>
+        <tr><td><span class="chip good">Low</span></td><td>4 links to redirects, 20 images without alt text, 1 title at 61 characters, 2 category pages sharing one title</td><td>Point the links at the final URLs and add alt text the next time each page is edited.</td></tr>
+      </tbody>
+    </table></div>
+    <p class="caption">None of these fixes has been made yet. Several touch the server or protected pages and need approval first.</p>
+  </div>
+</section>
+
+<section aria-labelledby="todo">
+  <h2 id="todo">What to do next</h2>
+  <div class="actions">
+    <div class="action"><h3>Close the public error log</h3><p>Anyone can download /error_log today. It holds 978 lines of server messages. This is the one urgent technical fix.</p><div class="tags"><span class="tag">Website</span><span class="tag">Needs approval</span><span class="tag">Today</span></div></div>
+    <div class="action"><h3>Look at the Business Profile listing on a phone</h3><p>The listing's clicks and calls fell while views held. Check what a searcher sees today: the website button, hours, photos, the latest post (none published since Jul 7; two are waiting in review) and the newest reviews. This is the single biggest source of lost clicks.</p><div class="tags"><span class="tag">Business Profile owner</span><span class="tag">This week</span></div></div>
+    <div class="action"><h3>Review the Search ad campaign</h3><p>Ad clicks fell from 240 a week (Aug 31) to 52 and then 21, while cost per click rose from about $2 to about $24 in the week of Sep 14. Website conversion tracking has also been silent since late July, so the campaign is bidding without lead data.</p><div class="tags"><span class="tag">Ads manager</span><span class="tag">This week</span></div></div>
+    <div class="action"><h3>Speed up mobile pages</h3><p>Most LiteSpeed optimizations are already on. The biggest remaining weight is the 3 home page videos (19.9 MB). Shrinking them, then testing JS defer and CSS combine one at a time, is the route to a faster LCP.</p><div class="tags"><span class="tag">Website</span><span class="tag">Needs approval</span></div></div>
+    <div class="action"><h3>Judge progress by clicks, not total impressions</h3><p>Track clicks, page-1 impressions and Business Profile actions. Total impressions will stay low while deep listings are not counted, and that number has little to do with leads. Recheck the 5 pages sent for indexing on Oct 1 to 3, and the full baseline on Oct 9.</p><div class="tags"><span class="tag">Reporting</span><span class="tag">Ongoing</span></div></div>
+  </div>
+  <div class="panel" style="display:grid;gap:8px">
+    <h3>Done today</h3>
+    <ul class="done">
+      <li><span class="chip good">Done</span><span>Removed the 122 hidden OTTO links from the home page (20 pointed to dead pages). Nothing visible changed.</span></li>
+      <li><span class="chip good">Done</span><span>Replaced the competitor link on /phoenix-sewer-line-problems/ with a Seattle Public Utilities source.</span></li>
+      <li><span class="chip good">Done</span><span>Rewrote 4 unindexed posts, added 5 internal links, and requested indexing for 5 pages.</span></li>
+    </ul>
+  </div>
+</section>
+

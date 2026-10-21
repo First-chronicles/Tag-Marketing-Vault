@@ -1,0 +1,871 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TAG CRM</title>
+<style>
+/* ===== Design tokens (change brand colors here) ===== */
+:root{
+  --bg:#070b10; --panel:#0c131b; --panel-2:#101a24; --panel-3:#15212d;
+  --line:#1b2834; --line-2:#24364a;
+  --text:#e6edf3; --muted:#8b9bab; --dim:#5d6d7d;
+  --accent:#22c3d6; --accent-ink:#04252a; --accent-soft:rgba(34,195,214,.12);
+  --green:#3ddc84; --green-soft:rgba(61,220,132,.12);
+  --warn:#f5a524; --warn-soft:rgba(245,165,36,.12);
+  --danger:#f0506e; --danger-soft:rgba(240,80,110,.12);
+  --r-sm:8px; --r:12px; --r-lg:16px;
+  --shadow:0 10px 40px rgba(0,0,0,.45);
+  --side:236px;
+  --font:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:ui-monospace,"JetBrains Mono","Cascadia Code",Consolas,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--text);font:14px/1.5 var(--font);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.mono{font-family:var(--mono)}
+.muted{color:var(--muted)} .dim{color:var(--dim)}
+
+/* ===== Shell ===== */
+.app{display:grid;grid-template-columns:var(--side) 1fr;min-height:100vh}
+.side{position:sticky;top:0;height:100vh;background:linear-gradient(180deg,#0a1017,#070b10);border-right:1px solid var(--line);display:flex;flex-direction:column;padding:18px 12px;gap:4px;overflow:auto}
+.brand{display:flex;align-items:center;gap:10px;padding:4px 10px 18px;font-weight:700;font-size:17px;letter-spacing:-.01em}
+.brand-mark{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;background:radial-gradient(circle at 30% 30%,var(--green),var(--accent));color:var(--accent-ink);font-size:13px;font-weight:800;box-shadow:0 0 24px rgba(34,195,214,.35)}
+.brand small{display:block;font-size:11px;font-weight:500;color:var(--muted);letter-spacing:.02em}
+.nav-label{font:600 10.5px/1 var(--mono);color:var(--dim);letter-spacing:.12em;text-transform:uppercase;padding:14px 10px 6px}
+.nav a{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:var(--r-sm);color:var(--muted);font-weight:500}
+.nav a:hover{background:var(--panel-2);color:var(--text)}
+.nav a.on{background:var(--accent-soft);color:var(--text);box-shadow:inset 2px 0 0 var(--accent)}
+.nav svg{width:17px;height:17px;flex:none;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.nav .count{margin-left:auto;font:600 11px var(--mono);color:var(--dim)}
+.nav a.on .count{color:var(--accent)}
+.side-foot{margin-top:auto;padding:12px 10px 0;border-top:1px solid var(--line);font-size:12px;color:var(--dim)}
+
+.main{min-width:0;display:flex;flex-direction:column}
+.top{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:12px;padding:12px 24px;background:rgba(7,11,16,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top h1{font-size:18px;margin:0;font-weight:650;letter-spacing:-.01em;white-space:nowrap}
+.top .grow{flex:1}
+.menu-btn{display:none}
+.search{position:relative;max-width:300px;width:100%}
+.search input{width:100%;padding:8px 12px 8px 32px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r-sm)}
+.search svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:15px;height:15px;stroke:var(--dim);fill:none;stroke-width:2}
+.content{padding:24px;max-width:1440px;width:100%}
+
+/* ===== Primitives ===== */
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:var(--r-sm);border:1px solid var(--line-2);background:var(--panel-2);cursor:pointer;font-weight:550;white-space:nowrap;transition:background .15s,border-color .15s,transform .15s}
+.btn:hover{border-color:var(--accent);background:var(--panel-3)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:transparent;box-shadow:0 0 22px rgba(34,195,214,.28)}
+.btn.primary:hover{background:#3fd3e4}
+.btn.ghost{background:transparent;border-color:transparent;color:var(--muted)}
+.btn.ghost:hover{color:var(--text);background:var(--panel-2)}
+.btn.danger{color:var(--danger)} .btn.danger:hover{border-color:var(--danger)}
+.btn.sm{padding:5px 10px;font-size:12.5px}
+.btn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2}
+select,input[type=text],input[type=email],input[type=tel],input[type=number],input[type=date],input[type=search],textarea{background:var(--panel);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:8px 10px;width:100%}
+select{cursor:pointer}
+textarea{resize:vertical;min-height:72px}
+label.f{display:grid;gap:5px;font-size:12px;color:var(--muted);font-weight:550}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-lg);padding:18px}
+.card h3{margin:0 0 14px;font-size:13px;font-weight:600;color:var(--muted);display:flex;align-items:center;gap:8px}
+.card h3 .grow{flex:1}
+.pill{display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border-radius:99px;font-size:11.5px;font-weight:600;background:var(--panel-3);color:var(--muted);white-space:nowrap}
+.pill.cyan{background:var(--accent-soft);color:var(--accent)}
+.pill.green{background:var(--green-soft);color:var(--green)}
+.pill.warn{background:var(--warn-soft);color:var(--warn)}
+.pill.red{background:var(--danger-soft);color:var(--danger)}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block;flex:none}
+.empty{padding:36px;text-align:center;color:var(--dim)}
+.tabs{display:flex;gap:4px;padding:4px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);width:max-content;max-width:100%;overflow:auto}
+.tabs button{padding:6px 12px;border-radius:8px;border:0;background:none;color:var(--muted);cursor:pointer;font-weight:550;white-space:nowrap}
+.tabs button.on{background:var(--panel-3);color:var(--text)}
+.toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:16px}
+.toolbar .grow{flex:1}
+.toolbar select{width:auto}
+
+/* ===== KPI ===== */
+.kpis{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-bottom:16px}
+.kpi{position:relative;overflow:hidden;background:var(--panel);border:1px solid var(--line);border-radius:var(--r-lg);padding:16px}
+.kpi::after{content:"";position:absolute;inset:auto -40% -60% auto;width:140px;height:140px;border-radius:50%;background:radial-gradient(var(--accent-soft),transparent 70%)}
+.kpi .k{font-size:12px;color:var(--muted);font-weight:550}
+.kpi .v{font-size:26px;font-weight:700;letter-spacing:-.02em;margin:6px 0 2px}
+.kpi .d{font-size:12px}
+.up{color:var(--green)} .down{color:var(--danger)}
+
+/* ===== Table ===== */
+.tbl-wrap{overflow:auto;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--panel)}
+table{width:100%;border-collapse:collapse;min-width:760px}
+th{text-align:left;font:600 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--dim);padding:11px 14px;border-bottom:1px solid var(--line);background:var(--panel-2);position:sticky;top:0}
+td{padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:middle}
+tr:last-child td{border-bottom:0}
+tbody tr{cursor:pointer;transition:background .12s}
+tbody tr:hover{background:var(--panel-2)}
+.who{display:flex;align-items:center;gap:10px}
+.av{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:11.5px;font-weight:700;background:var(--panel-3);color:var(--accent);flex:none}
+.group-h{display:flex;align-items:center;gap:10px;margin:20px 0 10px;font-weight:650}
+.group-h:first-child{margin-top:0}
+
+/* ===== Bars / charts ===== */
+.bars{display:grid;gap:9px}
+.bar{display:grid;grid-template-columns:120px 1fr 42px;gap:10px;align-items:center;font-size:12.5px}
+.bar .t{height:8px;background:var(--panel-3);border-radius:99px;overflow:hidden}
+.bar .t i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--accent),var(--green))}
+.bar .n{text-align:right;font-family:var(--mono);color:var(--muted)}
+.spark{width:100%;height:150px;display:block}
+.spark rect{fill:var(--accent);opacity:.85}
+.spark rect:hover{opacity:1;fill:var(--green)}
+
+/* ===== Feed ===== */
+.feed{display:grid;gap:2px;max-height:360px;overflow:auto}
+.feed div{display:grid;grid-template-columns:auto 1fr;gap:10px;padding:8px 4px;border-bottom:1px dashed var(--line);font-size:13px}
+.feed time{font:11px var(--mono);color:var(--dim);white-space:nowrap;padding-top:2px}
+
+/* ===== Kanban ===== */
+.board{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(250px,1fr);gap:14px;overflow-x:auto;padding-bottom:12px;align-items:start}
+.col{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-lg);display:flex;flex-direction:column;max-height:calc(100vh - 210px);min-height:220px}
+.col-h{padding:12px 14px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px}
+.col-h b{font-size:13px}
+.col-h .sum{margin-left:auto;font:600 12px var(--mono);color:var(--muted)}
+.col-b{padding:10px;display:grid;gap:8px;overflow:auto;align-content:start;flex:1;border-radius:0 0 var(--r-lg) var(--r-lg);transition:background .15s}
+.col-b.drop{background:var(--accent-soft)}
+.deal{background:var(--panel-2);border:1px solid var(--line-2);border-radius:var(--r);padding:11px 12px;cursor:grab;transition:transform .15s,border-color .15s}
+.deal:hover{border-color:var(--accent);transform:translateY(-1px)}
+.deal.dragging{opacity:.4}
+.deal .t{font-weight:600;margin-bottom:4px}
+.deal .m{display:flex;justify-content:space-between;gap:8px;font-size:12px;color:var(--muted);align-items:center}
+.deal .val{font:600 12.5px var(--mono);color:var(--green)}
+
+/* ===== Company cards ===== */
+.co{display:grid;gap:12px}
+.co .hd{display:flex;align-items:center;gap:10px}
+.co .logo{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;font-weight:800;color:#061015}
+.co .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.co .stats div{background:var(--panel-2);border-radius:var(--r-sm);padding:8px 10px}
+.co .stats b{display:block;font-size:17px}
+.co .stats span{font-size:11px;color:var(--muted)}
+.progress{height:6px;background:var(--panel-3);border-radius:99px;overflow:hidden}
+.progress i{display:block;height:100%;background:var(--green)}
+
+/* ===== Automations ===== */
+.auto{display:grid;gap:14px}
+.flow{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.node{padding:6px 10px;border-radius:var(--r-sm);border:1px solid var(--line-2);background:var(--panel-2);font-size:12.5px;display:inline-flex;gap:6px;align-items:center}
+.node.trig{border-color:var(--accent);background:var(--accent-soft)}
+.arrow{color:var(--dim);font-size:12px}
+.switch{position:relative;width:38px;height:22px;flex:none}
+.switch input{opacity:0;width:0;height:0}
+.switch span{position:absolute;inset:0;background:var(--panel-3);border-radius:99px;cursor:pointer;transition:.2s;border:1px solid var(--line-2)}
+.switch span::before{content:"";position:absolute;width:16px;height:16px;left:2px;top:2px;background:var(--muted);border-radius:50%;transition:.2s}
+.switch input:checked+span{background:var(--accent-soft);border-color:var(--accent)}
+.switch input:checked+span::before{transform:translateX(16px);background:var(--accent)}
+.step{display:grid;grid-template-columns:28px 1fr auto;gap:10px;align-items:start;background:var(--panel-2);border:1px solid var(--line-2);border-radius:var(--r);padding:12px}
+.step .num{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--panel-3);font:600 12px var(--mono);color:var(--accent)}
+.vars{font-size:11.5px;color:var(--dim)}
+.vars code{background:var(--panel-3);padding:1px 5px;border-radius:4px;color:var(--accent);cursor:pointer}
+
+/* ===== Tasks ===== */
+.task{display:flex;align-items:center;gap:12px;padding:11px 14px;border-bottom:1px solid var(--line)}
+.task:last-child{border-bottom:0}
+.task input[type=checkbox]{width:18px;height:18px;accent-color:var(--accent);cursor:pointer;flex:none}
+.task.done .tt{text-decoration:line-through;color:var(--dim)}
+.task .tt{flex:1;min-width:0}
+
+/* ===== Drawer / modal ===== */
+.scrim{position:fixed;inset:0;background:rgba(2,5,8,.6);backdrop-filter:blur(3px);z-index:50;opacity:0;pointer-events:none;transition:opacity .2s}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(520px,100%);background:var(--panel);border-left:1px solid var(--line);z-index:60;transform:translateX(100%);transition:transform .25s ease;display:flex;flex-direction:column;box-shadow:var(--shadow)}
+.drawer.on{transform:none}
+.modal{position:fixed;left:50%;top:50%;width:min(640px,calc(100% - 32px));max-height:calc(100vh - 48px);overflow:auto;background:var(--panel);border:1px solid var(--line-2);border-radius:var(--r-lg);z-index:60;transform:translate(-50%,-48%) scale(.98);opacity:0;pointer-events:none;transition:.2s;box-shadow:var(--shadow)}
+.modal.on{opacity:1;pointer-events:auto;transform:translate(-50%,-50%)}
+.mh{display:flex;align-items:center;gap:10px;padding:16px 20px;border-bottom:1px solid var(--line)}
+.mh h2{margin:0;font-size:16px;flex:1}
+.mb{padding:20px;display:grid;gap:14px;overflow:auto}
+.mf{display:flex;gap:10px;justify-content:flex-end;padding:14px 20px;border-top:1px solid var(--line)}
+.drawer .mb{flex:1}
+.kv{display:grid;grid-template-columns:110px 1fr;gap:8px 12px;font-size:13px}
+.kv dt{color:var(--muted)} .kv dd{margin:0;word-break:break-word}
+.tl{display:grid;gap:10px}
+.tl div{border-left:2px solid var(--line-2);padding:0 0 0 12px;font-size:13px}
+.tl div.sim{border-color:var(--accent)}
+.tl time{display:block;font:11px var(--mono);color:var(--dim)}
+
+.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,20px);background:var(--panel-3);border:1px solid var(--line-2);padding:10px 16px;border-radius:var(--r);z-index:90;opacity:0;transition:.25s;box-shadow:var(--shadow);font-size:13px;max-width:calc(100% - 32px)}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+.banner{display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:10px 14px;border:1px solid rgba(245,165,36,.3);background:var(--warn-soft);border-radius:var(--r);margin-bottom:16px;font-size:13px}
+.banner .grow{flex:1}
+
+/* ===== Report ===== */
+.report{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-lg);padding:28px}
+.report-h{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:20px}
+.report-h h2{margin:0;font-size:22px}
+
+/* ===== Responsive ===== */
+@media (max-width:1180px){.kpis{grid-template-columns:repeat(3,minmax(0,1fr))}.g3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:860px){
+  .app{grid-template-columns:1fr}
+  .side{position:fixed;z-index:70;width:var(--side);transform:translateX(-100%);transition:transform .25s}
+  .side.on{transform:none}
+  .menu-btn{display:inline-flex}
+  .top{padding:10px 16px}
+  .content{padding:16px}
+  .g2,.g3{grid-template-columns:1fr}
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .search{display:none}
+  .bar{grid-template-columns:90px 1fr 34px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+@media print{
+  .side,.top,.toolbar,.banner,.no-print{display:none!important}
+  .app{display:block} body{background:#fff;color:#111}
+  .report,.card{border-color:#ccc;background:#fff;color:#111}
+  .bar .t{background:#eee}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side" id="side">
+    <div class="brand"><div class="brand-mark">T</div><div>TAG CRM<small>Lead &amp; client command center</small></div></div>
+    <nav class="nav" id="nav"></nav>
+    <div class="side-foot">Data is saved in this browser. Back it up from <a href="#/settings">Settings</a>.</div>
+  </aside>
+  <div class="main">
+    <header class="top">
+      <button class="btn ghost menu-btn" id="menuBtn" aria-label="Open menu"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+      <h1 id="title">Dashboard</h1>
+      <div class="grow"></div>
+      <div class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="search" placeholder="Search leads..." aria-label="Search leads"></div>
+      <select id="clientSel" aria-label="Company filter" style="width:auto;max-width:200px"></select>
+      <button class="btn primary" id="newBtn"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>New lead</button>
+    </header>
+    <main class="content" id="view"></main>
+  </div>
+</div>
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Details"></aside>
+<div class="modal" id="modal" role="dialog" aria-modal="true"></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+/* ======================================================================
+   TAG CRM: single-file CRM modeled on LeadSnap's CRM feature set.
+   Storage: localStorage (key below). Export/import JSON in Settings.
+   ====================================================================== */
+const KEY = 'tag-crm-v1';
+const $ = (s, el = document) => el.querySelector(s);
+const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+const h = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const uid = () => Math.random().toString(36).slice(2, 10);
+const now = () => new Date().toISOString();
+const DAY = 864e5;
+const money = n => '$' + Math.round(n || 0).toLocaleString();
+const fmtDate = d => d ? new Date(d).toLocaleDateString(undefined, {month:'short', day:'numeric'}) : '';
+const fmtDT = d => new Date(d).toLocaleString(undefined, {month:'short', day:'numeric', hour:'numeric', minute:'2-digit'});
+const ago = d => { const m = (Date.now() - new Date(d)) / 6e4; if (m < 1) return 'now'; if (m < 60) return Math.floor(m) + 'm'; if (m < 1440) return Math.floor(m/60) + 'h'; return Math.floor(m/1440) + 'd'; };
+const initials = n => (n || '?').split(/\s+/).map(w => w[0]).slice(0, 2).join('').toUpperCase();
+const dur = s => s ? Math.floor(s/60) + ':' + String(s%60).padStart(2,'0') : '0:00';
+
+const SOURCES = ['Google Ads', 'Organic Search', 'Google Business Profile', 'Local Services Ads', 'Referral', 'Direct', 'Facebook'];
+const STATUSES = ['New', 'Contacted', 'Qualified', 'Customer', 'Unqualified'];
+const TRIGGERS = {
+  form: 'New Form Submission', call: 'New Phone Call', text: 'New Text Message',
+  contact: 'New Contact Created', status: 'Field Status Update',
+  deal: 'New Deal in the Pipeline', stage: 'Deal Moved to Pipeline Stage'
+};
+const ACTIONS = {
+  condition: 'Condition', email: 'Send Email', sms: 'Send SMS Text', wait: 'Wait',
+  status: 'Update Field Status', task: 'Create Task', move: 'Move Deal to Stage',
+  endif: 'End If', questionnaire: 'Send Questionnaire'
+};
+
+/* ---------- Seeded sample data ---------- */
+function rng(seed){ return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+function seed(){
+  const r = rng(42), pick = a => a[Math.floor(r() * a.length)];
+  // Company sub-accounts. Edit names/sites in Companies.
+  const clients = [
+    {id:'c-summit-ut', name:'Summit Plumbing (UT)', site:'summitplumbingut.com', color:'#22c3d6', locations:['Salt Lake City','Provo'], onboarding:{}},
+    {id:'c-summit-az', name:'Summit Plumbing Pros (AZ)', site:'summitplumbingpros.com', color:'#3ddc84', locations:['Phoenix','Mesa','Gilbert'], onboarding:{}},
+    {id:'c-pipeliners', name:'Pipeliners', site:'pipelinersusa.com', color:'#f5a524', locations:['Phoenix'], onboarding:{}},
+    {id:'c-alphalete', name:'Alphalete Trenchless', site:'alphaletetrenchless.com', color:'#a78bfa', locations:['Colorado Springs','Denver'], onboarding:{}},
+    {id:'c-prestige', name:'Prestige Plumbing', site:'prestigeplumbingsc.com', color:'#f472b6', locations:['Bluffton','Hilton Head'], onboarding:{}}
+  ];
+  ONBOARD.forEach((s, i) => clients.forEach((c, j) => { if ((i + j) % 4 !== 3 || j < 2) c.onboarding[s] = true; }));
+  const pipelines = [
+    {id:'p-leads', name:'Client Leads', stages:['New Lead','Contacted','Estimate Sent','Scheduled','Won','Lost']},
+    {id:'p-tag', name:'TAG New Business', stages:['Prospect','Discovery Call','Proposal Sent','Negotiation','Signed','Lost']}
+  ];
+  const first = ['Mike','Sarah','Jason','Emily','Chris','Amanda','David','Jessica','Ryan','Megan','Kevin','Laura','Brian','Ashley','Tyler','Nicole','Josh','Rachel','Matt','Kayla','Derek','Hannah'];
+  const last = ['Johnson','Martinez','Nguyen','Thompson','Garcia','Walker','Robinson','Lee','Harris','Clark','Lewis','Young','Hall','Allen','King','Wright','Lopez','Hill','Scott','Green'];
+  const jobs = ['Water heater replacement','Sewer line repair','Drain cleaning','Slab leak','Repipe estimate','Trenchless lining','Camera inspection','Burst pipe','Toilet install','Hydro jetting'];
+  const contacts = [], deals = [], calls = [], activity = [];
+  for (let i = 0; i < 74; i++){
+    const c = pick(clients), n = pick(first) + ' ' + pick(last);
+    const created = new Date(Date.now() - Math.floor(r() * 60) * DAY - Math.floor(r() * 10) * 36e5).toISOString();
+    const st = r() < .35 ? 'New' : r() < .5 ? 'Contacted' : r() < .6 ? 'Qualified' : r() < .85 ? 'Customer' : 'Unqualified';
+    const ct = {id:uid(), name:n, email:n.toLowerCase().replace(' ', '.') + '@example.com', phone:'(555) ' + (100 + Math.floor(r()*899)) + '-' + (1000 + Math.floor(r()*8999)),
+      clientId:c.id, source:pick(SOURCES), website:c.site, status:st, createdAt:created, spam:false, zip:'', notes:'', timeline:[{at:created, text:'Lead captured via ' + (r() < .5 ? 'website form' : 'tracked call')}]};
+    contacts.push(ct);
+    if (r() < .55){
+      const stg = st === 'Customer' ? 'Won' : st === 'Unqualified' ? 'Lost' : pick(['New Lead','Contacted','Estimate Sent','Scheduled']);
+      deals.push({id:uid(), title:pick(jobs), contactId:ct.id, clientId:c.id, pipelineId:'p-leads', stage:stg, value:Math.round((300 + r() * 9000) / 50) * 50, updatedAt:created});
+    }
+    const calln = r() < .7 ? 1 + Math.floor(r() * 2) : 0;
+    for (let k = 0; k < calln; k++) calls.push({id:uid(), contactId:ct.id, clientId:c.id, from:ct.phone, tracking:'(555) 010-' + (2000 + clients.indexOf(c) * 11), source:ct.source,
+      at:new Date(new Date(created).getTime() + k * DAY * r()).toISOString(), duration:r() < .22 ? 0 : 20 + Math.floor(r() * 520), status:r() < .22 ? 'missed' : 'answered', recorded:true});
+  }
+  [['Valley Rooter Co.', 'Discovery Call', 2400], ['Desert Air HVAC', 'Proposal Sent', 3500], ['Lowcountry Drains', 'Prospect', 1800], ['Front Range Sewer', 'Negotiation', 4200], ['Mesa Water Pros', 'Signed', 2900]]
+    .forEach(([t, s, v], i) => deals.push({id:uid(), title:t, contactId:null, clientId:null, pipelineId:'p-tag', stage:s, value:v, updatedAt:new Date(Date.now() - i * 3 * DAY).toISOString()}));
+  const d = n => new Date(Date.now() + n * DAY).toISOString().slice(0, 10);
+  const tasks = [
+    {id:uid(), title:'Pull search terms since last check', clientId:'c-pipeliners', due:d(0), recur:'weekly', done:false},
+    {id:uid(), title:'GBP post + photo upload', clientId:'c-summit-az', due:d(1), recur:'weekly', done:false},
+    {id:uid(), title:'Monthly client report', clientId:'c-alphalete', due:d(-1), recur:'monthly', done:false},
+    {id:uid(), title:'Request indexing for new location pages', clientId:'c-prestige', due:d(3), recur:'none', done:false},
+    {id:uid(), title:'Review heatmap scan', clientId:'c-summit-ut', due:d(5), recur:'monthly', done:false},
+    {id:uid(), title:'Send EOD report', clientId:'', due:d(0), recur:'daily', done:false},
+    {id:uid(), title:'Check conversion uploads', clientId:'c-alphalete', due:d(-3), recur:'none', done:true}
+  ];
+  const automations = [
+    {id:uid(), name:'Missed call text-back', on:true, trigger:'call', filters:{clientId:'', source:'', callStatus:'missed', stage:''}, runs:0, lastRun:null,
+      steps:[{type:'sms', text:'Hi {{first_name}}, sorry we missed your call to {{company}}! What can we help with? Reply here and we will call you right back.'}, {type:'task', text:'Call back {{name}} ({{phone}})', days:0}]},
+    {id:uid(), name:'New form lead: speed-to-lead', on:true, trigger:'form', filters:{clientId:'', source:'', callStatus:'', stage:''}, runs:0, lastRun:null,
+      steps:[{type:'email', subject:'We got your request', text:'Hi {{first_name}}, thanks for reaching out to {{company}}. A team member will contact you shortly.'}, {type:'wait', hours:24}, {type:'condition', field:'status', value:'New'}, {type:'sms', text:'Hi {{first_name}}, just following up from {{company}}. Want us to get you on the schedule?'}]},
+    {id:uid(), name:'Won job: review request', on:true, trigger:'stage', filters:{clientId:'', source:'', callStatus:'', stage:'Won'}, runs:0, lastRun:null,
+      steps:[{type:'status', value:'Customer'}, {type:'wait', hours:2}, {type:'sms', text:'Thanks for choosing {{company}}, {{first_name}}! Would you leave us a quick Google review?'}, {type:'endif', note:'Review submitted'}]},
+    {id:uid(), name:'New TAG prospect: onboarding prep', on:false, trigger:'deal', filters:{clientId:'', source:'', callStatus:'', stage:'Signed'}, runs:0, lastRun:null,
+      steps:[{type:'questionnaire', text:'Client onboarding questionnaire'}, {type:'task', text:'Kickoff call with new client', days:2}]}
+  ];
+  const spam = {urls:true, phoneFormat:true, foreign:true, domains:'mailinator.com, tempmail.com, guerrillamail.com', emails:'', keywords:'seo services, backlinks, crypto, loan offer, guest post', blocked:[]};
+  activity.push({at:now(), text:'Sample data loaded. Clear it any time from the banner or Settings.'});
+  return {v:1, sample:true, clients, pipelines, contacts, deals, calls, tasks, automations, spam, activity, ui:{client:'all', pipe:'p-leads', leadView:'all'}};
+}
+const ONBOARD = ['Contract signed','Access: Google Ads','Access: GBP','Access: GA4 / GSC','Access: website','Call tracking numbers set','Forms connected to CRM','Baseline report sent'];
+
+/* ---------- Store ---------- */
+let S;
+try { S = JSON.parse(localStorage.getItem(KEY)); } catch (e) { S = null; }
+if (!S || !S.clients) S = seed();
+function save(){ try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
+const client = id => S.clients.find(c => c.id === id);
+const contact = id => S.contacts.find(c => c.id === id);
+const inScope = x => S.ui.client === 'all' || x.clientId === S.ui.client;
+const log = text => { S.activity.unshift({at:now(), text}); S.activity = S.activity.slice(0, 200); };
+const cDot = id => { const c = client(id); return c ? `<span class="dot" style="background:${c.color}"></span>` : `<span class="dot" style="background:var(--dim)"></span>`; };
+const cName = id => client(id)?.name || 'TAG (agency)';
+
+/* ---------- Automation engine ----------
+   Messages are not actually sent: steps are recorded on the contact
+   timeline as "simulated" so you can see exactly what would fire. */
+function fill(t, ct){
+  const c = ct ? client(ct.clientId) : null;
+  return String(t || '').replace(/\{\{(\w+)\}\}/g, (_, k) => ({first_name:(ct?.name || '').split(' ')[0], name:ct?.name, phone:ct?.phone, email:ct?.email, company:c?.name || 'TAG Marketing', source:ct?.source, website:ct?.website}[k] ?? ''));
+}
+function fire(trigger, ctx){
+  if (ctx.fromAutomation) return;
+  S.automations.filter(a => a.on && a.trigger === trigger).forEach(a => {
+    const f = a.filters || {};
+    if (f.clientId && f.clientId !== ctx.clientId) return;
+    if (f.source && f.source !== ctx.source) return;
+    if (f.callStatus && f.callStatus !== ctx.callStatus) return;
+    if (f.stage && f.stage !== ctx.stage) return;
+    run(a, ctx);
+  });
+}
+function run(a, ctx){
+  const ct = ctx.contactId ? contact(ctx.contactId) : null;
+  const note = t => { if (ct) ct.timeline.unshift({at:now(), text:t, sim:true}); };
+  let clock = 0;
+  for (const s of a.steps){
+    const when = clock ? ` (after ${clock}h)` : '';
+    if (s.type === 'wait'){ clock += +s.hours || 0; continue; }
+    if (s.type === 'condition'){ if (ct && String(ct[s.field] ?? '') !== String(s.value)){ note(`${a.name}: stopped, ${s.field} is not "${s.value}"`); break; } continue; }
+    if (s.type === 'endif'){ note(`${a.name}: will stop if ${s.note || 'condition met'}`); continue; }
+    if (s.type === 'sms') note(`SMS queued${when}: "${fill(s.text, ct)}"`);
+    if (s.type === 'email') note(`Email queued${when}: ${fill(s.subject, ct)}`);
+    if (s.type === 'questionnaire') note(`Questionnaire sent${when}: ${s.text}`);
+    if (s.type === 'status' && ct){ ct.status = s.value; note(`Status set to ${s.value}`); }
+    if (s.type === 'task') S.tasks.push({id:uid(), title:fill(s.text, ct), clientId:ctx.clientId || '', due:new Date(Date.now() + (+s.days || 0) * DAY).toISOString().slice(0, 10), recur:'none', done:false});
+    if (s.type === 'move' && ctx.dealId){ const d = S.deals.find(x => x.id === ctx.dealId); if (d) d.stage = s.value; }
+  }
+  a.runs++; a.lastRun = now();
+  log(`Automation "${a.name}" ran${ct ? ' for ' + ct.name : ''}`);
+}
+
+/* ---------- Spam check ---------- */
+function spamReason(x){
+  const sp = S.spam, msg = (x.message || '') + ' ' + (x.name || '');
+  if (sp.urls && /(https?:\/\/|www\.|\.[a-z]{2,4}\/)/i.test(x.message || '')) return 'URL in message';
+  if (sp.phoneFormat && x.phone && x.phone.replace(/\D/g, '').length !== 10 && x.phone.replace(/\D/g, '').length !== 11) return 'Invalid phone format';
+  if (sp.foreign && x.country && !/^(us|usa|united states)$/i.test(x.country.trim())) return 'IP from outside the US';
+  const dom = (x.email || '').split('@')[1]?.toLowerCase();
+  const list = s => s.split(',').map(t => t.trim().toLowerCase()).filter(Boolean);
+  if (dom && list(sp.domains).includes(dom)) return 'Blocked domain: ' + dom;
+  if (x.email && list(sp.emails).includes(x.email.toLowerCase())) return 'Blocked email';
+  const kw = list(sp.keywords).find(k => msg.toLowerCase().includes(k));
+  if (kw) return 'Keyword: ' + kw;
+  return null;
+}
+
+/* ---------- Icons + nav ---------- */
+const I = {
+  dash:'<path d="M3 13h8V3H3zM13 21h8V11h-8zM3 21h8v-6H3zM13 3v6h8V3z"/>',
+  leads:'<circle cx="9" cy="8" r="4"/><path d="M2 21c0-4 3-7 7-7s7 3 7 7M17 11a3 3 0 1 0 0-6M22 21c0-3-2-5-4-6"/>',
+  pipe:'<rect x="3" y="4" width="5" height="16" rx="1"/><rect x="10" y="4" width="5" height="10" rx="1"/><rect x="17" y="4" width="4" height="6" rx="1"/>',
+  co:'<path d="M3 21V7l9-4 9 4v14M9 21v-6h6v6M3 21h18"/>',
+  call:'<path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/>',
+  task:'<path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"/>',
+  auto:'<path d="M13 2 3 14h9l-1 8 10-12h-9z"/>',
+  rep:'<path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/>',
+  spam:'<path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5z"/><path d="m9 9 6 6M15 9l-6 6"/>',
+  set:'<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/>'
+};
+const ROUTES = [
+  ['Workspace'],
+  ['dashboard','Dashboard','dash'], ['leads','Leads','leads'], ['pipeline','Pipelines','pipe'], ['calls','Calls','call'], ['tasks','Tasks','task'],
+  ['Agency'],
+  ['companies','Companies','co'], ['automations','Automations','auto'], ['reports','Reports','rep'], ['spam','Spam Blocking','spam'], ['settings','Settings','set']
+];
+function renderNav(route){
+  const counts = {
+    leads: S.contacts.filter(c => !c.spam && inScope(c) && c.status === 'New').length,
+    tasks: S.tasks.filter(t => !t.done && t.due <= today() && inScope(t)).length,
+    spam: S.spam.blocked.length
+  };
+  $('#nav').innerHTML = ROUTES.map(r => r.length === 1 ? `<div class="nav-label">${r[0]}</div>` :
+    `<a href="#/${r[0]}" class="${route === r[0] ? 'on' : ''}"><svg viewBox="0 0 24 24">${I[r[2]]}</svg>${r[1]}${counts[r[0]] ? `<span class="count">${counts[r[0]]}</span>` : ''}</a>`).join('');
+  $('#clientSel').innerHTML = `<option value="all">All companies</option>` + S.clients.map(c => `<option value="${c.id}" ${S.ui.client === c.id ? 'selected' : ''}>${h(c.name)}</option>`).join('');
+}
+const today = () => new Date().toISOString().slice(0, 10);
+
+/* ---------- Router ---------- */
+const VIEWS = {};
+function render(){
+  const route = (location.hash.replace('#/', '') || 'dashboard').split('?')[0];
+  const v = VIEWS[route] ? route : 'dashboard';
+  renderNav(v);
+  $('#title').textContent = ROUTES.find(r => r[0] === v)[1];
+  const banner = S.sample ? `<div class="banner"><span class="pill warn">Sample data</span><span class="grow">You are looking at demo leads, calls and deals so you can try every feature. Nothing here is real client data.</span><button class="btn sm" onclick="clearSample()">Clear sample data</button></div>` : '';
+  $('#view').innerHTML = banner + VIEWS[v]();
+  $('#side').classList.remove('on');
+  save();
+}
+window.addEventListener('hashchange', render);
+
+/* ---------- Dashboard ---------- */
+function within(arr, key, from, to){ return arr.filter(x => { const t = new Date(x[key]).getTime(); return t >= from && t < to; }); }
+VIEWS.dashboard = () => {
+  const N = Date.now(), d30 = N - 30 * DAY, d60 = N - 60 * DAY;
+  const leads = S.contacts.filter(c => !c.spam && inScope(c));
+  const l30 = within(leads, 'createdAt', d30, N + DAY), lp = within(leads, 'createdAt', d60, d30);
+  const calls = within(S.calls.filter(inScope), 'at', d30, N + DAY);
+  const ans = calls.filter(c => c.status === 'answered').length;
+  const deals = S.deals.filter(d => d.pipelineId === 'p-leads' && inScope(d));
+  const open = deals.filter(d => !['Won','Lost'].includes(d.stage)).reduce((a, d) => a + d.value, 0);
+  const won = within(deals.filter(d => d.stage === 'Won'), 'updatedAt', d30, N + DAY).reduce((a, d) => a + d.value, 0);
+  const delta = lp.length ? Math.round((l30.length - lp.length) / lp.length * 100) : 0;
+  const bySrc = SOURCES.map(s => [s, l30.filter(c => c.source === s).length]).filter(x => x[1]).sort((a, b) => b[1] - a[1]);
+  const max = Math.max(1, ...bySrc.map(x => x[1]));
+  const upcoming = S.tasks.filter(t => !t.done && inScope(t)).sort((a, b) => a.due.localeCompare(b.due)).slice(0, 6);
+  return `
+  <div class="kpis">
+    <div class="kpi"><div class="k">New leads (30d)</div><div class="v">${l30.length}</div><div class="d ${delta >= 0 ? 'up' : 'down'}">${delta >= 0 ? '+' : ''}${delta}% vs prior 30d</div></div>
+    <div class="kpi"><div class="k">Calls (30d)</div><div class="v">${calls.length}</div><div class="d muted">${calls.length ? Math.round(ans / calls.length * 100) : 0}% answered</div></div>
+    <div class="kpi"><div class="k">Open pipeline</div><div class="v">${money(open)}</div><div class="d muted">${deals.filter(d => !['Won','Lost'].includes(d.stage)).length} open deals</div></div>
+    <div class="kpi"><div class="k">Won (30d)</div><div class="v">${money(won)}</div><div class="d muted">Client Leads pipeline</div></div>
+    <div class="kpi"><div class="k">Spam blocked</div><div class="v">${S.spam.blocked.length}</div><div class="d muted">kept out of your pipeline</div></div>
+  </div>
+  <div class="grid g2" style="margin-bottom:16px">
+    <div class="card"><h3>Leads per day, last 30 days</h3>${spark(l30)}</div>
+    <div class="card"><h3>Leads by source (30d)</h3><div class="bars">${bySrc.map(([s, n]) => `<div class="bar"><span>${h(s)}</span><span class="t"><i style="width:${n / max * 100}%"></i></span><span class="n">${n}</span></div>`).join('') || '<div class="empty">No leads yet</div>'}</div></div>
+  </div>
+  <div class="grid g3">
+    <div class="card"><h3>By company</h3><div class="bars">${S.clients.filter(inScopeClient).map(c => { const n = l30.filter(l => l.clientId === c.id).length; return `<div class="bar"><span class="row" style="gap:6px;flex-wrap:nowrap">${cDot(c.id)}<span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${h(c.name)}</span></span><span class="t"><i style="width:${n / Math.max(1, l30.length) * 100}%"></i></span><span class="n">${n}</span></div>`; }).join('')}</div></div>
+    <div class="card"><h3>Upcoming tasks<span class="grow"></span><a href="#/tasks">All</a></h3>${upcoming.map(t => `<div class="row" style="padding:6px 0;border-bottom:1px dashed var(--line);flex-wrap:nowrap">${cDot(t.clientId)}<span style="flex:1">${h(t.title)}</span><span class="pill ${t.due < today() ? 'red' : t.due === today() ? 'warn' : ''}">${t.due < today() ? 'Overdue' : t.due === today() ? 'Today' : fmtDate(t.due + 'T12:00')}</span></div>`).join('') || '<div class="empty">Nothing due</div>'}</div>
+    <div class="card"><h3>Activity</h3><div class="feed">${S.activity.slice(0, 25).map(a => `<div><time>${ago(a.at)}</time><span>${h(a.text)}</span></div>`).join('')}</div></div>
+  </div>`;
+};
+const inScopeClient = c => S.ui.client === 'all' || c.id === S.ui.client;
+function spark(list){
+  const days = [...Array(30)].map((_, i) => { const d = new Date(Date.now() - (29 - i) * DAY).toISOString().slice(0, 10); return [d, list.filter(l => l.createdAt.slice(0, 10) === d).length]; });
+  const max = Math.max(1, ...days.map(d => d[1])), w = 600, hgt = 150, bw = w / 30;
+  return `<svg class="spark" viewBox="0 0 ${w} ${hgt}" preserveAspectRatio="none" role="img" aria-label="Leads per day">${days.map(([d, n], i) => `<rect x="${i * bw + 2}" y="${hgt - (n / max) * (hgt - 10)}" width="${bw - 4}" height="${(n / max) * (hgt - 10) || 1}" rx="3"><title>${fmtDate(d + 'T12:00')}: ${n} leads</title></rect>`).join('')}</svg>`;
+}
+
+/* ---------- Leads ---------- */
+VIEWS.leads = () => {
+  const q = ($('#q').value || '').toLowerCase();
+  const st = S.ui.status || '';
+  let list = S.contacts.filter(c => !c.spam && inScope(c) && (!st || c.status === st) && (!q || [c.name, c.email, c.phone, c.source].join(' ').toLowerCase().includes(q)))
+    .sort((a, b) => b.createdAt.localeCompare(a.createdAt));
+  const key = {company:'clientId', website:'website', source:'source'}[S.ui.leadView];
+  let body;
+  if (!key) body = leadTable(list);
+  else {
+    const groups = [...new Set(list.map(c => c[key]))];
+    body = groups.map(g => `<div class="group-h">${key === 'clientId' ? cDot(g) + h(cName(g)) : h(g)}<span class="pill">${list.filter(c => c[key] === g).length}</span></div>${leadTable(list.filter(c => c[key] === g))}`).join('') || '<div class="empty">No leads</div>';
+  }
+  return `<div class="toolbar">
+    <div class="tabs">${[['all','All leads'],['company','By company'],['website','By website'],['source','By lead source']].map(([k, l]) => `<button class="${S.ui.leadView === k ? 'on' : ''}" onclick="S.ui.leadView='${k}';render()">${l}</button>`).join('')}</div>
+    <div class="grow"></div>
+    <select onchange="S.ui.status=this.value;render()" aria-label="Status filter"><option value="">Any status</option>${STATUSES.map(s => `<option ${st === s ? 'selected' : ''}>${s}</option>`).join('')}</select>
+    <button class="btn" onclick="openForm()">Simulate form submission</button>
+    <button class="btn" onclick="exportCSV()">Export CSV</button>
+  </div>${body}`;
+};
+function leadTable(list){
+  if (!list.length) return '<div class="tbl-wrap"><div class="empty">No leads match.</div></div>';
+  const tone = {New:'cyan', Contacted:'warn', Qualified:'cyan', Customer:'green', Unqualified:'red'};
+  return `<div class="tbl-wrap"><table><thead><tr><th>Name</th><th>Company</th><th>Source</th><th>Website</th><th>Phone</th><th>Status</th><th>Created</th></tr></thead><tbody>
+  ${list.map(c => `<tr onclick="openContact('${c.id}')"><td><div class="who"><span class="av">${initials(c.name)}</span><div><div style="font-weight:600">${h(c.name)}</div><div class="dim" style="font-size:12px">${h(c.email)}</div></div></div></td>
+  <td><span class="row" style="gap:6px;flex-wrap:nowrap">${cDot(c.clientId)}${h(cName(c.clientId))}</span></td><td>${h(c.source)}</td><td class="muted">${h(c.website)}</td><td class="mono" style="font-size:12.5px">${h(c.phone)}</td>
+  <td><span class="pill ${tone[c.status] || ''}">${h(c.status)}</span></td><td class="muted">${fmtDate(c.createdAt)}</td></tr>`).join('')}</tbody></table></div>`;
+}
+function exportCSV(){
+  const rows = [['Name','Email','Phone','Company','Source','Website','Status','Created']].concat(S.contacts.filter(c => !c.spam && inScope(c)).map(c => [c.name, c.email, c.phone, cName(c.clientId), c.source, c.website, c.status, c.createdAt]));
+  download('tag-crm-leads.csv', rows.map(r => r.map(v => `"${String(v).replace(/"/g, '""')}"`).join(',')).join('\n'), 'text/csv');
+}
+
+/* ---------- Contact drawer ---------- */
+function openContact(id){
+  const c = contact(id); if (!c) return;
+  const deals = S.deals.filter(d => d.contactId === id), calls = S.calls.filter(x => x.contactId === id);
+  $('#drawer').innerHTML = `
+  <div class="mh"><span class="av" style="width:38px;height:38px">${initials(c.name)}</span><h2>${h(c.name)}<div class="muted" style="font-size:12px;font-weight:500">${h(cName(c.clientId))}</div></h2><button class="btn ghost" onclick="closeAll()" aria-label="Close">✕</button></div>
+  <div class="mb">
+    <div class="row">
+      <select style="width:auto" onchange="setStatus('${id}',this.value)" aria-label="Status">${STATUSES.map(s => `<option ${c.status === s ? 'selected' : ''}>${s}</option>`).join('')}</select>
+      <button class="btn sm" onclick="contactModal('${id}')">Edit</button>
+      <button class="btn sm" onclick="dealModal(null,'${id}')">+ Deal</button>
+      <select style="width:auto" onchange="if(this.value){addToAuto('${id}',this.value)}" aria-label="Add to automation"><option value="">Add to automation...</option>${S.automations.map(a => `<option value="${a.id}">${h(a.name)}</option>`).join('')}</select>
+      <button class="btn sm danger" onclick="markSpam('${id}')">Mark spam</button>
+    </div>
+    <dl class="kv"><dt>Email</dt><dd>${h(c.email)}</dd><dt>Phone</dt><dd class="mono">${h(c.phone)}</dd><dt>Lead source</dt><dd>${h(c.source)}</dd><dt>Website</dt><dd>${h(c.website)}</dd><dt>Zip</dt><dd>${h(c.zip) || '<span class="dim">none</span>'}</dd><dt>Created</dt><dd>${fmtDT(c.createdAt)}</dd></dl>
+    ${deals.length ? `<div><div class="nav-label" style="padding-left:0">Deals</div>${deals.map(d => `<div class="deal" onclick="dealModal('${d.id}')" style="margin-bottom:8px"><div class="t">${h(d.title)}</div><div class="m"><span>${h(d.stage)}</span><span class="val">${money(d.value)}</span></div></div>`).join('')}</div>` : ''}
+    ${calls.length ? `<div><div class="nav-label" style="padding-left:0">Calls</div>${calls.map(x => `<div class="row" style="font-size:13px;padding:4px 0"><span class="pill ${x.status === 'missed' ? 'red' : 'green'}">${x.status}</span><span class="mono">${dur(x.duration)}</span><span class="muted">${fmtDT(x.at)}</span></div>`).join('')}</div>` : ''}
+    <div><div class="nav-label" style="padding-left:0">Add note</div><div class="row" style="flex-wrap:nowrap"><input type="text" id="noteIn" placeholder="Called, left voicemail..." onkeydown="if(event.key==='Enter')addNote('${id}')"><button class="btn" onclick="addNote('${id}')">Add</button></div></div>
+    <div><div class="nav-label" style="padding-left:0">Timeline</div><div class="tl">${c.timeline.map(t => `<div class="${t.sim ? 'sim' : ''}"><time>${fmtDT(t.at)}${t.sim ? ' · automation (simulated)' : ''}</time>${h(t.text)}</div>`).join('')}</div></div>
+  </div>`;
+  openLayer('#drawer');
+}
+function setStatus(id, v){ const c = contact(id); c.status = v; c.timeline.unshift({at:now(), text:'Status changed to ' + v}); fire('status', {contactId:id, clientId:c.clientId, source:c.source}); save(); openContact(id); render(); }
+function addNote(id){ const v = $('#noteIn').value.trim(); if (!v) return; contact(id).timeline.unshift({at:now(), text:v}); save(); openContact(id); }
+function addToAuto(id, aid){ const a = S.automations.find(x => x.id === aid), c = contact(id); run(a, {contactId:id, clientId:c.clientId, source:c.source}); save(); toast(`Added ${c.name} to "${a.name}"`); openContact(id); }
+function markSpam(id){ const c = contact(id); c.spam = true; S.spam.blocked.unshift({at:now(), name:c.name, email:c.email, reason:'Marked manually', contactId:id}); log(`${c.name} marked as spam`); closeAll(); render(); toast('Moved to spam'); }
+
+/* ---------- Pipelines ---------- */
+VIEWS.pipeline = () => {
+  const p = S.pipelines.find(x => x.id === S.ui.pipe) || S.pipelines[0];
+  const deals = S.deals.filter(d => d.pipelineId === p.id && (p.id === 'p-tag' || inScope(d)));
+  return `<div class="toolbar">
+    <div class="tabs">${S.pipelines.map(x => `<button class="${x.id === p.id ? 'on' : ''}" onclick="S.ui.pipe='${x.id}';render()">${h(x.name)}</button>`).join('')}</div>
+    <div class="grow"></div><span class="muted">${deals.length} deals · ${money(deals.filter(d => !['Won','Lost','Signed'].includes(d.stage)).reduce((a, d) => a + d.value, 0))} open</span>
+    <button class="btn" onclick="pipeModal('${p.id}')">Edit stages</button>
+    <button class="btn primary" onclick="dealModal()">+ Deal</button>
+  </div>
+  <div class="board">${p.stages.map(s => { const ds = deals.filter(d => d.stage === s); return `
+    <section class="col"><div class="col-h"><b>${h(s)}</b><span class="pill">${ds.length}</span><span class="sum">${money(ds.reduce((a, d) => a + d.value, 0))}</span></div>
+    <div class="col-b" data-stage="${h(s)}" ondragover="event.preventDefault();this.classList.add('drop')" ondragleave="this.classList.remove('drop')" ondrop="dropDeal(event,this.dataset.stage)">
+    ${ds.map(d => { const c = contact(d.contactId); return `<article class="deal" draggable="true" ondragstart="event.dataTransfer.setData('text',this.dataset.id);this.classList.add('dragging')" ondragend="this.classList.remove('dragging')" data-id="${d.id}" onclick="dealModal('${d.id}')">
+      <div class="t">${h(d.title)}</div><div class="m"><span class="row" style="gap:6px;flex-wrap:nowrap">${cDot(d.clientId)}${h(c?.name || cName(d.clientId))}</span><span class="val">${money(d.value)}</span></div>
+      <div class="m" style="margin-top:6px"><span class="dim">${ago(d.updatedAt)} in stage</span></div></article>`; }).join('')}
+    </div></section>`; }).join('')}</div>`;
+};
+function dropDeal(e, stage){
+  e.preventDefault();
+  $$('.col-b').forEach(c => c.classList.remove('drop'));
+  moveDeal(e.dataTransfer.getData('text'), stage);
+}
+function moveDeal(id, stage){
+  const d = S.deals.find(x => x.id === id); if (!d || d.stage === stage) return;
+  d.stage = stage; d.updatedAt = now();
+  const c = contact(d.contactId);
+  if (c) c.timeline.unshift({at:now(), text:`Deal "${d.title}" moved to ${stage}`});
+  log(`"${d.title}" moved to ${stage}`);
+  fire('stage', {contactId:d.contactId, clientId:d.clientId, source:c?.source, stage, dealId:d.id});
+  render(); toast(`Moved to ${stage}`);
+}
+function dealModal(id, contactId){
+  const d = id ? S.deals.find(x => x.id === id) : {title:'', value:0, pipelineId:S.ui.pipe, stage:'', contactId:contactId || '', clientId:contactId ? contact(contactId).clientId : (S.ui.client !== 'all' ? S.ui.client : '')};
+  const p = S.pipelines.find(x => x.id === d.pipelineId) || S.pipelines[0];
+  modal(id ? 'Edit deal' : 'New deal', `
+    <label class="f">Title<input type="text" id="dTitle" value="${h(d.title)}" placeholder="Water heater replacement"></label>
+    <div class="grid g2"><label class="f">Value ($)<input type="number" id="dVal" value="${d.value}"></label>
+    <label class="f">Pipeline<select id="dPipe" onchange="$('#dStage').innerHTML=S.pipelines.find(p=>p.id===this.value).stages.map(s=>'<option>'+s+'</option>').join('')">${S.pipelines.map(x => `<option value="${x.id}" ${x.id === p.id ? 'selected' : ''}>${h(x.name)}</option>`).join('')}</select></label></div>
+    <div class="grid g2"><label class="f">Stage<select id="dStage">${p.stages.map(s => `<option ${d.stage === s ? 'selected' : ''}>${h(s)}</option>`).join('')}</select></label>
+    <label class="f">Company<select id="dClient"><option value="">TAG (agency)</option>${S.clients.map(c => `<option value="${c.id}" ${d.clientId === c.id ? 'selected' : ''}>${h(c.name)}</option>`).join('')}</select></label></div>
+    <label class="f">Contact<select id="dContact"><option value="">None</option>${S.contacts.filter(c => !c.spam).sort((a, b) => a.name.localeCompare(b.name)).map(c => `<option value="${c.id}" ${d.contactId === c.id ? 'selected' : ''}>${h(c.name)} (${h(cName(c.clientId))})</option>`).join('')}</select></label>`,
+  () => {
+    const v = {title:$('#dTitle').value.trim() || 'Untitled deal', value:+$('#dVal').value || 0, pipelineId:$('#dPipe').value, stage:$('#dStage').value, clientId:$('#dClient').value || null, contactId:$('#dContact').value || null};
+    if (id){ const old = d.stage; Object.assign(d, v, {updatedAt:now()}); if (old !== v.stage) fire('stage', {contactId:d.contactId, clientId:d.clientId, stage:d.stage, dealId:d.id, source:contact(d.contactId)?.source}); }
+    else { const nd = {id:uid(), ...v, updatedAt:now()}; S.deals.push(nd); log(`New deal "${nd.title}"`); fire('deal', {contactId:nd.contactId, clientId:nd.clientId, stage:nd.stage, dealId:nd.id, source:contact(nd.contactId)?.source}); }
+    closeAll(); render();
+  }, id ? () => { S.deals = S.deals.filter(x => x.id !== id); closeAll(); render(); toast('Deal deleted'); } : null);
+}
+function pipeModal(pid){
+  const p = S.pipelines.find(x => x.id === pid);
+  modal('Edit pipeline', `<label class="f">Name<input type="text" id="pName" value="${h(p.name)}"></label>
+    <label class="f">Stages (one per line, in order)<textarea id="pStages" rows="7">${h(p.stages.join('\n'))}</textarea></label>
+    <p class="dim" style="margin:0;font-size:12px">Deals in a removed stage move to the first stage.</p>`,
+  () => {
+    p.name = $('#pName').value.trim() || p.name;
+    p.stages = $('#pStages').value.split('\n').map(s => s.trim()).filter(Boolean);
+    S.deals.filter(d => d.pipelineId === p.id && !p.stages.includes(d.stage)).forEach(d => d.stage = p.stages[0]);
+    closeAll(); render();
+  });
+}
+
+/* ---------- Calls ---------- */
+VIEWS.calls = () => {
+  const f = S.ui.callF || '';
+  const list = S.calls.filter(c => inScope(c) && (!f || c.status === f)).sort((a, b) => b.at.localeCompare(a.at));
+  const ans = list.filter(c => c.status === 'answered');
+  return `<div class="kpis" style="grid-template-columns:repeat(4,minmax(0,1fr))">
+    <div class="kpi"><div class="k">Total calls</div><div class="v">${list.length}</div></div>
+    <div class="kpi"><div class="k">Answered</div><div class="v up">${ans.length}</div></div>
+    <div class="kpi"><div class="k">Missed</div><div class="v down">${list.length - ans.length}</div></div>
+    <div class="kpi"><div class="k">Avg talk time</div><div class="v">${dur(Math.round(ans.reduce((a, c) => a + c.duration, 0) / Math.max(1, ans.length)))}</div></div>
+  </div>
+  <div class="toolbar"><div class="tabs">${[['','All'],['answered','Answered'],['missed','Missed']].map(([k, l]) => `<button class="${f === k ? 'on' : ''}" onclick="S.ui.callF='${k}';render()">${l}</button>`).join('')}</div><div class="grow"></div>
+    <button class="btn" onclick="simCall('answered')">Simulate answered call</button><button class="btn" onclick="simCall('missed')">Simulate missed call</button></div>
+  <div class="tbl-wrap"><table><thead><tr><th>Caller</th><th>Company</th><th>Tracking #</th><th>Source</th><th>Status</th><th>Duration</th><th>When</th></tr></thead><tbody>
+  ${list.slice(0, 300).map(c => { const ct = contact(c.contactId); return `<tr onclick="${ct ? `openContact('${ct.id}')` : ''}"><td><div class="who"><span class="av">${initials(ct?.name)}</span><div><div style="font-weight:600">${h(ct?.name || 'Unknown')}</div><div class="mono dim" style="font-size:12px">${h(c.from)}</div></div></div></td>
+  <td><span class="row" style="gap:6px;flex-wrap:nowrap">${cDot(c.clientId)}${h(cName(c.clientId))}</span></td><td class="mono" style="font-size:12.5px">${h(c.tracking)}</td><td>${h(c.source)}</td>
+  <td><span class="pill ${c.status === 'missed' ? 'red' : 'green'}">${c.status}</span></td><td class="mono">${dur(c.duration)}</td><td class="muted">${fmtDT(c.at)}</td></tr>`; }).join('') || '<tr><td colspan="7" class="empty">No calls</td></tr>'}</tbody></table></div>
+  <p class="dim" style="font-size:12px">Call log entries can be added by simulation here. To pull real calls, connect a call tracking source later (export from your tracking tool and import JSON in Settings).</p>`;
+};
+function simCall(status){
+  const c = S.ui.client !== 'all' ? client(S.ui.client) : S.clients[Math.floor(Math.random() * S.clients.length)];
+  const ct = {id:uid(), name:'Caller ' + Math.floor(1000 + Math.random() * 9000), email:'', phone:'(555) ' + (200 + Math.floor(Math.random() * 700)) + '-' + (1000 + Math.floor(Math.random() * 8999)), clientId:c.id, source:'Google Business Profile', website:c.site, status:'New', createdAt:now(), spam:false, zip:'', notes:'', timeline:[{at:now(), text:`Inbound call (${status})`}]};
+  S.contacts.push(ct);
+  S.calls.push({id:uid(), contactId:ct.id, clientId:c.id, from:ct.phone, tracking:'(555) 010-' + (2000 + S.clients.indexOf(c) * 11), source:ct.source, at:now(), duration:status === 'missed' ? 0 : 95, status, recorded:true});
+  log(`${status === 'missed' ? 'Missed' : 'Answered'} call for ${c.name}`);
+  fire('contact', {contactId:ct.id, clientId:c.id, source:ct.source});
+  fire('call', {contactId:ct.id, clientId:c.id, source:ct.source, callStatus:status});
+  render(); toast(status === 'missed' ? 'Missed call logged. Check the caller timeline for automations.' : 'Call logged');
+}
+
+/* ---------- Tasks ---------- */
+VIEWS.tasks = () => {
+  const list = S.tasks.filter(inScope), t = today();
+  const grp = [['Overdue', x => !x.done && x.due < t], ['Today', x => !x.done && x.due === t], ['Upcoming', x => !x.done && x.due > t], ['Done', x => x.done]];
+  return `<div class="toolbar"><span class="muted">Recurring tasks create their next occurrence when you check them off.</span><div class="grow"></div><button class="btn primary" onclick="taskModal()">+ Task</button></div>
+  ${grp.map(([g, fn]) => { const ts = list.filter(fn).sort((a, b) => a.due.localeCompare(b.due)); return ts.length ? `<div class="group-h">${g}<span class="pill ${g === 'Overdue' ? 'red' : ''}">${ts.length}</span></div><div class="card" style="padding:0">${ts.map(x => `
+    <div class="task ${x.done ? 'done' : ''}"><input type="checkbox" ${x.done ? 'checked' : ''} onchange="toggleTask('${x.id}')" aria-label="Done"><span class="tt">${h(x.title)}</span>
+    ${x.recur !== 'none' ? `<span class="pill cyan">${x.recur}</span>` : ''}<span class="row" style="gap:6px;flex-wrap:nowrap;font-size:12.5px" class="muted">${cDot(x.clientId)}${h(cName(x.clientId))}</span>
+    <span class="mono dim" style="font-size:12px;min-width:56px;text-align:right">${fmtDate(x.due + 'T12:00')}</span><button class="btn ghost sm" onclick="taskModal('${x.id}')">Edit</button></div>`).join('')}</div>` : ''; }).join('') || '<div class="empty">No tasks yet</div>'}`;
+};
+function toggleTask(id){
+  const x = S.tasks.find(t => t.id === id); x.done = !x.done;
+  if (x.done && x.recur !== 'none' && !x.spawned){
+    const d = new Date(x.due + 'T12:00');
+    if (x.recur === 'daily') d.setDate(d.getDate() + 1); if (x.recur === 'weekly') d.setDate(d.getDate() + 7); if (x.recur === 'monthly') d.setMonth(d.getMonth() + 1);
+    S.tasks.push({...x, id:uid(), due:d.toISOString().slice(0, 10), done:false}); x.spawned = true;
+    toast('Next ' + x.recur + ' task scheduled for ' + fmtDate(d));
+  }
+  if (x.done) log('Task done: ' + x.title);
+  render();
+}
+function taskModal(id){
+  const x = id ? S.tasks.find(t => t.id === id) : {title:'', clientId:S.ui.client !== 'all' ? S.ui.client : '', due:today(), recur:'none'};
+  modal(id ? 'Edit task' : 'New task', `<label class="f">Task<input type="text" id="tTitle" value="${h(x.title)}"></label>
+    <div class="grid g3"><label class="f">Due<input type="date" id="tDue" value="${x.due}"></label>
+    <label class="f">Repeats<select id="tRec">${['none','daily','weekly','monthly'].map(r => `<option ${x.recur === r ? 'selected' : ''}>${r}</option>`).join('')}</select></label>
+    <label class="f">Company<select id="tCl"><option value="">TAG (agency)</option>${S.clients.map(c => `<option value="${c.id}" ${x.clientId === c.id ? 'selected' : ''}>${h(c.name)}</option>`).join('')}</select></label></div>`,
+  () => { const v = {title:$('#tTitle').value.trim() || 'Untitled', due:$('#tDue').value || today(), recur:$('#tRec').value, clientId:$('#tCl').value};
+    if (id) Object.assign(x, v); else S.tasks.push({id:uid(), done:false, ...v}); closeAll(); render(); },
+  id ? () => { S.tasks = S.tasks.filter(t => t.id !== id); closeAll(); render(); } : null);
+}
+
+/* ---------- Companies ---------- */
+VIEWS.companies = () => `<div class="toolbar"><span class="muted">Each company is a client sub-account with its own leads, calls, pipeline and reports.</span><div class="grow"></div><button class="btn primary" onclick="companyModal()">+ Company</button></div>
+  <div class="grid g3">${S.clients.map(c => {
+    const leads = S.contacts.filter(l => l.clientId === c.id && !l.spam), calls = S.calls.filter(x => x.clientId === c.id);
+    const open = S.deals.filter(d => d.clientId === c.id && !['Won','Lost'].includes(d.stage)).reduce((a, d) => a + d.value, 0);
+    const ob = ONBOARD.filter(s => c.onboarding?.[s]).length;
+    return `<div class="card co"><div class="hd"><div class="logo" style="background:${c.color}">${initials(c.name)}</div><div style="flex:1;min-width:0"><b>${h(c.name)}</b><div class="muted" style="font-size:12px">${h(c.site)}</div></div><button class="btn ghost sm" onclick="companyModal('${c.id}')">Edit</button></div>
+    <div class="stats"><div><b>${leads.length}</b><span>Leads</span></div><div><b>${calls.length}</b><span>Calls</span></div><div><b>${money(open)}</b><span>Open</span></div></div>
+    <div class="row" style="font-size:12px"><span class="muted" style="flex:1">Onboarding ${ob}/${ONBOARD.length}</span><span class="dim">${h((c.locations || []).join(', '))}</span></div>
+    <div class="progress"><i style="width:${ob / ONBOARD.length * 100}%"></i></div>
+    <div class="row"><button class="btn sm" onclick="S.ui.client='${c.id}';location.hash='#/leads'">Open leads</button><button class="btn sm" onclick="S.ui.client='${c.id}';location.hash='#/reports'">Report</button></div></div>`; }).join('')}</div>`;
+function companyModal(id){
+  const c = id ? client(id) : {name:'', site:'', color:'#22c3d6', locations:[], onboarding:{}};
+  modal(id ? 'Edit company' : 'New company', `<div class="grid g2"><label class="f">Name<input type="text" id="coName" value="${h(c.name)}"></label><label class="f">Website<input type="text" id="coSite" value="${h(c.site)}" placeholder="example.com"></label></div>
+    <div class="grid g2"><label class="f">Locations (comma separated)<input type="text" id="coLoc" value="${h((c.locations || []).join(', '))}"></label><label class="f">Color<input type="text" id="coCol" value="${h(c.color)}"></label></div>
+    <div><div class="nav-label" style="padding-left:0">Onboarding checklist</div>${ONBOARD.map((s, i) => `<label class="row" style="padding:5px 0;cursor:pointer"><input type="checkbox" class="obc" data-k="${h(s)}" ${c.onboarding?.[s] ? 'checked' : ''} style="accent-color:var(--accent);width:16px;height:16px"> ${h(s)}</label>`).join('')}</div>`,
+  () => { const v = {name:$('#coName').value.trim() || 'New company', site:$('#coSite').value.trim(), color:$('#coCol').value.trim() || '#22c3d6', locations:$('#coLoc').value.split(',').map(s => s.trim()).filter(Boolean), onboarding:{}};
+    $$('.obc').forEach(b => v.onboarding[b.dataset.k] = b.checked);
+    if (id) Object.assign(c, v); else { S.clients.push({id:'c-' + uid(), ...v}); log('Company added: ' + v.name); } closeAll(); render(); },
+  id ? () => { if (!confirm('Delete this company? Its leads stay but lose their company.')) return; S.clients = S.clients.filter(x => x.id !== id); if (S.ui.client === id) S.ui.client = 'all'; closeAll(); render(); } : null);
+}
+
+/* ---------- Automations ---------- */
+const stepLabel = s => ({wait:`Wait ${s.hours}h`, condition:`If ${s.field} = ${s.value}`, status:`Set status: ${s.value}`, move:`Move to ${s.value}`, endif:`End if ${s.note || ''}`}[s.type] || ACTIONS[s.type]);
+VIEWS.automations = () => `<div class="toolbar"><span class="muted">Trigger, filters, then actions. Messages are logged on the contact timeline as simulated until you connect a sender.</span><div class="grow"></div><button class="btn primary" onclick="autoModal()">+ Automation</button></div>
+  <div class="grid g2">${S.automations.map(a => { const f = a.filters || {}; const chips = [f.clientId && cName(f.clientId), f.source, f.callStatus && 'call ' + f.callStatus, f.stage && 'stage ' + f.stage].filter(Boolean);
+    return `<div class="card auto"><div class="row" style="flex-wrap:nowrap"><label class="switch" title="On/off"><input type="checkbox" ${a.on ? 'checked' : ''} onchange="toggleAuto('${a.id}')"><span></span></label><b style="flex:1">${h(a.name)}</b><button class="btn ghost sm" onclick="autoModal('${a.id}')">Edit</button></div>
+    <div class="flow"><span class="node trig">⚡ ${h(TRIGGERS[a.trigger])}</span>${chips.map(c => `<span class="pill">${h(c)}</span>`).join('')}</div>
+    <div class="flow">${a.steps.map((s, i) => `${i ? '<span class="arrow">→</span>' : ''}<span class="node">${h(stepLabel(s))}</span>`).join('')}</div>
+    <div class="dim" style="font-size:12px">${a.runs} runs${a.lastRun ? ' · last ' + ago(a.lastRun) + ' ago' : ''}</div></div>`; }).join('')}</div>`;
+function toggleAuto(id){ const a = S.automations.find(x => x.id === id); a.on = !a.on; render(); toast(a.name + (a.on ? ' is on' : ' is off')); }
+let draft;
+function autoModal(id){
+  const a = id ? S.automations.find(x => x.id === id) : {name:'', on:true, trigger:'form', filters:{clientId:'', source:'', callStatus:'', stage:''}, steps:[{type:'sms', text:''}], runs:0};
+  draft = JSON.parse(JSON.stringify(a));
+  const allStages = [...new Set(S.pipelines.flatMap(p => p.stages))];
+  modal(id ? 'Edit automation' : 'New automation', `
+    <label class="f">Name<input type="text" id="aName" value="${h(draft.name)}" placeholder="Missed call text-back"></label>
+    <label class="f">Trigger<select id="aTrig">${Object.entries(TRIGGERS).map(([k, v]) => `<option value="${k}" ${draft.trigger === k ? 'selected' : ''}>${v}</option>`).join('')}</select></label>
+    <div><div class="nav-label" style="padding-left:0">Filters (all must match, blank = any)</div><div class="grid g2">
+      <label class="f">Company<select id="fCl"><option value="">Any</option>${S.clients.map(c => `<option value="${c.id}" ${draft.filters.clientId === c.id ? 'selected' : ''}>${h(c.name)}</option>`).join('')}</select></label>
+      <label class="f">Lead source<select id="fSrc"><option value="">Any</option>${SOURCES.map(s => `<option ${draft.filters.source === s ? 'selected' : ''}>${s}</option>`).join('')}</select></label>
+      <label class="f">Call status<select id="fCall"><option value="">Any</option><option ${draft.filters.callStatus === 'missed' ? 'selected' : ''}>missed</option><option ${draft.filters.callStatus === 'answered' ? 'selected' : ''}>answered</option></select></label>
+      <label class="f">Pipeline stage<select id="fStage"><option value="">Any</option>${allStages.map(s => `<option ${draft.filters.stage === s ? 'selected' : ''}>${h(s)}</option>`).join('')}</select></label></div></div>
+    <div><div class="nav-label" style="padding-left:0">Actions</div><div id="steps" class="grid" style="gap:10px"></div>
+      <div class="row" style="margin-top:10px"><select id="addStep" style="width:auto">${Object.entries(ACTIONS).map(([k, v]) => `<option value="${k}">${v}</option>`).join('')}</select><button class="btn sm" onclick="syncSteps();draft.steps.push({type:$('#addStep').value,text:'',hours:1,value:'',field:'status',days:0});drawSteps()">+ Add action</button></div>
+      <p class="vars">Variables (click to copy): ${['first_name','name','phone','email','company','source','website'].map(v => `<code onclick="navigator.clipboard?.writeText('{{${v}}}');toast('Copied {{${v}}}')">{{${v}}}</code>`).join(' ')}</p></div>`,
+  () => { syncSteps(); Object.assign(draft, {name:$('#aName').value.trim() || 'Untitled automation', trigger:$('#aTrig').value, filters:{clientId:$('#fCl').value, source:$('#fSrc').value, callStatus:$('#fCall').value, stage:$('#fStage').value}});
+    if (id) Object.assign(a, draft); else S.automations.push({...draft, id:uid()}); closeAll(); render(); toast('Automation saved'); },
+  id ? () => { S.automations = S.automations.filter(x => x.id !== id); closeAll(); render(); } : null);
+  drawSteps();
+}
+function drawSteps(){
+  const stages = [...new Set(S.pipelines.flatMap(p => p.stages))];
+  $('#steps').innerHTML = draft.steps.map((s, i) => {
+    let f = '';
+    if (s.type === 'sms' || s.type === 'questionnaire') f = `<textarea data-k="text" rows="2" placeholder="Message">${h(s.text)}</textarea>`;
+    if (s.type === 'email') f = `<input type="text" data-k="subject" value="${h(s.subject || '')}" placeholder="Subject"><textarea data-k="text" rows="2" placeholder="Body">${h(s.text)}</textarea>`;
+    if (s.type === 'wait') f = `<label class="f">Hours<input type="number" data-k="hours" value="${s.hours ?? 1}"></label>`;
+    if (s.type === 'task') f = `<input type="text" data-k="text" value="${h(s.text)}" placeholder="Task title"><label class="f">Due in days<input type="number" data-k="days" value="${s.days ?? 0}"></label>`;
+    if (s.type === 'status') f = `<select data-k="value">${STATUSES.map(x => `<option ${s.value === x ? 'selected' : ''}>${x}</option>`).join('')}</select>`;
+    if (s.type === 'move') f = `<select data-k="value">${stages.map(x => `<option ${s.value === x ? 'selected' : ''}>${h(x)}</option>`).join('')}</select>`;
+    if (s.type === 'condition') f = `<div class="grid g2"><select data-k="field">${['status','source','website'].map(x => `<option ${s.field === x ? 'selected' : ''}>${x}</option>`).join('')}</select><input type="text" data-k="value" value="${h(s.value)}" placeholder="equals..."></div><span class="dim" style="font-size:12px">Stops here when false.</span>`;
+    if (s.type === 'endif') f = `<input type="text" data-k="note" value="${h(s.note || '')}" placeholder="Review submitted">`;
+    return `<div class="step" data-i="${i}"><span class="num">${i + 1}</span><div class="grid" style="gap:8px"><b style="font-size:13px">${ACTIONS[s.type]}</b>${f}</div>
+      <div class="grid" style="gap:4px"><button class="btn ghost sm" onclick="mvStep(${i},-1)" aria-label="Move up">↑</button><button class="btn ghost sm" onclick="mvStep(${i},1)" aria-label="Move down">↓</button><button class="btn ghost sm danger" onclick="syncSteps();draft.steps.splice(${i},1);drawSteps()" aria-label="Remove">✕</button></div></div>`;
+  }).join('') || '<div class="dim">No actions yet.</div>';
+}
+function syncSteps(){ $$('#steps .step').forEach(el => { const s = draft.steps[+el.dataset.i]; $$('[data-k]', el).forEach(inp => s[inp.dataset.k] = inp.type === 'number' ? +inp.value : inp.value); }); }
+function mvStep(i, d){ syncSteps(); const j = i + d; if (j < 0 || j >= draft.steps.length) return; [draft.steps[i], draft.steps[j]] = [draft.steps[j], draft.steps[i]]; drawSteps(); }
+
+/* ---------- Spam ---------- */
+VIEWS.spam = () => { const sp = S.spam; const tg = (k, l, d) => `<label class="row" style="flex-wrap:nowrap;padding:8px 0;border-bottom:1px solid var(--line);cursor:pointer"><span style="flex:1"><b style="font-size:13.5px">${l}</b><div class="dim" style="font-size:12px">${d}</div></span><span class="switch"><input type="checkbox" ${sp[k] ? 'checked' : ''} onchange="S.spam['${k}']=this.checked;save()"><span></span></span></label>`;
+  return `<div class="grid g2"><div class="card"><h3>Filters</h3>
+    ${tg('urls', 'Block URLs in messages', 'Most form spam includes a link.')}
+    ${tg('phoneFormat', 'Require a valid phone format', '10 or 11 digits.')}
+    ${tg('foreign', 'Block submissions from outside the US', 'Uses the country captured with the form.')}
+    <div class="grid" style="margin-top:14px"><label class="f">Blocked email domains (comma separated)<input type="text" value="${h(sp.domains)}" onchange="S.spam.domains=this.value;save()"></label>
+    <label class="f">Blocked email addresses<input type="text" value="${h(sp.emails)}" onchange="S.spam.emails=this.value;save()"></label>
+    <label class="f">Blocked keywords or phrases<input type="text" value="${h(sp.keywords)}" onchange="S.spam.keywords=this.value;save()"></label></div>
+    <div class="row" style="margin-top:14px"><button class="btn" onclick="openForm()">Test a form submission</button></div></div>
+  <div class="card"><h3>Blocked submissions<span class="grow"></span><span class="pill red">${sp.blocked.length}</span></h3>
+    ${sp.blocked.map((b, i) => `<div class="row" style="padding:8px 0;border-bottom:1px dashed var(--line);flex-wrap:nowrap"><div style="flex:1;min-width:0"><b>${h(b.name || 'Unknown')}</b> <span class="dim">${h(b.email || '')}</span><div style="font-size:12px"><span class="pill red">${h(b.reason)}</span> <span class="dim">${ago(b.at)} ago</span></div></div><button class="btn sm" onclick="notSpam(${i})">Not spam</button></div>`).join('') || '<div class="empty">Nothing blocked yet. Try a test submission with a link in the message.</div>'}</div></div>`; };
+function notSpam(i){
+  const b = S.spam.blocked.splice(i, 1)[0];
+  if (b.contactId && contact(b.contactId)) contact(b.contactId).spam = false;
+  else if (b.data) createLead(b.data, true);
+  render(); toast('Restored to leads');
+}
+
+/* ---------- Form submission (manual lead or simulated web form) ---------- */
+function openForm(){
+  modal('Simulate website form submission', `<p class="muted" style="margin:0">Runs spam filters, creates the lead, and fires "New Form Submission" automations.</p>
+    <div class="grid g2"><label class="f">Name<input type="text" id="fmName" value="Test Lead"></label><label class="f">Email<input type="email" id="fmEmail" value="test.lead@example.com"></label></div>
+    <div class="grid g2"><label class="f">Phone<input type="tel" id="fmPhone" value="(555) 201-3344"></label><label class="f">Country<input type="text" id="fmCountry" value="US"></label></div>
+    <div class="grid g2"><label class="f">Company<select id="fmCl">${S.clients.map(c => `<option value="${c.id}" ${S.ui.client === c.id ? 'selected' : ''}>${h(c.name)}</option>`).join('')}</select></label><label class="f">Lead source<select id="fmSrc">${SOURCES.map(s => `<option>${s}</option>`).join('')}</select></label></div>
+    <label class="f">Message<textarea id="fmMsg">My water heater is leaking, can someone come out this week?</textarea></label>`,
+  () => { const x = {name:$('#fmName').value, email:$('#fmEmail').value, phone:$('#fmPhone').value, country:$('#fmCountry').value, clientId:$('#fmCl').value, source:$('#fmSrc').value, message:$('#fmMsg').value};
+    const why = spamReason(x);
+    if (why){ S.spam.blocked.unshift({at:now(), name:x.name, email:x.email, reason:why, data:x}); log(`Spam blocked (${why}): ${x.name}`); closeAll(); render(); toast('Blocked as spam: ' + why); return; }
+    const ct = createLead(x, true); closeAll(); render(); openContact(ct.id); toast('Lead created, automations ran'); }, null, 'Submit');
+}
+function createLead(x, isForm){
+  const c = client(x.clientId) || S.clients[0];
+  const ct = {id:uid(), name:x.name || 'Unknown', email:x.email || '', phone:x.phone || '', clientId:c.id, source:x.source || 'Direct', website:x.website || c.site, status:'New', createdAt:now(), spam:false, zip:x.zip || '', notes:'',
+    timeline:[{at:now(), text:isForm ? `Form submission: "${x.message || ''}"` : 'Lead added manually'}]};
+  S.contacts.push(ct); log(`New lead: ${ct.name} (${c.name})`);
+  fire('contact', {contactId:ct.id, clientId:ct.clientId, source:ct.source});
+  if (isForm) fire('form', {contactId:ct.id, clientId:ct.clientId, source:ct.source});
+  save(); return ct;
+}
+function contactModal(id){
+  const c = id ? contact(id) : {name:'', email:'', phone:'', clientId:S.ui.client !== 'all' ? S.ui.client : S.clients[0]?.id, source:'Direct', website:'', zip:''};
+  modal(id ? 'Edit lead' : 'New lead', `<div class="grid g2"><label class="f">Name<input type="text" id="cName" value="${h(c.name)}"></label><label class="f">Email<input type="email" id="cEmail" value="${h(c.email)}"></label></div>
+    <div class="grid g2"><label class="f">Phone<input type="tel" id="cPhone" value="${h(c.phone)}"></label><label class="f">Zip<input type="text" id="cZip" value="${h(c.zip)}"></label></div>
+    <div class="grid g2"><label class="f">Company<select id="cCl">${S.clients.map(x => `<option value="${x.id}" ${c.clientId === x.id ? 'selected' : ''}>${h(x.name)}</option>`).join('')}</select></label><label class="f">Lead source<select id="cSrc">${SOURCES.map(s => `<option ${c.source === s ? 'selected' : ''}>${s}</option>`).join('')}</select></label></div>
+    <label class="f">Website (leave blank to use the company site)<input type="text" id="cWeb" value="${h(c.website)}"></label>`,
+  () => { const v = {name:$('#cName').value.trim(), email:$('#cEmail').value.trim(), phone:$('#cPhone').value.trim(), zip:$('#cZip').value.trim(), clientId:$('#cCl').value, source:$('#cSrc').value, website:$('#cWeb').value.trim()};
+    if (!v.name){ toast('Name is required'); return; }
+    if (id){ Object.assign(c, v, {website:v.website || client(v.clientId)?.site || ''}); closeAll(); render(); openContact(id); }
+    else { const ct = createLead(v, false); closeAll(); render(); openContact(ct.id); } },
+  id ? () => { if (!confirm('Delete this lead permanently?')) return; S.contacts = S.contacts.filter(x => x.id !== id); S.deals = S.deals.filter(d => d.contactId !== id); closeAll(); render(); } : null);
+}
+
+/* ---------- Reports ---------- */
+VIEWS.reports = () => {
+  const cid = S.ui.client, days = +(S.ui.range || 30), from = Date.now() - days * DAY;
+  const name = cid === 'all' ? 'All companies' : cName(cid);
+  const leads = within(S.contacts.filter(c => !c.spam && inScope(c)), 'createdAt', from, Date.now() + DAY);
+  const calls = within(S.calls.filter(inScope), 'at', from, Date.now() + DAY);
+  const won = within(S.deals.filter(d => inScope(d) && d.stage === 'Won'), 'updatedAt', from, Date.now() + DAY);
+  const bySrc = SOURCES.map(s => [s, leads.filter(l => l.source === s).length]).filter(x => x[1]).sort((a, b) => b[1] - a[1]);
+  const max = Math.max(1, ...bySrc.map(x => x[1]));
+  const ans = calls.filter(c => c.status === 'answered').length;
+  return `<div class="toolbar"><select id="repCl" onchange="S.ui.client=this.value;render()"><option value="all">All companies</option>${S.clients.map(c => `<option value="${c.id}" ${cid === c.id ? 'selected' : ''}>${h(c.name)}</option>`).join('')}</select>
+    <div class="tabs">${[7, 30, 90].map(d => `<button class="${days === d ? 'on' : ''}" onclick="S.ui.range=${d};render()">${d} days</button>`).join('')}</div><div class="grow"></div><button class="btn primary" onclick="print()">Print / save PDF</button></div>
+  <div class="report"><div class="report-h"><div><div class="muted mono" style="font-size:11px;letter-spacing:.1em">PERFORMANCE REPORT</div><h2>${h(name)}</h2></div><div class="muted" style="text-align:right">${fmtDate(new Date(from))} to ${fmtDate(new Date())}<div class="dim" style="font-size:12px">Prepared by TAG Marketing</div></div></div>
+    <div class="kpis" style="grid-template-columns:repeat(4,minmax(0,1fr))">
+      <div class="kpi"><div class="k">Leads</div><div class="v">${leads.length}</div></div>
+      <div class="kpi"><div class="k">Phone calls</div><div class="v">${calls.length}</div><div class="d muted">${ans} answered</div></div>
+      <div class="kpi"><div class="k">Jobs won</div><div class="v">${won.length}</div></div>
+      <div class="kpi"><div class="k">Won revenue</div><div class="v">${money(won.reduce((a, d) => a + d.value, 0))}</div></div></div>
+    <div class="grid g2"><div class="card"><h3>Leads by source</h3><div class="bars">${bySrc.map(([s, n]) => `<div class="bar"><span>${h(s)}</span><span class="t"><i style="width:${n / max * 100}%"></i></span><span class="n">${n}</span></div>`).join('') || '<div class="empty">No leads in range</div>'}</div></div>
+    <div class="card"><h3>Leads per day</h3>${spark(within(leads, 'createdAt', Date.now() - 30 * DAY, Date.now() + DAY))}</div></div></div>`;
+};
+
+/* ---------- Settings ---------- */
+VIEWS.settings = () => `<div class="grid g2"><div class="card"><h3>Backup</h3><p class="muted" style="margin-top:0">Everything is stored in this browser only. Export a backup regularly, and import it on another computer.</p>
+  <div class="row"><button class="btn primary" onclick="download('tag-crm-backup-${today()}.json',JSON.stringify(S,null,2),'application/json')">Export JSON backup</button>
+  <label class="btn">Import JSON<input type="file" accept=".json" hidden onchange="importJSON(this.files[0])"></label></div></div>
+  <div class="card"><h3>Data</h3><div class="row"><button class="btn" onclick="if(confirm('Replace everything with fresh sample data?')){S=seed();render();toast('Sample data loaded')}">Reload sample data</button>
+  <button class="btn danger" onclick="clearSample()">Clear all data (keep companies)</button></div>
+  <p class="dim" style="font-size:12px">Stats: ${S.contacts.length} contacts, ${S.deals.length} deals, ${S.calls.length} calls, ${S.tasks.length} tasks, ${S.automations.length} automations.</p></div></div>`;
+function clearSample(){
+  if (!confirm('Remove all leads, deals, calls, tasks and activity? Companies, pipelines, automations and spam rules are kept.')) return;
+  Object.assign(S, {sample:false, contacts:[], deals:[], calls:[], tasks:[], activity:[{at:now(), text:'Workspace cleared. Ready for real leads.'}]});
+  S.spam.blocked = []; S.automations.forEach(a => { a.runs = 0; a.lastRun = null; });
+  render(); toast('Cleared. Your companies and automations are kept.');
+}
+function importJSON(f){ if (!f) return; f.text().then(t => { const d = JSON.parse(t); if (!d.clients) throw 0; S = d; render(); toast('Backup imported'); }).catch(() => toast('That file is not a TAG CRM backup')); }
+function download(name, text, type){ const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([text], {type})); a.download = name; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000); }
+
+/* ---------- Layers ---------- */
+let onSave, onDel;
+function modal(title, body, save_, del, saveLabel = 'Save'){
+  onSave = save_; onDel = del;
+  $('#modal').innerHTML = `<div class="mh"><h2>${h(title)}</h2><button class="btn ghost" onclick="closeAll()" aria-label="Close">✕</button></div><div class="mb">${body}</div>
+    <div class="mf">${del ? '<button class="btn danger" style="margin-right:auto" onclick="onDel()">Delete</button>' : ''}<button class="btn" onclick="closeAll()">Cancel</button><button class="btn primary" onclick="onSave()">${saveLabel}</button></div>`;
+  $('#drawer').classList.remove('on');
+  openLayer('#modal');
+  setTimeout(() => $('#modal input,#modal select')?.focus(), 50);
+}
+function openLayer(sel){ $('#scrim').classList.add('on'); $(sel).classList.add('on'); }
+function closeAll(){ ['#scrim', '#drawer', '#modal'].forEach(s => $(s).classList.remove('on')); save(); }
+function toast(t){ const el = $('#toast'); el.textContent = t; el.classList.add('on'); clearTimeout(el._t); el._t = setTimeout(() => el.classList.remove('on'), 2600); }
+$('#scrim').onclick = closeAll;
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAll(); if (e.key === '/' && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)){ e.preventDefault(); $('#q').focus(); } });
+$('#clientSel').onchange = e => { S.ui.client = e.target.value; render(); };
+$('#newBtn').onclick = () => contactModal();
+$('#menuBtn').onclick = () => $('#side').classList.toggle('on');
+$('#q').oninput = () => { if (!location.hash.startsWith('#/leads')) location.hash = '#/leads'; else render(); const q = $('#q'); q.focus(); };
+render();
+</script>
+</body>
+</html>

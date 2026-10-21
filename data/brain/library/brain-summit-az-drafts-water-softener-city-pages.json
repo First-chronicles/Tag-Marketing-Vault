@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Drafts - Water Softener City Pages",
+ "cat": "brain-summit",
+ "group": "Drafts",
+ "body": "> Plan · Summit Az · 2026-05-29\n\n# Summary\nFive new water softener installation city pages (Mesa, Phoenix, Queen Creek, Scottsdale, Tempe) mirroring the Chandler, Gilbert, Apache Junction, Fountain Hills and San Tan Valley template. WP drafts 5703 to 5707 were created 2026-05-20 (see [Summit AZ - Context - Page Coverage Snapshot 2026-05-20](lib:brain-summit-az-context-page-coverage-snapshot-2026-05-20)).\n\n# Key facts\n- Target keyword pattern \"water softener installation {City} AZ\"; H1 \"Water Softener Installation in {City}, AZ\"; secondary terms whole house water softener, hard water, repair, replacement.\n- 15-section structure: lead, GHL form (not the old `gform_1` Gravity form), trust badges, hard water problems in {City} (unique per city), 5-step process, $20 coupon, 4 services, map, 6 benefits, CTA, 4 reasons, 5 FAQs.\n- Apply via Copy and Delete Posts clone of Chandler, then paste sections; after publishing, update the `ssp-area-card` widget on `/water-softeners/` so the 5 dead city cards resolve.\n- Open choices: city images, consistent `tel:+14804477008` links, internal links to `/water-softeners/` and 2 to 3 cities, LocalBusiness + Service schema.\n- Staged HTML and 5-FAQ meta in `wp-staging\\water-softener\\` (see [Summit AZ - WP Staging Pages](lib:brain-summit-az-wp-staging-pages)).\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Summit AZ - Work Folders Index](lib:brain-summit-az-work-folders-index)\n- [Summit AZ - Drafts Folder Overview](lib:brain-summit-az-drafts-folder-overview)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/drafts/summit-water-softeners",
+ "date": "2026-05-29",
+ "createdAt": 1792613122724,
+ "updatedAt": 1792613122724,
+ "rev": "25e56d9f4303"
+}

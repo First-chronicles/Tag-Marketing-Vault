@@ -1,0 +1,14 @@
+{
+ "name": "Prestige - Blog - Sewer Backup",
+ "cat": "brain-prestige",
+ "group": "Blogs",
+ "body": "> Blog · Prestige · 2026-08-01\n\n# Brief\n- Title: Sewer Backups in the Lowcountry: Causes, Warning Signs, and What to Do\n- Slug: /blog/sewer-backup/. Role: PILLAR of the sewer cluster. Intent: informational (TOFU). About 1,925 words.\n- Primary keyword: sewer backup. Secondaries: what to do after a sewer backup, sewer backup after heavy rain, how to prevent sewer backup, multiple drains backing up at once, sewer backup Bluffton SC.\n- Title tag: \"Sewer Backups: Causes, Signs & What to Do | Prestige Plumbing\". Author: Matt Milunec.\n\n# Outline\nWhat a sewer backup is (the lateral, lowest exit; the draft notes most guides assume a basement, which Lowcountry homes usually lack), causes, why backups happen after heavy rain here, warning signs, what to do the moment sewage backs up, homeowner vs utility responsibility, prevention (including a backflow preventer), and an FAQ.\n\n# Flag status (from the draft)\n- Author page resolved (reuses the /about/ author block).\n- The insurance section is factual and sourced, and tells readers to ask their own agent. It can be published, but the draft suggests a review.\n- Lateral responsibility is stated as a general principle. Confirm it before publish (Hilton Head has separate public service districts).\n- First-hand proof is optional.\n- The backflow preventer mention is plain text for now. Add the link to /blog/backflow-preventer/ once that post is live (marked with a BUILD NOTE comment in the HTML).\n- Gated for Scott: camera, hydro-jetting and repair pricing, free estimate language, warranties, emergency rates.\n\n# Status\nDrafted and built 2026-08-01, scheduled as drip Day 0. Not yet published per the cluster list.\n\n# Related\n- [Prestige - Sewer Cluster Rollout Plan 2026-08-01](lib:brain-prestige-sewer-cluster-rollout-plan-2026-08-01), [Prestige Plumbing (Hub)](lib:brain-prestige-plumbing-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Prestige Plumbing/drafts/blog/sewer-backup/sewer-backup.md",
+ "date": "2026-08-01",
+ "createdAt": 1792613554113,
+ "updatedAt": 1792613554113,
+ "rev": "b9c2587bbdb3"
+}

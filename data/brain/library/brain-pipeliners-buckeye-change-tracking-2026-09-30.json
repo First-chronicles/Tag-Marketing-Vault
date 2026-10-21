@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Buckeye Change Tracking 2026-09-30",
+ "cat": "brain-pipeliners",
+ "group": "City Pages",
+ "body": "> Tracker · Pipeliners · 2026-09-30\n\n# Summary\nTracking note for https://pipelinersusa.com/buckeye/. Kim updated the page around Sep 22-26 (exact date and change to be confirmed); WordPress still showed last modified Sep 1, so the edit may have gone through OTTO.\n\n# Baseline (GSC US via Search Atlas)\n- Aug 4 to Aug 31: 365 impressions, position 18, 0 clicks.\n- Sep 2 to Sep 28: 397 impressions, position 19, 0 clicks.\n- Sep 8 to Sep 21: 315 impressions, position 18.\n- After the Sep 1 edit the page began ranking for sewer terms (trenchless sewer repair buckeye az #9, trenchless sewer line replacement #10, sewer line repair #12).\n- Top keywords: buckeye az pipe break repair (81 impressions, 14), buckeye az water line repair (53, 20), pipe breaks buckeye az (45, 24), buckeye gas line repair (43, 18, not a service).\n\n# Live page Sep 30\nTitle \"Trenchless Pipe Repair & Lining in Buckeye, AZ | Pipeliners\", 2,199 words, one H2 still \"Why Choose Pipeliners USA?\".\n\n# Success check\nRecheck on or after Oct 10 with a 14-day before/after compare: impressions per 2 weeks above 315 and position better than 18; pipe break and water line terms moving toward page one. The handoff adds a fallback title if pipe-break terms stay on page 2. See also `performance-tracking\\BUCKEYE-SEO-TEST.md` (owned by the audits index).\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Audits and Reports Index](lib:brain-pipeliners-audits-and-reports-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/buckeye-change-tracking.md",
+ "date": "2026-09-30",
+ "createdAt": 1792613264480,
+ "updatedAt": 1792613264480,
+ "rev": "183220430a88"
+}

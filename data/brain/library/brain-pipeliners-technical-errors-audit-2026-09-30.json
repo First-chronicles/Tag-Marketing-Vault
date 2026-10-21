@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Technical Errors Audit 2026-09-30",
+ "cat": "brain-pipeliners",
+ "group": "Audits",
+ "body": "> Audit · Pipeliners · 2026-09-30\n\n# Summary\nA live technical error audit on Sep 30, 2026 (`findings.csv`, 15 checks) covering 404s, 5xx errors, broken internal links, redirect chains, HTTP vs HTTPS, duplicate URLs, orphan pages and click depth. Based on a crawl of 176 URLs and 954 resource files, plus GSC crawl stats.\n\n# Key findings\n- 404s: 0 of 176 crawled URLs return 404 and no live page links to one. 29 of the 30 known old 404s still 404 with zero live links; Google still requested 404s 408 times in 90 days (7% of its crawl).\n- Schema 404s: 5 image addresses in the OTTO Article schema of the Mesa sewer camera post do not exist; 2 more posts point at dead addresses in schema.\n- 5xx: none today; GSC host status \"No problems\".\n- Broken internal links: none (928 in-content links and 954 resources all 200). Hidden OTTO \"Related Pages\" blocks on 5 posts link to redirected posts.\n- Redirects: no loops; all 12 merge redirects resolve in one hop. http://www takes 2 hops (optional fix). Category schema lists 5 redirected posts.\n- HTTPS: clean, no mixed content.\n- Duplicates: self-canonicals everywhere. Two empty theme categories are indexable and identical; two category archives share a title; 4 noindex URLs still in the sitemap.\n- Orphans: none true. 6 city pages (Litchfield Park, Superior, Apache Junction, Youngtown, Sacaton, El Mirage) are linked only from the menu; 9 posts only from listings and prev/next cards.\n- Depth: deepest real page is 3 clicks (54 pages at 1, 39 at 2, 19 at 3).\n\n# Decisions and status\n- Proposed, needs approval: add the 8 redirects from the Sep 24 list, fix the schema image addresses in OTTO, remove the 5 hidden related-pages blocks, noindex the empty categories, give the archives distinct titles, add 1 to 2 in-content links to each menu-only page.\n\n# Files in this folder (rollups only)\n- `findings.csv`, `inbound-links.csv` (per-URL inbound link sources and click depth).\n- Saved HTML (`html/`, category \"before\" copies, `home_now.html`, `mesa_post.html`), JSON crawl outputs and Python scripts.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - 404 Audit 2026-09-24](lib:brain-pipeliners-404-audit-2026-09-24), [Pipeliners - Search Checkup and Technical Audit 2026-09-28](lib:brain-pipeliners-search-checkup-and-technical-audit-2026-09-28)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/reports/tech-errors-2026-09-30",
+ "date": "2026-09-30",
+ "createdAt": 1792613209736,
+ "updatedAt": 1792613567034,
+ "rev": "fb1f9be59a3e"
+}

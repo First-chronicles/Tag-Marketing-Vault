@@ -1,0 +1,14 @@
+{
+ "name": "Video Notes Project",
+ "cat": "brain-projects",
+ "group": "",
+ "body": "> Project · 2026-10-22\n\n# Summary\nA project to transcribe Kim's course and training videos locally (free, with faster-whisper) and turn them into study notes. The `video-notes-agent` subagent runs it ([Claude Code Agents](lib:brain-claude-code-agents)): it transcribes each video, captures slide frames at scene changes, merges multi-part lessons and writes lesson notes, module summaries and a course overview that can go into the [Tag Marketing Vault](lib:brain-tag-marketing-vault).\n\n# Current state (Oct 22, 2026)\n- `Video Notes\\Modern SEO\\`: Module 1 (Lessons 1 to 5, Lesson 2 in several continuation parts), Module 2 (Lessons 1 to 4 on GBP audit, GBP landing page, citations and trust signals), Module 3 (Core 30 framework and gap analysis), Module 4 (Lessons 1 to 5 on client acquisition, pricing and outgrowing the methods), an `index.json` and a transcribe log.\n- `Video Notes\\tools\\transcribe.py`: the transcription script.\n- Finished Oct 22, 2026: all 4 modules transcribed (the first run logged 15 videos for Modules 1 to 3; Module 4 was added after), with lesson notes, module summaries and a course overview. Summarized in the vault as [Modern SEO Course](lib:brain-modern-seo-course) (4 module notes, 17 lesson notes).\n\n# Related\n- [Projects Index](lib:brain-projects-index), [Learning Index](lib:brain-learning-index), [Modern SEO Course](lib:brain-modern-seo-course)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Video Notes",
+ "date": "2026-10-22",
+ "createdAt": 1792614891758,
+ "updatedAt": 1792614891758,
+ "rev": "700f727d8a37"
+}

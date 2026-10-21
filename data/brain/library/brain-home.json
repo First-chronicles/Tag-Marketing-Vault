@@ -1,0 +1,14 @@
+{
+ "name": "Home",
+ "cat": "brain-home",
+ "group": "",
+ "body": "> Hub · 2026-10-22\n\nKim's second brain for TAG Marketing. Every note summarizes a file in `C:\\TAG Marketing Claude` and links back to it. The originals are untouched, so open the source link when you need the full document.\n\n# Clients\n| Client | Site | Hub |\n|---|---|---|\n| Pipeliners | pipelinersusa.com | [Pipeliners (Hub)](lib:brain-pipeliners-hub) |\n| Alphalete Trenchless | Colorado trenchless sewer | [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub) |\n| Summit Plumbing Pros (Arizona) | summitplumbingpros.com | [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub) |\n| Prestige Plumbing | prestigeplumbingsc.com | [Prestige Plumbing (Hub)](lib:brain-prestige-plumbing-hub) |\n\n# Work system\n- [SOPs and Guides Index](lib:brain-sops-and-guides-index) (blog standards, setup guides, handoffs)\n- [Trackers and Logs Index](lib:brain-trackers-and-logs-index) (GSC indexing, search terms, task lists, blog master list)\n- [EOD Reports Index](lib:brain-eod-reports-index) (every end-of-day report by month)\n\n# Learning\n- [Learning Index](lib:brain-learning-index) (AI SEO Masterclass, Local SEO Lesson, Modern SEO, lesson takeaways)\n\n# Tools and projects\n- [Tools and Integrations Index](lib:brain-tools-and-integrations-index) (Search Atlas, Google Ads, GHL, Higgsfield, hosting, Claude agents)\n- [Projects Index](lib:brain-projects-index) (AIO SEO CRM, TAG CRM, Tag Marketing Vault, report dashboard)\n\n# Standing rules\n- Client websites and Google Ads are read-only for Claude. Changes go to Kim as copy-paste fix lists.\n- No em dashes in anything written for Kim.\n- No paid services without Kim's OK.\n- Claims in copy must be backed by the live site, the owner or Scott.\n\n# How this vault works\n- New notes land in `00 Inbox`. Move them into a folder when they are sorted.\n- Tags: `client/...`, `type/...`, `topic/...`, and `status/pending` for notes with open items. Use the Tags pane to browse.\n- Graph view is colored by client.\n- Build details and the list of files that were not turned into notes: [Vault Build Report](lib:brain-vault-build-report).\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "",
+ "date": "2026-10-22",
+ "createdAt": 1792612628310,
+ "updatedAt": 1792612628341,
+ "rev": "a5b0f58033f8"
+}

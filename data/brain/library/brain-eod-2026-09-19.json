@@ -1,0 +1,14 @@
+{
+ "name": "EOD 2026-09-19",
+ "cat": "brain-eod",
+ "group": "2026-09 September",
+ "body": "> Eod · Pipeliners · 2026-09-19\n\nSaturday. Pipeliners only (Sep 18 to 19): low-hanging fruit keyword tracker, plan and fixes.\n\n# Pipeliners\nSee [Pipeliners (Hub)](lib:brain-pipeliners-hub).\n- Tracker: GSC Aug 20 to Sep 16, checked day by day; 173 real keywords in positions 8 to 30, all on city pages, no blog posts.\n- Plan: fix internal links, fix wrong-city image descriptions, Wave 1 (Avondale, Glendale, Paradise Valley) and Wave 2 (San Tan Valley, Coolidge, Laveen, Casa Grande) keyword alignment, real job photos (waiting on Scott), one supporting blog, hold Tolleson and Peoria until repiping is confirmed, review Oct 17.\n- Done: Services page now links to 6 more cities and \"nofollow\" removed from all 16 existing city links.\n- Fixed 169 wrong city names in image descriptions across 74 pages (pipe photos said \"Anthem\").\n- 7 city pages now carry the keyword in title, H1, meta, opening, a subheading and schema (\"Trenchless Sewer Repair in [City], AZ\" or \"Sewer Line Repair in [City], AZ\"). Fixed an OTTO \"Pipe Lining\" subheading on Laveen.\n- Published supporting blog /clay-sewer-pipe/ linking to 4 city pages and 6 related posts; indexing requested. Removed unverified pipe lifespan numbers from a linking post.\n- Blog merges: 9 old posts now 301 to stronger posts (2 on Sep 18, 7 on Sep 19), old posts kept as drafts. Indexing requested for the 5 stronger posts.\n- New artifacts: blog keyword positions tracker, page 2 blog keyword plan, a how-to PDF, website pages tracker update.\n\n# Follow-ups\n- Kim: decide the last 2 merges (#4 and #11) and city links on the Service Areas page.\n- Scott: real job photos; does Pipeliners do repiping.\n- Checks: Sep 20 images, Sep 30 Buckeye, Oct 9 pages changed Sep 16, Oct 17 results for the 7 city pages, clay pipe blog and merged posts.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Google Search Console](lib:brain-google-search-console), [EOD Reports Index](lib:brain-eod-reports-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/EOD Report 2026-09-19.txt",
+ "date": "2026-09-19",
+ "createdAt": 1792612873499,
+ "updatedAt": 1792612873500,
+ "rev": "a23d82751f83"
+}

@@ -1,0 +1,14 @@
+{
+ "name": "SSH Client Aliases",
+ "cat": "brain-tools",
+ "group": "",
+ "body": "> Tool · 2026-10-01\n\n# Summary\nClaude reaches client servers through SSH aliases in `C:\\Users\\kimbe\\.ssh\\config`. Each server has its own ed25519 key with `IdentitiesOnly yes` (key files are never opened or copied).\n\n| Alias | Host | Status | Use |\n|---|---|---|---|\n| `summit` | SiteGround (Summit AZ) | Working | Read-only |\n| `alphalete` | Hostinger | Working | Read-only |\n| `pipeliners` | Hostinger | **Unverified** (May 18 test interrupted) | Read-only |\n| `namehero` | node614.namehero.net:37980, user scottvin | Working | tagmktg.com, Prestige, other sites |\n\n# Rules\n- Client WordPress sites are read-only for Claude (Summit, Alphalete, Pipeliners). Output fix lists for Kim to apply.\n- Before any server-side write that Kim has authorized, quote her exact instruction.\n- Summit (SiteGround): after redirect, slug or trash changes the edge cache must be purged or it serves stale 404s.\n- The website connection SOP lives in the Summit folder (`SOP-connect-website.md`) but covers all sites.\n\n# Connection test\n`ssh -o ConnectTimeout=10 -o BatchMode=yes <alias> \"hostname && whoami\"`. If it fails, report the error; do not auto-fix.\n\n# Pending\n- Confirm the `pipeliners` alias connects.\n\n# Related\n- [Tools and Integrations Index](lib:brain-tools-and-integrations-index), [NameHero Hosting](lib:brain-namehero-hosting), [Claude Code Setup Guide](lib:brain-claude-code-setup-guide)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "_Shared (All Clients)/Session Handoff 2026-10-01.md",
+ "date": "2026-10-01",
+ "createdAt": 1792613347323,
+ "updatedAt": 1792613347324,
+ "rev": "ebe29d26a576"
+}

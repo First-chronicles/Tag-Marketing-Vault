@@ -1,0 +1,741 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+
+
+
+
+
+
+<title>Pipeliners Website Pages</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+<style id="css">
+:root{
+  --ground:#F9FBFD; --cell:#FFFFFF; --head:#F8F9FA; --head-2:#EEF0F3; --grid:#E1E3E6; --grid-2:#C7CACF;
+  --ink:#202124; --ink-2:#5F6368; --ink-3:#80868B; --sel:#1A73E8; --sel-bg:#E8F0FE; --row-hover:#F1F3F4;
+  --green:#0F9D58; --link:#1155CC;
+  --c-yes-bg:#D4EDBC; --c-yes:#11734B; --c-not-bg:#FFE5A0; --c-not:#473821; --c-skip-bg:#FFCFC9; --c-skip:#B10202;
+  --c-req-bg:#BFE1F6; --c-req:#0A53A8; --c-hid-bg:#E8EAED; --c-hid:#3C4043; --c-new-bg:#E6CFF2; --c-new:#5A3286;
+  --c-lock-bg:#FCE8E6; --c-lock:#A50E0E;
+  --font:"Roboto",Arial,Helvetica,sans-serif; --grid-font:Arial,"Roboto",Helvetica,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#1F1F1F; --cell:#202124; --head:#2A2B2E; --head-2:#34363A; --grid:#3C4043; --grid-2:#5F6368;
+  --ink:#E8EAED; --ink-2:#BDC1C6; --ink-3:#9AA0A6; --sel:#8AB4F8; --sel-bg:#28344A; --row-hover:#2A2B2E;
+  --green:#34A853; --link:#8AB4F8;
+  --c-yes-bg:#1E4D33; --c-yes:#A8DAB5; --c-not-bg:#4D4119; --c-not:#FDE293; --c-skip-bg:#5C2121; --c-skip:#F6AEA9;
+  --c-req-bg:#1B3A5C; --c-req:#A8C7FA; --c-hid-bg:#3C4043; --c-hid:#E8EAED; --c-new-bg:#43285A; --c-new:#E3C6F5;
+  --c-lock-bg:#5C2121; --c-lock:#F6AEA9;
+}}
+:root[data-theme="dark"]{
+  --ground:#1F1F1F; --cell:#202124; --head:#2A2B2E; --head-2:#34363A; --grid:#3C4043; --grid-2:#5F6368;
+  --ink:#E8EAED; --ink-2:#BDC1C6; --ink-3:#9AA0A6; --sel:#8AB4F8; --sel-bg:#28344A; --row-hover:#2A2B2E;
+  --green:#34A853; --link:#8AB4F8;
+  --c-yes-bg:#1E4D33; --c-yes:#A8DAB5; --c-not-bg:#4D4119; --c-not:#FDE293; --c-skip-bg:#5C2121; --c-skip:#F6AEA9;
+  --c-req-bg:#1B3A5C; --c-req:#A8C7FA; --c-hid-bg:#3C4043; --c-hid:#E8EAED; --c-new-bg:#43285A; --c-new:#E3C6F5;
+  --c-lock-bg:#5C2121; --c-lock:#F6AEA9;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0;height:100%}
+body{background:var(--ground);color:var(--ink);font:14px/1.4 var(--font)}
+#app-root{display:flex;flex-direction:column;height:100vh;height:100dvh;overflow:hidden}
+#app-root > *{flex:none}
+#app-root > .gridwrap{flex:1 1 auto;min-height:0}
+@media (max-width:700px){#app-root{height:auto;overflow:visible}#app-root > .gridwrap{height:72vh;flex:none}}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--sel);outline-offset:1px}
+
+/* title bar */
+.titlebar{display:flex;align-items:center;gap:12px;padding:10px 16px 6px;flex-wrap:wrap}
+.docicon{width:26px;height:34px;border-radius:3px;background:var(--green);position:relative;flex:none}
+.docicon::before{content:"";position:absolute;right:0;top:0;border-left:8px solid rgba(255,255,255,.35);border-bottom:8px solid rgba(255,255,255,.35);border-top:8px solid var(--ground);border-right:8px solid var(--ground)}
+.docicon::after{content:"";position:absolute;left:6px;right:6px;top:14px;height:12px;background:
+  linear-gradient(#fff,#fff) 0 0/100% 2px no-repeat, linear-gradient(#fff,#fff) 0 5px/100% 2px no-repeat, linear-gradient(#fff,#fff) 0 10px/100% 2px no-repeat,
+  linear-gradient(#fff,#fff) 45% 0/2px 100% no-repeat}
+.doctitle h1{font:400 18px/1.2 var(--font);margin:0}
+.doctitle p{margin:2px 0 0;font-size:12px;color:var(--ink-2)}
+.savechip{margin-left:auto;font-size:12.5px;color:var(--ink-2);display:flex;align-items:center;gap:6px}
+.savechip i{width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block}
+.savechip.dirty i{background:#F9AB00}
+.themebtn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--grid-2);background:var(--cell);color:var(--ink);border-radius:18px;padding:5px 12px 5px 10px;font-size:13px;cursor:pointer}
+.themebtn:hover{background:var(--head-2)}
+.themebtn svg{width:16px;height:16px;flex:none}
+
+/* summary */
+.summary{display:flex;gap:8px;padding:6px 16px 10px;flex-wrap:wrap}
+.sum{background:var(--cell);border:1px solid var(--grid);border-radius:8px;padding:7px 12px;display:flex;flex-direction:column;min-width:128px}
+.sum b{font:500 20px/1.2 var(--font);font-variant-numeric:tabular-nums}
+.sum span{font-size:12px;color:var(--ink-2)}
+@media (max-width:700px){.summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.sum{min-width:0;padding:5px 8px}.sum b{font-size:16px}.sum span{font-size:11px;line-height:1.25}.key{display:none}.gridwrap{min-height:60vh}}
+
+/* toolbar + formula bar */
+.toolbar{display:flex;gap:10px;align-items:center;padding:6px 16px;background:var(--head);border-top:1px solid var(--grid);border-bottom:1px solid var(--grid);flex-wrap:wrap}
+.search{display:flex;align-items:center;gap:6px;background:var(--cell);border:1px solid var(--grid-2);border-radius:18px;padding:4px 12px;min-width:220px;flex:0 1 320px}
+.search input{border:0;outline:0;background:transparent;width:100%;font-size:13.5px}
+.search svg{flex:none}
+.tsel{border:1px solid var(--grid-2);border-radius:4px;background:var(--cell);padding:4px 8px;font-size:13px}
+.tlabel{font-size:12.5px;color:var(--ink-2)}
+.fbar{display:flex;align-items:stretch;border-bottom:1px solid var(--grid);background:var(--cell);font:13px var(--grid-font)}
+.fbar .ref{width:84px;flex:none;padding:5px 10px;border-right:1px solid var(--grid);color:var(--ink-2);text-align:center}
+.fbar .fx{padding:5px 10px;border-right:1px solid var(--grid);color:var(--ink-3);font-style:italic;font-family:Georgia,serif}
+.fbar .val{padding:5px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;min-width:0}
+.key{padding:6px 16px;font-size:12.5px;color:var(--ink-2);display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;background:var(--ground)}
+.key .chip{margin-right:4px}
+
+/* grid */
+.gridwrap{overflow:auto;background:var(--cell);border-top:1px solid var(--grid);position:relative;scrollbar-width:auto;scrollbar-color:var(--grid-2) var(--head)}
+.gridwrap::-webkit-scrollbar{width:14px;height:14px}
+.gridwrap::-webkit-scrollbar-track{background:var(--head)}
+.gridwrap::-webkit-scrollbar-thumb{background:var(--grid-2);border-radius:7px;border:3px solid var(--head)}
+.gridwrap::-webkit-scrollbar-thumb:hover{background:var(--ink-3)}
+.gridwrap::-webkit-scrollbar-corner{background:var(--head)}
+table.g{border-collapse:separate;border-spacing:0;font:13px/1.3 var(--grid-font);table-layout:fixed}
+.g th,.g td{border-right:1px solid var(--grid);border-bottom:1px solid var(--grid);padding:0 8px;height:30px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background:var(--cell);text-align:left;vertical-align:middle}
+.g thead th{overflow:visible}
+.g .rs{position:absolute;top:0;right:-4px;width:8px;height:100%;cursor:col-resize;z-index:4;touch-action:none}
+.g .rs::after{content:"";position:absolute;left:3px;top:20%;bottom:20%;width:2px;border-radius:1px;background:transparent}
+.g th:hover .rs::after,.g .rs.active::after{background:var(--sel)}
+body.resizing,body.resizing *{cursor:col-resize!important;user-select:none!important}
+.g thead tr.labels th .lbl{display:block;overflow:hidden;text-overflow:ellipsis}
+.g thead tr.labels th[data-move]{cursor:grab}
+.g thead tr.labels th.dragging{opacity:.45}
+body.moving,body.moving *{cursor:grabbing!important;user-select:none!important}
+.col-ghost{position:fixed;z-index:50;pointer-events:none;background:var(--cell);color:var(--ink);border:1px solid var(--sel);box-shadow:0 6px 18px rgba(0,0,0,.2);border-radius:4px;padding:6px 10px;font:700 13px var(--grid-font);white-space:nowrap}
+.col-drop{position:fixed;z-index:49;pointer-events:none;width:3px;margin-left:-1px;background:var(--sel);border-radius:2px}
+.resetcols{border:1px solid var(--grid-2);background:var(--cell);border-radius:4px;padding:4px 10px;font-size:13px;cursor:pointer;color:var(--ink-2)}
+.resetcols:hover{background:var(--head-2);color:var(--ink)}
+.g thead th{position:sticky;background:var(--head);color:var(--ink-2);font-weight:400;z-index:2}
+.g thead tr.letters th{top:0;height:22px;text-align:center;font-size:11.5px}
+.g thead tr.labels th{top:22px;color:var(--ink);font-weight:700;cursor:pointer;user-select:none}
+.g thead tr.labels th:hover{background:var(--head-2)}
+.g thead tr.labels th .arr{color:var(--sel);font-size:10px;margin-left:4px}
+.g .rn{position:sticky;left:0;z-index:1;background:var(--head);color:var(--ink-2);text-align:center;width:46px;min-width:46px;font-size:11.5px;padding:0}
+.g thead .rn{z-index:3}
+.g td.pg{position:sticky;left:46px;z-index:1;font-weight:500;box-shadow:1px 0 0 var(--grid-2)}
+.g thead th.pg{left:46px;z-index:3;box-shadow:1px 0 0 var(--grid-2)}
+.g tbody tr:hover td{background:var(--row-hover)}
+.g tbody tr:hover td.rn{background:var(--head-2)}
+.g td.sel{box-shadow:inset 0 0 0 2px var(--sel);background:var(--sel-bg)!important}
+.g td.num{text-align:right;font-variant-numeric:tabular-nums}
+.g td.dim{color:var(--ink-3)}
+.g td a{color:var(--link);text-decoration:none}
+.g td a:hover{text-decoration:underline}
+.g td.addr{}
+.g td.meta{color:var(--ink-2)}
+.g td.kw{}
+.g td.note{padding:0}
+.g td.note input{width:100%;height:29px;border:0;background:transparent;padding:0 8px;font:13px var(--grid-font);outline:0}
+.g td.note input:focus{box-shadow:inset 0 0 0 2px var(--sel);background:var(--cell)}
+.g td.st{padding:0 6px}
+.g .draft{font-size:11px;color:var(--c-new);background:var(--c-new-bg);border-radius:3px;padding:1px 5px;margin-left:6px;font-weight:500}
+.chip{display:inline-flex;align-items:center;gap:4px;border-radius:12px;padding:2px 9px;font:500 12px/1.4 var(--font);white-space:nowrap}
+.ch-Yes{background:var(--c-yes-bg);color:var(--c-yes)} .ch-Not-yet{background:var(--c-not-bg);color:var(--c-not)}
+.ch-Skipped{background:var(--c-skip-bg);color:var(--c-skip)} .ch-Requested{background:var(--c-req-bg);color:var(--c-req)}
+.ch-Hidden{background:var(--c-hid-bg);color:var(--c-hid)} .ch-New{background:var(--c-new-bg);color:var(--c-new)}
+.ch-lock{background:var(--c-lock-bg);color:var(--c-lock)}
+select.stsel{appearance:none;-webkit-appearance:none;border:0;border-radius:12px;padding:3px 22px 3px 10px;font:500 12px/1.4 var(--font);cursor:pointer;
+  background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%);
+  background-position:calc(100% - 11px) 50%,calc(100% - 7px) 50%;background-size:4px 4px,4px 4px;background-repeat:no-repeat}
+select.stsel option{background:var(--cell);color:var(--ink)}
+.s-none{background-color:transparent;color:var(--ink-3);box-shadow:inset 0 0 0 1px var(--grid-2)}
+.s-OK{background-color:var(--c-hid-bg);color:var(--c-hid)} .s-Done{background-color:var(--c-yes-bg);color:var(--c-yes)}
+.s-Needs-work{background-color:var(--c-skip-bg);color:var(--c-skip)} .s-In-progress{background-color:var(--c-req-bg);color:var(--c-req)}
+.s-Watch{background-color:var(--c-not-bg);color:var(--c-not)}
+td.changed{box-shadow:inset 3px 0 0 #F9AB00}
+.empty{padding:28px;text-align:center;color:var(--ink-2)}
+
+/* sheet tabs */
+.tabs{display:flex;align-items:stretch;gap:2px;background:var(--head);border-top:1px solid var(--grid);padding:0 8px;overflow-x:auto;z-index:5}
+.tabs button{border:0;background:transparent;padding:9px 16px;font-size:13.5px;color:var(--ink-2);cursor:pointer;white-space:nowrap;border-radius:0 0 6px 6px}
+.tabs button:hover{background:var(--head-2)}
+.tabs button[aria-selected="true"]{background:var(--cell);color:var(--sel);font-weight:500;box-shadow:inset 0 2px 0 var(--sel)}
+.tabs button span{color:var(--ink-3);font-weight:400;margin-left:4px}
+.tabs .spacer{flex:1}
+.tabs .meta{align-self:center;font-size:12px;color:var(--ink-3);padding:0 8px;white-space:nowrap}
+
+/* save bar */
+.savebar{position:fixed;left:50%;bottom:52px;transform:translateX(-50%);width:min(560px,calc(100% - 24px));background:#202124;color:#fff;border-radius:8px;padding:10px 12px 10px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 6px 24px rgba(0,0,0,.28);z-index:20;font-size:14px}
+.savebar .msg{flex:1;min-width:0}
+.savebar small{display:block;opacity:.75;font-size:12px}
+.savebar button{border:0;border-radius:6px;padding:8px 14px;font-weight:500;cursor:pointer}
+.savebar .ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35)}
+.savebar .primary{background:#8AB4F8;color:#202124}
+.savebar button:disabled{opacity:.55;cursor:default}
+.g td.edited{position:relative}
+.g td.edited::after{content:"";position:absolute;top:0;right:0;border-top:7px solid #F9AB00;border-left:7px solid transparent}
+.editmark{display:inline-block;width:12px;height:12px;background:linear-gradient(225deg,#F9AB00 0 35%,var(--cell) 35%);border:1px solid var(--grid-2);margin-right:4px;vertical-align:-1px}
+.g td .celled{width:100%;height:28px;border:0;outline:2px solid var(--sel);outline-offset:-2px;background:var(--cell);color:var(--ink);font:13px var(--grid-font);padding:0 6px;border-radius:0}
+.g td.editing{padding:0}
+.dimtxt{color:var(--ink-3)}
+.fbar .was{align-self:center;font-size:12px;color:#B06000;padding:0 8px;white-space:nowrap}
+.fbar .undo{align-self:center;margin-right:8px;border:1px solid var(--grid-2);background:var(--cell);border-radius:4px;padding:2px 8px;font-size:12px;cursor:pointer;color:var(--ink)}
+.fbar .undo:hover{background:var(--head-2)}
+.ro{font-size:12.5px;color:var(--c-not);background:var(--c-not-bg);border-radius:4px;padding:3px 8px}
+</style>
+
+<div id="app-root"></div>
+
+<script type="application/json" id="sheet-data">[{"id":3520,"name":"Home","path":"/","type":"Core","google":"Yes","clicks":17,"shown":857,"words":777,"faq":30,"updated":"2026-08-19","protected":true,"status":"","note":"Home page. Ask Kim before editing.","draft":false,"published":"2020-06-16"},{"id":13594,"name":"About Us","path":"/about-us/","type":"Core","google":"Yes","clicks":1,"shown":340,"words":750,"faq":0,"updated":"2026-08-31","protected":false,"status":"","note":"","draft":false,"published":"2024-11-18"},{"id":3504,"name":"Blog","path":"/blog/","type":"Core","google":"Yes","clicks":null,"shown":null,"words":583,"faq":0,"updated":"2025-04-22","protected":false,"status":"","note":"Sep 22: confirmed in Google (URL Inspection). Asked Google to index it on Sep 14.","draft":false,"published":"2020-06-16"},{"id":13671,"name":"Contact","path":"/contact/","type":"Core","google":"Yes","clicks":1,"shown":253,"words":52,"faq":0,"updated":"2026-07-30","protected":false,"status":"","note":"","draft":false,"published":"2024-11-19"},{"id":14900,"name":"Free Sewer Inspection","path":"/free-sewer-inspection/","type":"Core","google":"Yes","clicks":2,"shown":90,"words":135,"faq":0,"updated":"2026-08-19","protected":false,"status":"","note":"","draft":false,"published":"2026-01-31"},{"id":3,"name":"Privacy Policy","path":"/privacy-policy/","type":"Core","google":"Yes","clicks":0,"shown":4,"words":2403,"faq":0,"updated":"2026-08-31","protected":false,"status":"","note":"","draft":false,"published":"2024-10-10"},{"id":14673,"name":"Sales Cost Estimator","path":"/sales-cost-estimator/","type":"Core","google":"Hidden","clicks":null,"shown":null,"words":6,"faq":0,"updated":"2025-04-29","protected":false,"status":"","note":"","draft":false,"published":"2025-04-29"},{"id":13654,"name":"Service Areas","path":"/services-areas/","type":"Core","google":"Yes","clicks":0,"shown":93,"words":99,"faq":0,"updated":"2026-08-26","protected":false,"status":"","note":"","draft":false,"published":"2024-11-19"},{"id":13519,"name":"Terms of Use","path":"/terms-of-use/","type":"Core","google":"Yes","clicks":0,"shown":11,"words":3682,"faq":0,"updated":"2025-04-22","protected":false,"status":"","note":"","draft":false,"published":"2024-10-21"},{"id":14578,"name":"Thank You","path":"/thank-you/","type":"Core","google":"Hidden","clicks":null,"shown":null,"words":34,"faq":0,"updated":"2025-04-22","protected":false,"status":"","note":"","draft":false,"published":"2025-04-09"},{"id":13826,"name":"Free Video Inspection","path":"/free-video-inspection/","type":"Core","google":"Requested","clicks":null,"shown":null,"words":78,"faq":0,"updated":"2026-09-14","protected":false,"status":"","note":"Sep 23: still not in Google. Google's record is still the old 404; the live page returns 200 and is in the sitemap, so it is waiting on the recrawl. Only 78 words, so it needs more content. Sep 22: indexing requested (free GSC). Google's last visit got a 404; the page loads fine now. Found Sep 18: published and in the sitemap but was missing from this sheet. Google status not checked yet.","draft":false,"published":"2025-03-05"},{"id":13626,"name":"ePIPE Restoration","path":"/epipe-restoration/","type":"Service","google":"Yes","clicks":0,"shown":80,"words":352,"faq":0,"updated":"2026-08-19","protected":true,"status":"","note":"Google Ads landing page. Ask before editing.","draft":false,"published":"2024-11-19"},{"id":13828,"name":"Leak Detection Services in Phoenix, Arizona","path":"/leak-detection-services-in-phoenix-arizona/","type":"Service","google":"Not yet","clicks":null,"shown":null,"words":416,"faq":0,"updated":"2026-08-31","protected":false,"status":"Needs work","note":"Mostly copied from another page. Needs original text (waiting on Scott).","draft":false,"published":"2025-03-05"},{"id":13830,"name":"Hydro Jetting Drain Cleaning in Phoenix, AZ","path":"/hydro-jetting/","type":"Service","google":"Yes","clicks":0,"shown":320,"words":923,"faq":5,"updated":"2026-09-16","protected":false,"status":"","note":"Sep 16: main heading now \"Hydro Jetting Drain Cleaning in Phoenix, AZ\", new description and answer. Old editor draft removed. First check Oct 9.","draft":false,"published":"2025-03-05"},{"id":13480,"name":"Services","path":"/services/","type":"Service","google":"Yes","clicks":0,"shown":137,"words":341,"faq":0,"updated":"2026-09-16","protected":false,"status":"","note":"Sep 16: hero line is now the main heading (H1). First check Oct 9.","draft":false,"published":"2024-10-18"},{"id":13560,"name":"Trenchless Drain Pipe Lining","path":"/trenchless-drain-pipe-repair/","type":"Service","google":"Yes","clicks":0,"shown":197,"words":823,"faq":0,"updated":"2025-12-11","protected":true,"status":"","note":"Google Ads landing page (most paid clicks). Ask before editing.","draft":false,"published":"2024-10-23"},{"id":15586,"name":"Epoxy Pipe Lining: A Simple Homeowner Guide","path":"/epoxy-pipe-lining/","type":"Service guide","google":"Yes","clicks":0,"shown":30,"words":1446,"faq":6,"updated":"2026-08-20","protected":false,"status":"","note":"","draft":false,"published":"2026-06-23"},{"id":15575,"name":"Trenchless Sewer Repair: How It Works and When You Need It","path":"/trenchless-sewer-repair/","type":"Service guide","google":"Yes","clicks":0,"shown":3,"words":1592,"faq":6,"updated":"2026-08-20","protected":false,"status":"","note":"","draft":false,"published":"2026-06-23"},{"id":17978,"name":"UV Cured Pipe Lining: How Light-Cured Liners Rebuild a Sewer Line","path":"/uv-cured-pipe-lining/","type":"Service guide","google":"Yes","clicks":0,"shown":356,"words":1505,"faq":6,"updated":"2026-09-16","protected":false,"status":"","note":"Sep 16: link to the Phoenix page added. Sep 18: the old technology post now redirects here (no content moved).","draft":false,"published":"2026-08-28"},{"id":15580,"name":"Whole House Repipe: A Simple Guide for Phoenix Homeowners","path":"/whole-house-repipe/","type":"Service guide","google":"Yes","clicks":0,"shown":3,"words":1456,"faq":6,"updated":"2026-08-20","protected":false,"status":"Watch","note":"Checked Sep 17: still in Google, but shown 3 times in the last 30 days vs 110 before.","draft":false,"published":"2026-06-23"},{"id":18115,"name":"Free Trenchless Pipe Repair Estimate","path":"/pipelining/","type":"Ad page","google":"Not yet","clicks":null,"shown":null,"words":874,"faq":0,"updated":"2026-09-02","protected":true,"status":"","note":"Google Ads landing page. Ask before editing.","draft":false,"published":"2026-09-02"},{"id":18131,"name":"Free Sewer Repair Estimate","path":"/free-sewer-repair-estimate/","type":"Ad page","google":"Hidden","clicks":null,"shown":null,"words":0,"faq":0,"updated":"2026-09-15","protected":true,"status":"","note":"New page found Sep 18 (created Sep 14). Set to noindex, nofollow, so it looks like an ads landing page. Confirm before editing.","draft":false,"published":"2026-09-14"},{"id":13812,"name":"Anthem","path":"/anthem/","type":"Local","google":"Yes","clicks":0,"shown":117,"words":1448,"faq":11,"updated":"2026-08-26","protected":false,"status":"","note":"","draft":false,"seo_title":"Pipeliners USA: Trenchless Pipe Repair in Anthem, AZ","meta":"Sewer or water line emergency in Anthem, AZ? Pipeliners USA cameras the line first, then rebuilds it in place, with no trench cut across the lot.","permalink":"https://pipelinersusa.com/anthem/","slug":"anthem","indexed":"Yes","location":"Anthem, AZ","keyword":"trenchless plumbing anthem az","kw_src":"Top Google search for this page, Aug 16 - Sep 12 (5 impressions, avg position 42.0)","published":"2025-03-05"},{"id":13780,"name":"Apache Junction","path":"/apache-junction/","type":"Local","google":"Yes","clicks":0,"shown":127,"words":1293,"faq":9,"updated":"2026-09-17","protected":false,"status":"","note":"Sep 17 (rank gap audit C6, C7): H1 now \"Trenchless Sewer Repair in Apache Junction, AZ\" and FAQ heading fixed. Verified live Sep 18. Review Oct 16.","draft":false,"seo_title":"Apache Junction, AZ Trenchless Sewer Repair | Pipeliners","meta":"Drains backing up again in Apache Junction? A cable bores through a clog; it does not clean the pipe. Pipeliners USA jets old cast iron and clay.","permalink":"https://pipelinersusa.com/apache-junction/","slug":"apache-junction","indexed":"Yes","location":"Apache Junction, AZ","keyword":"trenchless sewer repair apache junction","kw_src":"Top Google search for this page, Aug 16 - Sep 12 (31 impressions, avg position 23.0)","published":"2025-03-05"},{"id":13768,"name":"Avondale","path":"/avondale/","type":"Local","google":"Yes","clicks":0,"shown":166,"words":1249,"faq":10,"updated":"2026-08-27","protected":false,"status":"","note":"","draft":false,"seo_title":"Trenchless Pipe Restoration in Avondale, AZ | Pipeliners","meta":"A repeat main line backup in Avondale points at the pipe, not the clog. Pipeliners USA jets the line wall to wall, then cameras what is left of it.","permalink":"https://pipelinersusa.com/avondale/","slug":"avondale","indexed":"Yes","location":"Avondale, AZ","keyword":"avondale trenchless sewer replacement","kw_src":"Top Google search for this page, Aug 16 - Sep 12 (11 impressions, avg position 14.0)","published":"2025-03-05"},{"id":13796,"name":"Buckeye","path":"/buckeye/","type":"Local","google":"Yes","clicks":1,"shown":359,"words":1566,"faq":7,"updated":"2026-09-01","protected":false,"status":"Watch","note":"SEO test running. Checks on Sep 16 and Sep 30.","draft":false,"seo_title":"Trenchless Pipe Repair & Lining in Buckeye, AZ | Pipeliners","meta":"Restore damaged sewer, drain, and water lines in Buckeye with trenchless pipe lining that helps protect driveways, slabs, and landscaping.","permalink":"https://pipelinersusa.com/buckeye/","slug":"buckeye","indexed":"Yes","location":"Buckeye, AZ","keyword":"buckeye pipe break repair","kw_src":"Top Google search for this page, Aug 16 - Sep 12 (41 impressions, avg position 7.0)","published":"2025-03-05"},{"id":13804,"name":"Carefree","path":"/carefree/","type":"Local","google":"Yes","clicks":0,"shown":19,"words":1496,"faq":10,"updated":"2026-08-28","protected":false,"status":"","note":"","draft":false,"seo_title":"Carefree, AZ No-Dig Sewer Line Repair | Pipeliners USA","meta":"No-dig sewer repair in Carefree. Pipeliners USA rebuilds the line from the inside, so boulder-set landscaping and desert drives are never opened.","permalink":"https://pipelinersusa.com/carefree/","slug":"carefree","indexed":"Yes","location":"Carefree, AZ","keyword":"drain repair carefree","kw_src":"Top Google search for this page, Aug 16 - Sep 12 (11 impressions, avg position 50.0)","published":"2025-03-05"},{"id":13776,"name":"Casa Grande","path":"/casa-grande/","type":"Local","google":"Yes","clicks":1,"shown":54,"words":1802,"faq":9,"updated":"2026-08-28","protected":false,"status":"","note":"","draft":false,"seo_title":"Casa Grande, AZ Leak Repair & Sewer Lining | Pipeliners","meta":"Water leak in a Casa Grande home? Pipeliners USA works out which side of the house it is on first, then repairs it without opening the floor.","permalink":"https://pipelinersusa.com/casa-grande/","slug":"casa-grande","indexed":"Yes","location":"Casa Grande, AZ","keyword":"sewer line repair casa grande","kw_src":"Top Google search for this page, Aug 16 - Sep 12 (15 impressions, avg position 20.0)","published":"2025-03-05"},{"id":13802,"name":"Cave Creek","path":"/cave-creek/","type":"Local","google":"Yes","clicks":0,"shown":51,"words":1421,"faq":10,"updated":"2026-08-25","protected":false,"status":"","note":"","draft":false,"seo_title":"Cave Creek, AZ Trenchless Pipe Repair | Pipeliners USA","meta":"On a well or septic in Cave Creek? Pipeliners USA lines the run out to your tank and restores well-fed copper from inside, with no trench.","permalink":"https://pipelinersusa.com/cave-creek/","slug":"cave-creek","indexed":"Yes","location":"Cave Creek, AZ","keyword":"pipe repair cave creek az","kw_src":"Top Google search for this page, Aug 16 - Sep 12 (9 impressions, avg position 31.0)","published":"2025-03-05"},{"id":13758,"name":"Chandler","path":"/chandler/","type":"Local","google":"Yes","clicks":0,"shown":355,"words":1501,"faq":7,"updated":"2026-09-16","protected":false,"status":"","note":"Sep 18 recheck (desktop + Google mobile): new title, H1 and description are live. The earlier Sep 18 \"not showing\" note was taken during the Sep 17 OTTO cache outage, now fixed. Sep 16: new title, H1, description and a sewer line repair Q&A section. First check Oct 9.","draft":false,"seo_title":"Sewer Line Repair & Repiping in Chandler, AZ | Pipeliners","meta":"Sewer line repair in Chandler, AZ without trenching the yard, plus repiping for homes and businesses. A camera inspection comes first. Call 480-535-6503.","permalink":"https://pipelinersusa.com/chandler/","slug":"chandler","indexed":"Yes","location":"Chandler, AZ","keyword":"sewer line repair in chandler az","kw_src":"Focus keyword chosen Sep 16 (quick wins) from this page's Google searches","published":"2025-03-05"},{"id":13790,"name":"Coolidge","path":"/coolidge/","type":"Local","google":"Yes","clicks":0,"shown":70,"words":1311,"faq":9,"updated":"2026-08-28","protected":false,"status":"","note":"","draft":false,"seo_title":"Coolidge, AZ Sewer Repair & Drain Cleaning | Pipeliners","meta":"Drain clogging again in Coolidge? On Orangeburg and old clay a cable can finish the pipe off. Pipeliners USA cameras first, then jets or lines it.","permalink":"https://pipelinersusa.com/coolidge/","slug":"coolidge","indexed":"Yes","location":"Coolidge, AZ","keyword":"coolidge repiping","kw_src":"Top Google search for this page, Aug 16 - Sep 12 (8 impressions, avg position 20.0)","published":"2025-03-05"},{"id":13800,"name":"El Mirage","path":"/el-mirage/","type":"Local","google":"Yes","clicks":0,"shown":49,"words":1460,"faq":9,"updated":"2026-08-28","protected":false,"status":"","note":"","draft":false,"seo_title":"El Mirage, AZ Drain Cleaning & Pipe Repair | Pipeliners","meta":"Slow drains in older El Mirage? Cast iron closes up rather than blocks. Pipeliners USA jets it back to the pipe wall, then lines it if iron is thin.","permalink":"https://pipelinersusa.com/el-mirage/","slug":"el-mirage","indexed":"Yes","location":"El Mirage, AZ","keyword":"drain cleaning el mirage","kw_src":"Taken from the page’s SEO title (no matching Google search yet)","published":"2025-03-05"},{"id":13792,"name":"Florence","path":"/florence/","type":"Local","google":"Yes","clicks":0,"shown":391,"words":1684,"faq":8,"updated":"2026-09-16","protected":false,"status":"","note":"Sep 18 recheck (desktop + Google mobile): new title, H1 and description are live. The earlier Sep 18 \"not showing\" note was taken during the Sep 17 OTTO cache outage, now fixed. Sep 16: new H1 and description (title kept), plus a pipe break Q&A section. First check Oct 9.","draft":false,"seo_title":"Florence, AZ Pipe Break & Water Line Repair | Pipeliners","meta":"Pipe break repair in Florence, AZ, with 24/7 crews, plus slab leak and water line repair. We fix the break, then check the rest of the line. Call 480-535-6503.","permalink":"https://pipelinersusa.com/florence/","slug":"florence","indexed":"Yes","location":"Florence, AZ","keyword":"florence pipe break repair","kw_src":"Focus keyword chosen Sep 16 (quick wins) from this page's Google searches","published":"2025-03-05"},{"id":13818,"name":"Fort McDowell","path":"/fort-mcdowell/","type":"Local","google":"Yes","clicks":0,"shown":151,"words":1402,"faq":9,"updated":"2026-09-17","protected":false,"status":"","note":"New title live Sep 16. Sep 17 (rank gap audit C8): FAQ answer rewritten, FAQ schema updated. First check Oct 9, C8 review Oct 16.","draft":false,"seo_title":"Trenchless Sewer Repair in Fort McDowell, AZ | Pipeliners","meta":"Trenchless sewer repair in Fort McDowell, AZ, plus hydro jetting for clogged drains. Pipeliners restores the line in place, no digging. Call 480-535-6503.","permalink":"https://pipelinersusa.com/fort-mcdowell/","slug":"fort-mcdowell","indexed":"Yes","location":"Fort McDowell, AZ","keyword":"trenchless sewer repair fort mcdowell","kw_src":"Top Google search for this page, Aug 16 - Sep 12 (29 impressions, avg position 5.0)","published":"2025-03-05"},{"id":13786,"name":"Fountain Hills","path":"/fountain-hills/","type":"Local","google":"Yes","clicks":0,"shown":53,"words":1708,"faq":9,"updated":"2026-09-15","protected":false,"status":"","note":"Step 8 live Sep 16: new H1, description, Q&A section and links from nearby city pages. First check Oct 9.","draft":false,"seo_title":"Trenchless Sewer Repair in Fountain Hills, AZ | Pipeliners","meta":"Trenchless sewer repair in Fountain Hills, AZ. Pipeliners rebuilds long hillside laterals from the inside, with no trench through rock. Call 480-535-6503.","permalink":"https://pipelinersusa.com/fountain-hills/","slug":"fountain-hills","indexed":"Yes","location":"Fountain Hills, AZ","keyword":"trenchless sewer repair in fountain hills az","kw_src":"Focus keyword chosen Sep 16 (plan step 8) from this page's Google searches","published":"2025-03-05"},{"id":13754,"name":"Gilbert","path":"/gilbert/","type":"Local","google":"Yes","clicks":0,"shown":174,"words":2063,"faq":9,"updated":"2026-09-15","protected":false,"status":"","note":"Step 8 live Sep 16: new H1, description, Q&A section and links from nearby city pages. First check Oct 9.","draft":false,"seo_title":"Gilbert, AZ Trenchless Sewer & Pipe Repair | Pipeliners","meta":"Trenchless sewer repair in Gilbert, AZ. Pipeliners rebuilds cracked sewer pipes from the inside and leaves landscaping and driveways alone. Call 480-535-6503.","permalink":"https://pipelinersusa.com/gilbert/","slug":"gilbert","indexed":"Yes","location":"Gilbert, AZ","keyword":"trenchless sewer repair in gilbert az","kw_src":"Focus keyword chosen Sep 16 (plan step 8) from this page's Google searches","published":"2025-03-05"},{"id":13762,"name":"Glendale","path":"/glendale/","type":"Local","google":"Yes","clicks":0,"shown":1649,"words":1385,"faq":9,"updated":"2026-08-26","protected":false,"status":"","note":"","draft":false,"seo_title":"Glendale, AZ Trenchless Sewer & Water Line Repair","meta":"Sewer backups and pinhole leaks are common in older Glendale homes. Pipeliners USA repairs pipes in place, without trenching across your yard.","permalink":"https://pipelinersusa.com/glendale/","slug":"glendale","indexed":"Yes","location":"Glendale, AZ","keyword":"trenchless sewer repair glendale","kw_src":"Taken from the page’s SEO title (no matching Google search yet)","published":"2025-03-05"},{"id":13814,"name":"Gold Canyon","path":"/gold-canyon/","type":"Local","google":"Yes","clicks":0,"shown":61,"words":1351,"faq":12,"updated":"2026-08-26","protected":false,"status":"","note":"","draft":false,"seo_title":"Gold Canyon, AZ Trenchless Pipe Repair | Pipeliners USA","meta":"Long runs on Gold Canyon acreage make digging expensive. Pipeliners USA lines sewer and septic runs from inside, community system or tank alike.","permalink":"https://pipelinersusa.com/gold-canyon/","slug":"gold-canyon","indexed":"Yes","location":"Gold Canyon, AZ","keyword":"sewer line replacement gold canyon","kw_src":"Top Google search for this page, Aug 16 - Sep 12 (10 impressions, avg position 11.0)","published":"2025-03-05"},{"id":13770,"name":"Goodyear","path":"/goodyear/","type":"Local","google":"Yes","clicks":0,"shown":164,"words":1066,"faq":8,"updated":"2026-08-26","protected":false,"status":"","note":"","draft":false,"seo_title":"Trenchless Sewer & Pipe Repair in Goodyear, AZ","meta":"Sewer and water line repair for Goodyear homes without major excavation. Pipeliners USA lines pipes in place to protect driveways and landscaping.","permalink":"https://pipelinersusa.com/goodyear/","slug":"goodyear","indexed":"Yes","location":"Goodyear, AZ","keyword":"goodyear trenchless sewer repair","kw_src":"Top Google search for this page, Aug 16 - Sep 12 (11 impressions, avg position 10.0)","published":"2025-03-05"},{"id":13808,"name":"Laveen","path":"/laveen/","type":"Local","google":"Yes","clicks":0,"shown":22,"words":1495,"faq":8,"updated":"2025-04-22","protected":false,"status":"","note":"","draft":false,"seo_title":"Laveen, AZ Trenchless Sewer & Drain Repair | Pipeliners","meta":"Trenchless pipe lining for efficient sewer repairs.","permalink":"https://pipelinersusa.com/laveen/","slug":"laveen","indexed":"Yes","location":"Laveen, AZ","keyword":"sewer line repair laveen","kw_src":"Top Google search for this page, Aug 16 - Sep 12 (9 impressions, avg position 17.0)","published":"2025-03-05"},{"id":13822,"name":"Litchfield Park","path":"/litchfield-park/","type":"Local","google":"Yes","clicks":0,"shown":202,"words":1417,"faq":13,"updated":"2026-08-26","protected":false,"status":"","note":"New title live Sep 16. First check Oct 9.","draft":false,"seo_title":"Litchfield Park, AZ Sewer Repair & Repiping | Pipeliners","meta":"Sewer repair, repiping and hydro jetting in Litchfield Park, AZ. Pipeliners fixes the line without tearing up mature yards. Call 480-535-6503.","permalink":"https://pipelinersusa.com/litchfield-park/","slug":"litchfield-park","indexed":"Yes","location":"Litchfield Park, AZ","keyword":"litchfield park copper repipe","kw_src":"Top Google search for this page, Aug 16 - Sep 12 (15 impressions, avg position 10.0)","published":"2025-03-05"},{"id":13778,"name":"Maricopa","path":"/maricopa/","type":"Local","google":"Yes","clicks":0,"shown":132,"words":1664,"faq":13,"updated":"2026-08-26","protected":false,"status":"","note":"New title live Sep 16. First check Oct 9.","draft":false,"seo_title":"Maricopa, AZ Trenchless Sewer Lining & Repair | Pipeliners","meta":"Fix cracked sewer lines without digging.","permalink":"https://pipelinersusa.com/maricopa/","slug":"maricopa","indexed":"Yes","location":"Maricopa, AZ","keyword":"sewer lining maricopa az","kw_src":"Top Google search for this page, Aug 16 - Sep 12 (10 impressions, avg position 15.0)","published":"2025-03-05"},{"id":13782,"name":"Mesa","path":"/mesa/","type":"Local","google":"Yes","clicks":0,"shown":585,"words":1922,"faq":11,"updated":"2026-09-15","protected":false,"status":"","note":"Step 8 live Sep 16: new H1, description, Q&A section and links from nearby city pages. First check Oct 9.","draft":false,"seo_title":"Mesa, AZ Trenchless Sewer Line Repair | Pipeliners","meta":"Sewer line repair in Mesa, AZ from a crew based on West 2nd Avenue. Pipeliners lines the old pipe in place, with no trench through the yard. Call 480-535-6503.","permalink":"https://pipelinersusa.com/mesa/","slug":"mesa","indexed":"Yes","location":"Mesa, AZ","keyword":"sewer line repair in mesa az","kw_src":"Top Google search for this page, Aug 16 - Sep 12 (133 impressions, avg position 41.0)","published":"2025-03-05"},{"id":13788,"name":"Paradise Valley","path":"/paradise-valley/","type":"Local","google":"Yes","clicks":0,"shown":207,"words":1435,"faq":9,"updated":"2026-08-26","protected":false,"status":"","note":"Shown 207 times, 0 clicks. Rank gap audit C3 to C5 drafted Sep 18. Waiting on Kim's OK.","draft":false,"seo_title":"Paradise Valley, AZ No-Dig Sewer & Pipe Repair | Pipeliners","meta":"Protect mature landscaping and hardscape during sewer repair. Pipeliners USA restores Paradise Valley pipes in place using trenchless lining.","permalink":"https://pipelinersusa.com/paradise-valley/","slug":"paradise-valley","indexed":"Yes","location":"Paradise Valley, AZ","keyword":"trenchless sewer repair paradise valley","kw_src":"Top Google search for this page, Aug 16 - Sep 12 (19 impressions, avg position 20.0)","published":"2025-03-05"},{"id":13764,"name":"Peoria","path":"/peoria/","type":"Local","google":"Yes","clicks":0,"shown":310,"words":1438,"faq":8,"updated":"2026-08-26","protected":false,"status":"","note":"","draft":false,"seo_title":"Peoria, AZ Trenchless Pipe Repair | Pipeliners USA in 2025","meta":"Trenchless pipe repair in Peoria, AZ. Minimal digging.","permalink":"https://pipelinersusa.com/peoria/","slug":"peoria","indexed":"Yes","location":"Peoria, AZ","keyword":"sewer line repair peoria az","kw_src":"Top Google search for this page, Aug 16 - Sep 12 (56 impressions, avg position 42.0)","published":"2025-03-05"},{"id":13752,"name":"Phoenix","path":"/phoenix/","type":"Local","google":"Yes","clicks":0,"shown":1275,"words":2351,"faq":11,"updated":"2026-09-16","protected":false,"status":"","note":"Sep 18 recheck (desktop + Google mobile): new title, H1 and description are live. The earlier Sep 18 \"not showing\" note was taken during the Sep 17 OTTO cache outage, now fixed. Sep 16: new title, H1, description and a trenchless sewer repair Q&A section. 2 blog posts now link here. First check Oct 9.","draft":false,"seo_title":"Trenchless Sewer Repair in Phoenix, AZ | Pipeliners","meta":"Trenchless sewer repair in Phoenix, AZ. We reline cracked, root-filled sewer lines from the inside, so your yard and driveway stay intact. Call 480-535-6503.","permalink":"https://pipelinersusa.com/phoenix/","slug":"phoenix","indexed":"Yes","location":"Phoenix, AZ","keyword":"trenchless sewer repair in phoenix az","kw_src":"Focus keyword chosen Sep 16 (quick wins) from this page's Google searches","published":"2025-03-05"},{"id":13794,"name":"Queen Creek","path":"/queen-creek/","type":"Local","google":"Yes","clicks":0,"shown":171,"words":1683,"faq":8,"updated":"2026-09-16","protected":false,"status":"","note":"Sep 18 recheck (desktop + Google mobile): new title, H1 and description are live. The earlier Sep 18 \"not showing\" note was taken during the Sep 17 OTTO cache outage, now fixed. Sep 16: new title, H1, description and a sewer line repair Q&A section. First check Oct 9.","draft":false,"seo_title":"Sewer Line Repair in Queen Creek, AZ | Pipeliners","meta":"Sewer line repair in Queen Creek, AZ without tearing up new landscaping or pavers. We reline the pipe in place through small access points. Call 480-535-6503.","permalink":"https://pipelinersusa.com/queen-creek/","slug":"queen-creek","indexed":"Yes","location":"Queen Creek, AZ","keyword":"sewer line repair in queen creek az","kw_src":"Focus keyword chosen Sep 16 (quick wins) from this page's Google searches","published":"2025-03-05"},{"id":13824,"name":"Rio Verde","path":"/rio-verde/","type":"Local","google":"Yes","clicks":0,"shown":36,"words":1339,"faq":9,"updated":"2026-09-01","protected":false,"status":"","note":"","draft":false,"seo_title":"Rio Verde, AZ Sewer & Water Line Repair | Pipeliners USA","meta":"Slow drains on a Rio Verde septic property? Pipeliners USA checks the tank before jetting, then lines long rural runs without crossing the lot.","permalink":"https://pipelinersusa.com/rio-verde/","slug":"rio-verde","indexed":"Yes","location":"Rio Verde, AZ","keyword":"drain line repair rio verde","kw_src":"Top Google search for this page, Aug 16 - Sep 12 (3 impressions, avg position 20.0)","published":"2025-03-05"},{"id":13820,"name":"Sacaton","path":"/sacaton/","type":"Local","google":"Yes","clicks":0,"shown":9,"words":1806,"faq":10,"updated":"2026-09-01","protected":false,"status":"","note":"","draft":false,"seo_title":"Sacaton, AZ Sewer Pipe Lining & Repair | Pipeliners USA","meta":"Trenchless sewer repair in Sacaton. Pipeliners USA inspects the line first and lines it only where the pipe can actually carry a liner.","permalink":"https://pipelinersusa.com/sacaton/","slug":"sacaton","indexed":"Yes","location":"Sacaton, AZ","keyword":"sewer pipe lining sacaton","kw_src":"Taken from the page’s SEO title (no matching Google search yet)","published":"2025-03-05"},{"id":13784,"name":"San Tan Valley","path":"/san-tan-valley/","type":"Local","google":"Yes","clicks":1,"shown":97,"words":1659,"faq":13,"updated":"2026-09-01","protected":false,"status":"","note":"Rank gap audit C1, C2 drafted Sep 18. Waiting on Kim's OK.","draft":false,"seo_title":"San Tan Valley, AZ Trenchless Sewer & Drain Repair","meta":"Newer San Tan Valley home backing up? Settling ground pulls plastic joints apart. Pipeliners USA cameras the line, then lines it seamlessly.","permalink":"https://pipelinersusa.com/san-tan-valley/","slug":"san-tan-valley","indexed":"Yes","location":"San Tan Valley, AZ","keyword":"sewer line repair san tan valley","kw_src":"Top Google search for this page, Aug 16 - Sep 12 (8 impressions, avg position 34.0)","published":"2025-03-05"},{"id":13760,"name":"Scottsdale","path":"/scottsdale/","type":"Local","google":"Yes","clicks":0,"shown":83,"words":1280,"faq":6,"updated":"2026-09-15","protected":false,"status":"","note":"","draft":false,"seo_title":"Scottsdale, AZ Trenchless Sewer & Pipe Repair | Pipeliners","meta":"Trenchless sewer and water line repair in Scottsdale, AZ. Pipeliners USA restores pipe from inside, protecting pavers, pool decks and planting.","permalink":"https://pipelinersusa.com/scottsdale/","slug":"scottsdale","indexed":"Yes","location":"Scottsdale, AZ","keyword":"scottsdale copper repipe","kw_src":"Top Google search for this page, Aug 16 - Sep 12 (8 impressions, avg position 20.0)","published":"2025-03-05"},{"id":13772,"name":"Sun City","path":"/sun-city/","type":"Local","google":"Yes","clicks":0,"shown":190,"words":2285,"faq":12,"updated":"2026-09-16","protected":false,"status":"","note":"Sep 16: main heading fixed (was just the city name), new title and description. Menu label kept as Sun City. First check Oct 9.","draft":false,"seo_title":"Sewer Line Repair & Repiping in Sun City, AZ | Pipeliners","meta":"Sewer line repair in Sun City, AZ, plus copper repiping for 1960s and 1970s homes. We restore the pipe from inside, with no walls opened. Call 480-535-6503.","permalink":"https://pipelinersusa.com/sun-city/","slug":"sun-city","indexed":"Yes","location":"Sun City, AZ","keyword":"sewer line repair in sun city az","kw_src":"Focus keyword chosen Sep 17 (headings fix) from this page's Google searches","published":"2025-03-05"},{"id":13774,"name":"Sun City West","path":"/sun-city-west/","type":"Local","google":"Yes","clicks":0,"shown":115,"words":1635,"faq":9,"updated":"2026-09-16","protected":false,"status":"","note":"Sep 16: main heading fixed (was just the city name), new title and description. Menu label kept as Sun City West. First check Oct 9.","draft":false,"seo_title":"Trenchless Sewer Repair in Sun City West, AZ | Pipeliners","meta":"Trenchless sewer repair in Sun City West, AZ for homes built from 1978 on. We reline cracked, root-filled sewer lines with no slab opened. Call 480-535-6503.","permalink":"https://pipelinersusa.com/sun-city-west/","slug":"sun-city-west","indexed":"Yes","location":"Sun City West, AZ","keyword":"trenchless sewer repair in sun city west az","kw_src":"Focus keyword chosen Sep 17 (headings fix) from this page's Google searches","published":"2025-03-05"},{"id":13816,"name":"Sun Lakes","path":"/sun-lakes/","type":"Local","google":"Yes","clicks":0,"shown":99,"words":1293,"faq":9,"updated":"2026-09-16","protected":false,"status":"","note":"Sep 16: main heading fixed (was just the city name), new title and description aimed at drain repair. Menu label kept as Sun Lakes. First check Oct 9.","draft":false,"seo_title":"Drain & Sewer Repair in Sun Lakes, AZ | Pipeliners","meta":"Drain repair in Sun Lakes, AZ, from hydro jetting a slow line to relining a cracked sewer pipe, with no patio or yard dug up. Call Pipeliners at 480-535-6503.","permalink":"https://pipelinersusa.com/sun-lakes/","slug":"sun-lakes","indexed":"Yes","location":"Sun Lakes, AZ","keyword":"drain repair in sun lakes az","kw_src":"Focus keyword chosen Sep 17 (headings fix) from this page's Google searches","published":"2025-03-05"},{"id":13798,"name":"Superior","path":"/superior/","type":"Local","google":"Yes","clicks":0,"shown":23,"words":1459,"faq":12,"updated":"2026-09-01","protected":false,"status":"","note":"","draft":false,"seo_title":"Superior, AZ Trenchless Sewer & Water Line Repair","meta":"Superior has some of the oldest buried pipe we work on. Pipeliners USA rebuilds clay, cast iron and Orangeburg from inside these mining-era homes.","permalink":"https://pipelinersusa.com/superior/","slug":"superior","indexed":"Yes","location":"Superior, AZ","keyword":"trenchless sewer repair superior","kw_src":"Taken from the page’s SEO title (no matching Google search yet)","published":"2025-03-05"},{"id":13766,"name":"Surprise","path":"/surprise/","type":"Local","google":"Yes","clicks":0,"shown":51,"words":1330,"faq":9,"updated":"2026-09-01","protected":false,"status":"","note":"","draft":false,"seo_title":"Surprise, AZ Trenchless Sewer & Pipe Repair | Pipeliners","meta":"Non-invasive pipe repairs! Get your free estimate today!","permalink":"https://pipelinersusa.com/surprise/","slug":"surprise","indexed":"Yes","location":"Surprise, AZ","keyword":"surprise repipe","kw_src":"Top Google search for this page, Aug 16 - Sep 12 (10 impressions, avg position 58.0)","published":"2025-03-05"},{"id":13756,"name":"Tempe","path":"/tempe/","type":"Local","google":"Yes","clicks":0,"shown":374,"words":1802,"faq":8,"updated":"2026-09-15","protected":false,"status":"","note":"Step 8 live Sep 16: new H1, description, Q&A section and links from nearby city pages. First check Oct 9.","draft":false,"seo_title":"Tempe, AZ Sewer Line Repair & Replacement | Pipeliners","meta":"Trenchless sewer line repair and replacement in Tempe, AZ, with no digging up your yard. Free camera inspection, 10-20 year warranty. Call 480-535-6503.","permalink":"https://pipelinersusa.com/tempe/","slug":"tempe","indexed":"Yes","location":"Tempe, AZ","keyword":"sewer line repair in tempe az","kw_src":"Top Google search for this page, Aug 16 - Sep 12 (80 impressions, avg position 15.0)","published":"2025-03-05"},{"id":13806,"name":"Tolleson","path":"/tolleson/","type":"Local","google":"Yes","clicks":0,"shown":65,"words":1183,"faq":9,"updated":"2026-09-01","protected":false,"status":"","note":"","draft":false,"seo_title":"Tolleson, AZ Trenchless Pipe Repair & Repiping | Pipeliners","meta":"Galvanized water pipe in an older Tolleson home? Pipeliners USA measures what steel is left, then coats it or repipes, whichever the pipe needs.","permalink":"https://pipelinersusa.com/tolleson/","slug":"tolleson","indexed":"Yes","location":"Tolleson, AZ","keyword":"tolleson repiping","kw_src":"Top Google search for this page, Aug 16 - Sep 12 (16 impressions, avg position 21.0)","published":"2025-03-05"},{"id":13810,"name":"Youngtown","path":"/youngtown/","type":"Local","google":"Yes","clicks":0,"shown":34,"words":1143,"faq":7,"updated":"2026-09-01","protected":false,"status":"","note":"","draft":false,"seo_title":"Youngtown, AZ Trenchless Pipe & Drain Repair | Pipeliners","meta":"Restore your pipes with Pipeliners' trenchless services!","permalink":"https://pipelinersusa.com/youngtown/","slug":"youngtown","indexed":"Yes","location":"Youngtown, AZ","keyword":"trenchless pipe repair youngtown","kw_src":"Taken from the page’s SEO title (no matching Google search yet)","published":"2025-03-05"},{"id":13736,"name":"14 Warning Signs Your Sewer Pipes May Be Leaking","path":"/14-warning-signs-your-sewer-pipes-may-be-leaking/","type":"Blog","google":"Yes","clicks":0,"shown":14,"words":867,"faq":0,"updated":"2026-08-20","protected":false,"status":"Watch","note":"Checked Sep 17: still in Google, but shown 14 times in the last 30 days vs 214 before.","draft":false,"seo_title":"14 Warning Signs of a Sewer Line Leak | Pipeliners","meta":"Identify 14 warning signs of sewer pipe leaks and prevent potential issues. Expert solutions available from Pipeliners.","permalink":"https://pipelinersusa.com/14-warning-signs-your-sewer-pipes-may-be-leaking/","slug":"14-warning-signs-your-sewer-pipes-may-be-leaking","indexed":"Yes","keyword":"14 warning signs of a sewer line leak","kw_src":"Taken from the page’s SEO title (no keyword or Google search data yet)","published":"2025-03-05"},{"id":13710,"name":"2025 Homeowners Plumbing Guide","path":"/2024-homeowners-plumbing-guide/","type":"Blog","google":"Yes","clicks":null,"shown":null,"words":3590,"faq":0,"updated":"2026-09-01","protected":false,"status":"","note":"Sep 23: now in Google (URL Inspection). Sep 22: indexing requested (free GSC). Was \"Discovered, not indexed\": Google had never crawled it.","draft":false,"seo_title":"Pipeliners USA's 2025 Plumbing Guide for Homeowners","meta":"Get expert plumbing advice with Pipeliners USA's 2025 Homeowners Guide. Discover essential maintenance tips to protect your home from plumbing problems.","permalink":"https://pipelinersusa.com/2024-homeowners-plumbing-guide/","slug":"2024-homeowners-plumbing-guide","indexed":"Yes","keyword":"plumbing maintenance","kw_src":"Focus keyword set in WordPress","published":"2025-03-05"},{"id":13696,"name":"4 DIY Tips To Identify Leaks In Your Home","path":"/4-diy-tips-to-identify-leaks-in-your-home/","type":"Blog","google":"Not yet","clicks":null,"shown":null,"words":379,"faq":0,"updated":"2026-09-19","protected":false,"status":"Done","note":"Merged Sep 19 (approved by Kim): useful parts moved into /how-to-determine-if-you-have-an-underground-water-leak/, and this URL now 301 redirects there. Post set to draft, not deleted. Removed from the sitemap.","draft":true,"seo_title":"4 DIY Tips to Identify Home Leaks in 2025 | Pipeliners USA","meta":"Identify home leaks in 2025 with Pipeliners USA's 4 DIY tips! Learn how to use your water meter and spot hidden leaks to save money and prevent damage.","permalink":"https://pipelinersusa.com/4-diy-tips-to-identify-leaks-in-your-home/","slug":"4-diy-tips-to-identify-leaks-in-your-home","indexed":"Not yet","keyword":"4 diy tips to identify home leaks","kw_src":"Taken from the page’s SEO title (no keyword or Google search data yet)","published":"2025-03-05"},{"id":13742,"name":"5 Signs You Need to Repipe Your Home in Arizona","path":"/5-signs-you-need-to-repipe-your-home-in-arizona/","type":"Blog","google":"Yes","clicks":null,"shown":null,"words":887,"faq":0,"updated":"2026-08-31","protected":false,"status":"","note":"Sep 22: confirmed in Google (URL Inspection). Asked Google to index it on Sep 14.","draft":false,"seo_title":"Arizona Home Repiping: 5 Signs You Need It | Pipeliners USA","meta":"Discover signs of aging pipes in your Arizona home and find solutions to repipe effectively. Ensure a long-lasting fix for your plumbing issues.","permalink":"https://pipelinersusa.com/5-signs-you-need-to-repipe-your-home-in-arizona/","slug":"5-signs-you-need-to-repipe-your-home-in-arizona","indexed":"Yes","keyword":"arizona home repiping","kw_src":"Taken from the page’s SEO title (no keyword or Google search data yet)","published":"2025-03-04"},{"id":14789,"name":"6 Pipelining Solutions for Homes and Commercial Facilities in Phoenix","path":"/pipelining-methods-phoenix/","type":"Blog","google":"Yes","clicks":0,"shown":98,"words":12495,"faq":0,"updated":"2026-08-28","protected":false,"status":"","note":"","draft":false,"seo_title":"Pipe Lining Methods in Phoenix, AZ | Pipeliners USA","meta":"Pipeliners USA offers trenchless pipe repair and replacement in Phoenix. Discover our 6 demolition-free methods to save time and money. Contact us today!","permalink":"https://pipelinersusa.com/pipelining-methods-phoenix/","slug":"pipelining-methods-phoenix","indexed":"Yes","keyword":"pipelining methods","kw_src":"Focus keyword set in WordPress","published":"2025-09-18"},{"id":14801,"name":"7 Common Causes of Phoenix Sewer Line Problems (2025 Guide)","path":"/phoenix-sewer-line-problems/","type":"Blog","google":"Yes","clicks":0,"shown":51,"words":2256,"faq":0,"updated":"2026-09-19","protected":false,"status":"","note":"Sep 19: added a link to the new /clay-sewer-pipe/ post (text unchanged).","draft":false,"seo_title":"Phoenix Sewer Line Problems: Causes & Prevention in 2025","meta":"Phoenix sewer line problems: Learn the 7 common causes and prevention tips for issues like tree roots & sagging pipes. Protect your home.","permalink":"https://pipelinersusa.com/phoenix-sewer-line-problems/","slug":"phoenix-sewer-line-problems","indexed":"Yes","keyword":"phoenix sewer line problems","kw_src":"Focus keyword set in WordPress","published":"2025-10-03"},{"id":13708,"name":"A Homeowner’s Guide to Detecting and Preventing Root Intrusion in Pipes","path":"/a-homeowners-guide-to-detecting-and-preventing-root-intrusion-in-pipes/","type":"Blog","google":"Yes","clicks":0,"shown":0,"words":1351,"faq":0,"updated":"2025-03-05","protected":false,"status":"","note":"","draft":false,"seo_title":"Preventing Root Intrusion: A Homeowner's Guide","meta":"Prevent Costly Pipe Damage: Learn to Detect & Stop Root Intrusion","permalink":"https://pipelinersusa.com/a-homeowners-guide-to-detecting-and-preventing-root-intrusion-in-pipes/","slug":"a-homeowners-guide-to-detecting-and-preventing-root-intrusion-in-pipes","indexed":"Yes","keyword":"root intrusion","kw_src":"Focus keyword set in WordPress","published":"2025-03-05"},{"id":13724,"name":"Are Your Pipes Due for a Checkup?","path":"/are-your-pipes-due-for-a-checkup/","type":"Blog","google":"Yes","clicks":null,"shown":null,"words":4304,"faq":0,"updated":"2026-08-31","protected":false,"status":"","note":"Sep 23: now in Google (URL Inspection). Sep 22: indexing requested (free GSC). Was \"Crawled, not indexed\" (last crawl Jul 26).","draft":false,"seo_title":"Are Your Pipes Due for a Checkup? Pipeliners USA's Guide","meta":"Prioritize pipe maintenance for efficiency & peace of mind.","permalink":"https://pipelinersusa.com/are-your-pipes-due-for-a-checkup/","slug":"are-your-pipes-due-for-a-checkup","indexed":"Yes","keyword":"plumbing maintenance","kw_src":"Focus keyword set in WordPress","published":"2025-03-05"},{"id":15361,"name":"Can Sewer Line Repair Be Done Without Digging?","path":"/repair-sewer-line-without-digging/","type":"Blog","google":"Yes","clicks":null,"shown":null,"words":1359,"faq":6,"updated":"2026-09-19","protected":false,"status":"","note":"Sep 22: recrawl request not confirmed (daily quota ran out). Redo. Indexing requested Sep 14. In Google (checked Sep 15). Sep 19: merge live, 2 weaker posts merged in (UV curing and camera check steps, new section on water lines). Verified desktop + mobile. Request indexing (free GSC). Review Oct 17.","draft":false,"seo_title":"Can Sewer Line Repair Be Done Without Digging? – Pipeliners USA","meta":"Pipeliners USA offers trenchless sewer line repair in Mesa, AZ. Avoid digging and save money with our no-dig solutions. Call us today!","permalink":"https://pipelinersusa.com/repair-sewer-line-without-digging/","slug":"repair-sewer-line-without-digging","indexed":"Yes","keyword":"can you repair sewer line without digging","kw_src":"Focus keyword set in WordPress","published":"2026-05-10"},{"id":13684,"name":"CIPP vs. Traditional Sewer Line Replacement: Pros and Cons","path":"/cipp-vs-traditional-sewer-line-replacement-pros-and-cons/","type":"Blog","google":"Yes","clicks":1,"shown":126,"words":695,"faq":0,"updated":"2025-03-05","protected":false,"status":"","note":"","draft":false,"seo_title":"CIPP Sewer Lining vs Replacement: Pros & Cons | Pipeliners","meta":"Repair your sewer line with CIPP pipe lining or traditional replacement. Choose based on cost, disruption, and project scope for efficient decision-making.","permalink":"https://pipelinersusa.com/cipp-vs-traditional-sewer-line-replacement-pros-and-cons/","slug":"cipp-vs-traditional-sewer-line-replacement-pros-and-cons","indexed":"Yes","keyword":"cipp lining","kw_src":"Top Google search for this page, Aug 16 - Sep 12 (34 impressions, avg position 100.0)","published":"2025-03-05"},{"id":14958,"name":"Common Myths About Trenchless Sewer Repair (Debunked)","path":"/common-myths-about-trenchless-sewer-repair-debunked/","type":"Blog","google":"Skipped","clicks":0,"shown":0,"words":525,"faq":0,"updated":"2026-08-31","protected":false,"status":"","note":"Sep 17 merge draft: receives 1 weaker post. Request indexing after the merge goes live.","draft":false,"seo_title":"Myths About Trenchless Sewer Repair Debunked | Pipeliners USA","meta":"Debunking trenchless sewer repair myths: Pipeliners USA clarifies cost, longevity, and disruption. Discover the demolition-free solution. Learn more!","permalink":"https://pipelinersusa.com/common-myths-about-trenchless-sewer-repair-debunked/","slug":"common-myths-about-trenchless-sewer-repair-debunked","indexed":"Skipped","keyword":"trenchless sewer repair cost","kw_src":"Focus keyword set in WordPress","published":"2026-02-07"},{"id":15609,"name":"Common Pipe Problems: Backups, Slow Drains, and Sewer Line Warning Signs","path":"/monsoon-season-pipe-problems/","type":"Blog","google":"Yes","clicks":0,"shown":1,"words":2095,"faq":7,"updated":"2026-08-24","protected":false,"status":"","note":"","draft":false,"seo_title":"Monsoon Season Pipe Problems in Phoenix, AZ | Pipeliners","meta":"Why Phoenix sewers back up during monsoon storms, the warning signs that show up first, and the repair options that prevent a repeat next season.","permalink":"https://pipelinersusa.com/monsoon-season-pipe-problems/","slug":"monsoon-season-pipe-problems","indexed":"Yes","keyword":"why does my sewer back up when it rains","kw_src":"Focus keyword set in WordPress","published":"2026-07-06"},{"id":15583,"name":"Corroded Pipes: Signs, Causes, and Repair Options","path":"/corroded-pipes/","type":"Blog","google":"Yes","clicks":0,"shown":16,"words":1439,"faq":6,"updated":"2026-09-19","protected":false,"status":"Watch","note":"Sep 22: recrawl request not confirmed (daily quota ran out). Redo. Checked Sep 17: still in Google, but shown 18 times in the last 30 days vs 78 before. Sep 19: merge live, 2 weaker posts merged in (new \"slow down corrosion\" section). Verified desktop + mobile. Request indexing (free GSC). Review Oct 17.","draft":false,"seo_title":"Corroded Pipes: Signs, Causes & Repair Options | AZ","meta":"Spot the warning signs of pipe corrosion, learn which materials corrode fastest, and compare repair options before a leak causes real damage.","permalink":"https://pipelinersusa.com/corroded-pipes/","slug":"corroded-pipes","indexed":"Yes","keyword":"corroded pipes","kw_src":"Focus keyword set in WordPress","published":"2026-06-23"},{"id":14966,"name":"Cracked vs Collapsed Sewer Pipes: What’s the Difference?","path":"/cracked-vs-collapsed-sewer-pipes-whats-the-difference/","type":"Blog","google":"Yes","clicks":0,"shown":414,"words":587,"faq":0,"updated":"2026-08-31","protected":false,"status":"","note":"","draft":false,"seo_title":"Cracked vs. Collapsed Sewer Pipes | Pipeliners USA","meta":"Pipeliners USA: Cracked vs. collapsed sewer pipes explained. Learn causes, signs & trenchless solutions. Contact us for expert diagnosis & repair!","permalink":"https://pipelinersusa.com/cracked-vs-collapsed-sewer-pipes-whats-the-difference/","slug":"cracked-vs-collapsed-sewer-pipes-whats-the-difference","indexed":"Yes","keyword":"cracked sewer pipe","kw_src":"Focus keyword set in WordPress","published":"2026-02-12"},{"id":13718,"name":"Do Gurgling Drains indicate a bigger issue?","path":"/do-gurgling-drains-indicate-a-bigger-issue/","type":"Blog","google":"Yes","clicks":null,"shown":null,"words":2194,"faq":7,"updated":"2026-09-16","protected":false,"status":"","note":"Sep 23: now in Google (URL Inspection). Sep 22: indexing requested (free GSC). Was \"Crawled, not indexed\". Sep 16: link to the new sewer smell post added.","draft":false,"seo_title":"Gurgling Drains: Is It a Plumbing Problem?","meta":"Fix gurgling drains with expert tips & advice.","permalink":"https://pipelinersusa.com/do-gurgling-drains-indicate-a-bigger-issue/","slug":"do-gurgling-drains-indicate-a-bigger-issue","indexed":"Yes","keyword":"gurgling drains","kw_src":"Taken from the page’s SEO title (no keyword or Google search data yet)","published":"2025-03-05"},{"id":18123,"name":"Fall Sewer Line Maintenance: How to Prevent Holiday Drain and Sewer Problems","path":"/sewer-line-maintenance/","type":"Blog","google":"Yes","clicks":null,"shown":null,"words":null,"faq":null,"updated":"2026-09-16","protected":false,"status":"Done","note":"Sep 22: confirmed in Google; recrawl requested (free GSC). Published Sep 14. The 2 old maintenance posts now redirect here. Ask Google to index it. Sep 16: link to the new sewer smell post added. Sep 19: 2 links updated to point at the merged posts.","draft":false,"seo_title":"Fall Sewer Line Maintenance Guide for Phoenix Valley Homes","meta":"Fall is the quiet window before holiday cooking loads up your drains. Sewer line maintenance tips for Phoenix Valley homes, from grease to hydro jetting.","permalink":"https://pipelinersusa.com/sewer-line-maintenance/","slug":"sewer-line-maintenance","indexed":"Yes","keyword":"sewer line maintenance","kw_src":"Focus keyword from the SEO package","published":"2026-09-14"},{"id":13692,"name":"How Can Trenchless Pipe Lining Fix Damaged Pipes?","path":"/how-can-trenchless-pipe-lining-fix-damaged-pipes/","type":"Blog","google":"Not yet","clicks":null,"shown":null,"words":690,"faq":0,"updated":"2026-09-19","protected":false,"status":"Done","note":"Merged Sep 19 (approved by Kim): useful parts moved into /repair-sewer-line-without-digging/, and this URL now 301 redirects there. Post set to draft, not deleted. Removed from the sitemap.","draft":true,"seo_title":"How Trenchless Pipe Lining Fixes Damaged Pipes | Pipeliners","meta":"Revitalize pipes with trenchless lining. Durable, cost-effective solution for damage. Contact for superior restoration services.","permalink":"https://pipelinersusa.com/how-can-trenchless-pipe-lining-fix-damaged-pipes/","slug":"how-can-trenchless-pipe-lining-fix-damaged-pipes","indexed":"Not yet","keyword":"trenchless pipe lining","kw_src":"Focus keyword set in WordPress","published":"2025-03-05"},{"id":15589,"name":"How Long Do Cast Iron Pipes Last?","path":"/how-long-do-cast-iron-pipes-last/","type":"Blog","google":"Yes","clicks":0,"shown":9,"words":1304,"faq":6,"updated":"2026-08-20","protected":false,"status":"","note":"","draft":false,"seo_title":"How Long Do Cast Iron Pipes Last? | Pipeliners USA","meta":"Pipeliners USA: Discover how long cast iron pipes last, common issues, and signs of failure. Learn about trenchless solutions for your home.","permalink":"https://pipelinersusa.com/how-long-do-cast-iron-pipes-last/","slug":"how-long-do-cast-iron-pipes-last","indexed":"Yes","keyword":"how long do cast iron pipes last","kw_src":"Focus keyword set in WordPress","published":"2026-06-23"},{"id":13694,"name":"How Much Does Trenchless Pipe Lining Cost?","path":"/how-much-does-trenchless-pipe-lining-cost/","type":"Blog","google":"Skipped","clicks":0,"shown":0,"words":478,"faq":0,"updated":"2026-08-20","protected":false,"status":"Needs work","note":"Checked Sep 17: not in Google (crawled, not indexed; last crawl Aug 21). Improve or merge before asking Google again.","draft":false,"seo_title":"Trenchless Pipe Lining Cost: Prices & Cost Factors","meta":"Efficient trenchless pipe lining, popular for homes and businesses, minimizes disruptions. Ideal solution with cost savings for various projects.","permalink":"https://pipelinersusa.com/how-much-does-trenchless-pipe-lining-cost/","slug":"how-much-does-trenchless-pipe-lining-cost","indexed":"Skipped","keyword":"trenchless pipe lining cost","kw_src":"Taken from the page’s SEO title (no keyword or Google search data yet)","published":"2025-03-05"},{"id":15661,"name":"How Phoenix Homeowners Can Prevent Sewer Backups","path":"/backwater-valve-prevent-sewer-backups/","type":"Blog","google":"Yes","clicks":0,"shown":41,"words":1539,"faq":7,"updated":"2026-09-14","protected":false,"status":"","note":"","draft":false,"seo_title":"How Phoenix Homeowners Can Prevent Sewer Backups | Pipeliners","meta":"A backwater valve blocks monsoon sewer backups from flowing into your Phoenix home. Learn how it works, when you need one, and how it is installed.","permalink":"https://pipelinersusa.com/backwater-valve-prevent-sewer-backups/","slug":"backwater-valve-prevent-sewer-backups","indexed":"Yes","keyword":"how phoenix homeowners can prevent sewer backups","kw_src":"Taken from the page’s SEO title (no keyword or Google search data yet)","published":"2026-08-04"},{"id":14872,"name":"How Plumbers Use Cured-in-Place Pipe Lining to Avoid Digging and Demolition","path":"/how-plumbers-use-cured-in-place-pipe-lining-to-avoid-digging-and-demolition/","type":"Blog","google":"Yes","clicks":0,"shown":1799,"words":3060,"faq":30,"updated":"2026-09-16","protected":false,"status":"","note":"Sep 16: link to the Phoenix page added.","draft":false,"seo_title":"CIPP Lining Without Digging or Demolition | Pipeliners USA","meta":"Pipeliners USA: Discover how cured-in-place pipe lining repairs drains without digging. Learn about this trenchless solution to save time and money.","permalink":"https://pipelinersusa.com/how-plumbers-use-cured-in-place-pipe-lining-to-avoid-digging-and-demolition/","slug":"how-plumbers-use-cured-in-place-pipe-lining-to-avoid-digging-and-demolition","indexed":"Yes","keyword":"cured in place pipe lining","kw_src":"Top Google search for this page, Aug 16 - Sep 12 (242 impressions, avg position 73.0)","published":"2025-12-16"},{"id":13686,"name":"How Technology is Transforming Pipe Repair Services","path":"/how-technology-is-transforming-pipe-repair-services/","type":"Blog","google":"Not yet","clicks":null,"shown":null,"words":268,"faq":0,"updated":"2026-09-18","protected":false,"status":"Done","note":"Merged Sep 18 (redirect only, approved by Kim): now 301 redirects to /uv-cured-pipe-lining/. Post set to draft, not deleted. Removed from the sitemap.","draft":true,"seo_title":"How Technology Is Transforming Pipe Repair Services","meta":"Advanced technology is transforming pipe repair with UV CIPP lining, trenchless solutions, and digital management systems, revolutionizing the industry.","permalink":"https://pipelinersusa.com/how-technology-is-transforming-pipe-repair-services/","slug":"how-technology-is-transforming-pipe-repair-services","indexed":"Not yet","keyword":"how technology is transforming pipe repair services","kw_src":"Taken from the page’s SEO title (no keyword or Google search data yet)","published":"2025-03-05"},{"id":13728,"name":"How to Determine If You Have an Underground Water Leak","path":"/how-to-determine-if-you-have-an-underground-water-leak/","type":"Blog","google":"Yes","clicks":0,"shown":1252,"words":709,"faq":0,"updated":"2026-09-19","protected":false,"status":"","note":"Sep 19: merge live, 1 weaker post merged in (running toilet check). Verified desktop + mobile. Request indexing (free GSC). Review Oct 17.","draft":false,"seo_title":"Underground Water Leak? Find It with Pipeliners USA","meta":"Identify signs of underground water leaks and discover Pipeliners' restoration solutions. Call now for a complimentary quote.","permalink":"https://pipelinersusa.com/how-to-determine-if-you-have-an-underground-water-leak/","slug":"how-to-determine-if-you-have-an-underground-water-leak","indexed":"Yes","keyword":"how to find a water leak underground","kw_src":"Top Google search for this page, Aug 16 - Sep 12 (335 impressions, avg position 88.0)","published":"2025-03-05"},{"id":15592,"name":"How to Get Rid of Tree Roots in Sewer Line","path":"/how-to-get-rid-of-tree-roots-in-sewer-line/","type":"Blog","google":"Yes","clicks":0,"shown":2,"words":1550,"faq":6,"updated":"2026-09-19","protected":false,"status":"","note":"Sep 22: recrawl request hit \"Quota exceeded\". Redo. Sep 19: merge live, 1 weaker post merged in (new \"signs of tree roots\" section). Verified desktop + mobile. Request indexing (free GSC). Review Oct 17.","draft":false,"seo_title":"How to Get Rid of Tree Roots in Sewer Line – Pipeliners USA","meta":"Tree roots in sewer lines? Pipeliners USA offers trenchless solutions to permanently remove & repair. Save time & money. Contact us today!","permalink":"https://pipelinersusa.com/how-to-get-rid-of-tree-roots-in-sewer-line/","slug":"how-to-get-rid-of-tree-roots-in-sewer-line","indexed":"Yes","keyword":"how to get rid of tree roots in sewer line","kw_src":"Focus keyword set in WordPress","published":"2026-06-23"},{"id":13716,"name":"How to Identify and Stop Pipe Rust Corrosion in Your Household","path":"/how-to-identify-and-stop-pipe-rust-corrosion-in-your-household/","type":"Blog","google":"Not yet","clicks":null,"shown":null,"words":1013,"faq":0,"updated":"2026-09-19","protected":false,"status":"Done","note":"Merged Sep 19 (approved by Kim): useful parts moved into /corroded-pipes/, and this URL now 301 redirects there. Post set to draft, not deleted. Removed from the sitemap.","draft":true,"seo_title":"How to Identify and Stop Pipe Rust Corrosion in Your Household – Pipeliners USA","meta":"Identify and prevent pipe rust corrosion with Pipeliners USA. Learn to spot signs of corrosion and explore effective solutions like trenchless pipe lining.","permalink":"https://pipelinersusa.com/how-to-identify-and-stop-pipe-rust-corrosion-in-your-household/","slug":"how-to-identify-and-stop-pipe-rust-corrosion-in-your-household","indexed":"Not yet","keyword":"how to identify and stop pipe rust corrosion in your household","kw_src":"Taken from the page’s SEO title (no keyword or Google search data yet)","published":"2025-03-05"},{"id":13738,"name":"How to Identify If You Have Tree Roots in Your Sewer Line","path":"/how-to-identify-if-you-have-tree-roots-in-your-sewer-line/","type":"Blog","google":"Skipped","clicks":0,"shown":2,"words":445,"faq":0,"updated":"2026-09-19","protected":false,"status":"Done","note":"Merged Sep 19 (approved by Kim): useful parts moved into /how-to-get-rid-of-tree-roots-in-sewer-line/, and this URL now 301 redirects there. Post set to draft, not deleted. Removed from the sitemap.","draft":true,"seo_title":"Tree Roots in Sewer Line? Identify and Solve the Problem Now","meta":"Identify tree roots in your sewer line to prevent damage. Learn signs of intrusion and effective preventive measures. Contact us for professional assistance.","permalink":"https://pipelinersusa.com/how-to-identify-if-you-have-tree-roots-in-your-sewer-line/","slug":"how-to-identify-if-you-have-tree-roots-in-your-sewer-line","indexed":"Skipped","keyword":"tree roots in sewer line","kw_src":"Taken from the page’s SEO title (no keyword or Google search data yet)","published":"2025-03-05"},{"id":13700,"name":"How to Identify When Your Home Needs Pipe Lining","path":"/how-to-identify-when-your-home-needs-pipe-lining-mesa-az/","type":"Blog","google":"Not yet","clicks":null,"shown":null,"words":498,"faq":0,"updated":"2026-09-18","protected":false,"status":"Done","note":"Merged Sep 18 (redirect only, approved by Kim): now 301 redirects to /top-10-signs-your-home-needs-pipe-restoration/. Post set to draft, not deleted. Removed from the sitemap.","draft":true,"seo_title":"Signs Your Home Needs Pipe Lining? Mesa, AZ - Pipeliners USA","meta":"Mesa, AZ homeowners: Is pipe lining needed? Pipeliners USA offers trenchless solutions to identify and fix water line issues. Call us!","permalink":"https://pipelinersusa.com/how-to-identify-when-your-home-needs-pipe-lining-mesa-az/","slug":"how-to-identify-when-your-home-needs-pipe-lining-mesa-az","indexed":"Not yet","keyword":"pipe lining","kw_src":"Focus keyword set in WordPress","published":"2025-03-05"},{"id":15623,"name":"Hydro Jetting vs. Basic Drain Cleaning","path":"/hydro-jetting-vs-clearing-the-clog/","type":"Blog","google":"Yes","clicks":0,"shown":1,"words":999,"faq":4,"updated":"2026-08-24","protected":false,"status":"","note":"","draft":false,"seo_title":"Hydro Jetting vs. Basic Drain Cleaning | Pipeliners USA","meta":"Snaking clears a clog. Hydro jetting scours the pipe wall. See which one monsoon-season slow drains in the Phoenix Valley actually need, and why.","permalink":"https://pipelinersusa.com/hydro-jetting-vs-clearing-the-clog/","slug":"hydro-jetting-vs-clearing-the-clog","indexed":"Yes","keyword":"hydro jetting vs snaking","kw_src":"Focus keyword set in WordPress","published":"2026-07-14"},{"id":13714,"name":"Is Pipelining Worth It?","path":"/is-pipelining-worth-it/","type":"Blog","google":"Not yet","clicks":null,"shown":null,"words":905,"faq":0,"updated":"2026-09-19","protected":false,"status":"Done","note":"Merged Sep 19 (approved by Kim): useful parts moved into /is-trenchless-sewer-repair-more-expensive-than-digging/, and this URL now 301 redirects there. Post set to draft, not deleted. Removed from the sitemap.","draft":true,"seo_title":"Is Pipelining Worth It? Cost vs Lifespan | Pipeliners","meta":"Cutting-edge trenchless pipe lining: Durable epoxy-coated pipes for safe, efficient, and cost-effective plumbing repairs.","permalink":"https://pipelinersusa.com/is-pipelining-worth-it/","slug":"is-pipelining-worth-it","indexed":"Not yet","keyword":"is pipelining worth it","kw_src":"Taken from the page’s SEO title (no keyword or Google search data yet)","published":"2025-03-05"},{"id":14947,"name":"Is Trenchless Sewer Repair More Expensive Than Digging?","path":"/is-trenchless-sewer-repair-more-expensive-than-digging/","type":"Blog","google":"Yes","clicks":0,"shown":129,"words":468,"faq":0,"updated":"2026-09-19","protected":false,"status":"","note":"Sep 19: merge live, 1 weaker post merged in (new \"is it worth it\" section). Verified desktop + mobile. Request indexing (free GSC). Review Oct 17.","draft":false,"seo_title":"Is Trenchless Sewer Repair More Expensive? | Pipeliners USA","meta":"Trenchless vs. digging sewer repair costs? Pipeliners USA details savings & benefits. Get your free estimate today!","permalink":"https://pipelinersusa.com/is-trenchless-sewer-repair-more-expensive-than-digging/","slug":"is-trenchless-sewer-repair-more-expensive-than-digging","indexed":"Yes","keyword":"trenchless sewer repair cost","kw_src":"Focus keyword set in WordPress","published":"2026-02-03"},{"id":15625,"name":"Monsoon Sewer Backups in Commercial Buildings: Why Arizona Businesses Can't Afford the Downtime","path":"/commercial-monsoon-sewer-backups/","type":"Blog","google":"Yes","clicks":0,"shown":7,"words":955,"faq":4,"updated":"2026-08-20","protected":false,"status":"","note":"","draft":false,"seo_title":"Commercial Monsoon Sewer Backups in Arizona | Pipeliners","meta":"Monsoon storms drive sewer backups in Arizona commercial buildings. Learn the warning signs, downtime costs, and trenchless fixes that keep doors open.","permalink":"https://pipelinersusa.com/commercial-monsoon-sewer-backups/","slug":"commercial-monsoon-sewer-backups","indexed":"Yes","keyword":"commercial sewer backup","kw_src":"Focus keyword set in WordPress","published":"2026-07-14"},{"id":13734,"name":"Most Common Sewer System Issues","path":"/most-common-sewer-system-issues/","type":"Blog","google":"Yes","clicks":0,"shown":20,"words":605,"faq":0,"updated":"2026-08-20","protected":false,"status":"","note":"","draft":false,"seo_title":"Common Sewer System Issues & Solutions | Pipeliners USA","meta":"Sewer issues? Pipeliners USA provides trenchless solutions for common problems like blockages. Contact us for efficient pipe repair.","permalink":"https://pipelinersusa.com/most-common-sewer-system-issues/","slug":"most-common-sewer-system-issues","indexed":"Yes","keyword":"sewer system maintenance","kw_src":"Focus keyword set in WordPress","published":"2025-03-05"},{"id":13690,"name":"Pipe Lining For Potable Water","path":"/pipe-lining-for-potable-water/","type":"Blog","google":"Yes","clicks":null,"shown":null,"words":769,"faq":0,"updated":"2025-03-05","protected":false,"status":"","note":"Sep 23: now in Google (URL Inspection). Sep 22: indexing requested (free GSC). Was \"Discovered, not indexed\": Google had never crawled it.","draft":false,"seo_title":"Potable Water Pipe Lining: Is It Safe? | Pipeliners USA","meta":"Explore trenchless pipe lining for potable water. Learn about CIPP, installation, and safety for efficient water distribution.","permalink":"https://pipelinersusa.com/pipe-lining-for-potable-water/","slug":"pipe-lining-for-potable-water","indexed":"Yes","keyword":"potable water","kw_src":"Focus keyword set in WordPress","published":"2025-03-05"},{"id":13732,"name":"Pipeline Locating: What it is and Why It’s Important","path":"/pipeline-locating-what-it-is-and-why-its-important/","type":"Blog","google":"Not yet","clicks":null,"shown":null,"words":849,"faq":0,"updated":"2026-08-20","protected":false,"status":"","note":"Decide: rewrite as sewer line locating, or retire (ask Scott).","draft":false,"seo_title":"Pipeline Locating: Importance & Services by Pipeliners USA","meta":"Prioritize safety and efficiency with precise underground utility locating. Accidental strikes can cause costly damage - ensure accurate pipeline detection.","permalink":"https://pipelinersusa.com/pipeline-locating-what-it-is-and-why-its-important/","slug":"pipeline-locating-what-it-is-and-why-its-important","indexed":"Not yet","keyword":"pipeline locating","kw_src":"Taken from the page’s SEO title (no keyword or Google search data yet)","published":"2024-07-06"},{"id":13730,"name":"Pipelining Myths Debunked","path":"/pipelining-myths-debunked/","type":"Blog","google":"Skipped","clicks":null,"shown":null,"words":640,"faq":0,"updated":"2026-08-31","protected":false,"status":"Needs work","note":"Merge drafted Sep 17: useful parts move into /common-myths-about-trenchless-sewer-repair-debunked/, then 301 redirect and set this post to draft. Waiting on Kim's OK.","draft":false,"seo_title":"Pipelining Myths Debunked: Trenchless Sewer Repair in AZ","meta":"Uncover the truth about CIPP pipelining.","permalink":"https://pipelinersusa.com/pipelining-myths-debunked/","slug":"pipelining-myths-debunked","indexed":"Skipped","keyword":"trenchless sewer repair","kw_src":"Focus keyword set in WordPress","published":"2025-03-05"},{"id":14832,"name":"Reline vs Replace: Best Options for Drain and Sewer Pipes","path":"/reline-vs-replace-best-options-for-drain-and-sewer-pipes/","type":"Blog","google":"Yes","clicks":0,"shown":940,"words":2649,"faq":30,"updated":"2026-08-31","protected":false,"status":"","note":"","draft":false,"seo_title":"Pipe Relining vs Replacement Costs for Drains & Sewers","meta":"Pipeliners USA: Compare pipe relining vs. replacement for drain and sewer pipes. Discover the best trenchless, demolition-free solution to save time and money.","permalink":"https://pipelinersusa.com/reline-vs-replace-best-options-for-drain-and-sewer-pipes/","slug":"reline-vs-replace-best-options-for-drain-and-sewer-pipes","indexed":"Yes","keyword":"pipe relining","kw_src":"Focus keyword set in WordPress","published":"2025-11-14"},{"id":13702,"name":"Residential Pipe Restoration Guide","path":"/residential-pipe-restoration-guide/","type":"Blog","google":"Not yet","clicks":null,"shown":null,"words":420,"faq":0,"updated":"2025-03-05","protected":false,"status":"Needs work","note":"Merge drafted Sep 17: useful parts move into /understanding-pipe-restoration-repiping-vs-pipelining/, then 301 redirect and set this post to draft. Waiting on Kim's OK.","draft":false,"seo_title":"Residential Pipe Restoration: Signs, Process & Benefits","meta":"Homeowners play a vital role in maintaining the health of their home's plumbing system to prevent issues like leaks and water damage in residential pipes.","permalink":"https://pipelinersusa.com/residential-pipe-restoration-guide/","slug":"residential-pipe-restoration-guide","indexed":"Not yet","keyword":"residential pipe restoration","kw_src":"Taken from the page’s SEO title (no keyword or Google search data yet)","published":"2025-03-05"},{"id":15627,"name":"Sewer Backing Up in a Monsoon Storm? What to Do Right Now (and How to Stop It Next Time)","path":"/sewer-backup-monsoon-what-to-do/","type":"Blog","google":"Yes","clicks":0,"shown":77,"words":952,"faq":4,"updated":"2026-08-20","protected":false,"status":"","note":"","draft":false,"seo_title":"Sewer Backup During a Monsoon? What to Do Now | Pipeliners","meta":"Sewage backing up during a Phoenix monsoon storm? Here are the steps to take right now, plus how to stop it from happening in the next storm.","permalink":"https://pipelinersusa.com/sewer-backup-monsoon-what-to-do/","slug":"sewer-backup-monsoon-what-to-do","indexed":"Yes","keyword":"sewer backup what to do","kw_src":"Focus keyword set in WordPress","published":"2026-07-14"},{"id":14825,"name":"Sewer Camera Inspection Near Me in Mesa, AZ: Your Complete Guide to Local Sewer Diagnostics and Repairs","path":"/sewer-camera-inspection-near-me-in-mesa-az-your-complete-guide-to-local-sewer-diagnostics-and-repairs/","type":"Blog","google":"Yes","clicks":0,"shown":3,"words":2960,"faq":0,"updated":"2026-08-31","protected":false,"status":"Watch","note":"Checked Sep 17: still in Google, but shown 3 times in the last 30 days vs 55 before.","draft":false,"seo_title":"Sewer Camera Inspection Near Me in Mesa, AZ | Pipeliners","meta":"Mesa, AZ sewer camera inspections by Pipeliners USA. Get accurate diagnostics & trenchless repair solutions to save time and money. Contact us today!","permalink":"https://pipelinersusa.com/sewer-camera-inspection-near-me-in-mesa-az-your-complete-guide-to-local-sewer-diagnostics-and-repairs/","slug":"sewer-camera-inspection-near-me-in-mesa-az-your-complete-guide-to-local-sewer-diagnostics-and-repairs","indexed":"Yes","keyword":"sewer camera inspection near me in mesa, az","kw_src":"Taken from the page’s SEO title (no keyword or Google search data yet)","published":"2025-11-05"},{"id":15668,"name":"Sewer Line Damage in Arizona: Prevention and Emergency Repairs","path":"/monsoon-sewer-line-damage-arizona/","type":"Blog","google":"Yes","clicks":0,"shown":21,"words":1244,"faq":5,"updated":"2026-08-24","protected":false,"status":"","note":"","draft":false,"seo_title":"Sewer Line Damage in Arizona: Prevention & Repairs | Pipeliners","meta":"Arizona monsoon storms crack, shift, and clog buried sewer lines. Learn the warning signs, prevention steps, and trenchless repairs that last.","permalink":"https://pipelinersusa.com/monsoon-sewer-line-damage-arizona/","slug":"monsoon-sewer-line-damage-arizona","indexed":"Yes","keyword":"monsoon sewer line damage arizona","kw_src":"Focus keyword set in WordPress","published":"2026-08-13"},{"id":15358,"name":"Sewer Pipe Lining vs Replacement: How to Know Which Repair Is Right","path":"/sewer-pipe-lining-vs-replacement-how-to-know-which-repair-is-right/","type":"Blog","google":"Yes","clicks":0,"shown":9,"words":1771,"faq":7,"updated":"2026-06-18","protected":false,"status":"","note":"Sep 19: 3 links updated to point at the merged posts (no redirects in the way).","draft":false,"seo_title":"Sewer Pipe Lining vs Replacement: Which Do You Need?","meta":"Compare sewer pipe lining and full replacement on cost drivers, disruption, and pipe condition, then see which repair fits your situation.","permalink":"https://pipelinersusa.com/sewer-pipe-lining-vs-replacement-how-to-know-which-repair-is-right/","slug":"sewer-pipe-lining-vs-replacement-how-to-know-which-repair-is-right","indexed":"Yes","keyword":"pipe repair vs relining vs replacement","kw_src":"Top Google search for this page, Aug 16 - Sep 12 (4 impressions, avg position 84.0)","published":"2026-05-05"},{"id":13720,"name":"Should I DIY Pipe Repair?","path":"/should-i-diy-pipe-repair/","type":"Blog","google":"Yes","clicks":0,"shown":8,"words":3154,"faq":0,"updated":"2026-09-01","protected":false,"status":"","note":"","draft":false,"seo_title":"Should You DIY Pipe Repair? 5 Reasons to Hire a Pro","meta":"Pipe restoration demands professional expertise for accuracy. Uncover the 5 key reasons, including diagnostic accuracy, highlighting the need for specialists.","permalink":"https://pipelinersusa.com/should-i-diy-pipe-repair/","slug":"should-i-diy-pipe-repair","indexed":"Yes","keyword":"should i diy pipe repair","kw_src":"Taken from the page’s SEO title (its Google searches are unrelated)","published":"2025-03-05"},{"id":13722,"name":"Signs of Outdated Sewer & Drain Pipes","path":"/signs-of-outdated-sewer-drain-pipes/","type":"Blog","google":"Yes","clicks":0,"shown":5,"words":5215,"faq":0,"updated":"2026-09-19","protected":false,"status":"","note":"Sep 19: added a link to /clay-sewer-pipe/ and removed unverified lifespan numbers (clay \"over a hundred years\", cast iron \"50 to 100 years\", PVC \"exceed 100 years\"). \"Serve reliably for decades\" line kept (Kim).","draft":false,"seo_title":"Signs of Outdated Sewer & Drain Pipes – Pipeliners USA","meta":"Spot aging sewer pipes early with Pipeliners USA!","permalink":"https://pipelinersusa.com/signs-of-outdated-sewer-drain-pipes/","slug":"signs-of-outdated-sewer-drain-pipes","indexed":"Yes","keyword":"sewer maintenance","kw_src":"Focus keyword set in WordPress","published":"2025-03-05"},{"id":18117,"name":"Slab Leaks in Phoenix: Signs, Causes, and Repair Options","path":"/slab-leaks-phoenix/","type":"Blog","google":"Yes","clicks":0,"shown":4,"words":1928,"faq":6,"updated":"2026-09-07","protected":false,"status":"","note":"Published Sep 7. Google added it Sep 8.","draft":false,"seo_title":"Phoenix Slab Leaks: Signs and Repair Options | Pipeliners","meta":"A slab leak is a water line leaking under your concrete foundation. Learn the warning signs, how leaks are located, and your repair options in Phoenix.","permalink":"https://pipelinersusa.com/slab-leaks-phoenix/","slug":"slab-leaks-phoenix","indexed":"Yes","keyword":"slab leak phoenix","kw_src":"Top Google search for this page, Aug 16 - Sep 12 (2 impressions, avg position 74.0)","published":"2026-09-07"},{"id":13712,"name":"Top 10 Signs Your Home Needs Pipe Restoration","path":"/top-10-signs-your-home-needs-pipe-restoration/","type":"Blog","google":"Not yet","clicks":0,"shown":1,"words":4098,"faq":10,"updated":"2026-09-01","protected":false,"status":"","note":"Sep 23: checked in Search Console, NOT in Google (crawled, not indexed). The sheet said Yes; that was wrong. Recrawl request scheduled for tonight. Sep 18: the old Mesa \"needs lining\" post now redirects here (no content moved). Sign 1 is missing its heading; fix not approved yet.","draft":false,"seo_title":"10 Signs Your Home Needs Pipe Restoration | Pipeliners","meta":"Restore your home's pipes by replacing old, corroded pipes or relining them with safe, durable materials to ensure clean water flow.","permalink":"https://pipelinersusa.com/top-10-signs-your-home-needs-pipe-restoration/","slug":"top-10-signs-your-home-needs-pipe-restoration","indexed":"Not yet","keyword":"pipe restoration","kw_src":"Focus keyword set in WordPress","published":"2025-03-05"},{"id":14890,"name":"Trenchless Pipe Repair Service Areas in Arizona","path":"/trenchless-pipe-repair-service-areas-in-arizona/","type":"Blog","google":"Yes","clicks":0,"shown":57,"words":3318,"faq":6,"updated":"2026-08-31","protected":false,"status":"","note":"","draft":false,"seo_title":"Trenchless Pipe Repair in Arizona | Pipeliners USA","meta":"Pipeliners USA offers trenchless pipe repair across Arizona. Discover demolition-free solutions for drain & water pipes. Contact us!","permalink":"https://pipelinersusa.com/trenchless-pipe-repair-service-areas-in-arizona/","slug":"trenchless-pipe-repair-service-areas-in-arizona","indexed":"Yes","keyword":"trenchless sewer repair arizona","kw_src":"Top Google search for this page, Aug 16 - Sep 12 (15 impressions, avg position 68.0)","published":"2025-12-19"},{"id":13698,"name":"Understanding Pipe Corrosion","path":"/understanding-pipe-corrosion/","type":"Blog","google":"Not yet","clicks":null,"shown":null,"words":479,"faq":0,"updated":"2026-09-19","protected":false,"status":"Done","note":"Merged Sep 19 (approved by Kim): useful parts moved into /corroded-pipes/, and this URL now 301 redirects there. Post set to draft, not deleted. Removed from the sitemap.","draft":true,"seo_title":"Pipe Corrosion: Causes, Signs & Prevention | Pipeliners USA","meta":"Protect your plumbing! Learn pipe corrosion causes, signs, and prevention with Pipeliners USA. Contact us for expert solutions.","permalink":"https://pipelinersusa.com/understanding-pipe-corrosion/","slug":"understanding-pipe-corrosion","indexed":"Not yet","keyword":"pipe corrosion","kw_src":"Taken from the page’s SEO title (no keyword or Google search data yet)","published":"2025-03-05"},{"id":13682,"name":"Understanding Pipe Restoration: Repiping VS Pipelining","path":"/understanding-pipe-restoration-repiping-vs-pipelining/","type":"Blog","google":"Not yet","clicks":null,"shown":null,"words":1053,"faq":0,"updated":"2026-08-20","protected":false,"status":"","note":"Sep 17 merge draft: receives 1 weaker post. Request indexing after the merge goes live.","draft":false,"seo_title":"Pipe Restoration: Repiping vs. Pipelining - Pipeliners USA","meta":"Repiping vs. pipelining: Discover which pipe restoration method is best for your home. Pipeliners USA offers trenchless solutions to save you time and money.","permalink":"https://pipelinersusa.com/understanding-pipe-restoration-repiping-vs-pipelining/","slug":"understanding-pipe-restoration-repiping-vs-pipelining","indexed":"Not yet","keyword":"pipe restoration","kw_src":"Taken from the page’s SEO title (no keyword or Google search data yet)","published":"2025-03-05"},{"id":13740,"name":"What Causes Pinhole Leaks in Copper Pipes?","path":"/what-causes-pinhole-leaks-in-copper-pipes/","type":"Blog","google":"Yes","clicks":0,"shown":435,"words":758,"faq":1,"updated":"2026-08-31","protected":false,"status":"","note":"","draft":false,"seo_title":"What Causes Pinhole Leaks in Copper Pipes? | Pipeliners","meta":"Water chemistry, flow velocity, and pipe age all drive pinhole leaks in copper lines. Learn the causes, the warning signs, and your repair options.","permalink":"https://pipelinersusa.com/what-causes-pinhole-leaks-in-copper-pipes/","slug":"what-causes-pinhole-leaks-in-copper-pipes","indexed":"Yes","keyword":"pinhole leaks","kw_src":"Focus keyword set in WordPress","published":"2025-03-05"},{"id":15621,"name":"What Is a Bellied (Sagging) Sewer Pipe? Why Monsoon Soil Movement Causes It in the Phoenix Valley","path":"/what-is-a-bellied-sewer-pipe/","type":"Blog","google":"Yes","clicks":0,"shown":7,"words":1027,"faq":4,"updated":"2026-08-20","protected":false,"status":"","note":"","draft":false,"seo_title":"What Is a Bellied (Sagging) Sewer Pipe? | Pipeliners","meta":"A bellied sewer pipe sags and traps waste. Learn why monsoon soil movement causes it across the Phoenix Valley, the signs to watch, and repair options.","permalink":"https://pipelinersusa.com/what-is-a-bellied-sewer-pipe/","slug":"what-is-a-bellied-sewer-pipe","indexed":"Yes","keyword":"bellied sewer pipe","kw_src":"Focus keyword set in WordPress","published":"2026-07-14"},{"id":14690,"name":"What Is Cured-In-Place Pipe (CIPP) Lining? A Comprehensive Guide","path":"/what-is-cipp/","type":"Blog","google":"Yes","clicks":1,"shown":5480,"words":1692,"faq":7,"updated":"2026-08-25","protected":false,"status":"","note":"","draft":false,"seo_title":"CIPP Lining Guide: Trenchless Pipe Repair by Pipeliners USA","meta":"No-dig sewer repairs! Explore CIPP lining for Phoenix homes.","permalink":"https://pipelinersusa.com/what-is-cipp/","slug":"what-is-cipp","indexed":"Yes","keyword":"cipp lining","kw_src":"Top Google search for this page, Aug 16 - Sep 12 (430 impressions, avg position 79.0)","published":"2025-05-19"},{"id":13688,"name":"What Is Trenchless Pipe Repair?","path":"/what-is-trenchless-pipe-repair/","type":"Blog","google":"Skipped","clicks":0,"shown":0,"words":555,"faq":0,"updated":"2026-09-19","protected":false,"status":"Done","note":"Merged Sep 19 (approved by Kim): useful parts moved into /repair-sewer-line-without-digging/, and this URL now 301 redirects there. Post set to draft, not deleted. Removed from the sitemap.","draft":true,"seo_title":"What Is Trenchless Pipe Repair? | Pipeliners USA","meta":"Pipeliners USA: Trenchless pipe repair without demolition. Save time & money. Contact us for innovative solutions!","permalink":"https://pipelinersusa.com/what-is-trenchless-pipe-repair/","slug":"what-is-trenchless-pipe-repair","indexed":"Skipped","keyword":"what is trenchless pipe repair","kw_src":"Taken from the page’s SEO title (no keyword or Google search data yet)","published":"2025-03-05"},{"id":13726,"name":"When is Pipe Descaling Necessary?","path":"/when-is-pipe-descaling-necessary/","type":"Blog","google":"Not yet","clicks":0,"shown":4,"words":3090,"faq":0,"updated":"2026-09-14","protected":false,"status":"","note":"Sep 23: checked in Search Console, NOT in Google (crawled, not indexed). The sheet said Yes; that was wrong.","draft":false,"seo_title":"When Is Pipe Descaling Necessary? | Pipeliners USA","meta":"Discover how pipe descaling and pipelining improve plumbing efficiency and longevity. Contact Pipeliners for professional services and a complimentary quote!","permalink":"https://pipelinersusa.com/when-is-pipe-descaling-necessary/","slug":"when-is-pipe-descaling-necessary","indexed":"Not yet","keyword":"pipe descaling","kw_src":"Focus keyword set in WordPress","published":"2025-03-05"},{"id":18137,"name":"Sewer Smell in Your House After Summer? What Arizona Homeowners Should Check","path":"/sewer-smell-in-house/","type":"Blog","google":"Yes","clicks":null,"shown":null,"words":1950,"faq":7,"updated":"2026-09-16","protected":false,"status":"Done","note":"Published Sep 16. Indexing requested the same day. Indexed: shows in Google site: search (checked Sep 18). Linked from the fall maintenance and gurgling drains posts.","draft":false,"seo_title":"Sewer Smell in House? What to Check This Fall in Arizona","meta":"A sewer smell in house after summer is often a dry drain trap. Here is what Arizona homeowners and returning winter residents should check, and when to call.","permalink":"https://pipelinersusa.com/sewer-smell-in-house/","slug":"sewer-smell-in-house","indexed":"Requested","keyword":"sewer smell in house","kw_src":"Focus keyword from Sep 17 keyword research (3,650 US searches a month, difficulty 11)","published":"2026-09-16"},{"id":18150,"name":"Clay Sewer Pipe: Common Problems and How to Fix It Without Digging","path":"/clay-sewer-pipe/","type":"Blog","google":"Yes","clicks":null,"shown":null,"words":1654,"faq":4,"updated":"2026-09-19","protected":false,"status":"Done","note":"Sep 22: confirmed in Google (URL Inspection). Published Sep 19 (approved by Kim). Supporting blog for Glendale, Avondale, Paradise Valley and Casa Grande. Indexing requested Sep 19 (free GSC). Linked from /phoenix-sewer-line-problems/ and /signs-of-outdated-sewer-drain-pipes/. Review Oct 17.","draft":false,"seo_title":"Clay Sewer Pipe: Problems and No-Dig Fixes | Pipeliners","meta":"Clay sewer pipe cracks, shifts at the joints and lets roots in. Learn the warning signs and how to fix it without digging. Call 480-535-6503.","permalink":"https://pipelinersusa.com/clay-sewer-pipe/","slug":"clay-sewer-pipe","indexed":"Yes","keyword":"clay sewer pipe","kw_src":"Search Atlas keyword research Sep 19: ~1,223 searches/mo, difficulty 21","published":"2026-09-18"}]</script>
+<script type="application/json" id="sheet-state">{"updated":"2026-09-23","savedAt":"Sep 16, 2026 02:29","edits":{"18123":{"google":"Yes"}},"log":[{"at":"2026-09-15T18:29:38.694Z","id":18123,"page":"/sewer-line-maintenance/","field":"google","from":"New","to":"Yes"}]}</script>
+
+<script id="app">
+(function(){
+  var CSS = document.getElementById('css').textContent;
+  var APP = document.getElementById('app').textContent;
+  var DATA_TXT = document.getElementById('sheet-data').textContent;
+  var DATA = JSON.parse(DATA_TXT);
+  var STATE = JSON.parse(document.getElementById('sheet-state').textContent || '{}');
+  STATE.edits = STATE.edits || {};
+
+  var STATUSES = ['', 'OK', 'Needs work', 'In progress', 'Watch', 'Done'];
+  var GOOGLE_LABEL = {'Yes':'Yes','Not yet':'Not yet','Skipped':'Skipped','Requested':'Requested','Hidden':'Hidden','New':'New'};
+  var TABS = [
+    {id:'all', name:'All pages', test:function(){return true;}},
+    {id:'core', name:'Core pages', test:function(r){return r.type==='Core';}},
+    {id:'svc', name:'Service pages', test:function(r){return r.type==='Service'||r.type==='Service guide'||r.type==='Ad page';}},
+    {id:'local', name:'Local pages', test:function(r){return r.type==='Local';}},
+    {id:'blog', name:'Blogs', test:function(r){return r.type==='Blog';}}
+  ];
+  var COLS = [
+    {k:'name', label:'Page', cls:'pg', tip:'Page name'},
+    {k:'path', label:'Address', cls:'addr', tip:'Web address on pipelinersusa.com (click to open)'},
+    {k:'type', label:'Type', tip:'Core, Service, Local (city) or Blog'},
+    {k:'google', label:'In Google?', tip:'Is this page in Google search? See the key above the sheet.'},
+    {k:'clicks', label:'Clicks', cls:'num', tip:'Clicks from Google search, Aug 14 - Sep 8, 2026'},
+    {k:'shown', label:'Times shown', cls:'num', tip:'How many times Google showed this page in search, Aug 14 - Sep 8, 2026'},
+    {k:'words', label:'Words', cls:'num', tip:'Words of main content on the page'},
+    {k:'faq', label:'FAQs', cls:'num', tip:'Number of FAQ questions marked up for Google'},
+    {k:'published', label:'Date published', tip:'Date the page was first published in WordPress'},
+    {k:'updated', label:'Last updated', tip:'Last time the page was edited in WordPress'},
+    {k:'protected', label:'Ask first?', tip:'Home page and Google Ads landing pages: ask before editing'},
+    {k:'status', label:'Status', tip:'Your tracking status. Change it, then Save.'},
+    {k:'note', label:'Notes', tip:'Your notes. Type, then Save.'}
+  ];
+  var LOCAL_COLS = [
+    {k:'seo_title', label:'SEO Title', cls:'pg', tip:'The title Google shows, read live from the page (changed pages rechecked Sep 17, 2026)'},
+    {k:'published', label:'Date published', tip:'Date the page was first published in WordPress'},
+    {k:'slug', label:'Slug', tip:'The last part of the web address'},
+    {k:'keyword', label:'Primary keyword', cls:'kw', tip:'Main search this page targets. Click a cell to see where it came from.'},
+    {k:'meta', label:'Meta description', cls:'meta', tip:'The description Google may show under the title, read live (changed pages rechecked Sep 17, 2026)'},
+    {k:'permalink', label:'Permalink', cls:'addr', tip:'Full web address (click to open)'},
+    {k:'indexed', label:'Indexed?', tip:'Is this page in Google? Search Console, Sep 15, 2026 (7 blog posts rechecked Sep 17)'},
+    {k:'location', label:'Location', tip:'City this page serves'},
+    {k:'note', label:'Notes', tip:'Your notes. Type, then Save.'}
+  ];
+  var BLOG_COLS = LOCAL_COLS.filter(function(c){ return c.k!=='location'; });
+  function baseCols(tab){ return tab==='local' ? LOCAL_COLS : (tab==='blog' ? BLOG_COLS : COLS); }
+  // Column order: drag a header to move it. The first column stays pinned. Remembered per viewer, per tab.
+  var colOrder = {};
+  try { colOrder = JSON.parse(localStorage.getItem('pl-sheet-colorder')||'{}') || {}; } catch(e){ colOrder = {}; }
+  function saveColOrder(){ try { localStorage.setItem('pl-sheet-colorder', JSON.stringify(colOrder)); } catch(e){} }
+  function colsFor(tab){
+    var base = baseCols(tab), order = colOrder[tab];
+    if (!order || !order.length) return base;
+    var first = base[0], rest = base.slice(1);
+    rest.sort(function(a,b){
+      var ia = order.indexOf(a.k), ib = order.indexOf(b.k);
+      if (ia<0) ia = 999 + base.indexOf(a); if (ib<0) ib = 999 + base.indexOf(b);
+      return ia - ib;
+    });
+    return [first].concat(rest);
+  }
+  var LETTERS = 'ABCDEFGHIJKLMNOP';
+  // Column widths: drag a header edge to resize, double-click it to reset. Remembered per viewer.
+  var DEFAULT_W = {name:260,path:240,type:110,google:110,clicks:80,shown:110,words:80,faq:70,published:130,updated:130,protected:100,status:150,note:320,
+    seo_title:300,slug:260,keyword:240,meta:380,permalink:280,indexed:110,location:150};
+  var colW = {};
+  try { colW = JSON.parse(localStorage.getItem('pl-sheet-colw')||'{}') || {}; } catch(e){ colW = {}; }
+  function widthOf(k){ return colW[k] || DEFAULT_W[k] || 140; }
+  function saveColW(){ try { localStorage.setItem('pl-sheet-colw', JSON.stringify(colW)); } catch(e){} }
+  var suppressClick = 0;
+  var MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+  var pending = {};   // id -> {field: value} not yet saved
+  var canSave = null, readOnly = false, ns = null;
+  var ui = {tab:'all', q:'', g:'all', sort:'published', dir:1};   // default: oldest published first
+  try { var s = JSON.parse(localStorage.getItem('pl-sheet-ui')||'null'); if (s) { ui.tab = s.tab||'all'; ui.g = s.g||'all'; } } catch(e){}
+  var selected = null;   // {id, k}
+  var editing = null;    // {id, k}
+  var saveState = 'saved';   // saved | pending | saving | error
+  var saveTimer = null;
+  STATE.log = STATE.log || [];
+
+  // After an autosave the page reloads; bring the view back to where it was.
+  var restore = null;
+  try { restore = JSON.parse(sessionStorage.getItem('pl-sheet-view')||'null'); sessionStorage.removeItem('pl-sheet-view'); } catch(e){}
+  if (restore){ ui.tab = restore.tab || ui.tab; ui.sort = restore.sort || ui.sort; ui.dir = restore.dir || ui.dir; ui.q = restore.q || ''; ui.g = restore.g || ui.g; selected = restore.sel || null; }
+
+  // Light / dark mode: a per-viewer choice, remembered in this browser only.
+  try { var savedTheme = localStorage.getItem('pl-sheet-theme'); if (savedTheme==='light' || savedTheme==='dark') document.documentElement.setAttribute('data-theme', savedTheme); } catch(e){}
+  function currentTheme(){
+    var t = document.documentElement.getAttribute('data-theme');
+    if (t==='light' || t==='dark') return t;
+    return (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+  }
+  var SUN = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></g></svg>';
+  var MOON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.5 14.6A8.5 8.5 0 0 1 9.4 3.5a8.5 8.5 0 1 0 11.1 11.1z"/></svg>';
+  function themeButton(){
+    var dark = currentTheme()==='dark';
+    return '<button type="button" class="themebtn" id="themebtn" aria-label="Switch to '+(dark?'light':'dark')+' mode">'+(dark?SUN+'Light mode':MOON+'Dark mode')+'</button>';
+  }
+
+  function esc(x){ return String(x==null?'':x).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+  function fmtDate(s){ if(!s) return ''; var p=String(s).split('-'); if (p.length<3) return String(s); return MON[+p[1]-1]+' '+(+p[2])+', '+p[0]; }
+  // "Indexed?" and "In Google?" are the same fact, so they share one stored field.
+  function fk(k){ return k==='indexed' ? 'google' : k; }
+  function orig(r,k){ return r[fk(k)]; }
+  function val(r,k){
+    k = fk(k);
+    if (pending[r.id] && pending[r.id].hasOwnProperty(k)) return pending[r.id][k];
+    if (STATE.edits[r.id] && STATE.edits[r.id].hasOwnProperty(k)) return STATE.edits[r.id][k];
+    return r[k];
+  }
+  function saved(r,k){ k=fk(k); return (STATE.edits[r.id] && STATE.edits[r.id].hasOwnProperty(k)) ? STATE.edits[r.id][k] : r[k]; }
+  function same(a,b){
+    var ea = (a==null||a===''||a===false), eb = (b==null||b===''||b===false);
+    if (ea && eb) return true;
+    return String(a)===String(b);
+  }
+  function isEdited(r,k){ return !same(val(r,k), orig(r,k)); }
+  function pendingCount(){ var n=0; Object.keys(pending).forEach(function(id){ n+=Object.keys(pending[id]).length; }); return n; }
+  function cls(s){ return String(s).replace(/\s+/g,'-'); }
+  function rowById(id){ return DATA.filter(function(x){ return String(x.id)===String(id); })[0]; }
+
+  // Same value (e.g. same publish date): oldest publish date, then name A-Z, so order stays stable.
+  function tie(a,b){
+    var p = String(val(a,'published')||'').localeCompare(String(val(b,'published')||''));
+    return p || String(val(a,'seo_title')||val(a,'name')).localeCompare(String(val(b,'seo_title')||val(b,'name')));
+  }
+  function rowsFor(tab){
+    var t = TABS.filter(function(x){return x.id===tab;})[0] || TABS[0];
+    var q = ui.q.trim().toLowerCase();
+    var out = DATA.filter(function(r){
+      if (!t.test(r)) return false;
+      var g = val(r,'google');
+      if (ui.g==='yes' && g!=='Yes') return false;
+      if (ui.g==='no' && (g==='Yes' || g==='Hidden')) return false;
+      if (ui.g==='work' && val(r,'status')!=='Needs work' && val(r,'status')!=='In progress') return false;
+      if (q && [val(r,'name'),r.path,val(r,'seo_title'),val(r,'keyword'),val(r,'meta'),val(r,'note'),val(r,'slug')].join(' ').toLowerCase().indexOf(q)===-1) return false;
+      return true;
+    });
+    if (ui.sort){
+      var k = ui.sort;
+      out = out.slice().sort(function(a,b){
+        var x = val(a,k), y = val(b,k);
+        var ex = (x==null||x===''), ey = (y==null||y==='');
+        if (ex && ey) return tie(a,b); if (ex) return 1; if (ey) return -1;
+        var c = (typeof x==='number' && typeof y==='number') ? (x-y) : String(x).localeCompare(String(y));
+        return c ? c*ui.dir : tie(a,b);
+      });
+    }
+    return out;
+  }
+
+  function summary(){
+    var inG = DATA.filter(function(r){return val(r,'google')==='Yes';}).length;
+    var notG = DATA.filter(function(r){var g=val(r,'google');return g==='Not yet'||g==='Skipped'||g==='Requested'||g==='New';}).length;
+    var clicks = DATA.reduce(function(a,r){return a+(Number(val(r,'clicks'))||0);},0);
+    var shown = DATA.reduce(function(a,r){return a+(Number(val(r,'shown'))||0);},0);
+    var work = DATA.filter(function(r){var s=val(r,'status');return s==='Needs work'||s==='In progress';}).length;
+    function card(n,l){ return '<div class="sum"><b>'+n+'</b><span>'+l+'</span></div>'; }
+    return '<div class="summary">'+card(DATA.length,'pages on the site')+card(inG,'in Google')+card(notG,'not in Google yet')+
+      card(clicks.toLocaleString(),'Google clicks (Aug 14 - Sep 8)')+card(shown.toLocaleString(),'times shown in Google')+card(work,'needs work or in progress')+'</div>';
+  }
+
+  var CHOICES = {
+    google: ['Yes','Not yet','Skipped','Requested','Hidden','New'],
+    type: ['Core','Service','Service guide','Ad page','Local','Blog'],
+    protected: ['', 'Ask first']
+  };
+  function kindOf(k){
+    k = fk(k);
+    if (k==='status') return 'status';
+    if (CHOICES[k]) return 'choice';
+    if (k==='published' || k==='updated') return 'date';
+    if (k==='clicks' || k==='shown' || k==='words' || k==='faq') return 'num';
+    return 'text';
+  }
+
+  function cell(r,c,ci){
+    var k = c.k, v = val(r,k), ref = LETTERS[ci], kind = kindOf(k);
+    var ed = isEdited(r,k), isSel = selected && String(selected.id)===String(r.id) && selected.k===k;
+    var isEd = editing && String(editing.id)===String(r.id) && editing.k===k;
+    var classes = [c.cls||'', kind==='num'?'num':'', k==='status'?'st':'', ed?'edited':'', isSel?'sel':'', isEd?'editing':''].filter(Boolean).join(' ');
+    var o = orig(r,k);
+    var tip = ed ? ' title="Changed in the tracker. Website value: '+esc(k==='protected' ? (o?'Ask first':'(no)') : (o==null||o===''?'(empty)':o))+'"' : '';
+    var base = ' data-ref="'+ref+'" data-id="'+r.id+'" data-k="'+k+'"'+(classes?' class="'+classes+'"':'')+tip;
+    if (isEd) return '<td'+base+'>'+editor(r,k,v)+'</td>';
+    if (k==='name') return '<td'+base+'>'+esc(v)+(r.draft?'<span class="draft">Draft</span>':'')+'</td>';
+    if (k==='permalink') return '<td'+base+'><a href="'+esc(v)+'" target="_blank" rel="noopener">'+esc(v)+'</a></td>';
+    if (k==='path') return '<td'+base+'><a href="https://pipelinersusa.com'+esc(v)+'" target="_blank" rel="noopener">'+esc(v)+'</a></td>';
+    if (k==='indexed' || k==='google') return '<td'+base+'>'+(v?'<span class="chip ch-'+cls(v)+'">'+esc(GOOGLE_LABEL[v]||v)+'</span>':'')+'</td>';
+    if (kind==='date') return '<td'+base+'>'+fmtDate(v)+'</td>';
+    if (k==='protected') return '<td'+base+'>'+(v?'<span class="chip ch-lock">Ask first</span>':'')+'</td>';
+    if (k==='status'){
+      var opts = STATUSES.map(function(s){return '<option value="'+esc(s)+'"'+(s===(v||'')?' selected':'')+'>'+(s||'Set status')+'</option>';}).join('');
+      return '<td'+base+'><select class="stsel '+(v?'s-'+cls(v):'s-none')+'" data-id="'+r.id+'" aria-label="Status for '+esc(val(r,'name'))+'"'+(readOnly?' disabled':'')+'>'+opts+'</select></td>';
+    }
+    if (kind==='num') return '<td'+base+'>'+(v==null||v===''?'<span class="dimtxt">-</span>':Number(v).toLocaleString())+'</td>';
+    return '<td'+base+'>'+esc(v)+'</td>';
+  }
+
+  function editor(r,k,v){
+    var kind = kindOf(k);
+    if (kind==='choice'){
+      var list = CHOICES[fk(k)], cur = (k==='protected') ? (v?'Ask first':'') : (v||'');
+      return '<select class="celled" data-id="'+r.id+'" data-k="'+k+'">'+list.map(function(o){ return '<option value="'+esc(o)+'"'+(o===cur?' selected':'')+'>'+esc(o||'(none)')+'</option>'; }).join('')+'</select>';
+    }
+    if (kind==='date') return '<input class="celled" type="date" data-id="'+r.id+'" data-k="'+k+'" value="'+esc(v||'')+'">';
+    return '<input class="celled" type="'+(kind==='num'?'number':'text')+'" data-id="'+r.id+'" data-k="'+k+'" value="'+esc(v==null?'':v)+'">';
+  }
+
+  function grid(){
+    var rows = rowsFor(ui.tab);
+    var C = colsFor(ui.tab);
+    var handle = function(k){ return '<span class="rs" data-rs="'+k+'" title="Drag to resize, double-click to reset" aria-hidden="true"></span>'; };
+    var cols = '<colgroup><col style="width:46px">'+C.map(function(c){ return '<col data-k="'+c.k+'" style="width:'+widthOf(c.k)+'px">'; }).join('')+'</colgroup>';
+    var total = 46 + C.reduce(function(a,c){ return a+widthOf(c.k); },0);
+    var letters = '<tr class="letters"><th class="rn"></th>'+C.map(function(c,i){return '<th'+(c.cls==='pg'?' class="pg"':'')+'>'+LETTERS[i]+handle(c.k)+'</th>';}).join('')+'</tr>';
+    var labels = '<tr class="labels"><th class="rn">1</th>'+C.map(function(c){
+      var arr = ui.sort===c.k ? '<span class="arr">'+(ui.dir>0?'▲':'▼')+'</span>' : '';
+      return '<th'+(c.cls==='pg'?' class="pg"':' data-move="'+c.k+'"')+' data-sort="'+c.k+'" title="'+esc(c.tip)+(c.cls==='pg'?' (click to sort)':' (click to sort, drag to move)')+'"><span class="lbl">'+c.label+arr+'</span>'+handle(c.k)+'</th>';
+    }).join('')+'</tr>';
+    var body = rows.map(function(r,i){
+      return '<tr data-row="'+r.id+'"><td class="rn">'+(i+2)+'</td>'+C.map(function(c,ci){return cell(r,c,ci);}).join('')+'</tr>';
+    }).join('');
+    if (!rows.length) body = '<tr><td class="rn">2</td><td colspan="'+C.length+'" class="empty">No pages match. Clear the search or filter.</td></tr>';
+    return '<table class="g" role="grid" style="width:'+total+'px">'+cols+'<thead>'+letters+labels+'</thead><tbody>'+body+'</tbody></table>';
+  }
+
+  function tabs(){
+    return '<nav class="tabs" role="tablist">'+TABS.map(function(t){
+      var n = DATA.filter(t.test).length;
+      return '<button type="button" role="tab" data-tab="'+t.id+'" aria-selected="'+(ui.tab===t.id)+'">'+t.name+'<span>'+n+'</span></button>';
+    }).join('')+'<span class="spacer"></span><span class="meta">Last saved '+esc(STATE.savedAt || fmtDate(STATE.updated))+'</span></nav>';
+  }
+
+  function chipHtml(){
+    if (readOnly) return '<span class="savechip" id="savechip"><i></i><span class="ro">View only</span></span>';
+    if (canSave===false) return '<span class="savechip dirty" id="savechip"><i></i>You can edit here, but saving only works on the published page</span>';
+    var t = {saved:'All changes saved', pending:'Saving shortly…', saving:'Saving…', error:'Couldn’t save. Trying again…'}[saveState] || '';
+    return '<span class="savechip'+(saveState==='saved'?'':' dirty')+'" id="savechip"><i></i>'+t+'</span>';
+  }
+  function setChip(st){ saveState = st; var c = document.getElementById('savechip'); if (c) c.outerHTML = chipHtml(); }
+
+  function fbarHtml(){
+    var ref='', text='Click a cell to see its full value. Double-click it, or start typing, to edit.', extra='';
+    if (selected){
+      var r = rowById(selected.id);
+      var td = document.querySelector('td[data-id="'+selected.id+'"][data-k="'+selected.k+'"]');
+      if (r){
+        var k = selected.k, v = val(r,k);
+        ref = td ? td.dataset.ref + td.parentElement.firstChild.textContent : '';
+        text = (k==='protected') ? (v?'Ask first':'') : (k==='path' ? 'https://pipelinersusa.com'+v : (v==null?'':String(v)));
+        if (k==='keyword' && r.kw_src && !isEdited(r,k)) text += '   ·   Source: '+r.kw_src;
+        if ((k==='meta'||k==='seo_title') && v) text += '   ·   '+String(v).length+' characters';
+        if (isEdited(r,k)){
+          var o = orig(r,k); o = (k==='protected') ? (o?'Ask first':'(no)') : (o==null||o===''?'(empty)':o);
+          extra = '<span class="was">Changed from: '+esc(o)+'</span>'+(readOnly?'':'<button type="button" class="undo" id="undoedit">Undo change</button>');
+        }
+      }
+    }
+    return '<span class="ref" id="ref">'+esc(ref)+'</span><span class="fx">fx</span><span class="val" id="fval">'+esc(text||'(empty)')+'</span>'+extra;
+  }
+  function refreshFbar(){ var f = document.querySelector('.fbar'); if (f) f.innerHTML = fbarHtml(); }
+
+  function render(keepFocus){
+    var root = document.getElementById('app-root');
+    var gw = root.querySelector('.gridwrap'); var sx = gw?gw.scrollLeft:0, sy = gw?gw.scrollTop:0;
+    if (restore && restore.sx!=null){ sx = restore.sx; sy = restore.sy; restore.sx = null; }
+    root.innerHTML =
+      '<header class="titlebar"><span class="docicon" aria-hidden="true"></span><div class="doctitle"><h1>Pipeliners Website Pages</h1>'+
+      '<p>pipelinersusa.com · double-click any cell to edit · changes save automatically · data checked live Sep 15, 2026 · updated Sep 17, 2026</p></div>'+
+      chipHtml()+themeButton()+'</header>'+
+      summary()+
+      '<div class="toolbar"><label class="search"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M15.5 14h-.8l-.3-.3A6.5 6.5 0 1 0 14 15.5l.3.3v.8l5 5 1.5-1.5-5-5zm-6 0a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z"/></svg>'+
+      '<input type="search" id="q" placeholder="Search pages or notes" value="'+esc(ui.q)+'"></label>'+
+      '<span class="tlabel">Show</span><select class="tsel" id="gf" aria-label="Filter pages">'+
+      [['all','All pages'],['yes','In Google'],['no','Not in Google yet'],['work','Needs work / in progress']].map(function(o){return '<option value="'+o[0]+'"'+(ui.g===o[0]?' selected':'')+'>'+o[1]+'</option>';}).join('')+
+      '</select><button type="button" class="resetcols" id="resetcols" title="Put column order and widths back to the default">Reset columns</button></div>'+
+      '<div class="fbar"></div>'+
+      '<div class="key"><b style="font-weight:500">In Google?</b>'+
+      '<span><span class="chip ch-Yes">Yes</span>in Google search</span>'+
+      '<span><span class="chip ch-Not-yet">Not yet</span>Google knows it but hasn’t added it</span>'+
+      '<span><span class="chip ch-Skipped">Skipped</span>Google looked and left it out</span>'+
+      '<span><span class="chip ch-Requested">Requested</span>we asked Google to index it</span>'+
+      '<span><span class="chip ch-Hidden">Hidden</span>kept out on purpose</span>'+
+      '<span><span class="editmark" aria-hidden="true"></span>changed in this tracker</span></div>'+
+      '<div class="gridwrap">'+grid()+'</div>'+ tabs();
+    refreshFbar();
+    var ngw = root.querySelector('.gridwrap'); ngw.scrollLeft = sx; ngw.scrollTop = sy;
+    if (keepFocus){ var el = document.getElementById(keepFocus); if (el){ el.focus(); var L=el.value.length; try{el.setSelectionRange(L,L);}catch(e){} } }
+    var ce = root.querySelector('.celled'); if (ce){ ce.focus(); if (ce.type==='text'){ try { var L2=ce.value.length; ce.setSelectionRange(L2,L2); } catch(e){} } }
+  }
+
+  // ---- editing ----
+  function canEdit(k){ return !readOnly && kindOf(k)!=='status'; }
+  function startEdit(id,k,firstChar){
+    if (!canEdit(k)) return;
+    editing = {id:id, k:k}; selected = {id:id, k:k};
+    render();
+    var ce = document.querySelector('.celled');
+    if (ce && firstChar!=null && ce.tagName==='INPUT' && (ce.type==='text' || ce.type==='number')){ ce.value = firstChar; }
+  }
+  function commitEdit(move){
+    if (!editing) return;
+    var ce = document.querySelector('.celled');
+    var id = editing.id, k = editing.k, r = rowById(id);
+    editing = null;
+    if (ce && r){
+      var raw = ce.value, v;
+      var kind = kindOf(k);
+      if (kind==='num') v = raw==='' ? null : Number(raw);
+      else if (k==='protected') v = raw==='Ask first';
+      else v = raw;
+      setPending(id, k, v);
+    }
+    if (move) moveSel(move[0], move[1], true); else render();
+  }
+  function cancelEdit(){ editing = null; render(); }
+
+  function moveSel(dr, dc, rerender){
+    if (!selected){ return; }
+    var C = colsFor(ui.tab), rows = rowsFor(ui.tab);
+    var ci = C.map(function(c){return c.k;}).indexOf(selected.k);
+    var ri = rows.map(function(r){return String(r.id);}).indexOf(String(selected.id));
+    if (ci<0 || ri<0) { if (rerender) render(); return; }
+    ci = Math.max(0, Math.min(C.length-1, ci+dc)); ri = Math.max(0, Math.min(rows.length-1, ri+dr));
+    selected = {id: rows[ri].id, k: C[ci].k};
+    if (rerender){ render(); }
+    else {
+      document.querySelectorAll('td.sel').forEach(function(x){x.classList.remove('sel');});
+      var td = document.querySelector('td[data-id="'+selected.id+'"][data-k="'+selected.k+'"]');
+      if (td){ td.classList.add('sel'); }
+      refreshFbar();
+    }
+    var td2 = document.querySelector('td[data-id="'+selected.id+'"][data-k="'+selected.k+'"]');
+    if (td2 && td2.scrollIntoView) td2.scrollIntoView({block:'nearest', inline:'nearest'});
+  }
+
+  function setColWidth(k, w){
+    var table = document.querySelector('table.g'); if (!table) return;
+    var col = table.querySelector('col[data-k="'+k+'"]'); if (!col) return;
+    var old = parseFloat(col.style.width) || widthOf(k);
+    col.style.width = w+'px';
+    table.style.width = (parseFloat(table.style.width) - old + w)+'px';
+  }
+  var drag = null;
+  document.addEventListener('pointerdown', function(e){
+    var h = e.target.closest && e.target.closest('.rs'); if (!h) return;
+    e.preventDefault(); e.stopPropagation();
+    drag = {k:h.dataset.rs, x:e.clientX, w:widthOf(h.dataset.rs), el:h};
+    h.classList.add('active'); document.body.classList.add('resizing');
+    try { h.setPointerCapture(e.pointerId); } catch(err){}
+  });
+  document.addEventListener('pointermove', function(e){
+    if (!drag) return;
+    var w = Math.max(50, Math.round(drag.w + e.clientX - drag.x));
+    colW[drag.k] = w; setColWidth(drag.k, w);
+  });
+  function endDrag(){
+    if (!drag) return;
+    drag.el.classList.remove('active'); document.body.classList.remove('resizing');
+    drag = null; suppressClick = Date.now() + 250; saveColW();
+  }
+  document.addEventListener('pointerup', endDrag);
+  document.addEventListener('pointercancel', endDrag);
+  document.addEventListener('dblclick', function(e){
+    var h = e.target.closest && e.target.closest('.rs'); if (!h) return;
+    var k = h.dataset.rs; delete colW[k]; saveColW(); setColWidth(k, widthOf(k));
+  });
+
+  var mv = null;
+  document.addEventListener('pointerdown', function(e){
+    if (e.button !== 0 || (e.target.closest && e.target.closest('.rs'))) return;
+    var th = e.target.closest && e.target.closest('tr.labels th[data-move]'); if (!th) return;
+    mv = {k: th.dataset.move, x: e.clientX, y: e.clientY, th: th, on: false, target: null};
+  });
+  document.addEventListener('pointermove', function(e){
+    if (!mv) return;
+    if (!mv.on){
+      if (Math.abs(e.clientX-mv.x) < 6 && Math.abs(e.clientY-mv.y) < 6) return;
+      mv.on = true; document.body.classList.add('moving'); mv.th.classList.add('dragging');
+      mv.ghost = document.createElement('div'); mv.ghost.className = 'col-ghost'; mv.ghost.textContent = mv.th.querySelector('.lbl').textContent.replace(/[▲▼]/g,'');
+      mv.drop = document.createElement('div'); mv.drop.className = 'col-drop';
+      document.body.appendChild(mv.ghost); document.body.appendChild(mv.drop);
+    }
+    mv.ghost.style.left = (e.clientX+12)+'px'; mv.ghost.style.top = (e.clientY+10)+'px';
+    var heads = [].slice.call(document.querySelectorAll('tr.labels th[data-move]'));
+    var gw = document.querySelector('.gridwrap').getBoundingClientRect();
+    var best = null;
+    heads.forEach(function(h, i){
+      var r = h.getBoundingClientRect();
+      if (e.clientX < r.left + r.width/2 && best===null) best = {i:i, x:r.left};
+    });
+    if (best===null){ var last = heads[heads.length-1].getBoundingClientRect(); best = {i:heads.length, x:last.right}; }
+    mv.target = best.i;
+    var hr = mv.th.getBoundingClientRect();
+    mv.drop.style.left = Math.max(gw.left, Math.min(gw.right, best.x))+'px'; mv.drop.style.top = hr.top+'px'; mv.drop.style.height = Math.max(40, gw.bottom-hr.top)+'px';
+  });
+  function endMove(){
+    if (!mv) return;
+    var m = mv; mv = null;
+    if (!m.on) return;
+    document.body.classList.remove('moving'); m.th.classList.remove('dragging');
+    if (m.ghost) m.ghost.remove(); if (m.drop) m.drop.remove();
+    suppressClick = Date.now() + 250;
+    var keys = colsFor(ui.tab).slice(1).map(function(c){ return c.k; });
+    var from = keys.indexOf(m.k); if (from<0 || m.target==null) return;
+    var to = m.target; keys.splice(from,1); if (to > from) to--; keys.splice(to,0,m.k);
+    colOrder[ui.tab] = keys; saveColOrder(); render();
+  }
+  document.addEventListener('pointerup', endMove);
+  document.addEventListener('pointercancel', endMove);
+
+  function persistUi(){ try{ localStorage.setItem('pl-sheet-ui', JSON.stringify({tab:ui.tab,g:ui.g})); }catch(e){} }
+
+  function setPending(id,k,v){
+    var r = rowById(id); if (!r) return;
+    k = fk(k);
+    pending[r.id] = pending[r.id] || {};
+    if (same(v, saved(r,k))) { delete pending[r.id][k]; if (!Object.keys(pending[r.id]).length) delete pending[r.id]; }
+    else pending[r.id][k] = v;
+    scheduleSave();
+  }
+
+  document.addEventListener('click', function(e){
+    var t = e.target;
+    var tab = t.closest('[data-tab]'); if (tab){ if (editing) commitEdit(); ui.tab = tab.dataset.tab; selected=null; persistUi(); render(); return; }
+    if (t.id==='resetcols'){ delete colOrder[ui.tab]; saveColOrder(); colW = {}; saveColW(); render(); return; }
+    if (t.id==='undoedit' && selected){
+      var r0 = rowById(selected.id); if (r0){ setPending(r0.id, selected.k, orig(r0, selected.k)); render(); }
+      return;
+    }
+    if (t.closest('.rs') || Date.now() < suppressClick) return;
+    var sh = t.closest('th[data-sort]'); if (sh){ if (editing) commitEdit(); var k=sh.dataset.sort; if (ui.sort===k) ui.dir=-ui.dir; else { ui.sort=k; ui.dir=1; } render(); return; }
+    var tb = t.closest('#themebtn');
+    if (tb){
+      var next = currentTheme()==='dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('pl-sheet-theme', next); } catch(err){}
+      tb.outerHTML = themeButton();
+      return;
+    }
+    if (t.closest('.celled')) return;
+    var td = t.closest('td[data-ref]');
+    if (td){
+      if (editing && !(String(editing.id)===td.dataset.id && editing.k===td.dataset.k)) { commitEdit(); }
+      if (t.closest('a')) return;
+      selected = {id: td.dataset.id, k: td.dataset.k};
+      document.querySelectorAll('td.sel').forEach(function(x){x.classList.remove('sel');});
+      var fresh = document.querySelector('td[data-id="'+selected.id+'"][data-k="'+selected.k+'"]'); if (fresh) fresh.classList.add('sel');
+      refreshFbar();
+    } else if (editing && !t.closest('.fbar')) { commitEdit(); }
+  });
+  document.addEventListener('dblclick', function(e){
+    if (e.target.closest && e.target.closest('.rs')) return;
+    if (e.target.closest && e.target.closest('.celled')) return;
+    var td = e.target.closest && e.target.closest('td[data-ref]'); if (!td) return;
+    if (e.target.closest('a')) e.preventDefault();
+    startEdit(td.dataset.id, td.dataset.k);
+  });
+  document.addEventListener('change', function(e){
+    var t = e.target;
+    if (t.id==='gf'){ ui.g=t.value; persistUi(); render(); return; }
+    if (t.classList.contains('stsel')){ selected = {id:t.dataset.id, k:'status'}; setPending(t.dataset.id,'status',t.value); render(); return; }
+    if (t.classList.contains('celled') && t.tagName==='SELECT'){ commitEdit(); return; }
+  });
+  document.addEventListener('input', function(e){
+    var t = e.target;
+    if (t.id==='q'){ ui.q=t.value; render('q'); return; }
+  });
+  document.addEventListener('keydown', function(e){
+    var t = e.target;
+    if (t.classList && t.classList.contains('celled')){
+      if (e.key==='Enter'){ e.preventDefault(); commitEdit([1,0]); }
+      else if (e.key==='Tab'){ e.preventDefault(); commitEdit([0, e.shiftKey?-1:1]); }
+      else if (e.key==='Escape'){ e.preventDefault(); cancelEdit(); }
+      return;
+    }
+    if (t.tagName==='INPUT' || t.tagName==='SELECT' || t.tagName==='TEXTAREA') return;
+    if (!selected) return;
+    var map = {ArrowUp:[-1,0], ArrowDown:[1,0], ArrowLeft:[0,-1], ArrowRight:[0,1]};
+    if (map[e.key]){ e.preventDefault(); moveSel(map[e.key][0], map[e.key][1], false); return; }
+    if (e.key==='Tab'){ e.preventDefault(); moveSel(0, e.shiftKey?-1:1, false); return; }
+    if (readOnly) return;
+    if (e.key==='Enter' || e.key==='F2'){ e.preventDefault(); startEdit(selected.id, selected.k); return; }
+    if ((e.key==='Delete' || e.key==='Backspace') && kindOf(selected.k)==='text'){ e.preventDefault(); setPending(selected.id, selected.k, ''); render(); return; }
+    if (e.key.length===1 && !e.ctrlKey && !e.metaKey && !e.altKey && (kindOf(selected.k)==='text' || kindOf(selected.k)==='num')){ e.preventDefault(); startEdit(selected.id, selected.k, e.key); }
+  });
+  window.addEventListener('beforeunload', function(e){ if ((pendingCount() || editing) && !readOnly && canSave && saveState!=='saving'){ e.preventDefault(); e.returnValue=''; } });
+
+  // ---- autosave: publishes a new version a few seconds after the last change ----
+  function scheduleSave(){
+    clearTimeout(saveTimer);
+    if (readOnly || canSave===false) { setChip(saveState); return; }
+    if (!pendingCount()) { setChip('saved'); return; }
+    setChip('pending');
+    saveTimer = setTimeout(trySave, 3000);
+  }
+  function trySave(){
+    if (!pendingCount()) { setChip('saved'); return; }
+    if (editing || (document.activeElement && document.activeElement.classList && document.activeElement.classList.contains('celled'))){ saveTimer = setTimeout(trySave, 2000); return; }
+    if (!ns){ saveTimer = setTimeout(trySave, 2000); return; }
+    save();
+  }
+
+  function buildDoc(state){
+    var S = 'scr'+'ipt';
+    var st = JSON.stringify(state).replace(/</g,'\\u003c');
+    return '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'+
+      '<title>Pipeliners Website Pages</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'+
+      '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">'+
+      '<style id="css">'+CSS+'</style></head><body><div id="app-root"></div>'+
+      '<'+S+' type="application/json" id="sheet-data">'+DATA_TXT+'</'+S+'>'+
+      '<'+S+' type="application/json" id="sheet-state">'+st+'</'+S+'>'+
+      '<'+S+' id="app">'+APP+'</'+S+'></body></html>';
+  }
+  function today(){ var n=new Date(); return n.getFullYear()+'-'+String(n.getMonth()+1).padStart(2,'0')+'-'+String(n.getDate()).padStart(2,'0'); }
+  function msg(t){ var m=document.getElementById('savemsg'); if (m) m.textContent=t; }
+
+  function nowStamp(){ var n=new Date(); return MON[n.getMonth()]+' '+n.getDate()+', '+n.getFullYear()+' '+String(n.getHours()).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0'); }
+  function save(){
+    if (!ns || !pendingCount()) return;
+    setChip('saving');
+    var edits = JSON.parse(JSON.stringify(STATE.edits));
+    var log = STATE.log.slice(-300);
+    var when = new Date().toISOString();
+    Object.keys(pending).forEach(function(id){
+      var r = rowById(id); edits[id] = edits[id] || {};
+      Object.keys(pending[id]).forEach(function(k){
+        var from = saved(r,k), to = pending[id][k];
+        log.push({at: when, id: r.id, page: r.path, field: k, from: from==null?'':from, to: to==null?'':to});
+        if (same(to, r[k])) delete edits[id][k]; else edits[id][k] = to;
+      });
+      if (!Object.keys(edits[id]).length) delete edits[id];
+    });
+    var next = {updated: today(), savedAt: nowStamp(), edits: edits, log: log};
+    try {
+      var gw = document.querySelector('.gridwrap');
+      sessionStorage.setItem('pl-sheet-view', JSON.stringify({tab:ui.tab, sort:ui.sort, dir:ui.dir, q:ui.q, g:ui.g, sel:selected, sx: gw?gw.scrollLeft:0, sy: gw?gw.scrollTop:0}));
+    } catch(e){}
+    (function attempt(retried){
+      ns.publish(buildDoc(next)).then(function(){ pending = {}; setChip('saved'); }).catch(function(err){
+        var c = err && err.code;
+        if (c==='conflict'){ setChip('saving'); return; }   // someone else saved first; the page reloads to their version
+        if (['not_writer','not_granted','consent_required','capability_disabled','capability_removed','not_declared'].indexOf(c)>-1){ readOnly=true; pending={}; render(); return; }
+        if (!retried && (c==='upstream_error' || c==='rate_limited')){ setTimeout(function(){attempt(true);}, c==='rate_limited' ? 30000 : 1500); return; }
+        setChip('error'); saveTimer = setTimeout(trySave, 15000);
+      });
+    })(false);
+  }
+
+  render();
+  if (window.claude && typeof window.claude.use==='function'){
+    window.claude.use('artifact').then(function(x){ ns=x; canSave=!!x; setChip(saveState); }).catch(function(){ canSave=false; setChip(saveState); });
+  } else { canSave=false; }
+})();
+</script>
+
+</body></html>

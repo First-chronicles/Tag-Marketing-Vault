@@ -1,0 +1,338 @@
+<title>Pipeliners City Page Audit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column for the narrative, full-width scroll boxes for the big tables. Field-survey feel: survey tags, pipe-blue accent, copper for flags. */
+:root{
+  --bg:#f5f6f4; --panel:#ffffff; --ink:#18232e; --muted:#5b6672; --line:#d9dee2;
+  --accent:#1a446f; --accent-soft:#e3ebf3; --copper:#a4572a; --copper-soft:#f6e9e0;
+  --good:#2f6b3f; --good-soft:#e2efe5; --warn:#8a6100; --warn-soft:#f6edd2; --bad:#9b2c2c; --bad-soft:#f6e1e1;
+  --display:"Fraunces",Georgia,"Times New Roman",serif; --body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#11171d; --panel:#18212a; --ink:#e4e9ee; --muted:#9aa6b2; --line:#2c3843;
+  --accent:#8db8e3; --accent-soft:#1d2e40; --copper:#e0a079; --copper-soft:#3a2619;
+  --good:#8fd0a0; --good-soft:#1d3324; --warn:#e7c46b; --warn-soft:#3a3016; --bad:#f0a0a0; --bad-soft:#3d1f1f; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#11171d; --panel:#18212a; --ink:#e4e9ee; --muted:#9aa6b2; --line:#2c3843;
+  --accent:#8db8e3; --accent-soft:#1d2e40; --copper:#e0a079; --copper-soft:#3a2619;
+  --good:#8fd0a0; --good-soft:#1d3324; --warn:#e7c46b; --warn-soft:#3a3016; --bad:#f0a0a0; --bad-soft:#3d1f1f; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:15px/1.6 var(--body);margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:20px;padding-block:28px 80px}
+.col{max-width:820px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.2;margin:0}
+h1{font-size:clamp(28px,4vw,40px);color:var(--accent)}
+h2{font-size:24px;margin-top:48px;padding-top:18px;border-top:2px solid var(--accent)}
+h3{font-size:18px;margin-top:26px}
+p,li{max-width:72ch}
+a{color:var(--accent)}
+.eyebrow{font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--copper)}
+.lede{font-size:17px;color:var(--muted);margin-top:10px}
+.scope{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.tag{font:500 12px/1 var(--mono);padding:6px 9px;border-radius:4px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
+.tag.cu{background:var(--copper-soft);color:var(--copper)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:24px}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:14px}
+.stat b{display:block;font:600 26px/1.1 var(--display);color:var(--accent);font-variant-numeric:tabular-nums}
+.stat span{font-size:13px;color:var(--muted)}
+.box{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:16px 18px;margin-top:14px}
+.note{border-left:3px solid var(--copper);background:var(--copper-soft);padding:10px 14px;border-radius:0 6px 6px 0;margin-top:14px;font-size:14px}
+.scroll{overflow-x:auto;margin-top:14px;border:1px solid var(--line);border-radius:6px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{text-align:left;vertical-align:top;padding:9px 10px;border-bottom:1px solid var(--line)}
+th{font:600 12px/1.3 var(--body);text-transform:uppercase;letter-spacing:.04em;color:var(--muted);background:var(--bg);position:sticky;top:0}
+td.num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+td code,.mono{font-family:var(--mono);font-size:12px}
+.pill{display:inline-block;font:600 11px/1 var(--mono);padding:4px 7px;border-radius:3px;white-space:nowrap}
+.P1{background:var(--good-soft);color:var(--good)} .P2{background:var(--accent-soft);color:var(--accent)} .P3{background:var(--line);color:var(--muted)} .P4{background:var(--warn-soft);color:var(--warn)}
+.Strong{color:var(--good)} .Moderate{color:var(--warn)} .Weak,.Heavy{color:var(--bad)}
+.ads{background:var(--copper-soft);color:var(--copper)}
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:16px}
+.controls button{font:600 13px var(--body);padding:7px 12px;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:4px;cursor:pointer}
+.controls button[aria-pressed="true"]{background:var(--accent);color:var(--bg);border-color:var(--accent)}
+.controls button:focus-visible,summary:focus-visible,input:focus-visible{outline:2px solid var(--copper);outline-offset:2px}
+.controls input{font:14px var(--body);padding:7px 10px;border:1px solid var(--line);border-radius:4px;background:var(--panel);color:var(--ink);min-width:0;flex:1 1 180px;max-width:280px}
+details.row-d summary{cursor:pointer;color:var(--accent);font-size:12.5px;margin-top:6px}
+.det{font-size:12.5px;color:var(--muted);margin-top:6px;display:grid;gap:4px}
+.det b{color:var(--ink);font-weight:600}
+ul.tight{padding-left:20px;margin:8px 0} ul.tight li{margin:3px 0}
+.phase{display:grid;grid-template-columns:110px 1fr;gap:4px 16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.phase .when{font:600 13px var(--mono);color:var(--copper)}
+@media (max-width:640px){.phase{grid-template-columns:1fr}}
+.v{font:600 11px var(--mono);padding:2px 5px;border-radius:3px;background:var(--good-soft);color:var(--good)}
+.u{font:600 11px var(--mono);padding:2px 5px;border-radius:3px;background:var(--warn-soft);color:var(--warn)}
+footer{margin-top:56px;font-size:13px;color:var(--muted)}
+</style>
+
+<div class="wrap">
+<div class="col">
+<div class="eyebrow">Read-only audit &middot; 2 Oct 2026 &middot; nothing on the site was changed</div>
+<h1>Pipeliners City Page Audit</h1>
+<p class="lede">All 37 location pages on <a href="https://pipelinersusa.com/">https://pipelinersusa.com/</a>, crawled live today as a desktop browser and as Googlebot mobile, compared against each other, against Search Console demand, and against official city sources.</p>
+<div class="scope">
+<span class="tag">37 city pages</span><span class="tag">111 URLs crawled</span><span class="tag">8-word shingle comparison</span><span class="tag">24 cities researched on .gov / .edu</span><span class="tag cu">16 pages took paid ad impressions (last 30 days)</span>
+</div>
+</div>
+
+<div class="stats">
+<div class="stat"><b>0</b><span>orphan pages. Every city is in the header menu on all 109 other pages.</span></div>
+<div class="stat"><b>9</b><span>pages with zero links from inside another page's body copy</span></div>
+<div class="stat"><b>73%</b><span>median unique text per page (range 49% to 96%). No near-duplicates.</span></div>
+<div class="stat"><b>2</b><span>organic clicks across all 37 pages in 90 days (22,479 impressions)</span></div>
+<div class="stat"><b>9</b><span>pages still say "24/7" or "around the clock"; 14 say "same day"</span></div>
+<div class="stat"><b>0</b><span>pages cite a single official local source for their local claims</span></div>
+</div>
+
+<div class="col">
+<h2 id="summary">1. Executive summary</h2>
+<p><b>Overall verdict: these are not doorway pages, but they are not yet trusted local pages either.</b> The system was rebuilt in July to September and it shows. Each page has its own intro, local history, named neighborhoods and its own FAQ set. The closest pair on the site (El Mirage and Youngtown) shares only 21.5% of its text. Google can reach every page: all 37 are indexable, self-canonical, in the sitemap, linked from the header menu everywhere, and identical on desktop and Googlebot mobile (one H1, same phone links, FAQ and Service schema present).</p>
+<p><b>The main weaknesses are trust and proof, not duplication.</b></p>
+<ul class="tight">
+<li><b>Local claims are unsourced.</b> Pages state things like "Historic Downtown Glendale runs clay and cast iron laterals" or "Sun City West homes run cast iron drain lines". None of them cite a source, and two pages contradict themselves (Sun City West and Sun Lakes describe cast iron and clay on homes built in the plastic-pipe era).</li>
+<li><b>The page tells people things Scott has ruled out.</b> 24/7 or "around the clock" on 9 pages (including the Florence meta description), "same day" on 14, and a 24-hours-a-day opening schedule in the schema of all 37. Commercial work is promised on 7 pages, and repiping is in titles or H1s on 6.</li>
+<li><b>No real proof of work.</b> No local job examples, no visible reviews (only a 5-star badge image and a review link), and 4 stock images repeated on 34 to 35 pages. Each page has exactly one image of its own.</li>
+<li><b>16 pages answer "what warranty?" vaguely</b> ("strong, long-term warranties") when the verified answer (20-year drain lining, 10-year ePIPE) is already approved.</li>
+<li><b>Weak contextual linking.</b> 9 pages, including Florence, Goodyear and Maricopa (three of the best-ranked), get no links from inside other pages' body copy. They are reached only through the menu.</li>
+</ul>
+<p><b>Strengths:</b> discoverability is solved; titles and metas are unique and city-aligned on all 37; FAQ schema is on every page; and several pages already have the kind of genuinely local content Google rewards. Examples: Fort McDowell (tribal jurisdiction and septic), Carefree (Liberty Utilities, Black Mountain Sewer), San Tan Valley (land subsidence) and the correct county permitting on unincorporated areas.</p>
+<p><b>Largest opportunity:</b> about 13 pages already have searches sitting at positions 8 to 20 (Buckeye, Florence, Avondale, Goodyear, Maricopa, Fort McDowell, Sun City and others). Pages are ranking but earning nothing, so the work is precision: answer the exact query, back the local facts with an official source, and add 2 or 3 neighbor links. The most useful verified local fact we found is <b>who pays for which part of the sewer line in each city</b>. It differs city by city: in Florence the owner pays even for the part under the street, while in Glendale and Avondale the city covers street-side repairs. Every homeowner with a broken line asks that question, and no competitor page in this market answers it per city.</p>
+<div class="note"><b>Timing matters.</b> Almost every city page was edited between Sep 15 and Oct 1 and is in a measurement window (first reads Oct 9 to late October). Re-editing a page before its read would erase the test. The plan in section 8 starts with work that does not touch those pages.</div>
+</div>
+
+<h2 id="master">Master table</h2>
+<p class="col">Sorted by priority, then by how many page-2 search impressions the page already has. Click "details" for title, H1, meta, ranking queries and the links that point in. <span class="pill ads">AD</span> = took paid impressions in the last 30 days, so it needs a fresh ad check and a one-off OK before any edit.</p>
+<div class="controls" role="group" aria-label="Filter by priority">
+<button type="button" data-f="all" aria-pressed="true">All 37</button>
+<button type="button" data-f="P1" aria-pressed="false">P1 Quick wins</button>
+<button type="button" data-f="P2" aria-pressed="false">P2 Opportunity</button>
+<button type="button" data-f="P3" aria-pressed="false">P3 Low demand</button>
+<button type="button" data-f="P4" aria-pressed="false">P4 Needs business answer</button>
+<input id="q" type="search" placeholder="Find a city" aria-label="Find a city">
+</div>
+<div class="scroll" style="max-height:80vh">
+<table id="mt"><thead><tr>
+<th>Priority</th><th>City</th><th>Current SEO problem</th><th>Internal linking</th><th>Unique content</th><th>Local signals</th><th>Ranking opportunity</th><th>Recommended action</th>
+</tr></thead><tbody></tbody></table>
+</div>
+
+<div class="col">
+<h2 id="discovery">Part 1-2. Discovery and internal linking</h2>
+<p>All 37 pages: HTTP 200, indexable (robots <code>max-image-preview:large</code>, no noindex), self-canonical, listed in <code>/sitemap.xml</code>, and linked from the header menu on every other page. Desktop and Googlebot-mobile HTML match on H1, phone links, title and schema. There are no other location pages (WordPress has 37 city pages, all published).</p>
+<p>Where the body-copy links come from:</p>
+<ul class="tight">
+<li><b>/services/</b> lists 22 cities. Missing: Anthem, Apache Junction, Carefree, El Mirage, Fort McDowell, Gold Canyon, Litchfield Park, Maricopa, Queen Creek, Rio Verde, Sacaton, Sun City West, Sun Lakes, Superior, Youngtown. (Ad-touched page, so flag only.)</li>
+<li><b>/services-areas/</b> builds its city list with a script, so it passes no crawlable links. It is a do-not-edit ad page, so this is a flag only.</li>
+<li><b>Service pages</b> (/trenchless-sewer-repair/, /hydro-jetting/, /epipe-restoration/) link to no city at all.</li>
+<li><b>Blog posts</b> carry most contextual links, but they concentrate on Phoenix (12 sources) and Mesa (10). The leak detection page links 8 cities.</li>
+<li><b>City to city:</b> 18 pages link out to 1 to 3 neighbors. 19 link to no other city, including Phoenix, Mesa, Gilbert, Buckeye and Tempe. There is no mass reciprocal network, which is good.</li>
+</ul>
+<p>Labels used: <b class="Strong">Strong</b> = contextual links from 3+ different pages; <b class="Moderate">Moderate</b> = 1 to 2; <b class="Weak">Weak</b> = menu, footer or list links only. The result is 8 Strong, 20 Moderate, 9 Weak, 0 orphans.</p>
+
+<h2 id="orphans">2. Potential orphan pages</h2>
+<p><b>None.</b> No page relies on the sitemap alone. These 9 pages are reached only through the menu or a plain list (no link inside a sentence anywhere on the site):</p>
+<div class="scroll"><table><thead><tr><th>Page</th><th>What links to it today</th><th>90-day impressions</th></tr></thead><tbody id="weaktb"></tbody></table></div>
+
+<h2 id="templated">3. Templated and duplicate content</h2>
+<p>Method: every page's visible body text was cut into 8-word strings, with all city names and ZIP codes replaced by a placeholder so that "name swapped" text still counts as shared. Unique % = share of a page's strings that appear on no other city page.</p>
+<ul class="tight">
+<li><b class="Strong">Strong local differentiation (80%+):</b> 11 pages, led by Buckeye 96%, Phoenix 91%, Carefree 91%, Sun City 89%, Mesa 88%.</li>
+<li><b class="Moderate">Moderate template use (65 to 80%):</b> 17 pages.</li>
+<li><b class="Heavy">Heavy template use (49 to 65%):</b> 9 pages: El Mirage 49%, Youngtown 55%, Goodyear 55%, Peoria 59%, Glendale 59%, Gilbert 62%, Anthem 62%, Sun Lakes 62%, Apache Junction 64%.</li>
+<li><b>Near-duplicate / doorway risk:</b> none. The highest pair overlap on the site is El Mirage and Youngtown at 21.5%, then Glendale and Peoria at 19.0%, Goodyear and Gilbert at 16.5%. Real duplicate trouble starts far higher.</li>
+</ul>
+<p><b>What actually repeats</b> (counted across the 37 pages):</p>
+<ul class="tight">
+<li>The four benefit boxes, "No Demolition Solution / Up To 30% Cost Savings / Eco-friendly Repairs / Minimal Interruption": 36 to 37 pages. The Eco-friendly box says "your existing clay, cast iron, or copper lines" even on pages for cities built after 1995 (Anthem, Maricopa, San Tan Valley, Laveen, Queen Creek, Surprise).</li>
+<li>H2 "Looking for a Pipe Repair Company Serving {City} Arizona?": 24 pages. H2 "We Are {City}'s Pipelining Experts": 18. "Pipe Lining Advantages": 29.</li>
+<li>FAQ questions: "What warranties do you offer in {City}?" 22 pages; "How do you diagnose the problem before starting?" 20; "Do I need a permit for sewer or water line work in {City}?" 16; "How long does a trenchless job take?" 15. 350 FAQ questions in total; the repeated ones are the generic half.</li>
+<li>"{City} homeowners typically save up to 30% versus dig-and-replace..." on 22 pages.</li>
+<li>Images: 4 stock images on 34 to 35 pages; one image of its own per page; Mesa and Paradise Valley have none of their own.</li>
+</ul>
+<p><b>The SEO risk in plain terms:</b> not a penalty. The risk is that Google sees the shared shell as the "main content" on the shorter pages and treats them as interchangeable. That is a ranking ceiling, not a demotion. The fix is to replace the shared blocks on the 9 heavy pages with real local substance, not to paraphrase them 37 ways.</p>
+
+<h2 id="best">4. Best existing pages (leave them alone)</h2>
+<ul class="tight">
+<li><a href="https://pipelinersusa.com/fort-mcdowell/">https://pipelinersusa.com/fort-mcdowell/</a>: handles tribal jurisdiction and septic honestly ("contact the Nation before authorizing major private repairs"). Genuinely local.</li>
+<li><a href="https://pipelinersusa.com/carefree/">https://pipelinersusa.com/carefree/</a>: names the actual sewer operator (Liberty Utilities, Black Mountain Sewer) and the town's plumbing code. 91% unique. Its only problem is demand.</li>
+<li><a href="https://pipelinersusa.com/san-tan-valley/">https://pipelinersusa.com/san-tan-valley/</a>: subsidence explanation tied to the area, correct county permitting. It just needs the USGS source added.</li>
+<li><a href="https://pipelinersusa.com/sun-city/">https://pipelinersusa.com/sun-city/</a>: cites EPCOR's Sun Cities wastewater assessment (verified real) and explains county permitting. 89% unique.</li>
+<li><a href="https://pipelinersusa.com/coolidge/">https://pipelinersusa.com/coolidge/</a>: honest about Orangeburg ("once a section has collapsed, lining alone is not enough"), which is exactly the "willing to say no" voice in the brand profile.</li>
+<li><a href="https://pipelinersusa.com/buckeye/">https://pipelinersusa.com/buckeye/</a>: the best-ranked page (avg 22) and 96% unique, but read section 5: it has almost no local facts. Its uniqueness comes from service depth, not locality.</li>
+</ul>
+
+<h2 id="hyperlocal">5. Hyper-local content opportunities</h2>
+<p>Each item below passed the test "would this help a homeowner in this city?" and has an official source. <span class="v">VERIFIED</span> = the quote was loaded from the source today. <span class="u">CHECK</span> = the source blocked automated loading or came from a search index; open it in a browser before use. The <b>same block on every page</b> would be: "Who fixes which part of your sewer line in {City}", with the city's own rule quoted and linked. It is useful, different on every page, and verifiable.</p>
+<div class="scroll"><table><thead><tr><th>City</th><th>Verified fact a homeowner can use</th><th>Source</th><th>Use on the page as</th></tr></thead><tbody>
+<tr><td><b>Buckeye</b></td><td><span class="v">VERIFIED</span> The owner installs and maintains the building sewer (City Code 16-5-2). The city says homes 20+ years old "may not have a sewer cleanout", and cleanouts are private plumbing. The city cleans its mains of "grease, grit and roots".</td><td>buckeyeaz.gov wastewater services <span class="u">CHECK</span> (403 to scripts today)</td><td>"Who owns the line" box plus a short "no cleanout? here is how we get in" note. Confirm with Scott whether Pipeliners installs cleanouts before saying so.</td></tr>
+<tr><td><b>Florence</b></td><td><span class="v">VERIFIED</span> The owner is responsible from the house to the public sewer, "including that portion... extending into the town's right-of-way" (Town Code 51.005), and needs a town permit for street work. The town runs two treatment plants; EPCOR serves parts of the area.</td><td><a href="https://www.florenceaz.gov/utilities/">florenceaz.gov/utilities</a> (200)</td><td>The strongest owner rule in the Valley. A plain "in Florence you pay for the street section too, and the permit is ours to pull" paragraph.</td></tr>
+<tr><td><b>Glendale</b></td><td><span class="v">VERIFIED</span> The owner handles cleaning, repair and replacement, except when the work needs digging in a street, right-of-way or sidewalk. Then "the City shall undertake such... repair... at no cost to the property owner" (Code 33-217).</td><td>Glendale city code (municode) <span class="u">CHECK</span> glendaleaz.gov 403 to scripts. Do NOT use the "Glendale sewer lateral program"; that is Glendale, Missouri.</td><td>"Call the city first if the break is under the street." Honest advice that builds trust.</td></tr>
+<tr><td><b>Avondale</b></td><td><span class="v">VERIFIED</span> Split rule: the owner repairs the house sewer; "The city shall be responsible for necessary repairs to or replacement of the house connection", and the city video-checks where the break is (Code 24-92).</td><td>Avondale city code (municode). avondaleaz.gov blocks scripts <span class="u">CHECK</span></td><td>Same box. Replace the unverified "large-scale commercial projects" paragraph with it.</td></tr>
+<tr><td><b>Goodyear</b></td><td><span class="v">VERIFIED</span> Most of the area north of I-10 is served by Liberty Utilities, not the city. "Sewer/water piping repair" is a common residential permit that does not need plans. <span class="u">CHECK</span> Owner lateral rule (Code 12-3-2).</td><td>goodyearaz.gov FAQ <span class="u">CHECK</span> (403 to scripts)</td><td>"Which utility is yours" line; permit line. Replaces the paragraphs shared with Gilbert.</td></tr>
+<tr><td><b>Sun City</b></td><td><span class="v">VERIFIED</span> EPCOR is the sewer utility. The owner is responsible for the service lateral to the right-of-way, "including penetration of tree roots". EPCOR is rehabilitating "aging manholes and gravity mains" and inspects mains with robotic cameras.</td><td><a href="https://www.epcor.com/us/en/az/operations/construction/sun-cities-wastewater-assessment.html">EPCOR Sun Cities assessment</a> (200, but .com: cite in text, do not link, per the external-link rule)</td><td>Already partly on the page. Add the owner-responsibility line. Same treatment for Sun City West.</td></tr>
+<tr><td><b>Fountain Hills</b></td><td><span class="v">VERIFIED</span> Sewer is run by the Fountain Hills Sanitary District, not the town. "Laterals on private property are the responsibility of the property owner"; once the lateral crosses into a street or easement it is the district's.</td><td><a href="https://az-fhsd.gov/departments/collection-system-operations/laterals">az-fhsd.gov laterals</a> (200)</td><td>One sentence plus link. Cleanest source in the set.</td></tr>
+<tr><td><b>Paradise Valley</b></td><td><span class="v">VERIFIED</span> Two sewer providers (City of Phoenix, and the Town system run by Scottsdale), and "many properties within the Town are connected to a septic system".</td><td><a href="https://www.paradisevalleyaz.gov/115/Sewer">paradisevalleyaz.gov/115/Sewer</a> (200)</td><td>Fixes an accuracy gap: the page assumes sewer. Add a septic line.</td></tr>
+<tr><td><b>Apache Junction</b></td><td><span class="v">VERIFIED</span> Sewer comes from the Apache Junction Sewer District, not the city. AZGS published detailed earth-fissure maps for the Apache Junction area. USGS says fissures "have damaged... sewer lines" near Apache Junction.</td><td><a href="https://www.apachejunctionaz.gov/FAQ.aspx?QID=119">apachejunctionaz.gov FAQ</a> (200); <a href="https://pubs.usgs.gov/circ/circ1182/pdf/09Arizona.pdf">USGS Circular 1182</a> (200)</td><td>"Ground movement here is documented" section. Strong and unique.</td></tr>
+<tr><td><b>San Tan Valley</b></td><td><span class="v">VERIFIED</span> EPCOR (formerly Johnson Utilities) is the sewer utility; the owner is responsible for the lateral. A 1.5-mile fissure near Queen Creek reactivated in 2005; AZGS maps the Chandler Heights area. <span class="u">CHECK</span> Whether that map boundary reaches San Tan Valley.</td><td><a href="https://pubs.usgs.gov/circ/circ1182/pdf/09Arizona.pdf">USGS Circular 1182</a> (200)</td><td>Source the subsidence paragraph the page already has.</td></tr>
+<tr><td><b>Maricopa</b></td><td><span class="u">CHECK</span> Global Water serves the city; sewer through its Palo Verde utility (not confirmed). State rule R14-2-605: the customer maintains everything on their side of the connection.</td><td>maricopa-az.gov utilities <span class="u">CHECK</span> (403)</td><td>Use only after the sewer provider is confirmed.</td></tr>
+<tr><td><b>Fort McDowell</b></td><td><span class="v">VERIFIED</span> The Nation runs its own wastewater treatment plant and public works.</td><td><a href="https://fmyn.org/departments/">fmyn.org/departments</a> (200, .org, so not linkable under the rule)</td><td>Page already handles this well. Do not cite city rules here.</td></tr>
+<tr><td><b>Casa Grande</b></td><td><span class="v">VERIFIED</span> "The City will check the main sewer line before you call a plumber... The property owner is responsible from the tap in of the main sewer line to the home."</td><td><a href="https://casagrandeaz.gov/FAQ.aspx?QID=282">casagrandeaz.gov FAQ</a> (200)</td><td>"Call the city first, it is free" tip. Trust-building.</td></tr>
+<tr><td><b>Coolidge</b></td><td><span class="v">VERIFIED</span> Homeowners own the line from the house to the tap at the city main; the city checks its own lines for free.</td><td><a href="https://www.coolidgeaz.com/index.asp?SEC=A5FE4A1C-111C-43CA-B48F-0CE1A6899E99">coolidgeaz.com FAQ</a> (200)</td><td>Same tip.</td></tr>
+<tr><td><b>Cave Creek</b></td><td><span class="v">VERIFIED</span> Town sewer serves only "the core portion of the Town".</td><td><a href="https://www.cavecreekaz.gov/237/Residential-Services">cavecreekaz.gov</a> (200)</td><td>Supports the page's septic angle with a source.</td></tr>
+<tr><td><b>Phoenix / Laveen</b></td><td><span class="v">VERIFIED</span> Owners maintain the line to the city main; the city repairs only in the right-of-way (Code 28-5). The city's own Q&A names grease as the biggest problem and roots (oleanders named) as the second.</td><td><a href="https://www.phoenix.gov/administration/departments/waterservices/city-services-bill/general-service-issues.html">phoenix.gov</a> (200)</td><td>"Oleander roots" is a uniquely Phoenix detail with an official source.</td></tr>
+<tr><td><b>Mesa</b></td><td><span class="v">VERIFIED</span> Owner maintains the line; the city fixes breaks off-property in a street or alley (Code 8-4-8). The city advises planting trees at least 10 feet from sewer lines.</td><td>mesaaz.gov <span class="u">CHECK</span> (403)</td><td>Pairs with a real Mesa job example from the W 2nd Ave crew (needs Scott).</td></tr>
+<tr><td><b>Chandler, Gilbert, Peoria, Scottsdale, Tempe</b></td><td><span class="v">VERIFIED</span> Chandler: owner down to the tap, city fixes street breaks for single-family homes. Gilbert: 912 miles of sewer; a full camera pass takes about 6.5 years. Peoria: owner pays even for breaks in the street (licensed contractor and permit). Scottsdale: owner responsible "including the tap". Tempe: its old service-line program completed 1,940 repairs worth $5.3M.</td><td>City codes and pages; <a href="https://www.scottsdaleaz.gov/water/water-service/maintenance-prevention-troubleshooting">scottsdaleaz.gov</a> (200). Others <span class="u">CHECK</span></td><td>Same box, later phases. Tempe's Orangeburg page is now dead; do not cite it.</td></tr>
+<tr><td><b>Region-wide</b></td><td><span class="v">VERIFIED</span> AZGS: expansive soils damage "pipelines"; caliche is cemented soil, "a common problem in southern Arizona soils" (U of A Extension). No source ties caliche to pipe failure: use it only for "digging here is slow and costly".</td><td><a href="https://azgs.arizona.edu/geohazards/problem-soils">azgs.arizona.edu</a>, <a href="https://extension.arizona.edu/publication/managing-caliche-home-yard">extension.arizona.edu</a> (200)</td><td>Correct the many "caliche-hardened soil" lines so they make only the claim the source supports.</td></tr>
+</tbody></table></div>
+<p><b>Not found / do not write:</b> no official source for Tolleson (site blocks scripts), Litchfield Park (not researched yet), or for any city's pipe <i>materials</i> by neighborhood. Statements like "Historic Downtown Chandler runs 1950s-70s clay and cast iron laterals" are reasonable inference from housing age, but they are not verified local facts. Keep them hedged ("homes of that age were commonly built with...") or source them.</p>
+
+<h3>Existing local claims that need a source or a fix</h3>
+<ul class="tight">
+<li><b>Contradictions:</b> <a href="https://pipelinersusa.com/sun-city-west/">https://pipelinersusa.com/sun-city-west/</a> says homes "run on aging cast iron drain lines and clay sewer laterals", and also that drain pipe laid 1978 to 1997 is plastic. <a href="https://pipelinersusa.com/sun-lakes/">https://pipelinersusa.com/sun-lakes/</a> says 1970s to 2000s homes run "cast iron drain lines and clay sewer laterals".</li>
+<li><b>Template sentence on newer cities:</b> "We rehabilitate your existing clay, cast iron, or copper lines" on Anthem (built from 1999), Maricopa, San Tan Valley, Laveen, Queen Creek and Surprise.</li>
+<li><b>Specific history to verify once:</b> Tolleson "sewage treatment plant during the 1970s expansion"; Glendale "Historic Downtown and Catlin Court date to the 1910s-1940s"; Superior "townsite laid out in 1902"; Florence "sixth-oldest non-Native settlement"; Youngtown "first age-restricted retirement community in the country". Most are well-known history, but none is sourced on the page.</li>
+<li><b>"Expansive clay soil" stated as fact</b> on Queen Creek, Gilbert, Goodyear, Mesa, Chandler, Avondale. AZGS supports expansive soils as a Valley-wide hazard, not per city.</li>
+</ul>
+
+<h2 id="links">6. Internal linking opportunities</h2>
+<p>Geographic neighbors only, at most 3 to 4 new city links per page, written into a real sentence. No city-to-everything grids. Sources marked <span class="pill ads">AD</span> need an ad check first.</p>
+<div class="scroll"><table><thead><tr><th>Source page</th><th>Suggested anchor</th><th>Target</th><th>Reason</th></tr></thead><tbody>
+<tr><td>/leak-detection-services-in-phoenix-arizona/</td><td>water line and pipe break repair in Buckeye</td><td>/buckeye/</td><td>Buckeye's demand is pipe break and water line (pos 8 to 16). The leak page already links 8 cities and fits the intent.</td></tr>
+<tr><td>/goodyear/</td><td>homes next door in Buckeye</td><td>/buckeye/</td><td>Adjacent West Valley cities. Goodyear links only to Litchfield Park today.</td></tr>
+<tr><td>/buckeye/ <span class="pill ads">AD</span></td><td>trenchless sewer repair in Goodyear</td><td>/goodyear/</td><td>Buckeye links to no city. Goodyear's top query is "goodyear trenchless sewer repair" at pos 8.</td></tr>
+<tr><td>/avondale/</td><td>Goodyear / Tolleson (in a sentence about West Valley housing)</td><td>/goodyear/, /tolleson/</td><td>Avondale borders both and links to no city today.</td></tr>
+<tr><td>/casa-grande/</td><td>older homes in Florence's historic district</td><td>/florence/</td><td>Turn the existing list link into a sentence. Florence has 0 contextual inbound links and the most page-2 demand in Pinal County.</td></tr>
+<tr><td>/coolidge/ <span class="pill ads">AD</span></td><td>Florence</td><td>/florence/</td><td>Neighbor; same Orangeburg-era housing theme.</td></tr>
+<tr><td>Orangeburg guide (content plan, not yet written)</td><td>Orangeburg laterals in Florence / Tempe / Coolidge</td><td>/florence/, /tempe/, /coolidge/</td><td>Natural topical link once the post exists. Better than adding more city links to /clay-sewer-pipe/, which already has 4.</td></tr>
+<tr><td>/casa-grande/</td><td>sewer lining in Maricopa</td><td>/maricopa/</td><td>Maricopa (avg pos 17, best of all) has 0 contextual inbound links.</td></tr>
+<tr><td>/carefree/</td><td>long septic runs in Cave Creek</td><td>/cave-creek/</td><td>Carefree links to no city; Cave Creek has 0 contextual inbound links. Same septic topic.</td></tr>
+<tr><td>/cave-creek/ <span class="pill ads">AD</span></td><td>Anthem / Carefree (make the existing list links into sentences)</td><td>/anthem/, /carefree/</td><td>Both have 0 contextual inbound links.</td></tr>
+<tr><td>/sun-city-west/, /el-mirage/</td><td>Surprise</td><td>/surprise/</td><td>Surprise has 0 contextual inbound links and borders both.</td></tr>
+<tr><td>/fountain-hills/</td><td>properties on the Fort McDowell Yavapai Nation</td><td>/fort-mcdowell/</td><td>Next door; Fort McDowell ranks pos 9 to 12 for drain cleaning.</td></tr>
+<tr><td>/phoenix/ <span class="pill ads">AD</span></td><td>Laveen, Paradise Valley, Glendale, Tempe (max 4)</td><td>those pages</td><td>Phoenix is the strongest city page (12 contextual sources) and links to no city.</td></tr>
+<tr><td>/queen-creek/ <span class="pill ads">AD</span></td><td>San Tan Valley</td><td>/san-tan-valley/</td><td>Already planned for after Oct 9.</td></tr>
+<tr><td>/sun-city/ and /sun-city-west/</td><td>exact community name only</td><td>each other</td><td>Already linked. Keep it to one link each way. The fix for the swapped rankings is clearer page scope, not more links.</td></tr>
+</tbody></table></div>
+
+<h2 id="verify">7. Pages requiring business verification</h2>
+<div class="scroll"><table><thead><tr><th>Topic</th><th>Where it appears now</th><th>Status</th></tr></thead><tbody>
+<tr><td><b>24/7 / around the clock</b></td><td>Anthem, Apache Junction, Buckeye ("takes pipe break calls 24/7"), Casa Grande, Florence (4 times plus the meta description), Phoenix, Queen Creek, Sun Lakes, Tempe. Schema on all 37 pages says open 00:00 to 23:59 every day.</td><td>Scott: do not claim. A reword draft for ad-free pages already waits for approval. The schema hours are OTTO-owned and need a separate decision.</td></tr>
+<tr><td><b>Same day</b></td><td>Apache Junction, Avondale, Casa Grande, El Mirage, Fort McDowell, Gold Canyon, Laveen, Maricopa, Rio Verde, Sacaton, San Tan Valley, Sun City West, Surprise, Tolleson</td><td>Scott: no ("most jobs take a couple of days"). Covered by the same draft.</td></tr>
+<tr><td><b>"Fast emergency repairs"</b></td><td>Template line on Anthem, Carefree, El Mirage, Fountain Hills, Laveen, Maricopa, Surprise, Tolleson, Youngtown. Anthem's meta opens "Sewer or water line emergency?"</td><td>Conflicts with "booked out a couple of months". Needs Scott.</td></tr>
+<tr><td><b>Commercial work</b></td><td>Avondale ("large-scale commercial projects... retail and office"), Chandler (commercial and multi-tenant repiping), Phoenix ("specifically serves both residential and commercial"), Buckeye, Cave Creek (restaurants), Tempe (H2 "Residents and Businesses"), Tolleson ("commercial and industrial property")</td><td>Unconfirmed. Master profile: do not promise commercial scope.</td></tr>
+<tr><td><b>Repiping</b></td><td>In titles or H1s: Chandler, Sun City, Tolleson, Litchfield Park. In H2s: Glendale, Peoria, Paradise Valley, Anthem, Cave Creek ("whole-house repipe"), Coolidge. Demand: Surprise, Tolleson, Litchfield Park, Peoria.</td><td>Standing rule: leave existing wording as is and add none. Listed so Scott can decide; no action proposed.</td></tr>
+<tr><td><b>Pipe break / water line repair</b></td><td>Florence and Buckeye target "pipe break repair" (their best queries)</td><td>ePIPE restoration is verified. Whether Pipeliners fixes a sudden break (an excavated spot repair) needs Scott before the pages lean on it further.</td></tr>
+<tr><td><b>Warranties</b></td><td>16 pages say "strong, long-term warranties" without terms; the rest correctly say 20-year / 10-year</td><td>Verified. Safe to standardize to the 20/10-year wording.</td></tr>
+<tr><td><b>License</b></td><td>"Licensed in Arizona under ROC #362960" on Maricopa and San Tan Valley</td><td>Scott to confirm it is current.</td></tr>
+<tr><td><b>Certification</b></td><td>"NSF/ANSI 61 certified" ePIPE coating on about 6 city pages (41 site pages in total)</td><td>Product claim; confirm with Scott or the ePIPE documentation.</td></tr>
+<tr><td><b>Reviews</b></td><td>aggregateRating 4.9 / 122 in schema on all 37, not visible on any page (GBP shows about 5.0 / 127)</td><td>Kim chose to keep it; options still open.</td></tr>
+<tr><td><b>Property types</b></td><td>Residential: clearly supported everywhere. HOA areas (Queen Creek, Sun Lakes "HOA approval") are used as homeowner context, which is fine. Multifamily, restaurants and industrial: unsupported.</td><td>Residential ✅ / HOA context ✅ / commercial, multifamily, restaurants ⚠ / industrial, hotels ❌</td></tr>
+<tr><td><b>Services not offered</b></td><td>Mesa and Phoenix explain pipe bursting as an alternative (educational, not offered). Maricopa ranks for "manhole lining" and "underground pipe lifting".</td><td>Fine as education. Do not target the Maricopa queries.</td></tr>
+</tbody></table></div>
+
+<h2 id="onpage">Parts 7-10. Headings, titles, FAQs and trust</h2>
+<h3>Headings</h3>
+<ul class="tight">
+<li>Every page has exactly 1 H1 on desktop and Googlebot mobile. No hidden, empty or OTTO-injected headings on city pages.</li>
+<li><b>Brand-led H1s still live</b> (drafts held for ad-protected pages): Anthem "Trenchless Pipe Repair in Anthem, AZ | Pipeliners USA", Cave Creek "Trenchless Pipe Repair in Cave Creek &ndash; Pipeliners USA Experts", Litchfield Park "Pipeliners USA: Trenchless Pipe Repair...", Maricopa "Pipeliners USA: Trenchless Pipe Repair Experts...", Peoria "...Replacement &ndash; Pipeliners USA". Note: Anthem and Maricopa took no paid impressions in the last 30 days, so they may now be editable after a fresh check.</li>
+<li><b>Off-topic H2:</b> Tempe "Expert Plumbing Services Serving Tempe, AZ Residents and Businesses"; Phoenix and Queen Creek FAQ headings say "Pipeliners' Plumbing Services".</li>
+<li><b>Naming rule:</b> "Pipe Lining" (20 pages) and "Pipe Lining Advantages" (29) H2s, "We Are {City}'s Pipelining Experts" (18), "FAQs About Pipelining in Scottsdale". Whether the rule applies to existing copy is still Kim's open question.</li>
+<li>Bottom of every page skips from H2 to H5 ("Read our Google reviews"), and the footer prints "Got it, there !" as an H3 (known, harmless).</li>
+</ul>
+<h3>Titles and meta descriptions</h3>
+<p>0 duplicate titles, 0 duplicate descriptions, 37 of 37 name the city and AZ, all 44 to 59 characters. Recommend changes only where justified:</p>
+<ul class="tight">
+<li>Florence meta: remove "with 24/7 crews".</li>
+<li>Anthem: title starts with "Pipeliners USA:" and the meta sells emergencies.</li>
+<li>Surprise meta pitches copper repipe while the title says sewer and pipe repair (held behind the repipe question).</li>
+<li>Superior title has no brand at all (harmless).</li>
+</ul>
+<h3>FAQs</h3>
+<p>Every page has an Elementor FAQ plus matching FAQPage schema (350 questions). About half the questions name the city but are generic underneath (warranty, diagnosis, timeline, permit). The genuinely local ones are good: "What if my Fort McDowell property uses a septic system?", "Does trenchless pipe repair in Sun City require a Maricopa County permit?", "Do I need HOA approval first?" (Sun Lakes). Permit answers are correct for all unincorporated areas (Sun City, Sun City West, Sun Lakes, San Tan Valley, Gold Canyon, Rio Verde, Anthem) and for Laveen (City of Phoenix). Best local FAQ to add, sourced from section 5: <b>"Who pays to fix the sewer line between my house and the street in {City}?"</b></p>
+<h3>Trust (E-E-A-T)</h3>
+<ul class="tight">
+<li>No fake testimonials or placeholder reviews found. No reviews at all are shown on city pages.</li>
+<li>No real project photos identified; each page's one unique image is a hero or aerial.</li>
+<li>No local job examples on any page (Scott was asked for real job photos and summaries; still pending).</li>
+<li>Process and inspection are explained well everywhere (camera first, show the footage).</li>
+<li>Contact: the same tracked number on every page, with tel links intact.</li>
+</ul>
+
+<h2 id="external">Part 11. External local sources</h2>
+<p>Recommend at most one official link per page, where it answers the "who pays" question. Under the house rule only .gov, .edu or standards bodies can be linked, and each must return 200 twice. Today's first check: 200 for Florence, Fountain Hills Sanitary District, Casa Grande, Apache Junction, Cave Creek, Paradise Valley, Coolidge, Phoenix, Scottsdale, AZGS, U of A Extension and USGS. 403 (bot block, needs a browser check) for Buckeye, Goodyear, Queen Creek, Tempe, Mesa, Gilbert, Glendale and Maricopa. EPCOR (.com), the Fort McDowell Nation (.org) and the municode/amlegal code hosts are <b>not linkable</b> under the rule. Cite them in text only, or link the city's own .gov page instead.</p>
+
+<h2 id="perf">Part 13. Search performance</h2>
+<p>90-day totals (Jul 2 to Sep 29) come from the Search Atlas API, which reads the URL-prefix property and drops anonymized queries, so impressions run low and a few real clicks are missing. Query rows come from the GSC Domain export of Aug 20 to Sep 16 (pairs with 3+ impressions on 2+ days at positions 8 to 30). I could not pull a fresh Domain-property read today because Claude in Chrome was not connected. Treat positions as direction, not precision.</p>
+<div class="scroll" style="max-height:70vh"><table><thead><tr><th>City</th><th>Clicks</th><th>Impr.</th><th>CTR</th><th>Avg pos</th><th>Best ranking queries (impr, pos)</th><th>Main opportunity</th></tr></thead><tbody id="perftb"></tbody></table></div>
+<h3>Cannibalization and wrong-page rankings</h3>
+<ul class="tight">
+<li><b>Sun City and Sun City West swap queries:</b> "sun city trenchless sewer repair" shows /sun-city-west/ at 30 and /sun-city/ at 13; "sun city west copper repipe" shows /sun-city/ at 12 and /sun-city-west/ at 24. Fix with clearer scope on each page (build era, community name in H1 and intro), not new links.</li>
+<li><b>Homepage outranks city pages</b> for "epoxy pipe lining phoenix az", "epoxy / cipp pipe lining mesa az" and "uv cured pipe repair phoenix az" (homepage pos 21 to 28 vs /phoenix/ pos 35 to 44). The homepage is protected; the answer is to make /phoenix/ and /mesa/ the better match over time, not to touch the homepage.</li>
+<li>/uv-cured-pipe-lining/ also competes for the Phoenix UV queries; /phoenix-sewer-line-problems/ holds "main line clog phoenix".</li>
+<li><b>Wrong-place traffic</b> still inflates some small pages: "pipelining florence or" (Oregon), Superior (Bohemia, NY), Youngtown (Hueytown, AL).</li>
+</ul>
+
+<h2 id="order">8. Recommended optimization order</h2>
+<div>
+<div class="phase"><div class="when">Phase 1<br>now</div><div><b>Fix what is wrong, everywhere, without touching test copy.</b> Approve and apply the drafted 24/7 and same-day reword (ad-free pages first). Decide on the 24-hour schema hours. Standardize the 16 vague warranty answers to the verified 20/10-year terms. Fix the two contradictions (Sun City West, Sun Lakes) once verified. Get Scott's answers on commercial scope, pipe-break repair, ROC and NSF. These are compliance fixes and do not change what a page is about.</div></div>
+<div class="phase"><div class="when">Phase 2<br>Oct 9 to 17</div><div><b>Priority 1 pages, each after its own measurement read.</b> Florence and Sun City (Oct 9), Buckeye (Oct 10), Goodyear (Oct 12), Maricopa, Glendale, Paradise Valley and Litchfield Park (Oct 13), then Avondale, Fort McDowell, Apache Junction and San Tan Valley (Oct 16). One page at a time: answer the exact page-2 query in a 40 to 60 word block, align the one focus keyword, show the alignment table, then go live after approval. Ad check before each one.</div></div>
+<div class="phase"><div class="when">Phase 3<br>alongside 2</div><div><b>Contextual internal links</b> from section 6. Start with sources that are not in a test window (leak detection page, Carefree, El Mirage, Fountain Hills). Maximum 3 to 4 neighbor links per page.</div></div>
+<div class="phase"><div class="when">Phase 4<br>late Oct</div><div><b>Verified "who fixes which part of the line" block</b> on the P1 pages, then P2: one sourced paragraph, one official .gov link (checked 200 twice), and the matching FAQ. Rewrite the shared paragraphs on the 9 heavy-template pages (start with Glendale and Peoria, then Goodyear and Gilbert, then El Mirage and Youngtown) using that local substance instead of paraphrase.</div></div>
+<div class="phase"><div class="when">Phase 5<br>Nov</div><div><b>FAQs and proof.</b> Replace the generic warranty, diagnosis and timeline FAQs with the local ones. Add real job examples and photos as Scott supplies them (Mesa first: the crew is based there). Decide on visible reviews vs the schema rating.</div></div>
+<div class="phase"><div class="when">Phase 6<br>ongoing</div><div><b>Request indexing</b> (free GSC button, 10 to 13 a day) after each live change. Start each page's test clock at its recrawl date, and add it to the Scorecard. Kim's open decision on the 7 low-demand pages (Carefree, Superior, Youngtown, Rio Verde, Laveen, El Mirage, Sacaton): this audit supports merging El Mirage and Youngtown, and Laveen into Phoenix, as 301s with the old page set to draft. Keep Carefree, Rio Verde and Sacaton as they are; they are genuinely local, just low demand.</div></div>
+</div>
+
+<footer>
+<p>Files: <span class="mono">city-page-audit-2026-10-02\</span> (crawl HTML, parsed.json, audit.json, city-page-audit-master.csv, local-facts-research.md, extlink_check_1.txt). Ad data: Google Ads landing_page_view, Sep 2 to Oct 1. Read-only throughout: no WordPress, Elementor, OTTO, schema, link or metadata change was made.</p>
+</footer>
+</div>
+
+<script id="data" type="application/json">__ROWS__</script>
+<script>
+(function(){
+  var rows = JSON.parse(document.getElementById('data').textContent);
+  var esc = function(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});};
+  var tb = document.querySelector('#mt tbody');
+  var lbl = {P1:'P1 Quick win',P2:'P2 Opportunity',P3:'P3 Low demand',P4:'P4 Business answer'};
+  rows.forEach(function(r){
+    var tr = document.createElement('tr'); tr.dataset.p = r.prio; tr.dataset.n = r.name.toLowerCase();
+    var opp = r.sq.length ? r.sq.slice(0,2).map(function(q){return esc(q[0])+' <span class="mono">('+q[1]+', pos '+q[2]+')</span>';}).join('<br>') : '<span style="color:var(--muted)">No page-2 queries. Top: '+esc((r.top[0]||['none'])[0])+'</span>';
+    var linkCls = r.link.indexOf('Weak')===0?'Weak':r.link;
+    tr.innerHTML =
+      '<td><span class="pill '+r.prio+'">'+lbl[r.prio]+'</span>'+(r.ads?'<br><span class="pill ads" style="margin-top:4px">AD '+r.ads+'</span>':'')+'<div class="mono" style="font-size:11px;color:var(--muted);margin-top:4px">edit after '+esc(r.wait)+'</div></td>'+
+      '<td><b>'+esc(r.name)+'</b><br><a class="mono" href="'+esc(r.url)+'">'+esc(r.url)+'</a></td>'+
+      '<td>'+esc(r.problem)+
+        '<details class="row-d"><summary>details</summary><div class="det">'+
+        '<div><b>Title:</b> '+esc(r.title)+'</div><div><b>H1:</b> '+esc(r.h1)+'</div><div><b>Meta:</b> '+esc(r.desc)+'</div>'+
+        '<div><b>H2s:</b> '+esc(r.h2.join(' / '))+'</div>'+
+        '<div><b>Words:</b> '+r.words+' &middot; <b>FAQs:</b> '+r.faq+' ('+r.faq_local+' name the city, '+r.faq_dupe+' repeated elsewhere) &middot; <b>ZIPs named:</b> '+(r.zips.join(', ')||'none')+'</div>'+
+        '<div><b>Contextual links in from:</b> '+(r.ctx_from.join(', ')||'none')+'</div><div><b>Links out to cities:</b> '+(r.out.join(', ')||'none')+'</div>'+
+        '<div><b>Closest sibling:</b> '+esc(r.pair[1])+' ('+r.pair[0]+'% shared)</div></div></details></td>'+
+      '<td class="'+linkCls+'"><b>'+esc(r.link)+'</b><br><span class="mono" style="color:var(--muted)">'+r.ctx+' contextual sources</span></td>'+
+      '<td class="num"><b class="'+r.ucls+'">'+r.uniq.toFixed(0)+'%</b><br><span style="font-size:12px;color:var(--muted)">'+r.ucls+'</span></td>'+
+      '<td>'+esc(r.local)+'</td>'+
+      '<td>'+opp+'<div class="mono" style="font-size:11px;color:var(--muted);margin-top:4px">90d: '+r.impr+' impr, pos '+r.pos+'</div></td>'+
+      '<td>'+esc(r.action)+'</td>';
+    tb.appendChild(tr);
+  });
+  var cur='all';
+  function apply(){var q=document.getElementById('q').value.trim().toLowerCase();
+    tb.querySelectorAll('tr').forEach(function(tr){tr.hidden=!((cur==='all'||tr.dataset.p===cur)&&(!q||tr.dataset.n.indexOf(q)>-1));});}
+  document.querySelectorAll('.controls button').forEach(function(b){b.addEventListener('click',function(){
+    cur=b.dataset.f; document.querySelectorAll('.controls button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');}); apply();});});
+  document.getElementById('q').addEventListener('input',apply);
+  // weak-link table
+  var wt=document.getElementById('weaktb');
+  rows.filter(function(r){return r.link.indexOf('Weak')===0;}).sort(function(a,b){return b.impr-a.impr;}).forEach(function(r){
+    var tr=document.createElement('tr');
+    tr.innerHTML='<td><a href="'+esc(r.url)+'">'+esc(r.url)+'</a></td><td>Header menu on every page'+(r.weakfrom?'; '+esc(r.weakfrom):'')+'</td><td class="num">'+r.impr+'</td>'; wt.appendChild(tr);});
+  // performance table
+  var pt=document.getElementById('perftb');
+  rows.slice().sort(function(a,b){return b.si-a.si||b.impr-a.impr;}).forEach(function(r){
+    var ctr=r.impr?(100*r.clicks/r.impr).toFixed(2)+'%':'0%';
+    var qs=r.sq.length?r.sq.map(function(q){return esc(q[0])+' ('+q[1]+', '+q[2]+')';}).join('<br>'):'<span style="color:var(--muted)">none at 8 to 30</span>';
+    var tr=document.createElement('tr');
+    tr.innerHTML='<td><b>'+esc(r.name)+'</b></td><td class="num">'+r.clicks+'</td><td class="num">'+r.impr+'</td><td class="num">'+ctr+'</td><td class="num">'+r.pos+'</td><td style="font-size:12.5px">'+qs+'</td><td style="font-size:12.5px">'+esc(r.opp)+'</td>'; pt.appendChild(tr);});
+})();
+</script>

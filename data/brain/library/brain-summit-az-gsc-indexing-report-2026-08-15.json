@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - GSC Indexing Report 2026-08-15",
+ "cat": "brain-summit",
+ "group": "Reports",
+ "body": "> Report · Summit Az · 2026-08-15\n\n# Summary\nGoogle Page Indexing report for summitplumbingpros.com, window Jul 18 to Aug 14, 2026 (GSC data available through Aug 7). Versions: `.md` and `.pdf`; a trend chart `Summit-GSC-Indexing-Trend-2026-08-15.png` sits alongside.\n\n# Key findings\n- Indexed pages rose from 155 (Jul 18) to 164 (Aug 7), +9; not indexed fell from 53 to 46, -7. Total known pages 208 to 210. The improvement landed around Jul 25 and held.\n- Crawled, currently not indexed: 13 URLs, including emergency plumber Apache Junction, drain cleaning Queen Creek and Scottsdale, sewer Queen Creek, garbage disposal Chandler and /expert-drain-line-services/, plus harmless feeds and system URLs.\n- Discovered, currently not indexed: 9 URLs, including drain cleaning Tempe, faucet and toilet, garbage disposal Fountain Hills and Phoenix, shower and bath, water pressure Phoenix, water softener Apache Junction.\n- Not found (404): 4 system or wildcard URLs, including the lead form API endpoint (harmless).\n- Page with redirect: 8 (expected).\n\n# Decisions and status\n- Many of the same pages stayed not indexed into September; they became the Sep 24 to Oct 9 rewrite targets once duplication was found to be the cause (see [Summit AZ - City Pages Index](lib:brain-summit-az-city-pages-index)).\n\n# Related\n- [Summit AZ - SEO Baseline and Audit 2026-07-11](lib:brain-summit-az-seo-baseline-and-audit-2026-07-11), [GSC Indexing Tracker](lib:brain-gsc-indexing-tracker), [Google Search Console](lib:brain-google-search-console), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/Summit-GSC-Indexing-Report-2026-08-15.md",
+ "date": "2026-08-15",
+ "createdAt": 1792613178241,
+ "updatedAt": 1792613178241,
+ "rev": "09dc333309b2"
+}

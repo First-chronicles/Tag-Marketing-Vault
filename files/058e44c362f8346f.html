@@ -1,0 +1,216 @@
+<title>Low-Hanging Fruit Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#F5F7FA; --panel:#FFFFFF; --line:#E1E6EE; --ink:#18212E; --ink-2:#4E5B6D; --ink-3:#7D8898;
+  --brand:#1A446F; --ok:#17774A; --ok-bg:#DDF2E6; --warn:#9A5B00; --warn-bg:#FBEBD0; --bad:#B3261E; --bad-bg:#FBE3E1; --mute-bg:#EDF0F4;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#11161D; --panel:#18202A; --line:#27313E; --ink:#E7ECF2; --ink-2:#AEB8C6; --ink-3:#7F8A9A;
+  --brand:#8DB6E3; --ok:#7BD3A2; --ok-bg:#173A29; --warn:#F2B866; --warn-bg:#3C2C12; --bad:#F2A09A; --bad-bg:#3E1F1D; --mute-bg:#232C38;
+}}
+:root[data-theme="dark"]{
+  --ground:#11161D; --panel:#18202A; --line:#27313E; --ink:#E7ECF2; --ink-2:#AEB8C6; --ink-3:#7F8A9A;
+  --brand:#8DB6E3; --ok:#7BD3A2; --ok-bg:#173A29; --warn:#F2B866; --warn-bg:#3C2C12; --bad:#F2A09A; --bad-bg:#3E1F1D; --mute-bg:#232C38;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font:15px/1.55 var(--sans);margin:0}
+.wrap{max-width:1040px;margin:0 auto;padding-inline:20px;padding-block:32px 56px;display:flex;flex-direction:column;gap:28px}
+h1{font:600 27px/1.2 var(--sans);margin:0;text-wrap:balance}
+h2{font:600 18px/1.3 var(--sans);margin:0 0 4px}
+.sub{color:var(--ink-2);margin:0 0 12px;font-size:14px}
+.lede{margin:8px 0 0;color:var(--ink-2);max-width:70ch}
+.src{font-size:13px;color:var(--ink-3);margin-top:6px}
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.tile b{display:block;font:500 30px/1.1 var(--mono)}
+.tile span{font-size:13px;color:var(--ink-2)}
+@media (max-width:760px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-weight:500;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-2);white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.pg{font-weight:600;white-space:nowrap}
+.kw{display:block}
+.kw small{color:var(--ink-3);font-family:var(--mono);font-size:12px}
+.pill{display:inline-block;border-radius:999px;padding:1px 9px;font-size:12px;font-weight:500;white-space:nowrap}
+.hi{background:var(--ok-bg);color:var(--ok)} .md{background:var(--warn-bg);color:var(--warn)} .lo{background:var(--mute-bg);color:var(--ink-2)} .no{background:var(--bad-bg);color:var(--bad)}
+ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 20px}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
+.note{font-size:13px;color:var(--ink-3)}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Low-hanging fruit: site-wide check</h1>
+    <p class="lede"><b>Updated Sep 19:</b> added the plan (ChatGPT's suggestion, checked against the live site). Steps 1, 3, 4, 6 and 8 are done and live. Every page and search on pipelinersusa.com, checked the same way as the tutorial: seen <b>3+ times</b> on <b>2+ different days</b>, at position <b>8 to 30</b>, and not a one-day burst.</p>
+    <p class="src">Source: Google Search Console (Domain property), Aug 20 to Sep 16, 2026 (28 days). Checked Sep 19, 2026.</p>
+  </header>
+
+  <div class="tiles">
+    <div class="tile"><b>173</b><span>real keywords passed the check</span></div>
+    <div class="tile"><b>8</b><span>pages ready to work on now (2 more on hold for Scott)</span></div>
+    <div class="tile"><b>15</b><span>pages to wait on (changed Sep 16–17)</span></div>
+    <div class="tile"><b>0</b><span>blog posts qualify. All real ones are city pages.</span></div>
+  </div>
+
+  <section>
+    <h2>The plan</h2>
+    <p class="sub">ChatGPT's suggested plan (Sep 19), checked against the live site and Search Console before adding it here. Main idea: <b>don't add more generic content or FAQs</b>. Fix links, titles and accuracy first, then add real job proof.</p>
+    <div class="panel">
+      <table>
+        <thead><tr><th>Step</th><th>What</th><th>Pages</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td class="n">1</td><td><b>Services page:</b> add links to the 6 cities it's missing.</td><td>/services/ → Avondale, Goodyear, San Tan Valley, Tolleson, Coolidge, Laveen</td><td><span class="pill hi">Done Sep 19</span><br><span class="note">Also removed "nofollow" from all 16 existing city links, linked Phoenix and "All Service Areas". Verified live.</span></td></tr>
+          <tr><td class="n">2</td><td><b>Service Areas page:</b> add a plain list of city links under the map, so Google can follow them.</td><td>/services-areas/</td><td><span class="pill md">Your call</span><br><span class="note">You built this page. Standing rule: I don't edit it without you.</span></td></tr>
+          <tr><td class="n">3</td><td><b>Fix wrong image descriptions</b> (alt text naming the wrong city).</td><td>San Tan Valley, Tolleson (Laveen photo); all 10 pages (Anthem pipe images, Buckeye review badge)</td><td><span class="pill hi">Done Sep 19</span><br><span class="note">Fixed 15 images in OTTO (169 wrong-city descriptions on 74 pages). Verified live on Tolleson; the other pages update within 24 hours.</span></td></tr>
+          <tr><td class="n">4</td><td><b>Wave 1: title and H1 only</b>, keep the existing content.</td><td>Avondale (title + H1 → trenchless sewer repair) · Glendale (H1) · Goodyear (links only, no copy change) · Paradise Valley (C3–C5 as drafted)</td><td><span class="pill hi">Done Sep 19</span><br><span class="note">Avondale, Glendale, Paradise Valley: keyword "Trenchless Sewer Repair in [City], AZ" in title, H1, meta and first paragraph. Verified live. Review Oct 17.</span></td></tr>
+          <tr><td class="n">5</td><td><b>Add real job proof</b> to the Wave 1 pages: a real job in or near the city, camera photos, the pipe problem and the fix.</td><td>Avondale, Glendale, Goodyear, Paradise Valley</td><td><span class="pill md">Needs Scott</span><br><span class="note">Real jobs and photos only. Warranty or license details only if Scott confirms.</span></td></tr>
+          <tr><td class="n">6</td><td><b>Wave 2</b>, after Wave 1 is done.</td><td>San Tan Valley (C1–C2) · Coolidge · Laveen · Casa Grande (sewer line repair first, leak second)</td><td><span class="pill hi">Done Sep 19</span><br><span class="note">San Tan Valley: trenchless sewer repair. Coolidge, Laveen, Casa Grande: sewer line repair. Keyword in title, H1, meta and first paragraph. Verified live. Review Oct 17.</span></td></tr>
+          <tr><td class="n">6b</td><td><b>Alignment recheck</b> of all 7 Wave pages: keyword added to one subheading (H2) where missing, Laveen's OTTO subheading fixed (it said "Pipe Lining"), and the schema service name changed to match each H1.</td><td>Avondale, Glendale, Coolidge, Casa Grande, Laveen (H2) · all 7 (schema name)</td><td><span class="pill hi">Done Sep 19</span><br><span class="note">Each page now has the keyword in title, H1, meta, first paragraph, a subheading and schema. Verified live.</span></td></tr>
+          <tr><td class="n">7</td><td><b>Hold "repiping"</b> until Scott confirms Pipeliners does conventional repiping. If not, use "alternative to repiping" or "ePIPE restoration" wording.</td><td>Tolleson, Peoria</td><td><span class="pill no">On hold</span></td></tr>
+          <tr><td class="n">8</td><td><b>Supporting blog: "clay sewer pipe"</b> (1,223 US searches a month, difficulty 21, and no page on the site covers it). It answers the problem, then links to the city pages that sell the fix. It doesn't target city searches.</td><td>Links to Wave 1–2 city pages + /repair-sewer-line-without-digging/. Links in from /phoenix-sewer-line-problems/.</td><td><span class="pill hi">Published Sep 19</span><br><span class="note"><a href="https://pipelinersusa.com/clay-sewer-pipe/">/clay-sewer-pipe/</a>: links to Glendale, Avondale, Paradise Valley, Casa Grande + 6 blog posts. Now linked from /phoenix-sewer-line-problems/ and /signs-of-outdated-sewer-drain-pipes/. Indexing requested. Verified live. Review Oct 17.</span></td></tr>
+          <tr><td class="n">9</td><td><b>After each change:</b> request indexing once, glance at it after 14 days, decide at 28 days. Track position, impressions, clicks and leads.</td><td>All changed pages</td><td><span class="pill lo">Ongoing</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Still open (Sep 19)</h2>
+    <div class="panel"><table><thead><tr><th>Item</th><th>Who</th><th>When</th></tr></thead><tbody>
+            <tr><td>Service Areas page: add a plain list of city links under the map</td><td>Kim's call</td><td>Anytime</td></tr>
+      <tr><td>Real job photos and stories for Wave 1 pages</td><td>Scott</td><td>When available</td></tr>
+      <tr><td>Does Pipeliners do repiping? (decides Tolleson, Peoria, and "Repipe" wording on Sun City, Chandler, Litchfield Park)</td><td>Scott</td><td>Before Tolleson/Peoria</td></tr>
+      <tr><td>Paradise Valley pool photo still described as "Mesa"; confirm image fix reached all pages</td><td>Me</td><td>Sep 20</td></tr>
+      <tr><td>Older wording ("Pipeliners USA", "pipe lining") and Twitter titles showing only the city name</td><td>Needs OK</td><td>Later</td></tr>
+      <tr><td>Review results: Wave 1, Wave 2 and the Services page change</td><td>Me</td><td>Oct 17</td></tr>
+    </tbody></table></div>
+  </section>
+
+  <section>
+    <h2>Supporting blog: keyword research</h2>
+    <p class="sub">One post that supports the city pages without competing with them. US monthly searches from Search Atlas; the site-wide check is from Sep 19.</p>
+    <div class="panel">
+      <table>
+        <thead><tr><th>Topic</th><th>Searches/mo</th><th>Difficulty</th><th>On the site already?</th><th>Verdict</th></tr></thead>
+        <tbody>
+          <tr><td><b>clay sewer pipe</b></td><td class="n">1,223</td><td class="n">21</td><td>No page covers it</td><td><span class="pill hi">Write first</span></td></tr>
+          <tr><td>orangeburg pipe</td><td class="n">8,550</td><td class="n">33</td><td>Partly (one section on the Phoenix sewer problems post)</td><td><span class="pill md">Second, later</span></td></tr>
+          <tr><td>sewer scope inspection</td><td class="n">3,600</td><td class="n">29</td><td>Yes, the Mesa sewer camera post covers it</td><td><span class="pill lo">Improve that post instead</span></td></tr>
+          <tr><td>sewer lateral</td><td class="n">2,241</td><td class="n">40</td><td>No</td><td><span class="pill no">Skip for now</span><br><span class="note">Hard to rank; "who owns it" needs verified city rules</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Working title: "Clay Sewer Pipe: Common Problems and How to Fix It Without Digging". Covers what it is, root and crack problems, repair options, when lining won't work, and an FAQ. No lifespan numbers, prices or build-year claims unless verified. No links to the pages waiting until Oct 9. <b>Published Sep 19.</b> Also removed unverified pipe lifespan numbers from /signs-of-outdated-sewer-drain-pipes/.</p>
+  </section>
+
+  <section>
+    <h2>ChatGPT's claims, checked</h2>
+    <p class="sub">What the live site actually shows (checked Sep 19).</p>
+    <div class="panel">
+      <table>
+        <thead><tr><th>Claim</th><th>Result</th><th>What we found</th></tr></thead>
+        <tbody>
+          <tr><td>Pages already have plenty of content</td><td><span class="pill hi">True</span></td><td>About 1,050 to 2,050 words each, with FAQs. More FAQs won't help.</td></tr>
+          <tr><td>Services page doesn't link to 6 of the cities</td><td><span class="pill hi">True</span></td><td>The page content links only Glendale, Paradise Valley, Peoria and Casa Grande. The others are only in the menu.</td></tr>
+          <tr><td>Service Areas city list may not be crawlable</td><td><span class="pill hi">True</span></td><td>The page body is an interactive map built by a script. It has no normal city links; the cities are only linked in the menu.</td></tr>
+          <tr><td>Wrong city names in image descriptions</td><td><span class="pill hi">True</span></td><td>San Tan Valley and Tolleson use a "Laveen" photo. All 10 pages use images described as Anthem and a review badge described as Buckeye.</td></tr>
+          <tr><td>Goodyear content shows up after the footer</td><td><span class="pill lo">Not confirmed</span></td><td>Every city page has the estimate pop-up form after the footer, which is normal. Nothing Goodyear-specific found.</td></tr>
+          <tr><td>Repiping needs service confirmation</td><td><span class="pill hi">Agree</span></td><td>Also affects live pages: the Sun City H1 says "Copper Repipe", and the Chandler and Litchfield Park titles say "Repiping". Include those in Scott's answer.</td></tr>
+          <tr><td>Link from "the trenchless sewer service page"</td><td><span class="pill no">Adjusted</span></td><td>The main trenchless page (/trenchless-drain-pipe-repair/) is the Google Ads page, which is off-limits. Use /services/ and the /trenchless-sewer-repair/ guide instead.</td></tr>
+          <tr><td>Titles and H1s are too generic</td><td><span class="pill hi">True</span></td><td>All 10 H1s say "Pipe Repair" and 7 still include "Pipeliners USA". None matches the search people actually use.</td></tr>
+          <tr><td>Don't write blogs for these searches</td><td><span class="pill hi">Agree</span></td><td>These are local service searches, and no blog qualified in the data.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Ready now, in order</h2>
+    <p class="sub">These pages have real keywords close to page 1 and no test running on them. One focus keyword per page, following the tutorial steps.</p>
+    <div class="panel">
+      <table>
+        <thead><tr><th>#</th><th>Page</th><th>Best keywords (impressions @ position, days seen)</th><th>What to do</th><th>Priority</th></tr></thead>
+        <tbody>
+          <tr><td class="n">1</td><td class="pg">/glendale/</td><td><span class="kw">trenchless sewer repair glendale az <small>24 @ 25, 11 days</small></span><span class="kw">glendale trenchless sewer repair <small>11 @ 14.7, 4 days</small></span><span class="kw">pull in place pipe repair glendale az <small>15 @ 18.8, 8 days</small></span><span class="note">21 real keywords in total, the most of any page.</span></td><td>Change the H1 to "Trenchless Sewer and Water Line Repair in Glendale, AZ" to match the title. Keep the existing content and FAQs.</td><td><span class="pill hi">High</span></td></tr>
+          <tr><td class="n">2</td><td class="pg">/paradise-valley/</td><td><span class="kw">trenchless sewer repair paradise valley <small>14 @ 20.4, 5 days</small></span><span class="kw">paradise valley trenchless sewer replacement <small>11 @ 13.6, 5 days</small></span><span class="note">16 real keywords.</span></td><td>Already drafted as C3 to C5 in the rank gap audit. Just needs your OK.</td><td><span class="pill hi">High</span></td></tr>
+          <tr><td class="n">3</td><td class="pg">/avondale/</td><td><span class="kw">avondale trenchless drain repair <small>10 @ 10.1, 4 days</small></span><span class="kw">avondale trenchless sewer repair <small>8 @ 10.0, 4 days</small></span><span class="kw">avondale trenchless sewer replacement <small>11 @ 12.3, 4 days</small></span></td><td>Closest to page 1. Change title and H1 from "Pipe Restoration" to "Trenchless Sewer Repair in Avondale, AZ". Keep the content.</td><td><span class="pill hi">High</span></td></tr>
+          <tr><td class="n">4</td><td class="pg">/goodyear/</td><td><span class="kw">goodyear trenchless sewer repair <small>11 @ 8.0, 4 days</small></span><span class="kw">goodyear trenchless sewer line repair <small>9 @ 10.0, 4 days</small></span></td><td>Title and H1 are already relevant. Add internal links only (Services page); no copy change.</td><td><span class="pill md">Medium</span></td></tr>
+          <tr><td class="n">5</td><td class="pg">/san-tan-valley/</td><td><span class="kw">main line backup san tan valley <small>14 @ 19.0, 12 days</small></span><span class="kw">trenchless sewer repair san tan valley <small>9 @ 13.2, 9 days</small></span></td><td>Already drafted as C1 and C2 in the rank gap audit. Just needs your OK.</td><td><span class="pill md">Medium</span></td></tr>
+          <tr><td class="n">6</td><td class="pg">/tolleson/</td><td><span class="kw">tolleson repiping <small>17 @ 21.4, 4 days</small></span><span class="kw">tolleson copper repipe <small>13 @ 22.8, 4 days</small></span><span class="kw">tolleson repipe <small>12 @ 22.3, 4 days</small></span></td><td>On hold until Scott confirms repiping. If not, use "alternative to repiping" wording. Fix the Laveen image description.</td><td><span class="pill no">Hold</span></td></tr>
+          <tr><td class="n">7</td><td class="pg">/peoria/</td><td><span class="kw">peoria repipe <small>10 @ 22.5, 4 days</small></span><span class="kw">peoria repiping <small>6 @ 21.7, 4 days</small></span></td><td>On hold for repiping (Scott). The SEO title shows "Pipeliners USA" (the "in 2025" wording seen during the Sep 17 outage is gone).</td><td><span class="pill no">Hold</span></td></tr>
+          <tr><td class="n">8</td><td class="pg">/casa-grande/</td><td><span class="kw">leak repair casa grande <small>13 @ 24.2, 13 days</small></span><span class="kw">sewer line repair casa grande <small>11 @ 16.7, 6 days</small></span></td><td>Pick one focus: "sewer line repair in Casa Grande" is closer. Leak wording needs Scott's OK.</td><td><span class="pill md">Medium</span></td></tr>
+          <tr><td class="n">9</td><td class="pg">/coolidge/</td><td><span class="kw">sewer line replacement coolidge az <small>8 @ 16.0, 4 days</small></span><span class="kw">sewer line repair coolidge az <small>8 @ 17.3, 4 days</small></span></td><td>Align on "sewer line repair in Coolidge, AZ".</td><td><span class="pill lo">Low</span></td></tr>
+          <tr><td class="n">10</td><td class="pg">/laveen/</td><td><span class="kw">sewer line repair laveen <small>12 @ 18.0, 12 days</small></span></td><td>The meta description is one weak line. Rewrite it around the keyword and add a short answer section.</td><td><span class="pill lo">Low</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Also small but real: /gold-canyon/ "sewer line replacement gold canyon" (9 @ 11.9), /anthem/ "trenchless pipe repair anthem az" (5 @ 13.2; title still starts "Pipeliners USA:"), /scottsdale/ "scottsdale copper repipe" (5 @ 22.4). Before editing any city page, check that it isn't taking paid Performance Max clicks.</p>
+  </section>
+
+  <section>
+    <h2>Wait: these pages were just changed</h2>
+    <p class="sub">They already have real keywords, but they were edited on Sep 16–17. Changing them again now would make it impossible to tell what worked. Review on the date shown.</p>
+    <div class="panel">
+      <table>
+        <thead><tr><th>Page</th><th>Best keyword</th><th>Impressions</th><th>Position</th><th>Review</th></tr></thead>
+        <tbody>
+          <tr><td class="pg">/florence/</td><td>florence pipe break repair</td><td class="n">104</td><td class="n">10.1</td><td>Oct 9</td></tr>
+          <tr><td class="pg">/tempe/</td><td>sewer line repair in tempe az</td><td class="n">93</td><td class="n">23.3</td><td>Oct 9</td></tr>
+          <tr><td class="pg">/buckeye/</td><td>buckeye az pipe break repair</td><td class="n">79</td><td class="n">12.8</td><td>Sep 30</td></tr>
+          <tr><td class="pg">/sun-city/</td><td>sewer line repair in sun city az</td><td class="n">69</td><td class="n">24.1</td><td>Oct 9</td></tr>
+          <tr><td class="pg">/apache-junction/</td><td>trenchless sewer repair apache junction</td><td class="n">29</td><td class="n">17.3</td><td>Oct 16</td></tr>
+          <tr><td class="pg">/sun-lakes/</td><td>drains sun lakes</td><td class="n">20</td><td class="n">20.8</td><td>Oct 9</td></tr>
+          <tr><td class="pg">/fountain-hills/</td><td>trenchless sewer repair fountain hills</td><td class="n">19</td><td class="n">13.3</td><td>Oct 9</td></tr>
+          <tr><td class="pg">/queen-creek/</td><td>trenchless sewer repair queen creek</td><td class="n">16</td><td class="n">18.7</td><td>Oct 9</td></tr>
+          <tr><td class="pg">/fort-mcdowell/</td><td>clogged drain fort mcdowell</td><td class="n">16</td><td class="n">12.4</td><td>Oct 16</td></tr>
+          <tr><td class="pg">/gilbert/</td><td>gilbert pipe repair</td><td class="n">16</td><td class="n">14.9</td><td>Oct 9</td></tr>
+          <tr><td class="pg">/litchfield-park/</td><td>litchfield park copper repipe</td><td class="n">14</td><td class="n">10.1</td><td>Oct 9</td></tr>
+          <tr><td class="pg">/mesa/</td><td>mesa pipe repair</td><td class="n">12</td><td class="n">14.7</td><td>Oct 9</td></tr>
+          <tr><td class="pg">/maricopa/</td><td>trenchless sewer repair maricopa az</td><td class="n">10</td><td class="n">13.1</td><td>Oct 9</td></tr>
+          <tr><td class="pg">/sun-city-west/</td><td>sun city west copper repipe</td><td class="n">6</td><td class="n">24.0</td><td>Oct 9</td></tr>
+          <tr><td class="pg">/phoenix/, /chandler/</td><td>(quick wins; only 1-impression keywords right now)</td><td class="n">–</td><td class="n">–</td><td>Oct 9</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="two">
+    <section class="card">
+      <h2>Skip or ask first</h2>
+      <ul>
+        <li><b>"pipelining florence or"</b> (45 impressions) is <b>Florence, Oregon</b>. Not our market; ignore it.</li>
+        <li><b>Gas line searches</b> (Buckeye) are not a Pipeliners service.</li>
+        <li><b>Homepage</b> gets "epoxy pipe lining phoenix az" (18 @ 27.6), "epoxy pipe lining mesa az" (15 @ 21.8) and "cipp pipe lining mesa az" (12 @ 19.2). The homepage is off-limits. Later idea: give these searches a proper page. Your call.</li>
+        <li><b>Needs Scott:</b> commercial re-piping (Paradise Valley), manhole lining and "underground pipe lifting" (Maricopa), plumber / plumbing company (Fort McDowell), french drains (Goodyear).</li>
+      </ul>
+    </section>
+    <section class="card">
+      <h2>Good to know</h2>
+      <ul>
+        <li><b>No blog post qualifies yet.</b> Blog keywords are one-off appearances or bursts.</li>
+        <li><b>Sun City vs Sun City West</b> both show for "sun city trenchless..." searches. Google already prefers /sun-city/ (position 13–14 vs 30), so nothing to fix. Monitor.</li>
+        <li>Many city keywords were seen on the same 4 days. They're real, but not as strong as keywords seen 10+ days (Glendale, San Tan Valley, Casa Grande, Laveen).</li>
+      </ul>
+    </section>
+  </div>
+
+  <section class="card">
+    <h2>How this was checked</h2>
+    <ul class="note" style="color:var(--ink-2)">
+      <li>Pulled the search list for every page (69 pages had data), then checked each page and keyword pair day by day.</li>
+      <li>Kept pairs at position 8–30 with 3+ impressions on 2+ days, where no single day made up most of the total.</li>
+      <li>Business Profile (map) results are counted separately, so the positions here are the web page's own.</li>
+      <li>Limits: Search Console shows at most 1,000 searches per view, and 74 pairs with only 3–4 impressions weren't checked day by day. Both only affect the smallest keywords.</li>
+      <li>Other companies' names are left out.</li>
+    </ul>
+  </section>
+</div>

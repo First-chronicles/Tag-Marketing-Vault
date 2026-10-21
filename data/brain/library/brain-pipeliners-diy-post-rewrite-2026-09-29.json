@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - DIY Post Rewrite 2026-09-29",
+ "cat": "brain-pipeliners",
+ "group": "Audits",
+ "body": "> Report · Pipeliners · 2026-09-29\n\n# Summary\nRewrite of the body of post 13720 /should-i-diy-pipe-repair/ on Sep 29, 2026, built by script and applied with a guarded write (live content had to equal the saved \"before\" copy).\n\n# Key findings\n- Kept: the Quick answer, 4 images, the FAQ block (matching the `_pipeliners_faq_jsonld` schema), the \"Last updated\" line, the author line and the reviews link.\n- The early check (Oct 5) lists the post as crawled Sep 29 after the change.\n\n# Files in this folder (rollups only)\n- `before/`, `after/`, `diy-preview.html`, `apply_diy.php`, Python build and preview scripts.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - AI Answer Batch 1 2026-09-29](lib:brain-pipeliners-ai-answer-batch-1-2026-09-29), [Pipeliners - Early Check 2026-10-05](lib:brain-pipeliners-early-check-2026-10-05)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/diy-rewrite-2026-09-29",
+ "date": "2026-09-29",
+ "createdAt": 1792613507480,
+ "updatedAt": 1792613567247,
+ "rev": "f94dc53d35e7"
+}

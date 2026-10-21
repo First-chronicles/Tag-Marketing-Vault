@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Blog - Clay Sewer Pipe",
+ "cat": "brain-pipeliners",
+ "group": "Blogs",
+ "body": "> Blog · Pipeliners · 2026-09-19\n\n# Summary\nSupporting blog for the Wave 1 and 2 city pages. Sources: `blog-drafts\\clay-sewer-pipe-draft-2026-09-19.md` (the draft) and the build folder `blog-clay-sewer-pipe\\` (build script, featured card, FAQ JSON-LD, post content, SEO entry for the post-seo-meta mu-plugin, images).\n\n# Key facts\n- **Focus keyphrase:** clay sewer pipe (1,223/mo US, KD 21, informational). Secondary used naturally: clay sewer line, clay pipe joints, roots in clay pipe, lining a clay sewer line.\n- **SEO title:** Clay Sewer Pipe: Problems and No-Dig Fixes | Pipeliners. **H1:** Clay Sewer Pipe: Common Problems and How to Fix It Without Digging. Meta ends with the 480-535-6503 call line.\n- **Author:** Jake Shaker. Cannibalization check on Sep 19 found no page targeting the phrase.\n- **Status:** published as post 18150 on Sep 18 (per the handoff; folder dates follow Philippine time). Later a 24/7 mention was removed (`fix-backups\\2026-10-13_sewer-scope\\18150-before-rm247.html`) and the cast iron work touched it (`2026-09-26_cast-iron`).\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Blog Index](lib:brain-pipeliners-blog-index), [Pipeliners - Supporting Blog for City Pages Keyword Research 2026-09-19](lib:brain-pipeliners-supporting-blog-for-city-pages-keyword-research-2026-09-19)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/blog-drafts/clay-sewer-pipe-draft-2026-09-19.md",
+ "date": "2026-09-19",
+ "createdAt": 1792613346122,
+ "updatedAt": 1792613346122,
+ "rev": "04388574fb29"
+}

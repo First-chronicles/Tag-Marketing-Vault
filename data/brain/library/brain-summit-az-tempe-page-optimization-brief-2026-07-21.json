@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Tempe Page Optimization Brief 2026-07-21",
+ "cat": "brain-summit",
+ "group": "Audits",
+ "body": "> Plan · Summit Az · 2026-07-21\n\n# Summary\nOptimization brief for `/general-plumbing-services-in-tempe/` (20,105 impressions, average position 23). Diagnosis: intent mismatch. The page is framed as general plumbing, but its biggest demand is emergency and 24-hour queries (\"emergency plumber tempe\", 2,629 impressions at #26).\n\n# Key points\n- Near-miss terms at positions 12 to 18: emergency plumbing services tempe, 24 hour residential plumbing services in tempe, plumbing company, 24 hour plumber near me, plumber tempe and similar.\n- Fix list: retitle for emergency and 24/7, intent-based H2s, direct-answer intro, FAQ plus FAQPage schema, internal links with Tempe anchors, authority work in parallel.\n- Ready-to-paste copy: SEO title, meta, H1, intro, six H2 sections, FAQ. Focus keyphrase: emergency plumber tempe.\n\n# Caution\nThe brief's 24/7, \"24-hour\" and after-hours wording was written in July. Later work removed 24/7 copy (2026-09-09) and rewrote after-hours claims on emergency pages because the business keeps Monday to Saturday 8 to 5 hours (see [Summit AZ - SEO Progress Report 2026-09-24](lib:brain-summit-az-seo-progress-report-2026-09-24)). Do not reuse this copy without checking current hours and Scott's approval. The 2026-09-23 report still lists \"emergency plumber tempe\" as the top non-brand query with zero clicks, answered by the wrong page.\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Summit AZ - Work Folders Index](lib:brain-summit-az-work-folders-index)\n- [Summit AZ - Search Atlas Progress vs Baseline 2026-07-21](lib:brain-summit-az-search-atlas-progress-vs-baseline-2026-07-21), [Summit AZ - Performance Report 2026-09-23](lib:brain-summit-az-performance-report-2026-09-23)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/search-atlas/Summit-Tempe-Page-Optimization.docx",
+ "date": "2026-07-21",
+ "createdAt": 1792612997588,
+ "updatedAt": 1792612997588,
+ "rev": "84f06f5e447f"
+}

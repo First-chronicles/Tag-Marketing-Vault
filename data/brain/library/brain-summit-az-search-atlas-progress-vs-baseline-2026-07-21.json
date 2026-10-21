@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Search Atlas Progress vs Baseline 2026-07-21",
+ "cat": "brain-summit",
+ "group": "Audits",
+ "body": "> Report · Summit Az · 2026-07-21\n\n# Summary\nTwo-page progress report one day after the 2026-07-20 baseline audit: 3 fixed or verified, 1 in progress, 2 pending.\n\n# Changes\n- Header menu redirects: 4 city links (Apache Junction, Chandler, Fountain Hills, San Tan Valley) were 301ing on every page; now return 200 sitewide (about 168 pages). FIXED.\n- Broken links: re-crawl of 165 pages found 0; the \"11\" was stale Jul 5 data. RESOLVED.\n- Areas We Serve body links: 6 (+2) still 301, per page. PENDING.\n- Orphan pages (4): OPEN.\n- Sitemap \"broken\" flag from the connector was false. RESOLVED.\n- Tempe page: new SEO title \"Emergency Plumber in Tempe, AZ | 24/7 Summit Plumbing Pros\" and meta live; H1, intro, 6 H2s, FAQ and schema in progress or pending.\n- Mobile performance (WebP, compression) and Domain Power 10: not started.\n\n# Open items\n1. Finish the Tempe page in a guided Elementor session.\n2. Decide on the Areas We Serve links (leave or Better Search Replace after backup).\n3. Authority building.\n4. WebP conversion and compression.\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Summit AZ - Work Folders Index](lib:brain-summit-az-work-folders-index)\n- [Summit AZ - Search Atlas Audit 2026-07-20](lib:brain-summit-az-search-atlas-audit-2026-07-20), [Search Atlas](lib:brain-search-atlas)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/search-atlas/Summit-Progress-vs-Baseline-2026-07-21.pdf",
+ "date": "2026-07-21",
+ "createdAt": 1792612997572,
+ "updatedAt": 1792612997574,
+ "rev": "7e8362966713"
+}

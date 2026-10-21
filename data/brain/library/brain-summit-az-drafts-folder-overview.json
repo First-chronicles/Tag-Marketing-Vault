@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Drafts Folder Overview",
+ "cat": "brain-summit",
+ "group": "Drafts",
+ "body": "> Log · Summit Az · 2026-05-30\n\n# Summary\nLate May 2026 working folder for city-page drafts and FAQ schema scripts, one subfolder per service line.\n\n# Draft notes\n- [Summit AZ - Drafts - General Plumbing Update Packs](lib:brain-summit-az-drafts-general-plumbing-update-packs) (10 cities)\n- [Summit AZ - Drafts - Drain Cleaning Fountain Hills](lib:brain-summit-az-drafts-drain-cleaning-fountain-hills)\n- [Summit AZ - Drafts - Water Heaters Queen Creek](lib:brain-summit-az-drafts-water-heaters-queen-creek)\n- [Summit AZ - Drafts - Leak Detection Scottsdale](lib:brain-summit-az-drafts-leak-detection-scottsdale)\n- [Summit AZ - Drafts - Water Softener City Pages](lib:brain-summit-az-drafts-water-softener-city-pages) (5 cities)\n\n# Schema scripts (2026-05-30)\nEvery service subfolder (drain cleaning, emergency plumbing, fixture installation, garbage disposals, pipe lining, sewer line repair, tankless, water heaters, water leak detection, water pressure, water softeners) has an `_apply_schema.php` that writes `_summit_faqs_cache` post meta for the 10 city pages of that service, so the `summit-location-seo` mu-plugin outputs FAQPage schema. FAQ answers are templated per city with neighborhoods and local issues. The emergency set included 24/7, after-hours and flat-rate wording that was later removed from the visible pages (Sep 2026), so that cache may be out of sync with visible copy; check before relying on it.\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Summit AZ - Work Folders Index](lib:brain-summit-az-work-folders-index)\n- [Summit AZ - WP Staging Pages](lib:brain-summit-az-wp-staging-pages), [Summit AZ - AEO Audit Chandler Pages 2026-05-29](lib:brain-summit-az-aeo-audit-chandler-pages-2026-05-29)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/drafts",
+ "date": "2026-05-30",
+ "createdAt": 1792613122732,
+ "updatedAt": 1792613122732,
+ "rev": "9ee3e2f7eca5"
+}

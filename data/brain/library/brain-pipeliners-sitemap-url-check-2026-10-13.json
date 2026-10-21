@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Sitemap URL Check 2026-10-13",
+ "cat": "brain-pipeliners",
+ "group": "Reports",
+ "body": "> Report · Pipeliners · 2026-10-13\n\n# Summary\nA live check of every URL in the Pipeliners sitemap on Oct 13, 2026 (`live-sitemap-url-checks.tsv`, with the fetched `sitemap.xml`).\n\n# Key findings\n- 109 sitemap URLs checked.\n- All 109 returned HTTP 200, were indexable and carried a self-referencing canonical.\n- Compared with the Sep 28 checkup (116 URLs and 4 noindexed URLs in the sitemap), the sitemap was smaller and clean.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Indexing Report 2026-10-12](lib:brain-pipeliners-indexing-report-2026-10-12), [Google Search Console](lib:brain-google-search-console)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/reports/sitemap-2026-10-13",
+ "date": "2026-10-13",
+ "createdAt": 1792613209740,
+ "updatedAt": 1792613567037,
+ "rev": "e31351c8524c"
+}

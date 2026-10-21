@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - SEO Results Scorecard 2026-10-12",
+ "cat": "brain-pipeliners",
+ "group": "Reports",
+ "body": "> Tracker · Pipeliners · 2026-10-12\n\n# Summary\n\"Pipeliners SEO Results Scorecard\" (`change-tracker.html`, built from `data.json` with a template): for every page changed since Sep 1, it compares Google numbers in a locked 28-day \"before\" window with the period after go-live. Updated every Monday; last updated Oct 12, 2026.\n\n# Key points\n- Source: GSC Pages report, Domain property, all countries, read in the GSC web UI. The Search Atlas API was dropped on Sep 21 because it leaves out anonymized searches.\n- Rules: compare impressions per day; Up or Down only when a page moves at least 15 points more than the whole site; under 60 before-window impressions is too small to call; clicks are what count; a change needs 14+ days of data.\n- Groups tracked: Sep 1 work (window closed Sep 15 because pages changed again), Sep 15 to 16 Step 7 and Step 8 city pages, quick wins and the Buckeye pipe-break section, Sep 18 to 23 blog merges and keyword alignment, Goodyear and others. Full reads due Oct 19 and Oct 26.\n- Notes flag later changes inside windows (Sep 29 AI-answer batch, Oct 2 links, Oct 8 schema fix and merges, Avondale rebuild Oct 10).\n- GBP clicks are excluded (they land on the homepage).\n\n# Files in this folder (rollups only)\n- `change-tracker.html`, `template.html`, `data.json`, `pull-2026-10-06.json`, `build.py`; dated `.bak` copies of data and template (Sep 22 to Oct 8) are backups only.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - SEO Change Log](lib:brain-pipeliners-seo-change-log), [Google Search Console](lib:brain-google-search-console), [Trackers and Logs Index](lib:brain-trackers-and-logs-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/performance-tracking/change-tracker",
+ "date": "2026-10-12",
+ "createdAt": 1792613290919,
+ "updatedAt": 1792613567091,
+ "rev": "999e04403e13"
+}

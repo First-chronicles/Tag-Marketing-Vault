@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Utah Organic Snapshot 2026-09-16",
+ "cat": "brain-summit",
+ "group": "Reports",
+ "body": "> Report · Summit Az · 2026-09-16\n\n> **This note is about the UTAH site (summitplumbingut.com), not Arizona.** It is filed here because the file sits in the Arizona folder. Never combine these numbers with Arizona data. The Utah site is a separate client property, out of scope unless Kim asks.\n\n# Summary\nUtah organic SEO snapshot (v2), read-only, Sep 16, 2026, using the GSC web UI for property https://summitplumbingut.com/ (Utah County and Salt Lake County). It mirrors the Arizona snapshot format.\n\n# Key numbers (L30 vs P30)\n- 63 clicks (+23.5%), 25,143 impressions (+81%), position 8.5 vs 13.8. About 16,600 impressions were classed as suspected automated (non-brand queries at position 3 or better with 0 clicks, 92% desktop); an inference, not confirmed.\n- Brand clicks 30; non-brand clicks 5.\n- GA4 529636373 was contaminated by Arizona hits Sep 3 to 12. TAG CRM held 0 Utah-area-code leads (Utah leads do not seem to flow into that CRM record). GBP and call data unavailable.\n\n# Indexing and pages\n- Indexed only 26; not indexed 109 (69 crawled not indexed, 22 404s).\n- The homepage carries most impressions; a Vineyard general plumbing page drew 816 impressions from one query.\n- Live crawl: 91 sitemap URLs, 35 cities x 2 services, no Arizona content.\n\n# Top issues\n1. Only 26 pages indexed; 69 crawled not indexed, 22 404s.\n2. 288 of 420 nearby-city links on drain pages return 404, plus broken contact and water heater buttons.\n3. City page duplication (South Jordan vs West Jordan 93%) and wrong-city lines.\n4. /pricing/ and /terms-and-conditions/ indexable lorem ipsum.\n5. /utah-county/ (21 words) ranks for \"plumber utah county\".\n\n# Related\n- [Summit AZ - Organic Snapshot 2026-09-16](lib:brain-summit-az-organic-snapshot-2026-09-16), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Google Search Console](lib:brain-google-search-console)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/Summit-UT-Organic-Snapshot-2026-09-16.md",
+ "date": "2026-09-16",
+ "createdAt": 1792613435522,
+ "updatedAt": 1792613435522,
+ "rev": "42711ed8786c"
+}

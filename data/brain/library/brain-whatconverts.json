@@ -1,0 +1,14 @@
+{
+ "name": "WhatConverts",
+ "cat": "brain-tools",
+ "group": "",
+ "body": "> Tool · Alphalete · 2026-10-01\n\n# Summary\nWhatConverts is the call tracking and dynamic number insertion (DNI) tool on the Alphalete site. It also feeds offline conversions to Google Ads.\n\n# Key facts\n- DNI profile **171550**, injected by the mu-plugin `alphalete-tracking-pixels.php` at the client's request. Confirmed by Scott on Jul 31, 2026.\n- Swap targets: (720) 807-3224 and (719) 787-7746. Since Aug 17 to 18 the site displays (719) 787-7746 in header, footer and in-body CTAs on all local pages.\n- The GHL number pool (Code Snippet #5) stays disabled, so WhatConverts is the only DNI on Alphalete.\n- Site tags alongside it: GTM-NN7B5MDM, GA4 G-0E6QYTHXZ3, AW-17950595678, OTTO pixel.\n\n# Issues found\n- Alphalete recorded zero Google Ads conversions Sep 4 to 13, 2026 (140 clicks, $1,291.77). Cause: an upload gap plus rejections (one-per-click counting vs gbraid). Check the upload summary first. Parked pending the new Ads owner.\n- The \"WhatConverts Call Conversion\" action recorded 0 conversions in 2026, and there is no swap rule for google/cpc or google/organic. Possible double counting between WhatConverts and the GHL form.\n\n# Rules\n- Do not blanket-replace phone numbers on Alphalete; they are tracking numbers. Scott confirms tracked numbers.\n\n# Related\n- [Tools and Integrations Index](lib:brain-tools-and-integrations-index), [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub), [Google Ads MCC](lib:brain-google-ads-mcc), [GoHighLevel](lib:brain-gohighlevel)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Alphalete Trenchless Pipelining/CLAUDE.md",
+ "date": "2026-10-01",
+ "createdAt": 1792613347325,
+ "updatedAt": 1792613347325,
+ "rev": "012ad9eab977"
+}

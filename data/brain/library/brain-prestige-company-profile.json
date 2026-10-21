@@ -1,0 +1,14 @@
+{
+ "name": "Prestige - Company Profile",
+ "cat": "brain-prestige",
+ "group": "",
+ "body": "> Profile · Prestige · 2026-08-12\n\nThe folder has no formal Business Knowledge Base, and the blog cluster docs keep asking for one. This profile pulls together what the audits and the captured live-site data say.\n\n# Business\n- Legal name: Prestige Plumbing Repairs LLC. Brand: Prestige Plumbing.\n- Owner-operated by Matt Milunec (\"the plumber who answers the phone\"). Matt is the author on all blog posts (Person schema, author URL /about/).\n- Base: Bluffton, SC (SC Lowcountry). Coverage runs about 50 miles from Bluffton with the same pricebook everywhere and no distance or island surcharge (per the hub draft and the llms.txt description in the June audit).\n- NAP (consistent site-wide): Prestige Plumbing, (843) 800-4676, 147 Buggy Drive, Bluffton, SC 29909.\n- Service areas (6 city pages): Bluffton, Hilton Head Island, Okatie, Sun City Hilton Head, Hardeeville, Ridgeland.\n- Residential plumbing. The careers page says it hires licensed plumbers and apprentices as it grows.\n\n# Services and published flat-rate prices (from site meta and audits)\n- Water heaters from $1,895 (Bradford White), $1,895 to $2,307 installed.\n- Tankless from $4,909 (Navien), Rinnai $5,075.\n- Drain cleaning $255 to $425 per line (main line with camera $425), hydro jetting $950.\n- Leak detection $289, leak and water line repair from $330, PRV $575, underground repair $825.\n- Toilets: running toilet fix from $225, new toilets from $550, comfort-height $605.\n- Water filtration from $1,565 (the Okatie page meta says from $1,095), Halo whole-house $4,200, softener $3,169, reverse osmosis $1,975, water test $125.\n- Emergency: owner answers 24/7, weekend and after-hours dispatch $125.\n- Ridgeland: well systems (pressure switches $369, well tanks).\n- Brands named in llms.txt: Bradford White, Navien, Rinnai, Halo.\n\n# Positioning\n- Flat-rate, quoted before work, same-day in most cases, owner answers the phone.\n- Local angles used in content: vacation rentals and villas on Hilton Head, the Sun City 55+ community, Ridgeland wells, live oak roots, slab foundations, hurricane season.\n\n# Content guardrails (from the blog drafts)\n- Pricing, \"free estimate/inspection\", warranty or guarantee wording and emergency rate language are held for Scott and kept out of blog bodies.\n- No invented first-hand proof. `[FIRST-HAND DETAIL]` placeholders wait for Matt's real photos or notes.\n\n# Related\n- [Prestige Plumbing (Hub)](lib:brain-prestige-plumbing-hub), [Prestige - Website Build](lib:brain-prestige-website-build), [NameHero Hosting](lib:brain-namehero-hosting), [Google Business Profile](lib:brain-google-business-profile)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Prestige Plumbing/SEO-Baseline-Audit-2026-08-12.md",
+ "date": "2026-08-12",
+ "createdAt": 1792613433134,
+ "updatedAt": 1792613433135,
+ "rev": "34a737f71ca4"
+}

@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Early Post-Redesign Snapshot 2026-09-10",
+ "cat": "brain-summit",
+ "group": "Reports",
+ "body": "> Report · Summit Az · 2026-09-10\n\n# Summary\nA locked, preliminary read of the first 7 days after the Sep 3 relaunch (Sep 4 to 10) against the matching 7 days before (Aug 28 to Sep 3). Captured read-only Sep 11. Seven days is too short for firm conclusions.\n\n# Bottom line\n1. GA4 stopped measuring on launch day: the launch switched the Google tag to a different GA4 property, so 459518259 showed zero sessions from Sep 4 (fixed by Scott Sep 12).\n2. The launch was a full database replacement, not a restyle: every local page got a new WordPress record at the same URL, SEO moved from MetaSync/OTTO to Rank Math, and the menu, lead form, tag and six general plumbing city pages changed.\n3. Search visibility was mixed and within noise: impressions +15.7% (2,397 to 2,774), clicks 5 to 12, CTR 0.21% to 0.43%, but average position slipped 23.6 to 30.7; queries with impressions rose 321 to 545.\n4. Biggest risk: 1,993 OTTO fixes still marked deployed. Switching the pixel on would push all of them live at once, including 24/7 schema, fake review markup, \"$20 off\" offers, competitor names and headings replacing tracking phones.\n\n# Caveats\n- At least 2 clicks came from the Philippines (likely TAG staff checking pages). Sep 9 and 10 were still filling in.\n- TAG made large post-launch edits inside the window (titles Sep 5; design, H1, link and noindex fixes Sep 9 to 10). The OTTO pixel was live for about an hour on Sep 4 to 5.\n- Segments: branded 3 to 4 clicks; non-branded impressions 1,474 to 2,014; \"near me\" 86 to 220.\n\n# Related\n- [Summit AZ - Pre-Redesign Baseline 2026-09-03](lib:brain-summit-az-pre-redesign-baseline-2026-09-03), [Summit AZ - OTTO Review 2026-09-11](lib:brain-summit-az-otto-review-2026-09-11), [Summit AZ - Case Study Scrapbook](lib:brain-summit-az-case-study-scrapbook), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/Summit-AZ-Early-Post-Redesign-Snapshot-2026-09-10.md",
+ "date": "2026-09-10",
+ "createdAt": 1792613161988,
+ "updatedAt": 1792613161988,
+ "rev": "9e7f2d451839"
+}

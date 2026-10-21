@@ -1,0 +1,14 @@
+{
+ "name": "Alphalete - Documentation Screenshots",
+ "cat": "brain-alphalete",
+ "group": "Reports",
+ "body": "> Meta · Alphalete · 2026-10-08\n\n# Summary\nA screenshot filing area for Alphalete created Oct 8 2026, with four subfolders: `Screenshot from GSC`, `Screenshot from Search Atlast` (spelled that way on disk), `Screenshot from Website` and `Screenshot from other`. As of this vault build (Oct 22 2026) all four subfolders are **empty**.\n\n# Where Alphalete screenshots actually are\n- `Alphalete Trenchless Pipelining\\performance-evidence-2026-10-13\\`: 15 report screenshots (GSC, Search Atlas, GA4, Keystone). See [Alphalete - Performance Evidence 2026-10-13](lib:brain-alphalete-performance-evidence-2026-10-13).\n- `seo-audit-2026-09-11\\source-data\\ga4-exports\\`: page images of the GA4 exports used in the Sep 11 audit.\n- Three unnamed PNGs in the Alphalete project root (`(15724).png`, `(15726).png`, `(15727).png`, Aug 13), image files only.\n\n# Related\n- [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Documentation/Alphalete",
+ "date": "2026-10-08",
+ "createdAt": 1792613265058,
+ "updatedAt": 1792613265058,
+ "rev": "8f103ca8ab1c"
+}

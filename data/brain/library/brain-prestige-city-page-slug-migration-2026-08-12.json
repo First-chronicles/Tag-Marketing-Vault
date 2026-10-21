@@ -1,0 +1,14 @@
+{
+ "name": "Prestige - City Page Slug Migration 2026-08-12",
+ "cat": "brain-prestige",
+ "group": "",
+ "body": "> Plan · Prestige · 2026-08-12\n\n# Summary\nThis plan moves the 6 city pages from `/service-areas/<city>/` to top-level `/<city>/` (Roto-Rooter style), keeping the visible breadcrumb. It deliberately uses no 301 redirects because the pages were never indexed, so the old URLs simply 404. The file is written as a DRAFT that was blocked by the NameHero disk-quota issue. The baseline audit update log records it as deployed live on 2026-08-12.\n\n# Slug map\n| Old | New |\n|---|---|\n| /service-areas/bluffton/ | /bluffton/ |\n| /service-areas/hilton-head-island/ | /hilton-head-island/ |\n| /service-areas/okatie/ | /okatie/ |\n| /service-areas/sun-city/ | /sun-city/ |\n| /service-areas/hardeeville/ | /hardeeville/ |\n| /service-areas/ridgeland/ | /ridgeland/ |\n\n# Method\n1. Run a site-wide find and replace of the 6 path strings across every .html file. This fixes 607 references across 41 pages: nav, footer, tiles, blog links, plus each page's canonical, og:url and BreadcrumbList leaf. It is safe because every reference has a trailing slash and the bare `/service-areas/` hub path is never matched.\n2. Move the 6 folders up to the web root. The `/service-areas/` hub folder stays.\n3. Update the 6 sitemap.xml entries.\n4. After deploy: spot-check that new URLs return 200 and old ones 404, resubmit the sitemap, request indexing on the 6 new URLs and the 2 hubs, and update any GBP, citation or social links that point at old URLs.\n\n# What stays the same\n- Visible breadcrumb: Home / Service areas / City.\n- The `/service-areas/` hub stays live and lists all 6 cities.\n\n# Status\n- Deployed 2026-08-12 per [Prestige - SEO Baseline Audit 2026-08-12](lib:brain-prestige-seo-baseline-audit-2026-08-12). Indexing requests on the new URLs were still pending at that time.\n\n# Related\n- [Prestige Plumbing (Hub)](lib:brain-prestige-plumbing-hub), [Prestige - Website Build](lib:brain-prestige-website-build), [NameHero Hosting](lib:brain-namehero-hosting)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Prestige Plumbing/citypage-slug-migration-2026-08-12.md",
+ "date": "2026-08-12",
+ "createdAt": 1792613481900,
+ "updatedAt": 1792613481900,
+ "rev": "f04855c24758"
+}

@@ -1,0 +1,14 @@
+{
+ "name": "EOD 2026-06-05",
+ "cat": "brain-eod",
+ "group": "2026-06 June",
+ "body": "> Eod · 2026-06-05\n\nAEO/GEO/SEO audits plus schema and title fixes across three clients.\n\n# Summit Plumbing Pros AZ\nSee [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub).\n- Full audit of 114 location pages.\n- Made 7 Emergency Plumbing titles/metas unique per city; fixed 6 wrong-city bleed pages (Fixture Installation, Pipe Lining, Sewer Line Repair).\n- Trimmed 38 over-length titles to 60 characters or less and removed leftover `%%page%%` tags.\n- H1 fixes on 27 pages (hero set to H1 on 22, duplicate H1s demoted on 5 Water Softener pages) via a `wp eval` JSON round-trip, verified live.\n- Removed mismatched FAQ schema from 10 General Plumbing pages (no visible FAQ).\n- Added Service schema across city-service pages with a new mu-plugin `summit-service-schema.php`.\n- Added alt text to the 3 images missing it; backups, Yoast indexables cleared, cache purged.\n\n# Alphalete Trenchless\nSee [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub).\n- Audit of 133 location pages; wrong-city scan clean.\n- Documented gaps: FAQ schema on 18 pages, duplicate H1, Hydro Jetting schema, template grammar bug. mu-plugin v1.2.0 installed, FAQ layer not deployed.\n\n# Pipeliners\nSee [Pipeliners (Hub)](lib:brain-pipeliners-hub).\n- Read-only audit of 37 city pages found OTTO deploying the wrong \"Course\" schema.\n- With Scott's approval: Metasync test post set to noindex; Course removed and Service schema deployed on 30 city pages in OTTO. Live check confirmed Course gone.\n\n# Deliverables\n- Summit and Alphalete audit reports and CSVs, `pipeliners-otto-schema-fix.md`, `monday-todo-pending-tasks.csv` (see [Monday Task Lists 2026-06-05](lib:brain-monday-task-lists-2026-06-05)).\n\n# Follow-ups\n- Summit: General Plumbing FAQ (10 pages), 8 missing service-area pages.\n- Alphalete: FAQ schema (18 pages), duplicate H1, template grammar cleanup.\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub), [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Search Atlas](lib:brain-search-atlas), [EOD Reports Index](lib:brain-eod-reports-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "_Shared (All Clients)/EOD Reports/eod-report-2026-06-05.md",
+ "date": "2026-06-05",
+ "createdAt": 1792612675104,
+ "updatedAt": 1792612675104,
+ "rev": "4a7b7a6ec006"
+}

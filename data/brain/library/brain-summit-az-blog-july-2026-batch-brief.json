@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Blog - July 2026 Batch Brief",
+ "cat": "brain-summit",
+ "group": "Blogs",
+ "body": "> Plan · Summit Az · 2026-06-25\n\n# Summary\nShared brief for the six-post July 2026 blog batch on the Arizona site. Opens with a hard rule: AZ site only, do not mention Utah, do not reference Pipeliners or Alphalete.\n\n# Rules in the brief\n- Voice: helpful local plumber, plain and warm, short sentences, no em dashes.\n- Never name or link a competitor. Only link to URLs on the approved list; external links only to neutral .gov/.edu authorities, 1 to 2 max.\n- No invented numbers (prices, PSI, gallons, lifespans, percentages) unless cited to a linked authority.\n- Structure: one H1 with the keyphrase, a Quick answer paragraph first, question-style H2s, a 4 to 5 question FAQ, CTA close, body 1,000 to 1,500 words, Arizona localization (hard water, heat, monsoon, slab-on-grade, desert soil).\n- Output format: META BLOCK, article, Verification block. Reference file: `blogs/signs-of-a-slab-leak.md`.\n- Service area: Chandler (primary), Gilbert, Mesa, Tempe, Phoenix, Scottsdale, Queen Creek, San Tan Valley, Apache Junction, Fountain Hills.\n\n# Already published (do not duplicate)\nSigns of hard water, hidden water leak, outdoor faucet leaking, new water heater, prevent clogged drains, water softeners worth it, tankless vs tank, slab leak, trenchless pipe lining.\n\n# This batch\n- [Summit AZ - Blog - Monsoon Plumbing Tips](lib:brain-summit-az-blog-monsoon-plumbing-tips)\n- [Summit AZ - Blog - Hydro Jetting vs Snaking](lib:brain-summit-az-blog-hydro-jetting-vs-snaking)\n- [Summit AZ - Blog - Sewer Line Backup Causes](lib:brain-summit-az-blog-sewer-line-backup-causes)\n- [Summit AZ - Blog - Drain Smells Like Sewage](lib:brain-summit-az-blog-drain-smells-like-sewage)\n- [Summit AZ - Blog - Summer Plumbing Tips Arizona](lib:brain-summit-az-blog-summer-plumbing-tips-arizona)\n- [Summit AZ - Blog - Slow Draining Sink](lib:brain-summit-az-blog-slow-draining-sink)\n\n# Status\nNone of the six slugs appear as published in the page tracker sync of 2026-10-12. The monsoon and drain-odor topics were instead covered by the cluster posts in [Summit AZ - Blog Cluster - July Monsoon 2026](lib:brain-summit-az-blog-cluster-july-monsoon-2026) and [Summit AZ - Blog Cluster - August Drain Cleaning 2026](lib:brain-summit-az-blog-cluster-august-drain-cleaning-2026).\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Summit AZ - Work Folders Index](lib:brain-summit-az-work-folders-index), [Summit AZ - Blogs Folder Overview](lib:brain-summit-az-blogs-folder-overview)\n- [SEO Blog Writing Standards](lib:brain-seo-blog-writing-standards), [Blog Master List](lib:brain-blog-master-list)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/blogs/_july_brief.md",
+ "date": "2026-06-25",
+ "createdAt": 1792612916285,
+ "updatedAt": 1792612916286,
+ "rev": "1bdc4ec29f5c"
+}

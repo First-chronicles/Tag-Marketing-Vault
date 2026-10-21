@@ -1,0 +1,14 @@
+{
+ "name": "Alphalete - Performance Evidence 2026-10-13",
+ "cat": "brain-alphalete",
+ "group": "Reports",
+ "body": "> Report · Alphalete · 2026-10-13\n\n# Summary\nA folder of 15 numbered screenshots captured Oct 13 2026 as evidence for an SEO performance report (screens from GSC, Search Atlas, GA4 and Keystone CRM). There is no written report in the folder; the image contents were not read for this note, so the list below describes what each file name says it shows. The comparison windows match the case study periods: Jun 1 to Sep 12 (before) and Sep 13 to Oct 10 (after), US only.\n\n# Files\n| # | File name says | Source |\n|---|---|---|\n| 01 | GSC US 28 days, Sep 13 to Oct 10 vs Aug 16 to Sep 12 | GSC |\n| 02 | GSC US 7 days, Oct 4 to 10 vs Sep 27 to Oct 3 | GSC |\n| 03 | Search Atlas GSC Insights, US, Sep 13 to Oct 10 | Search Atlas |\n| 04 | OTTO scores, last analysis Jul 8 | Search Atlas |\n| 05 | GSC US Jun 1 to Sep 12 total | GSC |\n| 06 | GSC US July vs June | GSC |\n| 07 | GSC US Sep 1 to 12 vs August | GSC |\n| 08 | Search Atlas GSC Insights, US, Jun 1 to Sep 12 | Search Atlas |\n| 09 | GSC Page Indexing: 121 indexed, Oct 9 | GSC |\n| 10 | GSC Generative AI (US), Sep 13 to Oct 10 vs Jun 1 to Sep 12 | GSC |\n| 11 | GA4 events, US, all users vs organic, both windows | GA4 |\n| 12 | GA4 lead events, US, organic vs all | GA4 |\n| 13 | Keystone leads by source, Jun 1 to Sep 12 | Keystone CRM |\n| 14 | Keystone leads by source, Sep 13 to Oct 10 | Keystone CRM |\n| 15 | GSC Links: 4 external, Oct 13 | GSC |\n\n# Notes\n- By file name, indexed pages reached 121 on Oct 9 and external links reached 4 on Oct 13 (up from 1 external link in the Sep 11 audit).\n- These screenshots feed the monthly report that the Oct 21 meeting asked to redesign (results first, technical detail in an appendix). See [Alphalete - Meeting Notes 2026-10-21](lib:brain-alphalete-meeting-notes-2026-10-21).\n\n# Related\n- [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub), [Alphalete - SEO Audit 2026-09-11](lib:brain-alphalete-seo-audit-2026-09-11), [Keystone CRM](lib:brain-keystone-crm), [Google Search Console](lib:brain-google-search-console), [Search Atlas](lib:brain-search-atlas)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Alphalete Trenchless Pipelining/performance-evidence-2026-10-13",
+ "date": "2026-10-13",
+ "createdAt": 1792613209942,
+ "updatedAt": 1792613209942,
+ "rev": "2e75d44714df"
+}

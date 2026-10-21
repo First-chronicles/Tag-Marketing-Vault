@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Anthem Page Audit 2026-08-27",
+ "cat": "brain-pipeliners",
+ "group": "Audits",
+ "body": "> Audit · Pipeliners · 2026-08-27\n\n# Summary\nAudit-only review of https://pipelinersusa.com/anthem/ (page 13812). Verdict: not thin (1,214 words), but the bottom third is generic OTTO filler and the page has almost no internal links.\n\n# Key findings\n- Head tags fine at the time: title, meta, canonical, unique H1, Service + FAQPage + BreadcrumbList with exactly one FAQPage.\n- About 910 words of genuinely local Elementor copy (Parkside, Anthem Country Club, Daisy Mountain, caliche) and a strong 10-question FAQ.\n- About 305 words in four OTTO-injected H2 sections are generic (trenchless advantage, signs you need repair, eco-friendly, emergency repair).\n- Only 2 internal links on the page, one with the anchor \"here!\", both styled as H5 headings. Anthem was one of 20 orphaned city pages.\n- 6 of 12 images had missing alt text.\n\n# Recommendations\nWrap 5 existing phrases as service links (/trenchless-drain-pipe-repair/, /epipe-restoration/, /what-is-cipp/, /free-sewer-inspection/, /hydro-jetting/), 5 phrases as blog links (rescuing 4 orphaned posts), fix both \"here!\" anchors, add nearby cities carefully (Anthem is separated from the Valley), fix alts, and consider replacing the OTTO sections. Net effect: 2 links to about 14 without new copy.\n\n# Superseded\nThe file says the 24/7 claim was \"confirmed\" on Aug 27. Scott reversed that on Oct 1: do not mention 24/7. Anthem was later rebuilt (Oct 7) and restructured (Oct 10); see [Pipeliners - Fix Log](lib:brain-pipeliners-fix-log).\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Audits and Reports Index](lib:brain-pipeliners-audits-and-reports-index), [Pipeliners - Internal Linking Plan 2026-08-27](lib:brain-pipeliners-internal-linking-plan-2026-08-27)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/anthem-page-audit-2026-08-27.md",
+ "date": "2026-08-27",
+ "createdAt": 1792613171237,
+ "updatedAt": 1792613171237,
+ "rev": "9e141b5efd2a"
+}

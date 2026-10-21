@@ -1,0 +1,14 @@
+{
+ "name": "EOD 2026-06-11",
+ "cat": "brain-eod",
+ "group": "2026-06 June",
+ "body": "> Eod · Alphalete · 2026-06-11\n\nThursday. Alphalete blog production: 10 SEO posts written, optimized and staged as WordPress drafts.\n\n# Alphalete Trenchless\nSee [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub).\n- Batch 1 (Trenchless/CIPP education): pillar \"What Is Trenchless Sewer Repair and How Does It Work?\" plus 4 supporting posts.\n- Batch 2: 5 supporting posts completing the Sewer Problems and Hydro Jetting clusters. About 9,900 words total.\n- Each post has a \"Quick answer\" lead, FAQ section and hub-and-spoke internal links. No dollar figures or invented specs; cost, duration and pipe-bursting items flagged for Scott.\n- Cannibalization-checked all 10 keywords against the 237 programmatic local pages.\n- Compiled [SEO Blog Writing Standards](lib:brain-seo-blog-writing-standards) and applied the exact-keyphrase-in-title rule (4 mismatches fixed). All 10 script-verified; 8 metas trimmed to 155 characters.\n- Loaded as unpublished drafts (post IDs 12681 to 12684 and 12686 to 12691) with Yoast fields set. Published count unchanged at 6.\n- Found 4 older scott-vincent drafts, 2 overlapping the gurgling/sewer-smells post.\n- Content plan: 16 of 30 topics done (6 published, 10 draft).\n\n# Follow-ups\n- Kim reviews and publishes the 10 drafts (pillar 12681 first).\n- Scott to confirm cost framing (12682), project duration (12686), and whether Alphalete offers pipe bursting (12683).\n- Decide on the 4 older drafts.\n- GSC: confirm re-submitted sitemap shows Success, request indexing on new URLs after publish. See [GSC Indexing Tracker](lib:brain-gsc-indexing-tracker).\n\n# Related\n- [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub), [SEO Blog Writing Standards](lib:brain-seo-blog-writing-standards), [EOD Reports Index](lib:brain-eod-reports-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "_Shared (All Clients)/EOD Reports/eod-report-2026-06-11.md",
+ "date": "2026-06-11",
+ "createdAt": 1792612682191,
+ "updatedAt": 1792612682194,
+ "rev": "08c7e6c991b6"
+}

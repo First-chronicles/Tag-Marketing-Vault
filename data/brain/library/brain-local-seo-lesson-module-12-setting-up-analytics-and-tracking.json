@@ -1,0 +1,14 @@
+{
+ "name": "Local SEO Lesson - Module 12 Setting Up Analytics and Tracking",
+ "cat": "brain-learning",
+ "group": "Local SEO Lesson",
+ "body": "> Lesson · 2026-10-08\n\n# Summary\nSet up GA4 and Google Search Console, define conversions and pick the metrics that show local SEO progress.\n\n# Key points\n- GA4: create the property, install via GTM or a plugin, verify in Realtime, mark key events (thank-you page views, phone clicks, form submits) as conversions.\n- GSC: add a domain or URL-prefix property, verify (GA, HTML file or DNS), submit the sitemap, review Performance, Pages/coverage and Core Web Vitals.\n- Metrics: organic traffic, geography, top queries, impressions, CTR, conversions from organic.\n- Report monthly; compare year over year for seasonality; investigate drops.\n\n# How this applies to TAG clients\n- Conversion tracking is where TAG has found the biggest problems: GHL iframe forms on Summit, Alphalete and Pipeliners stopped Google Ads conversions from firing (see [Google Ads Validation Work](lib:brain-google-ads-validation-work)).\n- GSC UI is the source of truth; the Search Atlas GSC mirror is directional ([Google Search Console](lib:brain-google-search-console)).\n\n# Related\n- [Local SEO Lesson](lib:brain-local-seo-lesson), [Learning Index](lib:brain-learning-index), [Lesson Takeaways 2026-10-08](lib:brain-lesson-takeaways-2026-10-08)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Local SEO lesson/Module 12_ Setting Up Analytics and Tracking - Local SEO Masterclass · Local Rank Academy.pdf",
+ "date": "2026-10-08",
+ "createdAt": 1792613193377,
+ "updatedAt": 1792613193377,
+ "rev": "d4460c3651d7"
+}

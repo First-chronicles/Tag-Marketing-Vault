@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - General Plumbing Batch 2 Report 2026-09-03",
+ "cat": "brain-summit",
+ "group": "Audits",
+ "body": "> Audit · Summit Az · 2026-09-03\n\n# Summary\nPre-implementation report for batch 2: the general plumbing city hubs (Tempe, Queen Creek, Phoenix, Scottsdale, Mesa), the parent /plumbing/ and, for overlap, Chandler and the homepage. Files: report `.md` and `.pdf`, page copies `Summit-AZ-General-Batch2-Page-Copies-2026-09-03.md` and `.pdf` (seven draft pages), and `Summit-AZ-General-Batch2-GSC-Queries-2026-09-03.csv` (about 386 page/query rows with intent class).\n\n# Key findings\n- These pages carried 16,245 impressions in three months and 3 clicks. Tempe alone had 14,128 impressions over 612 queries at position 25, acting as the whole company's \"Tempe plumber\" page.\n- Tempe was taking emergency demand that belongs to /emergency-plumber-in-tempe/ (2,186 emergency-intent impressions; the emergency page had zero).\n- Outside Tempe and Queen Creek the hubs earned almost nothing non-branded. The homepage owned brand and Mesa; /plumbing/ had an H1 of \"Plumbing Service in Mesa, Arizona\", so three URLs competed for Mesa.\n- Mesa and Chandler were word-for-word identical apart from the city name.\n- OTTO was injecting risky content: hidden keyword paragraphs (display:none), a hidden \"Partners Links\" block linking a competing plumber, ten Review schema entries on Tempe, and an H2 rewritten into a phone link.\n- Real Summit photos (DSC series) all had empty alt text.\n\n# Page copies\n- Seven pages drafted with a shared \"Why [City] homeowners choose Summit\" block (the four brand pillars). The draft copy included \"24/7 emergency line\", \"bonded\" and \"financing available\", which later rules (Sep 21 to 25) prohibit, so it should not be reused as written.\n\n# Decisions and status\n- Recommended order: OTTO cleanup first, then /plumbing/, Tempe, Queen Creek, Mesa (rewrite Chandler off its copy), Phoenix, Scottsdale.\n- Per the Sep 3 to Oct 2 work summary, the 6 general plumbing city pages were redesigned with new titles and metas in the first post-launch week. Tempe's emergency-search problem stayed open into October (Keyword Targeting Audit).\n\n# Related\n- [Summit AZ - City Pages Index](lib:brain-summit-az-city-pages-index), [Summit AZ - Sewer Batch 1 Report 2026-09-03](lib:brain-summit-az-sewer-batch-1-report-2026-09-03), [Summit AZ - OTTO Review 2026-09-11](lib:brain-summit-az-otto-review-2026-09-11), [Summit AZ - Mesa Plumber Page Plan 2026-09-14](lib:brain-summit-az-mesa-plumber-page-plan-2026-09-14), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/Summit-AZ-General-Batch2-Report-2026-09-03.md",
+ "date": "2026-09-03",
+ "createdAt": 1792613115065,
+ "updatedAt": 1792613115065,
+ "rev": "3bcc7fb5b268"
+}

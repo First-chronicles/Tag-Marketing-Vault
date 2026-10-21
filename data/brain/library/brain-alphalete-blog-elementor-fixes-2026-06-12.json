@@ -1,0 +1,14 @@
+{
+ "name": "Alphalete - Blog Elementor Fixes 2026-06-12",
+ "cat": "brain-alphalete",
+ "group": "Blogs",
+ "body": "> Log · Alphalete · 2026-06-12\n\n# Summary\nA working folder from June 12 2026 (moved here in the Oct 1 reorganization) holding before/after snapshots and scripts for Elementor and SEO edits to the first blog batches (posts 12635 to 12691) and two city pages (Black Forest and Boone). It contains no written report; this note describes the folder from its file names and plan files.\n\n# What was changed (from the files)\n- **Per-post Elementor text edits** (scripts `fix12650.py` to `fix12684.py`, `fix12681.py`): targeted find-and-replace on the text-editor widget. Example in the what-is post (12681): add an outbound CIPP reference link, change passive voice, and reword internal-link anchors so they do not repeat the post's keyphrase (anti-cannibalization).\n- **Snapshots:** `{id}_cur.html` (before), `{id}_v2.html` / `_final.html` / `_new.html` (after) and `eldata_{id}.json` / `_v2.json` Elementor data for posts 12650, 12652, 12654, 12656, 12681 to 12691.\n- **SEO plan:** `seo_plan.json` and `seo_batch.php` set focus keyword, SEO title and meta per post (for example 12690 \"How Often Should You Hydro Jet Your Drains? | Alphalete\").\n- **Inventory:** `alphalete_posts_inventory.json` lists 20 posts with status, keyword, SEO title and meta (some, like 12687 cracked vs collapsed, were private at the time).\n- **City pages:** Black Forest and Boone HTML, CSS and Elementor data (`bf_eldata*.json`, `boone_eldata.json`), including a background-only variant.\n- `apply_widgets.php`: widget application script.\n\n# Notes\n- For the current safe Elementor edit loop (backup, guarded walker, `wp_slash(wp_json_encode(...))`, cache clear, verify), see [Alphalete - Project Guide](lib:brain-alphalete-project-guide) and [Alphalete - Decisions and Rules](lib:brain-alphalete-decisions-and-rules).\n- All files are raw HTML, JSON, PHP and Python; no separate notes.\n\n# Related\n- [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub), [Alphalete - Blog Batches 1 and 2 2026-06](lib:brain-alphalete-blog-batches-1-and-2-2026-06), [Alphalete - Fix Log](lib:brain-alphalete-fix-log)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Alphalete Trenchless Pipelining/wp-elementor-fixes-2026-06-12",
+ "date": "2026-06-12",
+ "createdAt": 1792613148886,
+ "updatedAt": 1792613148886,
+ "rev": "a0b7d1c34952"
+}

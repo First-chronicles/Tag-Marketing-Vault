@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Blog - Fall Sewer Line Maintenance",
+ "cat": "brain-pipeliners",
+ "group": "Blogs",
+ "body": "> Blog · Pipeliners · 2026-09-15\n\n# Summary\nBuild folder for the fall seasonal post https://pipelinersusa.com/sewer-line-maintenance/ (\"Fall Sewer Line Maintenance: How to Prevent Holiday Drain and Sewer Problems\"). Files: build script, card HTML, `create_draft.php`, `add_cleanout.php`, an editor note asking for Jake's real cleanout photo (cleanout straight up beside a Phoenix Valley home), FAQ JSON-LD, live content and page snapshots, a redirects mu-plugin copy, and the SEO entry (title \"Fall Sewer Line Maintenance Guide for Phoenix Valley Homes\").\n\n# Key facts\n- **Status:** published Sep 14 as post 18123 (per the handoff); content backup meta `_pl_backup_content_20260915`.\n- The Sep 18 merges redirected an old \"Dos and Don'ts of Drain Care\" draft to this post.\n- The Oct 13 seasonal research treats this post as the owner of the holiday-grease angle, so new posts must link to it rather than repeat it.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Blog Index](lib:brain-pipeliners-blog-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/blog-fall-sewer-maintenance",
+ "date": "2026-09-15",
+ "createdAt": 1792613346123,
+ "updatedAt": 1792613346123,
+ "rev": "f5f7a4157667"
+}

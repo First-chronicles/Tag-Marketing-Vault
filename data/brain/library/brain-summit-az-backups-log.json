@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Backups Log",
+ "cat": "brain-summit",
+ "group": "Trackers",
+ "body": "> Log · Summit Az · 2026-10-16\n\n# Summary\nDated log of pre-change backups taken before edits to the live Summit AZ site. Each page backup holds raw files (Elementor data JSON, post JSON, postmeta TSV, post content HTML, raw WP HTML and the live OTTO-rendered HTML); these are not summarized individually. What changed is inferred from folder names and matching drafts.\n\n| Date | Backup | Scope | What it protected |\n|---|---|---|---|\n| 2026-09-03 | `backups\\backup_batch1_sewer_2026-09-03` | 6 pages: 972 sewer line repair and replacement (pillar), 2905 Tempe, 2911 Chandler, 2993 San Tan Valley, 3073 Mesa, 3087 Phoenix | Before the batch 1 sewer line repair rewrite |\n| 2026-09-03 | `backups\\backup_batch2_general_2026-09-03` | 7 pages: 17 plumbing (parent), 1864 Chandler, 548 Mesa, 549 Tempe, 550 Scottsdale, 551 Phoenix, 801 Queen Creek | Before the batch 2 general plumbing city hub rewrite (drafts in [Summit AZ - Drafts - Batch 2 City Hubs 2026-09-03](lib:brain-summit-az-drafts-batch-2-city-hubs-2026-09-03)) |\n| 2026-09-15 | `backups\\backup_rankmath_29_2026-09-15` | 29 pages and posts | Old Rank Math titles and focus keywords before the 29-title rewrite |\n| 2026-09-15 | `backups\\backup_rankmath_descriptions_122_2026-09-15` | 122 URLs | Old focus keywords and meta descriptions |\n| 2026-09-15 | `backups\\backup_rankmath_keywords_92_2026-09-15` | 92 URLs | Old focus keywords (some were long comma lists) |\n| 2026-10-08 | `fix-backups\\2026-10-08_homepage` | Homepage | Elementor data and all postmeta before a 2026-10-08 homepage fix (change not documented in the folder) |\n| 2026-10-16 | `backups\\rank_math_title_before.json` | 31 post IDs | Old Rank Math titles before a title change (first entry: the water softeners post) |\n\n# Notes\n- The 2026-09-15 Rank Math backups line up with the progress report item \"new titles, focus keywords and meta descriptions for 29 indexed pages\" (see [Summit AZ - SEO Progress Report 2026-09-24](lib:brain-summit-az-seo-progress-report-2026-09-24)).\n- Client WP sites are read-only for Claude per Kim's rules; these backups come from the earlier, authorized change windows.\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Summit AZ - Work Folders Index](lib:brain-summit-az-work-folders-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/backups",
+ "date": "2026-10-16",
+ "createdAt": 1792613122632,
+ "updatedAt": 1792613122632,
+ "rev": "5b21dcb8209a"
+}

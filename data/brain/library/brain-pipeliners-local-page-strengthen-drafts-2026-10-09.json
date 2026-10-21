@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Local Page Strengthen Drafts 2026-10-09",
+ "cat": "brain-pipeliners",
+ "group": "City Pages",
+ "body": "> Plan · Pipeliners · 2026-10-09\n\n# Summary\n\"Strengthen this ranking page\" packages for five city pages, prepared Oct 9, 2026 (drafts only; nothing written live). Built from a GSC shortlist (Domain property, last 28 days, 34 city pages, 752 query rows) after excluding ad-touched pages (/gilbert/, /cave-creek/, /san-tan-valley/, /fort-mcdowell/, /mesa/), Kim's exclusions (/anthem/, /apache-junction/) and Maricopa (in test).\n\n# Key findings\n- Batch 1 (ad-free, close to page 1): Florence, Buckeye, Sun City, Avondale, Goodyear. Batch 2: Sun City West, Paradise Valley, Fountain Hills, Coolidge, Laveen, Litchfield Park, Queen Creek. Big demand but far back: Chandler, Mesa, Tempe, Phoenix, Peoria, Scottsdale.\n- Every draft has the same nine parts: live snapshot (desktop and Googlebot mobile), why this keyword, alignment table, exact new copy with Elementor insertion points, FAQ additions, internal links, rule-violation fixes, external link 200-twice log, risks and open questions.\n- Focus keywords: Buckeye \"pipe break repair in Buckeye\" (pipe break cluster 154 impressions, more than double the others; the live title and meta never said \"pipe break\"); Florence \"pipe break repair in Florence, AZ\" (100 impressions at 10.3); Sun City \"sewer line repair in sun city az\" (103 at 24.7); Goodyear and Avondale \"trenchless sewer repair in {City}, AZ\".\n- None of the five had a true 40 to 60 word answer block; the Sep 29 question headings were followed by 90 to 130 words of general copy.\n- Goodyear was only 49% unique against /gilbert/ on 8-word shingles. Schema hours and rating had already been removed Oct 8.\n\n# Decisions and status\n- Blocker: the Google Ads ad check could not run (token expired Oct 9). Pages stay protected until the ad check shows 0 impressions or Kim gives a one-off OK.\n- Avondale went a different way: it was fully rebuilt Oct 10 (see the Avondale keyword research note).\n\n# Files in this folder (rollups only)\n- `gsc-shortlist-2026-10-09.md`, `avondale-draft.md`, `buckeye-draft.md`, `florence-draft.md`, `goodyear-draft.md`, `sun-city-draft.md`.\n- `live/`: saved text trees, HTML and Elementor JSON of the five pages.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - City Page Audit 2026-10-02](lib:brain-pipeliners-city-page-audit-2026-10-02), [Pipeliners - AI Answer City Headings 2026-09-29](lib:brain-pipeliners-ai-answer-city-headings-2026-09-29), [Pipeliners - Avondale Keyword Research 2026-10-10](lib:brain-pipeliners-avondale-keyword-research-2026-10-10)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/local-strengthen-2026-10-09",
+ "date": "2026-10-09",
+ "createdAt": 1792613567302,
+ "updatedAt": 1792613567302,
+ "rev": "ae898f6d269e"
+}

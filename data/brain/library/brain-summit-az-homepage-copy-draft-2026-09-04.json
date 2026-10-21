@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Homepage Copy Draft 2026-09-04",
+ "cat": "brain-summit",
+ "group": "Plans",
+ "body": "> Plan · Summit Az · 2026-09-04\n\n# Summary\nHomepage copy written for Scott's rebuild of the Arizona site, Sep 4, 2026. Two versions: `Summit-AZ-Homepage-Copy-Draft-2026-09-04.docx` (v1) and `Summit-AZ-Homepage-Copy-Draft-v2-2026-09-04.docx` (v2, keyword-optimized). Design and section order unchanged; phone left as [PHONE] because of the GHL number pool. A `~$` lock file for v1 also sits in the folder (ignore).\n\n# What v2 adds\n- Keyword research from Search Atlas plus the site's own GSC: the homepage clicked only on brand terms but got impressions at positions 30 to 55 for \"plumbing repair mesa az\", \"plumbing companies mesa az\" and \"best plumber in mesa az\".\n- Hero targets \"plumber mesa az\" (2,400), \"plumbing company mesa az\" (320) and others; each service section lists its target terms (for example \"emergency plumber mesa az\" 140, \"sewer repair phoenix az\" 70).\n- Sections for trenchless sewer repair (signature), emergency plumber, water softeners and filtration, sewer inspection and the other services.\n\n# Caution\n- This draft predates the business rules set Sep 5 to 25. It contains wording now prohibited: \"24/7\" and \"24-hour emergency plumber line\", \"bonded\", \"Same-Day Service\" as a flat claim, \"family-owned\" and \"locally-owned\", and \"leading cause\" style claims. Do not reuse it without checking against [Summit AZ - Decisions and Rules](lib:brain-summit-az-decisions-and-rules).\n- The homepage has been locked since Sep 7 (Scott); later homepage work is in [Summit AZ - Homepage GBP Alignment 2026-10-21](lib:brain-summit-az-homepage-gbp-alignment-2026-10-21).\n\n# Related\n- [Summit AZ - Mesa Plumber Page Plan 2026-09-14](lib:brain-summit-az-mesa-plumber-page-plan-2026-09-14), [Summit AZ - Project Guide (CLAUDE.md)](lib:brain-summit-az-project-guide-claude-md), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/Summit-AZ-Homepage-Copy-Draft-v2-2026-09-04.docx",
+ "date": "2026-09-04",
+ "createdAt": 1792613379509,
+ "updatedAt": 1792613379510,
+ "rev": "c7361339cc20"
+}

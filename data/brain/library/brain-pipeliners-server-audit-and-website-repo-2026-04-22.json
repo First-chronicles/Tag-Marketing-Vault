@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Server Audit and Website Repo 2026-04-22",
+ "cat": "brain-pipeliners",
+ "group": "Audits",
+ "body": "> Audit · Pipeliners · 2026-04-22\n\n# Summary\nRollup of the `pipeliners-website\\` working folder (a small git repo created for SSH access and site maintenance, April 2026). SSH notes and settings were not copied.\n\n# Files\n- `README.md`: hosting details (Hostinger, WP path `~/domains/pipelinersusa.com/public_html`, table prefix `wpku_`), other domains on the same account, folder layout, and who to ask (Scott).\n- `context/audit-2026-04-22.md`: full site audit via SSH and live crawl. WordPress 6.9.4, Essentials (Pixfort) 3.2.28, PHP 8.2.30, DB 69 MB. P0: a 1.7 GB All-in-One Migration backup in the webroot, a suspicious admin user, wrong-city leaks in the Mesa FAQ, exposed WP/PHP versions, dead files, a broken plugin file. P1: templated city pages (30+), with options to consolidate or rewrite. Advice: fix bloat and duplicate content before spending link-building budget.\n- `context/cleanup-log-2026-04-22.md`: what was done the same day: DB dump and .htaccess backup first, the backup archive moved out of the webroot, the unknown admin user (last login from an unrecognized region) deleted and content reassigned, X-Powered-By removed, readme.html deleted, and more.\n- `context/not-indexed-2026-06-16.md`: GSC Page indexing as of 6/12: 72 indexed, 275 not; 164 genuinely not indexed (156 crawled not indexed, 15 discovered), listed by URL with last crawl dates.\n- `context/thankyou-form-fix-2026-06-01.md`: the \"Get A Free Estimate\" GHL form lives in the global footer (post 3637) and is skipped on /thank-you/ by design (only the FB Lead pixel fires). A fix was applied then reverted at the user's request.\n- `ssh/NOTES.md`, `ssh/config-snippet.txt`, `.claude/settings.local.json`: access notes, not summarized.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Audits and Reports Index](lib:brain-pipeliners-audits-and-reports-index), [SSH Client Aliases](lib:brain-ssh-client-aliases), [Pipeliners - Project Guide (CLAUDE.md)](lib:brain-pipeliners-project-guide-claude-md)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/pipeliners-website",
+ "date": "2026-04-22",
+ "createdAt": 1792613171239,
+ "updatedAt": 1792613171239,
+ "rev": "45b18a17a20b"
+}

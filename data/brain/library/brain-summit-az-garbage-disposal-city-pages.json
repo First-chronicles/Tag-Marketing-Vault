@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Garbage Disposal City Pages",
+ "cat": "brain-summit",
+ "group": "City Pages",
+ "body": "> Plan · Summit Az · 2026-09-25\n\n# Summary\nRewrite drafts for two garbage disposal city pages that Google had discovered but never crawled. Both were near-copies of the Scottsdale disposal page. Applied live Sep 24 to 25 (handoff and case study).\n\n# Pages\n| City | Page ID | Draft file | Before | Main keyword | New title |\n|---|---|---|---|---|---|\n| Phoenix | 10191 | `Summit-AZ-Garbage-Disposal-Phoenix-Draft-2026-09-25.md` | 33% identical, 41% near-identical to Scottsdale | garbage disposal plumber (1,300 / KD 30) | Garbage Disposal Plumber in Phoenix, AZ \\| Summit |\n| Fountain Hills | 10188 | `Summit-AZ-Garbage-Disposal-Fountain-Hills-Draft-2026-09-25.md` | 19% identical, 46% near-identical | garbage disposal leaking (4,400 / KD 17) | Garbage Disposal Leaking? Fountain Hills Repair \\| Summit |\n\n# Supporting keywords\n- Phoenix: garbage disposal not working (22,200), reset button (12,100), leaking from bottom (8,100), humming (3,600), how long do garbage disposals last (2,900), horsepower (320). This gave Phoenix a different primary from the other 9 disposal pages.\n- Fountain Hills: batch feed garbage disposal (1,000), backing up (590), backing up into other sink (260), continuous vs batch feed (140).\n\n# Fixes\n- Removed pasted chat-app code blocks, \"often the same day\", \"haul away the old unit\", \"never a forced upsell\", the made-up term \"tank-feed\" and an unconfirmed EPCOR claim.\n- Phoenix focus keyword box cut from 8 terms (including the brand) to 5 relevant terms.\n- Camera filename alt text (\"Dsc03489\") replaced on the widget, since the media entries no longer exist.\n- Fountain Hills copy built on Fountain Hills Sanitary District backup guidance.\n\n# Related\n- [Summit AZ - City Pages Index](lib:brain-summit-az-city-pages-index), [Summit AZ - Blog What Not to Put Down a Garbage Disposal 2026-09-10](lib:brain-summit-az-blog-what-not-to-put-down-a-garbage-disposal-2026-09-10), [Summit AZ - 7 Page Boost 2026-10-07](lib:brain-summit-az-7-page-boost-2026-10-07), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros",
+ "date": "2026-09-25",
+ "createdAt": 1792613000615,
+ "updatedAt": 1792613000615,
+ "rev": "099780348e15"
+}

@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Performance Tracking Method 2026-08-31",
+ "cat": "brain-pipeliners",
+ "group": "Reports",
+ "body": "> Guide · Pipeliners · 2026-08-31\n\n# Summary\nHow to re-measure Pipeliners SEO performance consistently. Written Aug 31, 2026 alongside the performance snapshot.\n\n# Key points\n- GSC property: `https://pipelinersusa.com/` URL-prefix (not sc-domain), Global scope, via Search Atlas tools (site totals, pages, keyword tiers).\n- 28-day windows so weekday effects cancel; never end a window within 3 days of today (GSC lag).\n- Windows: M2 Jun 30 to Jul 27; M3 Jul 28 to Aug 24 is the LOCKED BASELINE (all Aug 25 to 28 work landed after it); M4 Aug 25 to Sep 21 (first post-change read); M5 Sep 22 to Oct 19.\n- Tier definitions use a wider 89-day window (Jun 1 to Aug 28): Tier 1 positions 4 to 10 (77 queries, 25 tracked), Tier 2 positions 11 to 20 (207, 31 tracked), Tier 3 positions 21 to 30 (12 tracked).\n- Re-measure dates: Sep 24 (M4 vs M3) and Oct 22 (M5 vs M3).\n- Success is city-page clicks and queries moving up tiers, not position. Baseline to beat: 1 click across 37 city pages in 28 days.\n- Caveats: the API returns null for zero clicks; blank cells mean absent, not zero; do not compare with the 90-day July audit figures.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Performance Snapshot Summary 2026-08-31](lib:brain-pipeliners-performance-snapshot-summary-2026-08-31), [Google Search Console](lib:brain-google-search-console), [Search Atlas](lib:brain-search-atlas)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/performance-tracking/METHOD.md",
+ "date": "2026-08-31",
+ "createdAt": 1792613290916,
+ "updatedAt": 1792613567089,
+ "rev": "5e3ac50d2f13"
+}

@@ -1,0 +1,254 @@
+<style id="cmdbar-css">
+/* Design command bar: lets an editor restyle or restructure the page in plain English.
+   Changes live in db doc design/layer (css + js), applied over the base page. */
+.cmd-fab { position: fixed; right: 20px; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); z-index: 50; display: inline-flex; align-items: center; gap: 8px; border: 0; border-radius: 999px; padding: 10px 16px; background: var(--ink); color: var(--canvas); font: 600 13px var(--font-ui); cursor: pointer; box-shadow: var(--shadow-lg); }
+.cmd-fab:hover { background: var(--brand); color: #fff; }
+.cmd-fab kbd { font: 500 11px var(--font-data); opacity: .7; }
+.cmd-panel { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); z-index: 51; width: min(720px, calc(100vw - 32px)); background: var(--surface); border: 1px solid var(--line-2); border-radius: 14px; box-shadow: var(--shadow-lg); padding: 14px 16px; display: grid; gap: 10px; }
+.cmd-row { display: flex; gap: 8px; align-items: flex-end; }
+.cmd-panel textarea { flex: 1; min-height: 44px; max-height: 160px; resize: vertical; font: 14px/1.4 var(--font-ui); }
+.cmd-panel .refbtn { padding: 10px 16px; }
+.cmd-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 12px; color: var(--muted); }
+.cmd-head b { color: var(--ink); font-size: 13px; }
+.cmd-x { border: 0; background: none; cursor: pointer; color: var(--muted); font-size: 18px; line-height: 1; padding: 2px 6px; }
+.cmd-status { margin: 0; font-size: 13px; color: var(--ink-2); white-space: pre-wrap; max-height: 160px; overflow: auto; }
+.cmd-status.bad { color: var(--bad-ink); }
+.cmd-acts { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.cmd-acts .ghost { border: 1px solid var(--line-2); background: var(--surface); color: var(--ink); border-radius: 10px; padding: 7px 12px; font: 600 12px var(--font-ui); cursor: pointer; }
+.cmd-acts .ghost:hover { border-color: var(--ink); }
+.cmd-acts select { font-size: 12px; max-width: 320px; }
+.cmd-tip { font-size: 11px; color: var(--muted); margin: 0; }
+@media print { .cmd-fab, .cmd-panel { display: none !important; } }
+</style>
+<style id="cmdLayer"></style>
+<script>
+(() => {
+  const RULES = [
+    "You are changing the DESIGN and STRUCTURE of a live web dashboard (TAG Search Visibility Tracker). You never change its data.",
+    "You are given: the page's base CSS, an outline of the currently rendered DOM, the current design layer (css + js), and the editor's request.",
+    "Answer with ONE JSON object and nothing else: {\"summary\": string, \"css\": string, \"js\": string, \"notes\": string}.",
+    "css and js REPLACE the whole current layer, so carry over everything from the current layer that should stay, then add the new change.",
+    "css: plain CSS applied after the base CSS. Prefer CSS whenever it can do the job (colours, spacing, fonts, sizes, hiding, reordering with order/grid, widths).",
+    "js: the body of a function(root) that runs after every re-render of the page (the app re-renders often). It must be idempotent: never duplicate what it adds. Any element you create must carry the attribute data-cmd=\"1\" (they are removed before each run).",
+    "js rules: DOM only. No fetch, XMLHttpRequest, WebSocket, eval, import, localStorage, cookies, window.claude, or db. No timers that keep running. Do not remove or rewrite the page's numbers or data; you may move, relabel, regroup, hide or restyle elements.",
+    "Use the theme tokens (var(--ink), var(--brand), var(--surface), var(--line), var(--muted), etc.) so light and dark both work. Keep it readable on a 375px phone.",
+    "If the request needs new DATA, a new metric, or a change to how numbers are calculated, do not fake it: leave css/js as the current layer and explain in notes that it needs Claude Code.",
+    "summary: one or two plain sentences of what changed, for a non-developer. No em dashes."
+  ].join("\n");
+
+  let db = null, sample = null, canEdit = false;
+  let saved = { css: "", js: "" };     // layer stored in db
+  let live = { css: "", js: "" };      // layer applied now (may be an unsaved preview)
+  let pending = null;                  // proposal waiting for Keep/Discard
+  let history = [];
+  let ctl = null;
+
+  const $ = (s, r = document) => r.querySelector(s);
+  const mk = (t, cls, txt) => { const n = document.createElement(t); if (cls) n.className = cls; if (txt != null) n.textContent = txt; return n; };
+
+  /* ---------- apply layer ---------- */
+  let applying = false, timer = 0, mo = null;
+  function runJs() {
+    if (!live.js) return;
+    applying = true;
+    try {
+      document.querySelectorAll("[data-cmd]").forEach(n => n.remove());
+      new Function("root", live.js)(document);
+    } catch (e) { console.warn("[cmdbar] layer js failed", e); }
+    finally { setTimeout(() => { applying = false; }, 0); }
+  }
+  function applyLayer(layer) {
+    live = { css: layer.css || "", js: layer.js || "" };
+    $("#cmdLayer").textContent = live.css;
+    if (!live.js) document.querySelectorAll("[data-cmd]").forEach(n => n.remove());
+    runJs();
+  }
+  function watch() {
+    const app = $(".app"); if (!app || mo) return;
+    mo = new MutationObserver(() => {
+      if (applying || !live.js) return;
+      clearTimeout(timer); timer = setTimeout(runJs, 120);
+    });
+    mo.observe(app, { childList: true, subtree: true });
+  }
+
+  /* ---------- context for Claude ---------- */
+  function baseCss() {
+    return [...document.querySelectorAll("style")]
+      .filter(s => !["cmdbar-css", "cmdLayer"].includes(s.id))
+      .map(s => s.textContent).join("\n").slice(0, 90000);
+  }
+  function outline(node, depth, out) {
+    if (out.len > 60000 || depth > 9) return;
+    for (const el of node.children) {
+      if (el.matches("script,style,svg,img,[data-cmd]")) {
+        if (el.tagName === "IMG" || el.tagName === "svg") { out.push("  ".repeat(depth) + "<" + el.tagName.toLowerCase() + (el.className && typeof el.className === "string" ? "." + el.className.trim().split(/\s+/).join(".") : "") + ">"); }
+        continue;
+      }
+      const cls = typeof el.className === "string" && el.className.trim() ? "." + el.className.trim().split(/\s+/).join(".") : "";
+      const id = el.id ? "#" + el.id : "";
+      const own = [...el.childNodes].filter(n => n.nodeType === 3).map(n => n.textContent.trim()).join(" ").replace(/\s+/g, " ").slice(0, 50);
+      const line = "  ".repeat(depth) + "<" + el.tagName.toLowerCase() + id + cls + ">" + (own ? " " + own : "");
+      out.push(line); out.len += line.length + 1;
+      // long repeated lists: keep the first few rows only
+      if (el.children.length > 8 && /^(TBODY|UL|OL)$/.test(el.tagName)) {
+        const slice = { children: [...el.children].slice(0, 3) };
+        outline(slice, depth + 1, out);
+        out.push("  ".repeat(depth + 1) + "... " + (el.children.length - 3) + " more similar rows");
+        continue;
+      }
+      outline(el, depth + 1, out);
+    }
+  }
+  function domOutline() {
+    const out = []; out.len = 0;
+    const app = $(".app"); if (app) outline({ children: [app] }, 0, out);
+    return out.join("\n");
+  }
+
+  /* ---------- UI ---------- */
+  let fab, panel, box, status, acts, runBtn;
+  function setStatus(t, bad) { status.textContent = t; status.className = "cmd-status" + (bad ? " bad" : ""); status.hidden = !t; }
+  function renderActs() {
+    acts.replaceChildren();
+    if (pending) {
+      const keep = mk("button", "refbtn sm", "Keep this change"); keep.type = "button"; keep.onclick = keepPending;
+      const undo = mk("button", "ghost", "Discard"); undo.type = "button"; undo.onclick = discardPending;
+      acts.append(keep, undo);
+      return;
+    }
+    if (history.length) {
+      const sel = mk("select"); sel.setAttribute("aria-label", "Design history");
+      sel.append(new Option("History: go back to an earlier design", ""));
+      history.forEach(h => sel.append(new Option(new Date(h.at).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }) + " · " + (h.summary || h.prompt || "").slice(0, 70), h.id)));
+      sel.onchange = () => { const h = history.find(x => x.id === sel.value); if (h) revertTo(h); };
+      acts.append(sel);
+    }
+    if (saved.css || saved.js) {
+      const reset = mk("button", "ghost", "Reset to original design"); reset.type = "button";
+      reset.onclick = () => revertTo({ css: "", js: "", summary: "Original design" });
+      acts.append(reset);
+    }
+  }
+  function open() { panel.hidden = false; fab.hidden = true; box.focus(); }
+  function close() { if (ctl) ctl.abort(); panel.hidden = true; fab.hidden = false; }
+  function buildUi() {
+    fab = mk("button", "cmd-fab"); fab.type = "button";
+    fab.append(mk("span", null, "✦ Change design"), mk("kbd", null, "Ctrl K"));
+    fab.onclick = open;
+    panel = mk("div", "cmd-panel"); panel.hidden = true; panel.setAttribute("role", "dialog"); panel.setAttribute("aria-label", "Design command bar");
+    const head = mk("div", "cmd-head");
+    const t = mk("span"); t.append(mk("b", null, "Design command bar"), document.createTextNode("  ·  layout and look only, your data is never changed"));
+    const x = mk("button", "cmd-x", "×"); x.type = "button"; x.setAttribute("aria-label", "Close"); x.onclick = close;
+    head.append(t, x);
+    const row = mk("div", "cmd-row");
+    box = mk("textarea"); box.placeholder = "e.g. make the sidebar narrower, put the KPI tiles in one row, use a darker orange, hide the footer sources";
+    box.setAttribute("aria-label", "Describe the design change");
+    box.addEventListener("keydown", e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); run(); } if (e.key === "Escape") close(); });
+    runBtn = mk("button", "refbtn", "Apply"); runBtn.type = "button"; runBtn.onclick = run;
+    row.append(box, runBtn);
+    status = mk("p", "cmd-status"); status.hidden = true;
+    acts = mk("div", "cmd-acts");
+    const tip = mk("p", "cmd-tip", "Changes preview right away. Keep saves them for everyone who opens the tracker; History and Reset undo them. New data or metrics still need Claude Code.");
+    panel.append(head, row, status, acts, tip);
+    document.body.append(fab, panel);
+    document.addEventListener("keydown", e => { if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") { e.preventDefault(); panel.hidden ? open() : close(); } });
+    renderActs();
+  }
+
+  /* ---------- actions ---------- */
+  const ERR = {
+    not_granted: "Claude wasn't allowed for this page. Allow it from the page's permissions to use the command bar.",
+    rate_limited: "Too many requests right now. Wait a minute and try again.",
+    cancelled: "Stopped.",
+  };
+  async function run() {
+    const ask = box.value.trim();
+    if (!ask || ctl) return;
+    if (pending) discardPending();
+    ctl = new AbortController();
+    runBtn.disabled = true; runBtn.textContent = "Working…";
+    setStatus("Thinking… (design changes usually take 20 to 60 seconds)");
+    const input = RULES + "\n\n=== BASE CSS ===\n" + baseCss() +
+      "\n\n=== RENDERED DOM OUTLINE (current view) ===\n" + domOutline() +
+      "\n\n=== CURRENT LAYER CSS ===\n" + (live.css || "(empty)") +
+      "\n\n=== CURRENT LAYER JS ===\n" + (live.js || "(empty)") +
+      "\n\n=== EDITOR'S REQUEST ===\n" + ask;
+    try {
+      const out = await sample.json(input, { signal: ctl.signal, cache: false, modelTier: "complex" });
+      if (!out || typeof out.css !== "string" || typeof out.js !== "string") throw { code: "bad_answer" };
+      if (/\b(fetch|XMLHttpRequest|WebSocket|eval|import\s*\(|localStorage|sessionStorage|document\.cookie|window\.claude|claude\.use)\b/.test(out.js)) throw { code: "unsafe" };
+      try { new Function("root", out.js); } catch (e) { throw { code: "bad_js" }; }
+      const changed = out.css !== live.css || out.js !== live.js;
+      if (!changed) { setStatus((out.notes || out.summary || "No change was needed.")); return; }
+      pending = { css: out.css, js: out.js, summary: out.summary || ask, prompt: ask, prev: { ...live } };
+      applyLayer(pending);
+      setStatus("Preview: " + (out.summary || "") + (out.notes ? "\n" + out.notes : ""));
+      renderActs();
+    } catch (e) {
+      const c = e && e.code;
+      const msg = ERR[c] || (c === "unsafe" ? "Claude's answer tried to do more than change the design, so it was not applied. Try rephrasing." :
+        c === "bad_js" || c === "bad_answer" || c === "bad_json" ? "Claude's answer couldn't be used. Try again or rephrase the request." :
+        "Something went wrong (" + (c || "error") + "). Nothing was changed.");
+      setStatus(msg, c !== "cancelled");
+    } finally {
+      ctl = null; runBtn.disabled = false; runBtn.textContent = "Apply";
+    }
+  }
+  async function keepPending() {
+    if (!pending) return;
+    const p = pending;
+    try {
+      const at = new Date().toISOString();
+      await db.doc("designHistory/" + at.replace(/[^0-9]/g, "")).set({ css: p.prev.css, js: p.prev.js, summary: "Before: " + p.summary, prompt: p.prompt, at });
+      await db.doc("design/layer").set({ css: p.css, js: p.js, summary: p.summary, prompt: p.prompt, at });
+      pending = null; box.value = "";
+      setStatus("Saved. Everyone who opens the tracker now sees this design.");
+    } catch (e) {
+      setStatus("Couldn't save (" + ((e && e.code) || "error") + "). The preview is still on your screen only.", true);
+    }
+    renderActs();
+  }
+  function discardPending() {
+    if (!pending) return;
+    applyLayer(pending.prev); pending = null;
+    setStatus("Discarded. Back to the saved design.");
+    renderActs();
+  }
+  async function revertTo(h) {
+    try {
+      const at = new Date().toISOString();
+      await db.doc("designHistory/" + at.replace(/[^0-9]/g, "")).set({ css: saved.css, js: saved.js, summary: "Before revert", prompt: "", at });
+      await db.doc("design/layer").set({ css: h.css || "", js: h.js || "", summary: "Reverted to: " + (h.summary || ""), prompt: "", at });
+      setStatus("Reverted. " + (h.summary || ""));
+    } catch (e) { setStatus("Couldn't revert (" + ((e && e.code) || "error") + ").", true); }
+  }
+
+  /* ---------- start ---------- */
+  async function start() {
+    if (!(window.claude && window.claude.use)) return;
+    try { db = await window.claude.use("db"); } catch (e) { db = null; }
+    if (!db) return;
+    // everyone gets the saved design; only editors get the bar
+    db.doc("design/layer").onSnapshot(snap => {
+      const d = snap.exists ? snap.data() : {};
+      saved = { css: d.css || "", js: d.js || "" };
+      if (!pending) applyLayer(saved);
+      if (acts) renderActs();
+    }, () => {});
+    watch();
+    let user = null;
+    try { user = await window.claude.use("user"); } catch (e) { user = null; }
+    try { canEdit = user ? await user.canEdit() : false; } catch (e) { canEdit = false; }
+    if (!canEdit) return;
+    try { sample = await window.claude.use("sample"); } catch (e) { sample = null; }
+    if (!sample) return;
+    db.collection("designHistory").orderBy("at", "desc").limit(15).onSnapshot(snap => {
+      history = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+      if (acts) renderActs();
+    }, () => {});
+    buildUi();
+  }
+  start();
+})();
+</script>

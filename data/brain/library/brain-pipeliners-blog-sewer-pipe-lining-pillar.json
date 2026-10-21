@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Blog - Sewer Pipe Lining Pillar",
+ "cat": "brain-pipeliners",
+ "group": "Blogs",
+ "body": "> Blog · Pipeliners · 2026-06-23\n\n# Summary\nJune 23 draft first planned as \"commercial and HOA pipe lining in Phoenix\" (0 search volume), repositioned as the informational pillar for **sewer pipe lining** (2,400/mo, competition 8) with a commercial, HOA and property manager section kept.\n\n# Key facts\n- **H1:** Sewer Pipe Lining: The Complete Guide for Phoenix Property Owners and Managers. **Title:** Sewer Pipe Lining: Complete Phoenix Guide. Slug /sewer-pipe-lining.\n- Supporting keywords: trenchless pipe repair, epoxy pipe lining, pipe lining cost, commercial sewer line repair, commercial plumbing phoenix, trenchless sewer repair phoenix, hoa sewer line repair, cipp lining (context only, /what-is-cipp/ owns it).\n- Includes an internal link plan (service pages, sibling posts, Phoenix page, contact), the HTML body, image alts, optional FAQPage schema, external sources and a pre-delivery checklist with [VERIFY] items for Kim.\n\n# Status\nNo publish record in this folder; not in the July live blog inventory. It conflicts with later rules: \"pipe lining\" as a focus noun, commercial scope unconfirmed by Scott, \"Pipeliners USA\" naming, and it targets \"trenchless pipe repair\" which the ad service page owns.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Blog Index](lib:brain-pipeliners-blog-index), [Pipeliners - Keyword Research 2026-06-23](lib:brain-pipeliners-keyword-research-2026-06-23)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/blog-commercial-hoa-pipe-lining-2026-06-23.md",
+ "date": "2026-06-23",
+ "createdAt": 1792613346126,
+ "updatedAt": 1792613346126,
+ "rev": "e2d8d5ce262d"
+}

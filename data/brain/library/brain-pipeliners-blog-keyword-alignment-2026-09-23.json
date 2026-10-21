@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Blog Keyword Alignment 2026-09-23",
+ "cat": "brain-pipeliners",
+ "group": "Audits",
+ "body": "> Report · Pipeliners · 2026-09-23\n\n# Summary\nWork folder for the Sep 23, 2026 blog focus keyword alignment. Every live blog post was given one focus keyword chosen from its own 90-day Google searches plus volume and difficulty, and that keyword was placed in the title, meta description, H1, first 100 words and at least one subheading. Results report: `pipeliners-blog-keywords.html` (checked live on desktop and Googlebot mobile Sep 24).\n\n# Key findings\n- 38 posts checked live; 37 aligned in all five places; 0 slugs changed.\n- Head terms owned by service pages were avoided (hydro jetting, leak detection, trenchless sewer repair).\n- Where needed, a short \"Quick answer\" (2 to 3 sentences from facts already in the post) and one renamed or added subheading were added. Titles, metas and social text were updated in OTTO and pages refreshed one at a time. Old titles and content were saved for rollback.\n- Examples: \"sewer line leak\" (170 a month, difficulty 20) for the 14 warning signs post; \"plumbing maintenance\" for the 2025 guide; \"root intrusion\", \"corroded pipes\", \"collapsed sewer line\", \"gurgling drains\", \"how long do cast iron pipes last\".\n\n# Decisions and status\n- Needs Kim's eye: the cost post quotes $3,800 to $15,800, a 20-year warranty and 50+ year life (Scott to confirm; not repeated); two lining-vs-replacement posts split by angle, merge later would be stronger; two keywords contain \"pipe lining\"; one post's meta could not be changed in OTTO.\n- Not touched on purpose: both myths posts (hold), the residential restoration guide (waiting on Scott), the pipeline locating post (Kim's call), and 9 merged posts.\n- Edits landed inside the Sep 19 merge measurement window (results check Oct 17).\n\n# Files in this folder (rollups only)\n- `pipeliners-blog-keywords.html`, `tracker_live.html`, `overview.txt` (heading and intro dump per post), `done_ids.txt` (11 post IDs), plan and OTTO batch JSON, before/after HTML, PHP, Python and shell scripts.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Blog Master List](lib:brain-blog-master-list), [Search Atlas](lib:brain-search-atlas), [SEO Blog Writing Standards](lib:brain-seo-blog-writing-standards)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/blog-kw-alignment-2026-09-23",
+ "date": "2026-09-23",
+ "createdAt": 1792613442057,
+ "updatedAt": 1792613567196,
+ "rev": "a48fa27a365f"
+}

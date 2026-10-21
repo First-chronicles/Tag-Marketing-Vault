@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Blog - Monsoon Cluster Supporting Posts",
+ "cat": "brain-pipeliners",
+ "group": "Blogs",
+ "body": "> Blog · Pipeliners · 2026-07-14\n\n# Summary\nFour supporting posts written to back the live July pillar /monsoon-season-pipe-problems/ (post 15609, live Jul 6) instead of a competing second pillar. Each links up to the pillar and across to existing posts. Delivered as markdown and published via WordPress (not Content Genius push, which rewrites the body).\n\n# The four posts (all published Jul 14, 2026 per the July blog inventory)\n| Post | Primary keyword | URL (post ID) |\n|---|---|---|\n| What Is a Bellied (Sagging) Sewer Pipe? | bellied sewer pipe | /what-is-a-bellied-sewer-pipe/ (15621) |\n| Hydro Jetting vs. Just Clearing the Clog | hydro jetting vs snaking | /hydro-jetting-vs-clearing-the-clog/ (15623) |\n| Monsoon Sewer Backups in Commercial Buildings | commercial sewer backup | /commercial-monsoon-sewer-backups/ (15625) |\n| Sewer Backing Up in a Monsoon Storm? What to Do Right Now | sewer backup what to do | /sewer-backup-monsoon-what-to-do/ (15627) |\n\n# Holds and flags in the file\n- Pricing kept out pending Scott (now a standing rule: no prices).\n- Author was \"Pipeliners\" (admin profile); the file suggested a named author. Since Aug 27 the author is Jake Shaker.\n- City URLs exist as /<city>/ and /service-areas/<city>/; the flat /<city>/ is canonical.\n- `[FIRST-HAND DETAIL]` placeholders for real camera stills; external links to .gov/.edu sources verified.\n- Per the handoff, the paid Rapid URL Indexer was used once for this cluster; paid indexers are now banned.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Blog Index](lib:brain-pipeliners-blog-index), [Pipeliners - Blog Clusters 2026-07](lib:brain-pipeliners-blog-clusters-2026-07), [Pipeliners - Blog - Monsoon Pillar Refresh](lib:brain-pipeliners-blog-monsoon-pillar-refresh)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/blog-clusters-2026-07/Pipeliners_July_Monsoon_Cluster_4_Supporting_Posts.md",
+ "date": "2026-07-14",
+ "createdAt": 1792613383663,
+ "updatedAt": 1792613383664,
+ "rev": "d8f6959758e1"
+}

@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - SEO Change Log",
+ "cat": "brain-summit",
+ "group": "Trackers",
+ "body": "> Log · Summit Az · 2026-10-22\n\n# Summary\nThe master, append-only log of every live change on summitplumbingpros.com since Sep 2, 2026. Columns: Date, Time (UTC), Who, System, Change, Scope / URLs, Evidence, Verified?, SEO risk to watch, Re-check. About 150 rows (101 in September, 49 in October through Oct 22). It is the source of truth that the case study and reports cite.\n\n# October 2026 highlights\n- Oct 1: keyword targeting audit (no changes); 2 blog focus keywords changed to stop competing with service pages (signs of a slab leak, trenchless sewer repair); index checks and Request Indexing.\n- Oct 3: striking-distance batch, 3 pages rewritten (drain cleaning Fountain Hills, sewer Fountain Hills, sewer Queen Creek); pipe lining unsourced local claims removed; swapped FAQs fixed on Scottsdale and Tempe pipe lining.\n- Oct 5 and 7: Request Indexing for the 7 not-indexed rewrites; 13 in-text links; water pressure Phoenix retargeted to \"PRV replacement Phoenix\"; shower and faucet FAQ schema.\n- Oct 7 to 8: homepage duplicate H1 (mobile widget to H2), meta shortened, Article schema off (Scott approved); Rank Math llms.txt module enabled; brand-name fixes on /water-softeners/ and em dashes fixed on the leaking pipe page.\n- Oct 9: schema fixes (emptied /about/ hand-coded block, Pages default schema to None on 149 pages, 24 pages reassigned to author \"Summit Plumbing Pros\", priceRange removed from the city-page plugin); 3 fixture city pages rewritten; Gilbert generic-content revision.\n- Oct 13: \"Grease in Drain\" blog published (post 11570) with internal links.\n- Oct 16: 31 Rank Math titles shortened; /plumbing/ services list rebuilt, Why Choose contrast fixed, retargeted to \"residential plumbing services\".\n- Oct 21 to 22: GBP map embed on homepage; mobile hero container removed by Kim; 5 homepage service card links restored; footer Facebook, Instagram, YouTube icons; Rank Math Local SEO address, GBP phone and sameAs added; \"LLC\" removed from schema name per Scott.\n\n# How it is used\n- Every live change gets a row with evidence and a re-check date (many September rows point at Oct 2).\n- Undo details and server backup paths live in the Evidence column.\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Summit AZ - Case Study Scrapbook](lib:brain-summit-az-case-study-scrapbook), [Summit AZ - Session Handoff 2026-10-01](lib:brain-summit-az-session-handoff-2026-10-01), [Trackers and Logs Index](lib:brain-trackers-and-logs-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/Summit-AZ-SEO-Change-Log.csv",
+ "date": "2026-10-22",
+ "createdAt": 1792612876167,
+ "updatedAt": 1792612876168,
+ "rev": "33554470000e"
+}

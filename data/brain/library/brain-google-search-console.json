@@ -1,0 +1,14 @@
+{
+ "name": "Google Search Console",
+ "cat": "brain-tools",
+ "group": "",
+ "body": "> Tool · 2026-10-13\n\n# Summary\nGoogle Search Console (GSC) is the source of truth for clicks, impressions, queries and indexing on every TAG site. Kim uses it through her signed-in Chrome (\"Kim-Main\"); Claude drives URL inspection there for indexing requests.\n\n# Properties\n- Pipeliners: domain property `sc-domain:pipelinersusa.com` (the only source that counts GBP link clicks) plus URL-prefix `https://pipelinersusa.com/`.\n- Alphalete: URL-prefix `https://alphaletetrenchless.com/`.\n- Summit AZ: `https://www.summitplumbingpros.com/`.\n- Prestige: `sc-domain:prestigeplumbingsc.com` (sitemap first submitted Jul 4, 2026; 23 pages discovered).\n\n# Indexing workflow (\"continue the GSC indexing task\")\n1. Read the [GSC Indexing Tracker](lib:brain-gsc-indexing-tracker).\n2. HTTP pre-check each queued URL and skip 301s.\n3. URL-inspect in Kim-Main Chrome; skip anything already on Google, otherwise Request Indexing.\n4. Stop at the first \"Quota Exceeded\" per property (about 13 manual requests per day per property; Alphalete guidance is about 6 to 18). After a block, wait 2 to 3 days on new or strict properties (Prestige, Pipeliners).\n5. Update the tracker and report full URLs.\nNote: GSC \"not indexed\" buckets lag, so always verify before requesting.\n\n# Data rules\n- Use the GSC UI, not the Search Atlas mirror, for page-level numbers ([Search Atlas](lib:brain-search-atlas) data is directional and drops anonymized queries).\n- Filter US-only to exclude TAG's Philippines testing traffic.\n- Screenshots of GSC numbers go into [Documentation Screenshots](lib:brain-documentation-screenshots).\n\n# Open items noted\n- Pipeliners crawled-not-indexed validation failed; the feeds/categories noindex fix needs re-validation after the remaining recrawl.\n\n# Related\n- [Tools and Integrations Index](lib:brain-tools-and-integrations-index), [GSC Indexing Tracker](lib:brain-gsc-indexing-tracker), [Instant Indexing Setup](lib:brain-instant-indexing-setup), [SEO Tracker](lib:brain-seo-tracker)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "_Shared (All Clients)/Trackers and Logs/GSC-Indexing-Tracker.md",
+ "date": "2026-10-13",
+ "createdAt": 1792613347325,
+ "updatedAt": 1792613347325,
+ "rev": "7b7baa8ccb7c"
+}

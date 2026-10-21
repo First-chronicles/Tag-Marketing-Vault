@@ -1,0 +1,14 @@
+{
+ "name": "Claude Code Setup Guide",
+ "cat": "brain-sops",
+ "group": "",
+ "body": "> Guide · 2026-05-21\n\n# Summary\nStep-by-step guide prepared for Kim to install and run Claude Code on Windows 11 using Git Bash. The file is dated by modified date (May 21 2026). The companion script `_generate_setup_guide.js` in the same folder generated the docx and is not a note.\n\n# Steps covered\n1. **Prerequisites:** Node.js v18+ (LTS installer, keep \"Add to PATH\"), Git Bash (Git for Windows), an Anthropic account (same login as claude.ai).\n2. **Install:** `npm install -g @anthropic-ai/claude-code`, then `claude --version`. On permission errors, do not use sudo; run Git Bash as administrator.\n3. **First login:** run `claude`, authorize in the browser, return to the terminal. Authentication is per machine and stored under `C:\\Users\\kimbe\\.claude\\`.\n4. **Verify:** open a project folder (example: `/c/TAG Marketing Claude/Summit Plumbing Pros`), ask Claude to list files, exit with `/exit` or Ctrl+D.\n5. **Config and memory locations:** `C:\\Users\\kimbe\\.claude\\` holds `settings.json`, `projects\\` per-project folders and auto-memory. TAG memory lives in `C:\\Users\\kimbe\\.claude\\projects\\C--TAG-Marketing-Claude\\memory\\` with `MEMORY.md` as the index.\n6. **Common commands:** `/help`, `/config`, `/clear`, `/exit`, `/init`, `/review`; from the shell: `claude`, `claude --version`, `npm update -g @anthropic-ai/claude-code`.\n7. **Existing connections at the time:** SSH alias `summit` (SiteGround, ed25519 key uploaded by Scott) and the Instantly AI API key configured 2026-05-19 (key not reproduced here).\n8. **Troubleshooting:** \"command not found\" (reopen Git Bash, check Node), npm permission errors, browser not opening during login, full reinstall (warning: deleting `.claude` removes memory files).\n\n# Related\n- [SOPs and Guides Index](lib:brain-sops-and-guides-index), [Claude Code Agents](lib:brain-claude-code-agents), [SSH Client Aliases](lib:brain-ssh-client-aliases), [Instantly AI](lib:brain-instantly-ai), [Google Ads MCP Setup SOP](lib:brain-google-ads-mcp-setup-sop)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "_Shared (All Clients)/SOPs and Guides/Claude Code Setup Guide.docx",
+ "date": "2026-05-21",
+ "createdAt": 1792613088019,
+ "updatedAt": 1792613088019,
+ "rev": "0df2864056c9"
+}

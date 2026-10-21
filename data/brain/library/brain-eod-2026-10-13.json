@@ -1,0 +1,14 @@
+{
+ "name": "EOD 2026-10-13",
+ "cat": "brain-eod",
+ "group": "2026-10 October",
+ "body": "> Eod · Summit Az · 2026-10-13\n\nTuesday. Summit AZ fall blog work.\n\n# Summit Plumbing Pros AZ\nSee [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub).\n- Picked 3 fall topics after checking People Also Ask, [Search Atlas](lib:brain-search-atlas) and existing posts: water heater flushing, grease in drain, garbage disposal not working. Cannibalization check (Rank Math keywords, page text, GSC) cleared all 3.\n- Published /blog/grease-in-drain/ in plain language using Mesa, Chandler and Tempe city website facts, with SEO title, meta, FAQ and schema; second featured image version after the first was rejected. Indexing requested.\n- Added links to it from the garbage disposal and clogged drains posts.\n- Fixed wrong advice on the clogged drains post (hot water flush pushes grease further down per the city sites), on the page and in FAQ schema.\n- Page tracker synced: 224 pages.\n\n# Follow-ups\n- Oct 27: check whether the grease post is indexed and getting impressions.\n- Next topics ready: water heater flushing, garbage disposal not working.\n- Move the tracker share pin to the new version.\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [SEO Blog Writing Standards](lib:brain-seo-blog-writing-standards), [EOD Reports Index](lib:brain-eod-reports-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/EOD Report 2026-10-13.txt",
+ "date": "2026-10-13",
+ "createdAt": 1792612977564,
+ "updatedAt": 1792612977565,
+ "rev": "515fc68138c8"
+}

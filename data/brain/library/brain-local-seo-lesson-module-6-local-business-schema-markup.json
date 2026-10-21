@@ -1,0 +1,14 @@
+{
+ "name": "Local SEO Lesson - Module 6 Local Business Schema Markup",
+ "cat": "brain-learning",
+ "group": "Local SEO Lesson",
+ "body": "> Lesson · 2026-10-08\n\n# Summary\nHow to add LocalBusiness schema (JSON-LD) so search engines read the business details in a standard format.\n\n# Key concepts\n- Schema is invisible to visitors; it can enable rich results and improve click-through, though it is not a direct ranking factor.\n- Use a specific subtype where possible (for example Plumber).\n- Properties: name, address, telephone, openingHours, geo coordinates, url, logo, priceRange, aggregateRating (only if allowed and accurate).\n- Generate with Google's Structured Data Markup Helper, a generator tool or a plugin; place in the head or before the closing body tag.\n- Test with the Rich Results Test or Schema Markup Validator; watch GSC for structured data errors.\n\n# How this applies to TAG clients\n- TAG rule: schema must match visible content (no hidden FAQs, no ratings not shown on the page).\n- Summit city-service pages emit Plumber and FAQPage schema via the `summit-location-seo` mu-plugin; Pipeliners city pages carry Service schema with a LocalBusiness provider through OTTO ([Search Atlas](lib:brain-search-atlas)).\n\n# Related\n- [Local SEO Lesson](lib:brain-local-seo-lesson), [Learning Index](lib:brain-learning-index), [Lesson Takeaways 2026-10-08](lib:brain-lesson-takeaways-2026-10-08)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Local SEO lesson/Module 6_ Local Business Schema Markup - Local SEO Masterclass · Local Rank Academy.pdf",
+ "date": "2026-10-08",
+ "createdAt": 1792613193373,
+ "updatedAt": 1792613193373,
+ "rev": "4d1217649b76"
+}

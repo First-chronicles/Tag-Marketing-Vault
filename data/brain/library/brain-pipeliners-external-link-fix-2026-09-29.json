@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - External Link Fix 2026-09-29",
+ "cat": "brain-pipeliners",
+ "group": "Audits",
+ "body": "> Report · Pipeliners · 2026-09-29\n\n# Summary\nA one-change folder from Sep 29, 2026: swap a dead \"UA\" caliche reference link (as named in the script comment) on post 18123 (/sewer-line-maintenance/). The apply script required live content to equal the saved copy and exactly one match.\n\n# Files in this folder (rollups only)\n- `apply_ext.php`, `before/ext_18123.html`, `before/live_18123.html`, `before/ext_14801.html` (a second post's external links saved for reference).\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Blog Audit 2026-09-29](lib:brain-pipeliners-blog-audit-2026-09-29)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/extlinks-2026-09-29",
+ "date": "2026-09-29",
+ "createdAt": 1792613507481,
+ "updatedAt": 1792613567248,
+ "rev": "f2e88d7208e1"
+}

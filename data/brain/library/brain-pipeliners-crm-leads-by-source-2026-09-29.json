@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - CRM Leads by Source 2026-09-29",
+ "cat": "brain-pipeliners",
+ "group": "Reports",
+ "body": "> Report · Pipeliners · 2026-09-29\n\n# Summary\nA one-file export (`leads-by-source-30d.csv`) of Pipeliners leads by source from the TAG CRM (Keystone) Lead Manager, pulled Sep 29, 2026. Columns: leads and booked for the last 30 days, the prior 30 days (rows dated Jul 31 to Aug 29 from the 90-day view), and 90-day leads, booked and revenue.\n\n# Key findings\n- Total: 63 leads and 8 booked in the last 30 days vs 70 and 15 in the prior 30; 178 leads in 90 days.\n- Google Business Profile: 23 leads, 2 booked (15 and 6 prior); 45 leads and 6 booked in 90 days, $790 revenue. Note: 7 of 23 calls were realtors or agents and about 7 were follow-ups on existing estimates.\n- Organic Search: 5 leads, 2 booked; 9 leads, 4 booked and $8,800 revenue in 90 days. Best close rate; all phone calls.\n- Google Ads: 4 leads, 1 booked (21 and 4 in 90 days), plus 1 \"adwords\" form.\n- Inspection Partner 3 (2 booked), Direct Line 4, Direct Traffic 3, Direct Website 2, Direct 2, Referral 1, TAG Ignite outreach 2.\n- \"Other\" 11 leads, 0 booked: chats, at least 6 of them vendor or sales spam.\n- Keystone shows dates in Asia/Singapore time.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Keystone CRM](lib:brain-keystone-crm), [GoHighLevel](lib:brain-gohighlevel), [Pipeliners - Local SEO AEO AIO Plan 2026-10-10](lib:brain-pipeliners-local-seo-aeo-aio-plan-2026-10-10)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/reports/crm-leads-2026-09-29",
+ "date": "2026-09-29",
+ "createdAt": 1792613209734,
+ "updatedAt": 1792613567033,
+ "rev": "7ef0236f034f"
+}

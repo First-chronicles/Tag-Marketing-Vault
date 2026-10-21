@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Drafts - General Plumbing Update Packs",
+ "cat": "brain-summit",
+ "group": "Drafts",
+ "body": "> Plan · Summit Az · 2026-05-29\n\n# Summary\nPer-city AEO/GEO/SEO update packs for the 10 existing General Plumbing pages. No new pages: content to paste into each live page in Elementor.\n\n# Pages covered (WP ID)\nApache Junction 947, Chandler 1864, Fountain Hills 1915, Gilbert 793, Mesa 548, Phoenix 551, Queen Creek 801, San Tan Valley 1897, Scottsdale 550, Tempe 549. Slugs mix \"in\" and no-\"in\" forms; no slug changes.\n\n# Each pack\n1. YAML frontmatter: slug, WP ID, primary keyword (\"general plumbing services in {City}\"), supporting keywords, suggested Yoast title and meta.\n2. Local-context paragraph (water utility, neighborhoods, build era) for a new Text widget.\n3. FAQ block (5 to 7 Q&As) for an accordion, plus a ready HTML snippet.\nSchema was to be set server-side in `_tag_marketing_schema_jsonld` post meta read by a code snippet.\n\n# Incident\n`_inject_chandler_test.php`, `_recover_chandler*.php` and `_revert_chandler*.php` (2026-05-29) record a failed injection test on Chandler (ID 1864) that broke its Elementor data; it was recovered by copying Mesa's (ID 548) Elementor data by direct SQL. Kim's standing rule against injecting visible Elementor content via WP-CLI covers exactly this failure.\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Summit AZ - Work Folders Index](lib:brain-summit-az-work-folders-index)\n- [Summit AZ - AEO Audit Chandler Pages 2026-05-29](lib:brain-summit-az-aeo-audit-chandler-pages-2026-05-29), [Summit AZ - Drafts Folder Overview](lib:brain-summit-az-drafts-folder-overview)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/drafts/summit-general-plumbing",
+ "date": "2026-05-29",
+ "createdAt": 1792613126830,
+ "updatedAt": 1792613126830,
+ "rev": "906882619e67"
+}

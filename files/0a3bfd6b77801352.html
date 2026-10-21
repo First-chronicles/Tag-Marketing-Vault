@@ -1,0 +1,322 @@
+<title>Pipeliners Organic Scorecard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  --ground:#F4F6F5; --paper:#FFFFFF; --ink:#16211E; --muted:#56635F; --line:#D5DCD9; --soft:#E9EEEC;
+  --accent:#1D5B6E; --accent-soft:#DCEBEF;
+  --good:#256B45; --good-soft:#E0F0E6; --warn:#946010; --warn-soft:#F7ECD6; --bad:#A83A2A; --bad-soft:#F6E1DD;
+  --na:#6B7471; --na-soft:#ECEEED;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#101614; --paper:#17201D; --ink:#E4ECE9; --muted:#9AA8A3; --line:#2C3834; --soft:#1E2925;
+    --accent:#7FC0D3; --accent-soft:#1B3540;
+    --good:#7CCB9C; --good-soft:#173226; --warn:#E3B45F; --warn-soft:#3A2D14; --bad:#F09383; --bad-soft:#3D1E19;
+    --na:#9AA3A0; --na-soft:#232B28;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#101614; --paper:#17201D; --ink:#E4ECE9; --muted:#9AA8A3; --line:#2C3834; --soft:#1E2925;
+  --accent:#7FC0D3; --accent-soft:#1B3540;
+  --good:#7CCB9C; --good-soft:#173226; --warn:#E3B45F; --warn-soft:#3A2D14; --bad:#F09383; --bad-soft:#3D1E19;
+  --na:#9AA3A0; --na-soft:#232B28;
+}
+body{background:var(--ground);color:var(--ink);font:15px/1.6 "IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px;padding-block:28px 64px}
+h1,h2,h3{font-family:Archivo,"IBM Plex Sans",system-ui,sans-serif;text-wrap:balance;line-height:1.2;margin:0}
+h1{font-size:clamp(1.7rem,3.6vw,2.4rem);font-weight:800;letter-spacing:-.01em}
+h2{font-size:1.35rem;font-weight:800;margin-bottom:12px;display:flex;gap:10px;align-items:baseline}
+h2 .n{font-family:"IBM Plex Mono",monospace;font-size:.85rem;color:var(--accent);font-weight:600}
+h3{font-size:1.02rem;font-weight:700;margin:18px 0 8px}
+p{margin:0 0 10px;max-width:72ch}
+.mono,td.num,th.num{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+header{display:grid;gap:10px;border-bottom:2px solid var(--ink);padding-bottom:18px;margin-bottom:22px}
+.windows{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.win{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:6px 10px;font-size:.82rem}
+.win b{font-family:Archivo,sans-serif}
+section{margin-top:34px}
+.summary{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:6px;padding:16px 18px}
+.summary p{margin:0 0 6px}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--paper)}
+table{border-collapse:collapse;width:100%;font-size:.86rem}
+th,td{padding:7px 10px;text-align:left;vertical-align:top;border-bottom:1px solid var(--soft)}
+th{background:var(--soft);font-weight:600;font-size:.78rem;white-space:nowrap}
+td.num,th.num{text-align:right;white-space:nowrap}
+tr.grp td{background:var(--accent-soft);font-weight:600;font-family:Archivo,sans-serif;font-size:.82rem}
+.up{color:var(--good);font-weight:600}.down{color:var(--bad);font-weight:600}.flat{color:var(--muted)}
+.na{color:var(--na);font-style:italic}
+.src{color:var(--muted);font-size:.78rem}
+.pill{display:inline-block;padding:1px 8px;border-radius:999px;font-size:.72rem;font-weight:600;white-space:nowrap;font-family:"IBM Plex Sans",sans-serif}
+.p-crit{background:var(--bad-soft);color:var(--bad)}.p-high{background:var(--warn-soft);color:var(--warn)}
+.p-med{background:var(--accent-soft);color:var(--accent)}.p-low{background:var(--na-soft);color:var(--na)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.box{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:14px 16px}
+.box ul{margin:0;padding-left:18px}.box li{margin:4px 0}
+.note{font-size:.84rem;color:var(--muted);max-width:none}
+.top5{counter-reset:t;list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.top5 li{counter-increment:t;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:10px 14px 10px 48px;position:relative}
+.top5 li::before{content:counter(t);position:absolute;left:14px;top:9px;font-family:Archivo,sans-serif;font-weight:800;font-size:1.2rem;color:var(--accent)}
+dl.decide{display:grid;gap:10px;margin:0}
+dl.decide div{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:12px 16px}
+dt{font-family:Archivo,sans-serif;font-weight:700;margin-bottom:4px}
+dd{margin:0}
+footer{margin-top:40px;border-top:1px solid var(--line);padding-top:14px;font-size:.8rem;color:var(--muted)}
+code{font-family:"IBM Plex Mono",monospace;font-size:.85em;background:var(--soft);padding:0 4px;border-radius:3px;word-break:break-word}
+a{color:var(--accent)}
+@media print{
+  @page{size:A4 landscape;margin:10mm}
+  body{font-size:10px;background:#fff}
+  .wrap{max-width:none;padding:0}
+  .tbl{overflow:visible;border:0}
+  table{font-size:8.5px;table-layout:auto}
+  th,td{padding:3px 5px}
+  th,td.num,td.num,.pill{white-space:normal}
+  tr{break-inside:avoid}
+  section{break-inside:auto}
+}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">Pipeliners · 633 W 2nd Ave, Mesa, AZ 85210 · ROC #362960 · Snapshot 2026-09-16</div>
+  <h1>Organic SEO performance: 30, 28 and 7-day comparison</h1>
+  <p class="note">All three periods end <b>Sep 12, 2026</b>, the last complete day of Search Console data (Sep 13 was partial, Sep 14-15 empty on Sep 16). Each metric is compared only with its own previous window. Two Search Console properties are used and never mixed in one comparison: the <b>Domain property</b> (<code>sc-domain:pipelinersusa.com</code>, GSC UI) for headline totals, branded split and devices, because it includes the Business Profile link (<code>http://…utm_medium=gmb</code>); and the <b>URL-prefix property</b> (<code>https://pipelinersusa.com/</code>, via Search Atlas) for keyword bands and page/query detail. CRM leads are from the TAG CRM Lead Manager (AI-filtered leads only), with timestamps converted from Singapore time to Arizona time.</p>
+  <div class="windows">
+    <div class="win"><b>30d</b> <span class="mono">Aug 14 – Sep 12</span> vs <span class="mono">Jul 15 – Aug 13</span></div>
+    <div class="win"><b>28d</b> <span class="mono">Aug 16 – Sep 12</span> vs <span class="mono">Jul 19 – Aug 15</span></div>
+    <div class="win"><b>7d</b> <span class="mono">Sep 6 – Sep 12</span> vs <span class="mono">Aug 30 – Sep 5</span></div>
+  </div>
+</header>
+
+<section>
+<h2><span class="n">1</span>Executive summary</h2>
+<div class="summary">
+<p><b>Improved:</b> CRM leads sourced to the Business Profile more than doubled over 30 days (24 vs 11, with 5 booked worth $27,590), Organic Search leads rose to 4 with 3 booked ($17,600), and branded Google clicks rose to 21 from 14.</p>
+<p><b>Declined:</b> non-branded Google clicks fell 20% (39 vs 49), average position slipped about 4 places (48.4 vs 44.3), and page-1 queries at positions 4-10 dropped from 59 to 33.</p>
+<p><b>Biggest opportunity:</b> "florence pipe break repair" gets 96 impressions at position 15 after losing 11 places, and /florence/ wasn't touched in the Sep 15-16 edits, so it can take the pipe-break fix already made on Buckeye.</p>
+<p><b>Primary concern:</b> growth is coming from the brand and the Business Profile, not from non-branded rankings, and 10 CRM leads in the last 30 days have no usable source ("Other").</p>
+<p><b>Also:</b> an unlisted number, (480) 969-7978, appears on Birdeye and the Ace DuraFlo installer directory with the correct address.</p>
+</div>
+</section>
+
+<section>
+<h2><span class="n">2</span>KPI comparison</h2>
+<div class="tbl"><table>
+<thead><tr><th>Metric</th><th class="num">30d</th><th class="num">Prev 30d</th><th class="num">Δ</th><th class="num">28d</th><th class="num">Prev 28d</th><th class="num">Δ</th><th class="num">7d</th><th class="num">Prev 7d</th><th class="num">Δ</th><th>Source</th></tr></thead>
+<tbody>
+<tr class="grp"><td colspan="11">Google Search, Domain property (all Google clicks, incl. Business Profile link)</td></tr>
+<tr><td>Clicks</td><td class="num">60</td><td class="num">63</td><td class="num down">−4.8%</td><td class="num">56</td><td class="num">60</td><td class="num down">−6.7%</td><td class="num">19</td><td class="num">6</td><td class="num up">+216.7%</td><td class="src">GSC sc-domain UI, device rows</td></tr>
+<tr><td>Impressions</td><td class="num">26,447</td><td class="num">26,747</td><td class="num down">−1.1%</td><td class="num">25,064</td><td class="num">24,553</td><td class="num up">+2.1%</td><td class="num">5,550</td><td class="num">7,147</td><td class="num down">−22.3%</td><td class="src">GSC sc-domain UI</td></tr>
+<tr><td>CTR (clicks ÷ impr.)</td><td class="num">0.227%</td><td class="num">0.236%</td><td class="num down">−3.7%</td><td class="num">0.223%</td><td class="num">0.244%</td><td class="num down">−8.6%</td><td class="num">0.342%</td><td class="num">0.084%</td><td class="num up">+307%</td><td class="src">Computed</td></tr>
+<tr><td>Avg position (impr.-weighted)</td><td class="num">48.4</td><td class="num">44.3</td><td class="num down">4.1 worse</td><td class="num">48.6</td><td class="num">44.3</td><td class="num down">4.3 worse</td><td class="num">50.4</td><td class="num">46.1</td><td class="num down">4.3 worse</td><td class="src">GSC sc-domain device rows</td></tr>
+<tr><td>Business Profile link clicks / impr.</td><td class="num">27 / 5,119</td><td class="num">25 / 4,946</td><td class="num up">+8.0%</td><td class="num na" colspan="3">Data unavailable</td><td class="num na" colspan="3">Data unavailable</td><td class="src">GSC sc-domain Pages tab (30d read only)</td></tr>
+<tr><td>Website-organic clicks (URL-prefix)</td><td class="num">33</td><td class="num">37</td><td class="num down">−10.8%</td><td class="num">29</td><td class="num">38</td><td class="num down">−23.7%</td><td class="num">12</td><td class="num">4</td><td class="num up">+200%</td><td class="src">GSC https URL-prefix via Search Atlas</td></tr>
+<tr><td>Website-organic impr. · position (URL-prefix)</td><td class="num">21,845 · 57.7</td><td class="num">22,410 · 52.1</td><td class="num down">−2.5%</td><td class="num">20,822 · 57.6</td><td class="num">20,517 · 52.4</td><td class="num up">+1.5%</td><td class="num">4,708 · 58.5</td><td class="num">5,585 · 57.4</td><td class="num down">−15.7%</td><td class="src">GSC https URL-prefix via Search Atlas</td></tr>
+<tr class="grp"><td colspan="11">Branded vs non-branded (Domain property, Google's Branded filter)</td></tr>
+<tr><td>Branded clicks / impr.</td><td class="num">21 / 137</td><td class="num">14 / 124</td><td class="num up">+50.0%</td><td class="num">19 / 132</td><td class="num">16 / 124</td><td class="num up">+18.8%</td><td class="num">7 / 28</td><td class="num">3 / 19</td><td class="num up">+133%</td><td class="src">GSC sc-domain, Query: Branded</td></tr>
+<tr><td>Non-branded clicks / impr.</td><td class="num">39 / 26,310</td><td class="num">49 / 26,623</td><td class="num down">−20.4%</td><td class="num">37 / 24,932</td><td class="num">44 / 24,429</td><td class="num down">−15.9%</td><td class="num">12 / 5,522</td><td class="num">3 / 7,128</td><td class="num up">+300%</td><td class="src">GSC sc-domain, Non-branded (30d filter; 28d/7d = total − branded)</td></tr>
+<tr class="grp"><td colspan="11">Device (Domain property)</td></tr>
+<tr><td>Desktop clicks / impr.</td><td class="num">35 / 21,900</td><td class="num">36 / 22,101</td><td class="num down">−2.8%</td><td class="num">33 / 20,765</td><td class="num">34 / 20,232</td><td class="num down">−2.9%</td><td class="num">12 / 4,398</td><td class="num">2 / 5,943</td><td class="num up">+500%</td><td class="src">GSC sc-domain Devices</td></tr>
+<tr><td>Desktop CTR · position</td><td class="num">0.160% · 49.5</td><td class="num">0.163% · 45.3</td><td></td><td class="num">0.159% · 49.6</td><td class="num">0.168% · 45.5</td><td></td><td class="num">0.273% · 51.3</td><td class="num">0.034% · 46.6</td><td></td><td class="src">GSC sc-domain Devices</td></tr>
+<tr><td>Mobile clicks / impr.</td><td class="num">25 / 4,488</td><td class="num">27 / 4,319</td><td class="num down">−7.4%</td><td class="num">23 / 4,240</td><td class="num">26 / 4,042</td><td class="num down">−11.5%</td><td class="num">7 / 1,141</td><td class="num">4 / 1,178</td><td class="num up">+75%</td><td class="src">GSC sc-domain Devices</td></tr>
+<tr><td>Mobile CTR · position</td><td class="num">0.557% · 43.1</td><td class="num">0.625% · 37.4</td><td></td><td class="num">0.542% · 43.3</td><td class="num">0.643% · 37.1</td><td></td><td class="num">0.613% · 46.8</td><td class="num">0.340% · 43.0</td><td></td><td class="src">GSC sc-domain Devices</td></tr>
+<tr class="grp"><td colspan="11">Keyword position bands (distinct queries, URL-prefix property)</td></tr>
+<tr><td>Positions 1–3</td><td class="num">24</td><td class="num">16</td><td class="num up">+50%</td><td class="num">24</td><td class="num">15</td><td class="num up">+60%</td><td class="num">7</td><td class="num">17</td><td class="num down">−58.8%</td><td class="src">GSC keyword table</td></tr>
+<tr><td>Positions 4–10</td><td class="num">33</td><td class="num">59</td><td class="num down">−44.1%</td><td class="num">33</td><td class="num">51</td><td class="num down">−35.3%</td><td class="num">20</td><td class="num">36</td><td class="num down">−44.4%</td><td class="src">GSC keyword table</td></tr>
+<tr><td>Positions 11–20</td><td class="num">136</td><td class="num">177</td><td class="num down">−23.2%</td><td class="num">136</td><td class="num">169</td><td class="num down">−19.5%</td><td class="num">96</td><td class="num">121</td><td class="num down">−20.7%</td><td class="src">GSC keyword table</td></tr>
+<tr><td>Positions 21–50</td><td class="num">463</td><td class="num">541</td><td class="num down">−14.4%</td><td class="num">458</td><td class="num">508</td><td class="num down">−9.8%</td><td class="num">298</td><td class="num">292</td><td class="num up">+2.1%</td><td class="src">GSC keyword table</td></tr>
+<tr class="grp"><td colspan="11">GA4 organic search (property 406463023)</td></tr>
+<tr><td>Organic users</td><td class="num">101</td><td class="num">114</td><td class="num down">−11.4%</td><td class="num">93</td><td class="num">106</td><td class="num down">−12.3%</td><td class="num">27</td><td class="num">17</td><td class="num up">+58.8%</td><td class="src">GA4 overview, organic</td></tr>
+<tr><td>Organic sessions</td><td class="num">174</td><td class="num">179</td><td class="num down">−2.8%</td><td class="num">159</td><td class="num">166</td><td class="num down">−4.2%</td><td class="num">34</td><td class="num">33</td><td class="num up">+3.0%</td><td class="src">GA4 overview, organic</td></tr>
+<tr><td>Organic engaged sessions†</td><td class="num">93</td><td class="num">102</td><td class="num down">−8.8%</td><td class="num">87</td><td class="num">94</td><td class="num down">−7.4%</td><td class="num">20</td><td class="num">19</td><td class="num up">+5.3%</td><td class="src">Sessions × engagement rate</td></tr>
+<tr><td>Organic key events</td><td class="num">2</td><td class="num">2</td><td class="num flat">0%</td><td class="num">2</td><td class="num">2</td><td class="num flat">0%</td><td class="num">0</td><td class="num">0</td><td class="num flat">–</td><td class="src">GA4 key events by channel</td></tr>
+<tr class="grp"><td colspan="11">Leads (TAG CRM Lead Manager, AI-filtered leads, source as attributed by the CRM)</td></tr>
+<tr><td>All leads (qualified)</td><td class="num">69</td><td class="num">61</td><td class="num up">+13.1%</td><td class="num">62</td><td class="num">59</td><td class="num up">+5.1%</td><td class="num">18</td><td class="num">9</td><td class="num up">+100%</td><td class="src">TAG CRM, all sources</td></tr>
+<tr><td>Organic Search leads</td><td class="num">4</td><td class="num">2</td><td class="num up">+100%</td><td class="num">3</td><td class="num">3</td><td class="num flat">0%</td><td class="num">1</td><td class="num">0</td><td class="num flat">n/a</td><td class="src">TAG CRM, source Organic Search</td></tr>
+<tr><td>Organic calls · chats · forms</td><td class="num">3 · 1 · 0</td><td class="num">2 · 0 · 0</td><td></td><td class="num">2 · 1 · 0</td><td class="num">3 · 0 · 0</td><td></td><td class="num">1 · 0 · 0</td><td class="num">0 · 0 · 0</td><td></td><td class="src">TAG CRM</td></tr>
+<tr><td>Organic booked · value</td><td class="num">3 · $17,600</td><td class="num">0 · $0</td><td class="num up">+3 booked</td><td class="num">2 · $8,800</td><td class="num">1 · $8,800</td><td class="num flat">$0</td><td class="num">0 · $0</td><td class="num">0 · $0</td><td class="num flat">–</td><td class="src">TAG CRM Status + Value</td></tr>
+<tr><td>Business Profile leads (all calls)</td><td class="num">24</td><td class="num">11</td><td class="num up">+118%</td><td class="num">23</td><td class="num">11</td><td class="num up">+109%</td><td class="num">8</td><td class="num">5</td><td class="num up">+60%</td><td class="src">TAG CRM, source Google Business Profile</td></tr>
+<tr><td>Business Profile booked · value</td><td class="num">5 · $27,590</td><td class="num">4 · $15,350</td><td class="num up">+79.7% value</td><td class="num">5 · $27,590</td><td class="num">4 · $15,350</td><td class="num up">+79.7% value</td><td class="num">1 · $7,000</td><td class="num">0 · $0</td><td class="num flat">n/a</td><td class="src">TAG CRM Status + Value</td></tr>
+<tr><td>Form submissions (all sources)</td><td class="num">2</td><td class="num">6</td><td class="num down">−66.7%</td><td class="num">2</td><td class="num">5</td><td class="num down">−60.0%</td><td class="num">0</td><td class="num">0</td><td class="num flat">–</td><td class="src">TAG CRM (current 2 = source "google", organic vs paid unknown)</td></tr>
+<tr><td>Leads with no usable source ("Other")</td><td class="num">10</td><td class="num">14</td><td class="num up">−28.6%</td><td class="num na" colspan="6">Data unavailable</td><td class="src">TAG CRM (all chats)</td></tr>
+<tr><td>Free-estimate requests</td><td class="num na" colspan="9">Data unavailable (the CRM doesn't separate estimate requests from other leads)</td><td class="src">TAG CRM</td></tr>
+<tr class="grp"><td colspan="11">Google Business Profile (location 7809)</td></tr>
+<tr><td>Profile views</td><td class="num">1,266</td><td class="num">1,067</td><td class="num up">+18.7%</td><td class="num">1,180</td><td class="num">1,057</td><td class="num up">+11.6%</td><td class="num">241</td><td class="num">371</td><td class="num down">−35.0%</td><td class="src">GBP via Search Atlas</td></tr>
+<tr><td>Calls</td><td class="num">20</td><td class="num">19</td><td class="num up">+5.3%</td><td class="num">19</td><td class="num">17</td><td class="num up">+11.8%</td><td class="num">5</td><td class="num">1</td><td class="num up">+400%</td><td class="src">GBP</td></tr>
+<tr><td>Website clicks</td><td class="num">29</td><td class="num">30</td><td class="num down">−3.3%</td><td class="num">29</td><td class="num">28</td><td class="num up">+3.6%</td><td class="num">9</td><td class="num">2</td><td class="num up">+350%</td><td class="src">GBP</td></tr>
+<tr><td>Direction requests</td><td class="num">39</td><td class="num">65</td><td class="num down">−40.0%</td><td class="num">38</td><td class="num">53</td><td class="num down">−28.3%</td><td class="num">9</td><td class="num">6</td><td class="num up">+50%</td><td class="src">GBP</td></tr>
+<tr><td>New reviews</td><td class="num">0</td><td class="num">0</td><td class="num flat">–</td><td class="num">0</td><td class="num">0</td><td class="num flat">–</td><td class="num">0</td><td class="num">0</td><td class="num flat">–</td><td class="src">GBP (123 total, 4.99★, 100% replied)</td></tr>
+<tr class="grp"><td colspan="11">Index & local visibility</td></tr>
+<tr><td>Indexed / excluded pages</td><td class="num" colspan="9" style="text-align:left">Current read only (no per-window history): <b>104 indexed, 173 not indexed</b>. Not indexed by reason: noindex 56 · crawled, not indexed 43 (validation failed) · blocked by robots.txt 42 · discovered, not indexed 23 (validation passed) · 404 4 · redirect 3 · other 4xx 1 · alternate canonical 1. Covers all subdomains.</td><td class="src">GSC sc-domain Page indexing, read Sep 16</td></tr>
+<tr><td>Map heatmap avg rank</td><td class="num" colspan="9" style="text-align:left">One snapshot only (Sep 1): Pipelining 1.1 · trenchless pipe repair 1.6 · no dig pipe repair 2.9 · epoxy lining 3.0 (39-pin grid). No comparison period.</td><td class="src">Search Atlas heatmaps 102642</td></tr>
+</tbody></table></div>
+<p class="note">† GA4 via Search Atlas returns an engagement rate, not a count, so engaged sessions = sessions × engagement rate. Position: lower is better. The Business Profile link row is the Domain property's Pages tab for the 30-day window only. CRM "Value" is the value entered on the lead record, not collected revenue; CRM sources come from the CRM's own attribution (call-tracking number or form source), not from Google data. Search Atlas page tables only credit clicks to named queries, so page-level clicks are not reported below.</p>
+</section>
+
+<section>
+<h2><span class="n">3</span>Winning queries, pages and locations</h2>
+<div class="tbl"><table>
+<thead><tr><th>Item</th><th class="num">Current</th><th class="num">Previous</th><th>Window</th><th>Likely contributor (evidence)</th></tr></thead>
+<tbody>
+<tr><td>Last 7 days: Google clicks (Domain)</td><td class="num">19</td><td class="num">6</td><td>7d</td><td>Branded 7 vs 3 and non-branded 12 vs 3. Business Profile website clicks rose the same week (9 vs 2) and CRM Business Profile leads were 8 vs 5, so local and brand demand is the likely driver. It can't be credited to the Sep 15-16 page work, which went live after the window.</td></tr>
+<tr><td>Branded Google clicks (Domain)</td><td class="num">21</td><td class="num">14</td><td>30d</td><td>Brand demand rising alongside Business Profile leads (CRM 24 vs 11). Reviews (123 at 4.99★) and word of mouth are the likely drivers; no brand campaign is logged.</td></tr>
+<tr><td>CRM Organic Search leads</td><td class="num">4 (3 booked, $17,600)</td><td class="num">2 (0 booked)</td><td>30d</td><td>Small numbers: 3 calls and 1 chat. The CRM doesn't record the landing page, so which pages produced them is Data unavailable.</td></tr>
+<tr><td>/what-is-cipp/ impressions</td><td class="num">5,670 @75</td><td class="num">4,023 @70</td><td>30d</td><td>First click in the window ("cipp lining", 647 impr. @75, 28d). National informational demand; little local lead value.</td></tr>
+<tr><td>/phoenix/ impressions</td><td class="num">1,187 @55</td><td class="num">768 @59</td><td>30d</td><td>More Phoenix trenchless queries: "sewer pipe relining in phoenix" 121 @40, "trenchless sewer repair in phoenix az" 81 @49 (28d). Still 0 page-1 Phoenix terms.</td></tr>
+<tr><td>/mesa/ position</td><td class="num">39</td><td class="num">48</td><td>30d</td><td>Aug 25-28 city template and FAQ work. Impressions fell (457 vs 557), so the average may have improved partly because low-ranking queries dropped out.</td></tr>
+<tr><td>/tempe/ position</td><td class="num">25</td><td class="num">31</td><td>30d</td><td>Aug 31 rewrite. "sewer line repair in tempe az" 95 @28 appears in the 28d window.</td></tr>
+<tr><td>/sun-city/ · /san-tan-valley/ position</td><td class="num">24 · 25</td><td class="num">34 · 33</td><td>30d</td><td>Aug 27 FAQ migration to Elementor; no page-specific change logged.</td></tr>
+<tr><td>/trenchless-drain-pipe-repair/ position</td><td class="num">50</td><td class="num">62</td><td>30d</td><td>No logged change. It's also the top all-channel GA4 landing page (582 users), but that traffic is mostly paid.</td></tr>
+<tr><td>/uv-cured-pipe-lining/</td><td class="num">435 impr.</td><td class="num">not in top list</td><td>30d</td><td>Newly visible. "uv cured pipe repair phoenix az" 17 @19 (28d).</td></tr>
+<tr><td>"sewer lining maricopa az"</td><td class="num">20 @9</td><td class="num">@21</td><td>28d</td><td>Aug 25-28 city work; title changed again Sep 16 (after window).</td></tr>
+<tr><td>"buckeye az water line repair" · "sewer line repair queen creek"</td><td class="num">29 @16 · 17 @12</td><td class="num">@29 · @29</td><td>28d</td><td>Sep 1 thin-page buildouts (Buckeye rewrite, Queen Creek content).</td></tr>
+<tr><td>Positions 1-3 query count</td><td class="num">24</td><td class="num">16</td><td>30d</td><td>Mostly 1-5 impression long-tail terms, e.g. "pipe relining near me" 18 @1, "trenchless sewer line repair cost" 12 @3. Low volume.</td></tr>
+<tr><td>Business Profile desktop Maps views</td><td class="num">119</td><td class="num">76</td><td>30d</td><td>No new reviews or posts in the window; cause not identifiable from the data.</td></tr>
+</tbody></table></div>
+</section>
+
+<section>
+<h2><span class="n">4</span>Declining queries, pages and locations</h2>
+<div class="tbl"><table>
+<thead><tr><th>Item</th><th class="num">Current</th><th class="num">Previous</th><th>Window</th><th>Likely cause (evidence)</th></tr></thead>
+<tbody>
+<tr><td>Page-1 queries (pos. 4-10)</td><td class="num">33</td><td class="num">59</td><td>30d</td><td>Page-1 city terms slid to 11-20 (e.g. "florence pipe break repair" @4 to @15). The count also fell in the 7d window (20 vs 36), so the slide is still happening.</td></tr>
+<tr><td>/buckeye/ impressions</td><td class="num">360 @18</td><td class="num">733 @20</td><td>30d</td><td><b>Documented:</b> the Sep 1 rewrite removed "pipe break" wording and "buckeye pipe break repair" went to 0. A pipe-break section went live Sep 15 (after this window). Read it Sep 30.</td></tr>
+<tr><td>"florence pipe break repair"</td><td class="num">96 @15</td><td class="num">@4</td><td>28d</td><td>/florence/ H1 is "Trenchless Pipe Repair in Florence, AZ | Pipeliners USA" and the body uses "pipe break" once (crawl Sep 16). Same pattern as Buckeye.</td></tr>
+<tr><td>/tempe/ impressions</td><td class="num">394</td><td class="num">639</td><td>30d</td><td>Position improved (25 vs 31) while impressions fell. The Aug 31 rewrite narrowed the query set.</td></tr>
+<tr><td>/cave-creek/ · /scottsdale/ · /gilbert/</td><td class="num">46 · 22 · 119</td><td class="num">173 · 162 · 244</td><td>30d</td><td>Cause not proven. All three return 200, are indexable and have a self-referencing canonical (checked Sep 16). Scottsdale's H1 is "Expert Plumbing Services in Scottsdale, AZ - Pipeliners USA", which doesn't match its trenchless title.</td></tr>
+<tr><td>/sun-lakes/ · /paradise-valley/</td><td class="num">121 @45 · 226 @26</td><td class="num">228 @35 · 336 @27</td><td>30d</td><td>Sun Lakes has a bare city-name H1 (crawl Sep 16).</td></tr>
+<tr><td>/epoxy-pipe-lining/</td><td class="num">14 @68</td><td class="num">125 @56</td><td>30d</td><td>Declining since July. Only 5 pages link to it from content. The title says "Homeowner's Guide | Pipeliners USA" with no Arizona or Phoenix wording.</td></tr>
+<tr><td>7 blog/service URLs at 0 impressions</td><td class="num">0</td><td class="num">45–177 each</td><td>30d</td><td>/how-much-does-trenchless-pipe-lining-cost/ (147), /14-warning-signs…/ (177), /what-is-trenchless-pipe-repair/ (126), /whole-house-repipe/ (107), /corroded-pipes/ (62), /how-to-identify…tree-roots…/ (68), /sewer-camera-inspection-near-me-in-mesa-az…/ (45 @29). All return 200, are indexable and self-canonical today. Possible de-indexing. Unverified: needs URL Inspection.</td></tr>
+<tr><td>/services/</td><td class="num">49 @78</td><td class="num">158 @67</td><td>30d</td><td>No H1 on the page (crawl Sep 16).</td></tr>
+<tr><td>Non-branded Google clicks (Domain)</td><td class="num">39</td><td class="num">49</td><td>30d</td><td>Matches the drop in page-1 queries (59 to 33). Mobile position slipped most (37.4 to 43.1).</td></tr>
+<tr><td>Homepage impressions (Domain)</td><td class="num">952</td><td class="num">1,292</td><td>30d</td><td>Clicks still rose (24 vs 21). 60 hidden OTTO links from the homepage point to 404 or 301 URLs (crawl Sep 16).</td></tr>
+<tr><td>Mobile position</td><td class="num">48.5</td><td class="num">42.1</td><td>30d</td><td>Follows the site-wide slide; no mobile-specific cause found.</td></tr>
+<tr><td>Business Profile direction requests</td><td class="num">39</td><td class="num">65</td><td>30d</td><td>No new reviews since Jul 5 and no posts since Jul 7 (checked Sep 14). Hydro Jetting isn't listed, and 12 of 23 listed services aren't offered.</td></tr>
+<tr><td>Business Profile views (7d)</td><td class="num">241</td><td class="num">371</td><td>7d</td><td>Desktop search views 46 vs 123. One week is too short to call a trend.</td></tr>
+</tbody></table></div>
+</section>
+
+<section>
+<h2><span class="n">5</span>Quick opportunities</h2>
+<p class="note">28-day window (Aug 16 – Sep 12), positions from GSC. <b>Excluded from new edits:</b> pages changed Sep 15-16 (Tempe, Mesa, Gilbert, Fountain Hills, Fort McDowell, Maricopa, Litchfield Park, Buckeye). They go to Monitor so their changes can be measured. <b>Not worth chasing:</b> "buckeye gas line repair" (17 @16, a service Pipeliners doesn't offer), "pipelining florence or" (48 @12, Oregon) and "well repair fort mcdowell az" (28 @17, not offered).</p>
+<div class="tbl"><table>
+<thead><tr><th>Page</th><th>Keywords (impr. @ pos.)</th><th>Current state (crawl Sep 16)</th><th>Recommended change</th></tr></thead>
+<tbody>
+<tr><td><code>/florence/</code></td><td>florence pipe break repair 96 @15 · florence water line repair 19 @15 · trenchless pipe repair florence 18 @9 · page 429 impr. @24 (30d)</td><td>Title "Florence, AZ Pipe Break &amp; Water Line Repair | Pipeliners". H1 "Trenchless Pipe Repair in Florence, AZ | Pipeliners USA". "pipe break" appears once in the body.</td><td><b>Content + H1:</b> use the Buckeye pattern. Add an H2 "Pipe Break Repair in Florence, AZ" with a 40-60 word direct answer and one FAQ about what to do when a pipe breaks. Set the H1 to "Pipe Break &amp; Water Line Repair in Florence, AZ" to match the title. Keep the title (Kim kept it Sep 16).</td></tr>
+<tr><td><code>/phoenix/</code></td><td>sewer pipe relining in phoenix 121 @40 · trenchless sewer repair in phoenix az 81 @49 · sewer line repair phoenix az 60 @50 · page 1,187 impr., 0 clicks</td><td>H1 is just "Phoenix". No Plumber schema. Only 6 pages link to it from content.</td><td><b>H1 + answer block + links:</b> H1 "Trenchless Sewer Repair in Phoenix, AZ". Add a question H2 with a direct answer. Add contextual links to /phoenix/ from /what-is-cipp/ (5,670 impr.), /uv-cured-pipe-lining/ and /how-to-determine-if-you-have-an-underground-water-leak/ (1,493 impr.). Add the Plumber schema node the other city pages have.</td></tr>
+<tr><td><code>/chandler/</code> (East Valley)</td><td>sewer line repair in chandler az 191 @44 · trenchless sewer repair chandler 26 @32 · page 321 impr. @43</td><td>Title "Sewer Line Repair &amp; Repiping". H1 "Trenchless Pipe Repair Experts … | Pipeliners USA". Meta is about copper repiping.</td><td><b>Focus keyword alignment:</b> use "sewer line repair in Chandler, AZ" in the title, H1, meta, first 100 words, a question H2 and the answer block (Step 8 method). Meta: "Sewer line repair in Chandler, AZ without trenching your yard. Free camera inspection. Call 480-535-6503."</td></tr>
+<tr><td><code>/hydro-jetting/</code></td><td>hydro jetting phoenix 68 @76 · hydro jetting phoenix az 65 @74 · page 358 impr. @70</td><td>Title targets Phoenix. H1 "Professional Hydro Jetting Services in Arizona". Hydro Jetting isn't a Business Profile service.</td><td>Set the H1 to "Hydro Jetting Drain Cleaning in Phoenix, AZ". Add a "Hydro jetting vs snaking" direct answer. Add Hydro Jetting as a Business Profile service linking to this URL.</td></tr>
+<tr><td><code>/paradise-valley/</code></td><td>trenchless sewer repair paradise valley 19 @20 · paradise valley trenchless sewer replacement 11 @20</td><td>226 impr. @26, 0 clicks</td><td>Align the title and H1 to "Trenchless Sewer Repair in Paradise Valley, AZ". Add links from /scottsdale/ and /fountain-hills/.</td></tr>
+<tr><td><code>/avondale/</code> · <code>/goodyear/</code></td><td>avondale trenchless sewer replacement 11 @14 · goodyear trenchless sewer repair 11 @10</td><td>Bare city-name H1s, no Plumber schema</td><td>H1 "Trenchless Sewer Repair in Avondale, AZ" / "… in Goodyear, AZ". Add the Plumber node (without the rating, see section 6).</td></tr>
+<tr><td><code>/queen-creek/</code></td><td>sewer line repair queen creek 17 @12 · trenchless sewer repair queen creek 15 @20</td><td>H1 "Queen Creek's No-Dig Pipe Lining Experts | Pipeliners USA" (uses "pipe lining", which breaks the brand rule)</td><td>H1 "Sewer Line Repair in Queen Creek, AZ". Add the keyword to the meta. Add a link from /san-tan-valley/.</td></tr>
+<tr><td><code>/epoxy-pipe-lining/</code></td><td>epoxy pipe lining phoenix az 23 @30 · epoxy pipe lining mesa az 15 @26</td><td>125 to 14 impr. No AZ wording in the title. 5 linking pages.</td><td>Title "Epoxy Pipe Coating in Phoenix &amp; Mesa, AZ | Pipeliners". Add a Phoenix Valley section with a real local project example (needs Scott's facts). Add links from /mesa/ and /phoenix/.</td></tr>
+<tr><td><code>/what-is-cipp/</code></td><td>cipp lining 647 @75 · cipp installation 392 @62 · page 5,670 impr.</td><td>High impressions, national and informational</td><td>Don't rewrite for rank. Use its 50 inbound links and its traffic to link to the service pages: an "In the Phoenix Valley?" box linking to /mesa/, /phoenix/ and /free-sewer-inspection/.</td></tr>
+<tr><td>Commercial and multifamily</td><td>commercial re-piping chandler 9 @50 · commercial pipe repair mesa az 2 @49</td><td>No commercial page. /commercial/ 301s to a monsoon blog post through slug guessing; /multifamily/ is a 404.</td><td>Build "Commercial &amp; Multifamily Pipe Restoration in the Phoenix Valley" with a real HOA or multifamily case study and FAQ. It needs Scott's verified project facts first.</td></tr>
+<tr><td>Reviews on service pages</td><td>–</td><td>No service page shows testimonials or project examples. The Business Profile has 123 reviews at 4.99★.</td><td>Show 2-3 real Google reviews that mention the service on /hydro-jetting/, /epoxy-pipe-lining/ and /what-is-cipp/. Ask for new reviews (none since Jul 5).</td></tr>
+</tbody></table></div>
+</section>
+
+<section>
+<h2><span class="n">6</span>Technical and local SEO issues</h2>
+<p class="note">Source: read-only crawl of all 122 sitemap URLs + 217 internal link targets + citation lookups on 2026-09-16 (full detail in <code>technical-local-findings.md</code>), plus GSC/Search Atlas data above. Phone numbers are reported, not judged: the site uses a GoHighLevel dynamic number pool by design.</p>
+<div class="tbl"><table>
+<thead><tr><th>Severity</th><th>Issue</th><th>Affected URL / listing</th><th>Evidence</th><th>Recommended correction</th></tr></thead>
+<tbody>
+<tr><td><span class="pill p-high">High</span></td><td>Lead attribution gaps</td><td>TAG CRM, GA4, website chat and forms</td><td>CRM tracks calls by source, but 10 of 69 leads (30d) are "Other" (all chats, no source), the 2 forms are source "google" (organic or paid unknown), and no lead records a landing page. GA4 shows only 2 organic key events against 4 CRM organic leads.</td><td>Pass UTM source and landing page into the chat widget and form submissions so they reach the CRM. Split source "google" into organic vs paid. Keep the number-pool script and tel: links untouched.</td></tr>
+<tr><td><span class="pill p-high">High</span></td><td>Unlisted phone number on citations</td><td>Birdeye; Ace DuraFlo installer directory; probably Superpages, Manta and EZlocal (blocked)</td><td>(480) 969-7978 with the correct 633 W 2nd Ave address (Birdeye JSON-LD, Ace DuraFlo page, fetched Sep 16)</td><td>Ask the owner what 969-7978 is. If it isn't a live tracking line, correct it to (480) 447-5345 on each listing.</td></tr>
+<tr><td><span class="pill p-high">High</span></td><td>Rating schema not shown on page and out of date</td><td>33 city pages (all except /phoenix/, /avondale/, /goodyear/, /san-tan-valley/)</td><td>aggregateRating 4.9 / 122 in OTTO schema, neither number visible. The Business Profile shows 4.99 / 123.</td><td>Either show a matching Google rating block on those pages and update the schema to 4.99 / 123, or remove aggregateRating. This reverses the Aug 19 "keep" decision, so Kim decides.</td></tr>
+<tr><td><span class="pill p-high">High</span></td><td>Missing or bare H1s</td><td>/services/ (none); /phoenix/, /avondale/, /goodyear/, /san-tan-valley/, /sun-city/, /sun-city-west/, /sun-lakes/ (city name only)</td><td>Crawl Sep 16. The first 4 city pages also have no Plumber schema.</td><td>Use "Service in City, AZ" H1s set in OTTO (it owns city H1s). Check OTTO's heading layer first, see Step 8.</td></tr>
+<tr><td><span class="pill p-high">High</span></td><td>Hidden broken links from the homepage</td><td>Homepage</td><td>60 hidden OTTO links: 21 return 404 (e.g. 34 fake <code>/service-areas/&lt;city&gt;/</code> URLs) and 39 return 301</td><td>Turn off the stale OTTO indexing link block. The homepage is protected, so ask Kim first.</td></tr>
+<tr><td><span class="pill p-high">High</span></td><td>Weak internal links to priority pages</td><td>/mesa/ (8 linking pages), /phoenix/ (6), /epoxy-pipe-lining/ (5)</td><td>Content links counted with nav and footer removed. For comparison, /epipe-restoration/ has 54 and /what-is-cipp/ has 43.</td><td>Add 5 or more contextual links each from high-impression posts (section 5).</td></tr>
+<tr><td><span class="pill p-high">High</span></td><td>Pages dropped to zero impressions</td><td>7 URLs listed in section 4</td><td>45-177 impressions each in the previous 30d, 0 now. Live check: 200, indexable, self-canonical.</td><td>Run URL Inspection on each (free GSC). Merge or improve per the Sep 12 indexing plan. Request indexing only after the fix.</td></tr>
+<tr><td><span class="pill p-med">Medium</span></td><td>Numbers in static HTML and schema that differ from the Business Profile number</td><td>63 pages (JSON-LD 480-535-6503); /epipe-restoration/ (schema 480-680-9480); /free-video-inspection/ (480-808-0337)</td><td>535-6503 and 680-9480 are known intentional numbers. 808-0337 isn't on any list. Paid-ad pages are protected.</td><td>Don't change anything. Owner confirms whether the schema phone should be 447-5345 and whether 808-0337 is a tracking line.</td></tr>
+<tr><td><span class="pill p-med">Medium</span></td><td>No commercial or multifamily page</td><td>/commercial/ (301 to a blog post through slug guessing), /multifamily/ (404)</td><td>Commercial and multifamily restoration is a priority service</td><td>Build the page (section 5), then add a real redirect or menu link.</td></tr>
+<tr><td><span class="pill p-med">Medium</span></td><td>Business Profile services and description mismatch</td><td>Business Profile 7809</td><td>12 of 23 listed services not offered, Hydro Jetting missing, "pipe bursting" in the description, last review Jul 5, last post Jul 7 (checked Sep 14). 0 new reviews in all windows.</td><td>Fix the services list and description, restart weekly posts and start a review request routine.</td></tr>
+<tr><td><span class="pill p-med">Medium</span></td><td>Hidden content remaining</td><td>Homepage (89-word cost comparison hidden on all screens); 7 posts (hidden OTTO "Related Pages"); 11 posts (hidden keyword headings); /do-gurgling-drains-indicate-a-bigger-issue/ (7 FAQ questions in schema that aren't on the page)</td><td>Crawl Sep 16</td><td>Roll back in OTTO (reversible). Remove the FAQ schema that has no visible FAQ. Homepage needs Kim's approval.</td></tr>
+<tr><td><span class="pill p-med">Medium</span></td><td>"Pipeliners USA" in on-page elements</td><td>57 titles, 18 H1s, 29 schema names</td><td>The brand rule is "Pipeliners"</td><td>Bulk-edit in OTTO in batches with a before/after snapshot.</td></tr>
+<tr><td><span class="pill p-med">Medium</span></td><td>Noindex page in the sitemap</td><td>/free-sewer-repair-estimate/ (paid-ad page)</td><td>noindex, nofollow and listed in sitemap.xml</td><td>Exclude it from the sitemap only; don't edit the page.</td></tr>
+<tr><td><span class="pill p-low">Low</span></td><td>Index counts not current</td><td>GSC Pages report</td><td>Last read 104 indexed (Sep 14). Search Atlas still shows sitemap_index with 126 submitted; the live sitemap has 122 URLs.</td><td>Re-read the GSC Pages report and resubmit sitemap_index.xml if the count stays stale.</td></tr>
+<tr><td><span class="pill p-low">Low</span></td><td>Redirect hops</td><td>http://www. (2 hops); https://www. with UTM drops the UTM</td><td>The Business Profile link is 1 hop and keeps its UTM</td><td>Point www to https://pipelinersusa.com in one hop that keeps the query string.</td></tr>
+<tr><td><span class="pill p-low">Low</span></td><td>ROC license missing</td><td>/free-sewer-inspection/</td><td>ROC #362960 shows on 121 of 122 URLs</td><td>Add it to the page footer or CTA.</td></tr>
+<tr><td><span class="pill p-low">Low</span></td><td>Crawler blocking</td><td>Site-wide</td><td>Search Atlas crawlers get 403s and LiteSpeed reCAPTCHA; Search Atlas reports 8 5xx that couldn't be reproduced</td><td>Check GSC Crawl stats by response. Test GPTBot, PerplexityBot and ClaudeBot user agents.</td></tr>
+</tbody></table></div>
+</section>
+
+<section>
+<h2><span class="n">7</span>Leads and business impact</h2>
+<div class="cols">
+<div class="box"><h3 style="margin-top:0">What the CRM attributes (30d vs previous 30d)</h3><ul>
+<li><b>Business Profile:</b> 24 vs 11 leads, all calls; <b>5 booked, $27,590</b> vs 4 booked, $15,350. It's the largest lead source (35% of 69 leads). The Business Profile API counted 20 calls in the same window; the CRM counts calls to the Business Profile tracking number, so the two differ.</li>
+<li><b>Organic Search:</b> 4 vs 2 leads (3 calls, 1 chat); <b>3 booked, $17,600</b> vs 0 booked. 28d: 3 vs 3 leads, 2 vs 1 booked, $8,800 each. 7d: 1 vs 0.</li>
+<li>Together, Business Profile and organic produced <b>28 of 69 leads and 8 of 14 bookings</b> in the last 30 days, against Google Ads 4 leads and 1 booking.</li>
+<li>Google visibility behind it: 60 Google clicks (27 on the Business Profile link), 1,266 profile views, 20 profile calls.</li>
+</ul></div>
+<div class="box"><h3 style="margin-top:0">Limits on the claim</h3><ul>
+<li>These are <b>CRM source attributions</b>, not proof a specific page or ranking produced the job. No lead records a landing page or query.</li>
+<li>"Organic Search" is a small number (4). One booking changes the value by thousands, so read it as direction, not a trend.</li>
+<li>10 chat leads are "Other" and 2 forms are "google", so organic and Business Profile totals may be understated.</li>
+<li>Free-estimate requests: <b>Data unavailable</b>. CRM Value is the value entered on the lead, not collected revenue.</li>
+<li>Google Ads conversions (GHL Calls from Landing Page 10, Calls from ads 5, Job Completed 3, Jul 15 to Sep 12) count paid clicks only.</li>
+</ul></div>
+</div>
+</section>
+
+<section>
+<h2><span class="n">8</span>Prioritized action plan</h2>
+<h3>Five actions most likely to lift qualified organic visibility and leads</h3>
+<ol class="top5">
+<li><b>/florence/ pipe-break section + H1 alignment</b>: "florence pipe break repair" 96 impr. @15, #1 in the Phoenix rank tracker. It's the closest page-1 recovery on a page nobody touched Sep 15-16.</li>
+<li><b>/phoenix/ H1 + answer block + 5 links from high-impression posts</b>: 1,187 impressions, 0 clicks, H1 is "Phoenix", only 6 linking pages.</li>
+<li><b>Business Profile cleanup + review requests</b>: calls are the one lead-like number holding up, but directions are −40% and there have been no reviews since Jul 5.</li>
+<li><b>/chandler/ focus keyword alignment on "sewer line repair in Chandler, AZ"</b>: 191 impressions @44 on a page whose H1 and meta target something else.</li>
+<li><b>Send source and landing page with chats and forms into the CRM</b>: 10 chat leads (30d) have no source, and no lead shows which page it came from, so page-level SEO work can't yet be tied to booked jobs.</li>
+</ol>
+
+<div class="tbl" style="margin-top:16px"><table>
+<thead><tr><th>Priority</th><th>Exact action</th><th>Affected URL / listing / keyword</th><th>Supporting evidence</th><th>Expected benefit</th><th>Effort</th><th>Deadline</th></tr></thead>
+<tbody>
+<tr class="grp"><td colspan="7">Do now</td></tr>
+<tr><td><span class="pill p-crit">P1</span></td><td>Ask the owner what (480) 969-7978 is; if it isn't live, correct Birdeye and Ace DuraFlo to (480) 447-5345</td><td>Birdeye, Ace DuraFlo (then Superpages, Manta, EZlocal)</td><td>Fetched listings show 969-7978</td><td>Consistent name, address and phone; no calls lost to a dead line</td><td>S</td><td class="mono">Sep 18</td></tr>
+<tr><td><span class="pill p-crit">P1</span></td><td>Pass UTM source and landing page into chat and form submissions; split CRM source "google" into organic vs paid</td><td>Website chat widget, forms, TAG CRM</td><td>10 "Other" chat leads and 2 "google" forms (30d); no landing page on any lead</td><td>Page-level proof of which SEO work produces booked jobs</td><td>M</td><td class="mono">Sep 18</td></tr>
+<tr><td><span class="pill p-high">P2</span></td><td>Ask the 5 booked Business Profile customers and 3 booked organic customers from the last 30 days for a Google review</td><td>Business Profile 7809</td><td>CRM: 8 booked jobs from these sources; 0 new reviews since Jul 5</td><td>Fresh reviews on the source that produces the most leads</td><td>S</td><td class="mono">Sep 18</td></tr>
+<tr class="grp"><td colspan="7">Do within 7 days</td></tr>
+<tr><td><span class="pill p-high">P1</span></td><td>Add H2 "Pipe Break Repair in Florence, AZ" (direct answer + FAQ item); set H1 to "Pipe Break &amp; Water Line Repair in Florence, AZ"</td><td>/florence/ · florence pipe break repair</td><td>96 @15 (was @4); "pipe break" once in body</td><td>Recover page-1 position on a high-intent emergency query</td><td>M</td><td class="mono">Sep 23</td></tr>
+<tr><td><span class="pill p-high">P1</span></td><td>Set H1 "Trenchless Sewer Repair in Phoenix, AZ"; add answer block and Plumber schema; add links from /what-is-cipp/, /uv-cured-pipe-lining/ and the underground leak post</td><td>/phoenix/ · sewer pipe relining in phoenix, trenchless sewer repair in phoenix az</td><td>1,187 impr. @55, 0 clicks; 6 linking pages</td><td>Move Phoenix terms from 40-50 toward page 2</td><td>M</td><td class="mono">Sep 23</td></tr>
+<tr><td><span class="pill p-high">P1</span></td><td>Business Profile: add Hydro Jetting and remove the 12 services not offered; take "pipe bursting" out of the description; post weekly; send review requests to recent jobs</td><td>Business Profile 7809</td><td>Directions −40% (30d); 0 new reviews; last post Jul 7</td><td>More map actions and calls</td><td>M</td><td class="mono">Sep 23</td></tr>
+<tr><td><span class="pill p-high">P2</span></td><td>Decide on aggregateRating: show the Google rating and set 4.99 / 123, or remove it from city schema</td><td>33 city pages (OTTO)</td><td>4.9 / 122 not visible on page</td><td>Removes a structured-data guideline risk</td><td>S</td><td class="mono">Sep 23</td></tr>
+<tr><td><span class="pill p-high">P2</span></td><td>Add H1 to /services/; replace bare city H1s</td><td>/services/, /avondale/, /goodyear/, /san-tan-valley/, /sun-city/, /sun-city-west/, /sun-lakes/</td><td>Crawl Sep 16; /services/ 158 to 49 impr.</td><td>Clear topic signal on 7 pages</td><td>S</td><td class="mono">Sep 23</td></tr>
+<tr><td><span class="pill p-high">P2</span></td><td>URL Inspection on the 7 zero-impression URLs; record indexed yes/no</td><td>Section 4 list</td><td>45-177 impr. to 0</td><td>Confirms whether they were de-indexed</td><td>S</td><td class="mono">Sep 23</td></tr>
+<tr class="grp"><td colspan="7">Do within 30 days</td></tr>
+<tr><td><span class="pill p-high">P1</span></td><td>Align "sewer line repair in Chandler, AZ" across title, H1, meta, intro, question H2 and answer block (Step 8 method)</td><td>/chandler/</td><td>191 @44; H1 and meta off-topic</td><td>East Valley page moves toward page 1-2</td><td>M</td><td class="mono">Oct 16</td></tr>
+<tr><td><span class="pill p-med">P2</span></td><td>Build a Commercial &amp; Multifamily Pipe Restoration page with a verified case study and FAQ</td><td>New URL; fix the /commercial/ slug-guess redirect</td><td>No commercial page; priority service</td><td>A page that can rank for HOA, property manager and commercial searches</td><td>L</td><td class="mono">Oct 16</td></tr>
+<tr><td><span class="pill p-med">P2</span></td><td>Align /hydro-jetting/ H1 to Phoenix; add review snippets and a Phoenix FAQ</td><td>/hydro-jetting/ · hydro jetting phoenix az</td><td>65-68 impr. @74-76</td><td>Local relevance for a priority service</td><td>S</td><td class="mono">Oct 16</td></tr>
+<tr><td><span class="pill p-med">P2</span></td><td>Retitle /epoxy-pipe-lining/ for Phoenix and Mesa; add a local project section and links from /mesa/ and /phoenix/</td><td>/epoxy-pipe-lining/</td><td>125 to 14 impr.; 5 linking pages</td><td>Halt the decline</td><td>M</td><td class="mono">Oct 16</td></tr>
+<tr><td><span class="pill p-med">P3</span></td><td>Turn off the hidden homepage OTTO link block and remove the hidden cost section (Kim's approval)</td><td>Homepage</td><td>21 404s + 39 301s hidden</td><td>Removes broken-link and hidden-content signals</td><td>S</td><td class="mono">Oct 16</td></tr>
+<tr><td><span class="pill p-med">P3</span></td><td>Replace "Pipeliners USA" with "Pipeliners" in titles, H1s and schema</td><td>57 titles, 18 H1s, 29 schema names</td><td>Brand rule</td><td>Consistent entity name</td><td>M</td><td class="mono">Oct 16</td></tr>
+<tr class="grp"><td colspan="7">Monitor</td></tr>
+<tr><td><span class="pill p-low">Watch</span></td><td>Clicks, position and titles/H1 still live (OTTO override check)</td><td>/tempe/, /mesa/, /gilbert/, /fountain-hills/, /fort-mcdowell/, /maricopa/, /litchfield-park/</td><td>Changed Sep 15-16, 0 clicks at baseline</td><td>Proves or disproves the Step 7/8 method</td><td>S</td><td class="mono">Sep 23 · Oct 9</td></tr>
+<tr><td><span class="pill p-low">Watch</span></td><td>"buckeye pipe break repair" returns to results</td><td>/buckeye/</td><td>Pipe-break section live Sep 15</td><td>Confirms the fix to reuse on Florence</td><td>S</td><td class="mono">Sep 30</td></tr>
+<tr><td><span class="pill p-low">Watch</span></td><td>Count of queries in positions 4-10 (weekly)</td><td>Site-wide</td><td>59 to 33 (30d)</td><td>Early warning for the slide</td><td>S</td><td class="mono">Weekly</td></tr>
+<tr><td><span class="pill p-low">Watch</span></td><td>Business Profile calls and directions (weekly)</td><td>Business Profile 7809</td><td>Directions −40%</td><td>Tracks the listing cleanup</td><td>S</td><td class="mono">Weekly</td></tr>
+<tr><td><span class="pill p-low">Watch</span></td><td>CRM leads and bookings from Organic Search and Business Profile (weekly, Arizona dates)</td><td>TAG CRM Lead Manager</td><td>30d: Business Profile 24 leads / 5 booked; Organic 4 / 3</td><td>Ties ranking work to booked jobs</td><td>S</td><td class="mono">Weekly</td></tr>
+</tbody></table></div>
+</section>
+
+<section>
+<h2><span class="n">9</span>Final decision</h2>
+<dl class="decide">
+<div><dt>What is currently helping Pipeliners rank?</dt><dd>The Business Profile: 123 reviews at 4.99★, heatmap average rank 1.1-3 around Mesa, views +18.7%, and the top CRM lead source (24 leads, 5 booked, $27,590 in 30 days). Brand searches at positions 1-2 (branded clicks 21 vs 14). City pages with location-specific trenchless and pipe-break wording that reach positions 5-20 in outer cities (Florence, Buckeye, Fort McDowell, Maricopa).</dd></div>
+<div><dt>What is preventing further growth?</dt><dd>Non-branded clicks fell 20% (39 vs 49) as page-1 queries dropped from 59 to 33. The core markets are stuck on pages 4-6: Phoenix terms at 40-50, "sewer line repair in mesa az" at @47. Several priority pages have off-topic or bare H1s and few content links. There's no commercial page, the Business Profile services list is wrong, and chat and form leads reach the CRM without a source or landing page.</dd></div>
+<div><dt>Which page or keyword offers the fastest opportunity?</dt><dd><b>/florence/ for "florence pipe break repair"</b>: 96 impressions @15, recently @4, #1 in the Phoenix rank tracker, and a proven fix pattern from Buckeye.</dd></div>
+<div><dt>What should the SEO team do first?</dt><dd>Confirm the (480) 969-7978 listings, since the Business Profile and citations drive the most leads. Then ship the Florence pipe-break section and H1 once Kim approves.</dd></div>
+<div><dt>What should be monitored during the next seven days?</dt><dd>Titles and H1s on the 7 pages changed Sep 15-16 still showing (OTTO can override them) and their first clicks · whether "buckeye pipe break repair" comes back · non-branded Google clicks and the count of queries in positions 4-10 · CRM Organic Search and Business Profile leads and bookings · Business Profile calls and directions · index status of /sewer-line-maintenance/ · no new 404s.</dd></div>
+</dl>
+</section>
+
+<footer>
+Sources: Google Search Console Domain property <code>sc-domain:pipelinersusa.com</code> (GSC UI, read Sep 16, 2026); Google Search Console <code>https://pipelinersusa.com/</code> via Search Atlas (pulled Sep 16, 2026); TAG CRM Lead Manager, Pipeliners, 90-day export bucketed to Arizona dates (read Sep 16, 2026); GA4 property 406463023 via Search Atlas; Google Business Profile location 7809 via Search Atlas; Search Atlas rank tracker 34164 (Phoenix, desktop) and heatmap business 102642; Google Ads 721-909-5860 conversion actions (paid only); read-only site and citation crawl, Sep 16, 2026. Snapshot files: <code>Pipeliners/reports/seo-performance-2026-09-16/</code>.
+</footer>
+</div>

@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Blog Restyle Pilot 2026-09-15",
+ "cat": "brain-summit",
+ "group": "Blogs",
+ "body": "> Log · Summit Az · 2026-09-15\n\n# Summary\nPilot that restyled single blog posts to match the service pages, rolled out after preview. The installer adds a Code Snippets entry \"Blog post layout (page style)\" (head-content scope) described as: gradient hero band, 36px section titles with a blue accent, dark 17px body text, no comment counter. Added by TAG 2026-09-15.\n\n# Key facts\n- `blog-style.css`: scoped CSS (SCOPE placeholder replaced by a body selector, first a single post ID, then all `body.single-post`). Hero gradient #1B72B8 to #042B4B, Poppins headings, left-aligned breadcrumbs.\n- `blog-style-install.php`: idempotent `wp eval-file` installer for the snippet.\n- `pageshots.mjs`: screenshot script.\n- 15 screenshots document the steps: BEFORE desktop and mobile, AFTER, AFTER v2 with FAQ and logo, PREVIEW variants (image in blue band vs white full image), author box with header logo, and ROLLOUT checks on the slab leak, water heater and monsoon posts.\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Summit AZ - Work Folders Index](lib:brain-summit-az-work-folders-index)\n- [Summit AZ - Blogs Folder Overview](lib:brain-summit-az-blogs-folder-overview)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/blog-restyle-pilot-2026-09-15",
+ "date": "2026-09-15",
+ "createdAt": 1792612997511,
+ "updatedAt": 1792612997511,
+ "rev": "07c76951cb9d"
+}

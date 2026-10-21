@@ -1,0 +1,14 @@
+{
+ "name": "Trackers and Logs Index",
+ "cat": "brain-trackers",
+ "group": "",
+ "body": "> Index · 2026-10-22\n\nCross-client trackers, task lists, logs and multi-client reports.\n\n# Live trackers\n- [GSC Indexing Tracker](lib:brain-gsc-indexing-tracker): manual Request Indexing runs and queue for all four properties (last run Oct 13 2026).\n- [Search Terms Check Log](lib:brain-search-terms-check-log): per-campaign Google Ads search-term review checkpoints (early July 2026).\n- [Blog Master List](lib:brain-blog-master-list): July and August 2026 blog clusters for all four clients (Jul 21 2026).\n\n# Task lists\n- [Today Pending 2026-10-13](lib:brain-today-pending-2026-10-13): daily plan from Keystone and the Oct 8 EOD.\n- [Monday Task Lists 2026-06-05](lib:brain-monday-task-lists-2026-06-05): done and pending task exports for monday.com (three CSVs merged).\n\n# Multi-client reports\n- [Broken Link Report 2026-05-29](lib:brain-broken-link-report-2026-05-29): crawl of Summit, Alphalete and Pipeliners (7, 8 and 85 broken links).\n- [Dead Link Locations 2026-05-29](lib:brain-dead-link-locations-2026-05-29): where each dead link sits on the page, for manual fixes.\n- [Local Page Optimization Report 2026-05-30](lib:brain-local-page-optimization-report-2026-05-30): SEO/GEO/AEO status of location pages per client.\n- [Optimization Report 2026-05-30](lib:brain-optimization-report-2026-05-30): short Kim-format version plus Google Ads review.\n\n# Related\n- [Home](lib:brain-home), [EOD Reports Index](lib:brain-eod-reports-index), [SOPs and Guides Index](lib:brain-sops-and-guides-index), [Pipeliners - Audits and Reports Index](lib:brain-pipeliners-audits-and-reports-index), [Summit AZ - Work Folders Index](lib:brain-summit-az-work-folders-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "_Shared (All Clients)/Trackers and Logs",
+ "date": "2026-10-22",
+ "createdAt": 1792613312727,
+ "updatedAt": 1792613312728,
+ "rev": "a891db4fe9af"
+}

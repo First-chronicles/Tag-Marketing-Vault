@@ -1,0 +1,14 @@
+{
+ "name": "Prestige - August Hidden Leak Cluster 2026-07",
+ "cat": "brain-prestige",
+ "group": "Blogs",
+ "body": "> Blog · Prestige · 2026-07-21\n\n# Summary\nThis is a full pillar plus 4 supporting posts for the August calendar driver (heat and humidity peak, high water use, leak detection). It routes to `/services/leak-detection-repair/`, a different service from the July drain pillar, so the file finds no cannibalization. The bare term \"water leak detection\" is treated as service intent and routed to the service page instead of a blog post. Keyword intent was checked against the live SERP (Prestige has no Brand Vault).\n\n# Posts in the cluster\n| Role | Title | Primary keyword | Slug |\n|---|---|---|---|\n| Pillar | Signs You Have a Hidden Water Leak and Why It Spikes Your Bill | signs of a hidden water leak | /blog/signs-of-a-hidden-water-leak/ |\n| 1 | What Is a Slab Leak? Signs and Fixes for Lowcountry Homes | slab leak signs | /blog/what-is-a-slab-leak/ (draft slug) |\n| 2 | Is Your Toilet Silently Leaking? A Top Cause of High Water Bills | toilet leak / running toilet high bill | /blog/toilet-silently-leaking/ |\n| 3 | How to Check Your Water Meter for a Hidden Leak | check water meter for leak | /blog/check-water-meter-for-leak/ |\n| 4 | Why Did My Summer Water Bill Spike? Outdoor and Irrigation Leaks | summer water bill spike / irrigation leak | /blog/summer-water-bill-spike/ |\n\nPer the tracker, the live site has the pillar and slab leak post at `/blog/signs-of-a-hidden-water-leak/` and `/blog/slab-leak-signs/` (both dated Jun 26), and posts 2 to 4 went live Jul 21.\n\n# How they were built\n- Author Matt Milunec. Local details include humidity masking leaks and feeding mold, slab foundations, running toilets in vacation rentals, curbside meter boxes and summer irrigation.\n- External sources: EPA WaterSense, BJWSA, NWS Charleston. The \"spikes your bill\" angle uses EPA figures for the homeowner's utility bill, not Prestige pricing.\n\n# Holds and open items\n- Prestige's own prices (leak and water line repair from $330) were held for Scott.\n- 5 `[FIRST-HAND DETAIL]` spots need Matt's real leak-detection photos or notes.\n- The Business Knowledge Base was still missing.\n- The baseline later flagged a medium cannibalization watch on the water-bill trio. The plan is to keep the pillar as the hub and point the meter-check and summer-bill posts at it.\n\n# Related\n- [Prestige Plumbing (Hub)](lib:brain-prestige-plumbing-hub), [Prestige - SEO Baseline Audit 2026-08-12](lib:brain-prestige-seo-baseline-audit-2026-08-12), [SEO Blog Writing Standards](lib:brain-seo-blog-writing-standards)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Prestige Plumbing/blog-clusters-2026-07/Prestige_August_Hidden_Leak_Cluster_Pillar_Plus_4.md",
+ "date": "2026-07-21",
+ "createdAt": 1792613531758,
+ "updatedAt": 1792613531759,
+ "rev": "0f787fe89fc7"
+}

@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Blog Cluster - July Monsoon 2026",
+ "cat": "brain-summit",
+ "group": "Blogs",
+ "body": "> Blog · Summit Az · 2026-07-21\n\n# Summary\nFour supporting posts for the July monsoon calendar slot. The pillar \"Monsoon Season and Your Plumbing: Preventing Backups and Flooding\" was already live (2026-07-06, `/blog/monsoon-season-plumbing-backups/`), so writing a second pillar would cannibalize it; these four go deeper on sub-topics and link up.\n\n# Posts (keyword, intent)\n1. Why Do My Drains Gurgle and Drain Slowly When It Rains? (gurgling / slow drains when it rains, troubleshooting). Live 2026-07-31 at `/blog/gurgling-slow-drains-when-it-rains/`.\n2. Clog or Sewer Line Problem? (clog vs sewer line problem, comparison). Live 2026-07-31.\n3. Tree Roots in Your Sewer Line (Monsoon) (tree roots in sewer line, cause). Live 2026-07-14.\n4. Sewage Backing Up in a Storm? What to Do Now (sewage backup what to do, emergency how-to). Live 2026-07-14.\nLive dates are from the 2026-10-12 page tracker sync.\n\n# Key facts\n- Author on all Summit posts at the time: Ty Lemieux (`/blog/author/summitplumbingpros/`). The later water-pressure cluster switched to no byline.\n- Monsoon runs June 15 to Sept 30, peaking mid-July to mid-August; the 30 to 45 day pre-peak rule means next year these should publish late May or early June.\n- Holds: pricing and free-estimate language held for Scott; `[FIRST-HAND DETAIL]` placeholders need real Summit photos or job notes.\n- City-page canonical ambiguity: both `/mesa-plumbing/` and `/general-plumbing-services-in-mesa/` patterns exist; drafts used the nav pattern and recommend 301-ing the loser.\n\n# Open items in the file\n1. Leave the existing pillar as-is or refresh it.\n2. First-hand details or photos for four placeholders.\n3. Scott sign-off on pricing or financing language.\n4. Confirm the canonical city-page pattern.\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Summit AZ - Work Folders Index](lib:brain-summit-az-work-folders-index), [Summit AZ - Blogs Folder Overview](lib:brain-summit-az-blogs-folder-overview)\n- [SEO Blog Writing Standards](lib:brain-seo-blog-writing-standards), [Blog Master List](lib:brain-blog-master-list)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/blog-clusters-2026-07/Summit_July_Monsoon_Cluster_4_Supporting_Posts.md",
+ "date": "2026-07-21",
+ "createdAt": 1792612916488,
+ "updatedAt": 1792612916488,
+ "rev": "c240b00f4f09"
+}

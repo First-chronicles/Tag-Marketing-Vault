@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - SEO AEO Audit 2026-06-23",
+ "cat": "brain-summit",
+ "group": "Audits",
+ "body": "> Audit · Summit Az · 2026-06-23\n\n# Summary\nRead-only SEO/AEO audit and prioritized fix list for the Arizona site by the local-seo-auditor agent. States the Utah site (summitplumbingut.com) is a different, non-client site and was not touched. Site judged structurally healthy: GSC 98 indexed, 16 not indexed; sitemap index valid (page-sitemap 152 URLs, post-sitemap 6); robots.txt clean. Platform at the time: WordPress, Elementor, Yoast, SiteGround SuperCacher, `summit-location-seo` mu-plugin.\n\n# Already shipped (verified live)\n- mu-plugin emits Plumber + Service (+ FAQPage where `_summit_faqs_cache` is set) on city-service pages, NAP 950 W. Birchwood Ave Ste 12, Mesa AZ 85210.\n- H1 defects fixed (pipe lining, tankless, water softener); wrong canonicals on three water heater pages fixed; FAQ schema now matches visible content on general plumbing pages.\n- Title trims only partially shipped. DNI pool numbers are intentional GHL tracking.\n\n# Findings\n- P0: none.\n- P1-1: `/expert-drain-line-services/` and `/phoenix-plumbing/` are intentional canonical duplicates; stop requesting indexing (wasted quota on 6/16), optionally 301 them after checking Ads links.\n- P1-2: homepage has no Plumber/LocalBusiness schema or NAP; extend the mu-plugin without duplicating Yoast's Organization.\n- P1-3: lowercase title on tankless Chandler; 81-char double-city titles on Apache Junction and Fountain Hills general plumbing.\n- P1-4: all 10 general plumbing city pages and the homepage lack a visible FAQ; local-entity density is 0 to 1.\n- P2: no llms.txt; remaining long titles; single-author archive exposed; start the FAQ rollout on general-plumbing-services-chandler; purge SuperCacher and Yoast indexables after every change.\n\n# Files in this folder\n- `summit-pages-audit.csv`: 114-row per-page audit (title and meta length, H1 count, FAQ visible vs schema, LocalBusiness and Service schema, canonical, issue flags such as DUP-TITLE).\n- `summit_title_trims.tsv`: 36 post IDs with trimmed titles; `summit_titles.sh` applied them.\n- `summit_aeo_audit.md`: see [Summit AZ - AEO Audit Chandler Pages 2026-05-29](lib:brain-summit-az-aeo-audit-chandler-pages-2026-05-29); its schema lines are marked stale here.\n- `aeo_geo_seo_audit.py`: the audit script.\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Summit AZ - Work Folders Index](lib:brain-summit-az-work-folders-index)\n- [Google Search Console](lib:brain-google-search-console)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/seo-audits-2026-06/seo-audit-summit-2026-06-23.md",
+ "date": "2026-06-23",
+ "createdAt": 1792612997527,
+ "updatedAt": 1792612997527,
+ "rev": "d7f6f4d22cc5"
+}

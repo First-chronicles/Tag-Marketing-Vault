@@ -1,0 +1,14 @@
+{
+ "name": "EOD 2026-09-10",
+ "cat": "brain-eod",
+ "group": "2026-09 September",
+ "body": "> Eod · Summit Az · 2026-09-10\n\nWednesday. Site-wide Summit AZ design unification.\n\n# Summit Plumbing Pros AZ\nSee [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub).\n- Matched 142 pages to the Drain Cleaning design (Summit brand colours, Poppins and Montserrat instead of Elementor defaults). Copy, links, permalinks and SEO unchanged.\n- Rebuilt 6 old photo-background heroes (pipe lining, garbage disposals, water filtration, water pressure, leaking pipe repair, common pipe problems).\n- Fixed 780 broken icons across 116 pages by restoring 64 deleted Media Library records (files were still on the server).\n- Fixed dark-on-dark text on 171 pages.\n- Added the navy card style to 23 pages and saved a reusable \"Card Grid - Navy 6 Box\" template.\n- Removed a duplicate Areas We Serve section on /water-softeners/ (only page affected of 172) and rebuilt its broken \"Why Choose\" boxes; the same box fix applied to 22 more pages.\n- Submitted all 23 fixed pages to GSC, no quota block.\n- Found 3 pages not in Google: /plumbing-repair/ (crawled Aug 7, not indexed), /faucet-and-toilet-plumbing-services/ and /shower-bath-repair-installation-services/ (never crawled). Crawl requests in.\n- Trackers: `Summit-AZ-Change-Tracker-2026-09-10.csv`, `Summit-AZ-Card-Box-Fix-2026-09-10.csv`.\n\n# Follow-ups\n- Check with Scott on 11 card bands now navy.\n- Re-check the 3 unindexed pages in 1 to 2 weeks; if /plumbing-repair/ still out, rewrite to reduce overlap.\n- Parent service pages (water heaters, softeners, leak detection, maintenance, fixture installation) lack FAQ sections.\n- free-tankless-quote v2 and v3 still have no H1.\n- Garbage Disposals \"years of industry experience\" wording: confirm keep or remove.\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Google Search Console](lib:brain-google-search-console), [EOD Reports Index](lib:brain-eod-reports-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/EOD Report 2026-09-10.txt",
+ "date": "2026-09-10",
+ "createdAt": 1792612779400,
+ "updatedAt": 1792612779403,
+ "rev": "45e721374d65"
+}

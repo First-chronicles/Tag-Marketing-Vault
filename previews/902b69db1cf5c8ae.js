@@ -1,0 +1,1 @@
+window.__vaultPreview("902b69db1cf5c8ae",{"text":"User-agent: *\nDisallow: /wp-admin/\nAllow: /wp-admin/admin-ajax.php\nDisallow: /wp-includes/\n\nSitemap: https://pipelinersusa.com/sitemap_index.xml"});

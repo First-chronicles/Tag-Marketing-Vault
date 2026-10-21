@@ -1,0 +1,1 @@
+window.__vaultPreview("229f112803f84428",{"text":"{\"wp_inactive_widgets\":[],\"sidebar-1\":[\"block-2\",\"block-3\",\"block-4\",\"block-5\",\"block-6\",\"tag_cloud-1\",\"pix_recent_posts-1\",\"pix_categories-1\",\"pix_social-1\"],\"array_version\":3}\n"});

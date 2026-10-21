@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Organic SEO Snapshot 2026-09-16",
+ "cat": "brain-pipeliners",
+ "group": "Reports",
+ "body": "> Report · Pipeliners · 2026-09-16\n\n# Summary\nThe snapshot of record for later comparisons, taken Sep 16, 2026 with all windows ending Sep 12 (30, 28 and 7 day windows, each compared with its own previous period). Published as an artifact and as PDFs (short and detailed); the PDF and KPI CSV were also uploaded to Keystone under Pipeliners > Assets > Documents. Nothing on the site was changed.\n\n# Key findings\n- Better: GBP leads more than doubled (24 vs 11 in 30 days; 5 booked); organic search leads rose to 4 with 3 booked.\n- Worse: non-brand clicks fell 20% (39 vs 49); keywords on page 1 dropped from 59 to 33 (positions 1 to 3 rose from 16 to 24, positions 4 to 10 fell from 59 to 33).\n- GSC Domain property, 30 days: 60 clicks (27 of them on the GBP website link), 26,447 impressions, average position 48.4 (was 44.3). Brand clicks up 50% (21 vs 14).\n- GA4 organic: 174 sessions, 101 users (down 3% and 11%). GBP: 1,266 views (+19%), 20 calls, 29 website clicks, direction requests down 40%.\n- Indexing: 104 indexed, 173 not indexed.\n- Biggest opportunity: /florence/ for \"florence pipe break repair\", which slipped from position 4 to 15. City pages moving up: Mesa 48 to 39, Tempe 31 to 25, Sun City 34 to 24, San Tan Valley 33 to 25.\n- Concern: growth comes from brand and GBP, not new rankings. Unconfirmed number (480) 969-7978 on Birdeye and one installer directory.\n\n# Files in this folder (rollups only)\n- `README-snapshot-2026-09-16.md`: windows, sources and re-run notes.\n- `kpi-snapshot-2026-09-16.csv`: 47 metrics by window.\n- `technical-local-findings.md`: technical and local verification (own note).\n- `Pipeliners-Organic-SEO-Snapshot-2026-09-16.pdf` and `-DETAILED.pdf`, plus matching HTML versions.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Technical and Local SEO Verification 2026-09-16](lib:brain-pipeliners-technical-and-local-seo-verification-2026-09-16), [Google Search Console](lib:brain-google-search-console), [Google Business Profile](lib:brain-google-business-profile), [Keystone CRM](lib:brain-keystone-crm)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/reports/seo-performance-2026-09-16",
+ "date": "2026-09-16",
+ "createdAt": 1792613134541,
+ "updatedAt": 1792613566979,
+ "rev": "07131c27a021"
+}

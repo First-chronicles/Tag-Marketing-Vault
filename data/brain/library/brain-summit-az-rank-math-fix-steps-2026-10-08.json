@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Rank Math Fix Steps 2026-10-08",
+ "cat": "brain-summit",
+ "group": "Plans",
+ "body": "> Plan · Summit Az · 2026-10-08\n\n# Summary\nStep-by-step Rank Math fixes drawn from the Local SEO and AI SEO lessons, written for Kim to apply in WP Admin (Rank Math 1.0.280 free). Claude only ran read-only checks.\n\n# What the live check found (Oct 8)\n- Rank Math Local SEO: address, phone, email, geo and description all empty; the sitewide Plumber node had only name, URL, logo and hours.\n- No sameAs social profiles.\n- Pages default schema = Article for all pages, so service and city pages claimed to be articles by a person.\n- llms.txt returned 404; Rank Math's LLMS Txt module was off (Alphalete and Pipeliners already had one).\n- No self-serving review stars (good). robots.txt default, no AI crawlers blocked.\n\n# Steps\n- Backup first (Rank Math Status & Tools), one step at a time, purge SG cache after each save.\n- Step 1: fill Local SEO business details (address, phone, email, hours, description of approved claims only).\n- Step 2: social profiles. Step 3: change the default Pages schema. Step 4: enable llms.txt.\n- Approval gate: steps 1 to 3 change schema business details and the homepage output, so they need Scott's OK; step 4 needs Kim (Scott FYI). A draft message to Scott is included.\n\n# Decisions and status\n- Oct 7 to 8: Kim chose \"only llms.txt for now\"; LLMS Txt enabled for Pages and Posts.\n- Oct 9: default Pages schema set to None (via the schema audit fixes).\n- Oct 22: Local SEO address, phone and sameAs added. The phone used was the GBP number (480) 470-8706, not the 447-7008 proposed here, per [Summit AZ - Homepage GBP Alignment 2026-10-21](lib:brain-summit-az-homepage-gbp-alignment-2026-10-21). \"LLC\" removed from the name per Scott; YouTube confirmed and added.\n\n# Related\n- [Summit AZ - Schema Accuracy Audit 2026-10-08](lib:brain-summit-az-schema-accuracy-audit-2026-10-08), [Summit AZ - Local SEO AEO and AI Research 2026-10-10](lib:brain-summit-az-local-seo-aeo-and-ai-research-2026-10-10), [Lesson Takeaways 2026-10-08](lib:brain-lesson-takeaways-2026-10-08), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/Summit-AZ-Rank-Math-Fix-Steps-2026-10-08.md",
+ "date": "2026-10-08",
+ "createdAt": 1792613316477,
+ "updatedAt": 1792613316477,
+ "rev": "a3560156047d"
+}

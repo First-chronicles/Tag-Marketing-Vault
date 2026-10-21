@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - GSC Comparison Jun vs Sep 2026",
+ "cat": "brain-pipeliners",
+ "group": "Reports",
+ "body": "> Report · Pipeliners · 2026-09-24\n\n# Summary\nGoogle Search Console comparison (Domain property, Web, United States) captured Sep 24, 2026. Both months use days 1 to 21 because September was not over and the last GSC days were partial.\n\n# Key findings\n- Jun 1 to 21 vs Sep 1 to 21: clicks 31 to 32 (+3.2%), impressions 13,983 to 14,555 (+4.1%), CTR flat at 0.22%, average position 43.1 to 46.1.\n- Branded (GSC \"Query: Branded\" filter): clicks 8 to 13, impressions 79 to 62, position 1.9 to 1.8, CTR 10.1% to 21%.\n- Everything else (total minus branded): clicks 23 to 19.\n- Reference only: Sep 1 to 23 = 33 clicks, 15,398 impressions. Full June = 53 clicks, 20,586 impressions.\n- GSC shows a flat picture while Search Atlas estimates traffic down 38%; GSC is Google's own data and more reliable.\n\n# Decisions and status\n- Recommended: re-pull full September (Sep 1 to 30) on or after Oct 3 and compare with full June.\n- Evidence: four screenshots (gsc-02 to gsc-05).\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - SEO Performance Report Jun vs Sep 2026](lib:brain-pipeliners-seo-performance-report-jun-vs-sep-2026), [Google Search Console](lib:brain-google-search-console)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/seo-tracking/gsc-september-comparison.md",
+ "date": "2026-09-24",
+ "createdAt": 1792613290914,
+ "updatedAt": 1792613567088,
+ "rev": "f5fba3ff5293"
+}

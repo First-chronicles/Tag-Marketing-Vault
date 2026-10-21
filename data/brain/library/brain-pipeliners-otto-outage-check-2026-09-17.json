@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - OTTO Outage Check 2026-09-17",
+ "cat": "brain-pipeliners",
+ "group": "Reports",
+ "body": "> Report · Pipeliners · 2026-09-17\n\n# Summary\nIncident record for Sep 17, 2026, when most city pages were served without OTTO SEO data (headings, titles, schema). Two sheet-style HTML reports document the check and the keywords at risk.\n\n# Key findings\n- Check at 17:50 to 17:58 UTC: 34 of 37 city pages were served without OTTO (plugin header API_ERROR) to desktop, mobile and both Googlebots. Only /apache-junction/, /casa-grande/ and /fort-mcdowell/ were fine. Four pages (Apache Junction, Coolidge, Litchfield Park, Sacaton) already had the problem in the earlier audit crawl.\n- Cause: a full cache flush at 17:42 UTC (done to publish changes C6 to C8) wiped the plugin's stored OTTO copies. Pages re-rendered and hit the OTTO API at once, the API rate-limited the plugin, and LiteSpeed cached pages rendered during backoff without OTTO. Search Atlas was also returning errors.\n- Missing while broken: OTTO page schema (Service, OfferCatalog, AggregateRating, service area), og:title, meta keywords, OTTO image alts. Elementor FAQ schema and breadcrumbs stayed.\n- MetaSync gives the OTTO API only 2 seconds per page load and 10 calls per minute, and renders without OTTO on a timeout.\n- Keywords at risk: 968 of 1,079 keywords sat on an affected page, about 92% of the times the site was shown in Google.\n\n# Decisions and status\n- Fixed: all 37 city pages have the right main heading again and all 59 page titles are correct (checked as a visitor).\n- SEO data restored page by page, biggest pages first. Pages now keep OTTO data for 24 hours instead of 30 minutes.\n- Standing rule: never clear all caches at once on this site again. Residual risk: Googlebot can still catch a page without OTTO if the API is down at crawl time.\n\n# Files in this folder (rollups only)\n- `pipeliners-otto-outage-check.html`: per-page check sheet.\n- `pipeliners-keywords-at-risk.html`: GSC 28-day keywords on affected pages.\n- `page_keywords.csv`, `pages.txt`: keyword and page counts. JSON state checks and Python sweep scripts are not summarized.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Search Atlas](lib:brain-search-atlas), [Pipeliners - Rank Gap Audit 2026-09-18](lib:brain-pipeliners-rank-gap-audit-2026-09-18)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/reports/otto-outage-2026-09-17",
+ "date": "2026-09-17",
+ "createdAt": 1792613134543,
+ "updatedAt": 1792613566980,
+ "rev": "e89d227ec3ef"
+}

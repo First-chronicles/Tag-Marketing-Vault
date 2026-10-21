@@ -1,0 +1,14 @@
+{
+ "name": "Organization Log 2026-10-01",
+ "cat": "brain-sops",
+ "group": "",
+ "body": "> Log · 2026-10-01\n\n# Summary\nRecord of the October 1 2026 top-level cleanup of `C:\\TAG Marketing Claude\\`. Nothing was deleted or renamed, only moved; any move can be undone by moving the item back from New to Old location. The log is a two-column Old/New table of roughly 200 entries.\n\n# Where things went\n- **Alphalete Trenchless Pipelining:**\n  - About 90 loose page HTML snapshots, Elementor data JSON, fix scripts and PHP batch files (page IDs 12635 to 12691, Black Forest, Boone) moved to `wp-elementor-fixes-2026-06-12\\`.\n  - AEO audit and the 2026-06-23 SEO audit to `seo-audits-2026-06\\`.\n  - Instantly lead and thread JSON to `instantly-outreach-2026-06-24\\`.\n  - July Monsoon and August Hydro Jetting blog cluster files to `Blogs\\`.\n  - About 24 Higgsfield featured images to `higgsfield-images\\`.\n  - Old \"Alphalete Trenchless\" folder renamed into place as `gsc-indexing-report-2026-08-15`.\n- **Pipeliners:** 2026-06-23 SEO audit to `seo-audits\\`; June attribution audit, OTTO schema fix, search bid review, Search Atlas ticket and task verify notes to `audits-and-notes-2026-06\\`; ePIPE Goodyear scripts to `epipe-goodyear-scripts-2026-06-17\\`; blog inventories and monsoon cluster files to `blog-clusters-2026-07\\`; review widget coverage to `search-atlas\\`.\n- **Summit Plumbing Pros:** `drafts\\`; June SEO and AEO audits plus title-trim files to `seo-audits-2026-06\\`; July/August blog clusters to `blog-clusters-2026-07\\`; Search Atlas PDFs and Tempe optimization doc to `search-atlas\\`.\n- **Prestige Plumbing:** website tracker xlsx, 2026-06-23 SEO audit, July/August blog clusters, logo image.\n- **_Shared (All Clients):** all EOD reports to `EOD Reports\\`; GBP batches to `GBP Content\\`; guides and SOPs to `SOPs and Guides\\`; GSC tracker, search-terms log and monday.com CSVs to `Trackers and Logs\\`; broken-link and optimization reports to `Multi-Client Reports\\`; `Blogs\\` folder.\n\n# Why it matters\nOlder notes, chats and memory may reference the old root paths. Use this table to translate an old path to its current location. The [Session Handoff 2026-10-01 (All Clients)](lib:brain-session-handoff-2026-10-01-all-clients) points here for old-to-new paths.\n\n# Related\n- [SOPs and Guides Index](lib:brain-sops-and-guides-index), [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Prestige Plumbing (Hub)](lib:brain-prestige-plumbing-hub), [EOD Reports Index](lib:brain-eod-reports-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "_Shared (All Clients)/_Organization Log 2026-10-01.md",
+ "date": "2026-10-01",
+ "createdAt": 1792613157023,
+ "updatedAt": 1792613157023,
+ "rev": "da990d14716e"
+}

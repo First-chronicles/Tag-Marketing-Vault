@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Blog - Signs of a Hidden Water Leak",
+ "cat": "brain-summit",
+ "group": "Blogs",
+ "body": "> Blog · Summit Az · 2026-06-18\n\n# Summary\nArizona localization of a Utah post on the signs of a hidden water leak: spiking summer water bills, running-water sounds, musty smells, and how Chandler pros find leaks without tearing up the home. Published 2026-06-18 at `/blog/signs-of-a-hidden-water-leak/` (ID 5781 in the June post list).\n\n# Key facts\n- Focus keyphrase: signs of a hidden water leak. SEO title (58 chars): \"Signs of a Hidden Water Leak in Your Home | Summit\".\n- Money page link: `/water-leak-detection-chandler/`. Siblings: outdoor faucet leaking, signs of hard water. Reciprocal cluster links to `/blog/low-water-pressure-mesa/` (target 11 Aug) and `/blog/water-pressure-drops-multiple-fixtures/` (target 26 Aug) held until those went live.\n- External sources: EPA WaterSense Fix a Leak Week; EPA mold and moisture guide.\n- Seasonal angle rewritten for desert summer (irrigation, pools, evaporative cooling) plus a monsoon FAQ.\n- Open caveat in the file: confirm against the content tracker that no other post targets this keyphrase.\n\n# Utah flag\n- Utah original at `blogs\\_utah_originals\\signs-of-a-hidden-water-leak.md` (\"Utah pros\" wording). Not for the AZ site.\n- Featured image filename still `signs-of-a-hidden-water-leak-utah-home.png`; alt text updated to Arizona.\n\n# Versions\n- `.md` draft and `.html` WP body; banner in `blogs\\banners\\`.\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Summit AZ - Work Folders Index](lib:brain-summit-az-work-folders-index), [Summit AZ - Blogs Folder Overview](lib:brain-summit-az-blogs-folder-overview)\n- [SEO Blog Writing Standards](lib:brain-seo-blog-writing-standards), [Blog Master List](lib:brain-blog-master-list)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/blogs/signs-of-a-hidden-water-leak.md",
+ "date": "2026-06-18",
+ "createdAt": 1792612842940,
+ "updatedAt": 1792612842940,
+ "rev": "5158d21caf01"
+}

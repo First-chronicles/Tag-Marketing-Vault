@@ -1,0 +1,698 @@
+<title>Buckeye, Maricopa &amp; Cast Iron Audit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F5F7F6; --surface:#FFFFFF; --ink:#18221F; --muted:#56645F; --rule:#D5DCD9;
+  --accent:#1A446F; --accent-soft:#E3EBF3;
+  --p1:#A33A26; --p1-soft:#F6E4DF; --p2:#8E6414; --p2-soft:#F5EDD9; --p3:#4E5B57; --p3-soft:#E6EAE8;
+  --ok:#2F6B45; --ok-soft:#E0EEE4;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --display:"Archivo","IBM Plex Sans",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#111716; --surface:#19211F; --ink:#E3E9E6; --muted:#9AA8A3; --rule:#2E3936;
+    --accent:#86B0DC; --accent-soft:#1D2C3B;
+    --p1:#EE9A86; --p1-soft:#3A221C; --p2:#E3BC6A; --p2-soft:#33291A; --p3:#B3BEBA; --p3-soft:#26302D;
+    --ok:#8FCBA2; --ok-soft:#1C2E23;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#111716; --surface:#19211F; --ink:#E3E9E6; --muted:#9AA8A3; --rule:#2E3936;
+  --accent:#86B0DC; --accent-soft:#1D2C3B;
+  --p1:#EE9A86; --p1-soft:#3A221C; --p2:#E3BC6A; --p2-soft:#33291A; --p3:#B3BEBA; --p3-soft:#26302D;
+  --ok:#8FCBA2; --ok-soft:#1C2E23;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:15px/1.6 var(--sans);padding-inline:16px;padding-block:0 64px}
+.wrap{max-width:940px;margin:0 auto}
+header.top{padding-block:40px 20px;border-bottom:1px solid var(--rule)}
+.eyebrow{font:500 12px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font:700 clamp(28px,4.5vw,40px)/1.15 var(--display);margin:10px 0 12px;text-wrap:balance;letter-spacing:-.01em}
+h2{font:700 26px/1.2 var(--display);margin:0 0 6px;text-wrap:balance}
+h3{font:600 18px/1.3 var(--display);margin:30px 0 10px;text-wrap:balance}
+h4{font:600 15px/1.35 var(--sans);margin:18px 0 6px}
+p{margin:0 0 12px;max-width:70ch}
+ul,ol{margin:0 0 12px;padding-left:20px;max-width:72ch}
+li{margin-bottom:5px}
+a{color:var(--accent)}
+code,.mono{font-family:var(--mono);font-size:.9em}
+nav.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--rule);display:flex;gap:4px;overflow-x:auto;padding-block:8px}
+nav.tabs a{font:500 13px/1 var(--sans);text-decoration:none;color:var(--muted);padding:8px 12px;border-radius:6px;white-space:nowrap}
+nav.tabs a:hover,nav.tabs a:focus-visible{background:var(--accent-soft);color:var(--accent);outline:none}
+section.page{padding-block:44px 8px;border-bottom:1px solid var(--rule)}
+.url{font:500 13px/1.4 var(--mono);color:var(--accent);word-break:break-all}
+.lede{font-size:16.5px;color:var(--ink)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:8px;overflow:hidden;margin:18px 0}
+.stat{background:var(--surface);padding:12px 14px}
+.stat b{display:block;font:600 22px/1.2 var(--mono);font-variant-numeric:tabular-nums}
+.stat span{font-size:12.5px;color:var(--muted)}
+.callout{border:1px solid var(--rule);border-left:4px solid var(--p1);background:var(--surface);border-radius:6px;padding:14px 16px;margin:16px 0}
+.callout.info{border-left-color:var(--accent)}
+.callout.warn{border-left-color:var(--p2)}
+.callout p:last-child,.callout ul:last-child{margin-bottom:0}
+.tbl{overflow-x:auto;margin:10px 0 16px;border:1px solid var(--rule);border-radius:8px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font:600 11.5px/1.3 var(--sans);letter-spacing:.05em;text-transform:uppercase;color:var(--muted);background:var(--bg)}
+tr:last-child td{border-bottom:0}
+td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
+.pill{display:inline-block;font:600 11px/1 var(--sans);letter-spacing:.04em;padding:4px 7px;border-radius:99px;white-space:nowrap}
+.P1{background:var(--p1-soft);color:var(--p1)} .P2{background:var(--p2-soft);color:var(--p2)} .P3{background:var(--p3-soft);color:var(--p3)}
+.tag{display:inline-block;font:500 11.5px/1.2 var(--sans);padding:3px 7px;border-radius:4px;background:var(--p3-soft);color:var(--p3);white-space:nowrap}
+.tag.pri{background:var(--accent-soft);color:var(--accent)} .tag.lhf{background:var(--ok-soft);color:var(--ok)} .tag.dnt{background:var(--p1-soft);color:var(--p1)} .tag.ctr{background:var(--p2-soft);color:var(--p2)}
+.change{display:grid;grid-template-columns:110px 1fr;gap:6px 14px;border:1px solid var(--rule);border-radius:8px;background:var(--surface);padding:14px 16px;margin:10px 0}
+.change .k{font:600 11.5px/1.5 var(--sans);letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.change .v{min-width:0}
+.before{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--p1)}
+.after{font-weight:600}
+@media (max-width:560px){.change{grid-template-columns:1fr}.change .k{margin-top:6px}}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.small{font-size:13px;color:var(--muted)}
+details{border:1px solid var(--rule);border-radius:8px;background:var(--surface);padding:10px 14px;margin:10px 0}
+summary{cursor:pointer;font-weight:600}
+footer{padding-top:28px}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+html{scroll-behavior:smooth}
+</style>
+
+<div class="wrap">
+<header class="top">
+  <div class="eyebrow">Pipeliners · Page audit · Data through Sep 23, 2026 · Prepared Sep 26, 2026</div>
+  <h1>Buckeye, Maricopa and cast iron post: why they rank where they do</h1>
+  <p class="lede">I audited three pages before changing anything. Nothing has been deployed. Every change below needs approval first, and two of the three pages count as ad-touched under the Sep 23 rule.</p>
+</header>
+
+<nav class="tabs" aria-label="Sections">
+  <a href="#summary">Summary</a><a href="#buckeye">Buckeye</a><a href="#maricopa">Maricopa</a><a href="#castiron">Cast iron post</a><a href="#cross">Cross-page check</a><a href="#plan">Action plan</a><a href="#tracking">Tracking</a><a href="#client">Client info needed</a>
+</nav>
+
+<section class="page" id="summary">
+  <h2>Summary</h2>
+  <div class="callout">
+    <p><b>The biggest finding: Google has not indexed most of the recent work.</b> URL Inspection in Search Console shows /buckeye/ was last crawled <b>Aug 28</b>. Google's cached copy still has the old title "Trenchless Pipe &amp; Sewer Repair in Buckeye, Arizona" and the old meta description. So the Aug 31 title, the Sep 1 rewrite and the Sep 15 pipe break section are not in Google's index yet. The cast iron post was last crawled <b>Aug 24</b>, so its Sep 23 keyword update isn't indexed either. Maricopa was recrawled on Sep 25, so its Sep 16 title only just got into the index.</p>
+    <p>This means the Buckeye test reads from Sep 11 and Sep 16 measured a page Google had not re-read. My earlier conclusion was that the rewrite cost Buckeye its page-1 "buckeye pipe break repair" ranking. That conclusion is wrong. Google hadn't seen the rewrite yet, so the drop had some other cause.</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Page</th><th>90-day clicks / impressions / position</th><th>Main problem</th><th>Biggest lever</th></tr></thead>
+    <tbody>
+      <tr><td>/buckeye/</td><td class="n">1 / 2,020 / 22.2</td><td>Recent changes are not indexed. Most demand is for pipe breaks and water lines, ranking at positions 12 to 28. Weak internal links.</td><td>Get the current page indexed, fill the water line and repiping gaps, then measure.</td></tr>
+      <tr><td>/maricopa/</td><td class="n">1 / 430 / 23.9</td><td>The title (changed Sep 16) says "trenchless sewer", but the H1 and top headings say something else. The page has unverified warranty and service claims.</td><td>Align the H1 and headings with the sewer keyword, add a "how it works" answer block, and verify or remove the claims.</td></tr>
+      <tr><td>/how-long-do-cast-iron-pipes-last/</td><td class="n">0 / 133 / 60.8</td><td>120 of its 133 impressions came in its first five weeks. It has no queries in positions 1 to 30. It is thin next to the pages that rank.</td><td>Depth on the sewer and underground questions, cited numbers, real photos and an author, then an indexing request.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">Sources: GSC Domain property UI (sc-domain:pipelinersusa.com), Jun 24 to Sep 23, 2026. This is the source of record because the Search Atlas API drops anonymized queries. Keyword volume and difficulty come from Search Atlas (project 5056244, US). The live pages were crawled Sep 26. Ads data is Google Ads landing_page_view for the last 30 days.</p>
+  <div class="callout warn">
+    <p><b>Ad-touched check.</b> /buckeye/ and /maricopa/ each took <b>2 Performance Max impressions (0 clicks)</b> in the last 30 days. Under the Sep 23 rule that counts as ad-touched, so they need an explicit go-ahead. The cast iron post had no ad traffic.</p>
+  </div>
+  <div class="callout info">
+    <p><b>Keyword threshold (volume 100+, KD 0 to 30, transactional or informational).</b> No Buckeye or Maricopa service-plus-city phrase has measurable Search Atlas volume. All read 0. The only city terms above 100 are "buckeye plumber" (1,600) and "plumber buckeye az" / "plumber maricopa az" (480 each). Those are general-plumber searches for services Pipeliners doesn't offer, so I don't recommend them. For the two city pages I picked focus keywords from GSC impressions instead, and I've marked that as below the threshold. The cast iron post's keyword, "how long do cast iron pipes last" (480/mo, KD 22, informational), meets all three criteria.</p>
+  </div>
+</section>
+
+<!-- ============ BUCKEYE ============ -->
+<section class="page" id="buckeye">
+  <div class="eyebrow">Page 1 · City service page · Post 13796 · OTTO url_id 28896496</div>
+  <h2>/buckeye/</h2>
+  <p class="url">https://pipelinersusa.com/buckeye/</p>
+
+  <h3>1. Current performance</h3>
+  <div class="stats">
+    <div class="stat"><b>1</b><span>clicks, 90 days</span></div>
+    <div class="stat"><b>2,020</b><span>impressions, 90 days</span></div>
+    <div class="stat"><b>0.05%</b><span>CTR, 90 days</span></div>
+    <div class="stat"><b>22.2</b><span>avg position, 90 days</span></div>
+    <div class="stat"><b>0 / 598 / 17.0</b><span>last 28 days (Aug 27 to Sep 23)</span></div>
+    <div class="stat"><b>1 / 539 / 18.5</b><span>prior 28 days (Jul 30 to Aug 26)</span></div>
+  </div>
+  <p>Page type: city service page. Intent: transactional and local (Buckeye, Maricopa County, West Valley). Branded traffic: none. The GBP link (<span class="mono">/?utm_medium=gmb</span>) ranks #1 for 13 Buckeye impressions in the map pack. That is separate from this page and not in competition with it.</p>
+
+  <h3>2. Important GSC queries (page filter, 90 days)</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Query</th><th>Clicks</th><th>Impr.</th><th>Pos.</th><th>Intent</th><th>Class</th><th>Action</th></tr></thead>
+    <tbody>
+      <tr><td>pipe breaks buckeye az</td><td class="n">0</td><td class="n">157</td><td class="n">27.9</td><td>Emergency repair</td><td><span class="tag pri">Primary cluster</span></td><td>Covered by the new section (not indexed yet)</td></tr>
+      <tr><td>buckeye az pipe break repair</td><td class="n">0</td><td class="n">148</td><td class="n">17.3</td><td>Emergency repair</td><td><span class="tag lhf">Low-hanging fruit</span></td><td>Same</td></tr>
+      <tr><td>water line repair buckeye</td><td class="n">0</td><td class="n">142</td><td class="n">19.4</td><td>Transactional</td><td><span class="tag lhf">Low-hanging fruit</span></td><td>Expand the water line section</td></tr>
+      <tr><td>burst pipe fix buckeye</td><td class="n">0</td><td class="n">134</td><td class="n">12.0</td><td>Emergency repair</td><td><span class="tag lhf">Low-hanging fruit</span></td><td>Covered by the pipe break section</td></tr>
+      <tr><td>buckeye az water line repair</td><td class="n">0</td><td class="n">127</td><td class="n">28.0</td><td>Transactional</td><td><span class="tag">Secondary</span></td><td>Water line section</td></tr>
+      <tr><td>buckeye gas line repair</td><td class="n">0</td><td class="n">119</td><td class="n">21.5</td><td>Gas service</td><td><span class="tag dnt">Do not target</span></td><td>Not a Pipeliners service</td></tr>
+      <tr><td>buckeye pipe break repair</td><td class="n">0</td><td class="n">112</td><td class="n">12.5</td><td>Emergency repair</td><td><span class="tag lhf">Low-hanging fruit</span></td><td>Pipe break section</td></tr>
+      <tr><td>gas line repair buckeye</td><td class="n">0</td><td class="n">101</td><td class="n">32.9</td><td>Gas service</td><td><span class="tag dnt">Do not target</span></td><td>Not a service</td></tr>
+      <tr><td>buckeye water line repair</td><td class="n">0</td><td class="n">72</td><td class="n">20.4</td><td>Transactional</td><td><span class="tag">Secondary</span></td><td>Water line section</td></tr>
+      <tr><td>buckeye az gas line repair</td><td class="n">0</td><td class="n">71</td><td class="n">55.1</td><td>Gas service</td><td><span class="tag dnt">Do not target</span></td><td>Not a service</td></tr>
+      <tr><td>underground pipe repair buckeye</td><td class="n">0</td><td class="n">60</td><td class="n">8.0</td><td>Transactional</td><td><span class="tag ctr">CTR opportunity</span></td><td>Already on page 1. Improve the snippet (meta).</td></tr>
+      <tr><td>pipe repair buckeye</td><td class="n">0</td><td class="n">57</td><td class="n">8.5</td><td>Transactional</td><td><span class="tag ctr">CTR opportunity</span></td><td>Already on page 1. Improve the snippet (meta).</td></tr>
+      <tr><td>sewer repair buckeye</td><td class="n">0</td><td class="n">57</td><td class="n">12.0</td><td>Transactional</td><td><span class="tag lhf">Low-hanging fruit</span></td><td>Covered; wait for indexing</td></tr>
+      <tr><td>pipe breaks buckeye</td><td class="n">0</td><td class="n">55</td><td class="n">16.7</td><td>Emergency repair</td><td><span class="tag lhf">Low-hanging fruit</span></td><td>Pipe break section</td></tr>
+      <tr><td>repiping services buckeye</td><td class="n">0</td><td class="n">54</td><td class="n">30.6</td><td>Transactional</td><td><span class="tag">Secondary</span></td><td>Restore the repiping section removed Sep 1</td></tr>
+      <tr><td>buckeye slab leak repair</td><td class="n">0</td><td class="n">44</td><td class="n">28.5</td><td>Transactional</td><td><span class="tag">Verify first</span></td><td>Only after Scott confirms the service</td></tr>
+      <tr><td>gas pipe fix buckeye</td><td class="n">0</td><td class="n">43</td><td class="n">16.2</td><td>Gas service</td><td><span class="tag dnt">Do not target</span></td><td>Not a service</td></tr>
+      <tr><td>sewer line repair buckeye</td><td class="n">0</td><td class="n">37</td><td class="n">14.0</td><td>Transactional</td><td><span class="tag lhf">Low-hanging fruit</span></td><td>Covered</td></tr>
+      <tr><td>water line repair buckeye az</td><td class="n">0</td><td class="n">37</td><td class="n">26.2</td><td>Transactional</td><td><span class="tag">Secondary</span></td><td>Water line section</td></tr>
+      <tr><td>copper pipe repair buckeye</td><td class="n">0</td><td class="n">31</td><td class="n">17.7</td><td>Transactional</td><td><span class="tag">Supporting</span></td><td>Keep the existing copper H2</td></tr>
+      <tr><td>pvc pipe replacement buckeye</td><td class="n">0</td><td class="n">25</td><td class="n">16.8</td><td>Transactional</td><td><span class="tag">Supporting</span></td><td>No action</td></tr>
+      <tr><td>kitec repair buckeye / kitec replacement buckeye</td><td class="n">0</td><td class="n">29</td><td class="n">27 / 41</td><td>Transactional</td><td><span class="tag">Supporting</span></td><td>Restore the hedged Kitec wording only</td></tr>
+      <tr><td>trenchless sewer reapir buckeye az (typo)</td><td class="n">0</td><td class="n">15</td><td class="n">9.6</td><td>Transactional</td><td><span class="tag">Already strong</span></td><td>None</td></tr>
+      <tr><td>sewer line replacement buckeye az</td><td class="n">0</td><td class="n">11</td><td class="n">14.1</td><td>Transactional</td><td><span class="tag">Supporting</span></td><td>None</td></tr>
+      <tr><td>complete pipeline services · pipe eyes · repiping mesa · sewer pipe lining stevenson ranch</td><td class="n">0</td><td class="n">19</td><td class="n">57 to 88</td><td>Unrelated</td><td><span class="tag dnt">Irrelevant</span></td><td>Ignore</td></tr>
+    </tbody>
+  </table></div>
+  <p><b>Clusters (90 days):</b> pipe break and burst 606 impressions (pos 12 to 28) · water line 378 (pos 19 to 28) · gas 336 (not a service) · general pipe repair 191 (pos 8 to 21) · sewer 135 (pos 10 to 14) · repiping and Kitec 91 · slab leak 87.</p>
+  <p><b>By position band:</b> positions 4 to 10 are underground pipe repair (8.0), pipe repair (8.5) and the trenchless sewer typo (9.6), about 132 impressions with 0 clicks. Positions 11 to 20 are the pipe break, burst, sewer, copper and water-line queries, about 700 impressions. Positions 21 to 30 are water line variants, pipe breaks buckeye az, repiping, slab leak and Kitec.</p>
+  <p><b>Gaining and losing (last 28 days vs prior):</b> "buckeye az pipe break repair" (85 impressions in the last 28 days) and the sewer terms are growing. Gas fell from 119 to 43 on the top term. Copper, pvc, repiping and underground terms had 0 impressions in the last 28 days. That fits a page Google hasn't re-read, not a content effect.</p>
+
+  <h3>3. Primary opportunity</h3>
+  <p>The demand is already here: 984 impressions on pipe break and water line searches sit on page 2 with no clicks. The live page now answers the pipe break intent, but Google is still ranking the Aug 28 version. The biggest single step is to get the current page indexed. After that, I'd fill the one real content gap, water lines (378 impressions), plus the repiping section that was removed.</p>
+
+  <h3>4. Current problems (evidence-backed)</h3>
+  <ul>
+    <li><b>Stale index.</b> Last crawl Aug 28. The cached copy has the old title and meta. Only 3 referring pages are known to Google: an author archive (page 3), /san-tan-valley/ and the homepage.</li>
+    <li><b>Weak internal links.</b> Only two pages link to /buckeye/ in their content: /services/ with anchor "Buckeye", and /litchfield-park/, which has the same "pipe lining services in Buckeye" link three times. Everything else comes through the nav menu.</li>
+    <li><b>Water line intent is under-served.</b> The page has an H2 about ePIPE for water lines, but nothing on a burst or split main line from the meter to the house, which is what "water line repair" searches usually mean. The pipe break section says a split pressurized line can't be coated. That's accurate, but the page never says what the repair actually is.</li>
+    <li><b>Repiping section removed.</b> The Aug 31 buildout added "Repiping, and where ePIPE stops" for 62 repiping and 29 Kitec impressions. The Sep 1 rewrite dropped it. The backup still exists.</li>
+    <li><b>Little Buckeye-specific content.</b> Apart from the city name, the copy could sit on any city page. The Aug 31 version cited the City of Buckeye and NASSCO; the rewrite dropped both.</li>
+    <li><b>Meta description:</b> 138 characters, no phone number, no call to action. Positions 8 to 9 with 0 clicks point to the snippet.</li>
+    <li><b>Social tags out of sync:</b> og:title "Pipe Break &amp; Water Line Repair in Buckeye, AZ | Pipeliners" doesn't match the title. twitter:title is just "Buckeye". og:description is old boilerplate ("We are Buckeye's Pipelining Experts").</li>
+    <li><b>Images:</b> one image has an empty alt. The alt "Pipeliners USA technician installing a trenchless pipe liner in Buckeye, Arizona" needs confirming as a real Buckeye job photo.</li>
+    <li><b>Schema claim to verify:</b> AggregateRating 4.9 from 122 reviews in the OTTO LocalBusiness block. It must match the GBP, and Google doesn't show star ratings a business marks up about itself.</li>
+  </ul>
+
+  <h3>5. What should stay</h3>
+  <ul>
+    <li>The H1 "Trenchless Pipe Repair in Buckeye, AZ: Sewer, Drain &amp; Water Lines" and the current title. Both are part of the Buckeye test and Google hasn't seen either yet.</li>
+    <li>The "Pipe Break Repair in Buckeye" H2 and FAQ #8 (added Sep 15). They serve the largest cluster.</li>
+    <li>The honest limitation copy: lining won't fix a collapsed pipe, hydro jetting doesn't repair, and a split water line can't be coated. It lets the page answer replacement searches truthfully.</li>
+    <li>The 8-question FAQ (the FAQPage schema matches it) and the 24/7 pipe break claim (confirmed Aug 27).</li>
+    <li>OTTO state: all 43 NLP terms on /buckeye/ are unapproved and the target keywords no longer include gas. Leave them that way.</li>
+  </ul>
+
+  <h3>6. Keyword strategy</h3>
+  <div class="tbl"><table><tbody>
+    <tr><th>Primary (current test)</th><td>trenchless pipe repair Buckeye. SA volume 0 (below threshold). Matches "pipe repair buckeye" 57 @ 8.5 and "underground pipe repair buckeye" 60 @ 8.0.</td></tr>
+    <tr><th>Secondary</th><td>pipe break repair Buckeye (606 impressions, largest cluster), water line repair Buckeye (378), sewer line repair Buckeye (135)</td></tr>
+    <tr><th>Supporting topics</th><td>burst pipe, main water line from meter to house, camera inspection, copper pinhole leaks, repiping, Kitec (hedged), hydro jetting</td></tr>
+    <tr><th>Avoid</th><td>gas line anything; general "plumber buckeye"; slab leak until Scott confirms it's a service</td></tr>
+    <tr><th>Cannibalization</th><td>None. /buckeye/ has 1,840 of 1,853 "buckeye" impressions site-wide. The rest is the GBP link in the map pack.</td></tr>
+  </tbody></table></div>
+  <p><b>Title decision to revisit at the 28-day read:</b> the evidence favors pipe break (606 impressions) over the trenchless and sewer terms the current title targets (about 190). I'm not proposing a title change now, because it would change the test before Google has even read it. If the pipe break queries haven't reached page 1 by the 28-day read, the prepared alternative is in section 17.</p>
+
+  <h3>7. Local SEO strategy</h3>
+  <ul>
+    <li>Add a short "Where we work in Buckeye" block with the ZIP codes (85326, 85396) and the master-planned communities Pipeliners actually works in. Candidates to confirm with Scott: Verrado, Sundance, Festival Ranch, Tartesso, Sun City Festival. <b>I won't publish any of these names until Scott confirms work there.</b></li>
+    <li>Water line section: explain that the line from the meter to the house is the owner's side and the utility handles the rest. Buckeye's water utility and meter ownership need checking before we name anyone.</li>
+    <li>Bring back one verifiable local reference, like the City of Buckeye citation from the Aug 31 version (link checked for a 200 response before publishing).</li>
+    <li>Ask for one or two real Buckeye job summaries (what failed, what we did). That's the strongest local signal available, and I can't write it without the facts.</li>
+  </ul>
+
+  <h3>8. On-page changes</h3>
+  <div class="tbl"><table><tbody>
+    <tr><th>SEO title</th><td>Keep: "Trenchless Pipe Repair &amp; Lining in Buckeye, AZ | Pipeliners" (58 characters). Revisit at the 28-day read.</td></tr>
+    <tr><th>Meta</th><td>Rewrite with the phone number and a call to action (see section 17). It affects click-through only, not ranking, so it doesn't disturb the test.</td></tr>
+    <tr><th>H1</th><td>Keep.</td></tr>
+    <tr><th>H2</th><td>Rename "Water Line Repair and ePIPE Restoration" to "Water Line Repair in Buckeye" and add a new H2 "Repiping, and Where ePIPE Stops" (restored). Keep all others.</td></tr>
+    <tr><th>H3</th><td>None on the page body. No change needed.</td></tr>
+    <tr><th>Intro</th><td>Keep. It contains "trenchless pipe repair" and "Buckeye" in the first 50 words.</td></tr>
+    <tr><th>FAQ</th><td>Add one question: "Who fixes a broken water line in Buckeye, me or the city?" Only once the utility facts are verified.</td></tr>
+    <tr><th>CTA</th><td>No change. The phone number shows three times and there's a contact button.</td></tr>
+    <tr><th>Images</th><td>Fill the empty alt. Confirm the "technician in Buckeye" photo is really from Buckeye; if not, change the alt to describe the photo without a location.</td></tr>
+  </tbody></table></div>
+
+  <h3>9. Content sections to improve</h3>
+  <div class="change"><div class="k">Current</div><div class="v">H2 "Water Line Repair and ePIPE Restoration" (about 90 words, ePIPE only)</div>
+    <div class="k">Problem</div><div class="v">378 water line impressions at positions 19 to 28. The section only covers coating, but most "water line repair" searches are about a leak or break on the main service line.</div>
+    <div class="k">Change</div><div class="v">Rename to "Water Line Repair in Buckeye" and add about 120 words: signs of a main line leak (wet yard, meter running, pressure drop), locating the leak first, a split or burst section gets repaired or replaced, and ePIPE for the rest of the line if it has pinhole corrosion. Keep the existing ePIPE text below it.</div>
+    <div class="k">Target</div><div class="v">water line repair buckeye (142 @ 19.4), buckeye az water line repair (127 @ 28.0), buckeye water line repair (72 @ 20.4)</div>
+    <div class="k">Why</div><div class="v">It's the second-biggest cluster, and the page currently answers only half of it.</div></div>
+  <div class="change"><div class="k">Current</div><div class="v">No repiping section (removed by the Sep 1 rewrite)</div>
+    <div class="k">Problem</div><div class="v">Repiping 62 and Kitec 29 impressions at positions 25 to 41 with nothing on the page to support them.</div>
+    <div class="k">Change</div><div class="v">Restore "Repiping, and where ePIPE stops" from backup <span class="mono">~/pl-backups-bk-20260831-164932/</span>, keeping its hedged Kitec wording. It does not claim ePIPE restores Kitec.</div>
+    <div class="k">Target</div><div class="v">repiping services buckeye (54 @ 30.6), kitec repair buckeye (22 @ 27.3)</div>
+    <div class="k">Why</div><div class="v">Real demand for supporting work Pipeliners already describes elsewhere. The copy was already written and approved on Aug 31.</div></div>
+  <div class="change"><div class="k">Current</div><div class="v">"Benefits of Trenchless Pipe Rehabilitation" (8-item list)</div>
+    <div class="k">Problem</div><div class="v">It repeats the four feature boxes at the top and the list under "Underground Pipe Repair". No query targets it.</div>
+    <div class="k">Change</div><div class="v">Optional (P3): cut it to 3 items or merge it into "Is Trenchless Pipe Lining Right for Your Property?"</div>
+    <div class="k">Target</div><div class="v">None (readability)</div>
+    <div class="k">Why</div><div class="v">Makes the page shorter to scan without losing any ranking content.</div></div>
+
+  <h3>10. Internal linking plan</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Source URL</th><th>Anchor</th><th>Destination</th><th>Reason</th></tr></thead>
+    <tbody>
+      <tr><td>/trenchless-pipe-repair-service-areas-in-arizona/ (the hub; ad-touched, 6 pMax impressions)</td><td>Buckeye</td><td>/buckeye/</td><td>The hub lists West Valley cities but doesn't link Buckeye. This is the one natural place for a city link. Needs approval.</td></tr>
+      <tr><td>/cracked-vs-collapsed-sewer-pipes-whats-the-difference/</td><td>pipe break repair in Buckeye</td><td>/buckeye/</td><td>Same topic as the pipe break cluster. Add only if a sentence about repair options already exists to hold it.</td></tr>
+      <tr><td>/litchfield-park/ (ad-touched, 3 pMax impressions)</td><td>"pipe lining services in Buckeye" three times</td><td>/buckeye/</td><td>Cut it to one link. Three copies of the same anchor adds nothing. Needs approval.</td></tr>
+      <tr><td>/buckeye/ (outbound)</td><td>how a burst water line is found</td><td>/leak-detection-services-in-phoenix-arizona/</td><td>Supports the water line section. The destination isn't ad-touched.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">I'm not recommending links from other city pages (to avoid a city-to-city link mesh) or from the ad landing pages (/trenchless-drain-pipe-repair/, /epipe-restoration/, /hydro-jetting/, /services/).</p>
+
+  <h3>11. External authority</h3>
+  <p>Bring back the City of Buckeye reference for the utility and meter point once it's verified. NASSCO is fine for lining standards. Every link has to return 200 before it goes in and again before publishing.</p>
+
+  <h3>12. AEO/GEO opportunities</h3>
+  <ul>
+    <li>"What should I do if a pipe breaks at my Buckeye home?" is already answered (FAQ #8, answer first).</li>
+    <li>Add a 40 to 60 word direct answer at the top of the water line section: "Who repairs a broken water line in Buckeye?"</li>
+    <li>Entity line: "Pipeliners (Mesa, AZ) repairs sewer, drain and water lines in Buckeye without trenching." This already comes through in the intro and the Service schema.</li>
+  </ul>
+
+  <h3>13. Schema</h3>
+  <p>Service, LocalBusiness (Plumber), BreadcrumbList and FAQPage are present. The FAQ has 8 questions and matches the visible accordion. The only change needed is to verify that the AggregateRating (4.9 from 122) matches the GBP today, and to remove it if it doesn't. No new schema.</p>
+
+  <h3>14. Technical SEO</h3>
+  <ul>
+    <li>Indexable (robots max-image-preview:large, canonical to itself, in sitemap.xml, 200 response).</li>
+    <li><b>Blocker: the recrawl is late.</b> Fix with a free GSC "Request indexing" after approved edits land. It's one click, never the paid indexer.</li>
+    <li>Rendering: OTTO serves the title and H1 server-side in the buffer, so Google sees them.</li>
+    <li>Heading structure: 1 H1, 17 H2s. The H4 feature boxes are shared across all city pages. I'm leaving them, since the Sep 1 overlap check measured a maximum of 18.7% similarity between pages.</li>
+  </ul>
+
+  <h3>15. Supporting content</h3>
+  <p><b>NO SUPPORTING BLOG REQUIRED.</b> Every Buckeye query is transactional and local, so this page should own all of it.</p>
+
+  <h3>16. Implementation priority</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Priority</th><th>Action</th><th>Expected benefit</th><th>Effort</th></tr></thead>
+    <tbody>
+      <tr><td><span class="pill P1">P1</span></td><td>Approve the edits below, apply them, then Request indexing in GSC (once)</td><td>Google finally reads the Sep 1 and Sep 15 work, and the test clock starts</td><td>Low</td></tr>
+      <tr><td><span class="pill P1">P1</span></td><td>Expand the water line section</td><td>Serves 378 impressions at positions 19 to 28</td><td>Low</td></tr>
+      <tr><td><span class="pill P2">P2</span></td><td>Restore the repiping section</td><td>91 impressions of supporting demand</td><td>Low (backup exists)</td></tr>
+      <tr><td><span class="pill P2">P2</span></td><td>New meta description and matching og/twitter tags</td><td>Clicks on the queries at positions 8 to 9</td><td>Low</td></tr>
+      <tr><td><span class="pill P2">P2</span></td><td>Link from the hub page; cut Litchfield Park to one link</td><td>Faster recrawls, clearer context</td><td>Low</td></tr>
+      <tr><td><span class="pill P3">P3</span></td><td>Local block (after Scott), image alts, AggregateRating check, trim the Benefits list</td><td>Trust and uniqueness</td><td>Low</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>17. Exact recommended changes</h3>
+  <div class="change"><div class="k">SEO title</div><div class="v">No change now. <i>Prepared for the 28-day read, only if pipe break is still on page 2:</i> <span class="before">Trenchless Pipe Repair &amp; Lining in Buckeye, AZ | Pipeliners</span> → <span class="after">Buckeye Pipe Break, Sewer &amp; Water Line Repair | Pipeliners</span> (58 characters). The H1 would change with it to "Pipe Break, Sewer and Water Line Repair in Buckeye, AZ", following the focus keyword rule.</div>
+    <div class="k">Meta</div><div class="v"><span class="before">Restore damaged sewer, drain, and water lines in Buckeye with trenchless pipe lining that helps protect driveways, slabs, and landscaping.</span><br><span class="after">Trenchless pipe repair in Buckeye, AZ for broken sewer, drain and water lines. We find the break by camera and fix it with little digging. Call 480-535-6503.</span> (157 characters)</div>
+    <div class="k">og / twitter</div><div class="v">og:title and twitter:title → match the live title. og:description and twitter:description → match the new meta.</div>
+    <div class="k">H1</div><div class="v">No change</div>
+    <div class="k">H2 structure</div><div class="v">Serving Buckeye, AZ · No-Dig Pipe Repair in Buckeye · Underground Pipe Repair Without Extensive Excavation · Pipe Break Repair in Buckeye · Trenchless Sewer Repair in Buckeye · Trenchless Drain Pipe Lining · How CIPP Pipe Lining Works · <b>Water Line Repair in Buckeye</b> (renamed) · Copper Pipe Repair Without Full Repiping · <b>Repiping, and Where ePIPE Stops</b> (restored) · Leaking Pipe Repair With Less Demolition · Hydro Jetting for Sewer and Drain Lines · Is Trenchless Pipe Lining Right for Your Property? · Why Choose Pipeliners USA? · Schedule a Pipe Evaluation in Buckeye · FAQ</div>
+    <div class="k">Add</div><div class="v">About 120 words of water line copy. The restored repiping section. The local block after Scott confirms.</div>
+    <div class="k">Leave alone</div><div class="v">Intro, pipe break section, sewer/CIPP/jetting sections, FAQ 1 to 8, title, H1</div>
+    <div class="k">Links</div><div class="v">Hub → /buckeye/; cut Litchfield Park to 1 link; /buckeye/ → leak detection page</div></div>
+</section>
+
+<!-- ============ MARICOPA ============ -->
+<section class="page" id="maricopa">
+  <div class="eyebrow">Page 2 · City service page · Post 13778 · OTTO url_id 28896494</div>
+  <h2>/maricopa/</h2>
+  <p class="url">https://pipelinersusa.com/maricopa/</p>
+
+  <h3>1. Current performance</h3>
+  <div class="stats">
+    <div class="stat"><b>1</b><span>clicks, 90 days</span></div>
+    <div class="stat"><b>430</b><span>impressions, 90 days</span></div>
+    <div class="stat"><b>0.23%</b><span>CTR, 90 days</span></div>
+    <div class="stat"><b>23.9</b><span>avg position, 90 days</span></div>
+    <div class="stat"><b>0 / 107 / 17.0</b><span>last 28 days</span></div>
+    <div class="stat"><b>1 / 155 / 25.8</b><span>prior 28 days</span></div>
+  </div>
+  <p>Page type: city service page for Maricopa (the city in Pinal County, not Maricopa County). Intent: transactional and local. The title changed Sep 16, and Google recrawled on <b>Sep 25</b>, so data from the new title starts about Sep 26. Position improved 8.8 places over the last 28 days while impressions fell. That is likely fewer low-ranking impressions, not new demand.</p>
+
+  <h3>2. Important GSC queries (page filter, 90 days)</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Query</th><th>Clicks</th><th>Impr.</th><th>Pos.</th><th>Intent</th><th>Class</th><th>Action</th></tr></thead>
+    <tbody>
+      <tr><td>sewer lining maricopa az</td><td class="n">0</td><td class="n">43</td><td class="n">12.5</td><td>Transactional</td><td><span class="tag lhf">Low-hanging fruit</span></td><td>Already in the title; add to the H1 and body</td></tr>
+      <tr><td>underground pipe lifting maricopa az</td><td class="n">0</td><td class="n">33</td><td class="n">10.8</td><td>Pipe jacking or regrading</td><td><span class="tag dnt">Do not target</span></td><td>Answer honestly (a liner won't regrade a sagging line)</td></tr>
+      <tr><td>trenchless support maricopa az</td><td class="n">0</td><td class="n">32</td><td class="n">13.6</td><td>Unclear</td><td><span class="tag">Supporting</span></td><td>No action</td></tr>
+      <tr><td>trenchless sewer repair maricopa az</td><td class="n">0</td><td class="n">32</td><td class="n">16.0</td><td>Transactional</td><td><span class="tag pri">Primary</span></td><td>Focus keyword</td></tr>
+      <tr><td>pipelining maricopa az</td><td class="n">0</td><td class="n">31</td><td class="n">12.3</td><td>Near-brand</td><td><span class="tag lhf">Low-hanging fruit</span></td><td>Covered by the brand name; no copy change</td></tr>
+      <tr><td>trenchless installation maricopa az</td><td class="n">0</td><td class="n">29</td><td class="n">8.2</td><td>New line install</td><td><span class="tag dnt">Do not target</span></td><td>Not a listed service</td></tr>
+      <tr><td>sewer line repair maricopa az / maricopa</td><td class="n">0</td><td class="n">40</td><td class="n">23.7</td><td>Transactional</td><td><span class="tag">Secondary</span></td><td>Add the "how it works" H2</td></tr>
+      <tr><td>maricopa az yard pipe repair</td><td class="n">0</td><td class="n">26</td><td class="n">15.2</td><td>Transactional</td><td><span class="tag">Secondary</span></td><td>Mention yard sewer and water lines</td></tr>
+      <tr><td>sewer rehabilitation maricopa az</td><td class="n">0</td><td class="n">24</td><td class="n">26.8</td><td>Transactional</td><td><span class="tag">Supporting</span></td><td>Use naturally once</td></tr>
+      <tr><td>manhole lining / repair / rehabilitation / sealing maricopa az</td><td class="n">0</td><td class="n">48</td><td class="n">19 to 28</td><td>Municipal</td><td><span class="tag">Verify first</span></td><td>Ask Scott. Not one of the 3 listed services.</td></tr>
+      <tr><td>cipp maricopa az</td><td class="n">0</td><td class="n">3</td><td class="n">24.0</td><td>Transactional</td><td><span class="tag">Supporting</span></td><td>Already in the FAQ</td></tr>
+      <tr><td>sinkhole repair services maricopa az</td><td class="n">0</td><td class="n">3</td><td class="n">23.7</td><td>Unrelated</td><td><span class="tag dnt">Irrelevant</span></td><td>Ignore</td></tr>
+      <tr><td>other-city trenchless queries (tolleson, paradise valley, fort mcdowell, gilbert)</td><td class="n">0</td><td class="n">~10</td><td class="n">54 to 100</td><td>Wrong city</td><td><span class="tag dnt">Irrelevant</span></td><td>Ignore</td></tr>
+    </tbody>
+  </table></div>
+  <p>Positions 4 to 10: only "trenchless installation" (8.2), which isn't a target. Positions 11 to 20: sewer lining, pipelining, trenchless sewer repair, yard pipe repair, about 165 impressions. Positions 21 to 30: sewer line repair, sewer rehabilitation, manhole terms. Many queries have the same "[service] maricopa az" shape with similar impression counts, and Search Atlas shows 0 volume for every one. Real demand here is small, so this page gets low-effort fixes only.</p>
+
+  <h3>3. Primary opportunity</h3>
+  <p>Make the page say "trenchless sewer repair in Maricopa" consistently. The title says it (since Sep 16), but the H1 says "Pipeliners USA: Trenchless Pipe Repair Experts", the first H2 is a generic "Looking for a Pipe Repair Company" line, and no body heading uses the keyword. That's the misalignment the focus keyword rule is meant to catch. The sewer cluster (sewer lining, trenchless sewer repair, sewer line repair, sewer rehabilitation) is about 140 impressions at positions 12 to 27.</p>
+
+  <h3>4. Current problems</h3>
+  <ul>
+    <li>The H1 and top headings don't match the title (details in section 17).</li>
+    <li><b>Unverified claims in the FAQ:</b> "20-year warranty" on CIPP, "10-year warranty" on ePIPE and "50+ year design life". The same warranty claim is already an open question on the service-areas hub. Also "ROC #362960", "back in service the same day on most Maricopa jobs", and "many companies will not travel out here". The last one can't be verified and is about competitors, so I'd remove it.</li>
+    <li>Local facts that need a source before we lean on them: the Maricopa-Stanfield land subsidence (ADWR monitors it), Global Water's Palo Verde Utilities and Santa Cruz Water Company, and the 2003 incorporation date. All of them are plausible and specific, but none is cited.</li>
+    <li><b>No links in page content point to /maricopa/.</b> Only the nav menu does.</li>
+    <li>The H3 "We Are Maricopa's Pipelining Experts" uses the brand-like noun, and og:description / twitter:title are placeholders ("Fix cracked sewer lines without digging." / "Maricopa").</li>
+    <li>Empty alt on one image.</li>
+  </ul>
+
+  <h3>5. What should stay</h3>
+  <ul>
+    <li>The title (indexed Sep 25; changing it again would reset the read) and the meta, which already has "sewer line repair in Maricopa, AZ" and the phone number.</li>
+    <li>The local intro (neighborhoods, ZIPs 85138/85139, ground settling after farm pumping, caliche). It's the most specific copy on any city page, once the sources are added.</li>
+    <li>The FAQ answer "How much of that line is mine?" about where the owner's line ends and Global Water's begins. It's real information-gain content.</li>
+    <li>13-question FAQ with matching FAQPage schema. Service schema areaServed "Maricopa, Pinal County" is correct.</li>
+  </ul>
+
+  <h3>6. Keyword strategy</h3>
+  <div class="tbl"><table><tbody>
+    <tr><th>Primary</th><td>trenchless sewer repair Maricopa AZ (GSC 32 @ 16.0; Search Atlas volume 0, below threshold)</td></tr>
+    <tr><th>Secondary</th><td>sewer lining Maricopa (43 @ 12.5), sewer line repair Maricopa (40 @ 23.7)</td></tr>
+    <tr><th>Supporting</th><td>yard sewer and water line repair, sewer rehabilitation, CIPP, ePIPE for copper, hydro jetting</td></tr>
+    <tr><th>Avoid</th><td>pipe lifting, trenchless installation, sinkhole, manhole (until Scott confirms), "Maricopa County" wording</td></tr>
+    <tr><th>Cannibalization</th><td>None meaningful. /maricopa/ has 353 of 393 "maricopa" impressions; the GBP link has 43 (pos 4.0); /what-is-cipp/ has 7.</td></tr>
+  </tbody></table></div>
+
+  <h3>7. Local SEO strategy</h3>
+  <ul>
+    <li>Keep the neighborhood and ZIP detail. Have Scott confirm Pipeliners has actually worked in the named communities.</li>
+    <li>Cite ADWR for the land subsidence claim and the City of Maricopa or Global Water for the utility arrangement. Each link has to return 200 first; if a site blocks bots, cite it in the text without a link.</li>
+    <li>Add the honest "when lining isn't the answer" section. Settling ground can leave a sagging (bellied) lateral, and a liner won't lift it back to grade, so that spot needs a small excavation. It ties the page's own subsidence story to the "pipe lifting" searches without claiming a service we don't offer.</li>
+  </ul>
+
+  <h3>8. On-page changes</h3>
+  <div class="tbl"><table><tbody>
+    <tr><th>SEO title</th><td>Keep</td></tr>
+    <tr><th>Meta</th><td>Keep</td></tr>
+    <tr><th>H1 (OTTO)</th><td>Change to "Trenchless Sewer Repair and Lining in Maricopa, AZ"</td></tr>
+    <tr><th>H2</th><td>Rename the first H2. Add two new H2s (section 17).</td></tr>
+    <tr><th>H3</th><td>Replace "We Are Maricopa's Pipelining Experts, Call Us Today!"</td></tr>
+    <tr><th>Intro</th><td>Put one answer-first sentence with the keyword before the neighborhood paragraph</td></tr>
+    <tr><th>FAQ</th><td>Correct or remove the warranty, ROC and "same day" claims based on Scott's answers. Remove "many companies will not travel out here".</td></tr>
+    <tr><th>CTA</th><td>No change</td></tr>
+    <tr><th>Images</th><td>Fill the empty alt</td></tr>
+  </tbody></table></div>
+
+  <h3>9. Content sections to improve</h3>
+  <div class="change"><div class="k">Current</div><div class="v">No body section explains how a sewer repair is done. The process lives only in the FAQ answers.</div>
+    <div class="k">Problem</div><div class="v">"sewer line repair maricopa" (40 impressions @ 23.7) and "trenchless sewer repair" have no matching H2. The Maricopa pages that rank all walk through inspection, cleaning, repair and cost.</div>
+    <div class="k">Change</div><div class="v">New H2 "How Does Trenchless Sewer Repair Work in Maricopa?": a 50-word direct answer, then 5 steps (camera from a cleanout, jetting, measure and line, cure, camera again). About 150 words. Place it after the "Pipe Lining Advantages" block.</div>
+    <div class="k">Target</div><div class="v">trenchless sewer repair maricopa az, sewer line repair maricopa az</div>
+    <div class="k">Why</div><div class="v">Puts the keyword in an H2, gives AI answers a clean passage to quote, and matches what ranking pages cover.</div></div>
+  <div class="change"><div class="k">Current</div><div class="v">Nothing on sags or bellies, even though the intro blames settling ground</div>
+    <div class="k">Problem</div><div class="v">33 "pipe lifting" and 26 "yard pipe repair" impressions have no honest answer on the page.</div>
+    <div class="k">Change</div><div class="v">New H2 "When a Maricopa Sewer Line Can't Just Be Lined": about 110 words. A camera shows the sag, a liner follows the pipe's shape, and a sagging section needs a small spot dig before the rest is lined.</div>
+    <div class="k">Target</div><div class="v">maricopa az yard pipe repair, sewer rehabilitation maricopa az</div>
+    <div class="k">Why</div><div class="v">Same candid approach that worked on Sun City West and Casa Grande. It builds trust and serves the replacement intent.</div></div>
+
+  <h3>10. Internal linking plan</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Source URL</th><th>Anchor</th><th>Destination</th><th>Reason</th></tr></thead>
+    <tbody>
+      <tr><td>/trenchless-pipe-repair-service-areas-in-arizona/ (ad-touched)</td><td>Maricopa</td><td>/maricopa/</td><td>The hub's Pinal County list names Florence, Casa Grande and San Tan Valley but not Maricopa. Needs approval.</td></tr>
+      <tr><td>/what-is-a-bellied-sewer-pipe/</td><td>settling ground in Maricopa</td><td>/maricopa/</td><td>A real topical match with the new sag section. Add only as a single example sentence.</td></tr>
+      <tr><td>/maricopa/ (outbound)</td><td>sagging (bellied) sewer line</td><td>/what-is-a-bellied-sewer-pipe/</td><td>Supports the new section</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>11. External authority</h3>
+  <p>ADWR (land subsidence in the Maricopa-Stanfield area), City of Maricopa (utility arrangement), Arizona ROC license lookup (only to confirm the number internally; no need to link it).</p>
+
+  <h3>12. AEO/GEO opportunities</h3>
+  <ul>
+    <li>"How does trenchless sewer repair work in Maricopa?" New H2 with a direct answer.</li>
+    <li>"How much of the sewer line is mine in Maricopa?" Already answered well. Consider moving it up to become FAQ #1.</li>
+    <li>"Can a sagging sewer line be lined?" Answered by the new section.</li>
+  </ul>
+
+  <h3>13. Schema</h3>
+  <p>No new types. Once Scott answers, the FAQPage text must match the corrected warranty and ROC answers, since schema has to mirror visible copy. Same AggregateRating check as Buckeye.</p>
+
+  <h3>14. Technical SEO</h3>
+  <p>Indexable, self-canonical, in the sitemap, recrawled Sep 25. No blockers. Only nav links point here, which likely explains a crawl gap of about 5 weeks before Sep 25.</p>
+
+  <h3>15. Supporting content</h3>
+  <p><b>NO SUPPORTING BLOG REQUIRED.</b> The demand is small, local and transactional.</p>
+
+  <h3>16. Implementation priority</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Priority</th><th>Action</th><th>Expected benefit</th><th>Effort</th></tr></thead>
+    <tbody>
+      <tr><td><span class="pill P1">P1</span></td><td>Verify or remove the warranty, ROC, "same day" and competitor claims</td><td>Accuracy and trust; removes a liability</td><td>Low (needs Scott)</td></tr>
+      <tr><td><span class="pill P1">P1</span></td><td>Align the H1, first H2 and H3 with the sewer keyword</td><td>Clear topic signal for about 140 sewer impressions at positions 12 to 27</td><td>Low</td></tr>
+      <tr><td><span class="pill P2">P2</span></td><td>Add the two H2 sections</td><td>Coverage for sewer repair and sag searches</td><td>Low</td></tr>
+      <tr><td><span class="pill P2">P2</span></td><td>Add the hub link and the bellied-pipe link</td><td>First in-content inbound links</td><td>Low</td></tr>
+      <tr><td><span class="pill P3">P3</span></td><td>Cite sources, og/twitter tags, alt text</td><td>Trust, clean social previews</td><td>Low</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>17. Exact recommended changes</h3>
+  <div class="change"><div class="k">SEO title</div><div class="v">Keep: Maricopa, AZ Trenchless Sewer Lining &amp; Repair | Pipeliners</div>
+    <div class="k">Meta</div><div class="v">Keep: Sewer line repair in Maricopa, AZ with no trench through the caliche. Pipeliners restores the sewer from the inside, in place. Call 480-535-6503.</div>
+    <div class="k">H1</div><div class="v"><span class="before">Pipeliners USA: Trenchless Pipe Repair Experts in Maricopa, AZ</span> → <span class="after">Trenchless Sewer Repair and Lining in Maricopa, AZ</span></div>
+    <div class="k">H2 (first)</div><div class="v"><span class="before">Looking for a Pipe Repair Company Serving Maricopa Arizona?</span> → <span class="after">Trenchless Sewer Repair in Maricopa, AZ</span></div>
+    <div class="k">H3</div><div class="v"><span class="before">We Are Maricopa's Pipelining Experts, Call Us Today!</span> → <span class="after">Sewer and Water Line Repair Without Digging</span></div>
+    <div class="k">Intro</div><div class="v">Add before the neighborhood paragraph: <span class="after">Pipeliners repairs Maricopa sewer lines from the inside, lining the cracked or separated pipe in place so the yard, driveway and slab stay intact.</span></div>
+    <div class="k">H2 structure</div><div class="v">Trenchless Sewer Repair in Maricopa, AZ · Serving Maricopa, AZ · (H3 Pipe Lining, Pipe Lining Advantages) · <b>How Does Trenchless Sewer Repair Work in Maricopa?</b> (new) · <b>When a Maricopa Sewer Line Can't Just Be Lined</b> (new) · (H3 ePipe Water Line Solutions) · FAQ</div>
+    <div class="k">Leave alone</div><div class="v">Title, meta, intro paragraph, ePIPE section, FAQ answers other than the claim fixes</div>
+    <div class="k">Links</div><div class="v">Hub → /maricopa/; /what-is-a-bellied-sewer-pipe/ ↔ /maricopa/</div></div>
+</section>
+
+<!-- ============ CAST IRON ============ -->
+<section class="page" id="castiron">
+  <div class="eyebrow">Page 3 · Informational blog post · Post 15589 · Published Jun 23, 2026</div>
+  <h2>/how-long-do-cast-iron-pipes-last/</h2>
+  <p class="url">https://pipelinersusa.com/how-long-do-cast-iron-pipes-last/</p>
+
+  <h3>1. Current performance</h3>
+  <div class="stats">
+    <div class="stat"><b>0</b><span>clicks, 90 days</span></div>
+    <div class="stat"><b>133</b><span>impressions, 90 days</span></div>
+    <div class="stat"><b>0%</b><span>CTR</span></div>
+    <div class="stat"><b>60.8</b><span>avg position</span></div>
+    <div class="stat"><b>120</b><span>impressions Jun 24 to Jul 27</span></div>
+    <div class="stat"><b>13</b><span>impressions Jul 28 to Sep 23</span></div>
+  </div>
+  <p>This is the usual pattern for a new post. Google tested it at positions 60 to 90 for its first month, then mostly stopped showing it. It is indexed (URL Inspection: "Page is indexed", last crawl Aug 24). The Sep 23 keyword update (quick answer, title, meta) isn't in the index yet.</p>
+
+  <h3>2. Important GSC queries (page filter, 90 days)</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Query</th><th>Clicks</th><th>Impr.</th><th>Pos.</th><th>SA volume / KD</th><th>Class</th><th>Action</th></tr></thead>
+    <tbody>
+      <tr><td>how long do cast iron pipes last</td><td class="n">0</td><td class="n">6</td><td class="n">72.3</td><td class="n">480 / 22</td><td><span class="tag pri">Primary</span></td><td>Keep as focus (meets threshold)</td></tr>
+      <tr><td>cast iron sewer pipe life expectancy</td><td class="n">0</td><td class="n">10</td><td class="n">61.3</td><td class="n">140 / 24</td><td><span class="tag">Secondary</span></td><td>New sewer/underground H2</td></tr>
+      <tr><td>how long do cast iron sewer pipes last</td><td class="n">0</td><td class="n">2</td><td class="n">~89</td><td class="n">210 / 21</td><td><span class="tag">Secondary</span></td><td>Same H2</td></tr>
+      <tr><td>how long does cast iron pipe last underground</td><td class="n">0</td><td class="n">2</td><td class="n">~69</td><td class="n">110 / 19</td><td><span class="tag">Secondary</span></td><td>Same H2</td></tr>
+      <tr><td>cast iron pipes lifespan / cast iron pipe lifespan</td><td class="n">0</td><td class="n">5</td><td class="n">60 to 65</td><td class="n">140 / 24</td><td><span class="tag">Supporting</span></td><td>Already covered</td></tr>
+      <tr><td>when did they stop using cast iron pipes</td><td class="n">0</td><td class="n">4</td><td class="n">81.0</td><td class="n">90 / 18</td><td><span class="tag">Supporting</span></td><td>New short H2</td></tr>
+      <tr><td>life expectancy of cast iron sewer pipe</td><td class="n">0</td><td class="n">3</td><td class="n">71.3</td><td class="n">n/a</td><td><span class="tag">Supporting</span></td><td>Same sewer H2</td></tr>
+      <tr><td>how long does pipe lining last</td><td class="n">0</td><td class="n">11</td><td class="n">~95</td><td class="n">40 / 11</td><td><span class="tag dnt">Do not target here</span></td><td>Different question; below the volume threshold</td></tr>
+      <tr><td>ductile iron pipe life expectancy / lifespan</td><td class="n">0</td><td class="n">8</td><td class="n">74 to 85</td><td class="n">10 / 29</td><td><span class="tag dnt">Do not target</span></td><td>Different material (municipal mains)</td></tr>
+      <tr><td>how long do flat irons last · cast iron tubs · clay pipe variants</td><td class="n">0</td><td class="n">~7</td><td class="n">80 to 99</td><td class="n">n/a</td><td><span class="tag dnt">Irrelevant</span></td><td>Ignore</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">Positions marked ~ come from the Search Atlas API. The rest are from the GSC UI. <b>No query sits in positions 1 to 30.</b> By the brief's own definition this page has no low-hanging fruit; it's a depth and authority problem, not a snippet problem.</p>
+
+  <h3>3. Primary opportunity</h3>
+  <p>"How long do cast iron pipes last" (480/mo) and its sewer and underground variants (another 460/mo) are a good informational cluster, with difficulty at 19 to 24. The pages that rank are plumbing and sewer company guides, not big publishers, so a small contractor can compete. The top-ranking sewer guide runs about 4,100 words across 14 H2s and 14 FAQs. It covers sewer versus drain lifespan, how corrosion progresses, descaling as an option, failing versus just clogged, and when cast iron stopped being used. Our post is 1,305 words and covers about half of that.</p>
+
+  <h3>4. Current problems</h3>
+  <ul>
+    <li><b>Missing sub-questions:</b> sewer versus drain and underground lifespan (460/mo combined), when cast iron stopped being used (90/mo), descaling as an option, and how to tell failing from just clogged.</li>
+    <li><b>Unsourced numbers:</b> "50 to 100 years", "often after 25 to 40 years" and "Most plumbing sources put the realistic range closer to 50 to 80 years", with no citation. The 25-to-40-year figure is lower than what the ranking pages give (about 50 to 75 years residential).</li>
+    <li><b>Unverified local claim:</b> "expansive, shifting soil" (body) and "shifting, mineral-rich soil" (FAQ). The expansive-soil wording is the same claim we left unverified on the city pages. Caliche is the safe Valley-wide wording.</li>
+    <li><b>No trust signals:</b> the author in the Article schema is a Person named "Pipeliners", there's no byline, and there are no images in the article body (featured image only). There are no real camera stills.</li>
+    <li><b>Internal links:</b> 36 city pages link here with the one-word anchor "cast iron" (El Mirage 6 times, Superior and Tolleson 4 times each), but <b>no blog post links here</b>. Outbound there is no link to the sewer repair service page (/trenchless-sewer-repair/) or to the descaling post.</li>
+    <li><b>Small issues:</b> the hidden screen-reader post-navigation H2 has been overwritten with "Understanding Cast Iron Pipe Lifespan: Key Takeaways", which duplicates the visible "Key Takeaways" H2. The Article schema dateModified is stuck at Jun 30.</li>
+    <li>Commercial cast iron searches ("cast iron sewer pipe repair" 15 @ 11.9, "cast iron pipe repair" 4 @ 4.2) go to the homepage through the GBP link in the map pack. That's correct and not cannibalization; the post should stay informational.</li>
+  </ul>
+
+  <h3>5. What should stay</h3>
+  <ul>
+    <li>Title "How Long Do Cast Iron Pipes Last? | Pipeliners" (46 characters), the meta description (154 characters) and the H1. All are on target and were updated Sep 23; Google hasn't read them yet.</li>
+    <li>The quick-answer opening, the Key Takeaways list, the material comparison table, the signs list and the 6-question FAQ. These are the snippet-shaped parts.</li>
+    <li>The honest options section: lining for most failures, replacement when collapsed or misaligned.</li>
+  </ul>
+
+  <h3>6. Keyword strategy</h3>
+  <div class="tbl"><table><tbody>
+    <tr><th>Primary</th><td>how long do cast iron pipes last (480, KD 22, informational). Meets all three thresholds.</td></tr>
+    <tr><th>Secondary</th><td>how long do cast iron sewer pipes last (210), cast iron sewer pipe life expectancy (140), how long does cast iron pipe last underground (110)</td></tr>
+    <tr><th>Supporting</th><td>when did they stop using cast iron pipes (90), cast iron pipe lifespan (140), signs of cast iron pipe failure (20)</td></tr>
+    <tr><th>Avoid</th><td>ductile iron, pipe lining lifespan, local "Phoenix cast iron" phrasing forced into headings</td></tr>
+    <tr><th>Cannibalization</th><td>None. The only other page with cast iron impressions is the homepage (GBP, commercial queries). No other post targets cast iron lifespan.</td></tr>
+  </tbody></table></div>
+
+  <h3>7. Local SEO</h3>
+  <p>Not applicable. The intent is informational and national, so the existing Phoenix and Arizona mentions are enough. I'm not adding city keywords.</p>
+
+  <h3>8. On-page changes</h3>
+  <div class="tbl"><table><tbody>
+    <tr><th>SEO title / Meta / H1</th><td>Keep</td></tr>
+    <tr><th>H2</th><td>Add two (section 17). Expand the options H2.</td></tr>
+    <tr><th>H3</th><td>Add "Is it failing, or just clogged?" under the signs H2. Add "Cleaning and descaling" and "Spot repair" under options.</td></tr>
+    <tr><th>Intro</th><td>Keep the quick answer. Once there's a source, replace the "25 to 40" wording with sourced figures.</td></tr>
+    <tr><th>FAQ</th><td>Change "shifting, mineral-rich soil" to "hard water and caliche soil"</td></tr>
+    <tr><th>CTA</th><td>Keep the free sewer inspection link. Add one mid-article link to /trenchless-sewer-repair/.</td></tr>
+    <tr><th>Images</th><td>Add 2 or 3 real camera stills of corroded cast iron from Pipeliners jobs, with descriptive alts (from the client)</td></tr>
+  </tbody></table></div>
+
+  <h3>9. Content sections to improve</h3>
+  <div class="change"><div class="k">Current</div><div class="v">One generic "on average" H2</div>
+    <div class="k">Problem</div><div class="v">460/mo of sewer and underground variants have no dedicated answer. GSC already shows "cast iron sewer pipe life expectancy" as the post's top on-topic query.</div>
+    <div class="k">Change</div><div class="v">New H2 "How long do cast iron sewer pipes last underground?", about 150 words. Buried sewer lines versus drain stacks inside walls, why the bottom of a horizontal line wears through first, and what soil and water do. Open with a 40 to 60 word direct answer that has a cited figure.</div>
+    <div class="k">Target</div><div class="v">how long do cast iron sewer pipes last; cast iron sewer pipe life expectancy; how long does cast iron pipe last underground</div>
+    <div class="k">Why</div><div class="v">Largest gap by volume. It's also where Pipeliners' own camera work gives real first-hand experience.</div></div>
+  <div class="change"><div class="k">Current</div><div class="v">A one-line mention of "built before the mid-1980s"</div>
+    <div class="k">Problem</div><div class="v">"When did they stop using cast iron pipes" (90/mo) gets no direct answer.</div>
+    <div class="k">Change</div><div class="v">New H2 "When did builders stop using cast iron pipes?", about 100 words, sourced. Cover the shift to plastic drain pipe and what that means for dating a Phoenix-area home.</div>
+    <div class="k">Target</div><div class="v">when did they stop using cast iron pipes</div>
+    <div class="k">Why</div><div class="v">A short factual answer that can be quoted, which top-ranking pages include.</div></div>
+  <div class="change"><div class="k">Current</div><div class="v">"What are my options" lists only lining and full replacement</div>
+    <div class="k">Problem</div><div class="v">It leaves out cleaning/descaling and spot repair, which are real options Pipeliners already writes about.</div>
+    <div class="k">Change</div><div class="v">Add H3s "Cleaning and descaling" (link /when-is-pipe-descaling-necessary/) and "Spot repair", each about 60 words.</div>
+    <div class="k">Target</div><div class="v">Topical completeness</div>
+    <div class="k">Why</div><div class="v">A more complete, more honest answer, and it links to our own descaling post.</div></div>
+
+  <h3>10. Internal linking plan</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Source URL</th><th>Anchor</th><th>Destination</th><th>Reason</th></tr></thead>
+    <tbody>
+      <tr><td>/clay-sewer-pipe/</td><td>how long cast iron pipes last</td><td>this post</td><td>Sibling pipe-material post</td></tr>
+      <tr><td>/signs-of-outdated-sewer-drain-pipes/</td><td>cast iron pipe lifespan</td><td>this post</td><td>Age is one of the signs it lists</td></tr>
+      <tr><td>/when-is-pipe-descaling-necessary/</td><td>aging cast iron drain lines</td><td>this post</td><td>Descaling is mostly about cast iron</td></tr>
+      <tr><td>/corroded-pipes/</td><td>cast iron sewer pipe life expectancy</td><td>this post</td><td>Corrosion is the main way cast iron fails</td></tr>
+      <tr><td>this post</td><td>trenchless sewer repair for cast iron lines</td><td>/trenchless-sewer-repair/</td><td>A commercial next step that isn't an ad landing page</td></tr>
+      <tr><td>this post</td><td>descaling a cast iron line</td><td>/when-is-pipe-descaling-necessary/</td><td>Supports the new options H3</td></tr>
+      <tr><td>/el-mirage/, /superior/, /tolleson/</td><td>"cast iron" (6, 4 and 4 times)</td><td>this post</td><td>Cut each page to one link (P3). Repeated identical anchors on one page add nothing.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">None of the four new source posts took ad impressions in the last 30 days. I'm not adding local city links into this post, since it's informational.</p>
+
+  <h3>11. External authority</h3>
+  <p>Each figure needs one trusted source. Candidates to check: the Cast Iron Soil Pipe Institute (an industry standards body) for service life and when plastic replaced cast iron, and City of Phoenix water quality data for hardness. Every link has to return 200 before it goes in. If a source can't be found for "25 to 40 years", I'd soften it to "many show problems decades before that".</p>
+
+  <h3>12. AEO/GEO opportunities</h3>
+  <ul>
+    <li>Question H2s with answer-first paragraphs are already in place. Add the two new ones.</li>
+    <li>The material comparison table is snippet-friendly. Add a "sewer (buried)" versus "drain (inside walls)" row pair to it.</li>
+    <li>The first-hand angle AI answers value most: one sentence per photo on what Pipeliners crews see on the camera (from Scott, not invented).</li>
+  </ul>
+
+  <h3>13. Schema</h3>
+  <p>Article author: replace the Person named "Pipeliners" with the real author (Person) or the business (Organization). Update dateModified whenever content changes. FAQPage (6 questions, matching the visible FAQ) and BreadcrumbList are fine. No new types.</p>
+
+  <h3>14. Technical SEO</h3>
+  <p>Indexed, self-canonical, in the sitemap, 200 response. Last crawl Aug 24 is the only blocker; fix it with one free Request indexing after the edits. Restore the hidden post-navigation H2 to its default text ("Post navigation").</p>
+
+  <h3>15. Supporting content</h3>
+  <p><b>NO SUPPORTING BLOG REQUIRED.</b> "How long does pipe lining last" is a different question, but at 40/mo it's below the 100 threshold. There's an unpublished draft (<span class="mono">blog-drafts/how-long-does-pipe-lining-last.md</span>), but I'm not recommending it now.</p>
+
+  <h3>16. Implementation priority</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Priority</th><th>Action</th><th>Expected benefit</th><th>Effort</th></tr></thead>
+    <tbody>
+      <tr><td><span class="pill P1">P1</span></td><td>Sewer/underground H2 + source the numbers</td><td>Covers 460/mo of secondary demand; accuracy</td><td>Medium</td></tr>
+      <tr><td><span class="pill P1">P1</span></td><td>Four blog links in, two out</td><td>The first topical links into the post</td><td>Low</td></tr>
+      <tr><td><span class="pill P2">P2</span></td><td>"When did they stop" H2, options H3s, "failing or clogged" H3, soil wording fix</td><td>Completeness; removes an unverified claim</td><td>Low</td></tr>
+      <tr><td><span class="pill P2">P2</span></td><td>Real camera photos + author</td><td>First-hand experience and trust signals</td><td>Needs client</td></tr>
+      <tr><td><span class="pill P3">P3</span></td><td>Schema author/date, nav H2, trim duplicate city-page links</td><td>Clean-up</td><td>Low</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>17. Exact recommended changes</h3>
+  <div class="change"><div class="k">SEO title</div><div class="v">Keep: How Long Do Cast Iron Pipes Last? | Pipeliners</div>
+    <div class="k">Meta</div><div class="v">Keep: How long do cast iron pipes last? Often 50 to 100 years, but many fail after 25 to 40. Learn what shortens their life, the warning signs and your options. <i>(If the 25-to-40 figure can't be sourced, change the meta to match the new wording.)</i></div>
+    <div class="k">H1</div><div class="v">Keep</div>
+    <div class="k">H2 structure</div><div class="v">Key Takeaways · How long do cast iron pipes last on average? · <b>How long do cast iron sewer pipes last underground?</b> (new) · How does cast iron compare to other pipe materials? · What shortens the life of cast iron pipes? · How can I tell if my cast iron pipes are near the end of their life? (+ H3 "Is it failing, or just clogged?") · <b>When did builders stop using cast iron pipes?</b> (new) · What are my options when cast iron pipes fail? (+ H3s Cleaning and descaling, Spot repair) · What should Phoenix homeowners do next? · FAQ</div>
+    <div class="k">Modify</div><div class="v"><span class="before">In Arizona, the mix of hard water and expansive, shifting soil means</span> → <span class="after">In Arizona, the mix of hard water and caliche soil means</span>. Apply the same fix in the FAQ answer.</div>
+    <div class="k">Leave alone</div><div class="v">Quick answer, Key Takeaways, table, signs list, FAQ questions 1 to 3, 5 and 6</div>
+    <div class="k">Links</div><div class="v">4 in from blog posts, 2 out (listed in section 10)</div></div>
+</section>
+
+<!-- ============ CROSS ============ -->
+<section class="page" id="cross">
+  <h2>Cross-page check</h2>
+  <ul>
+    <li><b>Keyword overlap and cannibalization:</b> none. Buckeye and Maricopa target different cities and the cast iron post is informational. The only shared keyword ground is the homepage/GBP for commercial "cast iron pipe repair", which is correct.</li>
+    <li><b>Duplicate titles:</b> none. The three titles are distinct.</li>
+    <li><b>Duplicate sections:</b> both city pages carry the same four feature boxes (No Demolition, 30% savings, Eco-friendly, Minimal Interruption), with only the city name changed. That's shared across all 37 city pages. The Sep 1 overlap check put the worst pair at 18.7%, so I'm not recommending a rewrite.</li>
+    <li><b>Shared crawl problem:</b> all three pages were crawled late (Aug 24, Aug 28, Sep 25) and all have few or no links from page content. Stronger contextual internal links are the common fix.</li>
+    <li><b>Shared schema claim:</b> the same OTTO AggregateRating (4.9 from 122) is on both city pages. Check it once against the GBP (read only).</li>
+    <li><b>Linking between the three:</b> Maricopa → cast iron post already exists. I'm not adding Buckeye ↔ Maricopa links (no city mesh) or cast iron → city links (wrong intent).</li>
+    <li><b>Correction:</b> the Sep 11 and Sep 16 Buckeye test reads blamed the rewrite for losing "buckeye pipe break repair". Google hadn't crawled the rewrite, so the Buckeye test hasn't started yet.</li>
+  </ul>
+</section>
+
+<!-- ============ PLAN ============ -->
+<section class="page" id="plan">
+  <h2>Final SEO action plan</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Priority</th><th>URL</th><th>Main opportunity</th><th>Exact action</th><th>KPI to monitor</th></tr></thead>
+    <tbody>
+      <tr><td><span class="pill P1">P1</span></td><td>/buckeye/</td><td>Changes not indexed</td><td>Apply the approved Buckeye edits, then free GSC Request indexing (once)</td><td>URL Inspection "Last crawl" after the edit date</td></tr>
+      <tr><td><span class="pill P1">P1</span></td><td>/buckeye/</td><td>Water line cluster, 378 impressions at positions 19 to 28</td><td>Rename the H2 to "Water Line Repair in Buckeye" + about 120 words</td><td>Impressions and position for "water line repair buckeye"</td></tr>
+      <tr><td><span class="pill P1">P1</span></td><td>/maricopa/</td><td>Unverified claims</td><td>Scott confirms or corrects the warranty terms, ROC number and "same day"; remove the competitor line</td><td>No unverified claims left</td></tr>
+      <tr><td><span class="pill P1">P1</span></td><td>/maricopa/</td><td>Keyword misalignment</td><td>H1 → "Trenchless Sewer Repair and Lining in Maricopa, AZ"; first H2 and H3 renamed</td><td>Position for "trenchless sewer repair maricopa az" (16.0)</td></tr>
+      <tr><td><span class="pill P1">P1</span></td><td>cast iron post</td><td>Sewer/underground gap, 460/mo</td><td>New H2 + cited figures, then Request indexing</td><td>Queries entering positions 1 to 30</td></tr>
+      <tr><td><span class="pill P1">P1</span></td><td>cast iron post</td><td>No blog links in</td><td>Links from /clay-sewer-pipe/, /signs-of-outdated-sewer-drain-pipes/, /when-is-pipe-descaling-necessary/, /corroded-pipes/</td><td>Crawl frequency, impressions</td></tr>
+      <tr><td><span class="pill P2">P2</span></td><td>/buckeye/</td><td>Repiping and Kitec, 91 impressions</td><td>Restore the Aug 31 repiping section from backup</td><td>"repiping services buckeye" position (30.6)</td></tr>
+      <tr><td><span class="pill P2">P2</span></td><td>/buckeye/</td><td>0 clicks at positions 8 to 9</td><td>New 157-character meta + matching og/twitter tags</td><td>CTR on "pipe repair buckeye", "underground pipe repair buckeye"</td></tr>
+      <tr><td><span class="pill P2">P2</span></td><td>/maricopa/</td><td>Sewer repair and sag intent</td><td>Two new H2 sections</td><td>Sewer cluster impressions</td></tr>
+      <tr><td><span class="pill P2">P2</span></td><td>hub 14890</td><td>City pages not linked</td><td>Add Buckeye (West Valley) and Maricopa (Pinal) links. Ad-touched, needs approval.</td><td>Recrawl dates of both city pages</td></tr>
+      <tr><td><span class="pill P2">P2</span></td><td>cast iron post</td><td>Missing sub-questions</td><td>"When did builders stop" H2, options H3s, soil wording fix</td><td>Impressions on the supporting queries</td></tr>
+      <tr><td><span class="pill P3">P3</span></td><td>all three</td><td>Trust and clean-up</td><td>Alt text, AggregateRating check, author schema, nav H2, trim duplicate anchors</td><td>n/a</td></tr>
+      <tr><td><span class="pill P3">P3</span></td><td>/buckeye/</td><td>Title versus the largest cluster</td><td>At the 28-day read: if pipe break is still on page 2, change the title to "Buckeye Pipe Break, Sewer &amp; Water Line Repair | Pipeliners" with the matching H1</td><td>Pipe break cluster position and clicks</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============ TRACKING ============ -->
+<section class="page" id="tracking">
+  <h2>Tracking plan</h2>
+  <p>Before values, recorded Sep 26, 2026, from the GSC Domain property UI. The clock for each page starts on the <b>recrawl date</b> shown in URL Inspection after the edits, not the deploy date. That is the lesson from Buckeye.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>URL</th><th>Primary query</th><th>Window</th><th>Clicks</th><th>Impr.</th><th>CTR</th><th>Pos.</th></tr></thead>
+    <tbody>
+      <tr><td>/buckeye/</td><td>(page)</td><td>Aug 27 to Sep 23</td><td class="n">0</td><td class="n">598</td><td class="n">0.00%</td><td class="n">17.0</td></tr>
+      <tr><td>/buckeye/</td><td>buckeye pipe break repair</td><td>Jun 24 to Sep 23</td><td class="n">0</td><td class="n">112</td><td class="n">0.00%</td><td class="n">12.5</td></tr>
+      <tr><td>/buckeye/</td><td>water line repair buckeye</td><td>Jun 24 to Sep 23</td><td class="n">0</td><td class="n">142</td><td class="n">0.00%</td><td class="n">19.4</td></tr>
+      <tr><td>/maricopa/</td><td>(page)</td><td>Aug 27 to Sep 23</td><td class="n">0</td><td class="n">107</td><td class="n">0.00%</td><td class="n">17.0</td></tr>
+      <tr><td>/maricopa/</td><td>trenchless sewer repair maricopa az</td><td>Jun 24 to Sep 23</td><td class="n">0</td><td class="n">32</td><td class="n">0.00%</td><td class="n">16.0</td></tr>
+      <tr><td>cast iron post</td><td>(page)</td><td>Jul 28 to Sep 23</td><td class="n">0</td><td class="n">13</td><td class="n">0.00%</td><td class="n">21.7</td></tr>
+      <tr><td>cast iron post</td><td>how long do cast iron pipes last</td><td>Jun 24 to Sep 23</td><td class="n">0</td><td class="n">6</td><td class="n">0.00%</td><td class="n">72.3</td></tr>
+    </tbody>
+  </table></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Check</th><th>When (after recrawl)</th><th>What to look at</th></tr></thead>
+    <tbody>
+      <tr><td>Indexing</td><td>Day 7</td><td>URL Inspection shows the new crawl date; the live title and meta appear in results</td></tr>
+      <tr><td>Early movement</td><td>Day 14</td><td>New queries appearing, target positions moving. No conclusions yet.</td></tr>
+      <tr><td>First comparison</td><td>Day 28</td><td>28 days after vs the 28-day before values, with the site-wide total as a control. Buckeye title decision.</td></tr>
+      <tr><td>Trend</td><td>Day 56</td><td>Clicks, not position, decide success. Position can "improve" just by losing low-ranking queries.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============ CLIENT ============ -->
+<section class="page" id="client">
+  <h2>Information needed from the client (Scott)</h2>
+  <ol>
+    <li>CIPP and ePIPE warranty terms. The pages say 20 years and 10 years. Are those right?</li>
+    <li>Arizona ROC license number (the Maricopa page says #362960).</li>
+    <li>Is "back in service the same day on most jobs" accurate?</li>
+    <li>Does Pipeliners line or rehabilitate manholes?</li>
+    <li>Does Pipeliners take slab leak repair jobs, or only leak location plus ePIPE?</li>
+    <li>Buckeye and Maricopa communities where crews have actually worked (to name on the pages).</li>
+    <li>One or two real Buckeye job summaries: what failed, how it was fixed, the rough timeline.</li>
+    <li>Camera inspection stills of corroded cast iron (2 or 3), with permission to publish.</li>
+    <li>Who should be the author on blog posts, and their trade credentials.</li>
+    <li>Is the "technician installing a liner in Buckeye" photo really from a Buckeye job?</li>
+  </ol>
+  <h3>Approvals I need before touching anything</h3>
+  <ul>
+    <li>/buckeye/ and /maricopa/ edits. Both are ad-touched (2 pMax impressions each in 30 days).</li>
+    <li>Hub page 14890 and /litchfield-park/ link changes. Both are ad-touched.</li>
+    <li>The free GSC "Request indexing" for the three URLs once the edits land.</li>
+  </ul>
+</section>
+
+<footer class="small">
+  <p>Data: GSC Domain property UI, Jun 24 to Sep 23, 2026 · URL Inspection Sep 26 · Search Atlas keyword project 5056244 · Google Ads landing_page_view, last 30 days · live pages crawled Sep 26, 2026 · OTTO project ca42c443. Competitor pages were reviewed for structure only and aren't named or linked here.</p>
+</footer>
+</div>

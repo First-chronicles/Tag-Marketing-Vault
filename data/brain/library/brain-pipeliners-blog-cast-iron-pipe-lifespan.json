@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Blog - Cast Iron Pipe Lifespan",
+ "cat": "brain-pipeliners",
+ "group": "Blogs",
+ "body": "> Blog · Pipeliners · 2026-06-23\n\n# Summary\nOne of the 6 posts drafted and published in the June 22-23 session (per the handoff). Sources: `blog-drafts\\how-long-do-cast-iron-pipes-last.md`, the Gutenberg HTML in `blog-drafts\\gutenberg\\`, the FAQ schema HTML in `blog-drafts\\faq-schema\\`, and a featured image in `featured-img\\`.\n\n# Key facts\n- **Focus keyword:** how long do cast iron pipes last. URL /how-long-do-cast-iron-pipes-last/ (post 15589, live in the July 21 blog inventory).\n- Structure: quick answer, key takeaways, question H2s, FAQ with FAQPage schema.\n- Rewritten and live Sep 26 (cast iron rewrite; image list cut from 78 to 4). The draft states lifespans of 50-100 years; per Kim, lifespan numbers on old posts are skipped and not listed as pending.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Blog Index](lib:brain-pipeliners-blog-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/blog-drafts/how-long-do-cast-iron-pipes-last.md",
+ "date": "2026-06-23",
+ "createdAt": 1792613346128,
+ "updatedAt": 1792613346129,
+ "rev": "e8d27997710e"
+}

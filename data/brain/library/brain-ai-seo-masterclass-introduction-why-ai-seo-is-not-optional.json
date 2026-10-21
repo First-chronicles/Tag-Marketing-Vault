@@ -1,0 +1,14 @@
+{
+ "name": "AI SEO Masterclass - Introduction Why AI SEO Is Not Optional",
+ "cat": "brain-learning",
+ "group": "AI SEO Masterclass",
+ "body": "> Lesson · 2026-10-08\n\n# Summary\nThe opening lesson argues that AI search (GEO) is \"just SEO with new distribution layers\": ChatGPT, Perplexity, Claude and Google AI Overviews now answer questions directly and cite a handful of sources, so a brand that is not cited is invisible to those searchers. The author (Jacky Chou, Indexsy / LocalRank.so) frames 2026 as an early-adopter window.\n\n# Key concepts\n- AI engines synthesize one answer and cite the brands they trust; ranking a blue link is no longer the whole game.\n- Usage claims cited: ChatGPT 400M+ weekly users (late 2025), Perplexity 15M+ monthly users, AI Overviews on 1.5B+ queries per day.\n- Ahrefs study of 26,283 cited URLs (the course's core data point):\n  - 43.8% of ChatGPT citations come from \"Best X\" listicles.\n  - 79.1% of cited content was updated in the current year.\n  - Low-DR sites can be cited; structure beats raw domain authority.\n- Traditional SEO still matters because AI models crawl the same web.\n\n# Action items from the lesson\n1. Check GA4 referrals for chatgpt.com, perplexity.ai and other \"chat\" sources to set an AI-traffic baseline.\n2. Start a brand-mention log: search \"brand + best\" in ChatGPT, Perplexity and Google.\n3. Calendar a monthly refresh of the top 10 pages (date, statistics, 200 to 500 new words).\n\n# How this applies to TAG clients\n- Freshness is the cheapest lever: Summit AZ, Pipeliners and Alphalete blogs and city pages can get a scheduled refresh rhythm, logged so results can be measured.\n- AI-referral baselines fit the existing visibility work in [SEO Tracker](lib:brain-seo-tracker) (LLM visibility from [Search Atlas](lib:brain-search-atlas)).\n- The revenue figures in this lesson are the author's own claims, not verified data.\n\n# Related\n- [AI SEO Masterclass](lib:brain-ai-seo-masterclass), [Learning Index](lib:brain-learning-index), [Lesson Takeaways 2026-10-08](lib:brain-lesson-takeaways-2026-10-08)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "AI SEO lesson/INTRODUCTION_ WHY AI SEO IS NOT OPTIONAL - AI SEO Masterclass · Local Rank Academy.pdf",
+ "date": "2026-10-08",
+ "createdAt": 1792613092647,
+ "updatedAt": 1792613092647,
+ "rev": "1d428c65615b"
+}

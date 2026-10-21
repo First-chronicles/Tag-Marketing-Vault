@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - SEO Change Log",
+ "cat": "brain-pipeliners",
+ "group": "Reports",
+ "body": "> Tracker · Pipeliners · 2026-10-16\n\n# Summary\nThe running log of every Pipeliners SEO change, started with the Sep 10 baseline and kept up to date through Oct 16, 2026 (about 182 entries). Columns: implementation date, URL, change, reason, evidence, baseline metric, baseline period, review date, result, keep/revise/revert, implementation status and notes.\n\n# Key points\n- Entries by month: about 20 in August, 104 in September, 58 in October.\n- Earliest entries are context: the Aug 18 trashing of /pipeline-environmental-compliance-arizona/ and the Aug 18 to 21 Google spam update (annotated, no causal claim).\n- Most entries are marked implemented and verified live; review date for the baseline set is Oct 9.\n- October entries include the Oct 10 to 14 Avondale-style container restructure of the city pages, a sitewide footer restructure, replacing a competitor-branded liner diagram on 34 city pages with an unbranded photo, removing OTTO custom HTML lines that rendered below the footer, small copy fixes on Mesa, Gilbert and Scottsdale, YouTube embeds on Mesa and Phoenix, and (Oct 16) BlogPosting schema added to 31 posts via the `_pipeliners_article_jsonld` post meta.\n- A before-copy of the log (Sep 15) sits in the baseline folder's fix-backups.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - SEO Baseline 2026-09-10](lib:brain-pipeliners-seo-baseline-2026-09-10), [Pipeliners - SEO Results Scorecard 2026-10-12](lib:brain-pipeliners-seo-results-scorecard-2026-10-12), [Trackers and Logs Index](lib:brain-trackers-and-logs-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/seo-baseline-2026-09-10/Pipeliners-SEO-Change-Log.csv",
+ "date": "2026-10-16",
+ "createdAt": 1792613290920,
+ "updatedAt": 1792613567092,
+ "rev": "02254c4cb0ea"
+}

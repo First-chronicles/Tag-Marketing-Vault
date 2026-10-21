@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Not-Indexed Improvements 2026-09-29",
+ "cat": "brain-pipeliners",
+ "group": "Audits",
+ "body": "> Report · Pipeliners · 2026-09-29\n\n# Summary\nRound 2 of not-indexed improvements, live Sep 28 16:39 UTC server time (Kim's Sep 29). Of \"the 6 non-hold pages\" only 2 qualified: two others had small ad impressions, one was already rewritten and one was held for Scott.\n\n# Key findings\n- 13724 /are-your-pipes-due-for-a-checkup/ (plumbing inspection): 4,383 to 1,600 words; filler replaced with question H2s, a what-it-checks table, a repair, restore or replace decision table, a section on when replacement wins, and a 4-question FAQ.\n- 13710 /2024-homeowners-plumbing-guide/ (plumbing maintenance): 3,680 to 1,455 words; monthly routine, pipe-material table, DIY vs pro, emergency prep, FAQ. Unsplash credit links removed; the unverified \"only licensed ePipe partner\" claim removed.\n- Claims used: 50-year liner life, UV LED cure, NSF/ANSI 61, 24/7, leak-locating equipment. No prices or warranty terms.\n\n# Decisions and status\n- Inbound links added from four ad-free indexed posts. Undo via post meta `_pl_backup_ni_20260929`.\n- Request Indexing Sep 29: URL Inspection showed both were already indexed (the Page indexing report was stale, last updated Sep 21).\n\n# Files in this folder (rollups only)\n- `CHANGES.md`, before/after HTML and headers, PHP and Python scripts.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Not-Indexed Improvements 2026-09-28](lib:brain-pipeliners-not-indexed-improvements-2026-09-28), [GSC Indexing Tracker](lib:brain-gsc-indexing-tracker)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/not-indexed-improve-2026-09-29",
+ "date": "2026-09-29",
+ "createdAt": 1792613507483,
+ "updatedAt": 1792613567250,
+ "rev": "cf9624a7a5c2"
+}

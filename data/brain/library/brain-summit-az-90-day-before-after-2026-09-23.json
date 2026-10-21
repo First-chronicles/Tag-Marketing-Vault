@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - 90-Day Before After 2026-09-23",
+ "cat": "brain-summit",
+ "group": "Reports",
+ "body": "> Report · Summit Az · 2026-09-23\n\n# Summary\nGSC comparison of 90 days before TAG (Mar 21 to Jun 18) vs 90 days with TAG (Jun 19 to Sep 16). TAG work on Summit AZ started 2026-06-19.\n\n# Key numbers\n- Clicks 145 to 131 (-9.7%); impressions 48,900 to 50,600 (+3.5%); CTR flat 0.3%; average position 29.6 to 29.1.\n- Page-one queries 83 to 61 (-26%); service page-one queries 79 to 55 (-30%).\n- Non-brand clicks: 4 in each period. The click decline is almost all the brand query \"summit plumbing pros\" (54 clicks at position 5 to 26 at 8.9).\n- \"near me\" collapse: page-one \"near me\" queries 43 to 5 (-88%), impressions 8,418 to 3,983. Examples: plumbers near me 9.7 to 17.6; drain cleaning near me 8.3 to 17.1.\n- Not the relaunch: cutting at Sep 2 (before the Sep 3 relaunch) the collapse had already happened (near-me page-one 49 to 5). The 24/7 copy removal (2026-09-09) is also after the window.\n- Improved: specific service plus city terms (sewer line repair fountain hills 21.7 to 7.5, water softener maintenance tempe 55.2 to 10.0, /plumbing/ 24.1 to 9.0).\n\n# Open\nCause of the \"near me\" drop is not established. Still to test: local algorithm update, local-pack association loss, NAP or schema changes, GBP signals, GSC artifact.\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Summit AZ - Work Folders Index](lib:brain-summit-az-work-folders-index)\n- [Summit AZ - Perf Tracker](lib:brain-summit-az-perf-tracker), [Summit AZ - Performance Report 2026-09-23](lib:brain-summit-az-performance-report-2026-09-23), [Google Search Console](lib:brain-google-search-console)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/perf-tracker/Summit-90day-Before-After-2026-09-23.md",
+ "date": "2026-09-23",
+ "createdAt": 1792612997602,
+ "updatedAt": 1792612997603,
+ "rev": "2f0b7719bd84"
+}

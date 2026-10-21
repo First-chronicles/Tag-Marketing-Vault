@@ -1,0 +1,14 @@
+{
+ "name": "TAG CRM",
+ "cat": "brain-projects",
+ "group": "",
+ "body": "> Project · 2026-10-21\n\n# Summary\nTAG CRM is a single-file, LeadSnap-style CRM prototype (`TAG-CRM\\index.html`, about 80 KB) that runs entirely in the browser and saves its data in `localStorage` (key `tag-crm-v1`). There is no server or database.\n\n# Sections\n- **Workspace:** Dashboard, Leads, Pipelines (deals), Calls, Tasks.\n- **Agency:** Companies (with a company switcher and \"All companies\" scope), Automations, Reports, Spam Blocking, Settings.\n- Contact records include deals, calls, notes, a timeline, an onboarding checklist and actions; templates support merge fields that can be copied.\n\n# Important limits\n- **Automations are simulated only.** The app has buttons like \"Simulate form submission\", \"Simulate answered call\" and \"Simulate missed call\", and notes that sending stays simulated until a real sender is connected. Real call data would need a call-tracking export.\n- Data lives only in the browser that created it; clearing site data erases it.\n\n# Relationship to other projects\n- It is a lightweight sketch of CRM ideas; the full, database-backed build is [AIO SEO CRM](lib:brain-aio-seo-crm). Real client lead data lives in [Keystone CRM](lib:brain-keystone-crm) and [GoHighLevel](lib:brain-gohighlevel).\n- The Oct 1 handoff also mentions an earlier internal CRM side project (Sep 28, localhost:3000 owner-account setup) and flags the GitHub repo `kimai-i/CRM` as public; make it private if that was not intended. Which build that repo holds is not confirmed in the files.\n\n# Related\n- [Projects Index](lib:brain-projects-index), [AIO SEO CRM](lib:brain-aio-seo-crm), [Keystone CRM](lib:brain-keystone-crm)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "TAG-CRM/index.html",
+ "date": "2026-10-21",
+ "createdAt": 1792613414805,
+ "updatedAt": 1792613414806,
+ "rev": "028a0594f2f2"
+}

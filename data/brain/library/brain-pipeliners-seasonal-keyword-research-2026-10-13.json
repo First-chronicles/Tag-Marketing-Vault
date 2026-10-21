@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Seasonal Keyword Research 2026-10-13",
+ "cat": "brain-pipeliners",
+ "group": "Keyword Research",
+ "body": "> Research · Pipeliners · 2026-10-13\n\n# Summary\nFall 2026 seasonal blog research from live Google results (Kim's Chrome, Phoenix-localized) and Search Atlas `se_lookup_keyword`, Oct 13. Nothing estimated.\n\n# Dropped ideas\n- plumbing maintenance (1,238 / KD 13): navigational, wrong services.\n- snowbird plumbing checklist: 0 volume (use as an angle only).\n- slab leak detection (1,925 / KD 32): over KD 30 and owned by the leak detection page.\n\n# Candidates\n1. **signs of a slab leak** (396 / KD 21): verdict CANNIBAL, because /slab-leaks-phoenix/ (18117) already has the H2. Do it as the planned Nov 2 refresh of 18117 instead.\n2. **what is a sewer scope inspection** (180 / KD 12): CLEAR. Keep \"sewer scope inspection\" (3,600 / KD 29) for the planned camera hub. Drafted the same day; see [Pipeliners - Blog - Sewer Scope Inspection](lib:brain-pipeliners-blog-sewer-scope-inspection).\n3. **hydro jetting sewer line** (1,135 / KD 15): LOW RISK with conditions (no \"Phoenix\" plus \"hydro jetting\" in the title, link to /hydro-jetting/ and 15623, no vs-snaking section, no holiday-grease H2). Publish before Thanksgiving (Nov 26).\n\nEach candidate lists supporting terms and Google People Also Ask questions. Seasonal angles already live: /sewer-line-maintenance/ (fall holiday post) and /sewer-smell-in-house/ (after summer).\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Content Strategy 2026-10-01](lib:brain-pipeliners-content-strategy-2026-10-01), [Pipeliners - Blog Index](lib:brain-pipeliners-blog-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/content-strategy-2026-10-01/seasonal-keyword-research-2026-10-13.md",
+ "date": "2026-10-13",
+ "createdAt": 1792613264470,
+ "updatedAt": 1792613264470,
+ "rev": "f8b9306114f7"
+}

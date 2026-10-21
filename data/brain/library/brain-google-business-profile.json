@@ -1,0 +1,14 @@
+{
+ "name": "Google Business Profile",
+ "cat": "brain-tools",
+ "group": "",
+ "body": "> Tool · 2026-10-01\n\n# Summary\nGoogle Business Profile (GBP) drives map pack visibility and a large share of leads for TAG clients. For Claude it is mostly **read-only**: recommendations go to Kim or Scott.\n\n# Rules by client\n- **Pipeliners:** GBP is read-only. No posts, services or link edits; report only. The GBP phone (480-447-5345) differs from the site source number (480-535-6503) by design, for call tracking.\n- **Summit AZ:** GBP (location 93167) is hands off; read metrics only. Do not re-ask Scott about hours.\n- **Alphalete:** Scott handles the GBP.\n- **Images (Scott):** internal pipe damage or lining work only, never under-sink plumbing.\n\n# Routines\n- Kim's day starts with GBP photo posts for Summit and Pipeliners (posted manually).\n- GBP monthly content batches live in `_Shared (All Clients)\\GBP Content\\` (the August v2 batch had 16 posts not yet posted).\n- Map rankings come from [Search Atlas](lib:brain-search-atlas) local grids and feed the [Client Report Dashboard](lib:brain-client-report-dashboard).\n- In GA4, Alphalete's GBP website link is UTM-tagged as google / organic, so GBP visits count as Organic Search.\n\n# Learning references\nGBP setup, posts, reviews and policy pitfalls are covered in [Local SEO Lesson](lib:brain-local-seo-lesson) (Modules 2, 9, 10) and [AI SEO Masterclass - Module 5 Local SEO in the AI Era](lib:brain-ai-seo-masterclass-module-5-local-seo-in-the-ai-era).\n\n# Related\n- [Tools and Integrations Index](lib:brain-tools-and-integrations-index), [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "_Shared (All Clients)/Session Handoff 2026-10-01.md",
+ "date": "2026-10-01",
+ "createdAt": 1792613347326,
+ "updatedAt": 1792613347326,
+ "rev": "040bb654e656"
+}

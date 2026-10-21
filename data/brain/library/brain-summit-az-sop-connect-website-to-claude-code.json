@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - SOP Connect Website to Claude Code",
+ "cat": "brain-summit",
+ "group": "",
+ "body": "> Sop · Summit Az · 2026-05-21\n\n# Summary\nA step-by-step procedure (May 21, 2026) for wiring SSH access from Claude Code on Windows and Git Bash to a TAG client WordPress site. Although it sits in the Summit folder, it covers Summit, Pipeliners and Alphalete. Versions: `SOP-connect-website.md` (master), `SOP-connect-website.docx` and `SOP-connect-website-draft.pdf` (same content).\n\n# Steps\n1. Pick the alias, key file name (`<host>_<client>`) and key comment (`kim-<client>-<date>`).\n2. In Git Bash, create `~/.ssh` and `~/.ssh/config` with tight permissions.\n3. Generate an ed25519 key pair for the client.\n4. Lock down key permissions (600 private, 644 public); skipping this causes silent publickey errors.\n5. Print the public key.\n6. Send the public key (never the private one) to Scott, who uploads it (SiteGround Site Tools SSH Keys Manager, or Hostinger hPanel SSH Access). Wait for his \"done\".\n7. Add the `Host` block to `~/.ssh/config`. The SOP includes ready blocks for `summit` (SiteGround, port 18765), `pipeliners` and `alphalete` (Hostinger, port 65002).\n8. Test with `ssh -o ConnectTimeout=10 <alias> \"hostname && whoami\"`.\n9. Tell Claude Code the alias is ready. SSH is for occasional CLI debugging; daily work stays in WP Admin.\n10. Troubleshooting: publickey denied, Hostinger IP whitelisting, changed host fingerprint (`ssh-keygen -R`), verbose debug log for Scott.\n\n# Notes\n- Hostnames, users and ports in the SOP are references, not credentials. No private keys are stored in the document.\n- Summit host block: alias `summit`, key `siteground_summit`.\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [SSH Client Aliases](lib:brain-ssh-client-aliases), [SOPs and Guides Index](lib:brain-sops-and-guides-index), [Claude Code Setup Guide](lib:brain-claude-code-setup-guide)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/SOP-connect-website.md",
+ "date": "2026-05-21",
+ "createdAt": 1792612854778,
+ "updatedAt": 1792612854779,
+ "rev": "2c709697e01c"
+}

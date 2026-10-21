@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Context - Photos and Brand Assets",
+ "cat": "brain-summit",
+ "group": "Context",
+ "body": "> Log · Summit Az · 2026-08-14\n\n# Summary\nImage folders for Summit AZ. Not summarized per image.\n\n# Folders\n- `Photos\\`: 6 job photos (WebP, original IMG names such as IMG_2377, IMG_3049, IMG_3267).\n- `summit-plumbing-pros-photos-2026-08-14\\`: 32 numbered job photos (WebP) received 2026-08-14, useful for the `[FIRST-HAND DETAIL]` placeholders in blog clusters and for GBP posts.\n- `badges\\`: two transparent PNG versions of a \"Summit 100 Trusted Plumber\" badge (v1, v2).\n- Blog banners and inline images live in `blogs\\banners\\` and `blogs\\images\\` (see [Summit AZ - Blogs Folder Overview](lib:brain-summit-az-blogs-folder-overview)).\n- `perf-tracker\\shots\\` and `blog-restyle-pilot-2026-09-15\\` hold report and before/after screenshots.\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Summit AZ - Work Folders Index](lib:brain-summit-az-work-folders-index)\n- [Google Business Profile](lib:brain-google-business-profile)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/Photos",
+ "date": "2026-08-14",
+ "createdAt": 1792613122678,
+ "updatedAt": 1792613122678,
+ "rev": "1a1029c728ca"
+}

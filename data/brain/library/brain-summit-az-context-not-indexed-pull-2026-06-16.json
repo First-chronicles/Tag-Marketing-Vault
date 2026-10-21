@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Context - Not Indexed Pull 2026-06-16",
+ "cat": "brain-summit",
+ "group": "Context",
+ "body": "> Log · Summit Az · 2026-06-16\n\n# Summary\nGSC not-indexed pull for the URL-prefix property https://www.summitplumbingpros.com/ (data as of 6/12/26). Site healthy: 98 indexed, 16 not indexed across 4 reasons.\n\n# Breakdown\n- Page with redirect: 8 (intentional). Not found 404: 3 (gone). Excluded by noindex: 1 (intentional). Crawled, currently not indexed: 4.\n- Of the 4: a wp-emoji JS file and `/feed/` (junk, skipped), plus `/expert-drain-line-services/` and `/phoenix-plumbing/`.\n- Action: indexing requested for the two real pages (2 of about 13 daily quota).\n- `/phoenix-plumbing/` had no referring sitemap.\n\n# Later correction\nThe 2026-06-23 audit found both pages carry canonicals to other URLs (`/drain-cleaning/` and `/general-plumbing-services-in-phoenix/`), so they will never index and the quota was wasted. See [Summit AZ - SEO AEO Audit 2026-06-23](lib:brain-summit-az-seo-aeo-audit-2026-06-23).\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Summit AZ - Work Folders Index](lib:brain-summit-az-work-folders-index)\n- [GSC Indexing Tracker](lib:brain-gsc-indexing-tracker), [Google Search Console](lib:brain-google-search-console)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/context/not-indexed-2026-06-16.md",
+ "date": "2026-06-16",
+ "createdAt": 1792613122641,
+ "updatedAt": 1792613122641,
+ "rev": "cd9d9e1eab72"
+}

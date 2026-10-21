@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - City Page Audit 2026-10-02",
+ "cat": "brain-pipeliners",
+ "group": "City Pages",
+ "body": "> Audit · Pipeliners · 2026-10-02\n\n# Summary\nA prioritized audit of all 37 Pipeliners city pages (Oct 2, 2026). The master CSV gives, per city: priority (P1 to P4), problem, internal linking strength, contextual inbound sources, unique content percentage, local signals, 90-day GSC impressions and position, best striking query, paid impressions in 30 days, earliest edit date and a recommended action. A companion research file holds verified local facts.\n\n# Key findings\n- Priority split: 13 P1, 14 P2, 7 P3, 3 P4.\n- P1 examples: Buckeye (best ranked at average 22, 1,615 impressions, but zero city-specific facts and leaning on a now off-limits 24/7 claim); Florence (\"florence pipe break repair\" at position 10 but the page leans on \"24/7 crews\"); Glendale (most impressions, 4,256, but average position 60 and the most text shared with Peoria); Sun City (swaps rankings with Sun City West); Litchfield Park (top query is copper repipe, not offered as full repipes); Maricopa (best average position, 17, but several queries are services not offered such as manhole lining); Goodyear (position 8 query but 0 contextual inbound links and low unique text).\n- Unique content ranged from 49% (El Mirage, mostly shared with Youngtown) to 95.6% (Buckeye). Many pages had \"strong but unsourced\" local signals; Sun City West and Sun Lakes had contradictory pipe-material claims.\n- P4 pages (Tolleson, Chandler, Surprise) are dominated by repipe demand or unconfirmed commercial repiping; held pending repipe wording.\n\n# Decisions and status\n- Recommended actions per page, typically: add one verified local section (sewer provider, lateral ownership, housing age), remove 24/7 or same-day claims, add 2 contextual inbound links. Several were scheduled after measurement reads (Oct 10 and later).\n\n# Files in this folder (rollups only)\n- `city-page-audit-master.csv`: the audit table.\n- `local-facts-research.md`: own note.\n- `pipeliners-city-page-audit.html`, `wp_pages.csv`, `gsc_90d_api.csv`, `headings_dump.txt`, `sitemap_urls.txt`, `extlink_check_1.txt`.\n- Saved page HTML (`live/`, `live_m/`), JSON, logs and Python scripts: not summarized.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - City Local Facts Research 2026-10-02](lib:brain-pipeliners-city-local-facts-research-2026-10-02), [Pipeliners - Local Page Strengthen Drafts 2026-10-09](lib:brain-pipeliners-local-page-strengthen-drafts-2026-10-09), [Pipeliners - On-Page Audit 2026-10-01](lib:brain-pipeliners-on-page-audit-2026-10-01)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/city-page-audit-2026-10-02",
+ "date": "2026-10-02",
+ "createdAt": 1792613567300,
+ "updatedAt": 1792613567300,
+ "rev": "250cd3088b7a"
+}

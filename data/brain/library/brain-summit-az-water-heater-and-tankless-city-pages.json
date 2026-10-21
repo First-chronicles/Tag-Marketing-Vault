@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Water Heater and Tankless City Pages",
+ "cat": "brain-summit",
+ "group": "City Pages",
+ "body": "> Plan · Summit Az · 2026-09-26\n\n# Summary\nThree rewrite drafts: water heater repair in Phoenix (Sep 25) and a paired split in Queen Creek (Sep 26) where Google had moved tank water heater searches onto the tankless page. All applied live Sep 24 to 26 per the handoff.\n\n# Pages\n| Page | ID | Draft file | Main keyword | Notes |\n|---|---|---|---|---|\n| /water-heater-services-phoenix/ | 10260 | `Summit-AZ-Water-Heater-Phoenix-Draft-2026-09-25.md` | water heater repair Phoenix (390, KD 34, exception approved) | Was not indexed, 44% same as Chandler. Uses City of Phoenix 2025 hardness (10 to 17.6 gpg) and the 80 psi rule. |\n| /water-heater-services-queen-creek/ | 10261 | `Summit-AZ-Water-Heater-Queen-Creek-Draft-2026-09-26.md` | water heater repair in Queen Creek, plus installation (27,100, KD 51) and replacement | Takes back tank install and replacement searches. Title: \"Water Heater Repair in Queen Creek, Including Installation\". |\n| /tankless-water-heater-installation-queen-creek/ | 10248 | `Summit-AZ-Tankless-Queen-Creek-Draft-2026-09-26.md` | tankless water heater installation (40,500, KD 77, exception: page ranks 6 to 11) | 76 to 78% same as Phoenix, Scottsdale, STV tankless pages. Tankless only; adds \"tankless water heater maintenance\" (18,100 / 25). |\n\n# Key fixes\n- Phoenix: duplicate FAQ question removed, repair card rewritten for all heater types, stock-photo alt replaced, 8-term focus box cut to 5, broken meta (\"...Call\") fixed.\n- Queen Creek pair: the two pages link to each other with exact-phrase anchors; \"replacement\" removed from the tankless focus list; descaling terms left to the blog `/blog/tankless-water-heater-descaling-arizona/`.\n- Brand names (equipment) removed from tankless FAQs.\n\n# Results so far\n- Early check Oct 5: tankless Queen Creek impressions per day up 50%, \"tankless water heater repair queen creek az\" from 14.3 to 7.7.\n- Oct 1 keyword targeting audit: tankless pages still outrank water heater pages for \"water heater repair\" in 5 cities (Chandler, Gilbert, Mesa, Queen Creek, Tempe).\n\n# Related\n- [Summit AZ - City Pages Index](lib:brain-summit-az-city-pages-index), [Summit AZ - Low-Hanging Fruit Plan 2026-09-26](lib:brain-summit-az-low-hanging-fruit-plan-2026-09-26), [Summit AZ - Keyword Targeting Audit 2026-10-01](lib:brain-summit-az-keyword-targeting-audit-2026-10-01), [Summit AZ - Early Performance Check 2026-10-05](lib:brain-summit-az-early-performance-check-2026-10-05), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros",
+ "date": "2026-09-26",
+ "createdAt": 1792613010644,
+ "updatedAt": 1792613010644,
+ "rev": "8c12210bde38"
+}

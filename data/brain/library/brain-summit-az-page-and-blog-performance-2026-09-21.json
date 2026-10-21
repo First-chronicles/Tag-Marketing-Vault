@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Page and Blog Performance 2026-09-21",
+ "cat": "brain-summit",
+ "group": "Reports",
+ "body": "> Report · Summit Az · 2026-09-21\n\n# Summary\nRead-only page-level performance read, GSC web UI, Aug 24 to Sep 20 vs Jul 27 to Aug 23 (28 days each), plus the Search Atlas rank tracker 84536. The OTTO pixel was confirmed \"Not Installed\". Site total (current): 38 clicks, about 10.9K impressions, CTR 0.3%, position 27. The current window includes the Sep 3 relaunch.\n\n# By page group\n- Homepage (report only): clicks 24 to 20, impressions 1,737 to 1,938.\n- City service pages: impressions 6,354 to 7,351 (+16%), 7 clicks each period.\n- Service parents and other: about flat, position 30.1 to 22.9.\n- Blog: impressions 1,639 to 727 (-56%), position 32.6 to 27.5.\n\n# Biggest gains\n- Tempe general hub 1,822 to 2,990 impressions (0 clicks); leak detection Phoenix, Scottsdale, Apache Junction and Chandler new or up; sewer Queen Creek new at 10.9; /about/ new at 5.3; /plumbing/ position 32.9 to 9.1.\n\n# Biggest losses\n- /drain-cleaning/ 827 to 185; three drain blog posts lost most impressions (likely seasonal monsoon queries fading and deep impressions lost, not a technical block; all pages checked 200, index, self canonical).\n- Scottsdale softener page 390 to 1; Gilbert and Queen Creek general hubs down; Orangeburg and /pipe-lining/ down.\n\n# Blog notes\n- /blog/water-pressure-drops-multiple-fixtures/ improved to position 7.6 (2 clicks); /blog/low-water-pressure-shower-only/ improved to about 15.\n\n# Related\n- [Summit AZ - Organic Snapshot 2026-09-16](lib:brain-summit-az-organic-snapshot-2026-09-16), [Summit AZ - Supporting Blog Plan 2026-09-18](lib:brain-summit-az-supporting-blog-plan-2026-09-18), [Summit AZ - Blog Index](lib:brain-summit-az-blog-index), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/Summit-AZ-Page-Blog-Performance-2026-09-21.md",
+ "date": "2026-09-21",
+ "createdAt": 1792613443666,
+ "updatedAt": 1792613443667,
+ "rev": "3ecaaa166ff2"
+}

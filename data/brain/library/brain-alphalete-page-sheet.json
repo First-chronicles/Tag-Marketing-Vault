@@ -1,0 +1,14 @@
+{
+ "name": "Alphalete - Page Sheet",
+ "cat": "brain-alphalete",
+ "group": "Reports",
+ "body": "> Tracker · Alphalete · 2026-10-01\n\n# Summary\nThe Page Sheet is a published artifact listing every live URL on alphaletetrenchless.com with its SEO tags, Google index status and search traffic. The local folder holds its HTML source (`page-sheet.html`, last saved Oct 1 2026) plus 7 backups taken before refreshes. The page loads its data at runtime, so the local HTML is a shell (spreadsheet-style grid with light and dark modes and a formula bar for reading full cell text).\n\n# How it is used\n- It is the change record for the safe edit loop: every live edit is noted in the Page Sheet.\n- **Refresh procedure** (from the project guide): wp-cli inventory, curl of each live head, GSC UI Performance > Pages (US) and URL Inspection, then republish the artifact to the same URL.\n- Artifact URL is listed in the project guide and the Oct 1 handoff.\n- The Sep 29 check (Page Sheet v24) recorded 108 of 111 tracked URLs indexed.\n\n# Backups (dated)\n| File | Taken |\n|---|---|\n| `page-sheet.backup-2026-09-17.html` | Sep 17 |\n| `page-sheet.backup-2026-09-18-pre-refresh.html` | Sep 18, before a data refresh |\n| `page-sheet.backup-2026-10-01-stale-local.html` | Oct 1, stale local copy |\n| `page-sheet.backup-2026-10-01-pre-kwcheck-live.html` | Oct 1, before a live keyword check |\n| `page-sheet.backup-2026-10-01-pre-denver-kw.html` | Oct 1, before Denver keyword changes |\n| `page-sheet.backup-2026-10-01-pre-kwsource.html` | Oct 1, before a keyword-source column change |\n| `page-sheet.backup-2026-10-01-pre-denver-krt.html` | Oct 1, before Denver rank tracker data |\n\n# Related tracker\nThe weekly change tracker (scheduled task `alphalete-weekly-change-tracker`, Mondays about 8am) writes GSC snapshots to a separate artifact. It needs the app open and Chrome connected.\n\n# Related\n- [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub), [Alphalete - Project Guide](lib:brain-alphalete-project-guide), [GSC Indexing Tracker](lib:brain-gsc-indexing-tracker), [Trackers and Logs Index](lib:brain-trackers-and-logs-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Alphalete Trenchless Pipelining/page-sheet",
+ "date": "2026-10-01",
+ "createdAt": 1792613179785,
+ "updatedAt": 1792613179785,
+ "rev": "ae45829055e6"
+}

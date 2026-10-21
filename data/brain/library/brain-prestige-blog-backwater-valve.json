@@ -1,0 +1,14 @@
+{
+ "name": "Prestige - Blog - Backwater Valve",
+ "cat": "brain-prestige",
+ "group": "Blogs",
+ "body": "> Blog · Prestige · 2026-08-01\n\n# Brief\n- Title: Backwater Valves: The One-Way Valve That Stops a Sewer Backup\n- Slug: /blog/backflow-preventer/. It keeps this slug to match the pillar's existing link, since \"backflow preventer\" is the layperson term.\n- Role: Support 3. Intent: informational and commercial research. About 1,430 words.\n- Primary keyword: backwater valve. Secondaries: sewer backflow preventer, do I need a backwater valve, how does a backwater valve work, backwater valve vs backflow preventer, backwater valve Bluffton SC.\n\n# Angle\nA backwater valve sits on the sewer lateral, lets wastewater out and closes if sewage tries to come back in. The post separates it from a water-supply backflow preventer, explains how it works, who needs one in the Lowcountry, what it will not do (it does not fix a clog in your own line), installation and maintenance, and has an FAQ. It closes the pillar loop: the pillar's backflow mention links here.\n\n# Flag status\n- Publish after the pillar and the rain post (it links up to both).\n- The flap and float mechanism is hard to render accurately with AI images. Consider a real product photo or a simple labeled diagram.\n- First-hand proof is optional. Gated for Scott: valve pricing and install cost, free language, warranties, emergency rates.\n\n# Status\nDrip Day 6 (scheduled 2026-08-07). Not yet published per the cluster list.\n\n# Related\n- [Prestige - Sewer Cluster Rollout Plan 2026-08-01](lib:brain-prestige-sewer-cluster-rollout-plan-2026-08-01), [Prestige - Blog - Sewer Backup](lib:brain-prestige-blog-sewer-backup), [Prestige Plumbing (Hub)](lib:brain-prestige-plumbing-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Prestige Plumbing/drafts/blog/backflow-preventer/backflow-preventer.md",
+ "date": "2026-08-01",
+ "createdAt": 1792613575635,
+ "updatedAt": 1792613575635,
+ "rev": "29a5b82468b7"
+}

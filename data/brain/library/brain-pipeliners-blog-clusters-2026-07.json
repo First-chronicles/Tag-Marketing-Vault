@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Blog Clusters 2026-07",
+ "cat": "brain-pipeliners",
+ "group": "Blogs",
+ "body": "> Blog · Pipeliners · 2026-07-21\n\n# Summary\nRollup of `blog-clusters-2026-07\\`, the July monsoon cluster work folder.\n\n# Files\n- `Pipeliners_July_Monsoon_Cluster_4_Supporting_Posts.md`: see [Pipeliners - Blog - Monsoon Cluster Supporting Posts](lib:brain-pipeliners-blog-monsoon-cluster-supporting-posts).\n- `Pipeliners_Monsoon_Pillar_Refresh.md`: see [Pipeliners - Blog - Monsoon Pillar Refresh](lib:brain-pipeliners-blog-monsoon-pillar-refresh).\n- `Pipeliners_Blog_Inventory_LIVE.xlsx`: every Pipeliners blog post pulled 2026-07-21 (ID, title, URL, primary focus keyword, Rank Math focus field, categories, published and modified dates, status). Summary: 54 published, 1 draft.\n- `Pipeliners_Blog_List_Indexed.xlsx`: the same list with publish date, primary keyword, category and an \"Indexed?\" column (the July 14 posts showed Yes).\n\n# Use\nThe July inventory is a useful snapshot of which posts existed before the August-October merges and rewrites (for example it shows the 6 posts from June 23, the monsoon set from July 14, and older posts such as /what-is-cipp/ 14690 and the two myths posts). For current status use the Website Pages tracker.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Blog Index](lib:brain-pipeliners-blog-index), [Pipeliners - Website Pages Tracker](lib:brain-pipeliners-website-pages-tracker), [Blog Master List](lib:brain-blog-master-list)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/blog-clusters-2026-07",
+ "date": "2026-07-21",
+ "createdAt": 1792613383665,
+ "updatedAt": 1792613383665,
+ "rev": "15c637d959ef"
+}

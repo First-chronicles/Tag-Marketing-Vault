@@ -1,0 +1,139 @@
+<title>Pipeliners Rank Gap Audit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#f9fbfd; --paper:#ffffff; --chrome:#f0f4f9; --hdr:#f8f9fa; --hdr-ink:#5f6368;
+  --grid:#e1e3e1; --grid-strong:#c7c7c7; --ink:#1f1f1f; --muted:#5f6368;
+  --accent:#188038; --accent-soft:#e6f4ea; --sel:#1a73e8; --sel-soft:#e8f0fe;
+  --band:#fbfcfd; --title-bg:#0b5d3b; --title-ink:#ffffff;
+  --low-bg:#e6f4ea; --low-ink:#137333; --med-bg:#fef7e0; --med-ink:#8a5a00;
+  --high-bg:#fce8e6; --high-ink:#b3261e; --info-bg:#e8f0fe; --info-ink:#174ea6;
+  --grey-bg:#eceff1; --grey-ink:#455a64;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#131314; --paper:#1b1b1c; --chrome:#202124; --hdr:#262729; --hdr-ink:#9aa0a6;
+    --grid:#34363a; --grid-strong:#4a4d52; --ink:#e3e3e3; --muted:#9aa0a6;
+    --accent:#81c995; --accent-soft:#1e3325; --sel:#8ab4f8; --sel-soft:#1f2a3d;
+    --band:#1e1f20; --title-bg:#17402c; --title-ink:#e6f4ea;
+    --low-bg:#1e3325; --low-ink:#81c995; --med-bg:#3a3017; --med-ink:#fdd663;
+    --high-bg:#41201e; --high-ink:#f28b82; --info-bg:#1f2a3d; --info-ink:#8ab4f8;
+    --grey-bg:#2d3134; --grey-ink:#b0bec5;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#131314; --paper:#1b1b1c; --chrome:#202124; --hdr:#262729; --hdr-ink:#9aa0a6;
+  --grid:#34363a; --grid-strong:#4a4d52; --ink:#e3e3e3; --muted:#9aa0a6;
+  --accent:#81c995; --accent-soft:#1e3325; --sel:#8ab4f8; --sel-soft:#1f2a3d;
+  --band:#1e1f20; --title-bg:#17402c; --title-ink:#e6f4ea;
+  --low-bg:#1e3325; --low-ink:#81c995; --med-bg:#3a3017; --med-ink:#fdd663;
+  --high-bg:#41201e; --high-ink:#f28b82; --info-bg:#1f2a3d; --info-ink:#8ab4f8;
+  --grey-bg:#2d3134; --grey-ink:#b0bec5;
+}
+html,body{height:100%}
+body{background:var(--ground);color:var(--ink);font:13px/1.4 Roboto,Arial,system-ui,sans-serif;display:flex;flex-direction:column;overflow:hidden}
+.top{background:var(--chrome);padding:10px 16px 6px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.doc-icon{width:28px;height:36px;border-radius:3px;background:var(--accent);position:relative;flex:none}
+.doc-icon::after{content:"";position:absolute;inset:9px 6px;border:2px solid #fff;border-radius:1px;background:linear-gradient(#fff,#fff) 0 45%/100% 2px no-repeat,linear-gradient(#fff,#fff) 45% 0/2px 100% no-repeat}
+.doc-name{font-size:18px;color:var(--ink);font-weight:400}
+.doc-meta{color:var(--muted);font-size:12px}
+.menu{display:flex;gap:14px;color:var(--muted);font-size:13px;margin-top:2px}
+.badge{margin-left:auto;background:var(--high-bg);color:var(--high-ink);border-radius:14px;padding:5px 12px;font-weight:500;font-size:12px;white-space:nowrap}
+.fx{display:flex;align-items:stretch;background:var(--paper);border-top:1px solid var(--grid);border-bottom:1px solid var(--grid);min-height:30px}
+.fx .ref{width:84px;flex:none;border-right:1px solid var(--grid);display:flex;align-items:center;justify-content:center;font-family:"Roboto Mono",monospace;font-size:12px;color:var(--muted)}
+.fx .fxl{width:34px;flex:none;display:flex;align-items:center;justify-content:center;color:var(--muted);font-style:italic;font-family:Georgia,serif;border-right:1px solid var(--grid)}
+.fx .val{padding:6px 10px;flex:1;min-width:0;white-space:pre-wrap;overflow-wrap:anywhere;max-height:96px;overflow:auto}
+.wrap{flex:1;min-height:0;overflow:auto;background:var(--paper)}
+table{border-collapse:separate;border-spacing:0;table-layout:fixed}
+th,td{border-right:1px solid var(--grid);border-bottom:1px solid var(--grid);padding:5px 7px;vertical-align:top;text-align:left}
+thead th{position:sticky;top:0;background:var(--hdr);color:var(--hdr-ink);font-weight:400;text-align:center;font-size:11px;padding:3px;z-index:3;height:22px}
+th.rn,td.rn{position:sticky;left:0;background:var(--hdr);color:var(--hdr-ink);text-align:center;width:44px;min-width:44px;font-size:11px;z-index:2;padding:5px 2px;font-variant-numeric:tabular-nums}
+thead th.rn{z-index:4}
+tr.h td:not(.rn){background:var(--hdr);font-weight:700;color:var(--ink);position:sticky;top:23px;z-index:1;border-bottom:2px solid var(--grid-strong)}
+tr.t td:not(.rn){background:var(--title-bg);color:var(--title-ink);font-weight:500;font-size:14px}
+tr.s td:not(.rn){background:var(--accent-soft);color:var(--ink);font-weight:700}
+tr.n td:not(.rn){color:var(--muted);font-style:italic}
+tbody tr:not(.h):not(.t):not(.s) td:not(.rn){background:var(--paper)}
+td.num{text-align:right;font-family:"Roboto Mono",monospace;font-size:12px;font-variant-numeric:tabular-nums}
+td.sel{outline:2px solid var(--sel);outline-offset:-2px;background:var(--sel-soft)!important}
+td{white-space:pre-wrap;overflow-wrap:anywhere;cursor:cell}
+td a{color:var(--sel)}
+.chip{display:inline-block;border-radius:10px;padding:1px 8px;font-size:11.5px;font-weight:500;white-space:nowrap}
+.c-low{background:var(--low-bg);color:var(--low-ink)} .c-med{background:var(--med-bg);color:var(--med-ink)}
+.c-high{background:var(--high-bg);color:var(--high-ink)} .c-info{background:var(--info-bg);color:var(--info-ink)}
+.c-grey{background:var(--grey-bg);color:var(--grey-ink)}
+.tabs{display:flex;align-items:stretch;background:var(--chrome);border-top:1px solid var(--grid);overflow-x:auto;flex:none;padding-bottom:env(safe-area-inset-bottom,0px)}
+.tabs button{all:unset;cursor:pointer;padding:9px 16px;color:var(--muted);font-size:13px;white-space:nowrap;border-right:1px solid var(--grid);position:relative}
+.tabs button:hover{background:var(--hdr)}
+.tabs button[aria-selected="true"]{background:var(--paper);color:var(--accent);font-weight:500}
+.tabs button[aria-selected="true"]::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--accent)}
+.tabs button:focus-visible{outline:2px solid var(--sel);outline-offset:-2px}
+.tabs .plus{color:var(--muted);padding:9px 14px;border-right:1px solid var(--grid);font-size:16px;line-height:1}
+@media (max-width:640px){.menu{display:none}.doc-name{font-size:15px}.badge{margin-left:0}}
+</style>
+
+<div class="top">
+  <div class="doc-icon" aria-hidden="true"></div>
+  <div>
+    <div class="doc-name">Pipeliners Rank Gap Audit</div>
+    <div class="menu" aria-hidden="true"><span>File</span><span>Edit</span><span>View</span><span>Insert</span><span>Format</span><span>Data</span></div>
+  </div>
+  <div class="doc-meta">pipelinersusa.com · built __BUILT__ · Semrush US desktop, Sep 15–16 2026 · GSC https:// property</div>
+  <div class="badge">C6–C8 applied Sep 17 · rest pending</div>
+</div>
+<div class="fx"><div class="ref" id="ref">A1</div><div class="fxl">fx</div><div class="val" id="fxval">Click any cell to read its full contents here.</div></div>
+<div class="wrap" id="wrap"></div>
+<div class="tabs" role="tablist" id="tabs"><span class="plus" aria-hidden="true">+</span></div>
+
+<script id="data" type="application/json">__DATA__</script>
+<script>
+(function(){
+  var D=JSON.parse(document.getElementById('data').textContent);
+  var wrap=document.getElementById('wrap'),tabs=document.getElementById('tabs');
+  var fx=document.getElementById('fxval'),ref=document.getElementById('ref');
+  function col(i){var s='';i++;while(i>0){var m=(i-1)%26;s=String.fromCharCode(65+m)+s;i=Math.floor((i-1)/26);}return s;}
+  var chipMap={'low':'c-low','medium':'c-med','high':'c-high','pending approval':'c-med','hold':'c-grey','monitor':'c-grey','ignore':'c-grey','excluded':'c-grey','not verified':'c-high','confirmed':'c-low','group a':'c-info','group b':'c-info','not a problem':'c-low','no change':'c-low','do not change':'c-low','not changed':'c-low','p1':'c-high','p2':'c-med','p3':'c-grey','reporting issue':'c-info','implemented':'c-low'};
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function render(v){
+    var s=String(v==null?'':v), k=s.toLowerCase();
+    if(chipMap[k]) return '<span class="chip '+chipMap[k]+'">'+esc(s)+'</span>';
+    var m=s.match(/^(Low|Medium|High)( .*)$/); if(m) return '<span class="chip '+chipMap[m[1].toLowerCase()]+'">'+m[1]+'</span>'+esc(m[2]);
+    return esc(s).replace(/(https?:\/\/[^\s|,)]+)/g,'<a href="$1" target="_blank" rel="noopener">$1</a>');
+  }
+  function show(idx){
+    var sh=D.sheets[idx];
+    Array.prototype.forEach.call(tabs.querySelectorAll('button'),function(b,i){b.setAttribute('aria-selected',i===idx?'true':'false');});
+    var ncol=sh.widths.length, h='<table><colgroup><col style="width:44px">';
+    sh.widths.forEach(function(w){h+='<col style="width:'+w+'px">';});
+    h+='</colgroup><thead><tr><th class="rn"></th>';
+    for(var c=0;c<ncol;c++) h+='<th>'+col(c)+'</th>';
+    h+='</tr></thead><tbody>';
+    sh.rows.forEach(function(r,ri){
+      var cls=r.k||'', cells=r.c;
+      h+='<tr class="'+cls+'"><td class="rn">'+(ri+1)+'</td>';
+      if(cls==='t'||cls==='s'||cls==='n'){h+='<td colspan="'+ncol+'" data-r="'+(ri+1)+'" data-c="0">'+render(cells[0])+'</td>';}
+      else for(var c=0;c<ncol;c++){
+        var v=cells[c]; var isNum=(cls!=='h')&&/^-?[\d,.]+%?$|^[<>]?\s?\d/.test(String(v==null?'':v))&&String(v).length<12;
+        h+='<td'+(isNum?' class="num"':'')+' data-r="'+(ri+1)+'" data-c="'+c+'">'+render(v)+'</td>';
+      }
+      h+='</tr>';
+    });
+    h+='</tbody></table>';
+    wrap.innerHTML=h; wrap.scrollTop=0; wrap.scrollLeft=0;
+    fx.textContent=sh.note||'Click any cell to read its full contents here.'; ref.textContent='A1';
+    try{sessionStorage.setItem('pl-rank-tab',String(idx));}catch(e){}
+  }
+  wrap.addEventListener('click',function(e){
+    var td=e.target.closest('td[data-r]'); if(!td) return;
+    var p=wrap.querySelector('td.sel'); if(p) p.classList.remove('sel');
+    td.classList.add('sel'); ref.textContent=col(+td.dataset.c)+td.dataset.r; fx.textContent=td.textContent;
+  });
+  D.sheets.forEach(function(sh,i){
+    var b=document.createElement('button'); b.type='button'; b.setAttribute('role','tab'); b.id='tab-'+i;
+    b.textContent=sh.name; b.addEventListener('click',function(){show(i);}); tabs.appendChild(b);
+  });
+  var start=0; try{var s=+sessionStorage.getItem('pl-rank-tab'); if(s>=0&&s<D.sheets.length) start=s;}catch(e){}
+  show(start);
+})();
+</script>

@@ -1,0 +1,14 @@
+{
+ "name": "Prestige - July Drain Cluster 2026-07",
+ "cat": "brain-prestige",
+ "group": "Blogs",
+ "body": "> Blog · Prestige · 2026-07-15\n\n# Summary\nThese are 4 supporting posts, delivered as markdown, for the July calendar driver (peak tourism and heavy household load, drain cleaning and hydro jetting). The July pillar \"Drain Cleaning vs. Hydro Jetting\" was already live (July 7), so a second pillar would cannibalize it. These posts cover separate sub-topics, link up to the live pillar and link across to the tree-roots and sewer-camera posts. All four went live on July 15 (per [Prestige - Blog Inventory and Tracker](lib:brain-prestige-blog-inventory-and-tracker)).\n\n# Posts in the cluster\n| # | Title | Primary keyword | Slug |\n|---|---|---|---|\n| 1 | What Not to Put Down Your Drain or Toilet: A Lowcountry Homeowner's Guide | what not to put down the drain | /blog/what-not-to-put-down-drain/ |\n| 2 | Why Does My Drain Smell Like Sewage? Causes and Fixes for Lowcountry Homes | drain smells like sewage | /blog/drain-smells-like-sewage/ |\n| 3 | Chemical Drain Cleaners: Why They're Risky for Older Coastal Pipes | are chemical drain cleaners bad | /blog/chemical-drain-cleaners-risks/ |\n| 4 | Several Drains Slow or Backing Up at Once? Main Sewer Line Warning Signs | main sewer line clog signs | /blog/main-sewer-line-clog-signs/ |\n\n# How they were built\n- With no Business Knowledge Base available, specifics (services, cities, URLs, author, voice) were rebuilt from the live site.\n- Author Matt Milunec, with BlogPosting + FAQPage + Person/Org schema. H2s are homeowner questions, answered first, with one real Lowcountry detail per post and a city-specific FAQ.\n- External sources: BJWSA, NWS Charleston, N.C. Cooperative Extension. Post 3 still needed one more .gov or .edu source.\n\n# Holds and open items\n- Pricing, \"free estimate\", Care Plan and guarantee language were held for Scott, with neutral CTAs instead.\n- `[FIRST-HAND DETAIL]` placeholders were left for Matt's real photos or notes.\n- The file asked for: confirmation that the pillar stays as-is, the Prestige Business Knowledge Base, Scott's pricing decision, and the extra source for Post 3.\n- Later baseline notes: three of these titles run long (main-sewer-line 76, drain-smells 71, chemical 65) and should be trimmed.\n\n# Related\n- [Prestige Plumbing (Hub)](lib:brain-prestige-plumbing-hub), [Prestige - 12-Month Blog Calendar](lib:brain-prestige-12-month-blog-calendar), [SEO Blog Writing Standards](lib:brain-seo-blog-writing-standards)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Prestige Plumbing/blog-clusters-2026-07/Prestige_July_Drain_Cluster_4_Supporting_Posts.md",
+ "date": "2026-07-15",
+ "createdAt": 1792613521861,
+ "updatedAt": 1792613521861,
+ "rev": "5be3661e8768"
+}

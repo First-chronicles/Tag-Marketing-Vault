@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Audits and Notes 2026-06-18",
+ "cat": "brain-pipeliners",
+ "group": "Audits",
+ "body": "> Audit · Pipeliners · 2026-06-18\n\n# Summary\nRollup of five June 2026 working notes: a GHL attribution audit, a Search bid strategy review, an OTTO schema fix SOP, a Search Atlas support ticket draft and a task verification pass. All read-only; Google Ads changes were written as recommendations for Kim to apply.\n\n# Key findings\n- GHL attribution audit (Jun 18): Search was not losing credit to Performance Max through cannibalization. The real issue was a conversion-goal misconfiguration: actions that fire on Search clicks were excluded from the Conversions column. Last 30 days: Search spent $1,817 with 7.0 all conversions but 1 reported; pMax spent $1,142 with 9.0 all conversions and 2 reported. The GHL offline import had effectively stalled (last uploads May 26 to Jun 12). GCLID capture at form submit was working.\n- Search bid review (Jun 18): only \"Search campaign feb 2026\" (Maximize Conversions, no target, $60 a day) was spending; the AI Max twin was dormant. Recommendation: extend the hold and fix the conversion mapping first, then wait 5 to 7 days before reviewing bids.\n- OTTO schema fix (Jun 5, approved by Scott): OTTO was deploying \"Course\" schema on city pages. SOP: delete Course, generate and deploy Service. Done on 14 priority cities; 22 long-tail cities remaining at the time.\n- Support ticket draft (Jun 18): asks Search Atlas to stop suggesting Course and to allow locking schema type per template; /hydro-jetting/ and /pipelining-myths-debunked/ still had Course.\n- Task verification (Jun 18): city pages had moved to flat /{city}/ URLs (/service-areas/{city}/ now 301s), so earlier indexing requests targeted redirects. Sitemap exclusion problem resolved. FAQ sections live on 21 of 38 city pages; about 14% of images missing alt; Service schema live on 12 of 14 priority cities.\n\n# Files in this folder (rollups only)\n- `pipeliners-ghl-attribution-audit-2026-06-18.md`, `pipeliners-search-bid-review-2026-06-18.md`, `pipeliners-otto-schema-fix.md`, `pipeliners-searchatlas-support-ticket-2026-06-18.md`, `pipeliners-task-verify-2026-06-18.md`.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Google Ads MCC](lib:brain-google-ads-mcc), [GoHighLevel](lib:brain-gohighlevel), [Search Atlas](lib:brain-search-atlas), [Pipeliners - SEO AEO Audit 2026-06-23](lib:brain-pipeliners-seo-aeo-audit-2026-06-23)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/audits-and-notes-2026-06",
+ "date": "2026-06-18",
+ "createdAt": 1792613567194,
+ "updatedAt": 1792613567195,
+ "rev": "0d89af33764e"
+}

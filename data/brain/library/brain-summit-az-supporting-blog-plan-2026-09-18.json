@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Supporting Blog Plan 2026-09-18",
+ "cat": "brain-summit",
+ "group": "Plans",
+ "body": "> Plan · Summit Az · 2026-09-18\n\n# Summary\nPlan (no changes made) to push the blog posts that already perform onto page 1 using supporting posts plus internal links. Based on GSC for Jun 17 to Sep 16, 2026: the blog had 15 clicks, 4,050 impressions and an average position of 41.6 across 29 posts.\n\n# Key findings\n- Best performers: /blog/trenchless-pipe-lining/ (893 impressions, position 60.4), /blog/how-often-professional-drain-cleaning/ (509, 57.8), /blog/gurgling-slow-drains-when-it-rains/ (330, 9.1), /blog/signs-of-a-slab-leak/ (314, 57.4), /blog/are-water-softeners-worth-it/ (233, 13.7; closest to a breakthrough).\n- A supporting post only helps when it covers a separate search need; otherwise it splits the same searches.\n\n# Cluster verdicts\n- Water softeners / hard water: write 3 supporting posts (B1 salt-free vs salt, B2 sizing, B3 maintenance).\n- Slab leaks: write 1 (B4 \"How plumbers find a slab leak\") after a service check with Scott.\n- Trenchless: no new post; differentiate the two overlapping posts instead (see [Summit AZ - F2 Trenchless Posts Changes 2026-09-18](lib:brain-summit-az-f2-trenchless-posts-changes-2026-09-18)).\n- Drain cleaning frequency, monsoon drains, water pressure: no new post; improve the existing ones.\n\n# Decisions and status\n- B1 published Sep 18 and B3 published about Sep 25. B2 and B4 not started as of Oct 1.\n- The plan includes an internal-link table with descriptive anchors for each new post.\n- Facts to re-verify on writing day: Mesa hardness (the city now reports 12 to 22 gpg) and EPCOR San Tan figures.\n\n# Related\n- [Summit AZ - Blog Index](lib:brain-summit-az-blog-index), [Summit AZ - Blog Salt-Free vs Salt-Based Softeners 2026-09-18](lib:brain-summit-az-blog-salt-free-vs-salt-based-softeners-2026-09-18), [Summit AZ - Blog Water Softener Maintenance Checklist 2026-09-26](lib:brain-summit-az-blog-water-softener-maintenance-checklist-2026-09-26), [Summit AZ - Supporting Blog Strategy 2026-09-01](lib:brain-summit-az-supporting-blog-strategy-2026-09-01), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/Summit-AZ-Blog-Support-Plan-2026-09-18.md",
+ "date": "2026-09-18",
+ "createdAt": 1792612943236,
+ "updatedAt": 1792612943236,
+ "rev": "d97c95a6395b"
+}

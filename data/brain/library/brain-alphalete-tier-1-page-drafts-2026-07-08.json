@@ -1,0 +1,14 @@
+{
+ "name": "Alphalete - Tier 1 Page Drafts 2026-07-08",
+ "cat": "brain-alphalete",
+ "group": "Local Pages",
+ "body": "> Plan · Alphalete · 2026-07-08\n\nCompanion: `Sitemap Fix\\Alphalete-Town-Pages.xlsx`\n\n# Summary\nTwelve local service page drafts prepared Jul 8 2026 for review: Colorado Springs, Denver and Woodland Park, each for drain cleaning, hydro jetting, sewer camera inspection and commercial trenchless pipelining. These three cities were chosen because they were the only towns with proven Google Ads conversions.\n\n# How they were built\n- Keywords from SE Ranking data, intent-checked (local transactional queries with a local pack, so service/city page targets, not blogs). Examples from the folder README: drain cleaning denver 399 / KD 18; drain cleaning colorado springs 140 / KD 7; hydro jetting denver 50 / KD 3; sewer scope colorado springs 30. Commercial pipelining about 0 volume, kept for job value.\n- Applied Kim's Keyword Research Rules and Internal/External Linking Rules: one primary keyword plus 3 to 5 secondaries; internal links only to confirmed live URLs; external links to authoritative local sources, verified before publishing.\n- Each draft has SEO title, meta, slug (keep existing), H1, keywords, hero intro, trust bar, a \"Quick Answer\" block for AEO, sections and FAQ.\n- No invented neighborhoods, stats or claims; no warranty or guarantee language.\n\n# Points to note\n- The drafts used (719) 650-2273 in metas and CTAs and flagged a wrong number (720) 784-6139 in the Brand Vault. Current rules forbid phone numbers in metas (see [Alphalete - Decisions and Rules](lib:brain-alphalete-decisions-and-rules)).\n- Internal link targets at the time were `/service-areas/trenchless-sewer-repair-{city}/` pillars; city pages later moved to root slugs.\n\n# What happened next (per the Sitemap Fix README)\nSEO meta went live on all 12; body copy replaced on 8 (Colorado Springs and Denver). The WordPress drain and hydro pages with strong hyper-local content were kept. Tier 2 (36 pages across 9 towns) followed the same day.\n\n# Town Pages workbook\n`Alphalete-Town-Pages.xlsx` lists all 176 town pages with priority tier (from Ads geo data), service, title, URL, focus keyword, meta, approximate population and whether each was in the 84-page re-index batch.\n\n# Related\n- [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub), [Alphalete - Sitemap Fix 2026-07-08](lib:brain-alphalete-sitemap-fix-2026-07-08), [Alphalete - Local Page Rewrite Briefs 2026-07-14](lib:brain-alphalete-local-page-rewrite-briefs-2026-07-14), [Google Ads MCC](lib:brain-google-ads-mcc)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Alphalete Trenchless Pipelining/Sitemap Fix/Alphalete Tier 1 Page Drafts.docx",
+ "date": "2026-07-08",
+ "createdAt": 1792613047662,
+ "updatedAt": 1792613047663,
+ "rev": "019cf01a1701"
+}

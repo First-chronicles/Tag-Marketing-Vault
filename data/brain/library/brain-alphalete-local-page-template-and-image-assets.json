@@ -1,0 +1,14 @@
+{
+ "name": "Alphalete - Local Page Template and Image Assets",
+ "cat": "brain-alphalete",
+ "group": "Local Pages",
+ "body": "> Project · Alphalete · 2026-07-15\n\nAlso: `Local Pages alphalete Truck\\`, `Sitemap Fix\\Real Photo from clients\\`, `landing-sample\\`, `higgsfield-images\\`, `services-hub-internal-links.html`\n\n# Summary\nA rollup of the image and template asset folders used for local pages, landing pages and blogs. These folders hold images and HTML only, so they are described here rather than given their own notes.\n\n# Folders\n| Folder | Date | Contents |\n|---|---|---|\n| `New Template\\` | Jul 15 2026 | 4 section background PNGs (`AT_SECTIONS_BG`), 4 service featured images (Commercial Trenchless, Hydro Jetting, Residential Trenchless, Sewer Camera Inspection) with WebP versions in `web\\`, and the Survivor Page inventory PDF (see [Alphalete - Indexing and Location Page Plan 2026-07-14](lib:brain-alphalete-indexing-and-location-page-plan-2026-07-14)). |\n| `Local Pages alphalete Truck\\` | Aug 12 2026 | 5 PNG images of the Alphalete truck for city page heroes (Colorado Springs, Black Forest, Colorado and two unnamed). |\n| `Sitemap Fix\\Real Photo from clients\\` | Jul 2026 | 130 real client job photos (WebP). Photos 002, 030, 060 and 070 were vetted as privacy-clean for the Tier 1 drafts. |\n| `landing-sample\\` | Jun 17 2026 | A static sample landing page (`index.html`, title \"No-Dig Sewer Repair in Colorado Springs & Denver\") with 13 WebP images (before/after, camera, cast iron, liner, roots, crew). Served locally by the `landing-sample` launch config. |\n| `higgsfield-images\\` | to Oct 1 2026 | 22 Higgsfield-generated blog featured images plus 2 reference headers (mention only). |\n| `services-hub-internal-links.html` | Jun 15 2026 | An HTML link block listing commercial trenchless pipelining pages by city, used for hub internal linking. |\n\n# Rules that apply to these assets\n- Images must match the section; no digging scenes for trenchless work; realistic field photos.\n- Featured images use the Alphalete frame and the real `alphalete-logo-blue-2` logo; generate with Higgsfield, not GHL AI.\n- Do not publish client photos that show private details.\n\n# Related\n- [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub), [Higgsfield](lib:brain-higgsfield), [Alphalete - Decisions and Rules](lib:brain-alphalete-decisions-and-rules), [Alphalete - Blog Index](lib:brain-alphalete-blog-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Alphalete Trenchless Pipelining/New Template",
+ "date": "2026-07-15",
+ "createdAt": 1792613067046,
+ "updatedAt": 1792613067046,
+ "rev": "19289e4f2ace"
+}

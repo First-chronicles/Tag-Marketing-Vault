@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - SEO Baseline and Audit 2026-07-11",
+ "cat": "brain-summit",
+ "group": "Audits",
+ "body": "> Audit · Summit Az · 2026-07-11\n\n# Summary\nThe first SEO baseline for the Arizona site, built from a Search Atlas agent site audit (crawled about Jul 10) and then live-verified over SSH and WP-CLI on Jul 11. At that time the site still used Yoast. Four versions of the same content: `Summit-SEO-Baseline-2026-07-11.md` and `.pdf`, plus the client-facing `Summit-SEO-Audit-2026-07-11.docx` and `.pdf`.\n\n# Key findings\n- The Search Atlas crawl was stale and badly overstated. Live scope: 155 pages plus 10 posts (165).\n- Missing meta descriptions: audit said 168, live truth 8 (mostly utility and policy pages).\n- H1s: audit said 9 missing; live truth 0 missing, 3 pages with extra H1s.\n- Image alts: audit said 59+; live truth 20 in the media library, 0 in rendered blogs.\n- LocalBusiness and Service schema: audit said missing; already present (Plumber, Service, PostalAddress, FAQPage, BreadcrumbList).\n- Organic traffic almost entirely branded; \"plumber tempe\" sat at position 15.\n\n# Fixes applied Jul 11 (SSH and WP-CLI)\n- 13 page titles standardized to \"[Service] in [City], AZ | Summit Plumbing Pros\".\n- 2 meta descriptions written (locations page, Mesa FAQ page).\n- 3 H1 cleanups (/plumbing/, /water-softeners/, /slow-drains/) via the Elementor document save API, with server backups.\n- 15 image alts added; 3 pages set to noindex (thank-you page and two ad-only tankless landing pages).\n- Footguns logged: Yoast needed `wp post update` to rebuild the indexable; Elementor `Document::save()` silently no-ops under WP-CLI without an admin current user.\n\n# Decisions and status\n- Left as content work: 300 to 500 words of localized Tempe copy for \"plumber tempe\". Optional: basic metas on policy pages.\n- Superseded by the Sep 3 relaunch and the move to Rank Math.\n\n# Related\n- [Summit AZ - SEO Audit Baseline 2026-09-10](lib:brain-summit-az-seo-audit-baseline-2026-09-10), [Summit AZ - GSC Indexing Report 2026-08-15](lib:brain-summit-az-gsc-indexing-report-2026-08-15), [Search Atlas](lib:brain-search-atlas), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/Summit-SEO-Baseline-2026-07-11.md",
+ "date": "2026-07-11",
+ "createdAt": 1792613170934,
+ "updatedAt": 1792613170934,
+ "rev": "9f6032e70e5f"
+}

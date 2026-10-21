@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Blog - Trenchless Sewer Repair",
+ "cat": "brain-pipeliners",
+ "group": "Blogs",
+ "body": "> Blog · Pipeliners · 2026-06-23\n\n# Summary\nOne of the 6 posts published in the June 22-23 session. Sources: `blog-drafts\\trenchless-sewer-repair.md`, `gutenberg\\trenchless-sewer-repair.html`, `faq-schema\\trenchless-sewer-repair-faqschema.html`, a featured image in `featured-img\\`, and the merge plan `guardian-fixes-2026-10-09\\4-sewer-line-repair-without-digging-MERGED-DRAFT.md`.\n\n# Key facts\n- **Focus keyword:** trenchless sewer repair. URL /trenchless-sewer-repair/ (post 15575).\n- The June draft explains CIPP lining and pipe bursting; pipe bursting is not a Pipeliners service.\n- **Merge (Oct 9):** the Company Master Profile says blogs must not target \"trenchless sewer repair\" (service pages own it). So the survivor is /repair-sewer-line-without-digging/ (post 15361, focus \"sewer line repair without digging\", 170/mo, KD 12, 25 inbound links), and 15575 was planned to 301 to it and be set to draft (not deleted). `fix-backups\\2026-10-09_guardian-blogs\\` holds after-state files for 15361 and a before-state for 15575, which indicates the merge was applied.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Blog Index](lib:brain-pipeliners-blog-index), [Pipeliners - Guardian Blog Fix Drafts 2026-10-09](lib:brain-pipeliners-guardian-blog-fix-drafts-2026-10-09)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/blog-drafts/trenchless-sewer-repair.md",
+ "date": "2026-06-23",
+ "createdAt": 1792613346131,
+ "updatedAt": 1792613346131,
+ "rev": "7d4a2fb74041"
+}

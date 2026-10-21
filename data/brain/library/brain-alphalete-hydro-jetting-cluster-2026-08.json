@@ -1,0 +1,14 @@
+{
+ "name": "Alphalete - Hydro Jetting Cluster 2026-08",
+ "cat": "brain-alphalete",
+ "group": "Blogs",
+ "body": "> Blog · Alphalete · 2026-07-21\n\n# Summary\nThe August content calendar slot: keyword research, a cannibalization check, a pillar and 4 supporting posts (about 5,100 words), author Scott Vincent. Calendar driver: heavy summer drain loads, commercial research (MOFU). Schema per post: Article + FAQPage + BreadcrumbList; featured images 1400x730. The file itself does not record a publish date.\n\n# Posts and keywords (Search Atlas, national US)\n| Role | Title | Primary keyword | Volume / KD |\n|---|---|---|---|\n| Pillar | Hydro Jetting vs. Snaking: Which Clears a Clogged Sewer Line for Good? | hydro jetting vs snaking | 140 / 13 |\n| 1 | Why Does My Drain Keep Clogging After Snaking? | why does my drain keep clogging | 50 |\n| 2 | Is Hydro Jetting Safe for Old Cast Iron and Clay Pipes? | is hydro jetting safe for old pipes | 140 |\n| 3 | Hydro Jetting for Grease and Buildup: Why Heavy Summer Use Clogs Colorado Drains | hydro jetting grease | 10 |\n| 4 | Snaking or Hydro Jetting for a Commercial Drain Line? What Colorado Businesses Should Know | commercial hydro jetting | 70 / 4 |\n\n# Cannibalization and holds\n- Resolved Jul 21 (keep both): this pillar is the canonical hydro comparison page; the July monsoon Post 4 was reframed and links up to it.\n- Existing posts (tree roots, no-dig, what-is, cast iron trio) do not target these primaries. Future calendar slots (Sep camera, Oct fall checklist, Nov what not to flush) were protected.\n- Watch for overlap with older posts: \"Hydro Jetting vs. Drain Snake\" (Jun 3), \"Why Does My Drain Keep Clogging?\" and \"Is Hydro Jetting Safe for Cast Iron Pipes?\" (Jul 3) already appear in the Jul 21 tracker.\n- Pricing, \"free inspection\" and warranty held for the Agency owner. No absolute claims. First-hand detail placeholders marked `[FIRST-HAND DETAIL]`.\n- External sources: Colorado Springs Utilities and Fort Collins Utilities (FOG) verified; extension and USDA root sources marked to verify; Post 2 could use a NASSCO source.\n\n# Related\n- [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub), [Alphalete - Blog Index](lib:brain-alphalete-blog-index), [Alphalete - Monsoon Cluster 2026-07](lib:brain-alphalete-monsoon-cluster-2026-07), [SEO Blog Writing Standards](lib:brain-seo-blog-writing-standards)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Alphalete Trenchless Pipelining/Blogs/Alphalete_August_Hydro_Jetting_Cluster_Pillar_Plus_4.md",
+ "date": "2026-07-21",
+ "createdAt": 1792613133208,
+ "updatedAt": 1792613133209,
+ "rev": "eb4c314be5c4"
+}

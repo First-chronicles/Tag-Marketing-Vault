@@ -1,0 +1,14 @@
+{
+ "name": "NameHero Hosting",
+ "cat": "brain-tools",
+ "group": "",
+ "body": "> Tool · 2026-10-01\n\n# Summary\nNameHero is the shared hosting account that runs tagmktg.com, several WordPress sites and the static-HTML Prestige Plumbing site. Claude connects with the `namehero` SSH alias.\n\n# Access (references only)\n- `ssh namehero` = user `scottvin` on node614.namehero.net, port 37980. It connects as the cPanel owner, not Kim's team login.\n- WP-CLI on the server at `~/bin/wp`.\n- The agency handoff says the account holds about 25 domains; the WordPress engineer agent notes tagmktg.com plus 5 WordPress sites.\n- Prestige docroot: `/home5/scottvin/prestigeplumbingsc.com/` (hand-built static HTML, not WordPress).\n\n# Status and pending\n- **Disk quota full (17 GB) since Jul 31, 2026**, so writes fail. Prestige deploys (blog rollout, hub content) are blocked until Scott frees space; a note to Scott was drafted but not sent.\n- Security: change the password that was pasted in the Jun 12 NameHero SSH chat, if not already done.\n\n# Related\n- [Tools and Integrations Index](lib:brain-tools-and-integrations-index), [SSH Client Aliases](lib:brain-ssh-client-aliases), [Prestige Plumbing (Hub)](lib:brain-prestige-plumbing-hub), [Prestige - Company Profile](lib:brain-prestige-company-profile)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "_Shared (All Clients)/Session Handoff 2026-10-01.md",
+ "date": "2026-10-01",
+ "createdAt": 1792613347323,
+ "updatedAt": 1792613347323,
+ "rev": "983228423689"
+}

@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - OTTO Homepage NLP Baseline 2026-08-20",
+ "cat": "brain-pipeliners",
+ "group": "Audits",
+ "body": "> Audit · Pipeliners · 2026-08-20\n\n# Summary\nRollback reference captured Aug 20, 2026, before cleaning up the OTTO NLP terms on the homepage. OTTO deletions cannot be undone and per-term restore is not in the API, so the folder must be kept.\n\n# Key findings\n- OTTO SEO score 79. Homepage NLP terms: 99 total, 98 deployed, 1 unapproved (\"natural gas\").\n- Homepage GSC (90 days): 26 clicks (25 of them brand), 2,850 impressions, 9 queries with any click. Periods: Feb 19 to May 19 vs May 20 to Aug 18, US, URL-prefix property.\n- KRT project 34164: 9 of 43 tracked keywords ranking; only \"pipe lining phoenix\" (position 15) points at the homepage.\n- OTTO project snapshot: 4,664 items (3,837 approved, 827 pending) across title tags, metas, headings, image alts, schema, missing keywords, NLP terms, link building, dynamic indexing and social tags. Homepage target keywords: sewer pipe lining, pipeliners, epoxy pipe leak repair.\n\n# Decisions and status\n- Planned: keep 54 terms, remove 45 (19 tier 1 entity damage, 26 tier 2 DIY, materials or navigation). Wave 1 = 18 tier 1 terms.\n- Re-run the GSC pull at +30 and +60 days with the same period lengths.\n\n# Files in this folder (rollups only)\n- `01-otto-homepage-nlp-terms-99.csv`: the rollback list with KEEP/REMOVE tags.\n- `02-gsc-homepage-queries-90d.csv`, `03-krt-rankings-snapshot.csv`, `04-otto-project-snapshot.md`, `README-BASELINE.md`.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Search Atlas](lib:brain-search-atlas)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/baseline-2026-08-20-otto-homepage",
+ "date": "2026-08-20",
+ "createdAt": 1792613442055,
+ "updatedAt": 1792613567195,
+ "rev": "4d3029d347e8"
+}

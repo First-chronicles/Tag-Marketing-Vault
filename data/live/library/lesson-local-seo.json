@@ -1,0 +1,15 @@
+{
+  "body": "## Local landing page checklist\n\nUse this checklist on every location or service page. Each check helps Google connect the website to the business's Google Business Profile (GBP).\n\n### 1. Local business schema\n**Check:** Does the page have local business schema?\nSchema is code that tells Google what type of business this is and matches it to the GBP information.\n\n### 2. Phone number match\n**Check:** Do the phone numbers match between the website and the GBP?\nAny mismatch confuses Google about whether they are the same business.\n\n### 3. Address match\n**Check:** Does the address match exactly?\nSame reason. Google needs to see identical information on both.\n\n### 4. GBP embedded on the page\n**Check:** Is the GBP map embedded on the page?\nThis creates a direct visual link between the website and the Google Business Profile.\n\n### 5. Title tag and H1\n**Check:** Do the title tag and H1 include the primary category and the city name?\nThis tells Google exactly what service you provide and where you provide it.\n\n---\n\n## Quick checklist\n\n- Local business schema is on the page\n- Phone number matches the GBP\n- Address matches the GBP exactly\n- GBP map is embedded on the page\n- Title tag and H1 include the primary category and city\n\n> Note: The original slide skips from 3 to 5, so one check may be missing from the video.",
+  "cat": "seo-checklists",
+  "createdAt": 1792526950000,
+  "images": [
+    {
+      "addedAt": 1792526950000,
+      "caption": "Original slide: local landing page checklist",
+      "id": "9e91bed0f47368dab7da9b607484d86f"
+    }
+  ],
+  "name": "Local Landing Page Checklist",
+  "section": "lessons",
+  "updatedAt": 1792527110000
+}

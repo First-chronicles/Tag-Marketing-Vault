@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - 404 Audit 2026-09-24",
+ "cat": "brain-pipeliners",
+ "group": "Audits",
+ "body": "> Audit · Pipeliners · 2026-09-24\n\n# Summary\nA one-file audit (`404-audit.csv`, 30 URLs) of every known 404 on pipelinersusa.com as of Sep 24, 2026, with live status, where each URL is linked from, sitemap presence, outside links (Site Explorer), Search Atlas incoming links, and a recommendation.\n\n# Key findings\n- Most 404s were linked only from the hidden OTTO dynamic-indexing block on the homepage, not from any visible page.\n- Groups: old category addresses missing /category/ (/pipe-repair/, /pipeliners/, /root-intrusion/, /plumbing-tips/, /plumbing-upgrades/, /clogged-drain/), past-the-end archive pages (correct behavior), deleted bulk-import blog posts, an old blog address, /reviews/, /service-areas/ (never existed; real hub is /services-areas/), an old author address and /quote/.\n- No URL had outside links pointing at it (Site Explorer 0 for all).\n\n# Decisions and status\n- Redirect proposed for 8: /service-areas/ to /services-areas/ (Kim decides, the hub took pMax impressions), the six old category roots to their /category/ archives, and /signs-of-outdated-sewer-and-drain-pipes/ to /signs-of-outdated-sewer-drain-pipes/.\n- Leave as 404: archive pagination past the end, old author page, /pipeline-environmental-compliance-arizona/, /quote/ (do not point it at the estimate page, which is an Ads landing page).\n- Kim to choose: 4 deleted posts with no old-slug record. Redirect only if a live post covers the same topic, and check Ads first.\n- Follow-up: the Sep 30 technical errors audit confirmed 29 of 30 still 404 with zero live links; the 8 redirects were still proposed.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Technical Errors Audit 2026-09-30](lib:brain-pipeliners-technical-errors-audit-2026-09-30), [Search Atlas](lib:brain-search-atlas)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/reports/404-audit-2026-09-24",
+ "date": "2026-09-24",
+ "createdAt": 1792613209730,
+ "updatedAt": 1792613567031,
+ "rev": "47ac90a602b4"
+}

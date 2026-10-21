@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - SEO Baseline 2026-07-22",
+ "cat": "brain-pipeliners",
+ "group": "Audits",
+ "body": "> Audit · Pipeliners · 2026-07-22\n\n# Summary\nA 5-page Search Atlas baseline (OTTO project ca42c443, site audit 41385, rank tracker 34164) dated July 22, 2026. It argued that the gap between OTTO work and visibility was technical: broken sitemap, redirects, 4xx pages and failing Core Web Vitals.\n\n# Key numbers\n- OTTO score 78/100; issues found/deployed/pending 4,733 / 2,268 / 2,465 (52% deployed).\n- 229 pages crawled (140 in OTTO); status 2xx/3xx/4xx = 141 / 64 / 24; indexable 130 vs 97 not.\n- Rank tracker: 1 of 20 tracked commercial keywords in the top 100 (\"sewer pipe lining cost\" at 62).\n- Largest pending OTTO buckets: links 535, knowledge-based trust 420, semantic analysis 371, schema 257, Twitter Card 242.\n- Open technical fixes in order: Search Atlas GSC reads blocked (403), sitemap wrong, then redirects, internal links to redirects, 4xx pages.\n\n# Notes\nThe next day's fuller baseline reframed this: the tracked keywords were national head terms the site was never positioned for, and GSC data should be reported instead of modelled numbers. See [Pipeliners - Full SEO Baseline Audit 2026-07-23](lib:brain-pipeliners-full-seo-baseline-audit-2026-07-23).\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Audits and Reports Index](lib:brain-pipeliners-audits-and-reports-index), [Search Atlas](lib:brain-search-atlas)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/pipelinersusa-seo-baseline-2026-07-22.pdf",
+ "date": "2026-07-22",
+ "createdAt": 1792613171234,
+ "updatedAt": 1792613171235,
+ "rev": "2b37f87d82f2"
+}

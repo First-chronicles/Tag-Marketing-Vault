@@ -1,0 +1,21 @@
+{
+  "category": "AI Agent Prompts",
+  "client": "All clients",
+  "createdAt": 1792517967000,
+  "deleted": false,
+  "deletedAt": 0,
+  "favorite": true,
+  "folderId": "",
+  "icon": "🚀",
+  "notes": "Sample prompt. Starts the Local SEO Intelligence system. Task options: business research, GBP research, service research, homeowner research, keyword research, content plan, write content, improve existing page, full workflow.",
+  "status": "Draft",
+  "tags": [
+    "startup",
+    "workflow"
+  ],
+  "text": "/local-seo-intelligence\n\nClient: [Client]\nTask: [Task]\nLocation: [City], [State]\nService: [Service]\nPage URL: [Page URL]\nNotes: [Notes]",
+  "title": "Local SEO Intelligence startup",
+  "tool": "Claude",
+  "updatedAt": 1792517967000,
+  "versions": []
+}

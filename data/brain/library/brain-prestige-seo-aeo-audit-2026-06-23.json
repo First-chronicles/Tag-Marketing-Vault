@@ -1,0 +1,14 @@
+{
+ "name": "Prestige - SEO AEO Audit 2026-06-23",
+ "cat": "brain-prestige",
+ "group": "",
+ "body": "> Audit · Prestige · 2026-06-23\n\n# Summary\nThis is the launch audit of the static site, about 12 days after it went live. The method was live fetches plus a read-only SSH read of 8 sample pages, internal-link extraction and HTTP checks. The audit's verdict is \"a genuinely strong launch\". It found no hard indexing blocker. The biggest gap was that the site had not been verified or submitted in Google Search Console or Bing Webmaster Tools.\n\n# Key findings\n- All 23 sitemap URLs return 200. No broken internal links (27 unique targets).\n- Clean indexing posture: robots allows all crawlers and allow-lists the AI bots, self-referencing canonicals, no noindex, HTTPS and non-www 301, and a real 404.\n- NAP identical on all 23 pages.\n- Valid JSON-LD on every page, a single H1, and full alt text on the sampled pages.\n- AEO/GEO rated excellent. llms.txt and pricing.md are high quality, and prices are consistent across the HTML, the schema, pricing.md and llms.txt.\n\n# Prioritized fixes\n- P0-1: Verify and submit the sitemap in GSC and Bing. Request indexing on home, the 7 service pages and the 6 area pages first (owner Kim, manual).\n- P0-2: Add `geo` and `openingHoursSpecification` to the Plumber schema, using real GBP coordinates and hours confirmed with Matt.\n- P0-3: Add FAQPage schema for the visible homepage FAQ.\n- P1: aggregateRating only once real GBP reviews exist; fix the dead `/#reviews` nav anchor; compress the hero media (four mp4s total about 19.5 MB; target under 1.5 MB each and WebP heroes); per-page og:image.\n- P2: IndexNow key, fuller Twitter card tags, add sameAs profiles as they go live, remove the stray `.DS_Store`, optionally drop `/careers/` from the sitemap.\n\n# Decisions and status\n- Fixes were framed as hand-offs (Kim manual or engineer). No auto-edits were made.\n- Later notes show GSC was set up and indexing requests started by August (see [Prestige - Not Indexed Pages 2026-08-05](lib:brain-prestige-not-indexed-pages-2026-08-05)).\n\n# Related\n- [Prestige Plumbing (Hub)](lib:brain-prestige-plumbing-hub), [Prestige - SEO Baseline Audit 2026-08-12](lib:brain-prestige-seo-baseline-audit-2026-08-12), [Google Search Console](lib:brain-google-search-console), [Instant Indexing Setup](lib:brain-instant-indexing-setup)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Prestige Plumbing/seo-audit-prestige-2026-06-23.md",
+ "date": "2026-06-23",
+ "createdAt": 1792613452789,
+ "updatedAt": 1792613452789,
+ "rev": "c0ea131741a4"
+}

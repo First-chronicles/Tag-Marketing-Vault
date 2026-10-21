@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Title Shortening and SEO Check 2026-10-16",
+ "cat": "brain-summit",
+ "group": "Audits",
+ "body": "> Audit · Summit Az · 2026-10-16\n\n# Summary\nTwo mid-October data files: a sitewide on-page SEO check (Oct 15) and the title shortening draft it fed (Oct 16). No separate write-up exists; this note summarizes the data.\n\n# SEO check, Oct 15 (`Summit-AZ-SEO-Check-All-Pages-2026-10-15.csv`)\n- 187 URLs (153 pages, 34 posts), each scored 65 to 95 (average about 85) with an issues list.\n- Common flags: one empty-alt image and an empty or \"#\" link on every page (likely template elements), meta descriptions without a call to action (167), heading level skips (H2 to H4 or H5, many pages), titles of 62 to 65 characters.\n- Columns cover title and meta length, robots, H1 count, heading skips, images (missing or empty alt, legacy formats), schema types and internal links.\n\n# Title shortening draft, Oct 16\n- 38 rows: page ID, URL, focus keyword, current and proposed title with lengths, keyword-in-title check, 3-month GSC impressions and top queries, Search Atlas head terms and sibling overlap.\n- Pattern: keep the focus keyword at the start and cut to 60 characters or less, usually by dropping or shortening the brand suffix (for example \"Are Water Softeners Worth It in Arizona? | Summit Plumbing\").\n\n# Decisions and status\n- Applied Oct 16 per the change log: 31 Rank Math SEO titles shortened (Kim approved); slugs unchanged; 26 city pages dropped the brand suffix; pipe lining titles keep \"Trenchless\".\n- Note: shortened suffixes of \"| Summit Plumbing\" sit uneasily with the rule never to use \"Summit Plumbing\" alone as the brand; worth a review.\n\n# Related\n- [Summit AZ - Rank Math Optimization Trackers 2026-09](lib:brain-summit-az-rank-math-optimization-trackers-2026-09), [Summit AZ - SEO Change Log](lib:brain-summit-az-seo-change-log), [Summit AZ - Decisions and Rules](lib:brain-summit-az-decisions-and-rules), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/Summit-AZ-Title-Shortening-Draft-2026-10-16.csv",
+ "date": "2026-10-16",
+ "createdAt": 1792613471755,
+ "updatedAt": 1792613471756,
+ "rev": "3dd243fac236"
+}

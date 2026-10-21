@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Indexing Report 2026-09-28",
+ "cat": "brain-pipeliners",
+ "group": "Reports",
+ "body": "> Report · Pipeliners · 2026-09-28\n\n# Summary\nIndexing triage for the not-indexed pages as of Sep 28, 2026: a prioritized tracker, a six-page diagnosis and a merge proposal. Ad exposure was checked first (Google Ads landing_page_view, customer 7219095860, Jun 30 to Sep 27).\n\n# Key findings\n- Tracker (`indexing-tracker.csv`): 10 pages prioritized. Request indexing for /leak-detection-services-in-phoenix-arizona/ (never seen by Google, rewritten Sep 26), /when-is-pipe-descaling-necessary/, /top-10-signs.../, /understanding-pipe-restoration-repiping-vs-pipelining/ and the two myths posts. Content first for the trenchless lining cost post and the residential restoration guide. Ask Kim for /pipelining/ (paid LP, 771 impressions and 38 clicks) and /pipeline-locating.../ (pMax 39 impressions).\n- /pipeline-environmental-compliance-arizona/ is indexed but a live 404 and still getting pMax impressions (flag).\n- Five pages fixed by the Sep 22 requests (for example /2024-homeowners-plumbing-guide/, /are-your-pipes-due-for-a-checkup/).\n- Six-page diagnosis: causes are crawl timing, generic 2025 bulk-import text, crowded \"signs\" and \"relining\" clusters, thin myths posts, and zero in-content links.\n\n# Decisions and status\n- Merge plan (proposal only): top-10 signs into /5-signs-you-need-to-repipe-your-home-in-arizona/ (move only the missing signs, 301), and the residential restoration guide into the repiping vs relining post (held for Scott since Sep 22).\n- Myths pair left alone (one ran ads; Kim hold Sep 22). Ad-touched pages ruled out as merge destinations.\n\n# Files in this folder (rollups only)\n- `indexing-tracker.csv`, `six-page-diagnosis.csv`, `merge-plan.md`.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Not-Indexed Improvements 2026-09-28](lib:brain-pipeliners-not-indexed-improvements-2026-09-28), [GSC Indexing Tracker](lib:brain-gsc-indexing-tracker), [Google Search Console](lib:brain-google-search-console)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/reports/indexing-2026-09-28",
+ "date": "2026-09-28",
+ "createdAt": 1792613209731,
+ "updatedAt": 1792613567032,
+ "rev": "946c75fd6796"
+}

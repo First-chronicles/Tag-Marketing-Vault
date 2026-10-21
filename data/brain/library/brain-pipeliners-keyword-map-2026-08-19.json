@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Keyword Map 2026-08-19",
+ "cat": "brain-pipeliners",
+ "group": "Keyword Research",
+ "body": "> Research · Pipeliners · 2026-08-19\n\n# Summary\nKeyword mapping data from Aug 19-20, folded into one note:\n- `pipeliners-keyword-map-2026-08-19.csv`: 24 URLs with priority (6 HIGH, 9 MEDIUM, 9 LOW), WP post ID, primary target keyword, supporting keywords, page intent, whether content satisfies intent, GSC 90-day impressions and best position, cannibalization risk and recommended on-page action. Example: the leak detection page targets \"leak detection Phoenix AZ\" and was flagged as a critical intent mismatch.\n- `pipeliners-PAGE2-by-page-2026-08-20.tsv`: 45 pages with keywords on page 2 of Google (GSC 28 days, positions 11-20). Buckeye had 11 page-2 keywords (pipe break and water line repair terms), Paradise Valley 8, Glendale 9.\n- `pipeliners-position-verification-2026-08-19.tsv`: checked a \"current position\" sheet against GSC and the rank tracker for 8 opportunity keywords. 4 were wrong or stale (for example \"pipe relining vs replacement cost\" was really position 74, not as listed; Florence pipe break repair had improved to 8 in GSC and 5 in KRT).\n\n# Use\nThese fed the Aug 19 OTTO meta keyword deployment and later title work. Positions are a snapshot; use the Website Pages tracker and Scorecard for current data.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - OTTO Meta Keywords Inventory 2026-08-19](lib:brain-pipeliners-otto-meta-keywords-inventory-2026-08-19), [Pipeliners - Website Pages Tracker](lib:brain-pipeliners-website-pages-tracker)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/pipeliners-keyword-map-2026-08-19.csv",
+ "date": "2026-08-19",
+ "createdAt": 1792613264472,
+ "updatedAt": 1792613264472,
+ "rev": "f8070dbd43ac"
+}

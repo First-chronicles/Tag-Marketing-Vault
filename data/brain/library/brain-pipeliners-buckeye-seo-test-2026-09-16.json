@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Buckeye SEO Test 2026-09-16",
+ "cat": "brain-pipeliners",
+ "group": "City Pages",
+ "body": "> Report · Pipeliners · 2026-09-16\n\n# Summary\nTest tracker for the /buckeye/ rewrite (post 13796) from a Google Doc spec. Goal: average position 17.9 to below 10, plus clicks from trenchless pipe repair searches. The Doc rewrite went live Sep 1, 2026 20:42 UTC, so clean data starts Sep 2. Also covers the pipe-break section draft (`BUCKEYE-pipe-break-section-draft.md`).\n\n# Key findings\n- Baseline (Aug 2 to 29): GSC dashboard 1 click, 454 impressions, position 17.9; Search Atlas API 0 clicks, 418 impressions, position 18. Compare API to API only.\n- Read 1 (Sep 11): week after vs week before, 71 impressions each, position 11 to 22. Site-wide control did not drop, so the slip was page-specific. Warning: \"buckeye pipe break repair\" (30 impressions at position 6 the week before) went to zero property-wide; the rewritten copy had no \"pipe break\", \"burst\" or \"break\".\n- Read 2 (Sep 16): impressions 103 to 146 (+42%), position 16 to 20. Sewer and trenchless cluster up 11 to 48 impressions (the intended target), pipe break 48 to 44, gas (not a service) 1 to 18. Verdict: the rewrite pulls intended searches but no click yet, and the goal is not met.\n- Later finding (Sep 26 three-page audit): Google had not recrawled Buckeye since Aug 28, so these reads measured a page Google had not re-read.\n\n# Decisions and status\n- Done Sep 15 17:24 UTC with Kim's approval: H2 \"Pipe Break Repair in Buckeye\" (217 words) and FAQ #8 added (FAQPage now 8 questions). Title, meta and H1 unchanged. Clean data for the combined page starts Sep 16.\n- Draft claims checked: no gas, no pipe bursting, \"Pipeliners\" naming, 24/7 confirmed Aug 27 (later treated as off-limits on city pages).\n- Open at the time: og:title still the Aug 31 value; H1 differs from the Doc.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Title Meta Rewrites Tempe Buckeye Florence 2026-08-31](lib:brain-pipeliners-title-meta-rewrites-tempe-buckeye-florence-2026-08-31), [Pipeliners - Three Page Audit 2026-09-26](lib:brain-pipeliners-three-page-audit-2026-09-26), [Pipeliners - Local Page Strengthen Drafts 2026-10-09](lib:brain-pipeliners-local-page-strengthen-drafts-2026-10-09)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/performance-tracking/BUCKEYE-SEO-TEST.md",
+ "date": "2026-09-16",
+ "createdAt": 1792613290918,
+ "updatedAt": 1792613567091,
+ "rev": "ff6265a68d21"
+}

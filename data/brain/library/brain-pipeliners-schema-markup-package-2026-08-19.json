@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Schema Markup Package 2026-08-19",
+ "cat": "brain-pipeliners",
+ "group": "Plans",
+ "body": "> Plan · Pipeliners · 2026-08-19\n\n# Summary\nFolder of 41 ready-to-deploy JSON-LD blocks: `00-homepage.json` (LocalBusiness entity), 37 files in `city-pages\\` (one per city), 3 in `service-pages\\` (epipe-restoration, hydro-jetting, trenchless-drain-pipe-repair) and `_ALL-BLOCKS.txt` (all wrapped in script tags). Zips of the package (`Pipeliners-Schema-Markup.zip`, `Pipeliners-Schema-AS-DEPLOYED.zip`) sit in the client root. The README explains deployment via OTTO custom HTML per URL.\n\n# Design choices (README)\n- Only Plumber/LocalBusiness (`@id` https://pipelinersusa.com/#business) and a page-specific Service referencing it. WebPage, BreadcrumbList and FAQPage deliberately left out to avoid duplicates.\n- Business entity repeated in full on every page so each graph validates on its own.\n- Values from GBP location 7809: name \"Pipeliners\" (alternateName \"Pipeliners USA\"), aggregateRating 4.9 from 122, hours Mon-Sun 00:00-23:59, maps CID, 7 social profiles, ROC 362960, Place ID, foundingDate 2020-12, live logo.\n- Three phone numbers explained: 480-535-6503 (website tracking DID, used as telephone), the nav pool number, and the GBP number.\n\n# What happened later\n- Service + LocalBusiness schema went live on all 37 city pages via OTTO on Aug 18 (see [Pipeliners - Schema and Headings Report 2026-08-19](lib:brain-pipeliners-schema-and-headings-report-2026-08-19)). Never wrap OTTO slots in `@graph`.\n- On Oct 8 the 24/7 hours and the aggregateRating were removed from 32 city-page schemas (self-serving reviews, no 24/7 claim). See [Pipeliners - Lesson Fix Steps 2026-10-08](lib:brain-pipeliners-lesson-fix-steps-2026-10-08).\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Site-Wide SEO Fix Plan Four Faults 2026-08-19](lib:brain-pipeliners-site-wide-seo-fix-plan-four-faults-2026-08-19), [Search Atlas](lib:brain-search-atlas)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/Pipeliners-Schema-Markup",
+ "date": "2026-08-19",
+ "createdAt": 1792613171244,
+ "updatedAt": 1792613171244,
+ "rev": "39cd5f1e98ba"
+}

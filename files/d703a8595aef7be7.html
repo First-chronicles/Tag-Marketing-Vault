@@ -1,0 +1,1015 @@
+<title>Summit AZ Page Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Poppins:wght@600&display=swap">
+<style>
+:root {
+  --ground: #EEF2F6;
+  --sheet: #FFFFFF;
+  --head: #F3F6F9;
+  --head-ink: #4E5F71;
+  --grid: #DAE1E8;
+  --grid-strong: #C3CDD7;
+  --ink: #15222F;
+  --muted: #607183;
+  --faint: #8C9AA8;
+  --navy: #042B4B;
+  --accent: #0B97D4;
+  --accent-soft: #E1F2FA;
+  --sel: #0B7DB0;
+  --band: #F7F9FB;
+  --group: #E8EEF4;
+  --yes: #17794A;   --yes-bg: #E2F3E9;
+  --no: #B4322A;    --no-bg: #FBE6E4;
+  --wait: #8A5A00;  --wait-bg: #FCF0D2;
+  --off: #4D5D6E;   --off-bg: #E6EBF0;
+  --warn: #B26A00;
+  --focus: #0B97D4;
+  --shadow: 0 1px 2px rgba(4, 43, 75, .08), 0 4px 14px rgba(4, 43, 75, .06);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #0B131C; --sheet: #111B26; --head: #16222F; --head-ink: #9FB0C2;
+    --grid: #223140; --grid-strong: #2E3F51; --ink: #E2E9F0; --muted: #93A4B6; --faint: #6D7F92;
+    --navy: #CFE6F5; --accent: #3DB5EA; --accent-soft: #12314A; --sel: #3DB5EA;
+    --band: #142030; --group: #1A2838;
+    --yes: #6FD19C; --yes-bg: #133526; --no: #F08A80; --no-bg: #3A1B1A;
+    --wait: #F0C063; --wait-bg: #37290C; --off: #A9B7C6; --off-bg: #213042;
+    --warn: #F0B04F; --focus: #3DB5EA;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 6px 18px rgba(0,0,0,.25);
+  }
+}
+:root[data-theme="dark"] {
+  --ground: #0B131C; --sheet: #111B26; --head: #16222F; --head-ink: #9FB0C2;
+  --grid: #223140; --grid-strong: #2E3F51; --ink: #E2E9F0; --muted: #93A4B6; --faint: #6D7F92;
+  --navy: #CFE6F5; --accent: #3DB5EA; --accent-soft: #12314A; --sel: #3DB5EA;
+  --band: #142030; --group: #1A2838;
+  --yes: #6FD19C; --yes-bg: #133526; --no: #F08A80; --no-bg: #3A1B1A;
+  --wait: #F0C063; --wait-bg: #37290C; --off: #A9B7C6; --off-bg: #213042;
+  --warn: #F0B04F; --focus: #3DB5EA;
+  --shadow: 0 1px 2px rgba(0,0,0,.4), 0 6px 18px rgba(0,0,0,.25);
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body {
+  background: var(--ground);
+  color: var(--ink);
+  font: 13px/1.45 "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+}
+.app { display: flex; flex-direction: column; gap: 10px; padding: 16px clamp(10px, 2vw, 24px) 18px; min-height: 100vh; }
+
+/* Title bar */
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.mark { width: 34px; height: 34px; flex: none; border-radius: 7px; background: var(--navy); display: grid; place-items: center; }
+.mark svg { width: 20px; height: 20px; }
+h1 { margin: 0; font: 600 19px/1.2 Poppins, "Segoe UI", system-ui, sans-serif; letter-spacing: -.3px; color: var(--navy); text-wrap: balance; }
+.sub { margin: 2px 0 0; color: var(--muted); font-size: 12.5px; }
+.sub b { font-weight: 500; color: var(--ink); }
+.search { display: flex; align-items: center; gap: 8px; background: var(--sheet); border: 1px solid var(--grid-strong); border-radius: 8px; padding: 0 10px; height: 36px; width: min(340px, 100%); }
+.search:focus-within { border-color: var(--focus); box-shadow: 0 0 0 3px var(--accent-soft); }
+.search svg { width: 16px; height: 16px; flex: none; color: var(--faint); }
+.search input { border: 0; outline: 0; background: transparent; color: var(--ink); font: inherit; font-size: 13.5px; width: 100%; }
+.tools { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 0 1 auto; }
+.btn { height: 36px; display: inline-flex; align-items: center; gap: 7px; padding: 0 12px; border: 1px solid var(--grid-strong); background: var(--sheet); color: var(--ink); border-radius: 8px; font: 500 13px "IBM Plex Sans", "Segoe UI", system-ui, sans-serif; cursor: pointer; white-space: nowrap; }
+.btn svg { width: 16px; height: 16px; flex: none; }
+.btn:hover { border-color: var(--accent); color: var(--navy); }
+.btn:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.btn.sm { height: 28px; padding: 0 9px; font-size: 12px; border-radius: 6px; }
+.btn[disabled] { opacity: .55; cursor: default; }
+
+/* Live Google data status */
+.live { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); max-width: 520px; }
+.live .ld { width: 8px; height: 8px; border-radius: 50%; flex: none; background: var(--faint); }
+.live.ok .ld { background: var(--yes); }
+.live.busy .ld { background: var(--accent); }
+.live.err .ld { background: var(--no); }
+.live.err .lt { color: var(--no); }
+.live .lt b { color: var(--ink); font-weight: 500; }
+.gl { display: block; margin-top: 4px; font-size: 11.5px; line-height: 1.3; color: var(--faint); }
+.gl.hit { color: var(--yes); }
+.gl .num { font-family: "IBM Plex Mono", ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+.gl.warn { color: var(--warn); }
+
+/* Toolbar */
+.toolbar { display: flex; align-items: center; justify-content: space-between; gap: 10px 16px; flex-wrap: wrap; }
+.chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.chip { font: 500 12.5px/1 "IBM Plex Sans", system-ui, sans-serif; border: 1px solid var(--grid-strong); background: var(--sheet); color: var(--ink); border-radius: 999px; padding: 7px 11px; cursor: pointer; display: inline-flex; gap: 6px; align-items: center; }
+.chip .n { font-family: "IBM Plex Mono", ui-monospace, monospace; color: var(--muted); font-variant-numeric: tabular-nums; }
+.chip .dot { width: 8px; height: 8px; border-radius: 50%; }
+.chip[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: var(--sheet); }
+.chip[aria-pressed="true"] .n { color: inherit; opacity: .75; }
+.chip:focus-visible, .tab:focus-visible, select:focus-visible, a:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.selects { display: flex; gap: 8px; flex-wrap: wrap; }
+.selects label { display: flex; align-items: center; gap: 6px; color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
+select { font: 500 13px "IBM Plex Sans", system-ui, sans-serif; color: var(--ink); background: var(--sheet); border: 1px solid var(--grid-strong); border-radius: 6px; height: 32px; padding: 0 8px; text-transform: none; letter-spacing: 0; }
+
+/* Formula bar */
+.fx { display: grid; grid-template-columns: auto 1fr auto; align-items: stretch; background: var(--sheet); border: 1px solid var(--grid-strong); border-radius: 8px 8px 0 0; border-bottom: 0; min-height: 38px; }
+.fx-label { font: 500 11.5px/1 "IBM Plex Mono", ui-monospace, monospace; color: var(--head-ink); background: var(--head); border-right: 1px solid var(--grid); padding: 0 12px; display: flex; align-items: center; min-width: 132px; border-radius: 8px 0 0 0; }
+.fx-label i { font-style: italic; color: var(--faint); margin-right: 8px; font-family: Georgia, serif; font-size: 13px; }
+.fx-val { padding: 9px 12px; overflow-wrap: anywhere; color: var(--ink); }
+.fx-val.hint { color: var(--faint); }
+.fx-count { font: 500 11.5px/1 "IBM Plex Mono", ui-monospace, monospace; color: var(--muted); padding: 0 12px; display: flex; align-items: center; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.fx-count.over { color: var(--warn); }
+
+/* Grid */
+.grid-wrap { background: var(--sheet); border: 1px solid var(--grid-strong); overflow: auto; flex: 1; min-height: 360px; max-height: calc(100vh - 250px); position: relative; }
+table.grid { border-collapse: separate; border-spacing: 0; table-layout: fixed; width: max-content; min-width: 100%; }
+.grid th, .grid td { border-right: 1px solid var(--grid); border-bottom: 1px solid var(--grid); vertical-align: top; text-align: left; }
+.grid thead th { position: sticky; z-index: 3; background: var(--head); color: var(--head-ink); }
+.grid thead tr.letters th { top: 0; height: 22px; font: 500 11px/22px "IBM Plex Mono", ui-monospace, monospace; text-align: center; color: var(--faint); padding: 0; }
+.grid thead tr.labels th { top: 22px; font: 600 12px/1.25 "IBM Plex Sans", system-ui, sans-serif; color: var(--ink); padding: 9px 10px; border-bottom: 2px solid var(--grid-strong); white-space: nowrap; }
+.grid thead tr.labels th small { display: block; font: 400 11px/1.3 "IBM Plex Sans", system-ui, sans-serif; color: var(--faint); margin-top: 2px; }
+.grid .rn { position: sticky; left: 0; z-index: 2; width: 46px; min-width: 46px; background: var(--head); color: var(--faint); font: 500 11px "IBM Plex Mono", ui-monospace, monospace; text-align: center; padding: 10px 0 0; font-variant-numeric: tabular-nums; }
+.grid thead .rn { z-index: 4; }
+.grid .c-first { position: sticky; left: 46px; z-index: 1; background: var(--sheet); box-shadow: 1px 0 0 var(--grid-strong); }
+.grid thead .c-first { z-index: 4; background: var(--head); }
+
+/* Google Sheets style headers: click to sort, drag to move, drag the edge to resize */
+.grid thead th { user-select: none; -webkit-user-select: none; }
+.grid thead th:not(.rn) { cursor: grab; }
+.grid thead th:not(.rn):hover { background: var(--group); }
+.grid thead th:not(.rn):focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
+.grid thead tr.labels th.sorted { color: var(--navy); box-shadow: inset 0 -2px 0 var(--accent); }
+.sort-ar { margin-left: 6px; color: var(--accent); font-size: 10px; }
+.rz { position: absolute; top: 0; right: 0; width: 7px; height: 100%; cursor: col-resize; z-index: 5; touch-action: none; }
+.rz::after { content: ""; position: absolute; top: 18%; bottom: 18%; right: 1px; width: 3px; border-radius: 2px; background: transparent; }
+.grid thead th:hover > .rz::after, .rz.active::after { background: var(--accent); }
+.drop-ind { position: absolute; top: 0; width: 3px; margin-left: -1px; background: var(--accent); z-index: 8; pointer-events: none; box-shadow: 0 0 0 1px var(--sheet); }
+.grid .dragging { opacity: .4; }
+body.col-resizing, body.col-resizing * { cursor: col-resize !important; }
+body.col-moving, body.col-moving * { cursor: grabbing !important; }
+.sort-note { color: var(--muted); font-size: 12px; }
+.sort-note b { color: var(--ink); font-weight: 500; }
+.grid tbody tr:nth-child(even of .row) td:not(.rn) { background: var(--band); }
+.grid tbody td { padding: 8px 10px; }
+.grid tbody tr.row:hover td:not(.rn) { background: var(--accent-soft); }
+.grid td.sel { outline: 2px solid var(--sel); outline-offset: -2px; }
+.grid tr.group td { background: var(--group); font: 600 12px/1 "IBM Plex Sans", system-ui, sans-serif; color: var(--navy); padding: 9px 12px; letter-spacing: .02em; }
+.grid tr.group td .n { font: 400 11.5px "IBM Plex Mono", ui-monospace, monospace; color: var(--muted); margin-left: 8px; }
+.grid tr.group td.rn { color: transparent; }
+
+.clamp { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere; }
+.mono { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 12px; }
+.cnt { display: inline-block; margin-top: 4px; font: 500 10.5px/1 "IBM Plex Mono", ui-monospace, monospace; color: var(--faint); font-variant-numeric: tabular-nums; }
+.cnt.over { color: var(--warn); }
+.more { color: var(--muted); font-size: 11.5px; white-space: nowrap; }
+.empty-cell { color: var(--no); font-style: italic; }
+a.link { color: var(--accent); text-decoration: none; font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 12px; overflow-wrap: anywhere; }
+a.link .host { color: var(--faint); }
+a.link:hover { text-decoration: underline; }
+.pill { display: inline-flex; align-items: center; gap: 5px; font: 600 11.5px/1 "IBM Plex Sans", system-ui, sans-serif; border-radius: 4px; padding: 4px 7px; white-space: nowrap; }
+.pill::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.pill.yes { color: var(--yes); background: var(--yes-bg); }
+.pill.no, .pill.error { color: var(--no); background: var(--no-bg); }
+.pill.unknown { color: var(--wait); background: var(--wait-bg); }
+.pill.noindex, .pill.redirect { color: var(--off); background: var(--off-bg); }
+.perf { display: flex; flex-direction: column; gap: 3px; }
+.perf .pv { font: 500 14px/1.1 "IBM Plex Mono", ui-monospace, monospace; font-variant-numeric: tabular-nums; color: var(--ink); }
+.perf .pd { font: 500 11px/1.2 "IBM Plex Mono", ui-monospace, monospace; font-variant-numeric: tabular-nums; color: var(--faint); }
+.perf .pd.up { color: var(--yes); } .perf .pd.down { color: var(--no); }
+.perf .pv.none { color: var(--faint); font-size: 12px; font-family: "IBM Plex Sans", system-ui, sans-serif; }
+.perfbar { display: flex; flex-wrap: wrap; gap: 6px 22px; align-items: baseline; padding: 9px 12px; border: 1px solid var(--grid-strong); border-radius: 8px; background: var(--sheet); font-size: 12.5px; color: var(--muted); }
+.perfbar .k { font: 600 11px/1 "IBM Plex Sans", system-ui, sans-serif; text-transform: uppercase; letter-spacing: .06em; color: var(--head-ink); }
+.perfbar b { font: 500 15px "IBM Plex Mono", ui-monospace, monospace; color: var(--ink); font-variant-numeric: tabular-nums; }
+.perfbar .up { color: var(--yes); } .perfbar .down { color: var(--no); }
+.why { display: block; margin-top: 4px; color: var(--muted); font-size: 11.5px; line-height: 1.3; }
+
+textarea.note { display: block; width: 100%; min-height: 40px; border: 0; background: transparent; color: var(--ink); font: 13px/1.4 "IBM Plex Sans", system-ui, sans-serif; resize: vertical; padding: 0; outline: 0; field-sizing: content; }
+textarea.note::placeholder { color: var(--faint); }
+td.c-notes:focus-within { outline: 2px solid var(--sel); outline-offset: -2px; background: var(--sheet) !important; }
+textarea.note[readonly] { cursor: default; }
+
+.empty { margin: 0; padding: 40px 16px; text-align: center; color: var(--muted); }
+
+/* Sheet tabs */
+.tabs { display: flex; gap: 2px; align-items: flex-end; overflow-x: auto; background: var(--head); border: 1px solid var(--grid-strong); border-top: 0; border-radius: 0 0 8px 8px; padding: 0 6px; }
+.tab { font: 500 13px/1 "IBM Plex Sans", system-ui, sans-serif; border: 0; background: transparent; color: var(--muted); padding: 11px 16px 10px; cursor: pointer; white-space: nowrap; border-top: 3px solid transparent; display: flex; gap: 7px; align-items: center; }
+.tab .n { font: 400 11.5px "IBM Plex Mono", ui-monospace, monospace; color: var(--faint); }
+.tab:hover { color: var(--ink); background: var(--band); }
+.tab[aria-selected="true"] { background: var(--sheet); color: var(--navy); border-top-color: var(--accent); font-weight: 600; box-shadow: var(--shadow); }
+
+.foot { margin: 2px 2px 0; display: flex; flex-wrap: wrap; gap: 4px 18px; color: var(--muted); font-size: 12px; }
+.foot span { display: inline-flex; gap: 6px; align-items: center; }
+.save-state { font-weight: 500; }
+.save-state.ok { color: var(--yes); }
+.save-state.err { color: var(--no); }
+
+.search.kws { border-color: var(--accent); }
+.kwbar { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; padding: 8px 12px; border: 1px solid var(--grid-strong); border-radius: 8px; background: var(--accent-soft); color: var(--ink); font-size: 12.5px; }
+.kwbar.warn { background: var(--no-bg); color: var(--no); }
+.kwbar b { font-weight: 600; }
+.kwbar .btn { margin-left: auto; }
+.pill.clash { margin: 4px 0 0; }
+.chip.clash .dot { background: var(--no); }
+.tabname { font-size: 12px; color: var(--muted); }
+@media (max-width: 720px) {
+  .grid-wrap { max-height: none; }
+  .grid .c-first { position: static; box-shadow: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .chip, .tab, .search, .btn { transition: background-color .15s, color .15s, border-color .15s, box-shadow .15s; }
+  .live.busy .ld { animation: pulse 1.1s ease-in-out infinite; }
+}
+@keyframes pulse { 50% { opacity: .25; } }
+</style>
+
+<div class="app">
+  <header class="bar">
+    <div class="brand">
+      <span class="mark" aria-hidden="true">
+        <svg viewBox="0 0 20 20" fill="none"><rect x="1.5" y="1.5" width="17" height="17" rx="2" stroke="#fff" stroke-width="1.6"/><path d="M1.5 7h17M1.5 12.5h17M7.5 7v11.5" stroke="#fff" stroke-width="1.6"/><rect x="1.5" y="1.5" width="17" height="5.5" rx="2" fill="#0B97D4"/></svg>
+      </span>
+      <div>
+        <h1>Summit AZ Page Tracker</h1>
+        <p class="sub">summitplumbingpros.com &middot; <b id="total"></b> live pages &middot; synced <b id="synced"></b></p>
+      </div>
+    </div>
+    <div class="tools">
+      <label class="search">
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"/><path d="m11 11 3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <input id="q" type="search" placeholder="Search titles, slugs, keywords, notes" aria-label="Search this tab">
+      </label>
+      <label class="search kws" title="Looks only at the primary keyword, on every tab">
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="5" cy="8" r="3" stroke="currentColor" stroke-width="1.6"/><path d="M8 8h7M12.5 8v2.5M15 8v2.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <input id="kq" type="search" placeholder="Keyword check, all tabs" aria-label="Keyword check across all tabs">
+      </label>
+      <button class="btn" id="themeBtn" type="button" aria-label="Switch to dark mode">
+        <svg id="themeIcon" viewBox="0 0 16 16" fill="none" aria-hidden="true"></svg>
+        <span id="themeLabel">Dark mode</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <div class="chips" id="chips" role="group" aria-label="Filter by Google index status"></div>
+    <div class="selects">
+      <label id="famWrap" hidden><span id="famLabel">Service</span> <select id="fam"></select></label>
+      <label id="cityWrap" hidden>City <select id="city"></select></label>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <span class="sort-note" id="sortNote"></span>
+    <button class="btn sm" id="resetCols" type="button" title="Put every column back to its original order and width">Reset columns</button>
+  </div>
+
+  <div class="perfbar" id="perfbar" hidden></div>
+
+  <div class="live" id="live" aria-live="polite">
+    <span class="ld"></span>
+    <span class="lt" id="liveText">Live Google data: connecting&hellip;</span>
+    <button class="btn sm" id="liveBtn" type="button" hidden>Refresh</button>
+  </div>
+
+  <div class="kwbar" id="kwbar" hidden></div>
+
+  <div>
+    <div class="fx" aria-live="polite">
+      <div class="fx-label" id="fxLabel"><i>fx</i><span>Selected cell</span></div>
+      <div class="fx-val hint" id="fxVal">Click any cell to read its full text here.</div>
+      <div class="fx-count" id="fxCount"></div>
+    </div>
+    <div class="grid-wrap" id="wrap">
+      <table class="grid" id="grid"><thead></thead><tbody></tbody></table>
+      <p class="empty" id="empty" hidden>No pages match this search or filter.</p>
+    </div>
+    <nav class="tabs" id="tabs" role="tablist" aria-label="Page groups"></nav>
+  </div>
+
+  <p class="foot">
+    <span>Title, slug, keyword, description and link: read from the live site and Rank Math, refreshed every morning.</span>
+    <span>Indexed?: Google Search Console report, checked <b id="gscDate"></b>, plus live Google impressions (last 28 days) from Search Atlas each time you open this page.</span>
+    <span>Clicks, Impressions, Avg Position: Google Search Console web report, <b id="perfDate"></b>, compared with the 28 days before. Stored at each refresh.</span>
+    <span>Notes: <span class="save-state" id="saveState">connecting&hellip;</span></span>
+  </p>
+</div>
+
+<script>
+const DATA = /*__DATA__*/null;
+
+const TABS = [
+  { key: "core", label: "Core Pages" },
+  { key: "service", label: "Service Pages" },
+  { key: "local", label: "Local Pages" },
+  { key: "blog", label: "Blogs" },
+  { key: "other", label: "Other Pages" },
+];
+const IDX = {
+  yes: "Yes", no: "No", unknown: "Not reported", noindex: "Noindex", redirect: "Redirects", error: "Error",
+};
+const IDX_FILTERS = [
+  { key: "all", label: "All" },
+  { key: "yes", label: "Indexed", color: "var(--yes)" },
+  { key: "no", label: "Not indexed", color: "var(--no)" },
+  { key: "unknown", label: "Not reported", color: "var(--wait)" },
+  { key: "off", label: "Noindex / redirect", color: "var(--off)" },
+];
+
+const BASE_COLS = [
+  { key: "title", label: "SEO Title", sub: "from Rank Math, live", w: 300 },
+  { key: "slug", label: "Slug", w: 220 },
+  { key: "kw", label: "Primary Keyword", sub: "Rank Math focus keyword", w: 210 },
+  { key: "desc", label: "Meta Description", w: 360 },
+  { key: "url", label: "Permalink", w: 270 },
+  { key: "published", label: "Date Published", sub: "WordPress publish date", w: 140 },
+  { key: "idx", label: "Indexed?", sub: "Google Search Console", w: 160 },
+  { key: "clicks", label: "Clicks", sub: "GSC, 28 days vs prior", w: 120 },
+  { key: "impr", label: "Impressions", sub: "GSC, 28 days vs prior", w: 140 },
+  { key: "pos", label: "Avg Position", sub: "GSC, lower is better", w: 130 },
+  { key: "location", label: "Location", w: 150, only: "local" },
+  { key: "tab", label: "Tab", sub: "where this page lives", w: 130, only: "kw" },
+  { key: "notes", label: "Notes", sub: "shared, saves as you type", w: 260 },
+];
+const ALL_KEYS = BASE_COLS.map(c => c.key);
+
+/* Column order + widths are remembered per viewer, like a personal sheet view */
+let layout = { order: [], widths: {} };
+try {
+  const l = JSON.parse(localStorage.getItem("spt-cols") || "null");
+  if (l && Array.isArray(l.order) && l.widths && typeof l.widths === "object") layout = l;
+} catch (e) {}
+function saveLayout() { try { localStorage.setItem("spt-cols", JSON.stringify(layout)); } catch (e) {} }
+function fullOrder() {
+  const o = layout.order.filter(k => ALL_KEYS.includes(k));
+  ALL_KEYS.forEach((k, i) => { if (!o.includes(k)) o.splice(Math.min(i, o.length), 0, k); });
+  return o;
+}
+
+function columns(tab) {
+  const order = fullOrder();
+  const cols = BASE_COLS.filter(c => !c.only || c.only === tab)
+    .map(c => ({ ...c, def: c.w, w: layout.widths[c.key] || c.w }))
+    .sort((a, b) => order.indexOf(a.key) - order.indexOf(b.key));
+  cols.forEach((c, i) => { c.cls = [i === 0 ? "c-first" : "", c.key === "notes" ? "c-notes" : ""].join(" ").trim(); });
+  return cols;
+}
+function moveColumn(visibleKeys, from, to) {
+  const v = visibleKeys.slice();
+  const [k] = v.splice(from, 1);
+  v.splice(to, 0, k);
+  let j = 0;
+  layout.order = fullOrder().map(key => visibleKeys.includes(key) ? v[j++] : key);
+  saveLayout();
+}
+
+const state = { tab: "local", q: "", kq: "", clash: false, idx: "all", fam: "", city: "", sort: { key: "published", dir: 1 } };
+
+/* Keyword check: looks only at the primary keyword, across every tab */
+const KW_STOP = new Set(["in", "the", "a", "an", "for", "of", "to", "az", "arizona", "near", "me", "my", "and", "on"]);
+const kwText = (s) => String(s || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+const kwTokens = (s) => kwText(s).split(" ").filter(w => w && !KW_STOP.has(w));
+// Two keywords clash when they have the same words, ignoring order and filler (in, az, the...).
+const kwKey = (s) => [...new Set(kwTokens(s))].sort().join(" ");
+function kwMatch(r, q) {
+  const k = kwText(r.kw); if (!k) return false;
+  let qt = kwTokens(q); if (!qt.length) qt = kwText(q).split(" ").filter(Boolean);
+  return qt.every(w => k.includes(w));
+}
+const kwLive = (r) => !["redirect", "noindex", "error"].includes(r.idx);   // redirected or noindex pages can't compete
+function clashGroups() {
+  const g = {};
+  DATA.rows.forEach(r => { const k = kwKey(r.kw); if (!k || !kwLive(r)) return; (g[k] = g[k] || []).push(r); });
+  Object.keys(g).forEach(k => { if (g[k].length < 2) delete g[k]; });
+  return g;
+}
+let CLASH = {};
+const kwMode = () => !!state.kq.trim() || state.clash;
+const tabLabel = (r) => (TABS.find(t => t.key === r.group) || { label: r.group }).label;
+const clashOthers = (r) => { const g = r.kw && kwLive(r) ? CLASH[kwKey(r.kw)] : null; return g ? g.filter(x => x !== r) : []; };
+function kwRows() {
+  const kq = state.kq.trim();
+  return DATA.rows.filter(r => {
+    if (kq ? !kwMatch(r, kq) : !(r.kw && kwLive(r) && CLASH[kwKey(r.kw)])) return false;
+    if (state.q) {
+      const hay = [r.title, r.slug, r.kw, r.desc, r.path, r.location, r.name, r.family, notes.get(String(r.id)) || ""].join(" ").toLowerCase();
+      if (!state.q.split(/\s+/).every(w => hay.includes(w))) return false;
+    }
+    return true;
+  }).sort((a, b) => kwKey(a.kw).localeCompare(kwKey(b.kw)) || a.path.localeCompare(b.path));
+}
+function renderKwBar(rows) {
+  const bar = $("kwbar");
+  if (!kwMode()) { bar.hidden = true; return; }
+  const by = {}; rows.forEach(r => { const n = tabLabel(r); by[n] = (by[n] || 0) + 1; });
+  const split = Object.keys(by).map(n => n + " " + by[n]).join(" · ");
+  const kq = state.kq.trim();
+  let warn, msg;
+  if (!kq) {
+    const n = Object.keys(CLASH).length; warn = n > 0;
+    msg = n ? "<b>" + n + " keyword" + (n === 1 ? " is" : "s are") + " the primary keyword on 2 or more live pages</b> (" + rows.length + " pages: " + esc(split) + "). Pages that target the same keyword compete with each other in Google."
+      : "<b>No keyword clashes.</b> No two live pages share the same primary keyword.";
+  } else {
+    const off = rows.filter(r => !kwLive(r)).length, seen = {}, dup = [];
+    rows.forEach(r => { const k = kwKey(r.kw); if (CLASH[k] && !seen[k]) { seen[k] = 1; dup.push("“" + esc(r.kw) + "” on " + CLASH[k].length + " pages"); } });
+    warn = dup.length > 0;
+    msg = "<b>" + rows.length + " page" + (rows.length === 1 ? "" : "s") + "</b> have “" + esc(kq) + "” in the primary keyword" + (rows.length ? " (" + esc(split) + ")" : "") + "." +
+      (off ? " " + off + " of them redirect or are noindex, so they don’t count." : "") +
+      (dup.length ? " Same keyword on more than one live page: " + dup.join("; ") + "." : (rows.length ? " No two live pages share the exact same keyword." : " Nothing to clash with."));
+  }
+  bar.className = "kwbar" + (warn ? " warn" : "");
+  bar.innerHTML = "<span>" + msg + "</span>";
+  const b = el("button", "btn sm", "Back to " + (TABS.find(t => t.key === state.tab) || TABS[0]).label); b.type = "button";
+  b.onclick = () => { state.kq = ""; state.clash = false; $("kq").value = ""; renderChips(); renderGrid(); };
+  bar.append(b); bar.hidden = false;
+}
+try {
+  const s = JSON.parse(localStorage.getItem("spt-view") || "{}");
+  if (s.tab) state.tab = s.tab;
+  if (s.sort && ALL_KEYS.includes(s.sort.key) && (s.sort.dir === 1 || s.sort.dir === -1)) state.sort = s.sort;
+} catch (e) {}
+
+const notes = new Map();      // post id -> text
+const noteEls = new Map();    // post id -> textarea
+let db = null;
+const cellInfo = new WeakMap();
+
+const $ = (id) => document.getElementById(id);
+const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
+const letter = (i) => String.fromCharCode(65 + i);
+const fmtDate = (d) => d ? new Date(d + "T12:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }) : "";
+const idxGroup = (k) => (k === "noindex" || k === "redirect" || k === "error") ? "off" : k;
+
+function rowsFor(tab) { return DATA.rows.filter(r => r.group === tab); }
+
+/* Live Google data (Search Atlas GSC): path -> {imp, clicks} */
+const live = { map: null, at: 0 };
+const normPath = (p) => {
+  p = String(p || "").toLowerCase().replace(/^https?:\/\/[^/]+/, "").split(/[?#]/)[0];
+  if (!p.startsWith("/")) p = "/" + p;
+  return p.length > 1 ? p.replace(/\/+$/, "") : "/";
+};
+function liveFor(r) { return live.map ? (live.map.get(normPath(r.path)) || { imp: 0, clicks: 0 }) : null; }
+// GSC report says "not reported yet" but Google is already showing the page: count it as indexed
+function effIdx(r) { const g = liveFor(r); return (g && g.imp > 0 && r.idx === "unknown") ? "yes" : r.idx; }
+function liveLine(r) {
+  const g = liveFor(r);
+  if (!g) return null;
+  if (g.imp > 0) {
+    const n = (v, w) => v.toLocaleString() + " " + w + (v === 1 ? "" : "s");
+    const t = "Google: " + n(g.imp, "impression") + ", " + n(g.clicks, "click") + " (28 days)";
+    return { text: t + (r.idx === "no" ? ". Recheck in GSC" : ""), cls: r.idx === "no" ? "warn" : "hit" };
+  }
+  return { text: "Google: no impressions in 28 days", cls: "" };
+}
+
+function matches(r) {
+  if (state.idx !== "all" && idxGroup(effIdx(r)) !== state.idx) return false;
+  if (state.fam && r.family !== state.fam) return false;
+  if (state.city && r.location !== state.city) return false;
+  if (state.q) {
+    const hay = [r.title, r.slug, r.kw, r.desc, r.path, r.location, r.name, r.family, fmtDate(r.published), notes.get(String(r.id)) || ""].join(" ").toLowerCase();
+    if (!state.q.split(/\s+/).every(w => hay.includes(w))) return false;
+  }
+  return true;
+}
+
+function renderTabs() {
+  const nav = $("tabs"); nav.replaceChildren();
+  for (const t of TABS) {
+    const b = el("button", "tab"); b.type = "button"; b.setAttribute("role", "tab");
+    b.setAttribute("aria-selected", String(t.key === state.tab));
+    b.append(el("span", null, t.label), el("span", "n", String(rowsFor(t.key).length)));
+    b.onclick = () => { state.tab = t.key; state.idx = "all"; state.fam = ""; state.city = ""; state.kq = ""; state.clash = false; $("kq").value = ""; save(); renderAll(); };
+    nav.append(b);
+  }
+}
+
+function renderChips() {
+  const box = $("chips"); box.replaceChildren();
+  const base = rowsFor(state.tab).filter(r => (!state.fam || r.family === state.fam) && (!state.city || r.location === state.city));
+  for (const f of IDX_FILTERS) {
+    const n = f.key === "all" ? base.length : base.filter(r => idxGroup(effIdx(r)) === f.key).length;
+    if (f.key !== "all" && n === 0) continue;
+    const b = el("button", "chip"); b.type = "button";
+    b.setAttribute("aria-pressed", String(state.idx === f.key));
+    if (f.color) { const d = el("span", "dot"); d.style.background = f.color; b.append(d); }
+    b.append(el("span", null, f.label), el("span", "n", String(n)));
+    b.onclick = () => { state.idx = f.key; renderChips(); renderGrid(); };
+    box.append(b);
+  }
+  const nc = Object.keys(clashGroups()).length;
+  const cb = el("button", "chip clash"); cb.type = "button";
+  cb.title = "Pages on any tab that share the same primary keyword";
+  cb.setAttribute("aria-pressed", String(state.clash));
+  cb.append(el("span", "dot"), el("span", null, "Keyword clashes, all tabs"), el("span", "n", String(nc)));
+  cb.onclick = () => { state.clash = !state.clash; if (state.clash) { state.kq = ""; $("kq").value = ""; } renderChips(); renderGrid(); };
+  box.append(cb);
+}
+
+function renderSelects() {
+  const rows = rowsFor(state.tab);
+  const showFam = state.tab === "local" || state.tab === "blog";
+  $("famWrap").hidden = !showFam;
+  $("cityWrap").hidden = state.tab !== "local";
+  $("famLabel").textContent = state.tab === "blog" ? "Category" : "Service";
+  const fill = (sel, values, allLabel, cur) => {
+    sel.replaceChildren(new Option(allLabel, ""));
+    for (const v of values) sel.append(new Option(v, v));
+    sel.value = cur;
+  };
+  if (showFam) fill($("fam"), [...new Set(rows.map(r => r.family).filter(Boolean))].sort(), state.tab === "blog" ? "All categories" : "All services", state.fam);
+  if (state.tab === "local") {
+    const cities = [...new Set(rows.map(r => r.location).filter(Boolean))].sort((a, b) => (a === "Maricopa County") - (b === "Maricopa County") || a.localeCompare(b));
+    fill($("city"), cities, "All cities", state.city);
+  }
+}
+
+function countSpan(len, lo, hi) {
+  const s = el("span", "cnt", len + " chars");
+  if (len > hi || (lo && len < lo)) s.classList.add("over");
+  return s;
+}
+
+/* Search Console performance, stored at sync time: r.perf = {c, cp, i, ip, p, pp} (28 days vs prior 28) */
+const PERF_LIVE = (r) => ["yes", "no", "unknown"].includes(r.idx);
+function perfCell(r, key) {
+  const g = r.perf;
+  if (!g && key === "pos") return { v: PERF_LIVE(r) ? "none" : "n/a", none: true, d: "", dc: "", full: PERF_LIVE(r) ? "No Search Console impressions in either 28-day period" : "Redirect or noindex page" };
+  if (!g) return { v: PERF_LIVE(r) ? "0" : "n/a", none: !PERF_LIVE(r), d: PERF_LIVE(r) ? "no Google data" : "", dc: "", full: PERF_LIVE(r) ? "No Search Console impressions in either 28-day period" : "Redirect or noindex page" };
+  const fmt = (x) => Number(x).toLocaleString();
+  if (key === "pos") {
+    if (!g.i) return { v: "none", none: true, d: g.ip ? "was " + g.pp : "", dc: "", full: "No impressions in the last 28 days" + (g.ip ? " (prior 28 days: position " + g.pp + ")" : "") };
+    if (!g.ip) return { v: String(g.p), d: "new", dc: "up", full: "Average position " + g.p + " (no impressions in the prior 28 days)" };
+    const diff = Math.round((g.pp - g.p) * 10) / 10;
+    return { v: String(g.p), d: diff === 0 ? "same" : (diff > 0 ? "▲ " + diff : "▼ " + Math.abs(diff)) + " (was " + g.pp + ")", dc: diff > 0 ? "up" : diff < 0 ? "down" : "", full: "Average position " + g.p + ", prior 28 days " + g.pp };
+  }
+  const cur = key === "clicks" ? g.c : g.i, prev = key === "clicks" ? g.cp : g.ip, word = key === "clicks" ? "clicks" : "impressions";
+  const diff = cur - prev;
+  const d = diff === 0 ? (cur ? "same" : "") : (diff > 0 ? "+" : "−") + fmt(Math.abs(diff)) + (prev ? " (" + (diff > 0 ? "+" : "−") + Math.round(Math.abs(diff) / prev * 100) + "%)" : " (new)");
+  return { v: fmt(cur), d, dc: diff > 0 ? "up" : diff < 0 ? "down" : "", full: fmt(cur) + " " + word + " in the last 28 days, " + fmt(prev) + " in the prior 28 days" };
+}
+function renderPerfBar() {
+  const bar = $("perfbar"), P = DATA.perf;
+  if (!P) { bar.hidden = true; return; }
+  const rows = kwMode() ? kwRows() : rowsFor(state.tab).filter(matches);
+  const sum = (k) => rows.reduce((a, r) => a + (r.perf ? r.perf[k] : 0), 0);
+  const c = sum("c"), cp = sum("cp"), i = sum("i"), ip = sum("ip");
+  const withImp = rows.filter(r => r.perf && r.perf.i > 0).length;
+  const ch = (a, b) => { const d = a - b; return d === 0 ? "" : ' <span class="' + (d > 0 ? "up" : "down") + '">' + (d > 0 ? "+" : "−") + Math.abs(d).toLocaleString() + "</span>"; };
+  const T = P.totals;
+  bar.innerHTML = '<span class="k">Search Console, ' + esc(P.range) + '</span>' +
+    "<span>This view: <b>" + c.toLocaleString() + "</b> clicks" + ch(c, cp) + " · <b>" + i.toLocaleString() + "</b> impressions" + ch(i, ip) + " · " + withImp + " of " + rows.length + " pages seen in Google</span>" +
+    "<span>Whole site: <b>" + esc(T.clicks) + "</b> clicks (prior " + esc(T.clicksPrev) + ") · <b>" + esc(T.impr) + "</b> impressions (prior " + esc(T.imprPrev) + ") · avg position <b>" + esc(T.pos) + "</b> (prior " + esc(T.posPrev) + ")</span>";
+  bar.hidden = false;
+}
+
+function cell(col, r) {
+  const td = el("td", col.cls || "");
+  let full = "", count = null;
+  switch (col.key) {
+    case "title": {
+      full = r.title;
+      if (r.title) { td.append(el("div", "clamp", r.title), countSpan(r.title.length, 0, 60)); count = [r.title.length, 60, 0]; }
+      else if (r.redirectTo) { full = "Redirects to " + r.redirectTo; td.append(el("span", "more", full)); }
+      else td.append(el("span", "empty-cell", "No title"));
+      break;
+    }
+    case "slug": full = r.slug; td.append(el("div", "clamp mono", r.slug)); break;
+    case "kw": {
+      full = r.kw;
+      if (r.kw) {
+        td.append(el("div", "clamp", r.kw));
+        if (r.kwMore > 0) td.append(el("span", "more", "+" + r.kwMore + " more in Rank Math"));
+        const o = clashOthers(r);
+        if (o.length) {
+          const p = el("span", "pill no clash", (o.length + 1) + " pages"); p.title = "Same keyword as " + o.map(x => x.path).join(", ");
+          td.append(el("br"), p);
+          full += " · Same keyword as: " + o.map(x => x.path + " (" + tabLabel(x) + ")").join(", ");
+        }
+      } else td.append(el("span", "empty-cell", "Not set"));
+      break;
+    }
+    case "tab": full = tabLabel(r); td.append(el("div", "tabname", full)); break;
+    case "desc": {
+      full = r.desc;
+      if (r.desc) { td.append(el("div", "clamp", r.desc), countSpan(r.desc.length, 120, 160)); count = [r.desc.length, 160, 120]; }
+      else if (r.redirectTo) { full = "Redirects to " + r.redirectTo; td.append(el("span", "more", full)); }
+      else td.append(el("span", "empty-cell", "No description"));
+      break;
+    }
+    case "url": {
+      full = r.url;
+      const a = el("a", "link"); a.href = r.url; a.target = "_blank"; a.rel = "noopener";
+      a.append(el("span", "host", "summitplumbingpros.com"), document.createTextNode(r.path));
+      td.append(a);
+      break;
+    }
+    case "idx": {
+      const k = effIdx(r);
+      const why = k !== r.idx ? "Confirmed by live Google data" : r.idxNote;
+      const gl = liveLine(r);
+      full = IDX[k] + (why ? " · " + why : "") + (gl ? " · " + gl.text : "");
+      td.append(el("span", "pill " + k, IDX[k]));
+      if (why) td.append(el("span", "why", why));
+      if (gl) td.append(el("span", "gl " + gl.cls, gl.text));
+      break;
+    }
+    case "clicks": case "impr": case "pos": {
+      const f = perfCell(r, col.key);
+      const box = el("div", "perf");
+      box.append(el("span", "pv" + (f.none ? " none" : ""), f.v));
+      if (f.d) box.append(el("span", "pd " + f.dc, f.d));
+      td.append(box); full = f.full;
+      break;
+    }
+    case "published": full = fmtDate(r.published); td.append(el("div", "mono", full)); break;
+    case "location": full = r.location; td.append(el("div", "clamp", r.location)); break;
+    case "notes": {
+      const id = String(r.id);
+      const ta = el("textarea", "note"); ta.rows = 2;
+      ta.placeholder = db ? (r.hint || "Add a note") : (r.hint || "");
+      ta.value = notes.get(id) || "";
+      ta.readOnly = !db;
+      ta.setAttribute("aria-label", "Notes for " + (r.title || r.path));
+      ta.addEventListener("focus", () => select(td));
+      ta.addEventListener("input", () => queueSave(id, ta));
+      ta.addEventListener("blur", () => flushSave(id, ta));
+      ta.addEventListener("keydown", (e) => { if (e.key === "Escape") ta.blur(); });
+      noteEls.set(id, ta);
+      td.append(ta);
+      full = null;
+      break;
+    }
+  }
+  cellInfo.set(td, { label: col.label, text: full, count, row: r, key: col.key });
+  if (col.key !== "notes") td.addEventListener("click", () => select(td));
+  return td;
+}
+
+let selected = null;
+function select(td) {
+  if (selected) selected.classList.remove("sel");
+  selected = td; td.classList.add("sel");
+  const info = cellInfo.get(td);
+  const text = info.key === "notes" ? (notes.get(String(info.row.id)) || "") : info.text;
+  $("fxLabel").lastChild.textContent = info.label + " · row " + td.parentElement.dataset.n;
+  $("fxVal").textContent = text || "(empty)";
+  $("fxVal").classList.toggle("hint", !text);
+  const c = $("fxCount");
+  if (info.count) {
+    const [len, hi, lo] = info.count;
+    c.textContent = len + " / " + hi + " chars";
+    c.classList.toggle("over", len > hi || (lo && len < lo));
+  } else { c.textContent = ""; c.classList.remove("over"); }
+}
+
+/* Sorting: blanks always go last, ties fall back to publish date then URL */
+const IDX_ORDER = { yes: 0, no: 1, unknown: 2, noindex: 3, redirect: 4, error: 5 };
+function sortVal(r, key) {
+  switch (key) {
+    case "url": return r.path;
+    case "idx": return IDX_ORDER[effIdx(r)];
+    case "notes": return (notes.get(String(r.id)) || "").toLowerCase();
+    case "tab": return tabLabel(r).toLowerCase();
+    case "clicks": return r.perf ? r.perf.c : (PERF_LIVE(r) ? 0 : "");
+    case "impr": return r.perf ? r.perf.i : (PERF_LIVE(r) ? 0 : "");
+    case "pos": return r.perf && r.perf.i ? r.perf.p : "";
+    default: return String(r[key] == null ? "" : r[key]).toLowerCase();
+  }
+}
+function sortRows(rows) {
+  const { key, dir } = state.sort;
+  return rows.slice().sort((a, b) => {
+    const va = sortVal(a, key), vb = sortVal(b, key);
+    const ea = va === "" || va == null, eb = vb === "" || vb == null;
+    if (ea !== eb) return ea ? 1 : -1;
+    if (!ea && va !== vb) return (typeof va === "number" ? va - vb : va.localeCompare(vb, undefined, { numeric: true })) * dir;
+    return (a.published || "9999").localeCompare(b.published || "9999") || a.path.localeCompare(b.path);
+  });
+}
+function sortWords(key, dir) {
+  if (key === "published") return dir > 0 ? "oldest first" : "newest first";
+  if (key === "idx") return dir > 0 ? "indexed first" : "problems first";
+  if (key === "clicks" || key === "impr") return dir > 0 ? "lowest first" : "highest first";
+  if (key === "pos") return dir > 0 ? "best position first" : "worst position first";
+  return dir > 0 ? "A to Z" : "Z to A";
+}
+function sortBy(key) {
+  state.sort = state.sort.key === key ? { key, dir: -state.sort.dir } : { key, dir: (key === "clicks" || key === "impr") ? -1 : 1 };
+  save(); renderGrid();
+}
+
+/* Header gestures */
+function colCells(i) { return [...$("grid").rows].map(tr => tr.cells[i + 1]).filter(Boolean); }
+function indicator(x) {
+  const wrap = $("wrap");
+  let ind = $("dropInd");
+  if (x == null) { if (ind) ind.remove(); return; }
+  if (!ind) { ind = el("div", "drop-ind"); ind.id = "dropInd"; wrap.append(ind); }
+  const wr = wrap.getBoundingClientRect();
+  ind.style.left = (x - wr.left + wrap.scrollLeft) + "px";
+  ind.style.top = wrap.scrollTop + "px";
+  ind.style.height = wrap.clientHeight + "px";
+}
+function autoScroll(x) {
+  const wrap = $("wrap"), wr = wrap.getBoundingClientRect();
+  if (x < wr.left + 60) wrap.scrollLeft -= 18;
+  else if (x > wr.right - 60) wrap.scrollLeft += 18;
+}
+function headerDown(e, i, cols) {
+  if (e.button !== 0 || e.target.closest(".rz")) return;
+  const th = e.currentTarget, startX = e.clientX;
+  let moving = false, slot = -1;
+  th.setPointerCapture(e.pointerId);
+  const labelThs = [...$("grid").tHead.rows[1].cells].slice(1);
+  const onMove = (ev) => {
+    if (!moving && Math.abs(ev.clientX - startX) < 6) return;
+    if (!moving) { moving = true; document.body.classList.add("col-moving"); colCells(i).forEach(c => c.classList.add("dragging")); }
+    autoScroll(ev.clientX);
+    const rects = labelThs.map(t => t.getBoundingClientRect());
+    slot = rects.filter(r => r.left + r.width / 2 < ev.clientX).length;
+    indicator(slot < rects.length ? rects[slot].left : rects[rects.length - 1].right);
+  };
+  const onUp = (ev) => {
+    th.removeEventListener("pointermove", onMove);
+    th.removeEventListener("pointerup", onUp);
+    th.removeEventListener("pointercancel", onUp);
+    document.body.classList.remove("col-moving");
+    indicator(null);
+    if (!moving) {
+      if (ev.type === "pointerup" && th.parentElement.classList.contains("labels")) sortBy(cols[i].key);
+      return;
+    }
+    colCells(i).forEach(c => c.classList.remove("dragging"));
+    if (ev.type !== "pointerup" || slot < 0) return;
+    const to = slot > i ? slot - 1 : slot;
+    if (to !== i) { moveColumn(cols.map(c => c.key), i, to); renderGrid(); }
+  };
+  th.addEventListener("pointermove", onMove);
+  th.addEventListener("pointerup", onUp);
+  th.addEventListener("pointercancel", onUp);
+}
+function resizeDown(e, i, col) {
+  if (e.button !== 0) return;
+  e.preventDefault(); e.stopPropagation();
+  const h = e.currentTarget, startX = e.clientX;
+  const th = $("grid").tHead.rows[0].cells[i + 1];
+  const startW = th.getBoundingClientRect().width;
+  h.setPointerCapture(e.pointerId); h.classList.add("active");
+  document.body.classList.add("col-resizing");
+  const onMove = (ev) => {
+    const w = Math.round(Math.max(70, Math.min(900, startW + ev.clientX - startX)));
+    th.style.width = th.style.minWidth = w + "px";
+    layout.widths[col.key] = w;
+  };
+  const onUp = () => {
+    h.removeEventListener("pointermove", onMove);
+    h.removeEventListener("pointerup", onUp);
+    h.removeEventListener("pointercancel", onUp);
+    h.classList.remove("active");
+    document.body.classList.remove("col-resizing");
+    saveLayout();
+  };
+  h.addEventListener("pointermove", onMove);
+  h.addEventListener("pointerup", onUp);
+  h.addEventListener("pointercancel", onUp);
+}
+function headerKey(e, i, cols) {
+  if (e.key === "Enter" || e.key === " ") { e.preventDefault(); sortBy(cols[i].key); return; }
+  if (e.altKey && (e.key === "ArrowLeft" || e.key === "ArrowRight")) {
+    e.preventDefault();
+    const to = i + (e.key === "ArrowLeft" ? -1 : 1);
+    if (to < 0 || to >= cols.length) return;
+    moveColumn(cols.map(c => c.key), i, to); renderGrid();
+    const th = $("grid").tHead.rows[1].cells[to + 1]; if (th) th.focus();
+  }
+}
+
+function renderGrid() {
+  CLASH = clashGroups();
+  const kwm = kwMode();
+  const cols = columns(kwm ? "kw" : state.tab);
+  const thead = $("grid").tHead; thead.replaceChildren();
+  const tr1 = el("tr", "letters"), tr2 = el("tr", "labels");
+  tr1.append(el("th", "rn")); tr2.append(el("th", "rn"));
+  cols.forEach((c, i) => {
+    const a = el("th", c.cls, letter(i)); a.style.width = a.style.minWidth = c.w + "px";
+    const b = el("th", c.cls); b.append(el("span", null, c.label));
+    const sorted = state.sort.key === c.key;
+    if (sorted) { b.classList.add("sorted"); b.append(el("span", "sort-ar", state.sort.dir > 0 ? "▲" : "▼")); }
+    b.setAttribute("aria-sort", sorted ? (state.sort.dir > 0 ? "ascending" : "descending") : "none");
+    if (c.sub) b.append(el("small", null, c.sub));
+    b.tabIndex = 0;
+    b.title = "Click to sort. Drag to move. Drag the right edge to resize. Keyboard: Enter sorts, Alt+Arrow moves.";
+    a.title = "Drag to move this column";
+    b.addEventListener("keydown", (ev) => headerKey(ev, i, cols));
+    for (const th of [a, b]) {
+      const h = el("span", "rz"); h.title = "Drag to resize, double-click to reset width";
+      h.addEventListener("pointerdown", (ev) => resizeDown(ev, i, c));
+      h.addEventListener("dblclick", (ev) => { ev.stopPropagation(); delete layout.widths[c.key]; saveLayout(); renderGrid(); });
+      th.append(h);
+      th.addEventListener("pointerdown", (ev) => headerDown(ev, i, cols));
+    }
+    tr1.append(a); tr2.append(b);
+  });
+  thead.append(tr1, tr2);
+
+  const tbody = $("grid").tBodies[0]; tbody.replaceChildren(); noteEls.clear(); selected = null;
+  const rows = kwm ? kwRows() : sortRows(rowsFor(state.tab).filter(matches));
+  renderKwBar(rows);
+  let n = 0;
+  const frag = document.createDocumentFragment();
+  for (const r of rows) {
+    n++;
+    const tr = el("tr", "row"); tr.dataset.n = n;
+    tr.append(el("td", "rn", String(n)));
+    for (const c of cols) tr.append(cell(c, r));
+    frag.append(tr);
+  }
+  tbody.append(frag);
+  const sc = BASE_COLS.find(c => c.key === state.sort.key);
+  $("sortNote").innerHTML = kwm ? "Keyword check: pages with the same keyword are listed together, from every tab." : "Sorted by <b>" + esc(sc ? sc.label : "") + "</b>, " + sortWords(state.sort.key, state.sort.dir) + ". Click any column name to sort by it.";
+  renderPerfBar();
+  $("empty").hidden = rows.length > 0;
+  $("empty").textContent = state.kq.trim() ? "No page uses a primary keyword with “" + state.kq.trim() + "”. Nothing to clash with." : "No pages match this search or filter.";
+  $("fxLabel").lastChild.textContent = "Selected cell";
+  $("fxVal").textContent = "Click any cell to read its full text here."; $("fxVal").classList.add("hint");
+  $("fxCount").textContent = "";
+}
+
+function renderAll() { renderTabs(); renderSelects(); renderChips(); renderGrid(); }
+function save() { try { localStorage.setItem("spt-view", JSON.stringify({ tab: state.tab, sort: state.sort })); } catch (e) {} }
+
+/* Notes: shared db, one document per page */
+const timers = new Map();
+function setState(text, cls) { const s = $("saveState"); s.textContent = text; s.className = "save-state " + (cls || ""); }
+function queueSave(id, ta) {
+  clearTimeout(timers.get(id));
+  setState("saving…");
+  timers.set(id, setTimeout(() => flushSave(id, ta), 900));
+}
+async function flushSave(id, ta) {
+  clearTimeout(timers.get(id)); timers.delete(id);
+  if (!db) return;
+  const text = ta.value.trim();
+  if (text === (notes.get(id) || "")) { setState("saved, shared with everyone who opens this page", "ok"); return; }
+  notes.set(id, text);
+  try {
+    const ref = db.doc("notes/" + id);
+    if (text) await ref.set({ text, updatedAt: new Date().toISOString() });
+    else await ref.delete();
+    setState("saved, shared with everyone who opens this page", "ok");
+  } catch (e) {
+    setState(e && e.code === "quota_exceeded" ? "not saved: note storage is full" : "not saved: check your connection and edit the note again", "err");
+  }
+}
+
+async function connectNotes() {
+  try { db = await window.claude.use("db"); } catch (e) { db = null; }
+  if (!db) { setState("view only here; open this page on claude.ai to add notes"); renderGrid(); return; }
+  setState("saved, shared with everyone who opens this page", "ok");
+  db.collection("notes").onSnapshot((snap) => {
+    for (const d of snap.docs) {
+      const t = (d.data() || {}).text || "";
+      notes.set(d.id, t);
+      const ta = noteEls.get(d.id);
+      if (ta && document.activeElement !== ta) ta.value = t;
+    }
+    for (const ch of snap.docChanges()) {
+      if (ch.type === "removed") {
+        notes.delete(ch.doc.id);
+        const ta = noteEls.get(ch.doc.id);
+        if (ta && document.activeElement !== ta) ta.value = "";
+      }
+    }
+  }, () => setState("notes stopped syncing; reload the page", "err"));
+  for (const [id, ta] of noteEls) { ta.readOnly = false; if (!ta.placeholder) ta.placeholder = "Add a note"; }
+}
+
+/* Light / dark button */
+const ICONS = {
+  moon: '<path d="M13.5 9.6A5.7 5.7 0 0 1 6.4 2.5a5.7 5.7 0 1 0 7.1 7.1Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>',
+  sun: '<circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M8 1v1.6M8 13.4V15M1 8h1.6M13.4 8H15M3 3l1.1 1.1M11.9 11.9 13 13M3 13l1.1-1.1M11.9 4.1 13 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>',
+};
+const root = document.documentElement;
+function currentTheme() {
+  const t = root.getAttribute("data-theme");
+  if (t === "dark" || t === "light") return t;
+  return matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+function paintThemeBtn() {
+  const next = currentTheme() === "dark" ? "light" : "dark";
+  $("themeIcon").innerHTML = next === "dark" ? ICONS.moon : ICONS.sun;
+  $("themeLabel").textContent = next === "dark" ? "Dark mode" : "Light mode";
+  $("themeBtn").setAttribute("aria-label", "Switch to " + next + " mode");
+}
+try { const t = localStorage.getItem("spt-theme"); if (t === "dark" || t === "light") root.setAttribute("data-theme", t); } catch (e) {}
+$("themeBtn").addEventListener("click", () => {
+  const next = currentTheme() === "dark" ? "light" : "dark";
+  root.setAttribute("data-theme", next);
+  try { localStorage.setItem("spt-theme", next); } catch (e) {}
+  paintThemeBtn();
+});
+new MutationObserver(paintThemeBtn).observe(root, { attributes: true, attributeFilter: ["data-theme"] });
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change", paintThemeBtn);
+paintThemeBtn();
+
+/* Live Google data via the Search Atlas connector */
+const SA = "Search Atlas";
+const PROPERTY = "https://www.summitplumbingpros.com/";
+let mcp = null, liveBusy = false;
+
+function azDate(daysAgo) { return new Date(Date.now() - 7 * 3600e3 - daysAgo * 86400e3).toISOString().slice(0, 10); }
+function periods() {
+  // last 28 days ending 3 days ago (GSC reporting lag), compared with the 28 days before
+  return { period1_start: azDate(58), period1_end: azDate(31), period2_start: azDate(30), period2_end: azDate(3) };
+}
+function setLive(cls, html, showBtn) {
+  $("live").className = "live " + cls;
+  $("liveText").innerHTML = html;
+  $("liveBtn").hidden = !showBtn;
+  $("liveBtn").disabled = cls === "busy";
+}
+const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+async function callPage(input, fresh) {
+  const opts = { cache: fresh ? { refresh: true, gcTime: 21600000 } : { staleTime: 300000, gcTime: 21600000 } };
+  try { return await mcp.callTool(SA, "gsc_get_pages", input, opts); }
+  catch (e) {
+    if (!e || !e.retryable) throw e;
+    await sleep(Math.max(e.retryAfterMs || 0, 800 + Math.random() * 1600));
+    return mcp.callTool(SA, "gsc_get_pages", input, opts);
+  }
+}
+const esc = (s) => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const clock = (t) => new Date(t).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+
+async function loadLive(fresh) {
+  if (!mcp || liveBusy) return;
+  liveBusy = true;
+  setLive("busy", "Live Google data: checking Search Console through Search Atlas&hellip;", true);
+  try {
+    const map = new Map(); let storedAt = 0;
+    for (let page = 1; page <= 12; page++) {
+      const res = await callPage({ property: PROPERTY, country_code: "US", page, page_size: 50, ...periods() }, fresh);
+      const p = res && res.payload;
+      if (!p || !Array.isArray(p.columns) || !Array.isArray(p.rows)) throw { code: "shape" };
+      if (res.cache && res.cache.storedAt) storedAt = storedAt ? Math.min(storedAt, res.cache.storedAt) : res.cache.storedAt;
+      const ci = (k) => p.columns.indexOf(k);
+      const [cp, cc, cm] = [ci("page"), ci("clicks"), ci("impressions")];
+      for (const row of p.rows) {
+        const key = normPath(row[cp]), prev = map.get(key) || { imp: 0, clicks: 0 };
+        map.set(key, { imp: prev.imp + (+row[cm] || 0), clicks: prev.clicks + (+row[cc] || 0) });
+      }
+      if (!p.has_more) break;
+    }
+    live.map = map; live.at = storedAt || Date.now();
+    const shown = DATA.rows.filter(r => (liveFor(r) || {}).imp > 0).length;
+    setLive("ok", "Live Google data: <b>" + shown + " of " + DATA.rows.length + "</b> pages had Google impressions in the last 28 days &middot; updated " + clock(live.at), true);
+    renderChips(); renderGrid();
+  } catch (e) {
+    liveError(e || {});
+  } finally { liveBusy = false; }
+}
+function liveError(e) {
+  const code = e.code || "upstream_error";
+  const deny = ["needs_reauth", "server_not_connected", "selection_required", "not_in_manifest", "blocked_by_policy", "approval_required", "consent_required", "not_granted", "capability_disabled", "capability_removed"];
+  if (deny.includes(code) && live.map) { live.map = null; renderChips(); renderGrid(); }
+  const kept = live.map ? " Showing results from " + clock(live.at) + "." : "";
+  const msg = {
+    needs_reauth: "Search Atlas needs to be reconnected: claude.ai Settings, Connectors.",
+    server_not_connected: "Add the Search Atlas connector in claude.ai Settings, Connectors to see live Google data.",
+    selection_required: "Choose which Search Atlas connector to use when claude.ai asks, then press Refresh.",
+    not_in_manifest: "Live Google data is off for this page. Press Refresh and allow Search Atlas when asked.",
+    consent_required: "Live Google data needs your OK. Press Refresh and allow Search Atlas.",
+    blocked_by_policy: "Your organization blocks this Search Atlas tool here.",
+    approval_required: "This Search Atlas tool needs approval that pages cannot ask for yet.",
+    not_granted: "Live Google data is not available in this view. Open the page on claude.ai.",
+    capability_disabled: "Live Google data is not available in this view. Open the page on claude.ai.",
+    capability_removed: "Live Google data is not available in this view. Open the page on claude.ai.",
+    server_unavailable: "Search Atlas did not answer. Try Refresh in a minute." + kept,
+    rate_limited: "Too many requests to Search Atlas. Try Refresh in a minute." + kept,
+    tool_error: "Search Atlas reported an error: " + esc(e.message || "unknown") + kept,
+    shape: "Search Atlas sent data in an unexpected format." + kept,
+  }[code] || ("Could not load live Google data. Try Refresh." + kept);
+  const unavailable = ["not_granted", "capability_disabled", "capability_removed", "blocked_by_policy", "approval_required"].includes(code);
+  setLive(unavailable ? "" : "err", msg, !unavailable);
+}
+$("liveBtn").addEventListener("click", () => loadLive(true));
+
+/* Boot */
+$("total").textContent = DATA.rows.length;
+$("synced").textContent = DATA.synced + " (Arizona)";
+$("perfDate").textContent = DATA.perf ? DATA.perf.range + " (pulled " + DATA.perf.pulled + ")" : "not pulled yet";
+$("gscDate").textContent = new Date(DATA.gscChecked + "T12:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+$("q").addEventListener("input", (e) => { state.q = e.target.value.trim().toLowerCase(); renderGrid(); });
+$("kq").addEventListener("input", (e) => { state.kq = e.target.value; if (state.kq.trim()) state.clash = false; renderChips(); renderGrid(); });
+$("fam").addEventListener("change", (e) => { state.fam = e.target.value; renderChips(); renderGrid(); });
+$("city").addEventListener("change", (e) => { state.city = e.target.value; renderChips(); renderGrid(); });
+$("resetCols").addEventListener("click", () => { layout = { order: [], widths: {} }; saveLayout(); renderGrid(); });
+if (!TABS.some(t => t.key === state.tab)) state.tab = "local";
+renderAll();
+const NO_LIVE = "Live Google data: open this page on claude.ai with the Search Atlas connector to see it.";
+if (window.claude && window.claude.use) {
+  connectNotes();
+  window.claude.use("mcp").then((m) => {
+    mcp = m;
+    if (mcp) loadLive(false); else setLive("", NO_LIVE, false);
+  }, () => setLive("", NO_LIVE, false));
+} else {
+  setState("view only here; open this page on claude.ai to add notes");
+  setLive("", NO_LIVE, false);
+}
+</script>

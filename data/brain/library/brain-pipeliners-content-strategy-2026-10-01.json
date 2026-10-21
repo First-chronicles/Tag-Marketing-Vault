@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Content Strategy 2026-10-01",
+ "cat": "brain-pipeliners",
+ "group": "Plans",
+ "body": "> Plan · Pipeliners · 2026-10-01\n\n# Summary\nRollup of the `content-strategy-2026-10-01\\` folder: the Q4 2026 content plan (published as the content plan artifact https://claude.ai/artifact/FY37pirrsS3QfubhSiowpg), the keyword pool it draws from, and the Oct 13 seasonal keyword research.\n\n# Files\n- `pipeliners-content-plan.html`: \"Pipeliners Content Plan\", eight new guides and a refresh cycle over 12 weeks, prepared Oct 1 from GSC (Jul 2 to Sep 28), saved Search Atlas research and a crawl of 106 live pages.\n- `keyword_pool.csv`: 822 keyword rows (keyword, volume, KD, CPC, intent, source Search Atlas project). The reusable pool for new posts since Search Atlas lookups ran out Sep 26.\n- `seasonal-keyword-research-2026-10-13.md`: see [Pipeliners - Seasonal Keyword Research 2026-10-13](lib:brain-pipeliners-seasonal-keyword-research-2026-10-13).\n\n# Plan highlights\n- **Where things stand:** 51 posts earned about zero clicks in 90 days; demand exists near services (cipp installation 1,217 impressions at position 63; \"pipe relining vs replacement cost\" at position 2). Repipe and manhole demand cannot be served.\n- **Rules:** confirmed claims only, answer first, question headings, short FAQ, \"last updated\" date, house style, ad pages untouched, named author (Jake Shaker or Scott Vincent).\n- **Clusters:** sewer and drain lining, sewer inspection, clogs/backups/hydro jetting, water lines/leaks/ePIPE. City pages are outside this plan.\n- **New queue:** 1 relining cast iron pipe (590 / KD 7), 2 sewer camera inspection hub (8,100 / 18), 3 sewer cleanout (6,600 / 14), 4 Orangeburg pipe (260 / 22), 5 sewer scope before you buy (170 / 12), 6 hydro jetting a sewer line (1,000 / 15), 7 sewer lateral repair (880 / 28), 8 commercial drain cleaning (1,900 / 5, needs Scott). Cost topics left out (no prices).\n- **Existing posts:** keep 36, update 4 (sewer smell year-round, cracked vs collapsed, slab leaks, pinhole leaks), re-angle 3 repipe posts, decide 5 (lining vs replacement pair, CIPP trio), hold 3 (myths pair, residential guide).\n- **Calendar:** one new and one refresh a week from Oct 5 (Oct 5 cast iron, Oct 12 camera hub, Oct 19 cleanout, Oct 26 Orangeburg, Nov 2 sewer scope, Nov 9 hydro jetting...), weeks 9-12 for measuring.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Blog Index](lib:brain-pipeliners-blog-index), [Pipeliners - Blog - Sewer Scope Inspection](lib:brain-pipeliners-blog-sewer-scope-inspection), [SEO Blog Writing Standards](lib:brain-seo-blog-writing-standards)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/content-strategy-2026-10-01",
+ "date": "2026-10-01",
+ "createdAt": 1792613264468,
+ "updatedAt": 1792613264469,
+ "rev": "b77648f4ddd2"
+}

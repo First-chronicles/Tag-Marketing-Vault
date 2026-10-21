@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Schema Accuracy Audit 2026-10-08",
+ "cat": "brain-summit",
+ "group": "Audits",
+ "body": "> Audit · Summit Az · 2026-10-08\n\n# Summary\nRead-only audit of all 190 sitemap URLs against Google's rule that structured data must accurately represent visible page content, followed by a re-check the next day (`Summit-AZ-Schema-Accuracy-Recheck-2026-10-09.md`). Per-page CSVs: `Summit-AZ-Schema-Accuracy-Audit-2026-10-08.csv` and `Summit-AZ-Schema-Accuracy-Recheck-2026-10-09.csv`.\n\n# What passed\n- 1,029 FAQ Q&As in 170 blocks matched the page (1,028 on the re-check). Service schema matched the page's service and city. Hours Mon to Sat 8 to 5 everywhere, no 24/7. No review or rating schema. Street address visible wherever used. Utah coordinates on /about/ gone.\n\n# Problems\n1. High: /about/ hand-coded business block with payment methods not shown on the page, a blank license field, a 404 logo, redirecting service links (one to Repiping) and a second business entity separate from Rank Math. The page also showed a \"(Lic. #)\" placeholder.\n2. High: /home-warranty-plumbing/ advertises an unapproved service in schema; one FAQ answer no longer matched word for word; visible claim \"thousands of plumbing repairs\".\n3. Medium: Rank Math default Article schema on about 150 service, city and legal pages.\n4. Medium: 22 pages showed a WordPress username (\"kim\" or \"scott-admin\") as author.\n5. Medium: Article image pointing to an OG image not on the page (35 pages). New on Oct 9: `priceRange: \"$$\"` on 123 city pages from the `summit-location-seo` plugin.\n6. Low: shower and faucet pages list 10 cities in schema.\n\n# Decisions and status\n- Kim on Oct 9: \"go fix 1, 3, 4, 5 and 6\". Applied: /about/ block emptied; Pages default schema set to None (149 pages); 24 pages reassigned to author \"Summit Plumbing Pros\"; priceRange removed from the plugin (Scott's file, backed up). Problem 6 not changed after checking that the pages do visibly list all 10 cities.\n- Still open: /home-warranty-plumbing/ keep, noindex or remove (Kim or Scott).\n- Screenshots of the audited pages were saved under `Documentation\\Summit Plumbing Pros\\Screenshot from Website\\`.\n\n# Related\n- [Summit AZ - Rank Math Fix Steps 2026-10-08](lib:brain-summit-az-rank-math-fix-steps-2026-10-08), [Summit AZ - SEO Change Log](lib:brain-summit-az-seo-change-log), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/Summit-AZ-Schema-Accuracy-Audit-2026-10-08.md",
+ "date": "2026-10-08",
+ "createdAt": 1792613307329,
+ "updatedAt": 1792613307329,
+ "rev": "b9b12e157dca"
+}

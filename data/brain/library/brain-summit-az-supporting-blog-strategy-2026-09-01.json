@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Supporting Blog Strategy 2026-09-01",
+ "cat": "brain-summit",
+ "group": "Plans",
+ "body": "> Plan · Summit Az · 2026-09-01\n\n# Summary\nFive supporting blog posts aimed at pages stuck at positions 3 to 5 (the five tracked rows were really four pages). Built from GSC Jul 1 to Aug 30, 2026 and the two position trackers saved the day before.\n\n# Fixes recommended first\n- Tankless: Chandler, Tempe, Gilbert and Queen Creek all targeted \"tankless water heater installation near me\". Let Chandler own it; point the others at their own city names.\n- Sewer: San Tan Valley, Chandler and Phoenix all targeted \"residential sewer line repair\". Let San Tan Valley own it; Chandler keeps \"sewer line repair chandler az\".\n\n# The 5 blogs\n1. Old and Cracked Pipes in Scottsdale Homes, to /pipe-lining-scottsdale/ (replaced the roof drain idea; Summit does not do roof drains). Drafted and published (post 6108, per the Sep 1 work report).\n2. Sewer Line Repair vs. Replacement, to /sewer-line-repair-san-tan-valley/ (drafted and scheduled).\n3. What to Expect Installing a Tankless Water Heater, to /tankless-water-heater-installation-chandler/.\n4. Why Chandler Homes Get Sewer Line Problems, to /sewer-line-repair-chandler/.\n5. What a Sewer Camera Inspection Finds, to /sewer-line-repair-san-tan-valley/.\n- Language rule for blog 1: do not use \"pipe lining\" or \"trenchless\"; describe the fix plainly.\n\n# Data files folded in\n- `Summit-AZ-Position-2-Tracker-2026-08-31.csv`: 18 page/query pairs at position 2 (12 branded, 3 junk, 3 real non-branded).\n- `Summit-AZ-Position-3-5-Tracker-2026-08-31.csv`: 48 pairs at positions 3 to 5, prioritized non-branded first.\n\n# Decisions and status\n- The Oct 1 handoff notes that blogs 3 to 5 from this strategy were never written.\n\n# Related\n- [Summit AZ - Blog Index](lib:brain-summit-az-blog-index), [Summit AZ - Work Reports Sep 2026](lib:brain-summit-az-work-reports-sep-2026), [Summit AZ - Supporting Blog Plan 2026-09-18](lib:brain-summit-az-supporting-blog-plan-2026-09-18), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/Summit-AZ-Supporting-Blog-Strategy-2026-09-01.md",
+ "date": "2026-09-01",
+ "createdAt": 1792612960655,
+ "updatedAt": 1792612960656,
+ "rev": "7ceb7722ffa2"
+}

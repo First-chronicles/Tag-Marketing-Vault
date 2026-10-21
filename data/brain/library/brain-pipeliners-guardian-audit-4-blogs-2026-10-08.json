@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Guardian Audit 4 Blogs 2026-10-08",
+ "cat": "brain-pipeliners",
+ "group": "Audits",
+ "body": "> Audit · Pipeliners · 2026-10-08\n\n# Summary\nRollup of an \"SEO Compliance & Quality Guardian\" audit of four blog posts (Oct 8 to 9, 2026, read-only) and the detailed change list that followed. Evidence: live HTML as desktop and Googlebot smartphone, GSC URL Inspection, 3 months of GSC data, WordPress post data. Google Ads ad check not run (token expired). Findings are labelled G-Policy, G-Tech, BP (best practice) or Client (house rule).\n\n# Key findings\n- No spam-policy issues on any page; self-canonicals, one H1 and one meta each; FAQ schema matches visible FAQs; tel links untouched.\n- /repair-sewer-line-without-digging/: not indexed (crawled Oct 7); duplicates the intent of /trenchless-sewer-repair/. \"Pipeliners USA\" 4 times and \"pipe lining\" as a noun 16 times. Review required.\n- /14-warning-signs-your-sewer-pipes-may-be-leaking/: indexed, best of the four (333 impressions, position 62.6), focus \"sewer line leak\" aligned, claims verified. Pass; recheck around Nov 5.\n- /signs-of-outdated-sewer-drain-pipes/: 5,555 words of generic bulk-import text; critical service accuracy issue (describes pipe bursting, not offered), unverified warranty and \"leader\" claims, basements. Fails as is.\n- /5-signs-you-need-to-repipe-your-home-in-arizona/: OTTO schema says \"Repiping Services\" (critical); dash in an H2; \"here!\" links. Fails as is.\n\n# Decisions and status\n- Detailed change list (Oct 9) gives exact now and proposed text for each item, with a backup, guarded write and desktop plus Googlebot check required before anything goes live.\n- Superseded points (Oct 9): \"transferable\" warranty wording is verified and stays; the merge direction reversed, so /trenchless-sewer-repair/ merges INTO /repair-sewer-line-without-digging/ (blogs must not target \"trenchless sewer repair\"). Follow-up drafts live in `blog-drafts/guardian-fixes-2026-10-09/` (owned by the blogs notes).\n\n# Files in this folder (rollups only)\n- `Guardian-Audit-4-Blogs-2026-10-08.md`: the audit.\n- `Detailed-Change-List-2026-10-09.md`: exact edits.\n- `live/`: article text, structure and full text dumps of the 4 posts plus /trenchless-sewer-repair/; `crawl.json`; Python scripts.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [SEO Blog Writing Standards](lib:brain-seo-blog-writing-standards), [Blog Master List](lib:brain-blog-master-list)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/guardian-audit-2026-10-08",
+ "date": "2026-10-08",
+ "createdAt": 1792613376402,
+ "updatedAt": 1792613567142,
+ "rev": "a0e085b0f69f"
+}

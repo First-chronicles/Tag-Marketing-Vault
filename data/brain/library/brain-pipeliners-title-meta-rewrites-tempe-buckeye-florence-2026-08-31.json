@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Title Meta Rewrites Tempe Buckeye Florence 2026-08-31",
+ "cat": "brain-pipeliners",
+ "group": "City Pages",
+ "body": "> Plan · Pipeliners · 2026-08-31\n\n# Summary\nTitle, meta and og:title rewrites for /tempe/, /buckeye/ and /florence/, drafted Aug 31, 2026, revised after per-page keyword verification, and then deployed through OTTO the same day (Rank Math is deactivated; OTTO owns titles and metas).\n\n# Key findings\n- Tempe: page demand \"sewer line repair\" 641 impressions; \"sewer line repair in tempe az\" 556 at position 19 is the biggest keyword on the site. Old title omitted \"Line\". Title, meta and og:title changed.\n- Buckeye: three near-equal clusters (water line 294, pipe repair 266, pipe break 263). The first draft would have dropped pipe break; revised title \"Pipe Break & Water Line Repair in Buckeye, AZ | Pipeliners\". 281 impressions of gas demand Pipeliners cannot serve.\n- Florence: title kept (\"florence pipe break repair\" 162 at position 7 was already covered); meta and og:title changed and slab leak added. Florence ranks for many out-of-state and non-Florence towns, so weight it below Tempe and Buckeye.\n- Phone: 480-535-6503 (the number the site renders everywhere and in schema). The /free-sewer-inspection/ meta showed 480-447-5345 (later confirmed as a GHL number, not a defect).\n- Claims used were all verified (10 to 20 year warranty on /about-us/, free camera inspection, trenchless, pipe materials named in the page copy).\n\n# Decisions and status\n- Deployed Aug 31 via OTTO bulk edit: 9 fields (Tempe 3, Buckeye 3, Florence 2 plus og). Verified live 9 of 9.\n- Purge gotcha: after a second edit round Tempe and Buckeye reverted on the front end while OTTO said deployed. Fix was a full WP cache flush plus per-URL and full LiteSpeed purges. Always re-verify live HTML after every purge round.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Performance Snapshot Summary 2026-08-31](lib:brain-pipeliners-performance-snapshot-summary-2026-08-31), [Pipeliners - Buckeye SEO Test 2026-09-16](lib:brain-pipeliners-buckeye-seo-test-2026-09-16), [Search Atlas](lib:brain-search-atlas)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/performance-tracking/REWRITES-tempe-buckeye-florence.md",
+ "date": "2026-08-31",
+ "createdAt": 1792613290917,
+ "updatedAt": 1792613567090,
+ "rev": "8956c5c769b7"
+}

@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Full Site Audit 2026-07-13",
+ "cat": "brain-pipeliners",
+ "group": "Audits",
+ "body": "> Audit · Pipeliners · 2026-07-13\n\n# Summary\nTAG Marketing's full site audit PDF (6 pages, July 13, 2026) covering on-page, off-page and technical SEO including site speed. Sources: Search Atlas/GSC (90 days Apr 13 to Jul 10), GBP, rank tracking, AI visibility, a live crawl and PageSpeed Insights. A second version, `pipelinersusa-full-site-audit-updated-focus-2026-07-14.pdf` (8 pages), keeps the whole July 13 audit and adds an \"Implementation Update\" page naming the three focus items for the work cycle.\n\n# Key findings\n- **Headline:** 56,614 impressions but 106 clicks (0.19% CTR, US non-brand about 0%); average position 25 overall, 45.85 US. Nothing top-10 for a commercial term.\n- **Scorecard:** On-page POOR, Local/GBP GOOD (95% profile, 123 reviews at 4.99), Citations POOR (score 37/100, 15 citations), AI visibility MODERATE (#1 but thin lead), Technical MODERATE, Site speed POOR (PSI 21, LCP 6.3s), Rankings POOR.\n- **On-page:** templated duplicate city pages (#1 blocker), multiple H1s from Elementor, no title template, missing metas, review badges without review text.\n- **Technical:** broken sitemap architecture (stale Yoast sitemaps in GSC), index bloat from pixfooter/pixpopup and taxonomy archives.\n- **Speed:** mobile 21 / desktop 51, LCP 6.3s, TBT 2,140 ms, CLS 0.331, about 16.9 MB page weight (later corrected; see the site speed note).\n\n# Roadmap in the PDF\n1. De-duplicate the 37 city pages (start with Tempe, Paradise Valley, Peoria, Sun City, Florence, Avondale). 2. Fix site speed. 3. One H1 per page plus title and meta templates. 4. Citation building and NAP audit. 5. Clean GSC sitemaps and noindex junk. 6. Review text and Review schema. 7. Defend AI-search #1. Appendix A is a site speed fix plan.\n\n# Implementation update (July 14 version)\nFocus for the cycle: (1) rewrite duplicate city pages, (2) improve mobile speed, (3) fix headings, titles and metas. Citations, sitemap cleanup, reviews and AI visibility deferred, not removed.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Audits and Reports Index](lib:brain-pipeliners-audits-and-reports-index), [Pipeliners - Site Speed Audit and Tracker 2026-07-14](lib:brain-pipeliners-site-speed-audit-and-tracker-2026-07-14), [Pipeliners - City Page Rewrite Baseline 2026-07-14](lib:brain-pipeliners-city-page-rewrite-baseline-2026-07-14)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/pipelinersusa-site-audit-2026-07-13.pdf",
+ "date": "2026-07-13",
+ "createdAt": 1792613171234,
+ "updatedAt": 1792613171234,
+ "rev": "d329b0eeadc4"
+}

@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Photos and Image Library",
+ "cat": "brain-pipeliners",
+ "group": "",
+ "body": "> Project · Pipeliners · 2026-10-14\n\n# Summary\nImage sources for posts, city pages and GBP. Images themselves are not notes; this note says what is where.\n\n# Folders\n- **`Pipeliners Photos\\`:** about 25 numbered job and product photos (IMG_xxxx files, webp copies), an old perma-liner diagram, two \"sewer pipe liner inside old pipe\" images, and a \"Local SEO & Website Growth Case Study\" graphic. These were the source for the GBP post proposals of Aug 17.\n- **`Pipeliners Photos\\location-liner-2026-10-14\\`:** one \"trenchless sewer liner <city> AZ\" before/after image per city page (webp, with a GPS-tagged backup set), plus `manifest.json`, `attinfo.json`, `pipeliners-city-image-schema.php` and OTTO ImageObject drafts (`otto-imageobject-drafts.md`/`.json`, v1 kept). The drafts map each city page and its OTTO schema ID(s) to the new contentUrl and a caption such as \"Old sewer pipe (left) and the same pipe after trenchless relining (right) in Phoenix, AZ.\" The matching live change is the `2026-10-14_liner-images` backup set.\n- **`pipelinerslocal\\aerial-hero-images-2026-08-27\\`:** 11 Higgsfield aerial city images (Anthem, Gold Canyon, Goodyear, Laveen, Litchfield Park, Maricopa, San Tan Valley, Sun City West, Sun Lakes, Superior, Tolleson), generated Aug 26. The Sep 30 image audit noted the Avondale aerial carries a \"2024 ARMLS\" watermark to check.\n- **`featured-img\\`:** 6 featured images for the June 23 posts (corroded pipes, epoxy pipe lining, cast iron lifespan, tree roots, trenchless sewer repair, whole house repipe).\n- Root-level PNGs (15668.png, 15672.png, \"roof with vent.png\") are loose images from August blog work.\n\n# Image rules\nReal job photos first (inside-the-pipe shots are best). AI images must look like Arizona (desert yards, stucco, tile roofs; no lawns or basements), 4-inch residential scale, no logos, text or fake crests; draw the cleanout straight up. Featured card 1600x774. OTTO overrides library alt text per image URL, so alt fixes must be made in OTTO too.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Higgsfield](lib:brain-higgsfield), [Pipeliners - Fix Log](lib:brain-pipeliners-fix-log), [Pipeliners - GBP Posts Week of 2026-08-17](lib:brain-pipeliners-gbp-posts-week-of-2026-08-17)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/Pipeliners Photos",
+ "date": "2026-10-14",
+ "createdAt": 1792613057324,
+ "updatedAt": 1792613057324,
+ "rev": "224e53a9a743"
+}

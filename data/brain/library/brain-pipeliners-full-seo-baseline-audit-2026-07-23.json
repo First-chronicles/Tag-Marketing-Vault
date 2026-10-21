@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Full SEO Baseline Audit 2026-07-23",
+ "cat": "brain-pipeliners",
+ "group": "Audits",
+ "body": "> Audit · Pipeliners · 2026-07-23\n\n# Summary\nA read-only audit across every Search Atlas module (OTTO, Site Audit, Site Explorer, Rank Tracker, GBP, Citations, LLM Visibility, Local Heatmaps). Two versions exist: `pipelinersusa-full-seo-audit-2026-07-22.pdf` (9 pages) and the corrected `pipelinersusa-full-seo-audit-2026-07-23.pdf` (11 pages), which leads with measured GSC data instead of Site Explorer estimates.\n\n# Key findings (July 23 version)\n- **GSC, 90 days to Jul 22:** 98 clicks, 58,060 impressions, 0.40% CTR, position 28.4 (US 86 clicks, 0.15% CTR, position 47.1). Desktop 46,249 impressions, mobile 13,323.\n- **Highest-impression pages, zero clicks:** /what-is-cipp/ 7,263 at position 74, the CIPP \"how plumbers use\" post 4,819, /glendale/ 3,513, reline vs replace 2,848, /phoenix/ 2,418, /tempe/ 2,072, /buckeye/ 1,726, /mesa/ 1,570. Only the homepage earns clicks (28).\n- /epoxy-pipe-lining/ lost 58 clicks period over period.\n- Site Explorer (modelled): 428 keywords, about 927 visits a month, about 10x optimistic versus GSC; 800 of the visits are the brand term. Of 289 classified keywords only 14 are transactional and they drive 0 traffic. 59% of keywords sit at positions 51-100.\n- Backlinks 1,147 from 312 domains, mostly auto-generated junk. GBP 95.24% complete, 122 reviews at 4.99, 100% replied. Local pack coverage 17 of 180 SERPs (9.4%). AI share of voice 32%, rank #1.\n- Stale Yoast sitemaps (page-sitemap, post-sitemap) registered in GSC should be removed.\n\n# Conclusion in the report\nDemand reaches the pages but titles, positions and intent fail to convert it; this is a content and CTR problem more than a crawl problem.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Audits and Reports Index](lib:brain-pipeliners-audits-and-reports-index), [Pipeliners - SEO Baseline 2026-07-22](lib:brain-pipeliners-seo-baseline-2026-07-22), [Pipeliners - Search Atlas Zero-Click Prompt 2026-07-22](lib:brain-pipeliners-search-atlas-zero-click-prompt-2026-07-22), [Search Atlas](lib:brain-search-atlas)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/pipelinersusa-full-seo-audit-2026-07-23.pdf",
+ "date": "2026-07-23",
+ "createdAt": 1792613171236,
+ "updatedAt": 1792613171236,
+ "rev": "0d562493f07f"
+}

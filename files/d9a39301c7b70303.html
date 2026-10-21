@@ -1,0 +1,24 @@
+<!--
+Summit "Related reading" carousel — SHARED SCRIPT.
+Add this ONCE, site-wide (not per post). Best spots:
+  - A header/footer code plugin (e.g. "Insert Headers and Footers") -> Footer
+  - Elementor -> Site Settings -> Custom Code -> add new, Location: End of <body>
+Paste the whole block below, including the <script> tags.
+If your theme box wants raw JS only (no tags), paste just the inner function.
+The per-post HTML carries its own CSS, so no extra stylesheet is needed.
+-->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.spp-rc-wrap').forEach(function (w) {
+    var t = w.querySelector('.spp-rc-track');
+    if (!t) return;
+    function step() {
+      var c = t.querySelector('.spp-rc-card');
+      return c ? c.offsetWidth + 18 : 288;
+    }
+    var n = w.querySelector('.spp-rc-next'), p = w.querySelector('.spp-rc-prev');
+    if (n) n.addEventListener('click', function () { t.scrollBy({ left: step(), behavior: 'smooth' }); });
+    if (p) p.addEventListener('click', function () { t.scrollBy({ left: -step(), behavior: 'smooth' }); });
+  });
+});
+</script>

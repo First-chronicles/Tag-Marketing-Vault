@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Three Page Audit 2026-09-26",
+ "cat": "brain-pipeliners",
+ "group": "Audits",
+ "body": "> Audit · Pipeliners · 2026-09-26\n\n# Summary\n\"Buckeye, Maricopa and cast iron post: why they rank where they do\", an HTML audit prepared Sep 26, 2026 with GSC data through Sep 23 (Domain property UI, Jun 24 to Sep 23). Nothing was deployed; two of the three pages counted as ad-touched under the Sep 23 rule.\n\n# Key findings\n- Biggest finding: Google had not indexed most recent work. /buckeye/ was last crawled Aug 28, and Google's copy still had the old title and meta, so the Aug 31 title, Sep 1 rewrite and Sep 15 pipe-break section were not yet seen. The cast iron post was last crawled Aug 24. Maricopa was recrawled Sep 25.\n- This overturned the earlier conclusion that the Buckeye rewrite cost its page-1 \"buckeye pipe break repair\" ranking.\n- /buckeye/: 1 click, 2,020 impressions, position 22.2; demand is pipe breaks and water lines at positions 12 to 28; weak internal links.\n- /maricopa/: 1 click, 430 impressions, position 23.9; title says trenchless sewer but the H1 and headings say something else; unverified warranty and service claims.\n- /how-long-do-cast-iron-pipes-last/: 0 clicks, 133 impressions, position 60.8; 120 of 133 impressions came in its first five weeks; thin next to pages that rank.\n\n# Decisions and status\n- Levers: get Buckeye's current page indexed then fill water line gaps; align Maricopa's H1 and add an answer block; deepen the cast iron post with sourced numbers, photos and an author, then request indexing.\n- The report also has a cross-page check, an action plan, tracking and a list of client information needed.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Buckeye SEO Test 2026-09-16](lib:brain-pipeliners-buckeye-seo-test-2026-09-16), [Pipeliners - City Page Drafts (SEO Baseline Folder) 2026-10-10](lib:brain-pipeliners-city-page-drafts-seo-baseline-folder-2026-10-10)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/seo-audits/three-page-audit-2026-09-26.html",
+ "date": "2026-09-26",
+ "createdAt": 1792613442053,
+ "updatedAt": 1792613567194,
+ "rev": "9cfdac337a45"
+}

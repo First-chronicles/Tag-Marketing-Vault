@@ -1,0 +1,14 @@
+{
+ "name": "EOD 2026-05-30",
+ "cat": "brain-eod",
+ "group": "2026-05 May",
+ "body": "> Eod · Alphalete · 2026-05-30\n\nSaturday. Alphalete-focused day on Yoast metadata for the location pages.\n\n# Alphalete Trenchless\nSee [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub).\n- Read-only Yoast audit of all 131 location pages (children of parent 5543): duplicate template metas and 4 wrong-city bugs found.\n- Standardized all 131 titles to \"[Service] in [City], CO | Alphalete\".\n- Fixed wrong-city bleed (Florissant 12280 and Franktown 12316 showing \"Florence\"; Rockvale hydro 11452 showing \"Ramah\"; Green Mountain Falls hydro 10484 truncated), an \"Alphalette\" typo (6773) and the \"Canon City\" spelling across 3 pages.\n- Rewrote 84 duplicate meta descriptions (20 drain, 27 hydro, 37 trenchless) into unique region-tagged copy.\n- Added a FAQPage schema layer to the `alphalete-seo-helpers.php` mu-plugin (v1.2.0 to v1.3.0) with an `_alphalete_faqs_cache` override, mirroring Summit's pattern.\n- Backed up before every change, purged LiteSpeed, verified live. Overpromising draft claims (PSI, \"lasts 50 years\", \"more affordable\") were stripped.\n\n# Summit Plumbing Pros AZ\nSee [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub).\n- No work. Carry-overs from 5/28 remain: 8 draft pages to publish, a Chandler sewer title typo, H1 issues, 5 phone-href typos, a broken href. GHL DNI number left alone (intentional tracking).\n\n# Pipeliners\nSee [Pipeliners (Hub)](lib:brain-pipeliners-hub).\n- No work. Location-page optimization not started; Metasync `otto-dynamic-indexing-module` flagged, untouched.\n\n# Follow-ups\n- Alphalete FAQ schema is dormant until `_alphalete_faqs_cache` is populated per page to match visible FAQs.\n- mu-plugin v1.3.0 updated locally only, not deployed.\n- Summit carry-overs above still open.\n\n# Related\n- [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Pipeliners (Hub)](lib:brain-pipeliners-hub), [EOD Reports Index](lib:brain-eod-reports-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "_Shared (All Clients)/EOD Reports/eod-report-2026-05-30.md",
+ "date": "2026-05-30",
+ "createdAt": 1792612667045,
+ "updatedAt": 1792612667045,
+ "rev": "740791bfe472"
+}

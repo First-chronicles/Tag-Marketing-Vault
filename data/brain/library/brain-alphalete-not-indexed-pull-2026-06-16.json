@@ -1,0 +1,14 @@
+{
+ "name": "Alphalete - Not Indexed Pull 2026-06-16",
+ "cat": "brain-alphalete",
+ "group": "Audits",
+ "body": "> Audit · Alphalete · 2026-06-16\n\n# Summary\nThe GSC not-indexed pull from the height of the June indexing crisis. The site (launched about January 2026) had only **3 pages indexed** and 33 not indexed. The working assumption was to request indexing for the 26 \"Crawled - currently not indexed\" URLs, but a live check showed the site had been rebuilt and most of those URLs were dead.\n\n# Key findings\n- Breakdown at report date: 26 crawled-not-indexed, 6 404, 1 noindex (intentional), 0 discovered-not-indexed.\n- The 26 were 14 old `/service-areas/{city}-co` pages, 4 old service pages, 5 core pages and 2 blogs (plus `/sitemap`).\n- **Critical finding:** Google rejected Request Indexing on `/service-areas/denver-co` (live 404). A live HTTP check found 23 of 26 were 404; only `/about-us`, `/what-is-trenchless-sewer-repair/` and `/how-often-should-you-hydro-jet/` were live.\n- The rebuild (then on Yoast) had about 227 pages under new paths, retargeted from Denver metro to the Colorado Springs area.\n- GSC Sitemaps only had the old `/sitemap.xml` (301, 0 pages); the new `sitemap_index.xml` had never been submitted.\n\n# Actions completed that day\n1. Submitted `https://alphaletetrenchless.com/sitemap_index.xml` in GSC (Success).\n2. Added 22 verified 301s in `.htaccess` (backup `.htaccess.bak-2026-06-16`): old Denver and Littleton city URLs to their new trenchless pages; 12 out-of-area city URLs to the `/service-areas/` hub; old service URLs to the new service pages; contact-us, gallery and projects to their new equivalents.\n3. Earlier the same day, indexing requests were not sent because the Chrome session on GSC was unreliable; the file says not to fire blind requests without per-URL confirmation.\n\n# Decisions and status\n- Lesson recorded: requesting indexing on a stale GSC list is the wrong move after a rebuild. Redirect dead URLs, submit the right sitemap, then run a fresh not-indexed pass on the new structure.\n- Follow-ups at the time: not-indexed pass on new pages; remove the stale `/sitemap.xml` entry from GSC.\n\n# Related\n- [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub), [Alphalete - Sitemap Fix 2026-07-08](lib:brain-alphalete-sitemap-fix-2026-07-08), [Alphalete - SEO AEO Audit 2026-06-23](lib:brain-alphalete-seo-aeo-audit-2026-06-23), [GSC Indexing Tracker](lib:brain-gsc-indexing-tracker), [Google Search Console](lib:brain-google-search-console)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Alphalete Trenchless Pipelining/context/not-indexed-2026-06-16.md",
+ "date": "2026-06-16",
+ "createdAt": 1792612959792,
+ "updatedAt": 1792612959794,
+ "rev": "bbe54eb55481"
+}

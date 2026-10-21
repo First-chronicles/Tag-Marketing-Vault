@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Image Alt Audit 2026-09-30",
+ "cat": "brain-pipeliners",
+ "group": "Audits",
+ "body": "> Audit · Pipeliners · 2026-09-30\n\n# Summary\nAudit of image alt text across pipelinersusa.com (Sep 30, 2026) comparing the WordPress media library alt, the alt set on each page, and the live alt after OTTO overrides. Includes a rerun after library alt changes.\n\n# Key findings\n- 186 attachment rows audited: 78 OK, 56 where OTTO replaced the WordPress alt, 34 empty in WordPress, 11 both, 7 empty on the live page.\n- Media library: 343 attachments, 184 used on a live page, 169 with no alt.\n- The logo (on about 105 pages) carried a long keyword-stuffed OTTO alt; the hero pipe banner (58 pages) carried an OTTO alt while the library had none.\n- 36 alt text drafts for approval: 10 Ready, 24 on hold because the page is ad-touched, 2 skip. One Avondale photo carries a real-estate listing watermark (check usage rights).\n- Library changes since the audit: about 69 attachments got new alt or titles (for example \"Corroded pipe beside a pipe restored with a smooth red epoxy lining\").\n- Rerun: 305 page placements still show the OTTO alt instead of the new library alt. Of 81 affected files, 13 are SAFE to clear and 68 sit on ad-touched pages.\n\n# Decisions and status\n- OTTO image-alt overrides must be cleared in OTTO for the new library alts to show; ad-touched pages need approval first.\n\n# Files in this folder (rollups only)\n- `pipeliners-image-alt-audit-2026-09-30.csv`, `image-alt-by-image.csv`, `image-alt-by-page.csv`, `media-library-all-343.csv`, `library-changes-since-audit.csv`, `alt-text-drafts-for-approval.csv`, `altlist.txt`.\n- `rerun/`: AFTER by-page CSV, `otto-override-split.csv`, `still-overridden-by-otto.csv`, `needcheck.txt`.\n- Images (`img/`, `big/`), saved page HTML (`live/`), JSON, PHP and Python scripts: not summarized.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Search Atlas](lib:brain-search-atlas), [Pipeliners - On-Page Audit 2026-10-01](lib:brain-pipeliners-on-page-audit-2026-10-01)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/image-audit-2026-09-30",
+ "date": "2026-09-30",
+ "createdAt": 1792613376403,
+ "updatedAt": 1792613567143,
+ "rev": "197eb4195ab6"
+}

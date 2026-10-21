@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Blog - Cost and Descaling Rewrites",
+ "cat": "brain-pipeliners",
+ "group": "Blogs",
+ "body": "> Blog · Pipeliners · 2026-09-23\n\n# Summary\nTwo rewrite drafts from Sep 23 for posts that were \"Crawled, currently not indexed\". Sources: `content-drafts\\2026-09-23-cost-and-descaling-rewrites.md` and `content-drafts\\draft-preview-2026-09-23.html` (a preview render).\n\n# Page 1: /how-much-does-trenchless-pipe-lining-cost/ (post 13694)\n580 words, broken heading order (H1 then H4s), no answer block or FAQ. Demand: 44 cost queries, about 250 impressions at positions 57-80. Proposed focus \"trenchless pipe lining cost\", a Phoenix title, a 48-word answer block, \"six things that move the price\", a \"why we quote the job, not a price per foot\" section, 5 FAQs and 5 in-body links. The draft keeps and leads with dollar ranges.\n\n# Page 2: /when-is-pipe-descaling-necessary/ (post 13726)\n3,211 words of vague copy, \"pipelining\" used as a noun, almost no demand (5 queries). Proposed focus \"pipe descaling\" and a shorter explainer that supports the hydro jetting and lining pages.\n\n# Status\nPer the handoff, the Sep 23 rewrites stood down when it emerged both posts were Scott's. Both were later rewritten under the not-indexed program and went live Sep 28 (undo meta `_pl_backup_ni_20260928`). Any reuse of this draft must drop the price ranges (no prices in new copy).\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Blog Index](lib:brain-pipeliners-blog-index), [Pipeliners - Audits and Reports Index](lib:brain-pipeliners-audits-and-reports-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/content-drafts/2026-09-23-cost-and-descaling-rewrites.md",
+ "date": "2026-09-23",
+ "createdAt": 1792613383666,
+ "updatedAt": 1792613383668,
+ "rev": "bda35ea25770"
+}

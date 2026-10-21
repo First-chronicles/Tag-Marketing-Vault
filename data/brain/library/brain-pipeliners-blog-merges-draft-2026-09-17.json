@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Blog Merges Draft 2026-09-17",
+ "cat": "brain-pipeliners",
+ "group": "Audits",
+ "body": "> Plan · Pipeliners · 2026-09-17\n\n# Summary\nDraft for approval (Sep 17, 2026) to merge weak, unindexed blog posts into stronger pages, with the exact copy to move. Status line (Sep 19): Group A (#6, #9) and Group B (#1, #2, #3, #5, #7, #8, #10) are LIVE, approved by Kim. Group C (#4 myths, #11 residential restoration guide) still draft.\n\n# How every merge works\n1. Move only the useful, verified parts into the stronger page.\n2. 301 the old URL via `mu-plugins/pipeliners-redirects.php`.\n3. Set the old post to Draft (nothing deleted).\n4. Fix internal links that pointed at the old post.\n5. Leave titles, H1s and focus keywords alone on the stronger pages.\n6. Request indexing only for the stronger pages that changed.\n\n# The merges\n- 1 and 2 trenchless basics into /repair-sewer-line-without-digging/.\n- 3 tree roots into /how-to-get-rid-of-tree-roots-in-sewer-line/.\n- 4 myths into /common-myths-about-trenchless-sewer-repair-debunked/ (held).\n- 5 DIY leak tips into /how-to-determine-if-you-have-an-underground-water-leak/.\n- 6 technology post into /uv-cured-pipe-lining/ (redirect only).\n- 7 and 8 two corrosion posts into /corroded-pipes/.\n- 9 Mesa \"needs lining\" post into /top-10-signs-your-home-needs-pipe-restoration/ (redirect only).\n- 10 \"is pipelining worth it\" into /is-trenchless-sewer-repair-more-expensive-than-digging/.\n- 11 residential restoration guide into /understanding-pipe-restoration-repiping-vs-pipelining/ (held for Scott).\n\n# Decisions and status\n- Dropped everywhere: unverified claims (50 or 75 years, 10-year warranty, 4 to 8 hours, \"only licensed ePipe partner in Arizona\", done in a day), prices and \"costs less\" claims, free estimate, gas lines, health scares, AI filler and emojis.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Blog Indexing Investigation 2026-09-17](lib:brain-pipeliners-blog-indexing-investigation-2026-09-17), [Pipeliners - SEO Change Log](lib:brain-pipeliners-seo-change-log), [Blog Master List](lib:brain-blog-master-list)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/seo-baseline-2026-09-10/blog-merges-draft-2026-09-17.md",
+ "date": "2026-09-17",
+ "createdAt": 1792613376401,
+ "updatedAt": 1792613567141,
+ "rev": "1e83dbc185b8"
+}

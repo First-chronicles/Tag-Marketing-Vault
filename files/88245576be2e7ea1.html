@@ -1,0 +1,392 @@
+<title>Summit AZ SEO, AEO &amp; GEO Playbook</title>
+<meta name="description" content="Crawl findings and the 2026 search plan for summitplumbingpros.com: Google, AI answers, and AI search.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Montserrat:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#F2F6F9; --surface:#FFFFFF; --surface-2:#E9EFF4; --line:#D3DDE6; --line-soft:#E3EAF0;
+  --ink:#0D2137; --ink-2:#3C5166; --muted:#66798C;
+  --accent:#0B97D4; --accent-ink:#0A6FA0; --accent-soft:rgba(11,151,212,.12);
+  --band-a:#1B72B8; --band-b:#042B4B; --band-ink:#FFFFFF; --band-muted:#B9D3E8;
+  --crit:#B42318; --crit-bg:#FDECEA; --warn:#9A5A06; --warn-bg:#FDF3E1; --good:#2B7A4B; --good-bg:#E6F4EC; --info:#0A6FA0; --info-bg:#E4F2FA;
+  --display:"Poppins",ui-sans-serif,system-ui,"Segoe UI",sans-serif;
+  --body:"Montserrat",ui-sans-serif,system-ui,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#06131F; --surface:#0C2438; --surface-2:#12304A; --line:#224560; --line-soft:#1A3A54;
+    --ink:#E8F0F7; --ink-2:#B6C7D6; --muted:#8CA2B6;
+    --accent:#3BB4EA; --accent-ink:#6CC8F0; --accent-soft:rgba(59,180,234,.14);
+    --band-a:#0F4E80; --band-b:#031A2E; --band-ink:#FFFFFF; --band-muted:#9FBFD8;
+    --crit:#F37E73; --crit-bg:#3A1714; --warn:#E6AA4A; --warn-bg:#35260D; --good:#63C592; --good-bg:#11301F; --info:#6CC8F0; --info-bg:#0E2F45;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#06131F; --surface:#0C2438; --surface-2:#12304A; --line:#224560; --line-soft:#1A3A54;
+  --ink:#E8F0F7; --ink-2:#B6C7D6; --muted:#8CA2B6;
+  --accent:#3BB4EA; --accent-ink:#6CC8F0; --accent-soft:rgba(59,180,234,.14);
+  --band-a:#0F4E80; --band-b:#031A2E; --band-ink:#FFFFFF; --band-muted:#9FBFD8;
+  --crit:#F37E73; --crit-bg:#3A1714; --warn:#E6AA4A; --warn-bg:#35260D; --good:#63C592; --good-bg:#11301F; --info:#6CC8F0; --info-bg:#0E2F45;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.6;margin:0}
+.wrap{max-width:980px;margin:0 auto;padding-inline:20px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.2}
+h2{font-size:1.45rem;font-weight:600}
+h3{font-size:1.02rem;font-weight:600}
+p{margin:0}
+a{color:var(--accent-ink)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.mono{font-family:var(--mono);font-size:.82rem}
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+
+/* header band */
+.band{background:linear-gradient(135deg,var(--band-a),var(--band-b));color:var(--band-ink)}
+.band .wrap{padding-block:36px 32px;display:grid;gap:14px}
+.band .eyebrow{color:var(--band-muted)}
+.band h1{font-size:clamp(1.7rem,4vw,2.4rem);font-weight:700}
+.band p{color:var(--band-muted);max-width:66ch}
+.safety{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.safety span{font-family:var(--mono);font-size:.74rem;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.12);color:var(--band-ink);border:1px solid rgba(255,255,255,.22)}
+
+main .wrap{display:grid;gap:44px;padding-block:32px 56px}
+section{display:grid;gap:16px}
+.lede{color:var(--ink-2);max-width:68ch}
+
+/* stat strip */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.stat{background:var(--surface);padding:16px 18px;display:grid;gap:4px;align-content:start}
+.stat .num{font-family:var(--display);font-size:1.75rem;font-weight:600;font-variant-numeric:tabular-nums;line-height:1.1}
+.stat .num.bad{color:var(--crit)}
+.stat .num.ok{color:var(--good)}
+.stat .sub{font-size:.82rem;color:var(--muted)}
+.pillars{display:grid;gap:6px;margin-top:4px}
+.pillar{display:grid;grid-template-columns:78px 1fr 28px;align-items:center;gap:8px;font-size:.78rem;color:var(--ink-2)}
+.pillar .track{height:6px;border-radius:3px;background:var(--surface-2);overflow:hidden}
+.pillar .fill{height:100%;border-radius:3px}
+.pillar b{font-family:var(--mono);font-weight:500;text-align:right;font-variant-numeric:tabular-nums}
+
+/* three tracks */
+.tracks{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.track-card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:grid;gap:10px;align-content:start}
+.track-card .tag{font-family:var(--mono);font-size:.72rem;font-weight:500;color:var(--accent-ink);background:var(--accent-soft);padding:3px 8px;border-radius:4px;justify-self:start}
+.track-card .where{font-size:.8rem;color:var(--muted)}
+.track-card ul{margin:0;padding-left:18px;display:grid;gap:6px;font-size:.9rem}
+.track-card .now{border-top:1px solid var(--line-soft);padding-top:10px;font-size:.85rem;color:var(--ink-2)}
+.track-card .now strong{color:var(--ink)}
+
+/* findings */
+.findings{display:grid;gap:10px}
+.finding{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--sev);border-radius:8px;padding:14px 18px;display:grid;gap:6px}
+.finding.crit{--sev:var(--crit)} .finding.high{--sev:var(--warn)} .finding.med{--sev:var(--info)}
+.finding .head{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 12px}
+.chip{font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:4px}
+.chip.crit{color:var(--crit);background:var(--crit-bg)} .chip.high{color:var(--warn);background:var(--warn-bg)} .chip.med{color:var(--info);background:var(--info-bg)} .chip.good{color:var(--good);background:var(--good-bg)}
+.finding p,.finding li{font-size:.9rem;color:var(--ink-2)}
+.finding ul{margin:0;padding-left:18px;display:grid;gap:3px}
+.finding .why{font-size:.84rem;color:var(--muted)}
+.fine{background:var(--good-bg);border-radius:8px;padding:12px 16px;font-size:.88rem;color:var(--ink-2)}
+.fine strong{color:var(--good)}
+
+/* phases */
+.phase{display:grid;grid-template-columns:150px 1fr;gap:18px;padding-block:18px;border-top:1px solid var(--line)}
+.phase:first-of-type{border-top:0}
+.phase .when{display:grid;gap:4px;align-content:start}
+.phase .when .name{font-family:var(--display);font-weight:600;font-size:1.05rem}
+.phase .when .date{font-family:var(--mono);font-size:.76rem;color:var(--muted)}
+.steps{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.step{display:grid;grid-template-columns:34px 1fr;gap:10px}
+.step .id{font-family:var(--mono);font-size:.76rem;color:var(--accent-ink);padding-top:2px}
+.step h3{font-size:.95rem}
+.step p{font-size:.88rem;color:var(--ink-2);margin-top:2px}
+.owner{display:inline-flex;flex-wrap:wrap;gap:6px;margin-top:5px}
+.owner span{font-family:var(--mono);font-size:.68rem;padding:1px 7px;border-radius:4px;background:var(--surface-2);color:var(--ink-2)}
+.owner span.gate{background:var(--warn-bg);color:var(--warn)}
+.phases{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding-inline:20px}
+
+/* table */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.86rem;min-width:560px}
+th,td{text-align:left;padding:9px 14px;border-bottom:1px solid var(--line-soft)}
+th{font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--surface-2)}
+tr:last-child td{border-bottom:0}
+td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right}
+th.n{text-align:right}
+
+/* two col */
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:grid;gap:10px;align-content:start}
+.panel ul{margin:0;padding-left:18px;display:grid;gap:6px;font-size:.88rem;color:var(--ink-2)}
+.decisions{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.decisions li{display:grid;grid-template-columns:18px 1fr;gap:10px;font-size:.9rem;color:var(--ink-2)}
+.decisions li::before{content:"";width:14px;height:14px;border:1.5px solid var(--muted);border-radius:3px;margin-top:4px}
+footer{font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+
+@media (max-width:640px){
+  .phase{grid-template-columns:1fr;gap:10px}
+  .phases{padding-inline:14px}
+}
+</style>
+
+<header class="band">
+  <div class="wrap">
+    <div class="eyebrow">Summit Plumbing Pros · summitplumbingpros.com · Crawled Sep 15, 2026</div>
+    <h1>SEO, AEO &amp; GEO Playbook</h1>
+    <p>What Google and AI answer engines reward in 2026, where Summit stands after a fresh crawl, and the order to fix things in. This builds on the <a href="https://claude.ai/code/artifact/a494672e-27ab-470d-b17b-31caf27775d7" style="color:var(--band-ink)">90-Day SEO Plan</a> from Sep 14 and does not replace it.</p>
+    <div class="safety">
+      <span>OTTO pixel: not installed, left off</span>
+      <span>Autopilot: off</span>
+      <span>Nothing deployed or edited</span>
+      <span>Search Atlas recrawl done Sep 15</span>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+<section>
+  <div class="eyebrow">Where Summit stands</div>
+  <h2>Strong technical base, invisible in AI answers</h2>
+  <div class="stats">
+    <div class="stat">
+      <span class="eyebrow">Google clicks, 30 days</span>
+      <span class="num">42</span>
+      <span class="sub">10,466 impressions, avg position 24 (GSC, Aug 15 to Sep 13, US)</span>
+    </div>
+    <div class="stat">
+      <span class="eyebrow">AI answers, non-branded</span>
+      <span class="num bad">0 of 10</span>
+      <span class="sub">Questions like "emergency drain cleaning Mesa AZ" in ChatGPT, Gemini and Google AI Mode</span>
+    </div>
+    <div class="stat">
+      <span class="eyebrow">AI answers, branded</span>
+      <span class="num ok">5 of 5</span>
+      <span class="sub">Only shows up when the question already names Summit. Sentiment 73/100</span>
+    </div>
+    <div class="stat">
+      <span class="eyebrow">Search Atlas pillars</span>
+      <div class="pillars">
+        <div class="pillar"><span>Technical</span><div class="track"><div class="fill" style="width:93%;background:var(--good)"></div></div><b>93</b></div>
+        <div class="pillar"><span>Content</span><div class="track"><div class="fill" style="width:33%;background:var(--warn)"></div></div><b>33</b></div>
+        <div class="pillar"><span>UX signals</span><div class="track"><div class="fill" style="width:30%;background:var(--warn)"></div></div><b>30</b></div>
+        <div class="pillar"><span>Authority</span><div class="track"><div class="fill" style="width:9%;background:var(--crit)"></div></div><b>9</b></div>
+      </div>
+    </div>
+  </div>
+  <p class="lede">Google Business Profile brought 126 calls in 60 days (Sep 14 plan), which is far more than the website's organic clicks. Summit's own site is the most-cited source in its AI answers, but only on questions that already name Summit.</p>
+  <p class="lede">The Sep 15 Search Atlas recrawl finished with 216 pages (188 indexable) and a score of 931, up from 929 on Sep 11. Its top issues are minor (social tag lengths, image formats, DOM size) and match what our own crawl found.</p>
+</section>
+
+<section>
+  <div class="eyebrow">What 2026 search rewards</div>
+  <h2>Three surfaces, one business identity</h2>
+  <p class="lede">All three surfaces read the same pages and the same outside listings. What differs is what each one takes from them: Google ranks pages, answer engines quote short passages, and AI chat tools recommend businesses they see confirmed across many sources.</p>
+  <div class="tracks">
+    <div class="track-card">
+      <span class="tag">SEO</span>
+      <h3>Google blue links and the map pack</h3>
+      <span class="where">Where the calls come from today</span>
+      <ul>
+        <li>Map pack ranking runs on proximity, reviews, GBP categories and consistent NAP.</li>
+        <li>Deep, specific service pages beat thin city-swap pages. Google's scaled-content and doorway rules target copies with only the city name changed.</li>
+        <li>One clean business entity in schema, matching GBP exactly.</li>
+      </ul>
+      <p class="now"><strong>Summit today:</strong> technical base is solid (93). The hubs are thin, 18 of 121 city pages are near-copies, and the schema describes the business three different ways.</p>
+    </div>
+    <div class="track-card">
+      <span class="tag">AEO</span>
+      <h3>AI Overviews, snippets, voice</h3>
+      <span class="where">Google quotes a passage instead of sending the click</span>
+      <ul>
+        <li>A 40 to 60 word direct answer right under the H1.</li>
+        <li>H2s written as the questions homeowners ask, each answered on its own without "see our other page".</li>
+        <li>Service and FAQ schema that matches the visible page.</li>
+      </ul>
+      <p class="now"><strong>Summit today:</strong> the blog posts already follow this pattern. Service and city pages open with three boilerplate H2s and have 0 to 1 question headings.</p>
+    </div>
+    <div class="track-card">
+      <span class="tag">GEO</span>
+      <h3>ChatGPT, Perplexity, Gemini, Copilot, AI Mode</h3>
+      <span class="where">AI tools recommend businesses they can confirm elsewhere</span>
+      <ul>
+        <li>Brands get cited through third-party sources far more often than through their own site: reviews, BBB, Yelp, Angi, YouTube, Reddit, local news.</li>
+        <li>ChatGPT and Copilot lean on Bing, so Bing Webmaster Tools and Bing Places matter.</li>
+        <li>AI crawlers need access, server-rendered content, and pages refreshed about once a quarter.</li>
+      </ul>
+      <p class="now"><strong>Summit today:</strong> content is server-rendered and robots.txt allows every AI bot. Authority is 9/100, and SiteGround bot protection may be serving AI crawlers a CAPTCHA page.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">What the crawl found</div>
+  <h2>Problems ranked by impact</h2>
+  <div class="findings">
+
+    <div class="finding crit">
+      <div class="head"><span class="chip crit">Critical</span><h3>The business's identity data contradicts itself</h3></div>
+      <ul>
+        <li>The About page (ID 4222) has a hand-coded schema block with <strong>Utah coordinates</strong> (40.23, -111.66). It also links a logo that returns 404, points to 8 old URLs that redirect, and leaves the license number empty.</li>
+        <li>Three different hours: the site text says Mon to Sat 8 to 5, Rank Math says Mon to Sun 9 to 5, and the About block says Mon to Fri 7 to 6 plus Sat 8 to 2.</li>
+        <li>Rank Math's main business entity has no address, phone, map coordinates or social/GBP links.</li>
+        <li>City pages output a second, unlinked Plumber entity from the location mu-plugin.</li>
+      </ul>
+      <p class="why">Why it matters: Google and the AI tools merge these signals into one "who is this business" record. Conflicting hours and a Utah pin lower their trust in every other claim.</p>
+    </div>
+
+    <div class="finding crit">
+      <div class="head"><span class="chip crit">Critical, unverified</span><h3>AI crawlers may be getting a CAPTCHA page</h3></div>
+      <p>robots.txt allows every AI bot, and test requests with GPTBot, PerplexityBot and ClaudeBot user agents got full pages. But SiteGround already serves Kim's IP a CAPTCHA stub marked noindex. If it does the same to real AI crawler IPs, those tools see nothing. Only the SiteGround bot-protection logs can confirm it either way.</p>
+    </div>
+
+    <div class="finding high">
+      <div class="head"><span class="chip high">High</span><h3>Service and city pages are not built to be quoted</h3></div>
+      <ul>
+        <li>Every service and city page opens with "Serving the Phoenix Valley", "Schedule a Free Estimate Today!" and "Request Your Free Estimate" as H2s. Some also use H2s for "Call Us Today!", the phone number, and "we  serve".</li>
+        <li>There's no direct answer under the H1. The hub intros talk about "Phoenix Valley" instead of the service.</li>
+        <li>Mesa FAQ answer "Yes. See the emergency plumber in Mesa page." can't be quoted by an AI tool.</li>
+      </ul>
+    </div>
+
+    <div class="finding high">
+      <div class="head"><span class="chip high">High</span><h3>Hubs are thinner than their own city pages, and some cities are copies</h3></div>
+      <ul>
+        <li>/water-heaters/ has 672 words, mostly generic. The /slab-leaks/ H1 is just "Slab Leaks".</li>
+        <li>The Gilbert and Chandler drain cleaning pages are 70% identical, including a 483-word FAQ with only the city swapped. The water heater city pages are well differentiated and are the model to follow.</li>
+        <li>Every page is marked as an Article in schema. The hubs have no Service schema.</li>
+      </ul>
+    </div>
+
+    <div class="finding high">
+      <div class="head"><span class="chip high">High</span><h3>Unverified claims and a placeholder are live</h3></div>
+      <ul>
+        <li>/about/ says "licensed and insured in the state of Arizona (Lic. #)". The number is missing.</li>
+        <li>"Work Guaranteed" (/about/), "Customer Satisfaction Guaranteed" (sewer page) and "we can guarantee..." (/water-heaters/) are not on the approved-claims list.</li>
+        <li>The sitewide "Same Day Service" badge has no "most calls" qualifier. The "4.8 · 516+ Google Reviews" badge needs checking against GBP.</li>
+      </ul>
+    </div>
+
+    <div class="finding med">
+      <div class="head"><span class="chip med">Medium</span><h3>Blog trust signals and housekeeping</h3></div>
+      <ul>
+        <li>Blog author is the brand name typed as a Person, and the author page is noindex. No named licensed plumber appears anywhere, and posts show no "Updated" date. /blog/ has no H1.</li>
+        <li>No /llms.txt. Four Google Fonts files load, including unused Roboto and Roboto Slab, and jQuery blocks rendering.</li>
+        <li>Nearly every sitemap URL has the same Sep 9 or 10 lastmod date. /terms-of-use/ and /terms-of-service/ are both listed. /pricing/ is noindex but still live, with Lorem ipsum on it.</li>
+        <li>Homepage, report only: two H1s, no H2s, and the H1 says "Phoenix Valley" while the target is "plumber mesa az". This waits on Scott.</li>
+      </ul>
+    </div>
+
+    <p class="fine"><strong>Already fine:</strong> all content is server-rendered (AI crawlers can read it without JavaScript), canonicals and robots tags are correct, NAP and ROC #338366 are in every footer, and FAQ schema matches the visible FAQs. No OTTO script, no 24/7 claims, no competitor names.</p>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Closest wins on Google</div>
+  <h2>Terms already on page 1 or 2</h2>
+  <p class="lede">These service and city terms get impressions but few clicks. Improving the matching pages (direct answer, question H2s, specific local copy) is the cheapest ranking lift available.</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Search term</th><th class="n">Impressions</th><th class="n">Position</th><th>Likely page</th></tr></thead>
+      <tbody>
+        <tr><td>sewer line replacement mesa</td><td class="n">43</td><td class="n">18</td><td>Sewer line repair, Mesa</td></tr>
+        <tr><td>drain cleaning fountain hills</td><td class="n">41</td><td class="n">10</td><td>Drain cleaning, Fountain Hills</td></tr>
+        <tr><td>emergency drain cleaning service</td><td class="n">31</td><td class="n">20</td><td>/drain-cleaning/ hub</td></tr>
+        <tr><td>tankless water heater installation queen creek</td><td class="n">28</td><td class="n">12</td><td>Tankless, Queen Creek</td></tr>
+        <tr><td>sewer line repair apache junction</td><td class="n">22</td><td class="n">18</td><td>Sewer line repair, Apache Junction</td></tr>
+        <tr><td>water softener scottsdale az</td><td class="n">11</td><td class="n">4</td><td>Water softener, Scottsdale</td></tr>
+        <tr><td>emergency drain cleaning fountain hills</td><td class="n">11</td><td class="n">17</td><td>Drain cleaning, Fountain Hills</td></tr>
+        <tr><td>tankless water heater installation apache junction az</td><td class="n">9</td><td class="n">6</td><td>Tankless, Apache Junction</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="mono" style="color:var(--muted)">Source: GSC via Search Atlas, US, Aug 15 to Sep 13, 2026. 218 terms rank between positions 4 and 20.</p>
+</section>
+
+<section>
+  <div class="eyebrow">The playbook</div>
+  <h2>Fix the identity first, then the pages, then the reputation</h2>
+  <div class="phases">
+
+    <div class="phase">
+      <div class="when"><span class="name">Phase A</span><span class="date">Now to Oct 2</span><span class="sub" style="font-size:.8rem;color:var(--muted)">No copy changes. Trust and entity fixes only.</span></div>
+      <ol class="steps">
+        <li class="step"><span class="id">A1</span><div><h3>Confirm the real business hours with the client</h3><p>Then make GBP, the site text and Rank Math all match. Everything else in Phase A depends on this.</p><div class="owner"><span>Kim</span><span>client</span></div></div></li>
+        <li class="step"><span class="id">A2</span><div><h3>Complete Rank Math Local SEO</h3><p>Address, phone, hours, GBP pin coordinates, and sameAs links (GBP, Facebook, Instagram, YouTube). This becomes the single business entity.</p><div class="owner"><span>Kim</span><span class="gate">Rank Math, needs approval</span></div></div></li>
+        <li class="step"><span class="id">A3</span><div><h3>Remove the Utah schema block from /about/ and link city pages to the main entity</h3><p>The mu-plugin Service entries should point their provider to the main business entity instead of outputting a second Plumber.</p><div class="owner"><span>elementor-engineer</span><span class="gate">needs approval</span></div></div></li>
+        <li class="step"><span class="id">A4</span><div><h3>Check SiteGround bot protection and Bing Webmaster Tools</h3><p>Confirm verified search and AI crawlers aren't getting the CAPTCHA page. Bing feeds ChatGPT search and Copilot.</p><div class="owner"><span>Kim or Scott</span></div></div></li>
+        <li class="step"><span class="id">A5</span><div><h3>Clean up the claims</h3><p>Change "(Lic. #)" to AZ ROC #338366. Keep or cut each guarantee line after checking with Scott. Add "most calls" to Same Day Service. Verify the review badge against GBP.</p><div class="owner"><span>Kim</span><span class="gate">Scott decides guarantees</span></div></div></li>
+        <li class="step"><span class="id">A6</span><div><h3>Run the GBP steps from the 90-Day Plan</h3><p>Ask for reviews steadily, reply to the 24 unreplied reviews, remove "Sump pump repair", and fix the GBP website link's UTM tags.</p><div class="owner"><span>Kim</span></div></div></li>
+        <li class="step"><span class="id">A7</span><div><h3>Fix what we track in AI visibility</h3><p>Search Atlas currently tracks "24 hour emergency plumber Mesa AZ", which Summit doesn't offer. Swap it for questions Summit can win ("plumber in Mesa AZ", "trenchless pipe lining Mesa", "slab leak repair Gilbert") and add Perplexity and Copilot. This only changes tracking, nothing on the site.</p><div class="owner"><span>Kim</span></div></div></li>
+      </ol>
+    </div>
+
+    <div class="phase">
+      <div class="when"><span class="name">Phase B</span><span class="date">After the Oct 2 review</span><span class="sub" style="font-size:.8rem;color:var(--muted)">Pages built to rank and be quoted.</span></div>
+      <ol class="steps">
+        <li class="step"><span class="id">B1</span><div><h3>Demote the boilerplate H2s in the shared templates</h3><p>Hero kicker, form titles, "Call Us Today!", phone number and "we  serve" become styled text. Real content headings move up to H2.</p><div class="owner"><span>elementor-engineer</span><span class="gate">needs approval</span></div></div></li>
+        <li class="step"><span class="id">B2</span><div><h3>Rebuild the 15 service hubs first</h3><p>Each hub gets a 40 to 60 word direct answer under the H1 and question H2s with standalone answers. Add real Arizona detail the business can confirm, such as hard water, slab foundations, monsoon backups and tree roots. Add Service schema, and change the page default from Article to WebPage.</p><div class="owner"><span>Kim, copy</span><span class="gate">Rank Math, needs approval</span></div></div></li>
+        <li class="step"><span class="id">B3</span><div><h3>Launch the Mesa general page for "plumber mesa az"</h3><p>The draft is ready (page 8574, URL kept). About 5,300 searches a month.</p><div class="owner"><span>Kim</span><span class="gate">needs approval</span></div></div></li>
+        <li class="step"><span class="id">B4</span><div><h3>Improve the page-1-and-2 city pages, then remove the city swaps</h3><p>Start with the eight terms in the table above. Then rewrite the drain Gilbert and Chandler FAQs, and after that the water softener, fixture and leak detection families. Pages that can't be made unique go to the hold or merge list from the 90-Day Plan.</p><div class="owner"><span>Kim, copy</span></div></div></li>
+        <li class="step"><span class="id">B5</span><div><h3>Give the blog a real expert</h3><p>Ask the client for a named licensed person (owner or ROC qualifying party) to be the author or reviewer, with a short bio. Show "Updated" dates. Add an H1 to /blog/. Add cost-factor guides that give no prices and end with a free estimate CTA.</p><div class="owner"><span>client provides the name</span><span>Kim</span></div></div></li>
+        <li class="step"><span class="id">B6</span><div><h3>Housekeeping</h3><p>Enable llms.txt in Rank Math for posts and pages only. Remove the unused fonts and defer jQuery, then run PageSpeed on mobile. Pick one terms page. Set /pricing/ to draft.</p><div class="owner"><span>Kim</span><span>elementor-engineer</span></div></div></li>
+      </ol>
+    </div>
+
+    <div class="phase">
+      <div class="when"><span class="name">Phase C</span><span class="date">Ongoing from October</span><span class="sub" style="font-size:.8rem;color:var(--muted)">Authority 9/100 is the biggest gap. This is where AI tools decide who to recommend.</span></div>
+      <ol class="steps">
+        <li class="step"><span class="id">C1</span><div><h3>Get consistent listings beyond Google</h3><p>Bing Places, Apple Business Connect, Yelp, BBB, Angi and Nextdoor, all with the exact NAP and hours from A1. BBB already shows up in Summit's AI answer sources.</p><div class="owner"><span>Kim</span></div></div></li>
+        <li class="step"><span class="id">C2</span><div><h3>Post short real-job videos on YouTube</h3><p>Use the existing @summitplumbingpros channel. Show trenchless lining, slab leak detection and hard-water damage on real East Valley jobs, and embed each video on its matching hub. YouTube mentions strongly correlate with AI visibility.</p><div class="owner"><span>client films</span><span>Kim posts</span></div></div></li>
+        <li class="step"><span class="id">C3</span><div><h3>Earn local mentions</h3><p>Community sponsorships, East Valley news and neighborhood groups. Find unlinked mentions and ask for a link. Any Reddit replies (r/mesa, r/phoenix) must be genuine help, never link drops.</p><div class="owner"><span>Kim</span><span>client</span></div></div></li>
+        <li class="step"><span class="id">C4</span><div><h3>Refresh the hubs and top posts each quarter</h3><p>Change lastmod only when content really changes. Rerun the AI visibility prompts each month.</p><div class="owner"><span>Kim</span></div></div></li>
+      </ol>
+    </div>
+
+  </div>
+</section>
+
+<section class="two">
+  <div class="panel">
+    <div class="eyebrow">How we'll measure</div>
+    <h3>Baselines to beat by Dec 14</h3>
+    <ul>
+      <li>GSC clicks: 42 per 30 days. Watch the hubs and the eight terms in the table.</li>
+      <li>AI visibility on non-branded questions: 0 of 10, tracked as a percentage per platform, never as a "rank".</li>
+      <li>Map grid for "plumber mesa az": average 11.8. Rerun with a wider radius than 0.33 mi.</li>
+      <li>GBP calls: 126 per 60 days.</li>
+      <li>GA4 AI referral sessions from chatgpt.com, perplexity.ai and gemini.google.com (property 529636373).</li>
+    </ul>
+  </div>
+  <div class="panel">
+    <div class="eyebrow">What we won't do</div>
+    <h3>Guardrails that stay in place</h3>
+    <ul>
+      <li>OTTO pixel stays off. No Deploy All. OTTO's 583 pending schema fixes and 120 "knowledge based trust" edits stay undeployed, because Rank Math owns schema.</li>
+      <li>No 24/7, prices, invented guarantees, years in business or reviews.</li>
+      <li>Homepage untouched until Scott approves.</li>
+      <li>No competitor names in site content, no hidden text, no keyword-stuffed sections.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Decisions needed</div>
+  <h2>Before Phase A can finish</h2>
+  <ul class="decisions">
+    <li>The real business hours (client), so GBP, the site and Rank Math can match.</li>
+    <li>Approval to fill in Rank Math Local SEO and change the page default schema from Article.</li>
+    <li>Approval to remove the /about/ schema block and change the mu-plugin's city schema.</li>
+    <li>Keep or cut the "guaranteed" wording on 3 pages (Scott).</li>
+    <li>A named licensed person for blog authorship (client).</li>
+    <li>Whether /home-warranty-plumbing/ is an approved service. It's live and in the nav but isn't on the list of 15.</li>
+    <li>Update the business rules file: the Sep 5 version still allows 24/7 on emergency pages, which the Sep 8 decision overrode.</li>
+  </ul>
+</section>
+
+<footer>Sources: live crawl of 18 pages, robots.txt and sitemaps (server-side, Sep 15). Search Atlas site audit 120252 (Sep 11, 215 pages). OTTO project dashboard. Search Atlas LLM Visibility (30 days; ChatGPT, Gemini, Google AI Mode; 15 prompts). GSC via Search Atlas. Read-only throughout. Full evidence file: crawl-findings.md.</footer>
+
+</div>
+</main>

@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Position 8-20 Keywords 2026-10-03",
+ "cat": "brain-pipeliners",
+ "group": "Reports",
+ "body": "> Report · Pipeliners · 2026-10-03\n\n# Summary\nA keyword list (`pipeliners-keywords-position-8-20.csv`, about 254 rows) of every Pipeliners query sitting at average position 8 to 20 in GSC as of Oct 3, 2026, with the ranking URL, clicks, impressions and a flag column. `raw.txt` holds the same data unformatted.\n\n# Key findings\n- Almost every row has 0 clicks.\n- Top rows: \"florence pipe break repair\" (/florence/, 97 impressions at 10.4), \"buckeye az pipe break repair\" (/buckeye/, 82 at 12.7), \"drain cleaning mesa az\" (GBP link, 64 at 8.2), \"buckeye az water line repair\" (54 at 15.9).\n- Flags: rows landing on the GBP website link are marked \"GBP is read-only\"; \"buckeye gas line repair\" is marked \"Not offered (gas lines)\".\n- City pages dominate: Florence, Buckeye, Apache Junction, Fountain Hills, Sun Lakes, Queen Creek, Fort McDowell, Maricopa.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Blog Rankings and Low-Hanging Fruit 2026-09-19](lib:brain-pipeliners-blog-rankings-and-low-hanging-fruit-2026-09-19), [Pipeliners - Local Page Strengthen Drafts 2026-10-09](lib:brain-pipeliners-local-page-strengthen-drafts-2026-10-09), [Google Search Console](lib:brain-google-search-console)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/reports/position-8-20-2026-10-03",
+ "date": "2026-10-03",
+ "createdAt": 1792613209737,
+ "updatedAt": 1792613567034,
+ "rev": "25a722b8859f"
+}

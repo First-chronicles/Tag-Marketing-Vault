@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - AEO Audit Chandler Pages 2026-05-29",
+ "cat": "brain-summit",
+ "group": "Audits",
+ "body": "> Audit · Summit Az · 2026-05-29\n\n# Summary\nScript-generated AEO/GEO/SEO grade for the 12 Chandler canonical service pages (one per service line). Every page scored NEEDS WORK or PARTIAL. The 2026-06-23 audit later marked the schema and H1 lines stale after fixes shipped.\n\n# Key findings\n- General Plumbing Chandler (1,603 words): no FAQ at all, 0 local entities, no schema. NEEDS WORK.\n- Pipe Lining and Tankless: H1 count 0. Water Softeners: H1 count 3. All NEEDS WORK.\n- Drain Cleaning, Emergency, Sewer, Water Pressure, Leak Detection, Water Heaters, Garbage Disposals, Fixture Installation: PARTIAL. Visible FAQs (5 to 8 questions) but no Service, FAQPage or LocalBusiness JSON-LD and 0 to 1 local entities.\n- Target: 3+ local entities (utility, neighborhood) per page.\n- Duplicate-title example: the emergency page title \"Emergency Plumbing Services in Arizona | Emergency Plumber\" was shared across cities.\n\n# What followed\nPer-city FAQ and schema packs in [Summit AZ - Drafts - General Plumbing Update Packs](lib:brain-summit-az-drafts-general-plumbing-update-packs) and the `_apply_schema.php` scripts in [Summit AZ - Drafts Folder Overview](lib:brain-summit-az-drafts-folder-overview).\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Summit AZ - Work Folders Index](lib:brain-summit-az-work-folders-index)\n- [Summit AZ - SEO AEO Audit 2026-06-23](lib:brain-summit-az-seo-aeo-audit-2026-06-23)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/seo-audits-2026-06/summit_aeo_audit.md",
+ "date": "2026-05-29",
+ "createdAt": 1792612997542,
+ "updatedAt": 1792612997542,
+ "rev": "6a62deafe431"
+}

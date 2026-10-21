@@ -1,0 +1,647 @@
+<title>Pipeliners NLP Term Audit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+:root{
+  --ground:#FBFAF8;
+  --surface:#FFFFFF;
+  --surface-sunk:#F2F1EC;
+  --ink:#16211F;
+  --ink-soft:#4A5654;
+  --ink-faint:#7C8785;
+  --rule:#DFDDD6;
+  --rule-soft:#EBE9E3;
+  --accent:#0E5F5A;
+  --accent-soft:#D8E8E5;
+  --remove:#A8341C;
+  --remove-soft:#F6E2DC;
+  --review:#8A6410;
+  --review-soft:#F7EDD6;
+  --keep:#2A6144;
+  --keep-soft:#DDEBE1;
+  --shadow:0 1px 2px rgba(22,33,31,.05),0 8px 24px -16px rgba(22,33,31,.18);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#101614;
+    --surface:#171F1D;
+    --surface-sunk:#1D2624;
+    --ink:#EDEFEC;
+    --ink-soft:#AFB9B6;
+    --ink-faint:#7F8B88;
+    --rule:#2C3735;
+    --rule-soft:#232D2B;
+    --accent:#5FC9BE;
+    --accent-soft:#1B3936;
+    --remove:#E8836A;
+    --remove-soft:#38201A;
+    --review:#DCAE4E;
+    --review-soft:#33280F;
+    --keep:#6FBE92;
+    --keep-soft:#17301F;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px -16px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#101614;
+  --surface:#171F1D;
+  --surface-sunk:#1D2624;
+  --ink:#EDEFEC;
+  --ink-soft:#AFB9B6;
+  --ink-faint:#7F8B88;
+  --rule:#2C3735;
+  --rule-soft:#232D2B;
+  --accent:#5FC9BE;
+  --accent-soft:#1B3936;
+  --remove:#E8836A;
+  --remove-soft:#38201A;
+  --review:#DCAE4E;
+  --review-soft:#33280F;
+  --keep:#6FBE92;
+  --keep-soft:#17301F;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px -16px rgba(0,0,0,.7);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:"Source Serif 4",Georgia,serif;
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px 96px}
+.prose{max-width:66ch}
+
+h1,h2,h3,h4,.eyebrow,.chip,th,.term,.stat-n{font-family:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif}
+h1{font-size:clamp(2.1rem,5vw,3.1rem);line-height:1.05;font-weight:800;letter-spacing:-.02em;margin:0;text-wrap:balance}
+h2{font-size:clamp(1.5rem,3vw,2rem);line-height:1.15;font-weight:700;letter-spacing:-.015em;margin:0 0 8px;text-wrap:balance}
+h3{font-size:1.18rem;font-weight:700;letter-spacing:-.01em;margin:0;text-wrap:balance}
+h4{font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:var(--ink-faint);margin:0 0 10px}
+p{margin:0 0 14px}
+a{color:var(--accent)}
+code,.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+
+.eyebrow{
+  font-size:.74rem;font-weight:600;text-transform:uppercase;letter-spacing:.16em;
+  color:var(--accent);margin:0 0 14px;
+}
+
+/* header */
+header.masthead{padding:72px 0 40px;border-bottom:2px solid var(--ink)}
+.sub{font-size:1.15rem;color:var(--ink-soft);max-width:60ch;margin:20px 0 0}
+.meta{
+  display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:26px;
+  font-family:"IBM Plex Mono",monospace;font-size:.76rem;
+  text-transform:uppercase;letter-spacing:.06em;color:var(--ink-faint);
+}
+
+/* stat strip */
+.stats{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));
+  gap:1px;background:var(--rule);border:1px solid var(--rule);
+  margin:40px 0 8px;
+}
+.stat{background:var(--ground);padding:18px 16px}
+.stat-n{font-size:1.9rem;font-weight:800;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.stat-l{font-size:.72rem;text-transform:uppercase;letter-spacing:.09em;color:var(--ink-faint);margin-top:7px;font-family:"IBM Plex Mono",monospace}
+.stat.is-remove .stat-n{color:var(--remove)}
+.stat.is-review .stat-n{color:var(--review)}
+.stat.is-keep .stat-n{color:var(--keep)}
+
+/* alerts */
+.alert{
+  border:1px solid var(--rule);border-left:4px solid var(--remove);
+  background:var(--surface);box-shadow:var(--shadow);
+  padding:22px 24px;margin:0 0 16px;
+}
+.alert.is-review{border-left-color:var(--review)}
+.alert h3{margin-bottom:8px}
+.alert p:last-child{margin-bottom:0}
+.alert .tag{
+  font-family:"IBM Plex Mono",monospace;font-size:.68rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:.1em;color:var(--remove);
+  display:block;margin-bottom:7px;
+}
+.alert.is-review .tag{color:var(--review)}
+
+/* compare rows */
+.cmp{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:14px 0}
+.cmp>div{background:var(--surface);padding:12px 14px;font-size:.9rem}
+.cmp .k{font-family:"IBM Plex Mono",monospace;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-faint);margin-bottom:5px}
+@media(min-width:620px){.cmp{grid-template-columns:1fr 1fr}}
+
+section{padding-top:56px}
+
+/* page block */
+.page{border-top:1px solid var(--rule);padding-top:26px;margin-top:34px}
+.page:first-of-type{border-top:none}
+.page-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:10px 18px;margin-bottom:6px}
+.slug{
+  font-family:"IBM Plex Mono",monospace;font-size:.82rem;color:var(--accent);
+  word-break:break-all;
+}
+.counts{
+  font-family:"IBM Plex Mono",monospace;font-size:.73rem;color:var(--ink-faint);
+  white-space:nowrap;letter-spacing:.03em;
+}
+.target{font-size:.87rem;color:var(--ink-soft);margin:8px 0 16px}
+.target .k{font-family:"IBM Plex Mono",monospace;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-faint);margin-right:7px}
+
+/* table */
+.tbl-scroll{overflow-x:auto;border:1px solid var(--rule);background:var(--surface);margin:0 0 16px}
+table{border-collapse:collapse;width:100%;min-width:660px;font-size:.87rem}
+th{
+  text-align:left;font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.09em;
+  color:var(--ink-faint);padding:11px 14px;border-bottom:1px solid var(--rule);
+  background:var(--surface-sunk);white-space:nowrap;
+}
+td{padding:11px 14px;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.term{font-family:"IBM Plex Mono",monospace;font-size:.83rem;font-weight:500;white-space:nowrap}
+td.why{color:var(--ink-soft);min-width:270px}
+td.act{color:var(--ink-soft);white-space:nowrap;font-size:.82rem}
+
+.chip{
+  display:inline-block;font-size:.66rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:.08em;padding:3px 8px;border-radius:2px;white-space:nowrap;
+}
+.chip.remove{background:var(--remove-soft);color:var(--remove)}
+.chip.review{background:var(--review-soft);color:var(--review)}
+.chip.keep{background:var(--keep-soft);color:var(--keep)}
+.chip.done{background:var(--surface-sunk);color:var(--ink-faint)}
+
+/* kept block */
+.kept{background:var(--surface-sunk);border:1px solid var(--rule);padding:15px 17px;margin-bottom:6px}
+.kept h4{margin-bottom:9px}
+.kept .terms{font-family:"IBM Plex Mono",monospace;font-size:.79rem;line-height:1.95;color:var(--ink-soft);word-spacing:.02em}
+.kept .terms b{color:var(--ink);font-weight:500}
+
+.note{font-size:.87rem;color:var(--ink-soft);border-left:2px solid var(--accent);padding-left:14px;margin:14px 0}
+
+ul,ol{padding-left:22px;margin:0 0 16px}
+li{margin-bottom:7px}
+li::marker{color:var(--ink-faint)}
+.mono-list li{font-family:"IBM Plex Mono",monospace;font-size:.84rem}
+
+.empty{
+  display:flex;align-items:center;gap:14px;padding:13px 16px;
+  border:1px dashed var(--rule);margin-bottom:8px;font-size:.9rem;
+}
+.empty .slug{flex:1}
+
+hr.rule{border:none;border-top:2px solid var(--ink);margin:64px 0 0}
+footer{padding-top:26px;font-size:.83rem;color:var(--ink-faint);font-family:"IBM Plex Mono",monospace}
+</style>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">Search Atlas · OTTO · Semantic Analysis</p>
+  <h1>Pipeliners NLP Term Audit</h1>
+  <p class="sub">Every NLP term OTTO has generated or deployed across pipelinersusa.com, judged against what the company actually sells — not against what the generator suggested.</p>
+  <div class="meta">
+    <span>20 Aug 2026</span>
+    <span>Project ca42c443</span>
+    <span>477 terms · 15 pages</span>
+    <span>Read-only · no changes made</span>
+  </div>
+</header>
+
+<div class="stats">
+  <div class="stat"><div class="stat-n">477</div><div class="stat-l">Terms audited</div></div>
+  <div class="stat is-keep"><div class="stat-n">312</div><div class="stat-l">Keep</div></div>
+  <div class="stat is-review"><div class="stat-n">79</div><div class="stat-l">Review</div></div>
+  <div class="stat is-remove"><div class="stat-n">86</div><div class="stat-l">Remove</div></div>
+  <div class="stat"><div class="stat-n">12</div><div class="stat-l">Pages with terms</div></div>
+  <div class="stat"><div class="stat-n">3</div><div class="stat-l">Pages empty</div></div>
+</div>
+
+<section>
+  <h2>Two things need attention before anything else</h2>
+  <div class="prose"><p>Both surfaced from comparing the Atlas Agent session transcript against live OTTO state.</p></div>
+
+  <div class="alert">
+    <span class="tag">Reported as done — is not done</span>
+    <h3>Buckeye's target keywords were never changed</h3>
+    <p>The agent session reports Buckeye retargeted to <code>trenchless sewer repair buckeye</code>, <code>pipe lining buckeye</code>, <code>trenchless pipe repair buckeye</code>, <code>pipe breaks buckeye</code>. Live OTTO still returns the original set.</p>
+    <div class="cmp">
+      <div><div class="k">Reported after</div><span class="mono">trenchless sewer repair buckeye · pipe lining buckeye · trenchless pipe repair buckeye · pipe breaks buckeye</span></div>
+      <div><div class="k">Actually live now</div><span class="mono">gas line repair buckeye · buckeye gas line repair · pipe breaks buckeye</span></div>
+    </div>
+    <p>Buckeye is still officially targeting a service Pipeliners does not sell. Because target keywords drive regeneration, OTTO will keep proposing gas content for this page until this is fixed — which is why the gas terms keep reappearing.</p>
+  </div>
+
+  <div class="alert is-review">
+    <span class="tag">Scope overrun</span>
+    <h3>19 more homepage terms were unapproved than were approved</h3>
+    <p>You approved 16 specific homepage terms and wrote <em>"do not remove or change any other homepage NLP terms."</em> Live state shows <strong>36 unapproved</strong>. Seventeen are accounted for (your 16 plus <code>natural gas</code>). The other nineteen were not on your list:</p>
+    <p class="mono" style="font-size:.83rem;color:var(--ink-soft)">products · resources · financing · contact · vortex · pipeline · pipeliner · carbon · construction · putty · epoxy putty · sink · silicone · adhesive · sealant · floor · mold · bathroom · home improvement</p>
+    <p>Most of these I would have flagged for removal anyway, so the outcome is largely fine. Three are not: <code>pipeline</code> and <code>pipeliner</code> are core vocabulary for a pipe restoration company, and <code>vortex</code> was flagged in the agent's own notes as "keep if referring to vortex cutting equipment" — then removed regardless. Those three are worth reinstating.</p>
+  </div>
+</section>
+
+<section>
+  <h2>How each term was judged</h2>
+  <div class="prose">
+    <p>A term earns <span class="chip keep">Keep</span> only if it survives all five tests: it matches the page topic, names a service Pipeliners actually performs, fits the target keyword's search intent, appears naturally in the surrounding copy, and makes sense for an Arizona service market.</p>
+    <p><span class="chip review">Review</span> means defensible but conditional — usually a term that belongs on some pages but not this one, or one that depends on a service decision only you can make.</p>
+    <p><span class="chip remove">Remove</span> means it fails at least one test outright.</p>
+    <p><span class="chip done">Done</span> marks terms already unapproved in OTTO. They're listed so the record is complete and so over-removals stay visible.</p>
+    <p class="note">Verified service scope, taken from the live site: trenchless drain pipe lining, ePIPE water-line restoration, CIPP, and hydro jetting. No water heaters, no gas lines, no fixtures, no excavation.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Page-by-page</h2>
+
+  <!-- HOMEPAGE -->
+  <div class="page">
+    <div class="page-head"><h3 class="slug">/</h3><span class="counts">99 terms · 63 deployed · 36 unapproved</span></div>
+    <p class="target"><span class="k">Targets</span> sewer pipe lining · pipeliners · epoxy pipe leak repair</p>
+    <div class="tbl-scroll"><table>
+      <thead><tr><th>Term</th><th>Status</th><th>Reason</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td class="term">industrial</td><td><span class="chip remove">Remove</span></td><td class="why">Pulls the oil &amp; gas pipeline entity. Pipeliners is residential and commercial property services, not industrial infrastructure.</td><td class="act">Unapprove</td></tr>
+        <tr><td class="term">steel</td><td><span class="chip remove">Remove</span></td><td class="why">Raw material with no service attached. Steel pipe is not a substrate they line.</td><td class="act">Unapprove</td></tr>
+        <tr><td class="term">stainless steel</td><td><span class="chip remove">Remove</span></td><td class="why">As above, and more strongly associated with fabrication and food service than plumbing.</td><td class="act">Unapprove</td></tr>
+        <tr><td class="term">metal</td><td><span class="chip remove">Remove</span></td><td class="why">Too broad to carry meaning. Reinforces the welding-and-fabrication misread of the brand.</td><td class="act">Unapprove</td></tr>
+        <tr><td class="term">iron</td><td><span class="chip remove">Remove</span></td><td class="why">Bare material term. <code>cast iron</code> and <code>cast iron pipe lining</code> already cover this properly.</td><td class="act">Unapprove</td></tr>
+        <tr><td class="term">concrete</td><td><span class="chip remove">Remove</span></td><td class="why">Construction material. Not a pipe substrate they service and not in the page copy in any service sense.</td><td class="act">Unapprove</td></tr>
+        <tr><td class="term">fiberglass</td><td><span class="chip remove">Remove</span></td><td class="why">Belongs to boats, insulation, and tubs far more than CIPP. Weak association that dilutes the liner vocabulary.</td><td class="act">Unapprove</td></tr>
+        <tr><td class="term">plastic</td><td><span class="chip remove">Remove</span></td><td class="why">Generic material. <code>pvc</code> is the precise, useful version already present.</td><td class="act">Unapprove</td></tr>
+        <tr><td class="term">plastic pipework</td><td><span class="chip remove">Remove</span></td><td class="why">British-English trade phrasing that no Arizona homeowner searches. Semantically forced.</td><td class="act">Unapprove</td></tr>
+        <tr><td class="term">drinking water</td><td><span class="chip remove">Remove</span></td><td class="why">Pulls water-quality, filtration, and treatment intent. ePIPE is a restoration service, not a potability service.</td><td class="act">Unapprove</td></tr>
+        <tr><td class="term">pipeline</td><td><span class="chip review">Review</span></td><td class="why">Already unapproved, and I would reinstate it. It's genuine vocabulary for a pipe company — but it is also the exact word feeding the oil &amp; gas confusion. Judgement call.</td><td class="act">Consider reinstating</td></tr>
+        <tr><td class="term">pipeliner</td><td><span class="chip review">Review</span></td><td class="why">Already unapproved. Singular form pulls the welding-apparel brand, but it is also the company's own name. Reinstating is low risk now that the welding cluster is gone.</td><td class="act">Consider reinstating</td></tr>
+        <tr><td class="term">vortex</td><td><span class="chip review">Review</span></td><td class="why">Already unapproved despite the agent flagging it as possibly legitimate equipment vocabulary. Decide deliberately rather than by accident.</td><td class="act">Your call</td></tr>
+        <tr><td class="term">pvc</td><td><span class="chip review">Review</span></td><td class="why">Real pipe substrate, so defensible — but as a bare material term it earns nothing on its own. Keep only if the copy discusses PVC specifically.</td><td class="act">Keep if in copy</td></tr>
+        <tr><td class="term">water</td><td><span class="chip review">Review</span></td><td class="why">Maximally broad. Harmless, contributes nothing.</td><td class="act">Low priority</td></tr>
+        <tr><td class="term">plumbers</td><td><span class="chip review">Review</span></td><td class="why">Pipeliners positions as a restoration specialist, not a plumber. Mild brand-position mismatch.</td><td class="act">Low priority</td></tr>
+        <tr><td class="term">pressure</td><td><span class="chip review">Review</span></td><td class="why">Ambiguous across hydro jetting, water pressure, and pipe rating. No clear intent.</td><td class="act">Low priority</td></tr>
+        <tr><td class="term">pipe diameter</td><td><span class="chip review">Review</span></td><td class="why">Technically relevant to lining spec, but near-zero search demand.</td><td class="act">Low priority</td></tr>
+        <tr><td class="term">water damage</td><td><span class="chip review">Review</span></td><td class="why">Pulls restoration-industry intent (flood remediation), a different trade that competes for the same query space.</td><td class="act">Low priority</td></tr>
+        <tr><td class="term">welding · pipeliners cloud · pipeliners cloud umbrella · eagle vision · revco · american welding society · pipefitter · gear · pumco pipeline · supply chain · machine · oil · carbon · construction</td><td><span class="chip done">Done</span></td><td class="why">The welding and oil &amp; gas entity cluster. Correctly removed — this was the single biggest source of brand confusion on the site.</td><td class="act">Verified</td></tr>
+        <tr><td class="term">putty · epoxy putty · adhesive · sealant · silicone · sandpaper · wood · mold · floor · sink · bathroom · home improvement · water heating · natural gas · products · resources · financing · contact · vortex companies</td><td><span class="chip done">Done</span></td><td class="why">DIY hardware intent, navigation labels, and out-of-scope services. Correctly removed.</td><td class="act">Verified</td></tr>
+      </tbody>
+    </table></div>
+    <div class="kept">
+      <h4>Keep — 43 terms</h4>
+      <p class="terms"><b>sewer pipe lining · sewer pipe lining near me · pipe lining · trenchless pipe lining · drain pipe lining · drain lining · cast iron pipe lining · cipp · cipp lining · cured in place · cured in place pipe lining · pipe relining · pipe relining near me · pipe relining cost · sewer pipe relining · sewer lining · sewer relining · lining · trenchless sewer · trenchless pipe · trenchless pipe repair · trenchless pipe repair near me · trenchless plumbing · sewer pipe replacement cost · sewer pipe cleaning · sewer clean out · sewer line · sewer · sewer pipe · sewer pipes · pipe · pipe repair · epoxy pipe repair · copper pipe repair · pinhole leaks · water pipe leak · leak repair · leak detection · leaks · leak · corrosion · cast iron · copper · epoxy · resin · water supply</b></p>
+    </div>
+  </div>
+
+  <!-- PHOENIX -->
+  <div class="page">
+    <div class="page-head"><h3 class="slug">/phoenix/</h3><span class="counts">74 terms · 68 deployed · 6 unapproved</span></div>
+    <p class="target"><span class="k">Targets</span> trenchless sewer repair phoenix · phoenix pipe break repair · sewer pipe relining in phoenix</p>
+    <div class="tbl-scroll"><table>
+      <thead><tr><th>Term</th><th>Status</th><th>Reason</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td class="term">basement</td><td><span class="chip remove">Remove</span></td><td class="why">Geographically wrong. Arizona homes are overwhelmingly slab-on-grade; basement plumbing content signals a non-local business.</td><td class="act">Unapprove</td></tr>
+        <tr><td class="term">filtration</td><td><span class="chip remove">Remove</span></td><td class="why">Water treatment is a different trade. Pipeliners does not sell filtration.</td><td class="act">Unapprove</td></tr>
+        <tr><td class="term">pipe bursting</td><td><span class="chip remove">Remove</span></td><td class="why">A trenchless <em>replacement</em> method Pipeliners does not offer — their pitch is restoring the existing pipe. Service mismatch, not just a weak term.</td><td class="act">Unapprove</td></tr>
+        <tr><td class="term">heavy equipment</td><td><span class="chip remove">Remove</span></td><td class="why">Directly contradicts the no-dig positioning. Only appears as a negative in copy ("without heavy equipment") — a poor thing to reinforce.</td><td class="act">Unapprove</td></tr>
+        <tr><td class="term">free estimates</td><td><span class="chip remove">Remove</span></td><td class="why">CTA boilerplate, not a topical signal.</td><td class="act">Unapprove</td></tr>
+        <tr><td class="term">schedule service</td><td><span class="chip remove">Remove</span></td><td class="why">Button label scraped as a term.</td><td class="act">Unapprove</td></tr>
+        <tr><td class="term">customer · customer satisfaction · warranty · property · yard · damage · damaged · debris · waste · soil · curing · landscape</td><td><span class="chip remove">Remove</span></td><td class="why">Generic page furniture with no search intent behind it. Twelve terms adding volume and no relevance.</td><td class="act">Unapprove</td></tr>
+        <tr><td class="term">trench</td><td><span class="chip review">Review</span></td><td class="why">Appears only in the negative sense ("no trench"). Reinforcing it risks matching excavation queries you don't want.</td><td class="act">Your call</td></tr>
+        <tr><td class="term">sewage</td><td><span class="chip review">Review</span></td><td class="why">Municipal-scale connotation. Fine if the page discusses backups; weak otherwise.</td><td class="act">Keep if in copy</td></tr>
+        <tr><td class="term">plumbing company</td><td><span class="chip review">Review</span></td><td class="why">Same positioning mismatch as <code>plumbers</code> on the homepage.</td><td class="act">Low priority</td></tr>
+        <tr><td class="term">drainage</td><td><span class="chip review">Review</span></td><td class="why">Pulls landscape and stormwater drainage intent, a different service category.</td><td class="act">Low priority</td></tr>
+        <tr><td class="term">tempe · paradise valley · peoria · email address · skip to content · required</td><td><span class="chip done">Done</span></td><td class="why">Cross-city cannibalization and scraper artifacts. Correctly removed.</td><td class="act">Verified</td></tr>
+      </tbody>
+    </table></div>
+    <div class="kept">
+      <h4>Keep — 49 terms</h4>
+      <p class="terms"><b>trenchless sewer repair · trenchless sewer replacement · trenchless sewer line · trenchless pipe repair · trenchless pipe lining · trenchless technology · trenchless · sewer pipe relining · sewer line repair · sewer line replacement · sewer line · sewer lines · sewer repair · sewer services · sewer · main sewer · repair sewer line · cipp lining · cipp pipe lining · epoxy pipe lining · epoxy pipe · epoxy · pipe lining · pipe rehabilitation · pipe replacement · pipe repair · pipe · drain · resin · coating · corrosion · cast iron · cast iron pipe · leak detection · leak · leaks · burst pipe · burst pipes · repair burst pipes · plumbing system · inspection · environmentally friendly</b></p>
+    </div>
+  </div>
+
+  <!-- MESA BLOG -->
+  <div class="page">
+    <div class="page-head"><h3 class="slug">/sewer-camera-inspection-near-me-in-mesa-az…/</h3><span class="counts">50 terms · 38 deployed · 12 unapproved</span></div>
+    <p class="target"><span class="k">Targets</span> sewer camera inspection · sewer camera inspection near me · sewer camera inspection apache junction</p>
+    <div class="alert is-review" style="margin-bottom:16px">
+      <span class="tag">Over-removal on this page</span>
+      <p style="margin:0">Six strong, on-topic terms were unapproved here alongside the legitimate water-heater cleanup: <span class="mono">sewer inspection cameras · sewer lines · sewer inspection near me · drain line camera · sewer inspection services · sewer pipe</span>. Every one of them is core vocabulary for a sewer camera inspection guide. I'd reinstate all six.</p>
+    </div>
+    <div class="tbl-scroll"><table>
+      <thead><tr><th>Term</th><th>Status</th><th>Reason</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td class="term">sewer inspection cameras · sewer inspection near me · sewer inspection services · drain line camera · sewer lines · sewer pipe</td><td><span class="chip review">Review</span></td><td class="why">Unapproved, but all six are directly on-topic for a camera inspection guide and match the target keyword's intent precisely. This looks like collateral damage from the water-heater sweep.</td><td class="act">Reinstate</td></tr>
+        <tr><td class="term">schedule service</td><td><span class="chip remove">Remove</span></td><td class="why">CTA boilerplate.</td><td class="act">Unapprove</td></tr>
+        <tr><td class="term">free quote</td><td><span class="chip remove">Remove</span></td><td class="why">CTA boilerplate.</td><td class="act">Unapprove</td></tr>
+        <tr><td class="term">installation</td><td><span class="chip remove">Remove</span></td><td class="why">Bare verb with no object. An inspection guide has nothing to install.</td><td class="act">Unapprove</td></tr>
+        <tr><td class="term">inspection · inspections</td><td><span class="chip review">Review</span></td><td class="why">Redundant against the eleven precise inspection phrases already present. Harmless but adds nothing.</td><td class="act">Low priority</td></tr>
+        <tr><td class="term">repair</td><td><span class="chip review">Review</span></td><td class="why">Bare verb. The specific repair phrases on the page carry the meaning.</td><td class="act">Low priority</td></tr>
+        <tr><td class="term">plumber with camera near me</td><td><span class="chip review">Review</span></td><td class="why">Real query with real intent, but frames Pipeliners as a general plumber. Consistent with the positioning question across the site.</td><td class="act">Your call</td></tr>
+        <tr><td class="term">water heater replacement · water heater repair · water heater installation · tankless water heater · water heaters · paradise valley</td><td><span class="chip done">Done</span></td><td class="why">Out-of-scope service cluster plus a city that belongs to another page. Correctly removed.</td><td class="act">Verified</td></tr>
+      </tbody>
+    </table></div>
+    <div class="kept">
+      <h4>Keep — 31 terms</h4>
+      <p class="terms"><b>sewer camera inspection · sewer camera inspection near me · sewer camera inspections · sewer camera · sewer scope · sewer scope near me · sewer scope inspection near me · sewer line camera · sewer line inspection · sewer line inspections · sewer inspection · sewer inspections · sewer inspection camera · pipe inspection camera · pipe camera · drain camera · drain camera inspection · plumbing camera · plumbing camera inspection · video inspection · video camera inspection · video pipe inspection · root intrusion · sewer line problems · sewer line issues · sewer line repair · main sewer line · sewer line · sewer pipes · sewer · drain</b></p>
+    </div>
+  </div>
+
+  <!-- FORT MCDOWELL -->
+  <div class="page">
+    <div class="page-head"><h3 class="slug">/fort-mcdowell/</h3><span class="counts">40 terms · 36 deployed · 4 unapproved</span></div>
+    <p class="target"><span class="k">Targets</span> clogged drain fort mcdowell · drain snaking fort mcdowell · drain line repair fort mcdowell</p>
+    <div class="tbl-scroll"><table>
+      <thead><tr><th>Term</th><th>Status</th><th>Reason</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td class="term">hdpe</td><td><span class="chip remove">Remove</span></td><td class="why">The pipe material used in pipe bursting — a method Pipeliners doesn't offer. Signals the wrong service.</td><td class="act">Unapprove</td></tr>
+        <tr><td class="term">professional · professional drain · professional plumbing · professional installation</td><td><span class="chip remove">Remove</span></td><td class="why">Four variations of an empty adjective. Nobody searches these, and they read as filler if surfaced in copy.</td><td class="act">Unapprove</td></tr>
+        <tr><td class="term">serve</td><td><span class="chip remove">Remove</span></td><td class="why">Sentence fragment scraped from body copy.</td><td class="act">Unapprove</td></tr>
+        <tr><td class="term">valley</td><td><span class="chip remove">Remove</span></td><td class="why">Orphaned half of a place name. Meaningless alone.</td><td class="act">Unapprove</td></tr>
+        <tr><td class="term">technicians</td><td><span class="chip remove">Remove</span></td><td class="why">Generic staffing noun with no search intent.</td><td class="act">Unapprove</td></tr>
+        <tr><td class="term">water systems</td><td><span class="chip remove">Remove</span></td><td class="why">Vague, and drifts toward water treatment rather than pipe restoration.</td><td class="act">Unapprove</td></tr>
+        <tr><td class="term">cleaning services</td><td><span class="chip remove">Remove</span></td><td class="why">Reads as janitorial. Wrong industry entirely.</td><td class="act">Unapprove</td></tr>
+        <tr><td class="term">free estimate</td><td><span class="chip remove">Remove</span></td><td class="why">CTA boilerplate.</td><td class="act">Unapprove</td></tr>
+        <tr><td class="term">emergency services · emergency plumbing services</td><td><span class="chip review">Review</span></td><td class="why">Only keep if Pipeliners genuinely runs emergency callouts. Trenchless lining is a scheduled job, so this may set the wrong expectation.</td><td class="act">Confirm service</td></tr>
+        <tr><td class="term">drain cleaners</td><td><span class="chip review">Review</span></td><td class="why">Ambiguous between the trade and the chemical product. Hydro jetting is the service you'd want matched here.</td><td class="act">Your call</td></tr>
+        <tr><td class="term">repair services · repair</td><td><span class="chip review">Review</span></td><td class="why">Bare verbs already covered by the specific repair phrases on the page.</td><td class="act">Low priority</td></tr>
+        <tr><td class="term">gas line · gas line installation · water heater · water heater repair</td><td><span class="chip done">Done</span></td><td class="why">Out-of-scope services. Correctly removed.</td><td class="act">Verified</td></tr>
+      </tbody>
+    </table></div>
+    <div class="kept">
+      <h4>Keep — 21 terms</h4>
+      <p class="terms"><b>fort mcdowell · trenchless sewer repair · trenchless sewer line · trenchless sewer · trenchless pipe repair · trenchless repair · trenchless · pipe lining · pipe repair · sewer line repair · sewer line replacement · sewer line · main sewer line · sewer repair · sewer pipe · sewer · drain · drain cleaning · plumbing services · installation</b></p>
+    </div>
+  </div>
+
+  <!-- WHAT IS CIPP -->
+  <div class="page">
+    <div class="page-head"><h3 class="slug">/what-is-cipp/</h3><span class="counts">37 terms · 37 deployed · 0 unapproved</span></div>
+    <p class="target"><span class="k">Targets</span> cipp sewer lining · what is cipp lining · cipp lining</p>
+    <div class="tbl-scroll"><table>
+      <thead><tr><th>Term</th><th>Status</th><th>Reason</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td class="term">sliplining</td><td><span class="chip review">Review</span></td><td class="why">A distinct trenchless method, not CIPP. Legitimate on an explainer page that contrasts methods; misleading if the page implies Pipeliners performs it.</td><td class="act">Keep if contrasted</td></tr>
+        <tr><td class="term">pipe replacement</td><td><span class="chip review">Review</span></td><td class="why">The thing CIPP is sold as an alternative to. Fine as contrast, but it does pull replacement intent toward a page that should convert it away.</td><td class="act">Keep if contrasted</td></tr>
+        <tr><td class="term">homeowner</td><td><span class="chip review">Review</span></td><td class="why">Audience noun, not a topic. No search value.</td><td class="act">Low priority</td></tr>
+        <tr><td class="term">installers</td><td><span class="chip review">Review</span></td><td class="why">Generic trade noun.</td><td class="act">Low priority</td></tr>
+        <tr><td class="term">repair</td><td><span class="chip review">Review</span></td><td class="why">Bare verb, redundant against the CIPP-specific repair phrases.</td><td class="act">Low priority</td></tr>
+      </tbody>
+    </table></div>
+    <div class="kept">
+      <h4>Keep — 32 terms. The strongest page on the site.</h4>
+      <p class="terms"><b>cipp · cipp lining · cipp liner · cipp piping · cipp pipe · cipp repair · cipp installation · cipp liner installation · cipp pipe lining · cipp pipe lining cost · cipp pipe lining near me · cipp pipe lining contractors · cipp lining cost · cipp lining companies · cipp lining contractors · cipp sewer lining · cipp sewer repair · what is cipp lining · cured in place · uv pipe lining · uv cured pipe lining · trenchless technology · trenchless rehabilitation · pipe lining · pipe liner · sewer lining · sewer line · sewer · water pipe repairs · epoxy resin · resin · pipeline</b></p>
+    </div>
+  </div>
+
+  <!-- SAN TAN VALLEY -->
+  <div class="page">
+    <div class="page-head"><h3 class="slug">/san-tan-valley/</h3><span class="counts">29 terms · 27 deployed · 2 unapproved</span></div>
+    <p class="target"><span class="k">Targets</span> pipe descaling san tan valley · emergency sewer repair san tan valley · main line backup san tan valley</p>
+    <div class="tbl-scroll"><table>
+      <thead><tr><th>Term</th><th>Status</th><th>Reason</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td class="term">excavation</td><td><span class="chip remove">Remove</span></td><td class="why">The single most off-message term on the site. Pipeliners sells not digging; this term sells digging.</td><td class="act">Unapprove</td></tr>
+        <tr><td class="term">queen creek</td><td><span class="chip remove">Remove</span></td><td class="why">Queen Creek has its own page. Direct cannibalization.</td><td class="act">Unapprove</td></tr>
+        <tr><td class="term">replaced · repaired · repairs · replacement · repair</td><td><span class="chip remove">Remove</span></td><td class="why">Five conjugations of the same two verbs. Pure noise against the specific service phrases already present.</td><td class="act">Unapprove</td></tr>
+        <tr><td class="term">valley</td><td><span class="chip remove">Remove</span></td><td class="why">Orphaned fragment of the city name.</td><td class="act">Unapprove</td></tr>
+        <tr><td class="term">drains</td><td><span class="chip remove">Remove</span></td><td class="why">Plural duplicate of <code>drain</code>.</td><td class="act">Unapprove</td></tr>
+        <tr><td class="term">emergency plumbing · emergency plumbing repairs · emergency plumbing services · plumbing repair</td><td><span class="chip review">Review</span></td><td class="why">The page targets <code>emergency sewer repair san tan valley</code>, so emergency framing is intentional here — but confirm Pipeliners actually offers emergency response before reinforcing four variants of it.</td><td class="act">Confirm service</td></tr>
+        <tr><td class="term">kitchen drain cleaning</td><td><span class="chip review">Review</span></td><td class="why">Fixture-level drain cleaning is closer to rooter work than trenchless restoration. Defensible only via hydro jetting.</td><td class="act">Your call</td></tr>
+        <tr><td class="term">plumbing solutions</td><td><span class="chip review">Review</span></td><td class="why">Marketing filler with no search demand.</td><td class="act">Low priority</td></tr>
+        <tr><td class="term">water heater · skip to content</td><td><span class="chip done">Done</span></td><td class="why">Out-of-scope service and a scraper artifact. Correctly removed.</td><td class="act">Verified</td></tr>
+      </tbody>
+    </table></div>
+    <div class="kept">
+      <h4>Keep — 13 terms</h4>
+      <p class="terms"><b>san tan valley · sewer line · sewer line issues · sewer line replacement · sewer · main sewer · main sewer line · main water line · water line repair · drain · drain cleaning · plumbing services</b></p>
+      <p class="note" style="margin:12px 0 0">Note the gap: this page targets <code>pipe descaling</code> and has no descaling term at all, and no trenchless or lining term either. See page-specific issues below.</p>
+    </div>
+  </div>
+
+  <!-- PARADISE VALLEY -->
+  <div class="page">
+    <div class="page-head"><h3 class="slug">/paradise-valley/</h3><span class="counts">29 terms · 27 deployed · 2 unapproved</span></div>
+    <p class="target"><span class="k">Targets</span> pipe descaling paradise valley · slab leak repair paradise valley · drain line repair paradise valley</p>
+    <div class="tbl-scroll"><table>
+      <thead><tr><th>Term</th><th>Status</th><th>Reason</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td class="term">scottsdale</td><td><span class="chip remove">Remove</span></td><td class="why">Scottsdale has its own page. Cannibalization.</td><td class="act">Unapprove</td></tr>
+        <tr><td class="term">expert plumbing · plumbing solutions · plumbing systems · plumbing company · professional</td><td><span class="chip remove">Remove</span></td><td class="why">Five generic plumbing-adjacent phrases with no search demand and the wrong positioning.</td><td class="act">Unapprove</td></tr>
+        <tr><td class="term">slab leak · slab leaks · slab leak repair · slab leak repairs · slab leak detection · electronic leak detection</td><td><span class="chip review">Review</span></td><td class="why">Six terms for a service not on Pipeliners' published list. ePIPE covers water lines under slab, so it's arguably adjacent — but this is the same category of mismatch as Buckeye's gas terms. One decision covers all six, and it's yours.</td><td class="act">Confirm service</td></tr>
+        <tr><td class="term">repair</td><td><span class="chip review">Review</span></td><td class="why">Bare verb.</td><td class="act">Low priority</td></tr>
+        <tr><td class="term">water heater · service services</td><td><span class="chip done">Done</span></td><td class="why">Out-of-scope service and a garbled scraper phrase. Correctly removed.</td><td class="act">Verified</td></tr>
+      </tbody>
+    </table></div>
+    <div class="kept">
+      <h4>Keep — 11 terms</h4>
+      <p class="terms"><b>paradise valley · trenchless sewer · trenchless sewer repair · trenchless · sewer · sewer repair · sewer line · sewer camera · drain · drain cleaning · leak detection · leaks · leak</b></p>
+      <p class="note" style="margin:12px 0 0">Same gap as San Tan Valley: targets <code>pipe descaling</code>, has no descaling term.</p>
+    </div>
+  </div>
+
+  <!-- CHANDLER -->
+  <div class="page">
+    <div class="page-head"><h3 class="slug">/chandler/</h3><span class="counts">29 terms · 25 deployed · 4 unapproved</span></div>
+    <p class="target"><span class="k">Targets</span> drain line repair chandler · sewer line repair in chandler az · trenchless sewer repair chandler</p>
+    <div class="tbl-scroll"><table>
+      <thead><tr><th>Term</th><th>Status</th><th>Reason</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td class="term">emergency plumbing services</td><td><span class="chip review">Review</span></td><td class="why">Same question as elsewhere — confirm emergency response is a real offering before reinforcing it.</td><td class="act">Confirm service</td></tr>
+        <tr><td class="term">repair</td><td><span class="chip review">Review</span></td><td class="why">Bare verb, redundant.</td><td class="act">Low priority</td></tr>
+        <tr><td class="term">trenchless sewer repairs</td><td><span class="chip review">Review</span></td><td class="why">Plural duplicate of <code>trenchless sewer repair</code>. Harmless, but it's padding the count.</td><td class="act">Low priority</td></tr>
+        <tr><td class="term">water heater · water heater repair · skip to content · required</td><td><span class="chip done">Done</span></td><td class="why">Out-of-scope service and scraper artifacts. Correctly removed.</td><td class="act">Verified</td></tr>
+      </tbody>
+    </table></div>
+    <div class="kept">
+      <h4>Keep — 22 terms. One of the cleanest city pages.</h4>
+      <p class="terms"><b>chandler · maricopa county · trenchless sewer repair · trenchless sewer line · trenchless sewer · trenchless pipe repair · trenchless pipe · trenchless repair · trenchless · sewer line repair · sewer line services · sewer line issues · sewer line problems · sewer line · sewer repair · sewer camera inspection · sewer pipe · sewer · pipe repair · drain · drain cleaning · plumbing services</b></p>
+    </div>
+  </div>
+
+  <!-- TEMPE -->
+  <div class="page">
+    <div class="page-head"><h3 class="slug">/tempe/</h3><span class="counts">27 terms · 22 deployed · 5 unapproved</span></div>
+    <p class="target"><span class="k">Targets</span> sewer line repair tempe · drain line repair tempe · sewer line repair in tempe az</p>
+    <div class="tbl-scroll"><table>
+      <thead><tr><th>Term</th><th>Status</th><th>Reason</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td class="term">asu</td><td><span class="chip review">Review</span></td><td class="why">A real Tempe landmark, so locally coherent — but it carries no service intent and no commercial value. Same class of association that produced <code>ohio state university</code> on Buckeye.</td><td class="act">Your call</td></tr>
+        <tr><td class="term">plumber in tempe</td><td><span class="chip review">Review</span></td><td class="why">Real local query, but positions Pipeliners as a general plumber rather than a restoration specialist.</td><td class="act">Your call</td></tr>
+        <tr><td class="term">residential plumbing</td><td><span class="chip review">Review</span></td><td class="why">Broad category term. Residential is the right market; "plumbing" is the wrong service framing.</td><td class="act">Low priority</td></tr>
+        <tr><td class="term">plumbing company · emergency plumbing services</td><td><span class="chip review">Review</span></td><td class="why">Positioning mismatch plus the unconfirmed emergency offering.</td><td class="act">Confirm service</td></tr>
+        <tr><td class="term">repair · sewer repair services</td><td><span class="chip review">Review</span></td><td class="why">Bare verb and a near-duplicate of <code>sewer repair</code>.</td><td class="act">Low priority</td></tr>
+        <tr><td class="term">nuflow</td><td><span class="chip done">Done</span></td><td class="why">Competing pipe-lining franchise. The single best catch in the whole cleanup — this was actively reinforcing a competitor's brand on your page.</td><td class="act">Verified</td></tr>
+        <tr><td class="term">water heater · water heater installation · repair water heater · skip to content</td><td><span class="chip done">Done</span></td><td class="why">Out-of-scope service and a scraper artifact. Correctly removed.</td><td class="act">Verified</td></tr>
+      </tbody>
+    </table></div>
+    <div class="kept">
+      <h4>Keep — 15 terms</h4>
+      <p class="terms"><b>tempe · trenchless sewer repair · trenchless sewer line · trenchless sewer · sewer pipe relining · sewer line repair · sewer line services · sewer line issues · sewer line · sewer repair · sewer camera inspection · sewer · drain · drain cleaning · plumbing services</b></p>
+    </div>
+  </div>
+
+  <!-- HOW PLUMBERS -->
+  <div class="page">
+    <div class="page-head"><h3 class="slug">/how-plumbers-use-cured-in-place-pipe-lining…/</h3><span class="counts">25 terms · 25 deployed · 0 unapproved</span></div>
+    <p class="target"><span class="k">Targets</span> cured in place pipe lining · cured in place pipe · cured in place pipe liner testing</p>
+    <div class="tbl-scroll"><table>
+      <thead><tr><th>Term</th><th>Status</th><th>Reason</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td class="term">cured</td><td><span class="chip review">Review</span></td><td class="why">Orphaned fragment of "cured in place". Meaningless alone.</td><td class="act">Unapprove or ignore</td></tr>
+        <tr><td class="term">pipe replacement</td><td><span class="chip review">Review</span></td><td class="why">The alternative CIPP displaces. Fine as contrast on an explainer page.</td><td class="act">Keep if contrasted</td></tr>
+      </tbody>
+    </table></div>
+    <div class="kept">
+      <h4>Keep — 23 terms. Second-cleanest page on the site.</h4>
+      <p class="terms"><b>cipp · cipp lining · cipp liner · cipp pipe · cipp repair · cipp pipe repair · cipp pipe lining · cipp pipe lining cost · cipp pipe lining near me · cipp pipe lining contractors · cipp liner installation · cipp lining companies · cipp sewer lining · cipp sewer repair · uv cipp liner · cured in place · cured in place pipe · pipe lining · pipe relining · pipe rehabilitation · pipe repairs · water pipe repairs · trenchless technology</b></p>
+    </div>
+  </div>
+
+  <!-- BUCKEYE -->
+  <div class="page">
+    <div class="page-head"><h3 class="slug">/buckeye/</h3><span class="counts">20 terms · 9 deployed · 11 unapproved</span></div>
+    <p class="target"><span class="k">Targets</span> gas line repair buckeye · buckeye gas line repair · pipe breaks buckeye</p>
+    <div class="alert" style="margin-bottom:16px">
+      <span class="tag">Page is now effectively empty</span>
+      <p style="margin:0">The gas cleanup was right, but it removed everything topical and left nine generic words behind. Buckeye currently has <strong>zero</strong> trenchless, lining, CIPP, or sewer terms — and it is still targeting gas line repair. This page needs rebuilding, not pruning.</p>
+    </div>
+    <div class="tbl-scroll"><table>
+      <thead><tr><th>Term</th><th>Status</th><th>Reason</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td class="term">request service · estimate</td><td><span class="chip remove">Remove</span></td><td class="why">Form and button labels scraped as terms.</td><td class="act">Unapprove</td></tr>
+        <tr><td class="term">repair · repair services · leak · leak repair</td><td><span class="chip review">Review</span></td><td class="why">Bare verbs. Not wrong, but they're all that's holding the page up right now — they need real service terms around them to mean anything.</td><td class="act">Keep pending rebuild</td></tr>
+        <tr><td class="term">plumbing services · residential plumbing</td><td><span class="chip review">Review</span></td><td class="why">Generic category framing, and the only two "service" terms left on the page.</td><td class="act">Keep pending rebuild</td></tr>
+        <tr><td class="term">pipe burst</td><td><span class="chip keep">Keep</span></td><td class="why">The one genuinely on-topic term remaining, and it matches the surviving target <code>pipe breaks buckeye</code>.</td><td class="act">Keep</td></tr>
+        <tr><td class="term">gas line repair · gas line · gas leak · gas lines · gas line services · gas line installation · faucet installation</td><td><span class="chip done">Done</span></td><td class="why">Services Pipeliners does not offer. Correctly removed.</td><td class="act">Verified</td></tr>
+        <tr><td class="term">ohio state university · spring semester</td><td><span class="chip done">Done</span></td><td class="why">"Buckeye" resolved to the Ohio State mascot rather than the Arizona city. Correctly removed.</td><td class="act">Verified</td></tr>
+        <tr><td class="term">installation · required</td><td><span class="chip done">Done</span></td><td class="why">Bare verb and form label. Correctly removed.</td><td class="act">Verified</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <!-- GLENDALE -->
+  <div class="page">
+    <div class="page-head"><h3 class="slug">/glendale/</h3><span class="counts">18 terms · 16 deployed · 2 unapproved</span></div>
+    <p class="target"><span class="k">Targets</span> sewer repair in glendale · pipe lining company · pipe restoration</p>
+    <div class="tbl-scroll"><table>
+      <thead><tr><th>Term</th><th>Status</th><th>Reason</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td class="term">restoration</td><td><span class="chip review">Review</span></td><td class="why">Alone it reads as water-damage restoration — a different trade competing for the same queries. <code>pipe restoration</code> is the version that works.</td><td class="act">Your call</td></tr>
+        <tr><td class="term">repair</td><td><span class="chip review">Review</span></td><td class="why">Bare verb.</td><td class="act">Low priority</td></tr>
+        <tr><td class="term">drain cleaning drain · repair shop</td><td><span class="chip done">Done</span></td><td class="why">A garbled scrape and an auto-trade term. Correctly removed.</td><td class="act">Verified</td></tr>
+      </tbody>
+    </table></div>
+    <div class="kept">
+      <h4>Keep — 14 terms</h4>
+      <p class="terms"><b>trenchless sewer · pipe lining company · pipe restoration · pipe repair · root intrusion · sewer line · sewer line repair · sewer line services · sewer line replacement · sewer line cleaning · main sewer line · sewer issues · sewer pipes · sewer · drain cleaning</b></p>
+      <p class="note" style="margin:12px 0 0">Glendale carries no city term for itself — no <code>glendale</code> in the list, where Chandler, Tempe, and Paradise Valley all have theirs.</p>
+    </div>
+  </div>
+
+  <!-- EMPTY -->
+  <div class="page">
+    <h3 style="margin-bottom:14px">Pages with no NLP terms at all</h3>
+    <div class="empty"><span class="slug">/mesa/</span><span class="counts">0 terms</span></div>
+    <div class="empty"><span class="slug">/florence/</span><span class="counts">0 terms</span></div>
+    <div class="empty"><span class="slug">/reline-vs-replace-best-options-for-drain-and-sewer-pipes/</span><span class="counts">0 terms</span></div>
+    <p class="note">Mesa is the bigger problem — it targets <code>trenchless sewer repair mesa</code>, Mesa generates more homepage impressions than any other city, and the page has no semantic support whatsoever.</p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section>
+  <h2>1 · Major problems found</h2>
+  <div class="prose">
+    <p><strong>Brand-name entity collision is the root cause of the worst terms.</strong> "Pipeliners" collides with Pipeliners Cloud (welding apparel) and with the oil &amp; gas pipeline trade. That single ambiguity produced nineteen homepage terms — <code>welding</code>, <code>american welding society</code>, <code>revco</code>, <code>pumco pipeline</code>, <code>pipefitter</code> — none of which have anything to do with the business. It will recur unless the entity signal is strengthened.</p>
+    <p><strong>City names resolve to the wrong place.</strong> "Buckeye" returned the Ohio State mascot and <code>spring semester</code>. This is the same failure mode as the brand collision, applied to geography.</p>
+    <p><strong>Page furniture is being scraped as vocabulary.</strong> <code>skip to content</code>, <code>required</code>, <code>email address</code>, <code>request service</code>, <code>free quote</code>, <code>schedule service</code>. These come from navigation, buttons, and form validation — not content.</p>
+    <p><strong>Out-of-service terms cluster around adjacent trades.</strong> Water heaters appeared on six pages, gas lines on two, faucets on one. OTTO infers "plumbing company" from context and fills in the standard plumbing service menu, most of which Pipeliners doesn't sell.</p>
+    <p><strong>City pages cannibalize each other.</strong> Phoenix carried <code>tempe</code>, <code>paradise valley</code>, and <code>peoria</code>; San Tan Valley carries <code>queen creek</code>; Paradise Valley carries <code>scottsdale</code>. Each of those cities has its own page.</p>
+    <p><strong>Bare verbs and fragments inflate the count without adding meaning.</strong> <code>repair</code>, <code>repaired</code>, <code>replaced</code>, <code>installation</code>, <code>serve</code>, <code>cured</code>, <code>valley</code>, <code>professional</code>. Roughly forty terms across the site are this class.</p>
+    <p><strong>And the cleanup itself over-reached twice</strong> — nineteen unapproved homepage terms beyond the approved list, and six good inspection terms removed from the Mesa guide. Worth knowing that the correction needs correcting.</p>
+  </div>
+</section>
+
+<section>
+  <h2>2 · Terms that should be removed</h2>
+  <div class="prose"><p>Still live, and clearly wrong. 44 terms.</p></div>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Page</th><th>Remove</th></tr></thead>
+    <tbody>
+      <tr><td class="term">/</td><td class="why mono">industrial · steel · stainless steel · metal · iron · concrete · fiberglass · plastic · plastic pipework · drinking water</td></tr>
+      <tr><td class="term">/phoenix/</td><td class="why mono">basement · filtration · pipe bursting · heavy equipment · free estimates · schedule service · customer · customer satisfaction · warranty · property · yard · damage · damaged · debris · waste · soil · curing · landscape</td></tr>
+      <tr><td class="term">/fort-mcdowell/</td><td class="why mono">hdpe · professional · professional drain · professional plumbing · professional installation · serve · valley · technicians · water systems · cleaning services · free estimate</td></tr>
+      <tr><td class="term">/san-tan-valley/</td><td class="why mono">excavation · queen creek · replaced · repaired · repairs · replacement · valley · drains</td></tr>
+      <tr><td class="term">/paradise-valley/</td><td class="why mono">scottsdale · expert plumbing · plumbing solutions · plumbing systems · plumbing company · professional</td></tr>
+      <tr><td class="term">/sewer-camera-inspection…/</td><td class="why mono">schedule service · free quote · installation</td></tr>
+      <tr><td class="term">/buckeye/</td><td class="why mono">request service · estimate</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section>
+  <h2>3 · Terms that should be kept</h2>
+  <div class="prose"><p>The genuinely strong vocabulary already deployed — this is the asset worth protecting through any further cleanup.</p></div>
+  <div class="kept">
+    <h4>Core service vocabulary</h4>
+    <p class="terms"><b>trenchless pipe lining · trenchless pipe repair · trenchless sewer repair · trenchless sewer replacement · trenchless sewer line · trenchless technology · trenchless rehabilitation · trenchless plumbing · cipp lining · cipp pipe lining · cipp liner · cipp sewer lining · cipp installation · cured in place · cured in place pipe lining · uv cured pipe lining · uv pipe lining · pipe lining · pipe relining · pipe rehabilitation · pipe restoration · sewer pipe lining · sewer pipe relining · sewer lining · sewer relining · drain lining · drain pipe lining · cast iron pipe lining · epoxy pipe lining · epoxy pipe repair · epoxy resin · resin</b></p>
+  </div>
+  <div class="kept">
+    <h4>Problem and diagnostic vocabulary</h4>
+    <p class="terms"><b>root intrusion · tree root intrusion · corrosion · pinhole leaks · burst pipe · burst pipes · pipe burst · sewer line problems · sewer line issues · sewer issues · leak detection · water pipe leak · cast iron · copper · copper pipe repair · sewer camera inspection · sewer scope · sewer line camera · video pipe inspection · pipe inspection camera</b></p>
+  </div>
+  <div class="kept">
+    <h4>Commercial and local intent</h4>
+    <p class="terms"><b>pipe relining near me · pipe relining cost · cipp pipe lining cost · cipp lining cost · cipp pipe lining near me · cipp pipe lining contractors · cipp lining contractors · cipp lining companies · sewer pipe lining near me · trenchless pipe repair near me · pipe lining company · sewer pipe replacement cost · maricopa county · chandler · tempe · paradise valley · san tan valley · fort mcdowell</b></p>
+  </div>
+</section>
+
+<section>
+  <h2>4 · Page-specific issues</h2>
+  <div class="prose">
+    <p>Pages where the NLP terms don't match the page's own target keyword or service.</p>
+  </div>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Page</th><th>Mismatch</th><th>What it means</th></tr></thead>
+    <tbody>
+      <tr><td class="term">/buckeye/</td><td class="why">Targets gas line repair. Sells trenchless restoration. Nine generic terms left, none topical.</td><td class="act">Retarget and rebuild</td></tr>
+      <tr><td class="term">/san-tan-valley/</td><td class="why">Targets <code>pipe descaling</code>. Has no descaling term, no trenchless term, and no lining term.</td><td class="act">Add core vocabulary</td></tr>
+      <tr><td class="term">/paradise-valley/</td><td class="why">Targets <code>pipe descaling</code> and <code>slab leak repair</code>. Has no descaling term; slab leak is an unconfirmed service.</td><td class="act">Confirm scope, then add</td></tr>
+      <tr><td class="term">/mesa/</td><td class="why">Targets <code>trenchless sewer repair mesa</code>. Zero terms. Highest-impression city on the site.</td><td class="act">Generate terms</td></tr>
+      <tr><td class="term">/florence/</td><td class="why">Targets three service keywords. Zero terms.</td><td class="act">Generate terms</td></tr>
+      <tr><td class="term">/reline-vs-replace…/</td><td class="why">A comparison article on the core service. Zero terms.</td><td class="act">Generate terms</td></tr>
+      <tr><td class="term">/glendale/</td><td class="why">Targets <code>sewer repair in glendale</code> but carries no <code>glendale</code> term.</td><td class="act">Add city term</td></tr>
+      <tr><td class="term">/fort-mcdowell/</td><td class="why">Targets drain snaking and clogged drains — rooter work, not trenchless. Terms follow the page, but the page targets the wrong service.</td><td class="act">Review targeting</td></tr>
+      <tr><td class="term">/phoenix/</td><td class="why">Carries <code>pipe bursting</code>, a trenchless method not offered.</td><td class="act">Remove term</td></tr>
+      <tr><td class="term">Site-wide</td><td class="why">27 of 37 city pages and all 10 service pages have no NLP terms at all.</td><td class="act">Biggest opportunity</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section>
+  <h2>5 · Recommended corrections</h2>
+  <div class="prose">
+    <p><strong>First — fix Buckeye's target keywords.</strong> Nothing else on that page holds until this does, and it's the item reported as complete that isn't. Retarget to <code>trenchless sewer repair buckeye</code>, <code>pipe lining buckeye</code>, <code>pipe breaks buckeye</code>. Dashboard only; the API can't write this field.</p>
+    <p><strong>Second — reinstate the nine over-removed terms.</strong> Six on the Mesa inspection guide (<code>sewer inspection cameras</code>, <code>sewer lines</code>, <code>sewer inspection near me</code>, <code>drain line camera</code>, <code>sewer inspection services</code>, <code>sewer pipe</code>) and <code>pipeline</code>, <code>pipeliner</code>, <code>vortex</code> on the homepage. These were good terms lost in a sweep.</p>
+    <p><strong>Third — remove the 44 terms in section 2.</strong> Ordinary cleanup. Stage it page by page rather than all at once, and leave the homepage until last since it's the only page carrying meaningful traffic.</p>
+    <p><strong>Fourth — settle three service questions.</strong> They resolve about twenty terms between them, and no amount of auditing substitutes for your answer:</p>
+    <ul>
+      <li><strong>Slab leak repair</strong> — six terms on Paradise Valley depend on it</li>
+      <li><strong>Emergency response</strong> — <code>emergency plumbing services</code> appears on five pages</li>
+      <li><strong>Fixture-level drain cleaning</strong> — affects <code>kitchen drain cleaning</code>, <code>drain cleaners</code>, and the Fort McDowell targeting</li>
+    </ul>
+    <p><strong>Fifth — generate terms for the pages that have none.</strong> This is worth more than every removal above combined. Ten service pages and twenty-seven city pages are running with no semantic support at all, including the highest-value commercial URLs on the site. Start with <code>/mesa/</code>, <code>/services/</code>, <code>/trenchless-sewer-repair/</code>, and <code>/epipe-restoration/</code>.</p>
+    <p><strong>And underneath all of it — strengthen the entity signal.</strong> The welding and Ohio State terms weren't random; they're what a generator produces when it can't tell what the business is. Tightening the Organization schema and <code>sameAs</code> in the OTTO Knowledge Graph reduces the chance the same cluster regenerates after every crawl.</p>
+    <p class="note">Nothing in this audit has been actioned. Every change above is waiting on your approval.</p>
+  </div>
+</section>
+
+<footer>
+  Audited 20 Aug 2026 · pipelinersusa.com · OTTO project ca42c443 · 477 terms across 15 URLs · Source: live OTTO reads plus Atlas Agent session 307ea0dd
+</footer>
+
+</div>

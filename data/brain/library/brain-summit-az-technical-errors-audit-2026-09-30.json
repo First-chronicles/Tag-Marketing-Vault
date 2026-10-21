@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Technical Errors Audit 2026-09-30",
+ "cat": "brain-summit",
+ "group": "Audits",
+ "body": "> Audit · Summit Az · 2026-09-30\n\n# Summary\nRead-only technical check: full crawl from the homepage (200 URLs), every internal link target, 189 sitemap URLs, 202 published pages and posts, 342 assets, the site's 404 log (30 days) and about 160,000 September access-log requests. Result: a clean site with a few small items.\n\n# Key findings\n- 404s: no live page returns 404; a made-up URL returns a proper 404. The 404 log (617 hits on 139 URLs) is bot noise: Facebook preview bot on `/meta.json`, about 20 old Utah city URLs requested by Ahrefs and Bing (404 is correct), apple-touch-icon, `/llms.txt` and `/ai.txt` from AI crawlers, scraper URL guessing, paged old author archives.\n- 5xx: none in the crawl; 140 errors out of about 160,000 requests in September (0.09%), mostly 503 bursts on CSS and JS (host throttling) plus 24 x 500 on Sep 4.\n- Broken internal links: none (200 targets, 342 assets all 200).\n- Redirects: no loops or chains. 33 Redirection rules, 25 enabled. Small items: pagination \"1\" links to `/page/1/` (301), and `http://summitplumbingpros.com` takes two hops.\n- HTTPS: clean, no mixed content; no HSTS header (optional).\n- Duplicates: `/terms-of-use/` and `/terms-of-service/` are 98% the same and both indexable (lead form links one, other links the other). `/privacy-policy-2/` is a noindex near copy.\n\n# Decisions and status\n- Recommended (pending Kim at Oct 1): keep /terms-of-use/ and redirect /terms-of-service/, which also ranks for \"summit plumbing pros of utah\".\n- `/llms.txt` was later enabled via Rank Math (Oct 7 to 8).\n\n# Related\n- [Summit AZ - SEO Audit Baseline 2026-09-10](lib:brain-summit-az-seo-audit-baseline-2026-09-10), [Summit AZ - Session Handoff 2026-10-01](lib:brain-summit-az-session-handoff-2026-10-01), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/Summit-AZ-Technical-Errors-Audit-2026-09-30.md",
+ "date": "2026-09-30",
+ "createdAt": 1792613254373,
+ "updatedAt": 1792613254373,
+ "rev": "b76e785f68dd"
+}

@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Indexing Phase 1 2026-09-12",
+ "cat": "brain-pipeliners",
+ "group": "Audits",
+ "body": "> Audit · Pipeliners · 2026-09-12\n\n# Summary\n\"Why 26 pages aren't in Google, and what to do\", checked Sep 12, 2026 (review only). Written as a decision document for Kim with choices A to E.\n\n# Key findings\n- Search Console was still pointed at two dead sitemaps (page-sitemap.xml and post-sitemap.xml, 404 since mid-July). Google listed them as the source for the blog, the leak detection page and other never-visited pages.\n- The live sitemap listed 8 noindexed URLs: 5 safe to remove now (footer template, cookie popup, 3 tag pages); 3 still in Google to keep until they show as excluded.\n- Only 3 of 26 unindexed pages were ready to request: /repair-sewer-line-without-digging/, /blog/, /5-signs-you-need-to-repipe-your-home-in-arizona/. /slab-leaks-phoenix/ turned out to be indexed.\n- The leak detection page was 77% copied from /trenchless-drain-pipe-repair/.\n- Grouping of the 26: 3 ready, 1 already indexed, 8 improve first, 11 merge into a stronger page, 1 keep and add links, 1 needs input (/pipeline-locating/: does Pipeliners locate sewer lines with its camera?), 1 leave alone (/pipelining/, a Google Ads page).\n\n# Decisions and status\n- A: clean the sitemap (5 URLs out, 126 to 121) via a MetaSync excluded-URLs setting. B: remove the dead sitemaps in GSC and resubmit sitemap_index.xml. C: free Request Indexing for the 3 ready pages. D: approve the content plan as a to-do list.\n- Per the change log and later notes, the sitemap and GSC cleanup ran Sep 14 to 15 and the merge plan went live Sep 19.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Blog Indexing Investigation 2026-09-17](lib:brain-pipeliners-blog-indexing-investigation-2026-09-17), [Pipeliners - Blog Merges Draft 2026-09-17](lib:brain-pipeliners-blog-merges-draft-2026-09-17), [GSC Indexing Tracker](lib:brain-gsc-indexing-tracker), [Google Search Console](lib:brain-google-search-console)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/seo-baseline-2026-09-10/Pipeliners-Indexing-Phase1-2026-09-12.md",
+ "date": "2026-09-12",
+ "createdAt": 1792613376399,
+ "updatedAt": 1792613567140,
+ "rev": "512bab697103"
+}

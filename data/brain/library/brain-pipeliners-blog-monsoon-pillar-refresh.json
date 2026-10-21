@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Blog - Monsoon Pillar Refresh",
+ "cat": "brain-pipeliners",
+ "group": "Blogs",
+ "body": "> Blog · Pipeliners · 2026-07-20\n\n# Summary\nAn in-place refresh of the live pillar /monsoon-season-pipe-problems/ (post 15609, published Jul 6) instead of a new August page on the same intent (\"Why Sewer Backups Can Get Worse During Arizona Monsoon Season\").\n\n# Changes in the file\n1. New section on how a plumber diagnoses a monsoon sewer problem (camera; clog vs crack, collapse, roots or belly), linking the cracked vs collapsed post and the Mesa camera guide.\n2. Expanded long-term repair options (jetting, CIPP lining, the honest line where a collapsed pipe needs replacement).\n3. Internal links fixed: \"trenchless repair\" and \"schedule a camera inspection\" had pointed at the homepage; now real service, guide and city destinations.\n4. Two new FAQs (cracked vs collapsed; lining after storm damage).\n5. Freshness: updated modified date.\n\n# Status\nReviewed and published via SSH/WP-CLI around Jul 20-21 with FAQPage JSON-LD (per the handoff). Note: the refresh mentions replacement or bursting for collapsed pipes; pipe bursting is not a Pipeliners service.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Blog Index](lib:brain-pipeliners-blog-index), [Pipeliners - Blog - Monsoon Cluster Supporting Posts](lib:brain-pipeliners-blog-monsoon-cluster-supporting-posts), [Pipeliners - Blog Clusters 2026-07](lib:brain-pipeliners-blog-clusters-2026-07)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/blog-clusters-2026-07/Pipeliners_Monsoon_Pillar_Refresh.md",
+ "date": "2026-07-20",
+ "createdAt": 1792613383664,
+ "updatedAt": 1792613383665,
+ "rev": "901be6a64554"
+}

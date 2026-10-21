@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Blog - Main Sewer Line Clog",
+ "cat": "brain-pipeliners",
+ "group": "Blogs",
+ "body": "> Blog · Pipeliners · 2026-09-25\n\n# Summary\nBuild folder `blog-main-sewer-line-clog\\` with `draft.md`, build script, card, FAQ JSON-LD, post content and SEO meta before/after.\n\n# Key facts\n- **Title tag:** Main Sewer Line Clog: Signs, Causes and Fixes | Pipeliners. Slug /main-sewer-line-clog/. Keywords: main sewer line clog (1,900 / KD 21 per the profile), sewer line clog, main line clog, sewer line backup. Schema BlogPosting + FAQPage. Author Jake Shaker.\n- **Angle:** one slow sink is a drain problem; several slow or gurgling fixtures at once is a main line problem. Phoenix causes: grease, roots, sagging or cracked pipe. Camera inspection shows why it happened.\n- **Status:** published Sep 25 as post 18157 (per the handoff). The content plan names it the hub of the clogs/backups/hydro jetting cluster.\n- **Later fix:** 24/7 wording removed (`fix-backups\\2026-10-02_mslc-247\\`).\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Blog Index](lib:brain-pipeliners-blog-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/blog-main-sewer-line-clog",
+ "date": "2026-09-25",
+ "createdAt": 1792613346124,
+ "updatedAt": 1792613346124,
+ "rev": "0810c635a5f9"
+}

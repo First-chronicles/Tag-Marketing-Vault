@@ -1,0 +1,14 @@
+{
+ "name": "EOD 2026-09-24",
+ "cat": "brain-eod",
+ "group": "2026-09 September",
+ "body": "> Eod · Pipeliners · 2026-09-24\n\nThursday. Pipeliners only (Sep 23 to 24): blog focus keyword alignment.\n\n# Pipeliners\nSee [Pipeliners (Hub)](lib:brain-pipeliners-hub).\n- Pulled each post's last 90 days of Google searches and checked volume and difficulty for about 200 candidate keywords. Picked one focus keyword per post, skipping terms the service pages own (hydro jetting, leak detection, trenchless sewer repair).\n- Updated 38 live posts: title (under 60) and description (under 160) with the keyword, H1 with the keyword, a short \"Quick answer\" where needed using only facts in the post, one keyword subheading, matching share text. No slug changes, no em dashes, no new prices. Old versions saved.\n- Examples: \"sewer line leak\" (170/mo), \"how to find a water leak underground\" (1,300/mo), \"belly in sewer line\" (480/mo).\n- Not touched on purpose: the two myths posts, the residential pipe restoration guide (merge waiting on Scott), the pipeline-locating post, the 9 redirected posts. 4 recent posts already aligned.\n- Results: 38 of 38 have the keyword in title, H1, first 100 words and a subheading; 37 of 38 in the description (one OTTO description cannot be edited).\n- Issues: a fast first check triggered OTTO errors and cached 2 pages without OTTO share text and schema (restored); OTTO slowed mid-refresh, job resumed with a safer method. Kim's recheck found 2 opening-paragraph gaps, fixed.\n- Website Pages tracker v25 and the Change Tracker updated (first results Oct 12, full read Oct 26).\n\n# Follow-ups\n- Scott: confirm the cost post numbers ($3,800 to $15,800, 20-year warranty, 50+ year lifespan); post not yet indexed.\n- Kim: merge the two \"lining vs replacement\" posts? Does the no-\"pipe lining\" rule apply to older posts?\n- Still open: /pipelining/ indexing, pipeline-locating post, leak detection copy.\n- Checks: Sep 28, Sep 30, Oct 9, Oct 12, Oct 17.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Search Atlas](lib:brain-search-atlas), [EOD Reports Index](lib:brain-eod-reports-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/EOD Report 2026-09-24.txt",
+ "date": "2026-09-24",
+ "createdAt": 1792612915842,
+ "updatedAt": 1792612915854,
+ "rev": "1a3c63ea0e43"
+}

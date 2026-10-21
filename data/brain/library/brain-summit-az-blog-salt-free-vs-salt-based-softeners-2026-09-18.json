@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Blog Salt-Free vs Salt-Based Softeners 2026-09-18",
+ "cat": "brain-summit",
+ "group": "Blogs",
+ "body": "> Blog · Summit Az · 2026-09-18\n\n# Summary\nSupporting blog B1 in the water softener cluster: \"Salt-Based vs Salt-Free Water Softeners in Arizona Homes\". Two files: the brief (`Summit-AZ-Blog-B1-Brief-SaltFree-2026-09-18.md`) and the draft (`Summit-AZ-Blog-B1-Draft-SaltFree-2026-09-18.md`, about 1,050 words). Per the change log it was created as a draft (post 11443) and published Sep 18, 2026 at `/blog/salt-free-vs-salt-based-water-softener-arizona/`.\n\n# Keyword research (Search Atlas, Sep 18)\n- Parent: \"salt based vs salt free water softener\" 720 / KD 23; \"water conditioner vs water softener\" 1,000 / KD 35; \"do salt free water softeners work\" 210 / KD 33.\n- SERP check: the national term is owned by manufacturers and Reddit, but the Arizona version shows local water-treatment companies and plumbers, so the post was written Arizona-first.\n- Primary: \"salt free water softener arizona\". Money terms (\"water softener phoenix az\", \"mesa az\") were left to the service pages.\n\n# Content\n- Hub it supports: `/blog/are-water-softeners-worth-it/` (position 8.5 in the prior 28 days). Money page: `/water-softeners/` then city softener pages.\n- Explains that salt-free systems condition rather than soften, what changes in the home with each, and who each fits.\n- Only outside facts: City of Mesa water quality page (12 to 22 grains per gallon by source, sodium increase with ion exchange, softened water harmful to landscaping).\n- Flag raised: older Summit pages say \"about 12 to 16 gpg\", which differs from the current city figure.\n\n# Decisions and status\n- Published Sep 18 with BlogPosting and FAQPage schema, a Higgsfield banner and 2 contextual links from existing hub posts (per the case study log).\n- B2 (softener sizing, \"what size water softener do i need\" 720 / KD 16) was planned but not started as of Oct 1.\n\n# Related\n- [Summit AZ - Blog Index](lib:brain-summit-az-blog-index), [Summit AZ - Supporting Blog Plan 2026-09-18](lib:brain-summit-az-supporting-blog-plan-2026-09-18), [Summit AZ - Blog Water Softener Maintenance Checklist 2026-09-26](lib:brain-summit-az-blog-water-softener-maintenance-checklist-2026-09-26), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [SEO Blog Writing Standards](lib:brain-seo-blog-writing-standards)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/Summit-AZ-Blog-B1-Draft-SaltFree-2026-09-18.md",
+ "date": "2026-09-18",
+ "createdAt": 1792612889369,
+ "updatedAt": 1792612889369,
+ "rev": "5c564bd1e29b"
+}

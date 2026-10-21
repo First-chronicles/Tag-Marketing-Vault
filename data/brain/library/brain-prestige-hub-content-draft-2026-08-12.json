@@ -1,0 +1,14 @@
+{
+ "name": "Prestige - Hub Content Draft 2026-08-12",
+ "cat": "brain-prestige",
+ "group": "",
+ "body": "> Plan · Prestige · 2026-08-12\n\n# Summary\nThis is paste-ready HTML to thicken the two thin hub pages, `/services/` and `/service-areas/`, so they can earn indexing (baseline Problem #3 and part of #1). The file says every price and fact is reused from the live site and nothing is invented. Status in the file: DRAFT, held until the NameHero disk-quota block cleared.\n\n# /services/ hub (about 248 words to about 640)\n- Block A, intro prose after the hero: owner-operated by Matt Milunec, flat-rate quoted before work, with price anchors (water heaters from $1,895, tankless from $4,909, drains from $255, hydro jetting $950, water test $125) and same-day in most cases.\n- Block B, a 5-question FAQ before the final CTA band: flat-rate pricing, same-day service, services covered, after-hours fee ($125 dispatch), areas served.\n- Block C, matching FAQPage JSON-LD for the head.\n\n# /service-areas/ hub (about 179 words to about 620)\n- Block A, intro prose: Bluffton home base, about 50 miles of coverage, the same pricebook everywhere with no island upcharge, and local conditions per town (Okatie filtration, Sun City comfort-height toilets and PRVs, Ridgeland wells).\n- Block B, an FAQ, and Block C, matching FAQPage schema.\n\n# Status\n- The baseline (2026-08-12) still listed \"thicken the 2 hubs (draft copy ready)\" as pending. No deploy confirmation appears in this folder.\n- Note for whoever deploys: the copy uses `&mdash;` entities, which conflicts with the no-em-dash house style. Check before pasting.\n\n# Related\n- [Prestige Plumbing (Hub)](lib:brain-prestige-plumbing-hub), [Prestige - SEO Baseline Audit 2026-08-12](lib:brain-prestige-seo-baseline-audit-2026-08-12), [Prestige - Website Build](lib:brain-prestige-website-build)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Prestige Plumbing/hub-content-DRAFT-2026-08-12.md",
+ "date": "2026-08-12",
+ "createdAt": 1792613489056,
+ "updatedAt": 1792613489056,
+ "rev": "bbd3b80672e8"
+}

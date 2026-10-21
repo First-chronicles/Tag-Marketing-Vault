@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Drafts - Leak Detection Scottsdale",
+ "cat": "brain-summit",
+ "group": "Drafts",
+ "body": "> Plan · Summit Az · 2026-05-29\n\n# Summary\nMissing-city draft for `water-leak-detection-scottsdale`, templated on Water Leak Detection Chandler (ID 3684). The Scottsdale page existed but was private (ID 3995) per the 2026-05-20 snapshot.\n\n# Key facts\n- Primary keyword \"water leak detection in Scottsdale\"; supporting terms include leak detection services, hidden water leak detection, near-me variants.\n- GEO entities: Scottsdale Water (tiered billing and leak adjustment refund process); Old Town, McCormick Ranch, Gainey Ranch, DC Ranch, Silverleaf, Troon, Desert Mountain; 1960s to 1980s copper supply lines prone to slab leaks.\n- Adds a seventh leak type, pool and spa plumbing leaks, for Scottsdale only.\n- 7-question FAQ (including whether Scottsdale Water gives a credit) and Service + Plumber schema.\n- The live page (ID 5771) shows a 2026-06-17 post date in `_sheet\\pages_live.csv`; staged files are in [Summit AZ - WP Staging Pages](lib:brain-summit-az-wp-staging-pages).\n\n# Related\n- [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub), [Summit AZ - Work Folders Index](lib:brain-summit-az-work-folders-index)\n- [Summit AZ - Drafts Folder Overview](lib:brain-summit-az-drafts-folder-overview)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/drafts/summit-water-leak-detection",
+ "date": "2026-05-29",
+ "createdAt": 1792613131453,
+ "updatedAt": 1792613131453,
+ "rev": "5106c1920935"
+}

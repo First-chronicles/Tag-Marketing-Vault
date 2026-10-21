@@ -1,0 +1,1 @@
+window.__vaultPreview("3bfdf06ce9054075",{"sheets":[{"name":"favicon-watch-log.csv","total":3,"rows":[["checked_utc","site","icon_tags","icon_format","root_favicon","serp_icon","status"],["2026-08-21T14:09:58Z","summit-az","1","png","no-icon","logo","OK"],["2026-08-21T14:10:00Z","alphalete","2","png","ok","globe","WAITING:site-correct-google-not-refetched-yet"]]}]});

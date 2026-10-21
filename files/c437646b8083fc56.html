@@ -1,0 +1,720 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Alphalete Page Sheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Montserrat:wght@400;500;600;700&family=Oswald:wght@500;600&display=swap">
+<style>
+:root{
+  --ground:#EEF0F6; --paper:#FFFFFF; --head:#E6E8F1; --head-ink:#5E6284;
+  --line:#DCDFEA; --line-strong:#C3C7D8; --ink:#17183D; --muted:#5E6284; --faint:#8A8EAA;
+  --topbar:#1A1B5E; --topbar-ink:#FFFFFF; --topbar-muted:#B9BBE6;
+  --accent:#E2661B; --accent-soft:#FFF1E6; --band:#F5F6FA; --band-ink:#1A1B5E; --hover:#F7F8FC;
+  --core-bg:#E5E6F5; --core-fg:#262878; --svc-bg:#FCE7D6; --svc-fg:#A3470A;
+  --loc-bg:#D9F0EA; --loc-fg:#135E55; --blog-bg:#EDE3F5; --blog-fg:#63357E;
+  --util-bg:#E7E8EE; --util-fg:#50546B;
+  --todo-bg:#ECEDF3; --todo-fg:#5E6284; --needs-bg:#FDE3E1; --needs-fg:#A3261B;
+  --prog-bg:#DDEBFC; --prog-fg:#1F56A6; --done-bg:#DBF2E2; --done-fg:#1C6B37;
+  --warn-bg:#FCEFD3; --warn-fg:#855600;
+  --todo-bar:#C9CCDA; --needs-bar:#E0574A; --prog-bar:#3B7DDD; --done-bar:#2F9A55;
+  --input-bg:#FFFFFF;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0E0F1E; --paper:#16172A; --head:#1D1F34; --head-ink:#9A9DBC;
+    --line:#282A43; --line-strong:#383B59; --ink:#E6E7F4; --muted:#A1A4C2; --faint:#74789A;
+    --topbar:#15164A; --topbar-ink:#FFFFFF; --topbar-muted:#A9ACE0;
+    --accent:#F27A30; --accent-soft:#2E2230; --band:#1B1C31; --band-ink:#C9CBFF; --hover:#1B1C30;
+    --core-bg:#272962; --core-fg:#C8CAFF; --svc-bg:#4A2A14; --svc-fg:#FFB582;
+    --loc-bg:#123C37; --loc-fg:#86DCCB; --blog-bg:#3A2549; --blog-fg:#DDB8F2;
+    --util-bg:#2A2C3E; --util-fg:#B7BACD;
+    --todo-bg:#25273A; --todo-fg:#A1A4C2; --needs-bg:#4A1E1C; --needs-fg:#FF9E94;
+    --prog-bg:#1B3354; --prog-fg:#9FC6FF; --done-bg:#173B25; --done-fg:#8FDCA6;
+    --warn-bg:#3F3113; --warn-fg:#F4C66B;
+    --todo-bar:#3A3D57; --needs-bar:#E0574A; --prog-bar:#4A8BEA; --done-bar:#3DAA63;
+    --input-bg:#1B1C30;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0E0F1E; --paper:#16172A; --head:#1D1F34; --head-ink:#9A9DBC;
+  --line:#282A43; --line-strong:#383B59; --ink:#E6E7F4; --muted:#A1A4C2; --faint:#74789A;
+  --topbar:#15164A; --topbar-ink:#FFFFFF; --topbar-muted:#A9ACE0;
+  --accent:#F27A30; --accent-soft:#2E2230; --band:#1B1C31; --band-ink:#C9CBFF; --hover:#1B1C30;
+  --core-bg:#272962; --core-fg:#C8CAFF; --svc-bg:#4A2A14; --svc-fg:#FFB582;
+  --loc-bg:#123C37; --loc-fg:#86DCCB; --blog-bg:#3A2549; --blog-fg:#DDB8F2;
+  --util-bg:#2A2C3E; --util-fg:#B7BACD;
+  --todo-bg:#25273A; --todo-fg:#A1A4C2; --needs-bg:#4A1E1C; --needs-fg:#FF9E94;
+  --prog-bg:#1B3354; --prog-fg:#9FC6FF; --done-bg:#173B25; --done-fg:#8FDCA6;
+  --warn-bg:#3F3113; --warn-fg:#F4C66B;
+  --todo-bar:#3A3D57; --needs-bar:#E0574A; --prog-bar:#4A8BEA; --done-bar:#3DAA63;
+  --input-bg:#1B1C30;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font:13px/1.45 Montserrat,"Segoe UI",system-ui,sans-serif;}
+.app{display:flex;flex-direction:column;height:100dvh;min-height:600px}
+button,select,input,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.mono{font-family:"IBM Plex Mono",ui-monospace,Consolas,monospace}
+
+/* top bar */
+.topbar{background:var(--topbar);color:var(--topbar-ink);display:flex;align-items:center;gap:16px;padding:12px 18px;flex-wrap:wrap}
+.doc{display:flex;align-items:center;gap:12px;min-width:0}
+.doc-icon{width:30px;height:30px;border-radius:5px;background:var(--accent);display:grid;grid-template-columns:repeat(3,1fr);gap:2px;padding:6px;flex:none}
+.doc-icon i{background:rgba(255,255,255,.85);border-radius:1px}
+.doc h1{font:600 20px/1.1 Oswald,"Arial Narrow",Impact,sans-serif;letter-spacing:.02em;margin:0;text-transform:uppercase}
+.doc p{margin:2px 0 0;color:var(--topbar-muted);font-size:12px}
+.sync{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--topbar-muted)}
+.sync .dot{width:8px;height:8px;border-radius:50%;background:#8A8EAA}
+.sync[data-s="live"] .dot,.sync[data-s="saved"] .dot{background:#46C274}
+.sync[data-s="saving"] .dot{background:#F2B33D}
+.sync[data-s="error"] .dot{background:#FF6B5E}
+.theme{display:flex;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:3px;gap:2px}
+.theme button{border:0;background:transparent;color:var(--topbar-muted);display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:5px;font-size:12px;font-weight:600;cursor:pointer}
+.theme button:hover{color:var(--topbar-ink);background:rgba(255,255,255,.08)}
+.theme button[aria-pressed="true"]{background:var(--topbar-ink);color:var(--topbar)}
+.theme svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+.theme button[data-mode="dark"] svg{fill:currentColor;stroke:none}
+.theme button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+
+/* toolbar */
+.toolbar{background:var(--paper);border-bottom:1px solid var(--line);padding:10px 18px;display:flex;gap:10px 18px;align-items:center;flex-wrap:wrap}
+.search{position:relative;flex:1 1 240px;max-width:340px}
+.search input{width:100%;height:34px;border:1px solid var(--line-strong);border-radius:6px;background:var(--input-bg);padding:0 10px 0 32px}
+.search svg{position:absolute;left:10px;top:9px;width:16px;height:16px;stroke:var(--faint);fill:none;stroke-width:2}
+.pick{height:34px;border:1px solid var(--line-strong);border-radius:6px;background:var(--input-bg);padding:0 8px;min-width:150px}
+.progress{display:flex;flex-direction:column;gap:6px;flex:1 1 320px;min-width:260px}
+.bar{display:flex;height:8px;border-radius:4px;overflow:hidden;background:var(--todo-bar)}
+.bar span{display:block;height:100%}
+.legend{display:flex;gap:4px 12px;flex-wrap:wrap;font-size:12px;color:var(--muted);align-items:center}
+.legend .lbl{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);font-weight:600}
+.legend button{border:0;background:none;padding:2px 4px;border-radius:4px;cursor:pointer;display:flex;align-items:center;gap:6px;color:var(--muted)}
+.legend button:hover{background:var(--hover);color:var(--ink)}
+.legend button[aria-pressed="true"]{background:var(--accent-soft);color:var(--ink);font-weight:600}
+.legend b{font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+.sw{width:9px;height:9px;border-radius:2px;display:inline-block}
+
+/* summary strip */
+.summary{background:var(--paper);border-bottom:1px solid var(--line);padding:8px 18px;display:flex;gap:8px 10px;align-items:stretch;flex-wrap:wrap}
+.stat{border:1px solid var(--line);background:var(--paper);border-radius:6px;padding:5px 12px;display:flex;flex-direction:column;justify-content:center;min-width:104px;text-align:left}
+button.stat{cursor:pointer}
+button.stat:hover{border-color:var(--line-strong);background:var(--hover)}
+button.stat[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.stat b{font:600 18px/1.15 Oswald,"Arial Narrow",sans-serif;font-variant-numeric:tabular-nums;letter-spacing:.01em}
+.stat span{font-size:11px;color:var(--muted)}
+.stat.good b{color:var(--done-fg)} .stat.warn b{color:var(--warn-fg)} .stat.bad b{color:var(--needs-fg)}
+.sources{margin-left:auto;align-self:center;font-size:11px;color:var(--faint);max-width:420px;text-align:right;line-height:1.5}
+.sources b{color:var(--muted);font-weight:600}
+
+/* formula bar */
+.fbar{display:flex;align-items:stretch;background:var(--paper);border-bottom:1px solid var(--line);min-height:34px}
+.namebox{width:78px;flex:none;border-right:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;font-weight:600}
+.fx{width:36px;flex:none;border-right:1px solid var(--line);display:flex;align-items:center;justify-content:center;font:italic 600 14px/1 Georgia,serif;color:var(--faint)}
+.fcontent{flex:1;display:flex;align-items:center;gap:6px 12px;padding:6px 12px;min-width:0;flex-wrap:wrap}
+.fcontent .hint{color:var(--faint)}
+.fcontent .fcol{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);font-weight:600}
+.fcontent .ftext{color:var(--ink);word-break:break-word}
+.fcontent .flen{font-size:11px;color:var(--faint);white-space:nowrap}
+.fcontent a{color:var(--accent);font-weight:600;text-decoration:none;white-space:nowrap}
+.fcontent a:hover{text-decoration:underline}
+
+/* grid */
+.gridwrap{flex:1;overflow:auto;background:var(--paper);position:relative}
+table{border-collapse:separate;border-spacing:0;width:max-content;min-width:100%}
+th,td{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:7px 10px;vertical-align:top;text-align:left;background:var(--paper)}
+thead th{position:sticky;background:var(--head);color:var(--head-ink);font-weight:600;z-index:3;white-space:nowrap}
+thead tr.letters th{top:0;height:22px;padding:2px 10px;text-align:center;font-size:11px;font-weight:500;color:var(--faint)}
+thead tr.names th{top:22px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid var(--line-strong)}
+thead tr.names th button{all:unset;cursor:pointer;display:inline-flex;gap:5px;align-items:center}
+thead tr.names th button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.arrow{color:var(--accent);font-size:12px;letter-spacing:0}
+.rn{position:sticky;left:0;z-index:2;width:44px;min-width:44px;text-align:center;background:var(--head);color:var(--faint);font-weight:500;font-size:11px;font-variant-numeric:tabular-nums;padding:8px 4px}
+thead .rn{z-index:4}
+.k-seo{position:sticky;left:44px;z-index:1;width:280px;min-width:280px;max-width:280px;font-weight:600;color:var(--ink);box-shadow:1px 0 0 var(--line-strong)}
+thead .k-seo{z-index:4}
+tbody tr:hover td{background:var(--hover)}
+tbody tr.sel td{background:var(--accent-soft)}
+tbody tr.sel .rn{background:var(--accent);color:#fff}
+tbody td.cur{box-shadow:inset 0 0 0 2px var(--accent)}
+tbody td.k-seo.cur{box-shadow:inset 0 0 0 2px var(--accent),1px 0 0 var(--line-strong)}
+.k-type{width:92px}
+.k-slug{width:210px;min-width:210px;max-width:210px;font-family:"IBM Plex Mono",ui-monospace,Consolas,monospace;font-size:12px;word-break:break-all;color:var(--muted)}
+.k-kw{width:200px;min-width:200px;max-width:200px}
+.k-kwchk{width:300px;min-width:300px;max-width:300px}
+.kc-ok{background:var(--done-bg);color:var(--done-fg)}
+.kc-warn{background:var(--warn-bg);color:var(--warn-fg)}
+.kc-none{background:var(--todo-bg);color:var(--todo-fg)}
+.k-desc{width:330px;min-width:330px;max-width:330px;color:var(--muted)}
+.k-link{width:270px;min-width:270px;max-width:270px}
+.k-link a{color:var(--ink);text-decoration:none;font-family:"IBM Plex Mono",ui-monospace,Consolas,monospace;font-size:12px;word-break:break-all}
+.k-link a:hover{color:var(--accent);text-decoration:underline}
+.k-pub{width:124px;min-width:124px;white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--muted)}
+.k-idx{width:180px;min-width:180px;max-width:180px}
+.k-loc{width:150px;min-width:150px}
+.k-clicks,.k-impr{width:96px;text-align:right;font-variant-numeric:tabular-nums}
+.k-impr{width:124px}
+thead .k-clicks,thead .k-impr{text-align:right}
+.k-status{width:150px}
+.k-note{width:260px;min-width:260px}
+.none{color:var(--faint)}
+.len{display:block;font-size:10.5px;font-weight:500;color:var(--faint);margin-top:2px;font-family:Montserrat,sans-serif}
+.sub{display:block;font-size:11px;color:var(--faint);margin-top:3px;line-height:1.35}
+.sub.alert{color:var(--needs-fg)}
+.num{font-weight:600;color:var(--ink)}
+.num.zero{color:var(--faint);font-weight:500}
+
+.chip{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;white-space:nowrap}
+.t-Core{background:var(--core-bg);color:var(--core-fg)}
+.t-Service{background:var(--svc-bg);color:var(--svc-fg)}
+.t-Local{background:var(--loc-bg);color:var(--loc-fg)}
+.t-Blog{background:var(--blog-bg);color:var(--blog-fg)}
+.t-Utility{background:var(--util-bg);color:var(--util-fg)}
+.i-yes{background:var(--done-bg);color:var(--done-fg)}
+.i-no{background:var(--warn-bg);color:var(--warn-fg)}
+.i-unknown{background:var(--todo-bg);color:var(--todo-fg)}
+.i-noindex{background:var(--needs-bg);color:var(--needs-fg)}
+.missing{background:var(--needs-bg);color:var(--needs-fg)}
+
+.stwrap{position:relative;display:inline-block}
+.stwrap::after{content:"";position:absolute;right:9px;top:50%;margin-top:-2px;border:4px solid transparent;border-top-color:currentColor;pointer-events:none;opacity:.7}
+.st{appearance:none;-webkit-appearance:none;border:0;border-radius:999px;padding:3px 24px 3px 10px;font-size:12px;font-weight:600;cursor:pointer}
+.s-todo{background:var(--todo-bg);color:var(--todo-fg)}
+.s-needs{background:var(--needs-bg);color:var(--needs-fg)}
+.s-progress{background:var(--prog-bg);color:var(--prog-fg)}
+.s-done{background:var(--done-bg);color:var(--done-fg)}
+.st option{background:var(--paper);color:var(--ink)}
+
+.note{width:100%;min-height:26px;resize:none;border:1px solid transparent;border-radius:4px;background:transparent;padding:3px 6px;line-height:1.4;overflow:hidden;display:block}
+.note:hover{border-color:var(--line)}
+.note:focus{border-color:var(--accent);background:var(--input-bg);outline:none}
+.note::placeholder{color:var(--faint)}
+
+tr.band td{background:var(--band);color:var(--band-ink);font:600 13px/1.2 Oswald,"Arial Narrow",sans-serif;letter-spacing:.05em;text-transform:uppercase;padding:9px 12px;border-bottom-color:var(--line-strong)}
+tr.band th.rn{background:var(--head)}
+tr.band:hover td{background:var(--band)}
+tr.band small{font:500 12px Montserrat,sans-serif;letter-spacing:0;text-transform:none;color:var(--muted);margin-left:8px}
+.band-in{position:sticky;left:56px;display:inline-block}
+.empty{padding:40px 20px;color:var(--muted);text-align:left}
+
+/* sheet tabs */
+.tabs{display:flex;align-items:stretch;background:var(--head);border-top:1px solid var(--line-strong);overflow-x:auto;padding:0 8px;flex:none}
+.tab{border:0;background:transparent;padding:9px 16px 8px;display:flex;gap:8px;align-items:center;cursor:pointer;color:var(--muted);font-weight:600;white-space:nowrap;border-bottom:3px solid transparent;border-right:1px solid var(--line)}
+.tab:hover{background:var(--hover);color:var(--ink)}
+.tab[aria-selected="true"]{background:var(--paper);color:var(--ink);border-bottom-color:var(--accent)}
+.tab .count{font-size:11px;font-weight:600;padding:1px 7px;border-radius:999px;background:var(--line);color:var(--muted);font-variant-numeric:tabular-nums}
+.tab[aria-selected="true"] .count{background:var(--accent);color:#fff}
+.tabs .foot{margin-left:auto;display:flex;align-items:center;padding:0 10px;color:var(--faint);font-size:11px;white-space:nowrap}
+
+.toast{position:fixed;left:50%;bottom:56px;transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:6px;font-size:12px;font-weight:500;z-index:10}
+
+.search.kws input{border-color:var(--accent)}
+.kwbar{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:8px 18px;background:var(--accent-soft);color:var(--ink);border-bottom:1px solid var(--line);font-size:12.5px}
+.kwbar.warn{background:var(--needs-bg);color:var(--needs-fg)}
+.kwbar b{font-weight:600}
+.kwbar button{margin-left:auto;border:1px solid var(--line-strong);background:var(--paper);color:var(--ink);border-radius:6px;padding:4px 10px;font-size:12px;font-weight:600;cursor:pointer}
+.kwbar button:hover{background:var(--hover)}
+.chip.clash{background:var(--needs-bg);color:var(--needs-fg);margin-left:6px}
+@media (max-width:720px){
+  .k-seo{width:200px;min-width:200px;max-width:200px}
+  .topbar,.toolbar,.summary{padding-left:12px;padding-right:12px}
+  .namebox{width:56px}
+  .sources{margin-left:0;text-align:left}
+  .tabs .foot{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="app">
+  <header class="topbar">
+    <div class="doc">
+      <div class="doc-icon" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div>
+        <h1>Alphalete Page Sheet</h1>
+        <p>Every live URL on alphaletetrenchless.com, with SEO tags, Google index status and search traffic</p>
+      </div>
+    </div>
+    <div class="sync" id="sync" data-s="local"><span class="dot"></span><span id="syncText">Connecting&hellip;</span></div>
+    <div class="theme" role="group" aria-label="Color mode">
+      <button type="button" data-mode="light" aria-pressed="false" title="Light mode">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>Light
+      </button>
+      <button type="button" data-mode="dark" aria-pressed="false" title="Dark mode">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>Dark
+      </button>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <label class="search">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+      <input id="q" type="search" placeholder="Search title, keyword, city, URL or note" aria-label="Search pages">
+    </label>
+    <label class="search kws" title="Looks only at the primary keyword, on every tab">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="12" r="4"/><path d="M12 12h9M18 12v3M21 12v3"/></svg>
+      <input id="kq" type="search" placeholder="Keyword check, all tabs" aria-label="Keyword check across all tabs">
+    </label>
+    <select class="pick" id="svc" aria-label="Filter by service"></select>
+    <div class="progress">
+      <div class="bar" id="bar" aria-hidden="true"></div>
+      <div class="legend" id="legend"></div>
+    </div>
+  </div>
+
+  <div class="summary" id="summary"></div>
+
+  <div class="kwbar" id="kwbar" hidden></div>
+
+  <div class="fbar">
+    <div class="namebox" id="namebox">&ndash;</div>
+    <div class="fx">fx</div>
+    <div class="fcontent" id="fcontent"><span class="hint">Click any cell to read its full text here.</span></div>
+  </div>
+
+  <div class="gridwrap" id="gridwrap">
+    <table>
+      <thead>
+        <tr class="letters" id="letters"></tr>
+        <tr class="names" id="heads"></tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+
+  <nav class="tabs" id="tabs" role="tablist" aria-label="Page groups"></nav>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script type="application/json" id="meta">{"gscRange":"Jun 26 to Sep 25, 2026","checked":"Sep 29, 2026","kwChecked":"Oct 1, 2026"}</script>
+<script type="application/json" id="data">[{"id":0,"type":"Core","title":"Pipelining Landing Page (static, outside WordPress)","path":"/pipelining/","svc":"Landing page","slug":"pipelining","seoTitle":"Trenchless Sewer Repair Colorado | Free Estimates","metaDesc":"No-dig trenchless sewer repair and CIPP pipe lining across Denver, Colorado Springs & the Front Range. Start with a free estimate and know exactly where you stand before anyone touches your yard. Licensed CO master plumber, Mon to Sat, 8 to 6.","robots":"noindex, nofollow","clicks":0,"impr":11,"idx":"yes","crawl":"Jul 16","idxNote":"Google Ads landing page, noindex on purpose (since Jul 15). Google will drop it on its next crawl, which is expected.","kwSt":"none","kwChk":"Not an SEO page (utility, legal or ads landing page), so not checked"},{"id":3513,"type":"Core","title":"Home","path":"/","svc":"Home","mod":"2026-08-21","pub":"2021-04-02","slug":"(homepage)","seoTitle":"Trenchless Sewer Repair & Pipelining Services in Colorado | Alphalete Trenchless","keyword":"trenchless sewer repair","robots":"max-image-preview:large","clicks":3,"impr":1414,"idx":"yes","crawl":"Sep 18","metaDesc":"No-dig sewer line repair across Colorado Springs and the Denver metro: CIPP pipe lining, sewer camera inspection, hydro jetting and drain cleaning.","kwSt":"warn","kwChk":"Live page: title and H1 both match. Search Atlas: Google ranks /blog/trenchless-sewer-repair-process/ (#13) for \"trenchless sewer repair\", not this page"},{"id":3809,"type":"Core","title":"Blog","path":"/blog/","svc":"Blog index","mod":"2026-07-13","pub":"2021-04-04","slug":"blog","seoTitle":"Alphalete Trenchless blog, trenchless sewer repair tips, sewer maintenance guides","metaDesc":"Alphalete Trenchless: Expert guides on trenchless sewer repair, hydro jetting & drain cleaning in Colorado. Learn solutions for common sewer issues.","keyword":"trenchless sewer repair tips","robots":"max-image-preview:large","clicks":0,"impr":0,"idx":"yes","kwSt":"warn","kwChk":"Live page: title matches, H1 does not (\"Expert Sewer and Drain Repair Guides: Alphalete Trenchless Insights\")"},{"id":5109,"type":"Core","title":"Free Video Inspection","path":"/free-video-inspection/","svc":"Landing page","mod":"2026-07-13","pub":"2026-02-25","slug":"free-video-inspection","seoTitle":"Free Video Inspection – Alphalete Trenchless","keyword":"free sewer camera inspection","robots":"max-image-preview:large","clicks":0,"impr":0,"idx":"discovered","metaDesc":"Free sewer camera inspection while our crew is in your neighborhood. See roots, cracks, and clogs in your sewer line on video. No obligation.","idxNote":"Still Discovered, not indexed (rechecked Sep 29). Door-hanger page, left as is on purpose","kwSt":"none","kwChk":"Not an SEO page (utility, legal or ads landing page), so not checked"},{"id":5381,"type":"Core","title":"Services","path":"/services/","svc":"Services hub","mod":"2026-09-16","pub":"2026-03-07","slug":"services","seoTitle":"Trenchless Pipe Repair & Sewer Services Colorado | Alphalete","metaDesc":"Trenchless pipe repair across Colorado from Alphalete: CIPP pipe lining, sewer camera inspection, drain cleaning, and hydro jetting with minimal digging.","keyword":"trenchless sewer services","robots":"max-image-preview:large","clicks":0,"impr":8,"idx":"yes","idxNote":"Newly indexed Sep 25 after the Sep 23 hub fixes and indexing request","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":5532,"type":"Core","title":"About Us","path":"/about-us/","svc":"About","mod":"2026-07-08","pub":"2026-03-07","slug":"about-us","seoTitle":"About Alphalete Trenchless | Colorado's Trusted Sewer Repair Experts","metaDesc":"Meet Alphalete Trenchless, the trenchless sewer rehabilitation team for Denver and Colorado Springs. Camera-first diagnosis and no-dig CIPP lining.","keyword":"about alphalete trenchless","robots":"max-image-preview:large","clicks":1,"impr":227,"idx":"yes","crawl":"Sep 18","kwOld":"trenchless sewer rehabilitation","kwSt":"ok","kwChk":"Label fixed Oct 1 (was \"trenchless sewer rehabilitation\") to match the live title and H1. Live page: title and H1 both match"},{"id":5543,"type":"Core","title":"Service Areas","path":"/service-areas/","svc":"Service Areas hub","mod":"2026-03-09","pub":"2026-03-07","slug":"service-areas","seoTitle":"Colorado Front Range Service Areas | Alphalete Trenchless","metaDesc":"Alphalete Trenchless: CIPP lining & sewer repair across Colorado's Front Range. Check service areas & get no-dig solutions. Call now!","keyword":"colorado front range service areas","robots":"max-image-preview:large","clicks":1,"impr":82,"idx":"yes","crawl":"Sep 15","kwOld":"Trenchless Sewer Repair Service Areas","kwSt":"warn","kwChk":"Label fixed Oct 1 (was \"Trenchless Sewer Repair Service Areas\") to match the live title and H1. Live page: title matches, H1 does not (\"Colorado's Trenchless Experts\")"},{"id":5554,"type":"Core","title":"Contact","path":"/contact/","svc":"Contact","mod":"2026-07-30","pub":"2026-03-07","slug":"contact","seoTitle":"Contact Alphalete Trenchless Services | Colorado Sewer Repair Experts","keyword":"contact Alphalete Trenchless","robots":"max-image-preview:large","clicks":0,"impr":30,"idx":"yes","crawl":"Jul 31","metaDesc":"Contact Alphalete Trenchless to schedule a sewer camera inspection or request an estimate for trenchless sewer repair in Colorado Springs and Denver.","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":12628,"type":"Core","title":"Careers","path":"/careers/","svc":"Careers","mod":"2026-06-02","pub":"2026-06-02","slug":"careers","seoTitle":"Careers at Alphalete Trenchless | Colorado Front Range Jobs","metaDesc":"Join Alphalete Trenchless: Colorado Front Range careers for skilled technicians. We offer competitive pay and growth in no-dig sewer repair. Apply now!","keyword":"trenchless plumbing careers","robots":"max-image-preview:large","clicks":0,"impr":8,"idx":"yes","crawl":"Sep 21","kwSt":"warn","kwChk":"Live page: neither title nor H1 uses it"},{"id":5408,"type":"Service","title":"Residential Trenchless Pipelining","path":"/services/residential-trenchless-pipelining/","svc":"Residential Pipelining","mod":"2026-09-04","pub":"2026-03-07","slug":"residential-trenchless-pipelining","seoTitle":"Residential Sewer Pipe Lining in Colorado | Alphalete","metaDesc":"Residential sewer pipe lining from Alphalete: fix a failing sewer line with no-dig CIPP lining and a 20 year warranty across Colorado's Front Range.","keyword":"Residential Trenchless Pipelining","robots":"max-image-preview:large","clicks":0,"impr":28,"idx":"yes","kwSt":"warn","kwChk":"Live page: H1 matches, title does not (\"Residential Sewer Pipe Lining in Colorado | Alphalete\")"},{"id":5434,"type":"Service","title":"Commercial Trenchless Pipelining","path":"/services/commercial-trenchless-pipelining/","svc":"Commercial Pipelining","mod":"2026-09-24","pub":"2026-03-07","slug":"commercial-trenchless-pipelining","seoTitle":"Commercial Sewer Line Repair & Pipe Lining in Colorado","metaDesc":"Commercial sewer line repair across Colorado with CIPP pipe lining. Camera-first diagnosis and work phased around tenants, so your lot and floors stay intact.","keyword":"commercial sewer line repair","robots":"max-image-preview:large","clicks":0,"impr":1,"idx":"yes","idxNote":"Newly indexed Sep 29 (was crawled-not-indexed). Rewrite live Sep 25, indexing requested Sep 25","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":5463,"type":"Service","title":"Drain Cleaning","path":"/services/drain-cleaning/","svc":"Drain Cleaning","mod":"2026-09-04","pub":"2026-03-07","slug":"drain-cleaning","seoTitle":"Professional Drain Cleaning Services in Denver, CO | Alphalete Trenchless","metaDesc":"Drain cleaning in Denver and the Front Range for slow drains, backups, and root clogs. Snaking, sewer cleaning, and hydro jetting restore full flow.","keyword":"drain cleaning","robots":"max-image-preview:large","clicks":0,"impr":23,"idx":"yes","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":5479,"type":"Service","title":"Hydro Jetting","path":"/services/hydro-jetting/","svc":"Hydro Jetting","mod":"2026-09-16","pub":"2026-03-07","slug":"hydro-jetting","seoTitle":"Hydro Jetting in Colorado Springs, CO | Alphalete Trenchless","metaDesc":"High-pressure hydro jetting in Colorado Springs clears grease, scale, sludge and roots. Camera inspection before and after cleaning. Request an estimate.","keyword":"hydro jetting colorado springs","robots":"max-image-preview:large","clicks":0,"impr":99,"idx":"yes","crawl":"Aug 31","city":"Colorado Springs","oldImpr":1015,"kwSt":"warn","kwChk":"Live page: title and H1 both match. Search Atlas: Google ranks /blog/hydro-jetting-colorado-springs/ (#8) for \"hydro jetting colorado springs\", not this page"},{"id":5508,"type":"Service","title":"Sewer Camera Inspections","path":"/services/sewer-camera-inspection/","svc":"Camera Inspection","mod":"2026-09-21","pub":"2026-03-07","slug":"sewer-camera-inspection","seoTitle":"Sewer Camera Inspection in Colorado | Alphalete Trenchless","keyword":"Sewer Camera Inspection","robots":"max-image-preview:large","clicks":0,"impr":25,"idx":"yes","metaDesc":"Sewer camera inspection across Colorado's Front Range. HD video finds roots, cracks, bellies, and offset joints so you know what your line needs before repair.","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":10085,"type":"Local","title":"Sewer Camera Inspections in Buffalo Creek","path":"/buffalo-creek/","svc":"Camera Inspection","city":"Buffalo Creek","mod":"2026-08-17","pub":"2026-04-22","slug":"buffalo-creek","seoTitle":"Sewer Camera Inspection Buffalo Creek, CO | See the Line","metaDesc":"Sewer camera inspection in Buffalo Creek, CO. See inside your line on HD video before anyone digs a mountain lot. Locate clogs, cracks, and roots. Book now.","keyword":"sewer camera inspection buffalo creek co","robots":"max-image-preview:large","clicks":0,"impr":312,"idx":"yes","crawl":"Aug 28","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":10119,"type":"Local","title":"Sewer Camera Inspections in Calhan","path":"/calhan/","svc":"Camera Inspection","city":"Calhan","mod":"2026-08-17","pub":"2026-04-23","slug":"calhan","seoTitle":"Sewer Camera Inspection Calhan, CO | HD Video Diagnosis","metaDesc":"Sewer camera inspection in Calhan, CO. HD video finds the real problem, from clogs and cracks to roots and bellies, before you pay for repairs. Book today.","keyword":"sewer camera inspection calhan co","robots":"max-image-preview:large","clicks":0,"impr":62,"idx":"yes","crawl":"Aug 12","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":10186,"type":"Local","title":"Sewer Camera Inspections in Coal Creek","path":"/coal-creek/","svc":"Camera Inspection","city":"Coal Creek","mod":"2026-08-17","pub":"2026-04-27","slug":"coal-creek","seoTitle":"Sewer Camera Inspection Coal Creek, CO | Know Before You Buy","metaDesc":"Sewer camera inspection in Coal Creek, CO. Know the condition of an aging line before you buy or repair. HD footage and honest findings. Book an inspection.","keyword":"sewer camera inspection coal creek co","robots":"max-image-preview:large","clicks":0,"impr":1,"idx":"yes","crawl":"Aug 28","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":10211,"type":"Local","title":"Sewer Camera Inspections in Cripple Creek","path":"/cripple-creek/","svc":"Camera Inspection","city":"Cripple Creek","mod":"2026-08-17","pub":"2026-04-27","slug":"cripple-creek","seoTitle":"Sewer Camera Inspection Cripple Creek, CO | Older Lines","metaDesc":"Sewer camera inspection in Cripple Creek, CO. See inside some of the oldest sewer lines in the region and find damage before it fails. Book an inspection.","keyword":"sewer camera inspection cripple creek co","robots":"max-image-preview:large","clicks":0,"impr":46,"idx":"yes","crawl":"Aug 29","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":12576,"type":"Local","title":"Sewer Camera Inspections in Manitou Springs","path":"/manitou-springs/","svc":"Camera Inspection","city":"Manitou Springs","mod":"2026-09-21","pub":"2026-05-19","slug":"manitou-springs","seoTitle":"Sewer Camera Inspection Manitou Springs, CO | No Guesswork","metaDesc":"Sewer camera inspection in Manitou Springs, CO. Diagnose your line with HD video instead of guesswork, whether you are buying or repairing. Book a scope.","keyword":"sewer camera inspection manitou springs co","robots":"max-image-preview:large","clicks":0,"impr":59,"idx":"yes","crawl":"Aug 28","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":12577,"type":"Local","title":"Sewer Camera Inspections in Matheson","path":"/matheson/","svc":"Camera Inspection","city":"Matheson","mod":"2026-08-17","pub":"2026-05-19","slug":"matheson","seoTitle":"Sewer Camera Inspection Matheson, CO | Rural Line Scoping","metaDesc":"Sewer camera inspection in Matheson, CO. We scope long rural lines to pinpoint the clog or break before any digging starts. Schedule a camera inspection.","keyword":"sewer camera inspection matheson co","robots":"max-image-preview:large","clicks":0,"impr":136,"idx":"yes","crawl":"Aug 14","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":12582,"type":"Local","title":"Sewer Camera Inspections in Peyton","path":"/peyton/","svc":"Camera Inspection","city":"Peyton","mod":"2026-08-17","pub":"2026-05-19","slug":"peyton","seoTitle":"Sewer Camera Inspection Peyton, CO | Find It Before You Dig","metaDesc":"Sewer camera inspection in Peyton, CO. See the blockage before you spend on repairs, with HD video and a clear report of what we find. Book an inspection.","keyword":"sewer camera inspection peyton co","robots":"max-image-preview:large","clicks":0,"impr":46,"idx":"yes","crawl":"Aug 14","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":12589,"type":"Local","title":"Sewer Camera Inspections in Simla","path":"/simla/","svc":"Camera Inspection","city":"Simla","mod":"2026-08-17","pub":"2026-05-19","slug":"simla","seoTitle":"Sewer Camera Inspection Simla, CO | Honest HD Findings","metaDesc":"Sewer camera inspection in Simla, CO. HD inspection and honest findings on your sewer line, with no digging required to look. Schedule an inspection.","keyword":"sewer camera inspection simla co","robots":"max-image-preview:large","clicks":0,"impr":56,"idx":"yes","crawl":"Aug 15","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":12591,"type":"Local","title":"Sewer Camera Inspections in Victor","path":"/victor/","svc":"Camera Inspection","city":"Victor","mod":"2026-08-17","pub":"2026-05-19","slug":"victor","seoTitle":"Sewer Camera Inspection Victor, CO | Historic Line Scoping","metaDesc":"Sewer camera inspection in Victor, CO. Pinpoint problems inside historic mountain sewer lines without digging to look. Book an HD camera inspection.","keyword":"sewer camera inspection victor co","robots":"max-image-preview:large","clicks":0,"impr":150,"idx":"yes","crawl":"Aug 15","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":15600,"type":"Local","title":"Colorado Springs","path":"/colorado-springs/","svc":"City hub","city":"Colorado Springs","mod":"2026-09-15","pub":"2026-08-10","slug":"colorado-springs","seoTitle":"Trenchless Sewer Repair Colorado Springs, CO | No-Dig CIPP","metaDesc":"Trenchless sewer repair in Colorado Springs, CO. No-dig CIPP lining, drain cleaning, hydro jetting, and camera inspection from a local crew. Get a quote.","keyword":"trenchless sewer repair colorado springs","robots":"max-image-preview:large","clicks":0,"impr":701,"idx":"yes","crawl":"Aug 12","kwSt":"ok","kwChk":"Live page: title and H1 both match. Search Atlas: #15 for \"trenchless sewer repair colorado springs\" (Colorado Springs)"},{"id":14198,"type":"Local","title":"Commercial Trenchless Pipelining in Canon City, CO","path":"/canon-city/","svc":"Commercial Pipelining","city":"Canon City","mod":"2026-08-17","pub":"2026-07-17","slug":"canon-city","seoTitle":"Commercial Trenchless Pipelining Canon City, CO | No-Dig","keyword":"commercial trenchless pipelining canon city co","robots":"max-image-preview:large","clicks":0,"impr":140,"idx":"yes","crawl":"Aug 12","metaDesc":"Commercial trenchless pipelining in Canon City, CO. Rehab cracked, root-filled sewer laterals under historic buildings with CIPP lining. Get a quote.","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":14197,"type":"Local","title":"Commercial Trenchless Pipelining in Castle Rock, CO","path":"/castle-rock/","svc":"Commercial Pipelining","city":"Castle Rock","mod":"2026-08-17","pub":"2026-07-17","slug":"castle-rock","seoTitle":"Commercial Trenchless Pipelining Castle Rock, CO | CIPP","metaDesc":"Commercial trenchless pipelining in Castle Rock, CO. Restore cracked or corroded sewer lines with CIPP lining and keep your doors open. Request a quote.","keyword":"commercial trenchless pipelining castle rock co","robots":"max-image-preview:large","clicks":0,"impr":152,"idx":"yes","crawl":"Aug 12","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":14199,"type":"Local","title":"Commercial Trenchless Pipelining in Fountain, CO","path":"/fountain/","svc":"Commercial Pipelining","city":"Fountain","mod":"2026-08-17","pub":"2026-07-17","slug":"fountain","seoTitle":"Commercial Trenchless Pipelining Fountain, CO | Minimal Dig","keyword":"commercial trenchless pipelining fountain co","robots":"max-image-preview:large","clicks":0,"impr":28,"idx":"yes","crawl":"Aug 13","metaDesc":"Commercial trenchless pipelining in Fountain, CO. Line aging sewer and drain pipes from the inside so your business stays open. Request a quote.","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":14200,"type":"Local","title":"Commercial Trenchless Pipelining in Littleton, CO","path":"/littleton/","svc":"Commercial Pipelining","city":"Littleton","mod":"2026-09-15","pub":"2026-07-17","slug":"littleton","seoTitle":"Trenchless Sewer Repair & Pipe Lining in Littleton, CO","metaDesc":"Trenchless sewer repair, line replacement, and commercial pipe lining in Littleton, CO. No-dig CIPP and pipe bursting for homes and businesses. Get a quote.","keyword":"trenchless sewer repair littleton co","robots":"max-image-preview:large","clicks":0,"impr":281,"idx":"yes","crawl":"Aug 14","kwOld":"commercial trenchless pipelining littleton co","kwSt":"ok","kwChk":"Label fixed Oct 1 (was \"commercial trenchless pipelining littleton co\") to match the live title and H1. Live page: title and H1 both match"},{"id":14201,"type":"Local","title":"Commercial Trenchless Pipelining in Lone Tree, CO","path":"/lone-tree/","svc":"Commercial Pipelining","city":"Lone Tree","mod":"2026-08-17","pub":"2026-07-17","slug":"lone-tree","seoTitle":"Commercial Trenchless Pipelining Lone Tree, CO | Low Impact","metaDesc":"Commercial trenchless pipelining in Lone Tree, CO. Fix failing sewer lines with CIPP lining and little disruption to tenants or traffic. Request a quote.","keyword":"commercial trenchless pipelining lone tree co","robots":"max-image-preview:large","clicks":0,"impr":3,"idx":"yes","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":14202,"type":"Local","title":"Commercial Trenchless Pipelining in Parker, CO","path":"/parker/","svc":"Commercial Pipelining","city":"Parker","mod":"2026-09-15","pub":"2026-07-17","slug":"parker","seoTitle":"Trenchless Sewer Repair & Pipe Lining in Parker, CO","metaDesc":"Trenchless sewer repair, line replacement, and commercial pipe lining in Parker, CO. No-dig CIPP and pipe bursting for homes and businesses. Get a quote.","keyword":"trenchless sewer repair parker co","robots":"max-image-preview:large","clicks":0,"impr":344,"idx":"yes","crawl":"Aug 27","kwOld":"commercial trenchless pipelining parker co","kwSt":"ok","kwChk":"Label fixed Oct 1 (was \"commercial trenchless pipelining parker co\") to match the live title and H1. Live page: title and H1 both match. Search Atlas: #7 for \"trenchless sewer repair parker\" (Colorado Springs)"},{"id":14203,"type":"Local","title":"Commercial Trenchless Pipelining in Pueblo, CO","path":"/pueblo/","svc":"Commercial Pipelining","city":"Pueblo","mod":"2026-08-17","pub":"2026-07-17","slug":"pueblo","seoTitle":"Commercial Trenchless Pipelining Pueblo, CO | No-Dig Rehab","metaDesc":"Commercial trenchless pipelining in Pueblo, CO. Protect your building with no-dig CIPP rehab for cracked, corroded, or root-damaged lines. Request a quote.","keyword":"commercial trenchless pipelining pueblo co","robots":"max-image-preview:large","clicks":0,"impr":73,"idx":"yes","crawl":"Aug 14","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":14250,"type":"Local","title":"Drain Cleaning Services in Black Forest, CO","path":"/black-forest/","svc":"Drain Cleaning","city":"Black Forest","mod":"2026-08-17","pub":"2026-07-17","slug":"black-forest","seoTitle":"Drain Cleaning Services Black Forest, CO | Septic & Sewer","metaDesc":"Drain cleaning services in Black Forest, CO for homes on septic or sewer. We clear the clog, camera the line, and show you why it backed up. Book a visit.","keyword":"drain cleaning services black forest co","robots":"max-image-preview:large","clicks":0,"impr":27,"idx":"yes","crawl":"Aug 28","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":14164,"type":"Local","title":"Drain Cleaning Services in Cascade, CO","path":"/cascade/","svc":"Drain Cleaning","city":"Cascade","mod":"2026-08-17","pub":"2026-07-17","slug":"cascade","seoTitle":"Drain Cleaning Services Cascade, CO | Camera-Verified","metaDesc":"Slow drains or repeat backups in Cascade, CO? Alphalete clears the blockage, then scopes the line so you know the real cause before it happens again.","keyword":"drain cleaning services cascade co","robots":"max-image-preview:large","clicks":0,"impr":1,"idx":"yes","crawl":"Aug 29","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":14165,"type":"Local","title":"Drain Cleaning Services in Florence, CO","path":"/florence/","svc":"Drain Cleaning","city":"Florence","mod":"2026-08-17","pub":"2026-07-17","slug":"florence","seoTitle":"Drain Cleaning Services Florence, CO | Clogs Cleared Right","metaDesc":"Drain cleaning in Florence, CO that lasts. We cut through grease, roots, and sludge, then verify the line runs clear on camera. Schedule your service today.","keyword":"drain cleaning services florence co","robots":"max-image-preview:large","clicks":0,"impr":190,"idx":"yes","crawl":"Aug 12","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":14166,"type":"Local","title":"Drain Cleaning Services in Florissant, CO","path":"/florissant/","svc":"Drain Cleaning","city":"Florissant","mod":"2026-08-17","pub":"2026-07-17","slug":"florissant","seoTitle":"Drain Cleaning Services Florissant, CO | Root Cause Found","metaDesc":"Drain cleaning services in Florissant, CO. Alphalete clears kitchen, bath, and main line clogs and finds the cause on camera, not by guesswork. Book now.","keyword":"drain cleaning services florissant co","robots":"max-image-preview:large","clicks":0,"impr":2,"idx":"yes","crawl":"Aug 12","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":14167,"type":"Local","title":"Drain Cleaning Services in Green Mountain Falls, CO","path":"/green-mountain-falls/","svc":"Drain Cleaning","city":"Green Mountain Falls","mod":"2026-08-17","pub":"2026-07-17","slug":"green-mountain-falls","seoTitle":"Drain Cleaning Green Mountain Falls, CO | Backups Cleared","metaDesc":"Backed-up drains in Green Mountain Falls, CO? Our crew clears the line, checks for roots and buildup, and gets your home flowing again. Request service.","keyword":"drain cleaning services green mountain falls co","robots":"max-image-preview:large","clicks":0,"impr":30,"idx":"yes","crawl":"Aug 27","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":14168,"type":"Local","title":"Drain Cleaning Services in Guffey, CO","path":"/guffey/","svc":"Drain Cleaning","city":"Guffey","mod":"2026-08-17","pub":"2026-07-17","slug":"guffey","seoTitle":"Drain Cleaning Services Guffey, CO | Stop Repeat Clogs","metaDesc":"Drain cleaning in Guffey, CO for stubborn, recurring clogs. We clear the full line and inspect it on camera so the same backup does not return. Book today.","keyword":"drain cleaning services guffey co","robots":"max-image-preview:large","clicks":0,"impr":4,"idx":"yes","crawl":"Aug 13","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":14169,"type":"Local","title":"Drain Cleaning Services in Penrose, CO","path":"/penrose/","svc":"Drain Cleaning","city":"Penrose","mod":"2026-08-17","pub":"2026-07-17","slug":"penrose","seoTitle":"Drain Cleaning Services Penrose, CO | Full-Line Clearing","metaDesc":"Drain cleaning services in Penrose, CO. We clear the whole pipe instead of poking a hole through the clog, then confirm flow on camera. Schedule a visit.","keyword":"drain cleaning services penrose co","robots":"max-image-preview:large","clicks":0,"impr":82,"idx":"yes","crawl":"Aug 14","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":14170,"type":"Local","title":"Drain Cleaning Services in Sedalia, CO","path":"/sedalia/","svc":"Drain Cleaning","city":"Sedalia","mod":"2026-08-17","pub":"2026-07-17","slug":"sedalia","seoTitle":"Drain Cleaning Services Sedalia, CO | Fast Backup Relief","metaDesc":"Backed-up drains in Sedalia, CO? Alphalete clears clogged sinks, tubs, and sewer mains fast, then shows you the line on camera. Request drain cleaning.","keyword":"drain cleaning services sedalia co","robots":"max-image-preview:large","clicks":0,"impr":155,"idx":"yes","crawl":"Aug 15","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":14171,"type":"Local","title":"Drain Cleaning Services in USAF Academy, CO","path":"/usaf-academy/","svc":"Drain Cleaning","city":"USAF Academy","mod":"2026-08-17","pub":"2026-07-17","slug":"usaf-academy","seoTitle":"Drain Cleaning Services USAF Academy, CO | Alphalete","metaDesc":"Drain cleaning services near USAF Academy, CO. We clear the blockage, inspect the line, and help you prevent the next backup. Book a drain cleaning visit.","keyword":"drain cleaning services usaf academy co","robots":"max-image-preview:large","clicks":0,"impr":20,"idx":"yes","crawl":"Aug 15","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":14172,"type":"Local","title":"Drain Cleaning Services in Wetmore, CO","path":"/wetmore/","svc":"Drain Cleaning","city":"Wetmore","mod":"2026-08-17","pub":"2026-07-17","slug":"wetmore","seoTitle":"Drain Cleaning Services Wetmore, CO | Local Drain Crew","metaDesc":"Drain cleaning in Wetmore, CO for slow, gurgling, or backed-up drains. Our crew clears the line and scopes it to confirm the fix. Schedule service today.","keyword":"drain cleaning services wetmore co","robots":"max-image-preview:large","clicks":0,"impr":16,"idx":"yes","crawl":"Aug 31","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":14137,"type":"Local","title":"Hydro Jetting Services in Boone, CO","path":"/boone/","svc":"Hydro Jetting","city":"Boone","mod":"2026-08-17","pub":"2026-07-17","slug":"boone","seoTitle":"Hydro Jetting Services Boone, CO | Grease & Root Removal","metaDesc":"Hydro jetting in Boone, CO blasts grease, scale, and tree roots out of your sewer line and restores full flow. Camera-checked before and after. Book now.","keyword":"hydro jetting services boone co","robots":"max-image-preview:large","clicks":0,"impr":66,"idx":"yes","crawl":"Aug 12","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":14138,"type":"Local","title":"Hydro Jetting Services in Elbert, CO","path":"/elbert/","svc":"Hydro Jetting","city":"Elbert","mod":"2026-08-17","pub":"2026-07-17","slug":"elbert","seoTitle":"Hydro Jetting Services Elbert, CO | Full-Pipe Cleaning","metaDesc":"Hydro jetting services in Elbert, CO. High-pressure water scours the full pipe wall clean, not just a hole through the clog. Request a jetting visit.","keyword":"hydro jetting services elbert co","robots":"max-image-preview:large","clicks":0,"impr":4,"idx":"yes","crawl":"Aug 12","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":14139,"type":"Local","title":"Hydro Jetting Services in Kiowa, CO","path":"/kiowa/","svc":"Hydro Jetting","city":"Kiowa","mod":"2026-08-17","pub":"2026-07-17","slug":"kiowa","seoTitle":"Hydro Jetting Services Kiowa, CO | High-Pressure Cleaning","metaDesc":"Hydro jetting in Kiowa, CO for clogs that keep coming back. We clean the line wall to wall and confirm the result on camera. Schedule high-pressure jetting.","keyword":"hydro jetting services kiowa co","robots":"max-image-preview:large","clicks":0,"impr":9,"idx":"yes","crawl":"Aug 27","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":14140,"type":"Local","title":"Hydro Jetting Services in Lake George, CO","path":"/lake-george/","svc":"Hydro Jetting","city":"Lake George","mod":"2026-08-17","pub":"2026-07-17","slug":"lake-george","seoTitle":"Hydro Jetting Services Lake George, CO | Restore Full Flow","metaDesc":"Hydro jetting services in Lake George, CO. High-pressure jetting clears grease, sludge, and root intrusion and restores your line to full flow. Book today.","keyword":"hydro jetting services lake george co","robots":"max-image-preview:large","clicks":0,"impr":15,"idx":"yes","crawl":"Aug 13","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":14141,"type":"Local","title":"Hydro Jetting Services in Louviers, CO","path":"/louviers/","svc":"Hydro Jetting","city":"Louviers","mod":"2026-08-17","pub":"2026-07-17","slug":"louviers","seoTitle":"Hydro Jetting Services Louviers, CO | Clear Stubborn Clogs","metaDesc":"Hydro jetting in Louviers, CO clears stubborn clogs at the root, flushing buildup out of the whole sewer line. Camera-verified results. Request service.","keyword":"hydro jetting services louviers co","robots":"max-image-preview:large","clicks":0,"impr":40,"idx":"yes","crawl":"Aug 14","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":14142,"type":"Local","title":"Hydro Jetting Services in Pine, CO","path":"/pine/","svc":"Hydro Jetting","city":"Pine","mod":"2026-08-17","pub":"2026-07-17","slug":"pine","seoTitle":"Hydro Jetting Services Pine, CO | Roots & Grease Cleared","metaDesc":"Hydro jetting services in Pine, CO. We wash roots, grease, and debris out of the line so flow returns and clogs stop repeating. Schedule your jetting.","keyword":"hydro jetting services pine co","robots":"max-image-preview:large","clicks":0,"impr":53,"idx":"yes","crawl":"Aug 14","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":14143,"type":"Local","title":"Hydro Jetting Services in Ramah, CO","path":"/ramah/","svc":"Hydro Jetting","city":"Ramah","mod":"2026-08-17","pub":"2026-07-17","slug":"ramah","seoTitle":"Hydro Jetting Services Ramah, CO | Deep Sewer Line Clean","metaDesc":"Hydro jetting in Ramah, CO for a deep sewer line clean. High-pressure water removes years of buildup and restores full flow. Request a jetting visit today.","keyword":"hydro jetting services ramah co","robots":"max-image-preview:large","clicks":0,"impr":45,"idx":"yes","crawl":"Aug 15","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":14144,"type":"Local","title":"Hydro Jetting Services in Rockvale, CO","path":"/rockvale/","svc":"Hydro Jetting","city":"Rockvale","mod":"2026-08-17","pub":"2026-07-17","slug":"rockvale","seoTitle":"Hydro Jetting Services Rockvale, CO | Recurring Clog Fix","metaDesc":"Hydro jetting services in Rockvale, CO for recurring clogs. Powerful jetting clears the full pipe and we scope it to verify. Book high-pressure cleaning.","keyword":"hydro jetting services rockvale co","robots":"max-image-preview:large","clicks":0,"impr":43,"idx":"yes","crawl":"Aug 15","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":12553,"type":"Local","title":"Hydro Jetting Services in Yoder, CO","path":"/yoder/","svc":"Hydro Jetting","city":"Yoder","mod":"2026-08-17","pub":"2026-05-19","slug":"yoder","seoTitle":"Hydro Jetting Services Yoder, CO | One-Visit Line Cleaning","metaDesc":"Hydro jetting in Yoder, CO clears the whole pipe in one visit, cutting through grease, scale, and roots. Camera-checked line. Request hydro jetting service.","keyword":"hydro jetting services yoder co","robots":"max-image-preview:large","clicks":0,"impr":12,"idx":"yes","crawl":"Aug 15","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":6538,"type":"Local","title":"Trenchless Sewer Line Repair in Elizabeth, CO","path":"/elizabeth/","svc":"Sewer Repair","city":"Elizabeth","mod":"2026-08-17","pub":"2026-03-24","slug":"elizabeth","seoTitle":"Trenchless Sewer Line Repair Elizabeth, CO | No Digging","metaDesc":"Trenchless sewer line repair in Elizabeth, CO. Fix cracked, root-damaged lines from the inside with CIPP lining, no trench across your property. Get a quote.","keyword":"trenchless sewer line repair elizabeth co","robots":"max-image-preview:large","clicks":0,"impr":32,"idx":"yes","crawl":"Aug 22","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":6855,"type":"Local","title":"Trenchless Sewer Line Repair in Franktown, CO","path":"/franktown/","svc":"Sewer Repair","city":"Franktown","mod":"2026-08-17","pub":"2026-03-25","slug":"franktown","seoTitle":"Trenchless Sewer Line Repair Franktown, CO | No-Dig CIPP","metaDesc":"Trenchless sewer line repair in Franktown, CO. Lasting CIPP repairs for acreage properties without trenching the driveway or yard. Request a quote today.","keyword":"trenchless sewer line repair franktown co","robots":"max-image-preview:large","clicks":0,"impr":33,"idx":"yes","crawl":"Aug 22","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":7321,"type":"Local","title":"Trenchless Sewer Line Repair in Larkspur, CO","path":"/larkspur/","svc":"Sewer Repair","city":"Larkspur","mod":"2026-08-17","pub":"2026-03-25","slug":"larkspur","seoTitle":"Trenchless Sewer Line Repair Larkspur, CO | Save Your Yard","metaDesc":"Trenchless sewer line repair in Larkspur, CO. Restore flow and save your yard and wooded lot with no-dig CIPP pipe lining. Request a repair quote.","keyword":"trenchless sewer line repair larkspur co","robots":"max-image-preview:large","clicks":0,"impr":100,"idx":"yes","crawl":"Aug 22","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":7965,"type":"Local","title":"Trenchless Sewer Repair in Monument, CO","path":"/monument/","svc":"Sewer Repair","city":"Monument","mod":"2026-08-17","pub":"2026-03-26","slug":"monument","seoTitle":"Trenchless Sewer Line Repair Monument, CO | Tri-Lakes Area","metaDesc":"Trenchless sewer line repair in Monument, CO. No-dig CIPP repair for Tri-Lakes homes with cracked, offset, or root-damaged sewer lines. Request a quote.","keyword":"trenchless sewer line repair monument co","robots":"max-image-preview:large","clicks":0,"impr":49,"idx":"yes","crawl":"Aug 22","kwSt":"warn","kwChk":"Live page: title and H1 both match. Search Atlas: Google ranks /blog/colorado-springs-sewer-line-causes/ (#3) for \"trenchless sewer repair monument co\", not this page"},{"id":7968,"type":"Local","title":"Trenchless Sewer Line Repair in Palmer Lake, CO","path":"/palmer-lake/","svc":"Sewer Repair","city":"Palmer Lake","mod":"2026-08-17","pub":"2026-03-26","slug":"palmer-lake","seoTitle":"Trenchless Sewer Line Repair Palmer Lake, CO | No-Dig Fix","metaDesc":"Trenchless sewer line repair in Palmer Lake, CO. No-dig CIPP lining fixes failing sewer lines and protects mature landscaping. Request a repair quote.","keyword":"trenchless sewer line repair palmer lake co","robots":"max-image-preview:large","clicks":0,"impr":14,"idx":"yes","crawl":"Aug 22","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":8651,"type":"Local","title":"Trenchless Sewer Line Repair in Security-Widefield, CO","path":"/security-widefield/","svc":"Sewer Repair","city":"Security-Widefield","mod":"2026-08-17","pub":"2026-03-26","slug":"security-widefield","seoTitle":"Trenchless Sewer Line Repair Security-Widefield, CO","metaDesc":"Trenchless sewer line repair in Security-Widefield, CO. CIPP lining fixes aging lines in established neighborhoods without excavation. Request a quote.","keyword":"trenchless sewer line repair security widefield co","robots":"max-image-preview:large","clicks":0,"impr":48,"idx":"yes","crawl":"Aug 22","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":9070,"type":"Local","title":"Trenchless Sewer Line Repair in Woodland Park, CO","path":"/woodland-park/","svc":"Sewer Repair","city":"Woodland Park","mod":"2026-09-21","pub":"2026-03-27","slug":"woodland-park","seoTitle":"Trenchless Sewer Line Repair Woodland Park, CO | No-Dig","metaDesc":"Trenchless sewer line repair in Woodland Park, CO. No-dig CIPP lining built for mountain lots, steep yards, and long laterals. Request a repair quote.","keyword":"trenchless sewer line repair woodland park co","robots":"max-image-preview:large","clicks":0,"impr":305,"idx":"yes","crawl":"Aug 22","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":15035,"type":"Local","title":"Trenchless Water Line Repair Services In Denver, Colorado","path":"/denver/","svc":"City hub","city":"Denver","mod":"2026-09-15","pub":"2026-08-05","slug":"denver","seoTitle":"Trenchless Sewer Repair & Pipe Lining in Denver, CO","metaDesc":"Trenchless sewer repair and pipe lining in Denver, CO. Reline or replace cracked, root-damaged sewer lines with no-dig CIPP or pipe bursting. Get a quote.","keyword":"trenchless sewer repair denver","robots":"max-image-preview:large","clicks":0,"impr":807,"idx":"yes","crawl":"Aug 22","kwSt":"ok","kwChk":"Live page: title and H1 both match. Search Atlas: now tracked from Denver (added Oct 1, first rank check pending). The older Colorado Springs entry for \"trenchless sewer repair denver\" is still there"},{"id":15885,"type":"Blog","title":"Who Is Responsible for Sewer Line Repair in Colorado? A City-by-City Guide","path":"/blog/who-is-responsible-for-sewer-line-repair-colorado/","svc":"Sewer Repair","city":"Colorado","mod":"2026-09-21","pub":"2026-09-21","slug":"who-is-responsible-for-sewer-line-repair-colorado","seoTitle":"Who Is Responsible for Sewer Line Repair in Colorado?","keyword":"who is responsible for sewer line repair","robots":"max-image-preview:large","clicks":0,"impr":2,"idx":"yes","metaDesc":"Who is responsible for sewer line repair in Colorado? See what the official rules say in Colorado Springs, Denver, Pueblo and 10 more cities, with sources.","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":15799,"type":"Blog","title":"Does Homeowners Insurance Cover Sewer Line Repair in Colorado?","path":"/blog/does-homeowners-insurance-cover-sewer-line-repair-colorado/","svc":"Sewer Repair","city":"Colorado","mod":"2026-09-14","pub":"2026-09-07","slug":"does-homeowners-insurance-cover-sewer-line-repair-colorado","seoTitle":"Does Homeowners Insurance Cover Sewer Line Repair in CO?","keyword":"does homeowners insurance cover sewer line repair","robots":"max-image-preview:large","clicks":0,"impr":41,"idx":"yes","metaDesc":"Does homeowners insurance cover sewer line repair in Colorado? See what policies exclude, how backup and service line coverage differ, and what to do next.","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":15727,"type":"Blog","title":"HOA Sewer Line Repair in Denver: A Multi-Family Board Guide","path":"/blog/commercial-sewer-lining-denver/","svc":"Commercial","city":"Denver","mod":"2026-09-23","pub":"2026-08-19","slug":"commercial-sewer-lining-denver","seoTitle":"HOA Sewer Line Repair in Denver: Multi-Family Guide","robots":"max-image-preview:large","clicks":0,"impr":1,"idx":"yes","crawl":"Aug 30","metaDesc":"HOA sewer line repair in Denver without trenching: how CIPP lining, phasing, and camera records work in occupied buildings. Start with a sewer assessment.","keyword":"HOA sewer line repair","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":15726,"type":"Blog","title":"Clay Sewer Pipe Repair in Denver: CIPP vs. Open Trench","path":"/blog/clay-sewer-pipe-repair-denver/","svc":"Sewer Repair","city":"Denver","mod":"2026-09-14","pub":"2026-08-17","slug":"clay-sewer-pipe-repair-denver","seoTitle":"Clay Sewer Pipe Repair in Denver: CIPP vs. Open Trench","robots":"max-image-preview:large","clicks":0,"impr":98,"idx":"yes","crawl":"Aug 20","metaDesc":"Clay sewer pipe repair in Denver: when CIPP lining rebuilds the pipe from the inside, when open-trench replacement is still needed, and how to tell.","keyword":"clay sewer pipe repair","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":15725,"type":"Blog","title":"Expansive Soil Sewer Line Damage in Colorado: A Front Range Guide","path":"/blog/expansive-clay-soil-sewer-pipe-damage-colorado/","svc":"Sewer Repair","city":"Colorado","mod":"2026-09-23","pub":"2026-08-15","slug":"expansive-clay-soil-sewer-pipe-damage-colorado","seoTitle":"Expansive Soil Sewer Line Damage in Colorado: Causes & Fixes","robots":"max-image-preview:large","clicks":0,"impr":79,"idx":"yes","crawl":"Aug 20","metaDesc":"Expansive soil sewer line damage is common on the Front Range. Learn how swelling clay cracks pipe, the warning signs, and how to check your line.","keyword":"expansive soil sewer line damage","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":15724,"type":"Blog","title":"Who Is Responsible for the Sewer Line Under the Street in Denver?","path":"/blog/who-pays-for-sewer-line-repair-denver/","svc":"Sewer Repair","city":"Denver","mod":"2026-09-23","pub":"2026-08-13","slug":"who-pays-for-sewer-line-repair-denver","seoTitle":"Sewer Line Under the Street: Who Is Responsible in Denver?","robots":"max-image-preview:large","clicks":0,"impr":311,"idx":"yes","crawl":"Aug 29","metaDesc":"Who is responsible for the sewer line under the street in Denver? See where the city main ends, what the owner's lateral includes, and how to confirm it.","keyword":"who is responsible for sewer line under street","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":15019,"type":"Blog","title":"The Trenchless Sewer Repair Process: What to Expect, Step by Step","path":"/blog/trenchless-sewer-repair-process/","svc":"Sewer Repair","city":"Colorado","mod":"2026-09-23","pub":"2026-08-04","slug":"trenchless-sewer-repair-process","seoTitle":"Trenchless Sewer Repair Process: What to Expect Step by Step","keyword":"trenchless sewer repair process","robots":"max-image-preview:large","clicks":0,"impr":652,"idx":"yes","crawl":"Aug 28","metaDesc":"See the trenchless sewer repair process step by step: camera inspection, cleaning, lining or bursting, curing, and how long it takes. Book your inspection.","kwSt":"warn","kwChk":"Live page: title and H1 both match. Search Atlas: also ranks #13 for \"trenchless sewer repair\", the keyword of /"},{"id":14709,"type":"Blog","title":"Trenchless Sewer Repair Pros and Cons: When No-Dig Works and When It Does Not","path":"/blog/trenchless-sewer-repair-pros-and-cons/","svc":"Sewer Repair","mod":"2026-09-15","pub":"2026-07-31","slug":"trenchless-sewer-repair-pros-and-cons","seoTitle":"Is Trenchless Sewer Repair Worth It? When No-Dig Works","metaDesc":"Is trenchless sewer repair worth it? An honest look at when no-dig sewer repair is the right call, the problems it cannot fix, and what to ask first.","keyword":"is trenchless sewer repair worth it","robots":"max-image-preview:large","clicks":0,"impr":2662,"idx":"yes","crawl":"Aug 26","oldImpr":118,"kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":14328,"type":"Blog","title":"Frost Heave Sewer Line Damage: Why Colorado Winters Crack Pipes","path":"/blog/frost-heave-sewer-line-colorado-causes-trenchless-fix/","svc":"Sewer Repair","city":"Colorado","mod":"2026-09-23","pub":"2026-07-27","slug":"frost-heave-sewer-line-colorado-causes-trenchless-fix","seoTitle":"Frost Heave Sewer Line Damage in Colorado: Signs & Fixes","metaDesc":"Frost heave sewer line damage builds with every Colorado freeze-thaw cycle. Learn the warning signs, which pipes fail first, and how to check your line.","robots":"max-image-preview:large","clicks":0,"impr":0,"idx":"yes","crawl":"Aug 21","keyword":"frost heave sewer line","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":14329,"type":"Blog","title":"Inflow and Infiltration: How Stormwater Gets Into Colorado Sewer Lines","path":"/blog/stormwater-sewer-backups-what-colorado-owners-must-know/","svc":"Sewer Repair","city":"Colorado","mod":"2026-09-23","pub":"2026-07-27","slug":"stormwater-sewer-backups-what-colorado-owners-must-know","seoTitle":"Inflow and Infiltration: How Stormwater Gets Into Your Sewer","metaDesc":"Inflow and infiltration let stormwater into a sewer lateral through cracks, bad joints, and improper hookups. Learn the signs and how a camera finds them.","keyword":"inflow and infiltration","robots":"max-image-preview:large","clicks":0,"impr":5,"idx":"yes","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":13738,"type":"Blog","title":"Cast Iron vs. PVC Sewer Pipe: What Older Colorado Springs Homes Should Know","path":"/blog/cast-iron-vs-pvc-sewer-pipe/","svc":"Sewer Repair","city":"Colorado Springs","mod":"2026-09-14","pub":"2026-07-13","slug":"cast-iron-vs-pvc-sewer-pipe","seoTitle":"Cast Iron vs. PVC Sewer Pipe: Which Is Better? | Alphalete","keyword":"cast iron vs pvc sewer pipe","robots":"max-image-preview:large","clicks":0,"impr":0,"idx":"yes","oldIdx":true,"metaDesc":"Cast iron vs PVC sewer pipe: compare corrosion, roots, noise, and lifespan, and see when a CIPP liner makes more sense than swapping to PVC.","oldImpr":153,"kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":13736,"type":"Blog","title":"Can Cast Iron Pipes Be Relined? Cast Iron Pipe Lining Explained","path":"/blog/can-cast-iron-pipes-be-relined/","svc":"Sewer Repair","mod":"2026-09-23","pub":"2026-07-13","slug":"can-cast-iron-pipes-be-relined","seoTitle":"Cast Iron Pipe Lining: Can Cast Iron Pipes Be Relined?","keyword":"cast iron pipe lining","robots":"max-image-preview:large","clicks":0,"impr":86,"idx":"yes","oldIdx":true,"metaDesc":"Cast iron pipe lining explained: when relining cast iron pipes with CIPP works, when it will not, and how a camera inspection decides. Schedule yours.","oldImpr":644,"kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":13734,"type":"Blog","title":"How Long Do Cast Iron Sewer Pipes Last?","path":"/blog/how-long-do-cast-iron-sewer-pipes-last/","svc":"Sewer Repair","mod":"2026-09-14","pub":"2026-07-13","slug":"how-long-do-cast-iron-sewer-pipes-last","seoTitle":"How Long Do Cast Iron Sewer Pipes Last? Lifespan Guide","keyword":"how long do cast iron sewer pipes last","robots":"max-image-preview:large","clicks":0,"impr":46,"idx":"yes","oldIdx":true,"metaDesc":"How long do cast iron sewer pipes last? See the typical lifespan, what shortens it in Colorado soil, and how a camera shows what is left. Get an inspection.","oldImpr":20,"kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":13730,"type":"Blog","title":"Cast Iron Sewer Pipe Problems in Colorado Springs: Signs, Causes, and Your Repair Options","path":"/blog/cast-iron-sewer-pipe-problems-colorado-springs/","svc":"Sewer Repair","city":"Colorado Springs","mod":"2026-09-14","pub":"2026-07-13","slug":"cast-iron-sewer-pipe-problems-colorado-springs","seoTitle":"Cast Iron Sewer Pipe Problems: Signs, Causes and Fixes","keyword":"cast iron sewer pipe problems","robots":"max-image-preview:large","clicks":0,"impr":11,"idx":"yes","oldIdx":true,"metaDesc":"Cast iron sewer pipe problems in Colorado Springs: warning signs, how corrosion and soil speed failure, and when lining works. Start with a camera check.","oldImpr":49,"kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":13484,"type":"Blog","title":"Sewer Line Maintenance Checklist for Colorado Springs Homeowners","path":"/blog/home-sewer-maintenance-checklist/","svc":"Sewer Repair","city":"Colorado Springs","mod":"2026-09-23","pub":"2026-07-11","slug":"home-sewer-maintenance-checklist","seoTitle":"Sewer Line Maintenance Checklist for Colorado Homes","keyword":"sewer line maintenance","robots":"max-image-preview:large","clicks":0,"impr":27,"idx":"yes","metaDesc":"A sewer line maintenance checklist for Colorado homeowners: daily habits, yearly checks, cleaning and camera intervals, and when to schedule an inspection.","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":13483,"type":"Blog","title":"Why Clay and Cast Iron Pipes Fail in Colorado Springs","path":"/blog/why-clay-cast-iron-pipes-fail-colorado/","svc":"Sewer Repair","city":"Colorado Springs","mod":"2026-09-14","pub":"2026-07-10","slug":"why-clay-cast-iron-pipes-fail-colorado","seoTitle":"Clay and Cast Iron Pipe Failure in Colorado Springs Homes","keyword":"clay and cast iron pipe failure","robots":"max-image-preview:large","clicks":0,"impr":2,"idx":"yes","metaDesc":"Clay and cast iron pipe failure is common in older Colorado Springs homes. Learn why each material cracks or corrodes, the warning signs, and your options.","kwSt":"warn","kwChk":"Live page: title matches, H1 does not (\"Why Clay and Cast Iron Pipes Fail in Colorado Springs Why Clay and Cas\")"},{"id":13482,"type":"Blog","title":"Preparing Your Sewer Line for a Colorado Winter","path":"/blog/preparing-sewer-line-colorado-winter/","svc":"Sewer Repair","city":"Colorado","mod":"2026-09-14","pub":"2026-07-10","slug":"preparing-sewer-line-colorado-winter","seoTitle":"Preparing Your Sewer Line for Winter in Colorado","keyword":"preparing sewer line for winter","robots":"max-image-preview:large","clicks":0,"impr":1,"idx":"yes","metaDesc":"Preparing your sewer line for winter in Colorado starts in fall. See what to check, how freeze-thaw stresses old pipe, and when to book a camera inspection.","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":13480,"type":"Blog","title":"Commercial Sewer Repair for Property Managers in Colorado Springs","path":"/blog/commercial-sewer-repair-property-managers/","svc":"Commercial","city":"Colorado Springs","mod":"2026-09-14","pub":"2026-07-09","slug":"commercial-sewer-repair-property-managers","seoTitle":"Commercial Sewer Repair in Colorado Springs: Manager's Guide","keyword":"commercial sewer repair Colorado Springs","robots":"max-image-preview:large","clicks":0,"impr":1,"idx":"yes","metaDesc":"Commercial sewer repair in Colorado Springs for property managers: common drain problems, trenchless options, and how to plan work around tenants.","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":13584,"type":"Blog","title":"Sinkhole Over Your Sewer Line? What It Means and What to Do","path":"/blog/sinkhole-over-sewer-line-colorado-springs/","svc":"Sewer Repair","city":"Colorado Springs","mod":"2026-09-23","pub":"2026-07-08","slug":"sinkhole-over-sewer-line-colorado-springs","seoTitle":"Sinkhole Over a Sewer Line? Causes and What to Do Next","keyword":"sinkhole over sewer line","robots":"max-image-preview:large","clicks":0,"impr":4,"idx":"yes","metaDesc":"A sinkhole over a sewer line usually means a broken pipe is washing soil away. Learn the early warning signs, the safety steps, and how to get it checked.","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":13583,"type":"Blog","title":"How to Find Your Sewer Cleanout in Colorado Springs (Step by Step)","path":"/blog/how-to-find-sewer-cleanout-colorado-springs/","svc":"Sewer Repair","city":"Colorado Springs","mod":"2026-09-14","pub":"2026-07-08","slug":"how-to-find-sewer-cleanout-colorado-springs","seoTitle":"How to Find Your Sewer Cleanout (Colorado Springs Guide)","keyword":"how to find sewer cleanout","robots":"max-image-preview:large","clicks":0,"impr":44,"idx":"yes","metaDesc":"Learn how to find your sewer cleanout: what it looks like, where it is usually located in Colorado Springs homes, and when to call about a stubborn clog.","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":13582,"type":"Blog","title":"Bellied Sewer Line: Causes and Trenchless Fix | Colorado Springs","path":"/blog/bellied-sewer-line-colorado-springs/","svc":"Sewer Repair","city":"Colorado Springs","mod":"2026-09-24","pub":"2026-07-08","slug":"bellied-sewer-line-colorado-springs","seoTitle":"Bellied Sewer Line: Causes, Signs & Repair Options","keyword":"bellied sewer line","robots":"max-image-preview:large","clicks":0,"impr":9,"idx":"yes","metaDesc":"A bellied sewer line is a sag where waste pools and clogs keep coming back. Learn what causes a belly, the warning signs, and how a camera confirms it.","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":13581,"type":"Blog","title":"Sewer Line Leak in Your Yard? How to Read Standing Water Signs","path":"/blog/standing-water-yard-sewer-line-colorado-springs/","svc":"Sewer Repair","city":"Colorado Springs","mod":"2026-09-23","pub":"2026-07-08","slug":"standing-water-yard-sewer-line-colorado-springs","seoTitle":"Sewer Line Leak in Your Yard? Standing Water Signs","keyword":"sewer line leak in yard","robots":"max-image-preview:large","clicks":0,"impr":3,"idx":"yes","metaDesc":"Standing water or a soggy spot can mean a sewer line leak in your yard. Learn how to tell it from groundwater, what causes it, and how to get it checked.","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":13579,"type":"Blog","title":"Sewer Line Problems in Your Yard: A Colorado Springs Homeowner's Guide","path":"/blog/sewer-line-problems-in-yard-colorado-springs/","svc":"Sewer Repair","city":"Colorado Springs","mod":"2026-09-21","pub":"2026-07-08","slug":"sewer-line-problems-in-yard-colorado-springs","seoTitle":"Sewer Line Problems in Your Yard: Signs and Causes","keyword":"sewer line problems in yard","robots":"max-image-preview:large","clicks":0,"impr":19,"idx":"yes","metaDesc":"Soggy grass, a sewage smell, or a sunken spot can mean sewer line problems in your yard. Learn what each sign means on the Front Range and what to do next.","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":13478,"type":"Blog","title":"What Does a Sewer Camera Inspection Find?","path":"/blog/what-does-a-sewer-camera-inspection-find/","svc":"Camera Inspection","mod":"2026-09-21","pub":"2026-07-08","slug":"what-does-a-sewer-camera-inspection-find","seoTitle":"What Does a Sewer Camera Inspection Find? | Alphalete","keyword":"what does a sewer camera inspection find","robots":"max-image-preview:large","clicks":0,"impr":7,"idx":"yes","metaDesc":"What does a sewer camera inspection find? Roots, cracks, bellies, offset joints, grease, and corrosion. Learn what each finding means and what to do next.","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":13477,"type":"Blog","title":"Should You Get a Sewer Scope Inspection Before Buying a Home?","path":"/blog/sewer-scope-inspection-before-buying-home/","svc":"Camera Inspection","mod":"2026-09-14","pub":"2026-07-07","slug":"sewer-scope-inspection-before-buying-home","seoTitle":"Sewer Scope Inspection Before Buying a Home: Is It Worth It?","keyword":"sewer scope inspection","robots":"max-image-preview:large","clicks":0,"impr":324,"idx":"yes","metaDesc":"A sewer scope inspection before buying a home finds roots, cracks, and bellies a home inspection misses. See if it is worth it and how to use the results.","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":13476,"type":"Blog","title":"Sewer Camera Inspection in Colorado Springs: Everything You Need to Know","path":"/blog/sewer-camera-inspection-colorado-springs/","svc":"Camera Inspection","city":"Colorado Springs","mod":"2026-09-21","pub":"2026-07-07","slug":"sewer-camera-inspection-colorado-springs","seoTitle":"Sewer Camera Inspection in Colorado Springs: Full Guide","keyword":"sewer camera inspection Colorado Springs","robots":"max-image-preview:large","clicks":0,"impr":949,"idx":"yes","metaDesc":"Sewer camera inspection in Colorado Springs, explained: how the camera works, what it finds, and when to book one before you repair or buy a home.","kwSt":"ok","kwChk":"Live page: title and H1 both match. Search Atlas: #7 for \"sewer camera inspection colorado springs\" (Colorado Springs)"},{"id":13550,"type":"Blog","title":"Why Does My Sewer Back Up When It Rains? Monsoon-Season Causes and Fixes","path":"/blog/sewer-backup-when-it-rains/","svc":"Sewer Repair","mod":"2026-09-14","pub":"2026-07-06","slug":"sewer-backup-when-it-rains","seoTitle":"Why Does My Sewer Back Up When It Rains? Colorado Guide","keyword":"why does my sewer back up when it rains","robots":"max-image-preview:large","clicks":0,"impr":3,"idx":"yes","metaDesc":"Why does my sewer back up when it rains? Learn how storm water gets into cracked Colorado sewer lines, the early warning signs, and what to do next.","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":13475,"type":"Blog","title":"How to Prevent Clogged Drains in Your Home","path":"/blog/how-to-prevent-clogged-drains/","svc":"Drain Cleaning","mod":"2026-09-14","pub":"2026-07-04","slug":"how-to-prevent-clogged-drains","seoTitle":"How to Prevent Clogged Drains: Kitchen and Bath Habits","keyword":"how to prevent clogged drains","robots":"max-image-preview:large","clicks":0,"impr":0,"idx":"yes","metaDesc":"Learn how to prevent clogged drains with simple kitchen and bathroom habits, what never to pour or flush, and when a professional cleaning makes sense.","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":13474,"type":"Blog","title":"DIY vs. Professional Drain Cleaning: When to Call a Plumber for a Clogged Drain","path":"/blog/diy-vs-professional-drain-cleaning/","svc":"Drain Cleaning","mod":"2026-09-23","pub":"2026-07-04","slug":"diy-vs-professional-drain-cleaning","seoTitle":"When to Call a Plumber for a Clogged Drain (DIY vs. Pro)","keyword":"when to call a plumber for a clogged drain","robots":"max-image-preview:large","clicks":0,"impr":11,"idx":"yes","metaDesc":"Not sure when to call a plumber for a clogged drain? Learn which clogs are safe to DIY, which signal a main line problem, and when to book an inspection.","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":13473,"type":"Blog","title":"Why Does My Drain Keep Clogging?","path":"/blog/why-does-my-drain-keep-clogging/","svc":"Drain Cleaning","mod":"2026-09-14","pub":"2026-07-03","slug":"why-does-my-drain-keep-clogging","seoTitle":"Why Does My Drain Keep Clogging? Causes by Fixture","keyword":"why does my drain keep clogging","robots":"max-image-preview:large","clicks":0,"impr":6,"idx":"yes","metaDesc":"Why does my drain keep clogging? See why a kitchen sink, shower, or toilet keeps clogging, when it is a main line issue, and how to break the cycle.","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":13470,"type":"Blog","title":"Why Does Your Sewer Line Keep Backing Up?","path":"/blog/why-sewer-line-keeps-backing-up/","svc":"Sewer Repair","mod":"2026-09-14","pub":"2026-07-02","slug":"why-sewer-line-keeps-backing-up","seoTitle":"Sewer Line Keeps Backing Up? Common Causes and Real Fixes","keyword":"sewer line keeps backing up","robots":"max-image-preview:large","clicks":0,"impr":2,"idx":"yes","metaDesc":"Sewer line keeps backing up after every snaking? Learn the common causes of recurring backups, from roots to a bellied pipe, and why a camera comes first.","oldImpr":2,"kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":12654,"type":"Blog","title":"Basement Drain Backing Up? Why the Floor Drain Backs Up First","path":"/blog/basement-floor-drain-backing-up/","svc":"Drain Cleaning","mod":"2026-09-23","pub":"2026-06-12","slug":"basement-floor-drain-backing-up","seoTitle":"Basement Drain Backing Up? Why the Floor Drain Goes First","keyword":"basement drain backing up","robots":"max-image-preview:large","clicks":0,"impr":45,"idx":"yes","oldIdx":true,"metaDesc":"Basement drain backing up? It usually points to a main sewer line clog. Learn the causes, what to do right now, and when to book a camera inspection.","oldImpr":320,"kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":12656,"type":"Blog","title":"Sewage Smell in the House? Here's What It's Telling You","path":"/blog/sewage-smell-in-house/","svc":"Sewer Repair","mod":"2026-09-15","pub":"2026-06-12","slug":"sewage-smell-in-house","seoTitle":"Sewage Smell in House? Common Causes and How to Fix It","keyword":"sewage smell in house","robots":"max-image-preview:large","clicks":0,"impr":162,"idx":"yes","crawl":"Aug 25","oldIdx":true,"metaDesc":"Sewage smell in house? Learn what a sewer smell in the bathroom or basement means, when sewer gas is a concern, and when to book a camera inspection.","oldImpr":88,"kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":12650,"type":"Blog","title":"Sewer Backup Symptoms: What Multiple Slow Drains Really Mean","path":"/blog/backed-up-sewer-line-symptoms/","svc":"Drain Cleaning","mod":"2026-09-23","pub":"2026-06-12","slug":"backed-up-sewer-line-symptoms","seoTitle":"Sewer Backup Symptoms: Signs of a Main Sewer Line Clog","keyword":"sewer backup symptoms","robots":"max-image-preview:large","clicks":0,"impr":10,"idx":"yes","oldIdx":true,"metaDesc":"Learn the sewer backup symptoms that point to a main sewer line clog, how to tell it from one clogged drain, and when to book a camera inspection.","oldImpr":29,"kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":12682,"type":"Blog","title":"Trenchless vs. Traditional Sewer Repair: Pros, Cons, and Costs","path":"/blog/trenchless-vs-traditional-sewer-repair/","svc":"Sewer Repair","mod":"2026-09-17","pub":"2026-06-12","slug":"trenchless-vs-traditional-sewer-repair","seoTitle":"Trenchless vs. Traditional Sewer Repair: No-Dig Pros & Cons","keyword":"trenchless vs traditional sewer repair","robots":"max-image-preview:large","clicks":1,"impr":579,"idx":"yes","crawl":"Sep 16","metaDesc":"Trenchless vs. traditional sewer repair compared: the real pros and cons of no-dig repair versus open-trench excavation, what drives cost, and how to choose.","oldImpr":313,"kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":12683,"type":"Blog","title":"Pipe Lining vs. Pipe Bursting: Which Trenchless Method Do You Need?","path":"/blog/cipp-vs-pipe-bursting/","svc":"Sewer Repair","mod":"2026-09-23","pub":"2026-06-12","slug":"cipp-vs-pipe-bursting","seoTitle":"Pipe Lining vs. Pipe Bursting (CIPP): Which Fits Your Sewer?","keyword":"pipe lining vs pipe bursting","robots":"max-image-preview:large","clicks":0,"impr":209,"idx":"yes","oldIdx":true,"metaDesc":"Pipe lining vs. pipe bursting: how CIPP relines a damaged sewer pipe, when bursting replaces it instead, and how a camera inspection decides. Learn more.","oldImpr":126,"kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":12684,"type":"Blog","title":"Signs of a Broken Sewer Line: 6 Warnings You Need Sewer Line Repair","path":"/blog/signs-you-need-sewer-line-repair/","svc":"Sewer Repair","mod":"2026-09-23","pub":"2026-06-12","slug":"signs-you-need-sewer-line-repair","seoTitle":"Signs of a Broken Sewer Line: When You Need Sewer Repair","keyword":"signs of a broken sewer line","robots":"max-image-preview:large","clicks":0,"impr":7,"idx":"yes","oldIdx":true,"metaDesc":"Signs of a broken sewer line: slow drains, gurgling, repeat backups, odors, and soggy yard spots. Learn what each means and when to get it inspected.","oldImpr":10,"kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":12652,"type":"Blog","title":"Why Is My Toilet Gurgling When I Run Water?","path":"/blog/why-is-my-toilet-gurgling/","svc":"Drain Cleaning","mod":"2026-09-15","pub":"2026-06-12","slug":"why-is-my-toilet-gurgling","seoTitle":"Why Is My Toilet Gurgling? Causes and When to Worry","keyword":"why is my toilet gurgling","robots":"max-image-preview:large","clicks":0,"impr":3,"idx":"yes","oldIdx":true,"metaDesc":"Why is my toilet gurgling? Learn what it means when a toilet gurgles as the shower or washer drains, the common causes, and when to get it inspected.","oldImpr":12,"kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":12688,"type":"Blog","title":"Gurgling Drains and Sewer Smells: What Your Sewer Line Is Telling You","path":"/blog/gurgling-drains-sewer-smells/","svc":"Drain Cleaning","mod":"2026-09-15","pub":"2026-06-12","slug":"gurgling-drains-sewer-smells","seoTitle":"Gurgling Drains: What They Mean and When to Worry","keyword":"gurgling drains","robots":"max-image-preview:large","clicks":0,"impr":1,"idx":"yes","oldIdx":true,"metaDesc":"Gurgling drains mean air is trapped in your plumbing. Learn why a sink or tub gurgles, what a sewer smell with it means, and when to get it inspected.","oldImpr":3,"kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":12687,"type":"Blog","title":"Cracked vs. Collapsed Sewer Pipe: What Is the Difference?","path":"/blog/cracked-vs-collapsed-sewer-pipe/","svc":"Sewer Repair","mod":"2026-09-21","pub":"2026-06-12","slug":"cracked-vs-collapsed-sewer-pipe","seoTitle":"Collapsed Sewer Line or Just Cracked? Symptoms and Fixes","keyword":"collapsed sewer line","robots":"max-image-preview:large","clicks":0,"impr":67,"idx":"yes","oldIdx":true,"metaDesc":"Collapsed sewer line or just a crack? Compare the symptoms, what makes a pipe collapse, and which damage can be relined without digging.","oldImpr":342,"kwSt":"warn","kwChk":"Live page: title matches, H1 does not (\"Cracked vs. Collapsed Sewer Pipe: Symptoms, Causes, and Repair Options\")"},{"id":12690,"type":"Blog","title":"How Often Should You Hydro Jet Your Sewer Line?","path":"/blog/how-often-should-you-hydro-jet/","svc":"Hydro Jetting","mod":"2026-09-23","pub":"2026-06-11","slug":"how-often-should-you-hydro-jet","seoTitle":"How Often Should You Hydro Jet Your Sewer Line?","keyword":"how often should you hydro jet your sewer line","robots":"max-image-preview:large","clicks":0,"impr":100,"idx":"yes","crawl":"Aug 18","metaDesc":"How often should you hydro jet your sewer line? See what shortens or stretches the interval, from trees to grease, and how a camera sets your schedule.","oldImpr":120,"kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":12691,"type":"Blog","title":"Hydro Jetting Cast Iron Pipes: Is It Safe for Old Plumbing?","path":"/blog/hydro-jetting-cast-iron-pipes/","svc":"Hydro Jetting","mod":"2026-09-15","pub":"2026-06-11","slug":"hydro-jetting-cast-iron-pipes","seoTitle":"Hydro Jetting Cast Iron Pipes: Is It Safe for Old Plumbing?","keyword":"hydro jetting cast iron pipes","robots":"max-image-preview:large","clicks":0,"impr":14,"idx":"yes","metaDesc":"Is hydro jetting cast iron pipes safe? See when jetting and descaling help old cast iron, and when the camera says repair instead. Get a camera check.","kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":12681,"type":"Blog","title":"What Is Trenchless Sewer Repair and How Does It Work?","path":"/blog/what-is-trenchless-sewer-repair/","svc":"Sewer Repair","mod":"2026-09-15","pub":"2026-06-11","slug":"what-is-trenchless-sewer-repair","seoTitle":"What Is Trenchless Sewer Repair? How Trenchless Pipe Repair Works","keyword":"what is trenchless sewer repair","robots":"max-image-preview:large","clicks":0,"impr":17722,"idx":"yes","crawl":"Aug 18","metaDesc":"What is trenchless sewer repair? Learn how trenchless pipe repair works, when relining or pipe bursting fits your line, and what to expect from no-dig repair.","oldImpr":765,"kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":12645,"type":"Blog","title":"Colorado Springs Sewer Line Problems: 4 Local Causes of Clogs and Cracks","path":"/blog/colorado-springs-sewer-line-causes/","svc":"Sewer Repair","city":"Colorado Springs","mod":"2026-09-23","pub":"2026-06-03","slug":"colorado-springs-sewer-line-causes","seoTitle":"Colorado Springs Sewer Line Problems: 4 Local Causes","keyword":"colorado springs sewer line problems","robots":"max-image-preview:large","clicks":0,"impr":20,"idx":"yes","metaDesc":"Colorado Springs sewer line problems usually trace to clay soil, freeze-thaw, tree roots, or old pipe. See how each one does damage and how to check yours.","kwSt":"warn","kwChk":"Live page: title and H1 both match. Search Atlas: also ranks #3 for \"trenchless sewer repair monument co\", the keyword of /monument/"},{"id":12643,"type":"Blog","title":"How Much Does Hydro Jetting Cost in Colorado Springs?","path":"/blog/hydro-jetting-cost-colorado-springs/","svc":"Hydro Jetting","city":"Colorado Springs","mod":"2026-09-15","pub":"2026-06-03","slug":"hydro-jetting-cost-colorado-springs","seoTitle":"Hydro Jetting Cost in Colorado Springs: Is It Worth It?","keyword":"hydro jetting cost","robots":"max-image-preview:large","clicks":0,"impr":29,"idx":"yes","oldIdx":true,"metaDesc":"Hydro jetting cost in Colorado Springs depends on buildup, roots, pipe length, and access. See when it is worth it and get an exact quote after inspection.","oldImpr":295,"kwSt":"ok","kwChk":"Live page: title and H1 both match. Search Atlas: #28 for \"hydro-jetting cost near me\" (United States)"},{"id":12640,"type":"Blog","title":"Hydro Jetting vs. Snaking: Which One Does Your Drain Actually Need?","path":"/blog/hydro-jetting-vs-drain-snake/","svc":"Hydro Jetting","mod":"2026-09-23","pub":"2026-06-03","slug":"hydro-jetting-vs-drain-snake","seoTitle":"Hydro Jetting vs. Snaking: Which Does Your Drain Need?","keyword":"hydro jetting vs snaking","robots":"max-image-preview:large","clicks":0,"impr":12,"idx":"yes","metaDesc":"Hydro jetting vs. snaking: a snake clears one clog, while jetting scrubs the whole pipe wall. Compare results and pipe safety, then pick the right fix.","oldImpr":88,"kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":12635,"type":"Blog","title":"What Is Hydro Jetting? A Colorado Springs Homeowner's Guide","path":"/blog/hydro-jetting-colorado-springs/","svc":"Hydro Jetting","city":"Colorado Springs","mod":"2026-09-16","pub":"2026-06-03","slug":"hydro-jetting-colorado-springs","seoTitle":"What Is Hydro Jetting? A Colorado Springs Homeowner's Guide","keyword":"what is hydro jetting","robots":"max-image-preview:large","clicks":0,"impr":300,"idx":"yes","oldIdx":true,"metaDesc":"What is hydro jetting? High-pressure water scrubs grease, sludge, and roots from the whole pipe. See how it works and when Colorado Springs homes need it.","kwSt":"warn","kwChk":"Live page: title and H1 both match. Search Atlas: also ranks #8 for \"hydro jetting colorado springs\", the keyword of /services/hydro-jetting/"},{"id":11587,"type":"Blog","title":"Tree Roots in Sewer Line? What Homeowners Should Know","path":"/blog/tree-roots-in-sewer-line/","svc":"Sewer Repair","mod":"2026-09-21","pub":"2026-05-04","slug":"tree-roots-in-sewer-line","seoTitle":"Tree Roots in Sewer Line: Signs, Removal, and Repair","keyword":"tree roots in sewer line","robots":"max-image-preview:large","clicks":0,"impr":8,"idx":"yes","oldIdx":true,"metaDesc":"Tree roots in sewer line pipes cause recurring backups. Learn the warning signs, how roots are removed, how to keep them out, and when to get inspected.","oldImpr":91,"kwSt":"ok","kwChk":"Live page: title and H1 both match"},{"id":3,"type":"Utility","title":"Privacy Policy","path":"/privacy-policy/","svc":"Legal","mod":"2026-02-13","pub":"2026-01-04","slug":"privacy-policy","seoTitle":"Privacy Policy | Alphalete Trenchless Services","metaDesc":"Alphalete Trenchless Services' privacy policy: Learn how we collect, use, and protect your information. Read about our data practices and security.","keyword":"privacy policy","robots":"max-image-preview:large","clicks":0,"impr":0,"idx":"yes","idxNote":"Newly indexed Sep 29 (was unknown to Google). Sep 25: added H1, removed OTTO heading rewrite, indexing requested","kwSt":"none","kwChk":"Not an SEO page (utility, legal or ads landing page), so not checked"},{"id":4192,"type":"Utility","title":"404 page","path":"/404-2/","svc":"404 page","mod":"2026-03-07","pub":"2021-04-10","slug":"404-2","seoTitle":"404 page – Alphalete Trenchless","robots":"noindex","clicks":0,"impr":0,"idx":"noindex","idxNote":"Unknown to Google, noindex on purpose","kwSt":"none","kwChk":"Not an SEO page (utility, legal or ads landing page), so not checked"},{"id":5068,"type":"Utility","title":"Terms of Service","path":"/terms-of-service/","svc":"Legal","mod":"2026-07-13","pub":"2026-02-13","slug":"terms-of-service","seoTitle":"Terms of Service | Alphalete Trenchless Services","metaDesc":"Review Alphalete Trenchless's Terms of Service for website and sewer repair services. Understand our policies on estimates, SMS, and disclaimers.","keyword":"terms of service","robots":"max-image-preview:large","clicks":0,"impr":0,"idx":"yes","idxNote":"Newly indexed Sep 25 (no request needed)","kwSt":"none","kwChk":"Not an SEO page (utility, legal or ads landing page), so not checked"},{"id":11152,"type":"Utility","title":"Thank you","path":"/thank-you/","svc":"Thank-you page","mod":"2026-04-29","pub":"2026-04-29","slug":"thank-you","seoTitle":"Thank you – Alphalete Trenchless","robots":"noindex, follow (X-Robots-Tag)","clicks":0,"impr":0,"idx":"noindex","kwSt":"none","kwChk":"Not an SEO page (utility, legal or ads landing page), so not checked"},{"id":15864,"type":"Blog","title":"What Is Orangeburg Pipe? How to Identify and Replace It in Colorado","path":"/blog/orangeburg-sewer-pipe-colorado/","svc":"Sewer Repair","mod":"2026-09-16","pub":"2026-09-16","slug":"orangeburg-sewer-pipe-colorado","seoTitle":"What Is Orangeburg Pipe? Identify & Replace It in Colorado","metaDesc":"What is Orangeburg pipe? Learn how to identify it, why it collapses, and what affects replacement cost in older Colorado homes. Book a camera inspection.","keyword":"what is orangeburg pipe","robots":"max-image-preview:large","clicks":0,"impr":41,"idx":"yes","kwSt":"ok","kwChk":"Live page: title and H1 both match"}]</script>
+<script>
+const META = JSON.parse(document.getElementById('meta').textContent);
+const ROWS = JSON.parse(document.getElementById('data').textContent);
+const SITE = 'https://alphaletetrenchless.com';
+ROWS.forEach(r => { r.key = r.id ? String(r.id) : 'static-pipelining'; r.url = SITE + r.path; r.loc = r.city ? r.city + ', CO' : ''; });
+
+const TABS = [
+  {k:'All', label:'All pages'}, {k:'Core', label:'Core pages'}, {k:'Service', label:'Service pages'},
+  {k:'Local', label:'Local pages'}, {k:'Blog', label:'Blog posts'}, {k:'Utility', label:'Utility & legal'}
+];
+const TYPE_LABEL = {Core:'Core pages', Service:'Service pages', Local:'Local pages', Blog:'Blog posts', Utility:'Utility & legal'};
+const STATUSES = [
+  {k:'done', label:'Done', bar:'--done-bar'},
+  {k:'progress', label:'In progress', bar:'--prog-bar'},
+  {k:'needs', label:'Needs work', bar:'--needs-bar'},
+  {k:'todo', label:'Not checked', bar:'--todo-bar'}
+];
+const STATUS_ORDER = {needs:0, progress:1, todo:2, done:3};
+const IDX_ORDER = {discovered:0, crawled:1, unknown:2, noindex:3, yes:4};
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fmt = n => Number(n || 0).toLocaleString('en-US');
+const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const fmtDate = d => { const [y,m,dd] = d.split('-'); return MONTHS[+m-1] + ' ' + (+dd) + ', ' + y; };
+const track = {};
+const statusOf = r => (track[r.key] && track[r.key].status) || 'todo';
+const noteOf = r => (track[r.key] && track[r.key].note) || '';
+const isIndexed = r => r.idx === 'yes';
+
+function idxLabel(r){
+  if(r.idx === 'yes') return 'Indexed';
+  if(r.idx === 'discovered' || r.idx === 'crawled') return 'Not indexed';
+  if(r.idx === 'noindex') return 'Blocked (noindex)';
+  return 'Not in report yet';
+}
+function idxDetail(r){
+  const out = [];
+  if(r.idx === 'yes' && r.crawl) out.push('Last crawled ' + r.crawl);
+  if(r.idx === 'discovered') out.push('Google found it but has not crawled it yet');
+  if(r.idx === 'crawled') out.push('Google crawled it and chose not to index it');
+  if(r.idx === 'unknown') out.push('Too new for Google’s report');
+  if(r.idx === 'noindex') out.push('Page tells Google not to index it');
+  if(r.idxNote) out.push(r.idxNote);
+  else if(r.idx === 'yes' && /noindex/i.test(r.robots || '')) out.push('!Live page now has a noindex tag, so it will drop out');
+  if(r.oldIdx) out.push('Old URL /' + r.slug + '/ is still indexed and redirects here');
+  return out;
+}
+
+/* keyword check: looks only at the primary keyword, across every tab */
+const KW_STOP = new Set(['in','the','a','an','for','of','to','az','arizona','co','colorado','near','me','my','and','on']);
+const kwText = s => String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+const kwTokens = s => kwText(s).split(' ').filter(w => w && !KW_STOP.has(w));
+// Two keywords clash when they have the same words, ignoring order and filler (in, co, the...).
+const kwKey = s => [...new Set(kwTokens(s))].sort().join(' ');
+function kwMatch(r, q){
+  const k = kwText(r.keyword); if(!k) return false;
+  let qt = kwTokens(q); if(!qt.length) qt = kwText(q).split(' ').filter(Boolean);
+  return qt.every(w => k.includes(w));
+}
+const kwLive = r => r.idx !== 'noindex' && !/noindex/i.test(r.robots || '');   // noindex pages can't compete
+function clashGroups(){
+  const g = {};
+  ROWS.forEach(r => { const k = kwKey(r.keyword); if(!k || !kwLive(r)) return; (g[k] = g[k] || []).push(r); });
+  Object.keys(g).forEach(k => { if(g[k].length < 2) delete g[k]; });
+  return g;
+}
+let CLASH = {};
+const kwMode = () => !!view.kq.trim() || view.flag === 'clash';
+const clashOthers = r => { const g = r.keyword && kwLive(r) ? CLASH[kwKey(r.keyword)] : null; return g ? g.filter(x => x !== r) : []; };
+
+/* column definitions */
+const C = {
+  seo:   {label:'SEO title', cls:'k-seo', sort:r => (r.seoTitle || r.title).toLowerCase(),
+          text:r => r.seoTitle || r.title,
+          html:r => esc(r.seoTitle || r.title) + '<span class="len">' + (r.seoTitle || '').length + ' characters</span>'},
+  type:  {label:'Type', cls:'k-type', sort:r => r.type, text:r => r.type,
+          html:r => '<span class="chip t-' + r.type + '">' + r.type + '</span>'},
+  slug:  {label:'Slug', cls:'k-slug', sort:r => r.slug, text:r => r.slug, html:r => esc(r.slug)},
+  kw:    {label:'Primary keyword', cls:'k-kw', sort:r => (r.keyword || '~').toLowerCase(),
+          text:r => { const o = clashOthers(r); return (r.keyword || 'Not set') + (o.length ? '. Same keyword as: ' + o.map(x => x.path + ' (' + TYPE_LABEL[x.type] + ')').join(', ') : ''); },
+          html:r => { const o = clashOthers(r); return (r.keyword ? esc(r.keyword) : '<span class="none">Not set</span>') +
+            (o.length ? '<span class="chip clash" title="Same keyword as ' + esc(o.map(x => x.path).join(', ')) + '">' + (o.length + 1) + ' pages</span>' : ''); }},
+  kwchk: {label:'Live + Search Atlas check', cls:'k-kwchk', sort:r => ({warn:0, none:1, ok:2})[r.kwSt],
+          text:r => (r.kwChk || 'Not checked') + '. Checked ' + (META.kwChecked || ''),
+          html:r => '<span class="chip kc-' + (r.kwSt || 'none') + '">' + ({ok:'Matches', warn:'Check', none:'No keyword'})[r.kwSt || 'none'] + '</span>' +
+                    String(r.kwChk || '').split('. ').map(s => '<span class="sub">' + esc(s) + '</span>').join('')},
+  desc:  {label:'Meta description', cls:'k-desc', sort:r => r.metaDesc ? r.metaDesc.length : -1, text:r => r.metaDesc || 'Missing: no meta description on the live page',
+          html:r => r.metaDesc ? esc(r.metaDesc) + '<span class="len">' + r.metaDesc.length + ' characters</span>' : '<span class="chip missing">Missing</span>'},
+  link:  {label:'Permalink', cls:'k-link', sort:r => r.path, text:r => r.url,
+          html:r => '<a href="' + esc(r.url) + '" target="_blank" rel="noopener">' + esc(r.url.replace('https://','')) + '</a>'},
+  pub:   {label:'Date published', cls:'k-pub', sort:r => r.pub || '', text:r => r.pub ? fmtDate(r.pub) : 'Not in WordPress (static page)',
+          html:r => r.pub ? fmtDate(r.pub) : '<span class="none">Not in WP</span>'},
+  idx:   {label:'Indexed?', cls:'k-idx', sort:r => IDX_ORDER[r.idx], text:r => idxLabel(r) + '. ' + idxDetail(r).map(s => s.replace(/^!/,'')).join('. '),
+          html:r => '<span class="chip ' + (r.idx === 'yes' ? 'i-yes' : r.idx === 'noindex' ? 'i-noindex' : r.idx === 'unknown' ? 'i-unknown' : 'i-no') + '">' + idxLabel(r) + '</span>' +
+                    idxDetail(r).map(s => s[0] === '!' ? '<span class="sub alert">' + esc(s.slice(1)) + '</span>' : '<span class="sub">' + esc(s) + '</span>').join('')},
+  loc:   {label:'Location', cls:'k-loc', sort:r => r.loc, text:r => r.loc || 'None', html:r => r.loc ? esc(r.loc) : '<span class="none">&ndash;</span>'},
+  clicks:{label:'Clicks', cls:'k-clicks', sort:r => r.clicks, text:r => fmt(r.clicks) + ' clicks in the last 3 months (US)',
+          html:r => '<span class="num' + (r.clicks ? '' : ' zero') + '">' + fmt(r.clicks) + '</span>'},
+  impr:  {label:'Impressions', cls:'k-impr', sort:r => r.impr, text:r => fmt(r.impr) + ' impressions in the last 3 months (US)' + (r.oldImpr ? '. Plus ' + fmt(r.oldImpr) + ' on old URLs that now redirect here' : ''),
+          html:r => '<span class="num' + (r.impr ? '' : ' zero') + '">' + fmt(r.impr) + '</span>' + (r.oldImpr ? '<span class="sub">+' + fmt(r.oldImpr) + ' on old URLs</span>' : '')},
+  status:{label:'Status', cls:'k-status', sort:r => STATUS_ORDER[statusOf(r)], text:r => (STATUSES.find(s => s.k === statusOf(r)) || {}).label, html:r => statusSelect(r)},
+  note:  {label:'Notes', cls:'k-note', nosort:true, text:r => noteOf(r) || 'No note yet', html:r => '<textarea class="note" rows="1" data-key="' + r.key + '" placeholder="Add a note" aria-label="Note for ' + esc(r.title) + '">' + esc(noteOf(r)) + '</textarea>'}
+};
+const LAYOUT = {
+  All:     ['seo','type','slug','kw','kwchk','desc','link','pub','idx','clicks','impr','status','note'],
+  Local:   ['seo','slug','kw','kwchk','desc','link','pub','idx','loc','clicks','impr','status','note'],
+  Blog:    ['seo','slug','kw','kwchk','desc','link','pub','idx','clicks','impr','status','note'],
+  Core:    ['seo','slug','kw','kwchk','desc','link','pub','idx','clicks','impr','status','note'],
+  Service: ['seo','slug','kw','kwchk','desc','link','pub','idx','clicks','impr','status','note'],
+  Utility: ['seo','slug','kw','kwchk','desc','link','pub','idx','clicks','impr','status','note']
+};
+const LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const cols = () => LAYOUT[kwMode() ? 'All' : view.tab];
+
+const view = {tab:'Local', q:'', kq:'', status:'', svc:'', flag:'', sort:null, dir:1, selected:null, cell:null};
+let db = null;
+
+function inTab(r){ return view.tab === 'All' || r.type === view.tab; }
+function passFlag(r){
+  if(view.flag === 'indexed') return isIndexed(r);
+  if(view.flag === 'notindexed') return !isIndexed(r);
+  if(view.flag === 'nometa') return !r.metaDesc;
+  if(view.flag === 'nokw') return !r.keyword;
+  if(view.flag === 'kwwarn') return r.kwSt === 'warn';
+  return true;
+}
+function filtered(){
+  const q = view.q.trim().toLowerCase(), kq = view.kq.trim();
+  const inView = r => {
+    if(kq) return kwMatch(r, kq);
+    if(view.flag === 'clash'){ const k = kwKey(r.keyword); return !!(k && CLASH[k] && kwLive(r)); }
+    return inTab(r) && passFlag(r) && (!view.svc || r.svc === view.svc);
+  };
+  let list = ROWS.filter(r => inView(r)
+    && (!view.status || statusOf(r) === view.status)
+    && (!q || [r.title, r.seoTitle, r.keyword, r.metaDesc, r.path, r.city, r.svc, noteOf(r)].join(' ').toLowerCase().includes(q)));
+  if(view.sort){
+    const f = C[view.sort].sort;
+    list = list.slice().sort((a,b) => { const x = f(a), y = f(b); return (x < y ? -1 : x > y ? 1 : 0) * view.dir; });
+  } else if(kwMode()){
+    list = list.slice().sort((a,b) => kwKey(a.keyword).localeCompare(kwKey(b.keyword)) || a.path.localeCompare(b.path));
+  }
+  return list;
+}
+function groupKey(r){
+  if(view.sort) return null;
+  if(kwMode()) return view.kq.trim() ? null : 'kw:' + kwKey(r.keyword);
+  if(view.tab === 'All') return r.type;
+  if(view.tab === 'Local') return r.svc;
+  return null;
+}
+
+function statusSelect(r){
+  const s = statusOf(r);
+  return '<span class="stwrap"><select class="st s-' + s + '" data-key="' + r.key + '" aria-label="Status for ' + esc(r.title) + '">' +
+    STATUSES.slice().reverse().map(o => '<option value="' + o.k + '"' + (o.k === s ? ' selected' : '') + '>' + o.label + '</option>').join('') +
+    '</select></span>';
+}
+
+function renderHeads(){
+  const cs = cols();
+  $('letters').innerHTML = '<th class="rn"></th>' + cs.map((k,i) => '<th class="' + C[k].cls + '">' + LETTERS[i] + '</th>').join('');
+  $('heads').innerHTML = '<th class="rn"></th>' + cs.map(k => {
+    const c = C[k];
+    const arrow = view.sort === k ? '<span class="arrow">' + (view.dir > 0 ? '&#8593;' : '&#8595;') + '</span>' : '';
+    return '<th class="' + c.cls + '"' + (view.sort === k ? ' aria-sort="' + (view.dir > 0 ? 'ascending' : 'descending') + '"' : '') + '>' +
+      (c.nosort ? c.label : '<button type="button" data-sort="' + k + '" title="Sort by ' + c.label + '">' + c.label + arrow + '</button>') + '</th>';
+  }).join('');
+}
+
+function renderTabs(){
+  $('tabs').innerHTML = TABS.map(t => {
+    const n = t.k === 'All' ? ROWS.length : ROWS.filter(r => r.type === t.k).length;
+    return '<button class="tab" role="tab" aria-selected="' + (view.tab === t.k) + '" data-tab="' + t.k + '">' + t.label + '<span class="count">' + n + '</span></button>';
+  }).join('') + '<span class="foot">Status and notes save for everyone who opens this sheet</span>';
+}
+
+function renderSvcOptions(){
+  const opts = [...new Set(ROWS.filter(inTab).map(r => r.svc).filter(Boolean))].sort();
+  if(view.svc && !opts.includes(view.svc)) view.svc = '';
+  $('svc').innerHTML = '<option value="">' + (view.tab === 'Blog' ? 'All blog topics' : 'All services') + '</option>' +
+    opts.map(o => '<option' + (o === view.svc ? ' selected' : '') + '>' + esc(o) + '</option>').join('');
+}
+
+function renderSummary(){
+  const base = ROWS.filter(inTab);
+  const n = base.length;
+  const yes = base.filter(isIndexed).length;
+  const noMeta = base.filter(r => !r.metaDesc).length;
+  const noKw = base.filter(r => !r.keyword).length;
+  const impr = base.reduce((s,r) => s + (r.impr || 0), 0);
+  const clicks = base.reduce((s,r) => s + (r.clicks || 0), 0);
+  const btn = (flag, value, label, tone) => '<button type="button" class="stat ' + tone + '" data-flag="' + flag + '" aria-pressed="' + (view.flag === flag) + '" title="Show only these pages"><b>' + value + '</b><span>' + label + '</span></button>';
+  $('summary').innerHTML =
+    '<div class="stat"><b>' + n + '</b><span>pages in this tab</span></div>' +
+    btn('indexed', yes + ' <small style="font-size:12px;color:var(--faint)">of ' + n + '</small>', 'indexed by Google', 'good') +
+    btn('notindexed', n - yes, 'not indexed yet', n - yes ? 'warn' : '') +
+    btn('nometa', noMeta, 'missing meta description', noMeta ? 'bad' : '') +
+    (noKw ? btn('nokw', noKw, 'no primary keyword', 'warn') : '') +
+    btn('kwwarn', base.filter(r => r.kwSt === 'warn').length, 'keyword checks to look at', base.some(r => r.kwSt === 'warn') ? 'warn' : '') +
+    btn('clash', Object.keys(CLASH).length, 'keyword clashes, all tabs', Object.keys(CLASH).length ? 'bad' : '') +
+    '<div class="stat"><b>' + fmt(impr) + '</b><span>impressions, 3 months</span></div>' +
+    '<div class="stat"><b>' + fmt(clicks) + '</b><span>clicks, 3 months</span></div>' +
+    '<div class="sources"><b>Clicks and impressions:</b> Google Search Console, ' + esc(META.gscRange) + ', US searches. ' +
+    '<b>Indexed?:</b> Search Console Page indexing report. <b>Titles, descriptions, keywords:</b> read from the live site. All checked ' + esc(META.checked) + '. <b>Keyword check:</b> live title and H1 plus Search Atlas rank tracker, ' + esc(META.kwChecked || '') + '.</div>';
+}
+
+function renderProgress(){
+  const base = ROWS.filter(inTab);
+  const counts = {done:0, progress:0, needs:0, todo:0};
+  base.forEach(r => counts[statusOf(r)]++);
+  const total = base.length || 1;
+  $('bar').innerHTML = STATUSES.map(s => counts[s.k] ? '<span style="width:' + (counts[s.k]/total*100) + '%;background:var(' + s.bar + ')"></span>' : '').join('');
+  $('legend').innerHTML = '<span class="lbl">Your status</span>' + STATUSES.map(s =>
+    '<button type="button" data-status="' + s.k + '" aria-pressed="' + (view.status === s.k) + '" title="Show only ' + s.label + '">' +
+    '<span class="sw" style="background:var(' + s.bar + ')"></span>' + s.label + ' <b>' + counts[s.k] + '</b></button>').join('') +
+    (view.status ? '<button type="button" data-status="">Show all</button>' : '');
+}
+
+function rowHtml(r, n){
+  return '<tr data-key="' + r.key + '"' + (view.selected === r.key ? ' class="sel"' : '') + '>' +
+    '<th class="rn" scope="row">' + n + '</th>' +
+    cols().map((k,i) => '<td class="' + C[k].cls + '" data-col="' + k + '" data-letter="' + LETTERS[i] + '">' + C[k].html(r) + '</td>').join('') + '</tr>';
+}
+
+function renderKwBar(list){
+  const bar = $('kwbar');
+  if(!kwMode()){ bar.hidden = true; return; }
+  const by = {}; list.forEach(r => { const n = TYPE_LABEL[r.type] || r.type; by[n] = (by[n] || 0) + 1; });
+  const split = Object.keys(by).map(n => n + ' ' + by[n]).join(' · ');
+  const back = '<button type="button" id="kwclear">Back to ' + esc((TABS.find(t => t.k === view.tab) || TABS[0]).label) + '</button>';
+  const kq = view.kq.trim();
+  let warn, msg;
+  if(!kq){
+    const n = Object.keys(CLASH).length; warn = n > 0;
+    msg = n ? '<b>' + n + ' keyword' + (n === 1 ? ' is' : 's are') + ' the primary keyword on 2 or more live pages</b> (' + list.length + ' pages: ' + esc(split) + '). Pages that target the same keyword compete with each other in Google.'
+      : '<b>No keyword clashes.</b> No two live pages share the same primary keyword.';
+  } else {
+    const off = list.filter(r => !kwLive(r)).length, seen = {}, dup = [];
+    list.forEach(r => { const k = kwKey(r.keyword); if(CLASH[k] && !seen[k]){ seen[k] = 1; dup.push('“' + esc(r.keyword) + '” on ' + CLASH[k].length + ' pages'); } });
+    warn = dup.length > 0;
+    msg = '<b>' + list.length + ' page' + (list.length === 1 ? '' : 's') + '</b> have “' + esc(kq) + '” in the primary keyword' + (list.length ? ' (' + esc(split) + ')' : '') + '.' +
+      (off ? ' ' + off + ' of them are noindex, so they don’t count.' : '') +
+      (dup.length ? ' Same keyword on more than one live page: ' + dup.join('; ') + '.' : (list.length ? ' No two live pages share the exact same keyword.' : ' Nothing to clash with.'));
+  }
+  bar.className = 'kwbar' + (warn ? ' warn' : ''); bar.innerHTML = '<span>' + msg + '</span>' + back; bar.hidden = false;
+}
+
+function render(){
+  CLASH = clashGroups();
+  renderHeads(); renderTabs(); renderSvcOptions(); renderSummary(); renderProgress();
+  const list = filtered();
+  renderKwBar(list);
+  const KWL = {}; Object.keys(CLASH).forEach(k => { KWL['kw:' + k] = 'Keyword: “' + CLASH[k][0].keyword + '”'; });
+  const width = cols().length + 1;
+  let html = '', last, n = 0;
+  const groupCounts = {};
+  list.forEach(r => { const g = groupKey(r); if(g) groupCounts[g] = (groupCounts[g] || 0) + 1; });
+  list.forEach(r => {
+    const g = groupKey(r);
+    if(g && g !== last){
+      html += '<tr class="band"><th class="rn"></th><td colspan="' + (width - 1) + '"><span class="band-in">' + esc(TYPE_LABEL[g] || KWL[g] || g) + '<small>' + groupCounts[g] + ' ' + (groupCounts[g] === 1 ? 'page' : 'pages') + '</small></span></td></tr>';
+      last = g;
+    }
+    html += rowHtml(r, ++n);
+  });
+  if(!list.length) html = '<tr><td colspan="' + width + '" class="empty">' + (view.kq.trim() ? 'No page uses a primary keyword with “' + esc(view.kq.trim()) + '”. Nothing to clash with.' : 'No pages match. Clear the search or the filters above to see more.') + '</td></tr>';
+  $('tbody').innerHTML = html;
+  $('tbody').querySelectorAll('.note').forEach(grow);
+}
+
+function grow(t){ t.style.height = 'auto'; t.style.height = t.scrollHeight + 2 + 'px'; }
+
+function showCell(td){
+  const tr = td.closest('tr[data-key]'); if(!tr) return;
+  const r = ROWS.find(x => x.key === tr.dataset.key); if(!r) return;
+  document.querySelectorAll('tbody tr.sel').forEach(x => x.classList.remove('sel'));
+  document.querySelectorAll('tbody td.cur').forEach(x => x.classList.remove('cur'));
+  tr.classList.add('sel'); td.classList.add('cur');
+  view.selected = r.key;
+  const k = td.dataset.col, c = C[k];
+  $('namebox').textContent = td.dataset.letter + tr.querySelector('.rn').textContent;
+  const text = c.text(r);
+  const len = (k === 'seo' || k === 'desc') && text && !/^Missing/.test(text) ? '<span class="flen">' + text.length + ' characters</span>' : '';
+  $('fcontent').innerHTML = '<span class="fcol">' + c.label + '</span><span class="ftext">' + esc(text) + '</span>' + len +
+    '<a href="' + esc(r.url) + '" target="_blank" rel="noopener">Open page &#8599;</a>';
+}
+
+let toastTimer;
+function toast(msg){ const t = $('toast'); t.textContent = msg; t.hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => t.hidden = true, 3200); }
+function setSync(s, text){ $('sync').dataset.s = s; $('syncText').textContent = text; }
+
+async function save(key){
+  const rec = track[key] || {};
+  if(!db){ setSync('local', 'Changes stay on this screen only'); return; }
+  setSync('saving', 'Saving…');
+  const body = {status: rec.status || 'todo', note: rec.note || '', updatedAt: new Date().toISOString()};
+  const attempt = () => db.doc('tracking/' + key).set(body);
+  try { await attempt(); setSync('saved', 'All changes saved'); }
+  catch(e){
+    if(e && e.code === 'unavailable'){
+      await new Promise(res => setTimeout(res, 600 + Math.random()*600));
+      try { await attempt(); setSync('saved', 'All changes saved'); return; } catch(e2){ e = e2; }
+    }
+    setSync('error', 'Not saved');
+    toast(e && e.code === 'quota_exceeded' ? 'Storage is full, so this change was not saved.' : 'This change was not saved. Check your connection and edit it again.');
+  }
+}
+
+/* events */
+$('tabs').addEventListener('click', e => {
+  const b = e.target.closest('[data-tab]'); if(!b) return;
+  view.tab = b.dataset.tab; view.status = ''; view.flag = ''; view.sort = null; view.kq = ''; $('kq').value = ''; render();
+  $('gridwrap').scrollTop = 0; $('gridwrap').scrollLeft = 0;
+});
+$('heads').addEventListener('click', e => {
+  const b = e.target.closest('[data-sort]'); if(!b) return;
+  const k = b.dataset.sort;
+  if(view.sort !== k){ view.sort = k; view.dir = (k === 'clicks' || k === 'impr') ? -1 : 1; }
+  else if(view.dir === ((k === 'clicks' || k === 'impr') ? -1 : 1)){ view.dir = -view.dir; }
+  else { view.sort = null; view.dir = 1; }
+  render();
+});
+$('legend').addEventListener('click', e => {
+  const b = e.target.closest('[data-status]'); if(!b) return;
+  view.status = view.status === b.dataset.status ? '' : b.dataset.status; render();
+});
+$('summary').addEventListener('click', e => {
+  const b = e.target.closest('[data-flag]'); if(!b) return;
+  view.flag = view.flag === b.dataset.flag ? '' : b.dataset.flag;
+  if(view.flag === 'clash'){ view.kq = ''; $('kq').value = ''; view.sort = null; }
+  render();
+});
+$('q').addEventListener('input', e => { view.q = e.target.value; render(); });
+$('kq').addEventListener('input', e => { view.kq = e.target.value; view.sort = null; render(); });
+$('kwbar').addEventListener('click', e => { if(e.target.closest('#kwclear')){ view.kq = ''; $('kq').value = ''; if(view.flag === 'clash') view.flag = ''; view.sort = null; render(); } });
+$('svc').addEventListener('change', e => { view.svc = e.target.value; render(); });
+
+const tbody = $('tbody');
+tbody.addEventListener('click', e => {
+  if(e.target.closest('a')) return;
+  const td = e.target.closest('td[data-col]'); if(td) showCell(td);
+});
+tbody.addEventListener('focusin', e => {
+  const td = e.target.closest('td[data-col]'); if(td) showCell(td);
+});
+tbody.addEventListener('change', e => {
+  if(!e.target.matches('.st')) return;
+  const key = e.target.dataset.key;
+  track[key] = Object.assign({}, track[key], {status: e.target.value});
+  e.target.className = 'st s-' + e.target.value;
+  renderProgress();
+  save(key);
+});
+const noteTimers = {};
+tbody.addEventListener('input', e => {
+  if(!e.target.matches('.note')) return;
+  grow(e.target);
+  const key = e.target.dataset.key;
+  track[key] = Object.assign({}, track[key], {note: e.target.value});
+  clearTimeout(noteTimers[key]);
+  noteTimers[key] = setTimeout(() => save(key), 800);
+});
+tbody.addEventListener('focusout', e => {
+  if(!e.target.matches('.note')) return;
+  const key = e.target.dataset.key;
+  if(noteTimers[key]){ clearTimeout(noteTimers[key]); delete noteTimers[key]; save(key); }
+});
+tbody.addEventListener('keydown', e => {
+  if(e.target.matches('.note') && e.key === 'Enter' && !e.shiftKey){ e.preventDefault(); e.target.blur(); }
+});
+
+function applyRemote(){
+  const active = document.activeElement;
+  const typing = active && active.matches && active.matches('.note');
+  if(view.status && !typing){ render(); return; }
+  tbody.querySelectorAll('tr[data-key]').forEach(tr => {
+    const r = ROWS.find(x => x.key === tr.dataset.key); if(!r) return;
+    const sel = tr.querySelector('.st'); const s = statusOf(r);
+    if(sel && sel !== active && sel.value !== s){ sel.value = s; sel.className = 'st s-' + s; }
+    const ta = tr.querySelector('.note');
+    if(ta && ta !== active && ta.value !== noteOf(r)){ ta.value = noteOf(r); grow(ta); }
+  });
+  renderProgress();
+}
+
+/* light / dark mode toggle, remembered per viewer */
+const root = document.documentElement;
+function currentMode(){
+  const stamped = root.getAttribute('data-theme');
+  if(stamped === 'light' || stamped === 'dark') return stamped;
+  return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+function paintToggle(){
+  const m = currentMode();
+  document.querySelectorAll('.theme button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.mode === m)));
+}
+function setMode(m){
+  root.setAttribute('data-theme', m);
+  try { localStorage.setItem('sheet-theme', m); } catch(e) {}
+  paintToggle();
+}
+try { const saved = localStorage.getItem('sheet-theme'); if(saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved); } catch(e) {}
+document.querySelector('.theme').addEventListener('click', e => { const b = e.target.closest('[data-mode]'); if(b) setMode(b.dataset.mode); });
+if(window.matchMedia) window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', paintToggle);
+new MutationObserver(paintToggle).observe(root, {attributes:true, attributeFilter:['data-theme']});
+paintToggle();
+
+render();
+setSync('local', 'Changes stay on this screen only');
+
+if(window.claude && typeof window.claude.use === 'function'){
+  setSync('local', 'Connecting…');
+  window.claude.use('db').then(d => {
+    if(!d){ setSync('local', 'View only: changes are not saved here'); return; }
+    db = d;
+    db.collection('tracking').onSnapshot(snap => {
+      snap.docs.forEach(doc => {
+        const data = doc.data() || {};
+        const typing = document.activeElement && document.activeElement.matches && document.activeElement.matches('.note[data-key="' + doc.id + '"]');
+        track[doc.id] = typing ? Object.assign({}, data, {note: (track[doc.id] || {}).note}) : {status: data.status, note: data.note};
+      });
+      applyRemote();
+      if($('sync').dataset.s !== 'saving') setSync('live', 'Shared sheet · saves automatically');
+    }, () => setSync('error', 'Lost connection. Reload to keep editing'));
+  });
+}
+</script>
+
+</body></html>
+</body></html>

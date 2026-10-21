@@ -1,0 +1,14 @@
+{
+ "name": "EOD 2026-09-22",
+ "cat": "brain-eod",
+ "group": "2026-09 September",
+ "body": "> Eod · Pipeliners · 2026-09-22\n\nTuesday. Pipeliners only: review of the outside SEO plan and the remaining city page fix.\n\n# Pipeliners\nSee [Pipeliners (Hub)](lib:brain-pipeliners-hub).\n- Reviewed the outside \"SEO Low-Hanging Keyword Growth Plan\" (built from a Semrush screenshot). Kept its rules (near-wins first, no doorway pages, don't rewrite winners, don't touch phone numbers) and corrected site-specific errors: 24/7 service is true; Rank Math is off and OTTO controls titles; Ads landing pages and homepage are off-limits; Florence, Apache Junction and Buckeye still being measured. Published a corrected plan.\n- Most ready pages were already done Sep 19; only Goodyear remained. Goodyear now has title, H1, meta, opening sentence, FAQ heading and social previews aligned to \"trenchless sewer repair in Goodyear, AZ\" (checked: no paid traffic to the page).\n- Cured-in-place blog post now links to the main service page (Ads page not edited). Apache Junction now links to San Tan Valley (added mid-measurement, noted).\n- Wording: Laveen and Casa Grande FAQ headings to \"Trenchless Sewer Repair\"; San Tan Valley \"Pipeliners USA\" to \"Pipeliners\" in 2 FAQ answers.\n- Rechecked the 7 pages changed Sep 19: all correct. Corrected an earlier keyword-count claim (real in-body count is 1 to 3).\n- Blog: no page 2 blog keyword ready (recheck Oct 16). Myths merge put on hold (1 paid click, a typo, an unverified \"50 years\" claim); water-line merge waiting on Scott.\n- Decisions: keep \"Pipeliners USA\" on the rest of the site for now; leave the two myths posts as they are.\n\n# Follow-ups\n- Checks: Sep 24 impression drop, Sep 30 Buckeye, Oct 9 (13 pages, then add Queen Creek link), Oct 12 Goodyear and blog link, Oct 16 Apache Junction, Fort McDowell and blog keywords, Oct 17 the Sep 19 batch.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Search Atlas](lib:brain-search-atlas), [EOD Reports Index](lib:brain-eod-reports-index)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/EOD Report 2026-09-22.txt",
+ "date": "2026-09-22",
+ "createdAt": 1792612888085,
+ "updatedAt": 1792612888085,
+ "rev": "35cd3825f731"
+}

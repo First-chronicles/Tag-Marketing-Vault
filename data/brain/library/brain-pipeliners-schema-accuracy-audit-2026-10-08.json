@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Schema Accuracy Audit 2026-10-08",
+ "cat": "brain-pipeliners",
+ "group": "Audits",
+ "body": "> Audit · Pipeliners · 2026-10-08\n\n# Summary\nAudit of whether structured data on pipelinersusa.com matches what the pages show and what Pipeliners actually offers (Oct 8, 2026). Includes a baseline of 60 affected pages with GSC index status, rich results detected and 28-day and 3-month performance, so effects of schema fixes can be measured.\n\n# Key findings\n- 130 findings: 77 HIGH, 7 MED, 43 LOW, 3 HIGH (claim).\n- Schema says open 24/7 (openingHours Mon to Sun 00:00 to 23:59 in OTTO Service schema) on 37 pages; Pipeliners does not offer 24/7 and pages do not show hours.\n- Star rating in schema not shown on the page: 37 pages.\n- Image schema for a photo that is not on the page: 37 pages.\n- Article schema on category archives (6) and Article headlines that differ from the H1 (6).\n- 24/7 claim in FAQ schema and visible copy (3), FAQ schema with no visible FAQ (1), FAQ schema not matching the visible FAQ (1), services schema listing services or methods not offered (2).\n- GSC URL Inspection (Oct 8): city pages indexed with \"Review snippets\" detected from the rating markup.\n\n# Decisions and status\n- Per later notes, the hours and rating were removed from city page schema on Oct 8 (local strengthen drafts note \"hours and rating already removed Oct 8\"). Remaining items were tracked in later audits.\n\n# Files in this folder (rollups only)\n- `schema-accuracy-findings-2026-10-08.csv`: the findings.\n- `BASELINE-schema-pages-2026-10-08.csv`: 60 pages with GSC status and metrics.\n- `affected-urls.txt`, `gsc-url-inspection-raw-2026-10-08.txt`, `gsc-pages-28d-raw.tsv`, `gsc-pages-3m-raw.tsv`, `all-page-schema-2026-10-08.json` (raw export).\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Technical and Local SEO Verification 2026-09-16](lib:brain-pipeliners-technical-and-local-seo-verification-2026-09-16), [Search Atlas](lib:brain-search-atlas), [Google Search Console](lib:brain-google-search-console)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/schema-accuracy-audit-2026-10-08",
+ "date": "2026-10-08",
+ "createdAt": 1792613376405,
+ "updatedAt": 1792613567144,
+ "rev": "c78f7a594c01"
+}

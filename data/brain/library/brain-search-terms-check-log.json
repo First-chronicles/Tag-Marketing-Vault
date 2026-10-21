@@ -1,0 +1,14 @@
+{
+ "name": "Search Terms Check Log",
+ "cat": "brain-trackers",
+ "group": "",
+ "body": "> Log · 2026-07-04\n\n# Summary\nPer-campaign checkpoint of when Google Ads search terms were last reviewed and when keywords or negatives were last added. The next review pulls only the window from \"Last ST Check\" to today; no all-time downloads. Legend: plain = Broad, \"quotes\" = Phrase, [brackets] = Exact. Last updated in early July 2026 (file modified 2026-07-04).\n\n# State by campaign\n**Alphalete Trenchless (140-061-4219)**\n- AT | CIPP Residential | Search | CO Springs: last check 2026-07-03 (window 6/19 to 7/3). 6 campaign negatives added 7/3 (five phrase terms including competitor names and \"find plumbers\", plus broad `reddit`), applied and API-verified. Kim: leave `local plumbers` alone; watch `drain replacement`.\n- AT | CIPP Residential | Search | Denver: last check 2026-07-03. Same 6 mirrored plus 4 own negatives (\"drainage system\", \"zenith plumbing\", \"sewer tank\", broad `foundation`), applied and API-verified. Earlier 56 negatives on 6/19. Targets deferred (Kim: negatives only).\n\n**Summit Plumbing Pros (140-101-3750)**\n- SP | Navien Tankless Install | PHX Metro: checked 7/3, last add 6/19 (8 negatives). No new adds; optional phrase `how much is a water heater` deferred. On-target Navien terms spent about $128 with 0 conversions over 2 weeks.\n- SP | Emergency Water Heater Repair | PHX: checked 7/3; 2 competitor phrase negatives added and API-verified.\n- SP | Branded Defense | PHX: checked 7/3; brand terms only, no adds.\n\n**Pipeliners (721-909-5860)**\n- Search campaign feb 2026: last check and add 2026-06-19 (36 negatives). Pending: paste 5 keywords. Next window starts 6/19.\n\n# How to use\n1. Pull `search_term_view` for each campaign from Last ST Check to today (read-only).\n2. Flag new terms as candidate negative, candidate target or skip, after a conflict check against existing keywords and negatives. Use terms verbatim.\n3. After Kim approves and applies changes, update Last ST Check and Last Add.\n4. Mirror the date into the GA Sheet \"Last Checked\" column.\n\nNote: Google Ads management is moving to a dedicated hire (see [Session Handoff 2026-10-01 (All Clients)](lib:brain-session-handoff-2026-10-01-all-clients)), so this log may be stale.\n\n# Related\n- [Trackers and Logs Index](lib:brain-trackers-and-logs-index), [Google Ads MCC](lib:brain-google-ads-mcc), [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Alphalete Trenchless (Hub)](lib:brain-alphalete-trenchless-hub), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "_Shared (All Clients)/Trackers and Logs/Search-Terms-Check-Log.md",
+ "date": "2026-07-04",
+ "createdAt": 1792613225010,
+ "updatedAt": 1792613225010,
+ "rev": "be93544701e8"
+}

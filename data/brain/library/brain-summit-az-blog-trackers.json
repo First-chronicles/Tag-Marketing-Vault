@@ -1,0 +1,14 @@
+{
+ "name": "Summit AZ - Blog Trackers",
+ "cat": "brain-summit",
+ "group": "Trackers",
+ "body": "> Tracker · Summit Az · 2026-09-10\n\n# Summary\nA rollup of the root-level blog tracking files for Summit AZ. They are point-in-time snapshots of the live blog, its keywords, indexing and internal or external links. The current live list is in the page tracker (see [Summit AZ - Work Folders Index](lib:brain-summit-az-work-folders-index)).\n\n# Files\n- `Summit-AZ-Blog-Tracker-2026-07-21.xlsx` and `Summit-AZ-Blog-Tracker-2026-07-21-v2.csv`: 19 posts with publish date, title, primary keyword, category, URL and indexed status (June starter set from Jun 18 and 22, monsoon cluster from Jul 6 onward).\n- `Summit-AZ-Blog-Tracker-2026-07-21.csv` (v1): the same posts with WordPress ID, status, dates, slug, category and word count.\n- `Summit-Blog-Content-Tracker.csv` (Jun 23): the first 9 posts written by Kim, with primary keyword, author, sitemap and GSC indexing columns.\n- `Summit-Blog-Link-Tracker-2026-08-13.csv` (25 posts) and `Summit-Blog-Link-Tracker-2026-09-10.csv` (28 posts): permalinks plus the internal and external links in each post. Used to find posts that linked only to other posts.\n\n# Key facts\n- June starter set: hard water, hidden leak, outdoor faucet, new water heater, clogged drains (Jun 18); water softeners worth it, tankless vs tank, slab leak, trenchless pipe lining (Jun 22).\n- Categories: Plumbing Tips, Water Heaters, Drains & Sewers, Leaks & Pipes.\n- The Sep 8 work report found 27 posts linked only to other posts, never to a service page; later passes added service links.\n\n# Related\n- [Summit AZ - Blog Index](lib:brain-summit-az-blog-index), [Blog Master List](lib:brain-blog-master-list), [Summit Plumbing Pros AZ (Hub)](lib:brain-summit-plumbing-pros-az-hub)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Summit Plumbing Pros/Summit-AZ-Blog-Tracker-2026-07-21.xlsx",
+ "date": "2026-09-10",
+ "createdAt": 1792612968425,
+ "updatedAt": 1792612968426,
+ "rev": "e958dae198d6"
+}

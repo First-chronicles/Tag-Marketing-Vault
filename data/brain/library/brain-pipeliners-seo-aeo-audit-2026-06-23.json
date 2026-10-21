@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - SEO AEO Audit 2026-06-23",
+ "cat": "brain-pipeliners",
+ "group": "Audits",
+ "body": "> Audit · Pipeliners · 2026-06-23\n\n# Summary\nSEO and AEO audit of pipelinersusa.com by the local-seo-auditor agent (Jun 23, 2026, read-only). Method: live fetch of the homepage, robots.txt, the sitemaps and several service, city and blog pages, plus status checks across the flat vs /service-areas/ URL sets.\n\n# Key findings\n- Index status (GSC data Jun 12): 72 indexed, 275 not indexed; about 164 of those were actionable, mostly \"Crawled, currently not indexed\".\n- P0-1: the MetaSync/OTTO sitemap listed the legacy flat /{city}/ URLs, which at that moment 301-redirected to /service-areas/{city}/; the sitemap had zero /service-areas/ URLs, so the city money pages had no valid sitemap signal.\n- P0-2: OTTO \"Course\" schema still live on /hydro-jetting/ and /pipelining-myths-debunked/ (open Search Atlas ticket).\n- P0-3: about 10 OTTO-injected homepage links pointed at redirecting flat city URLs.\n- Homepage had no LocalBusiness or Plumber schema live (a regression from an April audit); OTTO also emitted a duplicate BreadcrumbList.\n\n# Decisions and status\n- Fixes were handed to the Search Atlas owner and Kim (sitemap base URL or a switch to the Rank Math sitemap; Course to Service or Article in OTTO).\n- Context changed quickly: the Jun 18 task verification found the city pages had moved back to flat /{city}/ URLs with /service-areas/ redirecting to them, and the sitemap issue resolved.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Audits and Notes 2026-06-18](lib:brain-pipeliners-audits-and-notes-2026-06-18), [Search Atlas](lib:brain-search-atlas), [Claude Code Agents](lib:brain-claude-code-agents)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/seo-audits/seo-audit-pipeliners-2026-06-23.md",
+ "date": "2026-06-23",
+ "createdAt": 1792613442052,
+ "updatedAt": 1792613567193,
+ "rev": "a78e60ada21e"
+}

@@ -1,0 +1,14 @@
+{
+ "name": "Pipeliners - Blog - Sewer Line Leak Warning Signs",
+ "cat": "brain-pipeliners",
+ "group": "Blogs",
+ "body": "> Blog · Pipeliners · 2026-10-08\n\n# Summary\nRewrite of the existing post https://pipelinersusa.com/14-warning-signs-your-sewer-pipes-may-be-leaking/ (post 13736, Gutenberg). Versions: `14-warning-signs-sewer-line-leak-REWRITE-2026-10-08.md` (the rewrite) and `guardian-fixes-2026-10-09\\3-14-warning-signs-DRAFT.md` (the Oct 9 guardian audit: PASS, no copy changes, only an optional OTTO BlogPosting schema fix: headline to match the H1, real dateModified, author Jake Shaker as a Person).\n\n# Key facts\n- **Status:** LIVE 2026-10-08 (Kim: \"go live, author Jake Shaker\"); indexing requested the same day. Slug must not change.\n- **Focus keyword:** sewer line leak (170/mo, KD 20, from the keyword pool), the same focus aligned on Sep 23, so title and H1 stayed. Secondary: leaking sewer pipe (260, KD 13).\n- **Why rewritten:** four of the 14 signs (water bill, meter, pressure, tap water color) describe a water supply leak, not a sewer leak; the closing section claimed 24/7 crews and excavation.\n- Ad check: no paid impressions Sep 7 to Oct 6.\n- Backups: `fix-backups\\2026-10-08_14signs-rewrite\\`.\n\n# Related\n- [Pipeliners (Hub)](lib:brain-pipeliners-hub), [Pipeliners - Blog Index](lib:brain-pipeliners-blog-index), [Pipeliners - Guardian Blog Fix Drafts 2026-10-09](lib:brain-pipeliners-guardian-blog-fix-drafts-2026-10-09), [Pipeliners - Content Strategy 2026-10-01](lib:brain-pipeliners-content-strategy-2026-10-01)\n",
+ "images": [],
+ "videos": [],
+ "source": "brain",
+ "src": "Pipeliners/blog-drafts/14-warning-signs-sewer-line-leak-REWRITE-2026-10-08.md",
+ "date": "2026-10-08",
+ "createdAt": 1792613346121,
+ "updatedAt": 1792613346121,
+ "rev": "01b073c80047"
+}

@@ -1,0 +1,215 @@
+<title>Cost and Descaling Drafts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#EEF1F2; --paper:#FFFFFF; --panel:#F3F6F7; --line:#D5DDE0; --line-2:#BFCBCF;
+  --ink:#16222A; --ink-2:#4C616C; --ink-3:#778B95;
+  --accent:#0E6E8A; --accent-soft:#DCEEF4; --flag:#8A5300; --flag-soft:#FBEBD2;
+  --serif:"Source Serif 4",Georgia,serif;
+  --sans:"Source Sans 3",-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#0F191F; --paper:#162229; --panel:#1B2A32; --line:#2B3E48; --line-2:#3C525E;
+  --ink:#E7EEF1; --ink-2:#AFC1C9; --ink-3:#889BA5;
+  --accent:#6DC2DC; --accent-soft:#12333F; --flag:#F0C070; --flag-soft:#3B2C10;
+}}
+:root[data-theme="dark"]{
+  --ground:#0F191F; --paper:#162229; --panel:#1B2A32; --line:#2B3E48; --line-2:#3C525E;
+  --ink:#E7EEF1; --ink-2:#AFC1C9; --ink-3:#889BA5;
+  --accent:#6DC2DC; --accent-soft:#12333F; --flag:#F0C070; --flag-soft:#3B2C10;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font:17px/1.6 var(--sans)}
+.wrap{max-width:820px;margin:0 auto;padding-block:30px 60px;padding-left:16px;padding-right:16px;display:flex;flex-direction:column;gap:26px}
+.eyebrow{font:500 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+h1.page{margin:6px 0 0;font:700 32px/1.15 var(--sans);letter-spacing:-.02em;text-wrap:balance}
+.sub{margin:6px 0 0;color:var(--ink-2)}
+.doc{background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.dochead{padding:18px 22px;border-bottom:1px solid var(--line);background:var(--panel);display:flex;flex-direction:column;gap:4px}
+.dochead .slug{font:500 13px var(--mono);color:var(--accent);word-break:break-all}
+.dochead .facts{font-size:13.5px;color:var(--ink-2)}
+.meta{display:grid;grid-template-columns:104px 1fr;gap:2px 14px;padding:16px 22px;border-bottom:1px solid var(--line);font-size:14.5px}
+@media (max-width:560px){.meta{grid-template-columns:1fr;gap:2px}}
+.meta dt{color:var(--ink-3);font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding-top:3px}
+.meta dd{margin:0}
+.meta dd .count{color:var(--ink-3);font:400 12.5px var(--mono);margin-left:6px}
+.body{padding:8px 22px 26px}
+.body h2{font:600 22px/1.3 var(--serif);margin:26px 0 8px;letter-spacing:-.01em}
+.body h1.post{font:700 27px/1.25 var(--serif);margin:20px 0 10px;letter-spacing:-.015em}
+.body p{margin:0 0 14px;font-family:var(--serif);font-size:17.5px}
+.body ul,.body ol{margin:0 0 16px;padding-left:22px;font-family:var(--serif);font-size:17.5px}
+.body li{margin-bottom:7px}
+.body a{color:var(--accent)}
+.answer{background:var(--accent-soft);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:14px 18px;margin:0 0 18px}
+.answer p{margin:0}
+.answer .tag{display:block;font:500 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:7px;font-family:var(--mono)}
+.faq{border-top:1px solid var(--line);margin-top:8px}
+.faq div{border-bottom:1px solid var(--line);padding:13px 0}
+.faq h3{margin:0 0 5px;font:600 16.5px var(--sans)}
+.faq p{margin:0;font-size:16.5px}
+.note{background:var(--flag-soft);border:1px solid var(--line);border-radius:10px;padding:16px 20px}
+.note b{color:var(--flag)}
+.note ul{margin:8px 0 0;padding-left:20px}
+.cut{padding:14px 22px 20px;border-top:1px solid var(--line);font-size:14.5px;color:var(--ink-2)}
+.cut b{color:var(--ink)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Pipeliners &middot; Draft preview &middot; Sep 23, 2026</div>
+    <h1 class="page">Cost and Descaling Drafts</h1>
+    <p class="sub">Full copy for the two blog posts Google crawled and declined to index. Nothing here is live yet.</p>
+  </header>
+
+  <!-- ============ POST 1 ============ -->
+  <article class="doc">
+    <div class="dochead">
+      <div class="slug">/how-much-does-trenchless-pipe-lining-cost/ &middot; post 13694</div>
+      <div class="facts">580 words today, about 1,150 after. Focus keyword: trenchless pipe lining cost</div>
+    </div>
+    <dl class="meta">
+      <dt>SEO title</dt><dd>Trenchless Pipe Lining Cost in Phoenix, AZ (2026)<span class="count">49</span></dd>
+      <dt>Meta desc</dt><dd>Trenchless pipe lining cost in Phoenix runs about $3,000 to $15,800 for most homes. See what moves the price and what the job includes. Call 480-535-6503.<span class="count">157</span></dd>
+      <dt>Post title</dt><dd>How Much Does Trenchless Pipe Lining Cost in Phoenix, AZ?<span class="count">H1</span></dd>
+    </dl>
+    <div class="body">
+      <h1 class="post">How Much Does Trenchless Pipe Lining Cost in Phoenix, AZ?</h1>
+
+      <div class="answer">
+        <span class="tag">Answer block, 48 words</span>
+        <p>Most trenchless pipe lining jobs Pipeliners runs on residential drain lines fall between $3,800 and $15,800, and smaller homes start near $3,000. Commercial work runs higher, past $100,000 on large properties. Price follows the length of the run, the pipe diameter, and how much cleaning the old line needs first.</p>
+      </div>
+
+      <h2>What trenchless pipe lining cost covers in Phoenix</h2>
+      <p>We pulled the numbers from our own job records rather than a national average. Across residential drain lines in the Phoenix area, most jobs land between $3,800 and $15,800. Smaller single-line repairs start around $3,000. Commercial properties are a different scale of work and can pass $100,000 once you are lining long runs of large diameter pipe.</p>
+      <p>A quoted job covers the camera inspection that maps the line, cleaning and descaling the old pipe, the liner and resin, the cure, and a second camera pass to confirm the finished wall. Some jobs need an access point cut into a wall to reach the pipe. We do not patch or repaint walls afterward, so budget that separately if your line runs behind drywall.</p>
+
+      <h2>Six things that move the price</h2>
+      <ol>
+        <li><strong>Length of the run.</strong> A short kitchen branch and a full main out to the street are not the same job.</li>
+        <li><strong>Pipe diameter.</strong> Wider lines take more resin and a longer cure.</li>
+        <li><strong>Condition of the old pipe.</strong> Heavy roots, hard scale or a sagging section all mean more cleaning before anything gets lined.</li>
+        <li><strong>Access.</strong> An existing cleanout keeps the price down. Cutting a new access point adds labor.</li>
+        <li><strong>Pipe material.</strong> Cast iron, clay and Orangeburg each behave differently once they are cleaned out, and that changes what the liner has to do.</li>
+        <li><strong>Depth, and what sits on top.</strong> A line under a slab, a driveway or mature landscaping is priced differently from one under open dirt.</li>
+      </ol>
+
+      <h2>Why we quote the job instead of a price per foot</h2>
+      <p>A per-foot number is the most common thing people ask for and the least useful thing to compare. It leaves out access, cleaning and diameter, which is where the real difference between two bids usually sits. A 40 foot run with a clean cleanout and a 40 foot run that needs an access point cut and two hours of descaling are priced the same per foot and are not the same job.</p>
+      <p>Before you accept any bid, ask for a camera inspection first and a written scope that says what is being lined, how long the run is, and whether cleaning is included. If a contractor quotes a price without putting a camera down the line, they are guessing.</p>
+
+      <h2>Lining the pipe compared with repiping</h2>
+      <p>On paper the two can look close. The difference shows up in what happens around the work. Repiping means opening walls, floors or the yard to reach the old pipe, and the restoration that follows is rarely in the first quote. Lining the pipe from the inside leaves the structure alone, so there is no second bill for concrete, drywall or landscaping. For most Phoenix homes with a failing drain line, that is what makes the difference over the life of the repair.</p>
+      <p>If you want the full comparison, we walk through both approaches in our guide to <a href="https://pipelinersusa.com/trenchless-sewer-repair/">trenchless sewer repair</a>.</p>
+
+      <h2>What you get for the money</h2>
+      <ul>
+        <li>Flow comparable to a new ABS pipe.</li>
+        <li>A seamless liner with no joints for roots to enter.</li>
+        <li>The strength of the existing line combined with the new liner.</li>
+        <li>A service life past 50 years.</li>
+        <li>Far less demolition than replacement.</li>
+      </ul>
+      <p>The liner itself can be installed with <a href="https://pipelinersusa.com/epoxy-pipe-lining/">epoxy</a> or cured with <a href="https://pipelinersusa.com/uv-cured-pipe-lining/">UV light</a>, depending on the line. If the pipe is badly scaled, expect <a href="https://pipelinersusa.com/hydro-jetting/">hydro jetting</a> or descaling in the quote before any liner goes in.</p>
+
+      <h2>Frequently asked questions about trenchless pipe lining cost</h2>
+      <div class="faq">
+        <div><h3>How much does trenchless pipe lining cost for a house in Phoenix?</h3>
+          <p>Most residential drain line jobs run between $3,800 and $15,800, with smaller single-line repairs starting near $3,000. The final number depends on how long the run is, the diameter of the pipe, and how much cleaning the line needs first.</p></div>
+        <div><h3>Is lining the pipe cheaper than replacing it?</h3>
+          <p>Usually, once restoration is counted. Replacement means opening walls, slabs or the yard and paying to put all of that back. Lining works from inside the existing pipe, so there is no second bill for concrete, drywall or landscaping.</p></div>
+        <div><h3>How long does the work take?</h3>
+          <p>Most residential jobs are done in a day. The cure itself takes from about 90 minutes up to 12 hours depending on the method and the line, and drains stay out of use while the liner sets.</p></div>
+        <div><h3>Does the price include cleaning the line first?</h3>
+          <p>Yes. Cleaning and descaling the old pipe is part of the quoted job, because a liner bonds to the pipe wall and cannot bond to scale or roots.</p></div>
+        <div><h3>Do you charge for the camera inspection?</h3>
+          <p>No. The inspection that maps your line comes first and is free, and it is what the written quote is based on. Call 480-535-6503 to book one.</p></div>
+      </div>
+    </div>
+    <div class="cut"><b>Kept from the current post:</b> every price, the benefit list and the process steps, including the note that wall repairs are not part of the service. <b>Changed:</b> the four H4s become real H2s, the prices move into the first sentence, and Phoenix, the FAQs and the internal links are new.</div>
+  </article>
+
+  <!-- ============ POST 2 ============ -->
+  <article class="doc">
+    <div class="dochead">
+      <div class="slug">/when-is-pipe-descaling-necessary/ &middot; post 13726</div>
+      <div class="facts">3,211 words today, about 1,250 after. Focus keyword: pipe descaling</div>
+    </div>
+    <dl class="meta">
+      <dt>SEO title</dt><dd>Pipe Descaling for Cast Iron Drains in Phoenix, AZ<span class="count">50</span></dd>
+      <dt>Meta desc</dt><dd>Pipe descaling clears rust and hard scale out of cast iron drain lines so they drain fully again. Signs, process and what it costs. Call Pipeliners, 480-535-6503.<span class="count">156</span></dd>
+      <dt>Post title</dt><dd>When Is Pipe Descaling Necessary? <span class="count">unchanged</span></dd>
+    </dl>
+    <div class="body">
+      <h1 class="post">When Is Pipe Descaling Necessary?</h1>
+
+      <div class="answer">
+        <span class="tag">Answer block, 52 words</span>
+        <p>Pipe descaling is necessary when scale, rust and mineral buildup have closed down the inside of a drain line, usually cast iron in homes built before the 1970s. Cabling bores a hole through the buildup. Descaling cuts it back to the pipe wall. It is also required before any liner goes in.</p>
+      </div>
+
+      <h2>What scale actually is</h2>
+      <p>Three things build up on the inside of an old drain line. Cast iron rusts from the inside out and forms hard nodules called tubercles that grip the wall. Hard water leaves mineral deposits. Grease and soap catch on the rough surface those two create and harden there.</p>
+      <p>Arizona makes this worse than most places. City of Phoenix water quality reports put local hardness at roughly 10 to 16 grains per gallon, which is hard by any standard, so mineral buildup happens faster here than in soft water cities. You can read the city's current numbers on the <a href="https://www.phoenix.gov/administration/departments/waterservices/water-quality.html">Phoenix Water Services water quality page</a>.</p>
+      <p>The result is a pipe that is still technically open but has lost much of its diameter. Water gets through. Solids do not.</p>
+
+      <h2>Six signs a drain line needs pipe descaling</h2>
+      <ol>
+        <li>The line clogs again within weeks of being cabled.</li>
+        <li>Drains run slow across the whole house rather than at one fixture.</li>
+        <li>A tub or toilet gurgles when another fixture drains.</li>
+        <li>Backups keep returning in a home built before 1975.</li>
+        <li>A camera shows a rough, narrowed wall the whole way down instead of one blockage.</li>
+        <li>Someone told you the line needs replacing without ever putting a camera in it.</li>
+      </ol>
+      <p>The pattern that matters is repetition. One clog is a clog. A line that closes up again a month after it was cleared is telling you the pipe wall itself is the problem.</p>
+
+      <h2>Descaling compared with hydro jetting</h2>
+      <p>The two get used as if they are the same service. They are not.</p>
+      <p><a href="https://pipelinersusa.com/hydro-jetting/">Hydro jetting</a> uses high pressure water and clears grease, soap and soft buildup extremely well. Descaling is mechanical. A chain knocker or cutter head sized to the pipe spins against the wall and takes off hard rust and scale that water pressure alone will not move. Cast iron usually needs the mechanical pass first, then jetting to flush out what came loose, which is why many jobs include both.</p>
+
+      <h2>Why descaling comes before lining the pipe</h2>
+      <p>A liner bonds to the pipe wall. It cannot bond to scale, rust or roots. Line a dirty pipe and you have cured a new pipe onto a layer that is still flaking off underneath, and you have also locked in the lost diameter.</p>
+      <p>So descaling is not an upsell attached to a lining job. It is the step that makes the lining work, whether the line is finished with <a href="https://pipelinersusa.com/epoxy-pipe-lining/">epoxy</a> or <a href="https://pipelinersusa.com/uv-cured-pipe-lining/">UV cured liner</a>. If a quote for lining a cast iron line does not mention cleaning, ask why.</p>
+
+      <h2>What descaling involves, start to finish</h2>
+      <ol>
+        <li>A camera inspection, so the pipe material, the diameter and the amount of buildup are known before anything spins.</li>
+        <li>Access through an existing cleanout wherever possible.</li>
+        <li>A cutter head or chain knocker matched to the pipe, worked along the run to take the wall back to bare metal.</li>
+        <li>A flush to carry out the debris.</li>
+        <li>A second camera pass to confirm the wall is clean and to show you what the pipe actually looks like now.</li>
+        <li>A straight recommendation: leave it, keep it on a cleaning schedule, or line it.</li>
+      </ol>
+      <p>Most residential lines are done in a few hours. That last camera pass matters, because it is the difference between being told your pipe is fine and seeing it.</p>
+
+      <h2>Frequently asked questions about pipe descaling</h2>
+      <div class="faq">
+        <div><h3>How do I know if my pipes need descaling?</h3>
+          <p>The clearest sign is a line that clogs again within weeks of being cabled, especially in a home built before 1975. Slow drains across the whole house and gurgling fixtures point the same way. A camera inspection settles it.</p></div>
+        <div><h3>Is descaling the same as hydro jetting?</h3>
+          <p>No. Jetting uses high pressure water and handles grease and soft buildup. Descaling is mechanical and removes hard rust and scale from cast iron. Many jobs use both, with the mechanical pass first.</p></div>
+        <div><h3>Will descaling damage an old cast iron pipe?</h3>
+          <p>Not when the head is sized to the pipe and the line is inspected first. That is the reason for the camera pass at the start. If a line is too far gone to clean safely, we say so and talk about lining or replacing it instead.</p></div>
+        <div><h3>How long does descaling take?</h3>
+          <p>Most residential drain lines take a few hours, including both camera passes. Heavily scaled or long commercial runs take longer.</p></div>
+        <div><h3>Do I need to line the pipe after descaling?</h3>
+          <p>Not always. Descaling restores the diameter you already have. If the cleaned wall is sound, a maintenance schedule may be enough. If the camera shows cracks or thin iron, lining the pipe is what keeps it in service.</p></div>
+      </div>
+    </div>
+    <div class="cut"><b>Cut:</b> the five paragraph opening about how plumbing is "often perceived as a simple necessity", both closing sections that repeat the benefits, and the vague headings. <b>Kept:</b> the scale, signs and prevention material, rewritten with specifics. Every use of "pipelining" as a noun is gone.</div>
+  </article>
+
+  <div class="note">
+    <p><b>Two things still open.</b></p>
+    <ul>
+      <li><b>Per-foot pricing needs Scott.</b> About a dozen searches a quarter ask for a price per foot. I have not invented one, so the cost post explains why we quote the job instead. A real range from him would turn that section into a direct answer.</li>
+      <li><b>Descaling price.</b> Same situation. The post says most jobs take a few hours but gives no dollar figure, because I do not have a verified one.</li>
+    </ul>
+    <p style="margin:12px 0 0">Everything else is ready. On your go I update both posts, add the FAQ schema through the mu-plugin, set the titles and descriptions in OTTO, clear the cache, confirm both pages live, then request indexing.</p>
+  </div>
+</div>
