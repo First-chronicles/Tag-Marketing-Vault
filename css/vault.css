@@ -251,6 +251,8 @@ body.resizing { cursor: col-resize; user-select: none; }
 .vid-block { display: flex; flex-direction: column; gap: 12px; margin: 0 0 24px; }
 .vid { margin: 0; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #000; }
 .vid video { display: block; width: 100%; max-height: 70vh; background: #000; }
+.vid-frame { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; }
+.vid-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .vid figcaption { display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: var(--bg); font-size: 13px; color: var(--fg-2); }
 .vid figcaption span { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .vid-card { display: flex; gap: 12px; align-items: flex-start; border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; background: var(--side); font-size: 14px; }

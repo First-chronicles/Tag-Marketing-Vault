@@ -140,6 +140,8 @@
             raw.library = raw.library || {};
             Object.entries(seedLib).forEach(([k, v]) => { if (v && v.source === "brain" && (!raw.library[k] || raw.library[k].rev !== v.rev)) raw.library[k] = v; });
             Object.keys(raw.library).forEach((k) => { const d = raw.library[k]; if (d && d.source === "brain" && !seedLib[k]) delete raw.library[k]; });
+            /* lesson videos follow data/videos.json: when the build's video list changed (vrev), this browser takes the new links */
+            Object.entries(seedLib).forEach(([k, v]) => { const mine = raw.library[k]; if (mine && v && v.vrev && mine.vrev !== v.vrev) raw.library[k] = Object.assign({}, mine, { videos: v.videos, vrev: v.vrev }); });
             /* pages this browser already had keep their text, but take the seed's placement (category and module group) */
             Object.entries((window.VAULT_SEED.library) || {}).forEach(([k, v]) => { const mine = raw.library && raw.library[k]; if (mine && v && v.group !== undefined && (mine.cat !== v.cat || mine.group !== v.group)) raw.library[k] = Object.assign({}, mine, { cat: v.cat, group: v.group }); });
             try { localStorage.setItem("pl-data", JSON.stringify(raw)); localStorage.setItem("pl-seed-version", String(seedV)); } catch (e) {}
@@ -790,21 +792,41 @@
   const isDesktop = () => S.mode === "local";
   const fileUrl = (path) => "file:///" + String(path).replace(/\\/g, "/").split("/").map((seg, i) => (i === 0 && /^[A-Za-z]:$/.test(seg)) ? seg : encodeURIComponent(seg)).join("/");
   const vidTitle = (v) => v.title || String(v.path || "").split(/[\\/]/).pop().replace(/\.[^.]+$/, "");
+  /* videos: an online link (YouTube, Google Drive, Vimeo or a direct .mp4/.webm) plays anywhere; a file path on this PC plays only when the vault is opened from this PC */
+  const isLink = (p) => /^https?:\/\//i.test(String(p || ""));
+  function videoEmbed(url) {
+    let m;
+    if ((m = url.match(/(?:youtube\.com\/(?:watch\?(?:.*&)?v=|shorts\/|embed\/|live\/)|youtu\.be\/)([A-Za-z0-9_-]{6,})/))) return { kind: "frame", src: "https://www.youtube-nocookie.com/embed/" + m[1] + "?rel=0&modestbranding=1" };
+    if ((m = url.match(/drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?(?:.*&)?id=)([A-Za-z0-9_-]{10,})/))) return { kind: "frame", src: "https://drive.google.com/file/d/" + m[1] + "/preview" };
+    if ((m = url.match(/vimeo\.com\/(?:video\/)?(\d+)(?:\/([0-9a-f]+))?/))) return { kind: "frame", src: "https://player.vimeo.com/video/" + m[1] + (m[2] ? "?h=" + m[2] : "") };
+    if (/\.(mp4|webm|m4v|mov)(\?|#|$)/i.test(url)) return { kind: "file", src: url };
+    return null;
+  }
   function videoBlock(pg) {
     const vids = pg.videos || [];
-    if (!vids.length && (!isDesktop() || pg.source === "brain")) return "";
+    if (!vids.length && pg.source === "brain") return "";
+    const canEdit = pg.source !== "brain";
+    const cap = (v, i) => `<figcaption><span>${esc(vidTitle(v))}</span>${canEdit ? `<button class="icon-btn" data-vid-del="${i}" aria-label="Remove video" title="Remove video">${I.close}</button>` : ""}</figcaption>`;
     return `<div class="vid-block">
-      ${vids.map((v, i) => isDesktop()
-        ? `<figure class="vid"><video controls preload="metadata" src="${esc(fileUrl(v.path))}"></video><figcaption><span>${esc(vidTitle(v))}</span><button class="icon-btn" data-vid-del="${i}" aria-label="Remove video" title="Remove video">${I.close}</button></figcaption></figure>`
-        : `<div class="vid-card"><span class="vid-badge">Video</span><div style="min-width:0"><b>${esc(vidTitle(v))}</b><div class="vid-path">Plays in the desktop copy of the vault. File: ${esc(v.path)}</div></div></div>`).join("")}
-      ${isDesktop() ? `<button class="btn sm" id="addVid">${I.plus}Add video</button>` : ""}
+      ${vids.map((v, i) => {
+        if (isLink(v.path)) {
+          const e = videoEmbed(v.path);
+          if (e && e.kind === "frame") return `<figure class="vid"><div class="vid-frame"><iframe src="${esc(e.src)}" title="${esc(vidTitle(v))}" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>${cap(v, i)}</figure>`;
+          if (e) return `<figure class="vid"><video controls preload="metadata" src="${esc(e.src)}"></video>${cap(v, i)}</figure>`;
+          return `<div class="vid-card"><span class="vid-badge">Video</span><div style="min-width:0"><b>${esc(vidTitle(v))}</b><div class="vid-path"><a class="doc-link" href="${esc(v.path)}" target="_blank" rel="noopener noreferrer">Open the video</a></div></div></div>`;
+        }
+        if (location.protocol === "file:") return `<figure class="vid"><video controls preload="metadata" src="${esc(fileUrl(v.path))}"></video>${cap(v, i)}</figure>`;
+        return `<div class="vid-card"><span class="vid-badge">Video</span><div style="min-width:0"><b>${esc(vidTitle(v))}</b><div class="vid-path">This video is saved on Kim's PC, so it plays only in the desktop copy. Add an online link (YouTube, Google Drive or Vimeo) to play it here.</div></div>${canEdit ? `<button class="icon-btn" data-vid-del="${i}" aria-label="Remove video" title="Remove video">${I.close}</button>` : ""}</div>`;
+      }).join("")}
+      ${canEdit ? `<button class="btn sm" id="addVid">${I.plus}Add video</button>` : ""}
     </div>`;
   }
   function addVideo() {
     const id = S.view.slice(4), cur = S.library.get(id); if (!cur) return;
-    nameBox("Add video", "Full path to the video file", "", "Add video", (v) => {
+    nameBox("Add video", "YouTube, Google Drive or Vimeo link (or a file path on this PC)", "", "Add video", (v) => {
       const path = v.replace(/^"+|"+$/g, "").trim();
-      if (!/^[A-Za-z]:[\\/]/.test(path)) { toast("Use the full path, like C:\\Users\\kimbe\\Videos\\lesson.mp4"); return; }
+      if (isLink(path)) { if (!videoEmbed(path)) toast("Saved. This link will open in a new tab instead of playing here."); }
+      else if (!/^[A-Za-z]:[\/]/.test(path)) { toast("Paste a YouTube, Google Drive or Vimeo link, or a full path like C:\Users\kimbe\Videos\lesson.mp4"); return; }
       Store.write("library", id, Object.assign({}, cur, { videos: (cur.videos || []).concat({ path, title: "" }), updatedAt: now() }));
       renderLibPage();
     });

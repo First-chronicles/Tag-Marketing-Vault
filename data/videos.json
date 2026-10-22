@@ -1,0 +1,25 @@
+{
+ "how_to": "Paste each video's online link (YouTube unlisted, Google Drive share link, or Vimeo) between the quotes, save, then run: python tools/build_desktop.py. Leave a link empty to keep using the file on Kim's PC.",
+ "videos": {
+  "Lesson 1 Modern SEO Welcome.mp4": "",
+  "Lesson 2 Live website breakdown.mp4": "",
+  "Lesson 2 continuation_1.mp4": "",
+  "Lesson 2 continuation_2.mp4": "",
+  "Lesson 2 continuation_3.mp4": "",
+  "Lesson 3 How Google and AI Actually Work.mp4": "",
+  "Lesson 4 How We Do Local SEO.mp4": "",
+  "Lesson 5 The Low Competition Ranking Method.mp4": "",
+  "Lesson 1 Complete GBP Audit and Optimization.mp4": "",
+  "Lesson 2 GBP Landing Page Audit and Optimization.mp4": "",
+  "Lesson 3 Citations and Trust Signals that Work.mp4": "",
+  "Lesson 4 Putting it All Together.mp4": "",
+  "Lesson 1 What the Core 30 Framework Is.mp4": "",
+  "Lesson 2 Core 30 Gap Analysis.mp4": "",
+  "Lesson 3 Single Prompt Content Creation.mp4": "",
+  "Lesson 1 Facebook Ads Overview + Unlock.mp4": "",
+  "Lesson 2 Local Business Networking Strategies.mp4": "",
+  "Lesson 3 YouTube  Content Marketing.mp4": "",
+  "Lesson 4 Pricing Framework (with Examples).mp4": "",
+  "Lesson 5 What Happens When You Outgrow Modern SEO.mp4": ""
+ }
+}

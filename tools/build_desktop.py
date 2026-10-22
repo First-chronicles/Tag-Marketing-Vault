@@ -9,7 +9,7 @@ Reads  src/vault-artifact.html  (the exact page published to claude.ai)
 Writes index.html, css/vault.css, js/vault.js, data/seed.js
 Open index.html in Chrome or Edge. Videos play from their file paths on this PC.
 """
-import io, json, re, time
+import hashlib, io, json, re, time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -42,6 +42,17 @@ removed = {k: v for k, v in (json.loads(removed_file.read_text(encoding="utf-8")
 for key, ids in removed.items():
     for i in ids:
         seed.get(key, {}).pop(i, None)
+videos_file = ROOT / "data" / "videos.json"  # online links for lesson videos, matched by file name; empty means keep the PC file
+video_links = {k: v.strip() for k, v in (json.loads(videos_file.read_text(encoding="utf-8")).get("videos", {}) if videos_file.exists() else {}).items() if isinstance(v, str) and v.strip()}
+for page in seed.get("library", {}).values():
+    vids = page.get("videos") or []
+    for v in vids:
+        name = re.split(r"[\\/]", str(v.get("path", "")))[-1]
+        if name in video_links:
+            v["path"] = video_links[name]
+            v["title"] = v.get("title") or name.rsplit(".", 1)[0]
+    if vids:
+        page["vrev"] = hashlib.sha1(json.dumps(vids, sort_keys=True).encode("utf-8")).hexdigest()[:12]
 glossary_file = ROOT / "data" / "glossary.json"  # the Glossary view (definition of terms), grouped
 glossary = json.loads(glossary_file.read_text(encoding="utf-8")).get("groups", []) if glossary_file.exists() else []
 assets = {f.stem: "assets/" + f.name for f in sorted((ROOT / "assets").glob("*")) if f.is_file()}
