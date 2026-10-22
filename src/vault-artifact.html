@@ -940,7 +940,9 @@ h1, h2, h3, .doc-title, .title-input, .row .title, .card .title, .gl-card h3, .s
 .yt-tt b { font-family: var(--display); font-size: 21px; font-weight: 900; line-height: 1.12; letter-spacing: -.3px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; text-shadow: 0 1px 2px rgba(0, 0, 0, .25); }
 .yt-tt-mono { position: absolute; right: 14px; top: 6px; font-family: var(--display); font-size: 74px; font-weight: 900; letter-spacing: -3px; color: rgba(255, 255, 255, .13); line-height: 1; pointer-events: none; }
 .yt-thumb.xs .yt-tt-mono, .yt-thumb.sm .yt-tt-mono { font-size: 44px; }
-.yt-tt-k { font-size: 12px; font-weight: 500; opacity: .85; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.yt-tt-k { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; opacity: .9; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.yt-tt-file svg { width: 15px; height: 15px; display: block; }
+.yt-thumb.xs .yt-tt-k { display: none; }
 .yt-tool { justify-content: center; align-items: flex-start; }
 .yt-tool svg { width: 52px; height: 52px; color: #fff; margin-bottom: 6px; }
 .yt-badge { position: absolute; right: 8px; bottom: 8px; display: inline-flex; align-items: center; gap: 4px; padding: 1px 6px; border-radius: 4px; background: rgba(0, 0, 0, .62); color: #fff; font-size: 12px; font-weight: 500; line-height: 18px; }
@@ -1079,11 +1081,6 @@ h1, h2, h3, .doc-title, .title-input, .row .title, .card .title, .gl-card h3, .s
   const promptCat = (c) => CATEGORIES.includes(c) ? c : (LEGACY_CAT[c] || "SEO Prompts");
   /* Sidebar structure. kind: pages (doc pages), prompts (prompt categories), sheet (editable tables) */
   const TREE = [
-    /* TAG Brain: notes imported from Kim's Obsidian vault (tools/import_brain.py); groups are the vault's subfolders */
-    { id: "brain", name: "TAG Brain", kind: "pages", cats: [
-      ["brain-home", "Home"], ["brain-pipeliners", "Pipeliners"], ["brain-alphalete", "Alphalete Trenchless"], ["brain-summit", "Summit Plumbing Pros AZ"],
-      ["brain-prestige", "Prestige Plumbing"], ["brain-sops", "SOPs and Guides"], ["brain-learning", "Learning"], ["brain-trackers", "Trackers and Logs"],
-      ["brain-eod", "EOD Reports"], ["brain-tools", "Tools and Integrations"], ["brain-projects", "Projects"]] },
     { id: "learning", name: "Learning Center", kind: "pages", cats: [
       ["local-seo", "Local SEO"], ["traditional-seo", "Traditional SEO"], ["ai-seo", "AI SEO (AEO & GEO)"], ["google-ads", "Google Ads"],
       ["web-dev", "Web Development"], ["ai-lessons", "AI & Automation Lessons"], ["analytics", "Analytics & Reporting"]] },
@@ -1098,7 +1095,12 @@ h1, h2, h3, .doc-title, .title-input, .row .title, .card .title, .gl-card h3, .s
     { id: "resources", name: "Resources & Templates", kind: "pages", cats: [
       ["seo-checklists", "SEO Checklists"], ["reporting-templates", "Reporting Templates"], ["gbp-templates", "GBP Templates"],
       ["audit-templates", "Audit Templates"], ["research-templates", "Research Templates"], ["tools-links", "Useful Tools & Links"]] },
-    { id: "private", name: "Private", kind: "sheet", cats: [["login", "Login Credentials"], ["accounts", "Platform Accounts"]] }
+    { id: "private", name: "Private", kind: "sheet", cats: [["login", "Login Credentials"], ["accounts", "Platform Accounts"]] },
+    /* TAG Brain: notes imported from Kim's Obsidian vault (tools/import_brain.py); groups are the vault's subfolders */
+    { id: "brain", name: "TAG Brain", kind: "pages", cats: [
+      ["brain-home", "Home"], ["brain-pipeliners", "Pipeliners"], ["brain-alphalete", "Alphalete Trenchless"], ["brain-summit", "Summit Plumbing Pros AZ"],
+      ["brain-prestige", "Prestige Plumbing"], ["brain-sops", "SOPs and Guides"], ["brain-learning", "Learning"], ["brain-trackers", "Trackers and Logs"],
+      ["brain-eod", "EOD Reports"], ["brain-tools", "Tools and Integrations"], ["brain-projects", "Projects"]] }
   ];
   const CAT_INFO = {};
   TREE.forEach((sec) => sec.cats.forEach(([id, name]) => { if (sec.kind === "pages") CAT_INFO[id] = { id, name, section: sec }; }));
@@ -1825,7 +1827,7 @@ h1, h2, h3, .doc-title, .title-input, .row .title, .card .title, .gl-card h3, .s
     const card = ([id, pg], list) => {
       const when = pg.date ? fmtDate(Date.parse(pg.date + "T00:00:00")) : fmtDate(pg.createdAt);
       const kicker = pg.group ? modParts(pg.group).name : info.name;
-      const badge = (pg.videos || []).length ? `${YI.play}${pg.videos.length > 1 ? pg.videos.length + " parts" : "Video"}` : esc(when);
+      const badge = (pg.videos || []).length ? `${YI.play}${pg.videos.length > 1 ? pg.videos.length + " parts" : "Video"}` : `${YI.file}${esc(when)}`;
       return `<div class="yt-card" data-nav="lib:${id}" tabindex="0" role="link"><div class="yt-thumb">${thumbOf(pg, cid, kicker, pageLabel(pg, list))}<span class="yt-badge">${badge}</span></div>
         <div class="yt-meta-row"><div class="yt-meta"><b class="yt-title">${esc(pg.group ? pageLabel(pg, list) : pg.name || "Untitled")}</b><span>${esc(pg.group ? modParts(pg.group).name : info.name)}</span><span>${pg.date ? "Dated " : "Created "}${esc(when)}</span></div>
         <button class="yt-more" data-lib-menu="${esc(id)}" aria-label="Page options">${I.more}</button></div></div>`;
@@ -2015,16 +2017,17 @@ h1, h2, h3, .doc-title, .title-input, .row .title, .card .title, .gl-card h3, .s
     doc: '<svg viewBox="0 0 24 24"><path d="M7 3.5h7l4 4V20a.5.5 0 0 1-.5.5h-10.5a.5.5 0 0 1-.5-.5V4a.5.5 0 0 1 .5-.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 3.5V8h4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>',
     lock: '<svg viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>',
     trash: '<svg viewBox="0 0 24 24"><path d="M5 7h14M10 7V5h4v2M7 7l1 13h8l1-13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>',
+    file: '<svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 3v5h5M9 13h6M9 16.5h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>',
     stack: '<svg viewBox="0 0 24 24"><path d="M4 7h11M4 12h11M4 17h7M17 13v7l5-3.5z" fill="currentColor" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>'
   };
   const YT_COLORS = ["#c2410c", "#0f766e", "#1d4ed8", "#7c3aed", "#be123c", "#047857", "#b45309", "#0369a1", "#a21caf", "#4d7c0f", "#9f1239", "#155e75"];
-  const CAT_ORDER = new Map(); TREE.forEach((sec) => sec.cats.forEach(([cid]) => CAT_ORDER.set(cid, CAT_ORDER.size)));
+  const CAT_ORDER = new Map(); [...TREE.filter((x) => x.id === "brain"), ...TREE.filter((x) => x.id !== "brain")].forEach((sec) => sec.cats.forEach(([cid]) => CAT_ORDER.set(cid, CAT_ORDER.size)));
   const colorFor = (key) => { /* each category gets its own color in sidebar order; anything else is hashed */ if (CAT_ORDER.has(key)) return YT_COLORS[CAT_ORDER.get(key) % YT_COLORS.length]; let h = 0; for (const ch of String(key)) h = (h * 31 + ch.charCodeAt(0)) >>> 0; return YT_COLORS[h % YT_COLORS.length]; };
   const initials = (name) => String(name).replace(/[^A-Za-z0-9 ]/g, " ").split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0].toUpperCase()).join("") || "?";
   const avatar = (name, key) => `<span class="yt-av" style="background:${colorFor(key || name)}">${esc(initials(name))}</span>`;
   const sideIcon = (sec, cid, cname) => sec.id === "skool" ? `<span class="yt-i">${YI.play}</span>` : sec.kind === "prompts" ? `<span class="yt-i">${YI.list}</span>` : sec.kind === "sheet" ? `<span class="yt-i">${YI.lock}</span>` : sec.id === "brain" ? avatar(cname, cid) : `<span class="yt-i">${YI.doc}</span>`;
   /* a text thumbnail in the category's color, for pages without a video frame */
-  const textThumb = (title, key, kicker) => `<div class="yt-tt" style="--c:${colorFor(key)}"><span class="yt-tt-mono" aria-hidden="true">${esc(initials(kicker || title))}</span><span class="yt-tt-k">${esc(kicker || "")}</span><b>${esc(String(title).slice(0, 70))}</b></div>`;
+  const textThumb = (title, key, kicker) => `<div class="yt-tt" style="--c:${colorFor(key)}"><span class="yt-tt-mono" aria-hidden="true">${esc(initials(kicker || title))}</span><span class="yt-tt-k"><span class="yt-tt-file">${YI.file}</span>${esc(kicker || "")}</span><b>${esc(String(title).slice(0, 70))}</b></div>`;
   const thumbOf = (pg, key, kicker, label) => pg && pg.thumb ? `<img src="${esc(pg.thumb)}" alt="" loading="lazy">` : textThumb(label || (pg && pg.name) || "", key, kicker);
 
   function playlists() {
@@ -2066,7 +2069,7 @@ h1, h2, h3, .doc-title, .title-input, .row .title, .card .title, .gl-card h3, .s
       <div class="yt-grid">${list.map((p) => `
         <div class="yt-card yt-pl" data-nav="${esc(p.key)}" tabindex="0" role="link" aria-label="${esc(p.title)}, ${p.n} ${esc(p.unit)}">
           <div class="yt-thumb">${p.thumb ? `<img src="${esc(p.thumb)}" alt="" loading="lazy">` : p.tool ? `<div class="yt-tt yt-tool" style="--c:${colorFor(p.color)}">${p.tool}<b>${esc(p.title)}</b></div>` : textThumb(p.title, p.color, p.sec)}
-            <span class="yt-badge">${p.lock ? YI.lock : YI.stack}${p.n} ${esc(p.unit)}</span></div>
+            <span class="yt-badge">${p.lock ? YI.lock : p.unit === "lessons" ? YI.stack : p.tool ? "" : YI.file}${p.n} ${esc(p.unit)}</span></div>
           <div class="yt-meta"><b class="yt-title">${esc(p.title)}</b><span>${esc(p.sec)} · ${p.tool ? "Tool" : "Playlist"}</span><span class="yt-link">${p.tool ? "Open" : "View full playlist"}</span></div>
         </div>`).join("")}</div>`;
     $("#homeSort").addEventListener("change", (e) => { homeSort = e.target.value; renderHome(); });

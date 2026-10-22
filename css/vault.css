@@ -937,7 +937,9 @@ h1, h2, h3, .doc-title, .title-input, .row .title, .card .title, .gl-card h3, .s
 .yt-tt b { font-family: var(--display); font-size: 21px; font-weight: 900; line-height: 1.12; letter-spacing: -.3px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; text-shadow: 0 1px 2px rgba(0, 0, 0, .25); }
 .yt-tt-mono { position: absolute; right: 14px; top: 6px; font-family: var(--display); font-size: 74px; font-weight: 900; letter-spacing: -3px; color: rgba(255, 255, 255, .13); line-height: 1; pointer-events: none; }
 .yt-thumb.xs .yt-tt-mono, .yt-thumb.sm .yt-tt-mono { font-size: 44px; }
-.yt-tt-k { font-size: 12px; font-weight: 500; opacity: .85; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.yt-tt-k { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; opacity: .9; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.yt-tt-file svg { width: 15px; height: 15px; display: block; }
+.yt-thumb.xs .yt-tt-k { display: none; }
 .yt-tool { justify-content: center; align-items: flex-start; }
 .yt-tool svg { width: 52px; height: 52px; color: #fff; margin-bottom: 6px; }
 .yt-badge { position: absolute; right: 8px; bottom: 8px; display: inline-flex; align-items: center; gap: 4px; padding: 1px 6px; border-radius: 4px; background: rgba(0, 0, 0, .62); color: #fff; font-size: 12px; font-weight: 500; line-height: 18px; }
