@@ -7,13 +7,23 @@
 <link rel="stylesheet" href="css/vault.css">
 </head>
 <body>
+<header class="yt-top" id="ytTop">
+  <div class="yt-left">
+    <button class="yt-ico" id="menuBtn" aria-label="Menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+    <button class="yt-logo" data-nav="home" aria-label="TAG Marketing home"><span class="yt-logo-mark" aria-hidden="true"><svg viewBox="0 0 28 20"><rect width="28" height="20" rx="6" fill="#ff0033"/><path d="M11.2 6v8l7-4z" fill="#fff"/></svg></span><span class="yt-logo-text">TAG Marketing</span></button>
+  </div>
+  <form class="yt-search" id="ytSearch" role="search" autocomplete="off">
+    <input id="topQ" type="search" placeholder="Search notes, lessons and prompts" aria-label="Search the vault">
+    <button class="yt-search-btn" type="submit" aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M15.5 15.5L21 21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+  </form>
+  <div class="yt-right">
+    <button class="yt-create" id="ytCreate"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Create</span></button>
+  </div>
+  <strong id="topTitle" hidden>TAG Marketing</strong>
+</header>
 <div class="app" id="app">
   <aside class="side" id="side" aria-label="Library navigation"></aside>
   <main class="main" id="main">
-    <div class="topbar">
-      <button class="icon-btn lg" id="menuBtn" aria-label="Open menu"><svg class="i" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M2.5 4h11M2.5 8h11M2.5 12h11"/></svg></button>
-      <strong id="topTitle">Kim's Tag Marketing Vault</strong>
-    </div>
     <div class="wrap" id="view"><div class="loading">Loading your prompts…</div></div>
   </main>
 </div>

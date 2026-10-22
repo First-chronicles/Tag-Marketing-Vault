@@ -57,7 +57,7 @@
 
   const S = {
     prompts: new Map(), folders: new Map(), sheet: new Map(), rows: new Map(), tasks: new Map(), library: new Map(), assets: null, libEditId: null, pwCache: new Map(), vaultKey: null, lq: "",
-    view: "all", openId: null,
+    view: "home", openId: null,
     q: "", client: "", category: "", status: "", tool: "", tag: "",
     sort: "edited", layout: "list",
     mode: "loading", downloads: null, saving: 0, savedAt: 0
@@ -143,7 +143,7 @@
             /* lesson videos follow data/videos.json: when the build's video list changed (vrev), this browser takes the new links */
             Object.entries(seedLib).forEach(([k, v]) => { const mine = raw.library[k]; if (mine && v && v.vrev && mine.vrev !== v.vrev) raw.library[k] = Object.assign({}, mine, { videos: v.videos, vrev: v.vrev }); });
             /* pages this browser already had keep their text, but take the seed's placement (category and module group) */
-            Object.entries((window.VAULT_SEED.library) || {}).forEach(([k, v]) => { const mine = raw.library && raw.library[k]; if (mine && v && v.group !== undefined && (mine.cat !== v.cat || mine.group !== v.group)) raw.library[k] = Object.assign({}, mine, { cat: v.cat, group: v.group }); });
+            Object.entries((window.VAULT_SEED.library) || {}).forEach(([k, v]) => { const mine = raw.library && raw.library[k]; if (mine && v && v.group !== undefined && (mine.cat !== v.cat || mine.group !== v.group || mine.thumb !== v.thumb)) raw.library[k] = Object.assign({}, mine, { cat: v.cat, group: v.group, thumb: v.thumb }); });
             try { localStorage.setItem("pl-data", JSON.stringify(raw)); localStorage.setItem("pl-seed-version", String(seedV)); } catch (e) {}
           }
           raw = raw || {};
@@ -255,34 +255,35 @@
           ${open ? `<div class="mod-pages">${list.map((e) => pageRow(e, list)).join("")}</div>` : ""}</div>`;
       }).join("");
     };
+    const navI = (key, label, icon, count) => nav(key, label, count).replace("<span>", icon + "<span>");
+    const ico = (svgStr) => `<span class="yt-i">${svgStr}</span>`;
     $("#side").innerHTML = `
-      <button class="brand" data-nav="all" title="Prompt Library"><span class="brand-text"><b>TAG Marketing</b><small>Kim's Vault</small></span></button>
-      <button class="search-btn" id="sideSearch">${I.search}<span>Search</span><kbd>Ctrl K</kbd></button>
-      ${nav("graph", "Brain Graph")}
-      ${nav("study", "Study Timer", studyBadge())}
-      ${(window.VAULT_GLOSSARY || []).length ? nav("glossary", "Glossary") : ""}
+      <nav class="yt-nav" aria-label="Main">
+        ${navI("home", "Home", ico(YI.home))}
+        ${navI("graph", "Brain Graph", ico(YI.graph))}
+        ${navI("study", "Study Timer", ico(YI.study), studyBadge())}
+        ${(window.VAULT_GLOSSARY || []).length ? navI("glossary", "Glossary", ico(YI.glossary)) : ""}
+      </nav>
       ${TREE.map((sec) => {
         const cats = shownCats(sec);
         if (!cats.length) return "";
         const closed = treeState.secClosed.has(sec.id);
         const body = closed ? "" : cats.map(([cid, cname]) => {
-          if (sec.kind === "prompts") return `<div class="tree-cat">${nav("pcat:" + cid, cname, catCount(sec, cid))}</div>`;
-          if (sec.kind === "sheet") return `<div class="tree-cat">${nav("sheet:" + cid, cname, catCount(sec, cid))}</div>`;
+          if (sec.kind === "prompts") return `<div class="tree-cat">${navI("pcat:" + cid, cname, sideIcon(sec, cid, cname), catCount(sec, cid))}</div>`;
+          if (sec.kind === "sheet") return `<div class="tree-cat">${navI("sheet:" + cid, cname, sideIcon(sec, cid, cname), catCount(sec, cid))}</div>`;
           const pages = pagesIn(cid), open = treeState.catOpen.has(cid);
           return `<div class="tree-cat"><div class="cat-row">
               <button class="chev-btn ${open ? "open" : ""}" data-toggle-cat="${cid}" aria-label="${open ? "Collapse" : "Expand"} ${esc(cname)}" aria-expanded="${open}">${I.chev}</button>
-              ${nav("cat:" + cid, cname, pages.length || null)}
+              ${navI("cat:" + cid, cname, sideIcon(sec, cid, cname), pages.length || null)}
               <button class="icon-btn cat-add" data-add-page="${cid}" aria-label="New page in ${esc(cname)}" title="New page">${I.plus}</button></div>
             ${open ? `<div class="tree-pages">${sidePages(cid, pages) || `<div class="side-empty">No pages yet</div>`}</div>` : ""}</div>`;
         }).join("");
-        return `<div class="tree-sec"><button class="sec-head ${closed ? "" : "open"}" data-toggle-sec="${sec.id}" aria-expanded="${!closed}">${I.chev}<span>${esc(sec.name)}</span></button>${body}</div>`;
+        return `<div class="tree-sec"><button class="sec-head ${closed ? "" : "open"}" data-toggle-sec="${sec.id}" aria-expanded="${!closed}"><span>${esc(sec.name)}</span>${I.chev}</button>${body}</div>`;
       }).join("")}
       <div class="side-foot">
-        ${trashCount || S.view === "trash" ? nav("trash", "Trash", trashCount) : ""}
-        ${window.VAULT_SEED ? `<button class="nav" id="toggleScene"><span>Scenery background</span><span class="count">${sceneOn() ? "On" : "Off"}</span></button>` : ""}
-        <button class="nav" id="importBtn"><span>Import</span></button>
-        <button class="nav" id="exportBtn"><span>Export backup</span></button>
-        ${S.mode === "local" ? `<div class="store-note">${window.VAULT_SEED ? "Desktop copy. Changes save in this browser. Use Export backup to keep a copy." : "Saving in this browser only. Open this page on claude.ai to save to your account."}</div>` : ""}
+        ${trashCount || S.view === "trash" ? navI("trash", "Trash", ico(YI.trash), trashCount) : ""}
+        <div class="side-links"><button id="importBtn">Import</button><button id="exportBtn">Export backup</button></div>
+        ${S.mode === "local" ? `<div class="store-note">${window.VAULT_SEED ? "Changes save in this browser. Use Export backup to keep a copy." : "Saving in this browser only. Open this page on claude.ai to save to your account."}</div>` : ""}
       </div>`;
   }
 
@@ -448,7 +449,7 @@
     if (S.view !== "graph") stopGraph();
     if (S.view === "tasks") S.view = "study"; /* Tasks was replaced by the Study Timer; task data stays in storage and backups */
     paintStudyPill();
-    if (S.openId) renderPage(); else if (S.view === "graph") renderGraph(); else if (S.view === "study") renderStudy(); else if (S.view === "glossary") renderGlossary(); else if (S.view.startsWith("sheet:")) renderLogins(); else if (S.view.startsWith("lib:")) renderLibPage(); else if (S.view.startsWith("cat:")) renderCat(); else renderList();
+    if (S.openId) renderPage(); else if (S.view === "home") renderHome(); else if (S.view === "search") renderSearch(); else if (S.view === "graph") renderGraph(); else if (S.view === "study") renderStudy(); else if (S.view === "glossary") renderGlossary(); else if (S.view.startsWith("sheet:")) renderLogins(); else if (S.view.startsWith("lib:")) renderLibPage(); else if (S.view.startsWith("cat:")) renderCat(); else renderList();
   }
 
   /* ---------- tool logins sheet ---------- */
@@ -725,32 +726,43 @@
   const pageTime = (pg, field) => field === "edited" ? pg.updatedAt || 0 : field === "added" ? pg.createdAt || 0 : (pg.date && Date.parse(pg.date + "T00:00:00")) || pg.createdAt || 0;
   function renderCat() {
     const cid = S.view.slice(4), info = CAT_INFO[cid];
-    if (!info) { S.view = "all"; return renderList(); }
-    if (CF.cid !== cid) Object.assign(CF, { cid, q: "", sort: "default", from: "", to: "" });
-    const pages = pagesIn(cid);
+    if (!info) { S.view = "home"; return render(); }
+    if (CF.cid !== cid) Object.assign(CF, { cid, q: "", sort: "default", from: "", to: "", chip: "All", dates: false });
+    const pages = pagesIn(cid), groupNames = groupPages(pages).groups.map(([g]) => g);
+    if (!["All"].concat(groupNames).includes(CF.chip)) CF.chip = "All";
     $("#topTitle").textContent = info.name;
+    const unit = info.section.id === "skool" ? "lessons" : "notes";
     $("#view").innerHTML = `
-      <div class="crumbs"><span class="crumb-label">${esc(info.section.name)}</span></div>
-      <div class="head"><h1>${esc(info.name)}</h1><span class="sub" id="catCount">${pages.length} ${pages.length === 1 ? "page" : "pages"}</span><span class="spacer"></span><button class="btn primary" data-add-page="${cid}">${I.plus}New page</button></div>
-      ${pages.length ? `<div class="toolbar cat-filters">
-        <label class="search">${I.search}<input id="cfQ" type="search" placeholder="Search these pages" value="${esc(CF.q)}" aria-label="Search pages"></label>
-        <select class="chip-select" id="cfSort" aria-label="Sort"><option value="default" ${CF.sort === "default" ? "selected" : ""}>Default order</option><option value="new" ${CF.sort === "new" ? "selected" : ""}>Newest first</option><option value="old" ${CF.sort === "old" ? "selected" : ""}>Oldest first</option><option value="az" ${CF.sort === "az" ? "selected" : ""}>Name A to Z</option></select>
+      <div class="yt-head"><div class="yt-head-av">${info.section.id === "brain" ? avatar(info.name, cid) : `<span class="yt-i lg">${info.section.id === "skool" ? YI.play : YI.doc}</span>`}</div>
+        <div><h1 class="yt-h1">${esc(info.name)}</h1><p class="yt-sub"><span id="catCount">${pages.length} ${pages.length === 1 ? unit.replace(/s$/, "") : unit}</span> · ${esc(info.section.name)}</p></div>
+        <span class="spacer"></span><button class="yt-pill dark" data-add-page="${cid}">${I.plus}New page</button></div>
+      ${pages.length ? `<div class="yt-chips" role="toolbar" aria-label="Filter pages">
+        <label class="yt-chip yt-chip-sel"><select id="cfSort" aria-label="Sort"><option value="default" ${CF.sort === "default" ? "selected" : ""}>Default order</option><option value="new" ${CF.sort === "new" ? "selected" : ""}>Recently added</option><option value="old" ${CF.sort === "old" ? "selected" : ""}>Oldest first</option><option value="az" ${CF.sort === "az" ? "selected" : ""}>Name A to Z</option></select></label>
+        ${["All"].concat(groupNames).map((g) => `<button class="yt-chip ${CF.chip === g ? "on" : ""}" data-cat-chip="${esc(g)}">${esc(g === "All" ? "All" : modParts(g).num ? "Module " + Number(modParts(g).num) : g)}</button>`).join("")}
+        <button class="yt-chip ${CF.dates || CF.from || CF.to ? "on" : ""}" id="cfDatesBtn">Dates</button>
+        <label class="yt-chip-search">${I.search}<input id="cfQ" type="search" placeholder="Search here" value="${esc(CF.q)}" aria-label="Search pages"></label>
+      </div>
+      <div class="yt-dates" ${CF.dates || CF.from || CF.to ? "" : "hidden"}>
         <select class="chip-select" id="cfField" aria-label="Date to use"><option value="date" ${CF.field === "date" ? "selected" : ""}>Note date</option><option value="added" ${CF.field === "added" ? "selected" : ""}>Date added</option><option value="edited" ${CF.field === "edited" ? "selected" : ""}>Last edited</option></select>
         <label class="src-date-in">From<input type="date" id="cfFrom" value="${esc(CF.from)}"></label>
         <label class="src-date-in">To<input type="date" id="cfTo" value="${esc(CF.to)}"></label>
         <button class="clear-link" id="cfClear">Clear</button>
       </div><div id="catList"></div>`
-      : `<div class="empty"><h2>No pages in ${esc(info.name)} yet</h2><p>Add your first page for this topic. Pages open as clean documents you can edit any time.</p><button class="btn primary" data-add-page="${cid}">${I.plus}New page</button></div>`}`;
+      : `<div class="empty"><h2>No pages in ${esc(info.name)} yet</h2><p>Add your first page for this topic.</p><button class="btn primary" data-add-page="${cid}">${I.plus}New page</button></div>`}`;
     if (!pages.length) return;
-    const row = ([id, pg], list) => {
-      const first = String(pg.body || "").split("\n").map((l) => l.replace(/^(?:[#>\-*|\s]+|\d+[.)]\s+)+/, "").replace(/\*\*/g, "").trim()).find((l) => l && !/^-+$/.test(l)) || "Empty page";
-      const when = pg.date ? "Dated " + fmtDate(Date.parse(pg.date + "T00:00:00")) : "Created " + fmtDate(pg.createdAt);
-      return `<div class="row page-row" data-nav="lib:${id}" tabindex="0"><div style="min-width:0"><div class="title">${esc(pg.group ? pageLabel(pg, list) : pg.name || "Untitled")}</div><div class="preview">${esc(first.slice(0, 140))}</div></div><div class="meta">${(pg.videos || []).length ? `<span class="tag">${pg.videos.length} ${pg.videos.length === 1 ? "video" : "videos"}</span>` : ""}<span class="sub" title="Added ${esc(fmtDate(pg.createdAt))} · Edited ${esc(fmtDate(pg.updatedAt))}">${esc(when)}</span>${(pg.images || []).length ? `<span class="tag">${pg.images.length} ${pg.images.length === 1 ? "image" : "images"}</span>` : ""}</div><div class="acts"><button class="icon-btn" data-lib-menu="${esc(id)}" aria-label="Page options">${I.more}</button></div></div>`;
+    const card = ([id, pg], list) => {
+      const when = pg.date ? fmtDate(Date.parse(pg.date + "T00:00:00")) : fmtDate(pg.createdAt);
+      const kicker = pg.group ? modParts(pg.group).name : info.name;
+      const badge = (pg.videos || []).length ? `${YI.play}${pg.videos.length > 1 ? pg.videos.length + " parts" : "Video"}` : esc(when);
+      return `<div class="yt-card" data-nav="lib:${id}" tabindex="0" role="link"><div class="yt-thumb">${thumbOf(pg, cid, kicker, pageLabel(pg, list))}<span class="yt-badge">${badge}</span></div>
+        <div class="yt-meta-row"><div class="yt-meta"><b class="yt-title">${esc(pg.group ? pageLabel(pg, list) : pg.name || "Untitled")}</b><span>${esc(pg.group ? modParts(pg.group).name : info.name)}</span><span>${pg.date ? "Dated " : "Created "}${esc(when)}</span></div>
+        <button class="yt-more" data-lib-menu="${esc(id)}" aria-label="Page options">${I.more}</button></div></div>`;
     };
     const paint = () => {
       const q = CF.q.trim().toLowerCase(), from = dayStart(CF.from), to = dayStart(CF.to);
       const shown = pages.filter(([, pg]) => {
         const t = pageTime(pg, CF.field);
+        if (CF.chip !== "All" && pg.group !== CF.chip) return false;
         if (q && !((pg.name || "") + "\n" + (pg.body || "")).toLowerCase().includes(q)) return false;
         if (from && t < from) return false;
         if (to && t >= to + 864e5) return false;
@@ -759,15 +771,18 @@
       const sorter = { new: (a, b) => pageTime(b[1], CF.field) - pageTime(a[1], CF.field), old: (a, b) => pageTime(a[1], CF.field) - pageTime(b[1], CF.field), az: (a, b) => String(a[1].name).localeCompare(String(b[1].name), undefined, { numeric: true }) }[CF.sort];
       const { loose, groups } = groupPages(shown);
       const ord = (list) => sorter ? list.slice().sort(sorter) : list;
-      $("#catCount").textContent = shown.length === pages.length ? `${pages.length} ${pages.length === 1 ? "page" : "pages"}` : `${shown.length} of ${pages.length} pages`;
-      $("#catList").innerHTML = !shown.length ? `<div class="empty"><h2>No pages match</h2><p>Change the search or the date range, or clear the filters.</p></div>`
-        : (loose.length ? `<div class="list">${ord(loose).map((e) => row(e, pages)).join("")}</div>` : "")
-          + groups.map(([g, list]) => { const mp = modParts(g); return `<section class="mod-sec"><div class="mod-sec-head"><span class="mod-num">${esc(mp.num ? "Module " + Number(mp.num) : "")}</span><h2>${esc(mp.name)}</h2><span class="sub">${list.length} ${list.length === 1 ? "page" : "pages"}</span></div><div class="list">${ord(list).map((e) => row(e, list)).join("")}</div></section>`; }).join("");
+      $("#catCount").textContent = shown.length === pages.length ? `${pages.length} ${pages.length === 1 ? unit.replace(/s$/, "") : unit}` : `${shown.length} of ${pages.length} ${unit}`;
+      $("#catList").innerHTML = !shown.length ? `<div class="empty"><h2>Nothing matches</h2><p>Change the search, chips or dates.</p></div>`
+        : (loose.length ? `<div class="yt-grid">${ord(loose).map((e) => card(e, pages)).join("")}</div>` : "")
+          + groups.map(([g, list]) => { const mp = modParts(g); return `<section class="yt-shelf"><div class="yt-shelf-head">${mp.num ? `<span class="yt-shelf-num">Module ${Number(mp.num)}</span>` : ""}<h2>${esc(mp.name)}</h2><span class="yt-sub">${list.length} ${list.length === 1 ? unit.replace(/s$/, "") : unit}</span></div><div class="yt-grid">${ord(list).map((e) => card(e, list)).join("")}</div></section>`; }).join("");
     };
     paint();
     $("#cfQ").addEventListener("input", (e) => { CF.q = e.target.value; paint(); });
-    [["cfSort", "sort"], ["cfField", "field"], ["cfFrom", "from"], ["cfTo", "to"]].forEach(([elId, key]) => $("#" + elId).addEventListener("change", (e) => { CF[key] = e.target.value; paint(); }));
-    $("#cfClear").addEventListener("click", () => { Object.assign(CF, { q: "", sort: "default", from: "", to: "" }); renderCat(); });
+    $("#cfSort").addEventListener("change", (e) => { CF.sort = e.target.value; paint(); });
+    [["cfField", "field"], ["cfFrom", "from"], ["cfTo", "to"]].forEach(([elId, key]) => $("#" + elId).addEventListener("change", (e) => { CF[key] = e.target.value; paint(); }));
+    $("#cfClear").addEventListener("click", () => { Object.assign(CF, { q: "", sort: "default", from: "", to: "", chip: "All", dates: false }); renderCat(); });
+    $("#cfDatesBtn").addEventListener("click", () => { CF.dates = !CF.dates; renderCat(); });
+    $(".yt-chips").addEventListener("click", (e) => { const c = e.target.closest("[data-cat-chip]"); if (c) { CF.chip = c.dataset.catChip; renderCat(); } });
   }
   function flushLib() {
     if (!libTimer) return;
@@ -917,6 +932,107 @@
     flushPara(); closeList(); flushTable();
     return html;
   }
+  /* ---------- YouTube-style shell: sidebar icons, Home playlists, card grids, global search, lesson watch page ---------- */
+  const YI = {
+    home: '<svg viewBox="0 0 24 24"><path d="M4 10.5L12 4l8 6.5V20a1 1 0 0 1-1 1h-4.5v-6h-5v6H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>',
+    graph: '<svg viewBox="0 0 24 24"><circle cx="6" cy="7" r="2.3" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="18" cy="6" r="2.3" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="17" r="2.6" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 8.3l2.7 6.5M16.6 7.9l-3.2 7M8.3 6.7l7.4-.6" stroke="currentColor" stroke-width="1.4"/></svg>',
+    study: '<svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="7.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 9v4.3l2.8 1.7M9.5 2.8h5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>',
+    glossary: '<svg viewBox="0 0 24 24"><path d="M5 4.5h10.5A3.5 3.5 0 0 1 19 8v11.5H8.5A3.5 3.5 0 0 1 5 16z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8.5 9h7M8.5 12.5h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>',
+    play: '<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M10.3 9.3v5.4l4.6-2.7z" fill="currentColor"/></svg>',
+    list: '<svg viewBox="0 0 24 24"><path d="M4 7h11M4 12h11M4 17h7M18 14v6l4-3z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    doc: '<svg viewBox="0 0 24 24"><path d="M7 3.5h7l4 4V20a.5.5 0 0 1-.5.5h-10.5a.5.5 0 0 1-.5-.5V4a.5.5 0 0 1 .5-.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 3.5V8h4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>',
+    lock: '<svg viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>',
+    trash: '<svg viewBox="0 0 24 24"><path d="M5 7h14M10 7V5h4v2M7 7l1 13h8l1-13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>',
+    stack: '<svg viewBox="0 0 24 24"><path d="M4 7h11M4 12h11M4 17h7M17 13v7l5-3.5z" fill="currentColor" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>'
+  };
+  const YT_COLORS = ["#c2410c", "#0f766e", "#1d4ed8", "#7c3aed", "#be123c", "#047857", "#b45309", "#0369a1", "#a21caf", "#4d7c0f", "#9f1239", "#155e75"];
+  const CAT_ORDER = new Map(); TREE.forEach((sec) => sec.cats.forEach(([cid]) => CAT_ORDER.set(cid, CAT_ORDER.size)));
+  const colorFor = (key) => { /* each category gets its own color in sidebar order; anything else is hashed */ if (CAT_ORDER.has(key)) return YT_COLORS[CAT_ORDER.get(key) % YT_COLORS.length]; let h = 0; for (const ch of String(key)) h = (h * 31 + ch.charCodeAt(0)) >>> 0; return YT_COLORS[h % YT_COLORS.length]; };
+  const initials = (name) => String(name).replace(/[^A-Za-z0-9 ]/g, " ").split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0].toUpperCase()).join("") || "?";
+  const avatar = (name, key) => `<span class="yt-av" style="background:${colorFor(key || name)}">${esc(initials(name))}</span>`;
+  const sideIcon = (sec, cid, cname) => sec.id === "skool" ? `<span class="yt-i">${YI.play}</span>` : sec.kind === "prompts" ? `<span class="yt-i">${YI.list}</span>` : sec.kind === "sheet" ? `<span class="yt-i">${YI.lock}</span>` : sec.id === "brain" ? avatar(cname, cid) : `<span class="yt-i">${YI.doc}</span>`;
+  /* a text thumbnail in the category's color, for pages without a video frame */
+  const textThumb = (title, key, kicker) => `<div class="yt-tt" style="--c:${colorFor(key)}"><span class="yt-tt-mono" aria-hidden="true">${esc(initials(kicker || title))}</span><span class="yt-tt-k">${esc(kicker || "")}</span><b>${esc(String(title).slice(0, 70))}</b></div>`;
+  const thumbOf = (pg, key, kicker, label) => pg && pg.thumb ? `<img src="${esc(pg.thumb)}" alt="" loading="lazy">` : textThumb(label || (pg && pg.name) || "", key, kicker);
+
+  function playlists() {
+    const live = [...S.prompts.values()].filter((p) => !p.deleted);
+    const out = [];
+    TREE.forEach((sec) => sec.cats.forEach(([cid, cname]) => {
+      if (sec.kind === "pages") {
+        const pages = pagesIn(cid); if (!pages.length) return;
+        const withThumb = pages.find(([, pg]) => pg.thumb);
+        out.push({ sec: sec.name, key: "cat:" + cid, title: cname, n: pages.length, unit: sec.id === "skool" ? "lessons" : "notes", thumb: withThumb ? withThumb[1].thumb : "", color: cid, latest: Math.max(...pages.map(([, pg]) => pg.updatedAt || 0)) });
+      } else if (sec.kind === "prompts") {
+        const n = live.filter((p) => promptCat(p.category) === cid).length; if (!n) return;
+        out.push({ sec: sec.name, key: "pcat:" + cid, title: cname, n, unit: n === 1 ? "prompt" : "prompts", color: cid, latest: Math.max(...live.filter((p) => promptCat(p.category) === cid).map((p) => p.updatedAt || 0)) });
+      } else if (sec.kind === "sheet") {
+        const n = rowOrder(cid).length; if (!n) return;
+        out.push({ sec: sec.name, key: "sheet:" + cid, title: cname, n, unit: n === 1 ? "row" : "rows", color: cid, lock: true, latest: 0 });
+      }
+    }));
+    out.push({ sec: "Tools", key: "graph", title: "Brain Graph", n: S.library.size, unit: "notes", color: "graph", tool: YI.graph, latest: 0 });
+    out.push({ sec: "Tools", key: "study", title: "Study Timer", n: todayLog().length, unit: "sessions today", color: "study", tool: YI.study, latest: 0 });
+    if ((window.VAULT_GLOSSARY || []).length) out.push({ sec: "Tools", key: "glossary", title: "Glossary", n: window.VAULT_GLOSSARY.reduce((a, g) => a + (g.terms || []).length, 0), unit: "terms", color: "glossary", tool: YI.glossary, latest: 0 });
+    return out;
+  }
+  let homeChip = "All", homeSort = "recent";
+  function renderHome() {
+    $("#topTitle").textContent = "Home";
+    const all = playlists(), chips = ["All"].concat([...new Set(all.map((p) => p.sec))]);
+    if (!chips.includes(homeChip)) homeChip = "All";
+    let list = homeChip === "All" ? all : all.filter((p) => p.sec === homeChip);
+    if (homeSort === "recent") list = list.slice().sort((a, b) => (b.latest || 0) - (a.latest || 0));
+    if (homeSort === "az") list = list.slice().sort((a, b) => a.title.localeCompare(b.title));
+    if (homeSort === "big") list = list.slice().sort((a, b) => b.n - a.n);
+    $("#view").innerHTML = `
+      <h1 class="yt-h1">Playlists</h1>
+      <div class="yt-chips" role="toolbar" aria-label="Filter playlists">
+        <label class="yt-chip yt-chip-sel"><select id="homeSort" aria-label="Sort"><option value="recent" ${homeSort === "recent" ? "selected" : ""}>Recently updated</option><option value="az" ${homeSort === "az" ? "selected" : ""}>A to Z</option><option value="big" ${homeSort === "big" ? "selected" : ""}>Most items</option></select></label>
+        ${chips.map((c) => `<button class="yt-chip ${c === homeChip ? "on" : ""}" data-home-chip="${esc(c)}">${esc(c)}</button>`).join("")}
+      </div>
+      <div class="yt-grid">${list.map((p) => `
+        <div class="yt-card yt-pl" data-nav="${esc(p.key)}" tabindex="0" role="link" aria-label="${esc(p.title)}, ${p.n} ${esc(p.unit)}">
+          <div class="yt-thumb">${p.thumb ? `<img src="${esc(p.thumb)}" alt="" loading="lazy">` : p.tool ? `<div class="yt-tt yt-tool" style="--c:${colorFor(p.color)}">${p.tool}<b>${esc(p.title)}</b></div>` : textThumb(p.title, p.color, p.sec)}
+            <span class="yt-badge">${p.lock ? YI.lock : YI.stack}${p.n} ${esc(p.unit)}</span></div>
+          <div class="yt-meta"><b class="yt-title">${esc(p.title)}</b><span>${esc(p.sec)} · ${p.tool ? "Tool" : "Playlist"}</span><span class="yt-link">${p.tool ? "Open" : "View full playlist"}</span></div>
+        </div>`).join("")}</div>`;
+    $("#homeSort").addEventListener("change", (e) => { homeSort = e.target.value; renderHome(); });
+    $(".yt-chips").addEventListener("click", (e) => { const c = e.target.closest("[data-home-chip]"); if (c) { homeChip = c.dataset.homeChip; renderHome(); } });
+  }
+
+  /* global search from the top bar: pages (title + text) and prompts, shown as a results list */
+  function renderSearch() {
+    const q = (S.gq || "").trim(), ql = q.toLowerCase();
+    $("#topTitle").textContent = "Search";
+    const hits = [];
+    if (ql) {
+      S.library.forEach((pg, id) => {
+        const name = String(pg.name || ""), body = String(pg.body || ""), inName = name.toLowerCase().includes(ql), at = body.toLowerCase().indexOf(ql);
+        if (!inName && at < 0) return;
+        const snip = at >= 0 ? body.slice(Math.max(0, at - 70), at + 130).replace(/[#>*|`\-]+/g, " ").replace(/\s+/g, " ").trim() : body.replace(/[#>*|`\-]+/g, " ").replace(/\s+/g, " ").slice(0, 180);
+        hits.push({ score: (inName ? 2 : 0) + (pg.thumb ? 0.5 : 0), html: `<div class="yt-res" data-nav="lib:${esc(id)}" tabindex="0" role="link"><div class="yt-thumb sm">${thumbOf(pg, catOf(pg), CAT_INFO[catOf(pg)].name)}</div><div class="yt-res-meta"><b class="yt-title">${esc(name)}</b><span>${esc(CAT_INFO[catOf(pg)].section.name)} · ${esc(CAT_INFO[catOf(pg)].name)}${pg.group ? " · " + esc(pg.group) : ""}</span><p>${esc(snip)}</p></div></div>` });
+      });
+      S.prompts.forEach((p, id) => {
+        if (p.deleted) return;
+        const txt = [p.title, p.text, p.notes].join(" "), at = txt.toLowerCase().indexOf(ql); if (at < 0) return;
+        hits.push({ score: String(p.title).toLowerCase().includes(ql) ? 2 : 1, html: `<div class="yt-res" data-open="${esc(id)}" tabindex="0" role="link"><div class="yt-thumb sm">${textThumb(p.title || "Untitled", p.category, "Prompt")}</div><div class="yt-res-meta"><b class="yt-title">${esc(p.title || "Untitled")}</b><span>Prompt Library · ${esc(p.category)}</span><p>${esc(txt.slice(Math.max(0, at - 60), at + 140).replace(/\s+/g, " "))}</p></div></div>` });
+      });
+    }
+    hits.sort((a, b) => b.score - a.score);
+    $("#view").innerHTML = `<h1 class="yt-h1">${q ? `Results for “${esc(q)}”` : "Search"}</h1><p class="yt-sub">${q ? `${hits.length} ${hits.length === 1 ? "result" : "results"}` : "Type in the search bar above."}</p>
+      <div class="yt-results">${hits.slice(0, 120).map((h) => h.html).join("") || (q ? `<div class="empty"><h2>No results</h2><p>Try a shorter word or a client name.</p></div>` : "")}</div>`;
+  }
+
+  /* lesson "watch" layout: video and notes on the left, the rest of the module (Up next) on the right */
+  function upNext(id, pg) {
+    const cid = catOf(pg), all = pagesIn(cid), same = all.filter(([, p]) => (p.group || "") === (pg.group || "")).sort(lessonSort);
+    const i = same.findIndex(([k]) => k === id), rest = same.slice(i + 1).concat(same.slice(0, Math.max(0, i)));
+    const more = all.filter(([k, p]) => k !== id && (p.group || "") !== (pg.group || "")).sort(lessonSort).slice(0, 12);
+    const row = ([k, p]) => `<div class="yt-next" data-nav="lib:${esc(k)}" tabindex="0" role="link"><div class="yt-thumb xs">${thumbOf(p, cid, p.group ? modParts(p.group).name : "", pageLabel(p, same))}</div><div><b>${esc(pageLabel(p, same))}</b><span>${esc(p.group ? modParts(p.group).name : CAT_INFO[cid].name)}</span></div></div>`;
+    return `<aside class="watch-side"><h2>Up next</h2>${rest.map(row).join("") || `<p class="yt-sub">This is the only page here.</p>`}${more.length ? `<h2 class="watch-more">More in ${esc(CAT_INFO[cid].name)}</h2>${more.map(row).join("")}` : ""}</aside>`;
+  }
+
   /* ---------- Glossary: definition of terms from data/glossary.json, one block per group, A to Z inside each ---------- */
   let glossQ = "";
   function renderGlossary() {
@@ -945,7 +1061,7 @@
 
   /* ---------- Study Timer: focus and break countdowns, chime + notification, ambient sound made in the browser or Kim's own music files ---------- */
   /* Scenery background: the desktop copy ships theme/peaceful-bg.webp; on by default, switch in the sidebar footer */
-  const sceneOn = () => { let v = null; try { v = localStorage.getItem("pl-scene"); } catch (e) {} return !!window.VAULT_SEED && v !== "off"; };
+  const sceneOn = () => false; /* the YouTube light layout uses a plain white page */
   const applyScene = () => document.body.classList.toggle("scenic", sceneOn());
   applyScene();
   const STUDY_MODES = { focus: "Focus", short: "Short break", long: "Long break" };
@@ -1467,8 +1583,9 @@
     if (S.libEditId !== id && !(pg.body || "").trim()) S.libEditId = id;
     const editing = S.libEditId === id;
     const edited = pg.updatedAt ? "Last edited " + fmtTime(pg.updatedAt) : "";
-    $("#view").innerHTML = `
-      <div class="page doc-page">
+    const watch = !editing && (pg.videos || []).length > 0;
+    const pageHtml = `
+      <div class="page doc-page${watch ? " watch-page" : ""}">
         <div class="crumbs"><span class="crumb-label">${esc(CAT_INFO[catOf(pg)].section.name)}</span><span class="crumb-sep" aria-hidden="true">${I.chev}</span><button class="back" data-nav="cat:${catOf(pg)}">${esc(CAT_INFO[catOf(pg)].name)}</button><div class="page-acts">
           ${canAddImages() && !(pg.images || []).length && pg.source !== "brain" ? `<button class="btn sm ghost" id="addImg">${I.plus}Image</button>` : ""}
           ${editing ? `<button class="btn sm primary" id="libDone">Done</button>` : `<button class="btn sm" id="libEdit">Edit</button>`}
@@ -1492,6 +1609,7 @@
             </figure>`).join("")}</div>
         </div>` : ""}
       </div>`;
+    $("#view").innerHTML = watch ? `<div class="watch"><div class="watch-main">${pageHtml}</div>${upNext(id, pg)}</div>` : pageHtml;
     autoGrow($("#libBody")); regrowSoon();
     if (editing) setTimeout(() => { const b = $("#libBody"); if (b && document.activeElement === document.body) b.focus(); }, 30);
   }
@@ -1790,7 +1908,8 @@
       treeState.catOpen.add(cid); saveTree();
     }
     if ((el = t.closest("[data-nav]")) && !t.closest("[data-lib-menu]")) { if (el.tagName === "A") e.preventDefault(); commitDraft(); flushRows(); flushTasks(); flushLib(); S.view = el.dataset.nav; S.openId = null; S.lq = ""; if (S.view.startsWith("cat:")) { treeState.catOpen.add(S.view.slice(4)); saveTree(); } closeDrawer(); render(); $("#main").scrollTop = 0; return; }
-    if (t.closest("#menuBtn")) { $("#app").classList.toggle("drawer"); return; }
+    if (t.closest("#menuBtn")) { if (window.innerWidth > 760) $("#app").classList.toggle("side-off"); else $("#app").classList.toggle("drawer"); return; }
+    if (t.closest("#ytCreate")) { if (S.view.startsWith("cat:")) addPage(S.view.slice(4)); else if (S.view.startsWith("lib:") && S.library.has(S.view.slice(4))) addPage(catOf(S.library.get(S.view.slice(4)))); else createPrompt(); return; }
     if (t.closest("#sideSearch")) { focusSearch(); return; }
     if (t.closest("#addFolder")) { nameBox("New folder", "Folder name", "", "Create folder", (v) => { const id = "f" + uid(); Store.write("folders", id, { name: v, createdAt: now() }); S.view = "folder:" + id; S.openId = null; render(); }); return; }
     if ((el = t.closest("[data-folder-menu]"))) { e.stopPropagation(); folderMenu(el, el.dataset.folderMenu); return; }
@@ -1864,7 +1983,7 @@
       return;
     }
     const mod = e.ctrlKey || e.metaKey;
-    if (mod && e.key.toLowerCase() === "k") { e.preventDefault(); focusSearch(); return; }
+    if (mod && e.key.toLowerCase() === "k") { e.preventDefault(); const tq = $("#topQ"); if (tq) { tq.focus(); tq.select(); } return; }
     if ((mod && e.key.toLowerCase() === "n") || (e.altKey && e.key.toLowerCase() === "n")) { e.preventDefault(); if (S.view.startsWith("sheet:") && !S.openId) newRow(); else createPrompt(); return; }
     if (e.key === "Escape") { if ($("#menu")) closeMenu(); else if ($("#scrim")) closeDialog(); else if ($("#app").classList.contains("drawer")) closeDrawer(); else if (S.openId && !["INPUT", "TEXTAREA"].includes(el.tagName)) closePrompt(); }
   });
@@ -1999,5 +2118,6 @@
     setTimeout(() => { const q = $("#q"); if (q) { q.focus(); q.select(); } }, 20);
   }
 
+  $("#ytSearch").addEventListener("submit", (e) => { e.preventDefault(); commitDraft(); flushLib(); S.gq = $("#topQ").value; S.view = "search"; S.openId = null; closeDrawer(); render(); $("#main").scrollTop = 0; });
   Store.init();
 })();

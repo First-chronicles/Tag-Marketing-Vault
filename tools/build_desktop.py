@@ -53,6 +53,40 @@ for page in seed.get("library", {}).values():
             v["title"] = v.get("title") or name.rsplit(".", 1)[0]
     if vids:
         page["vrev"] = hashlib.sha1(json.dumps(vids, sort_keys=True).encode("utf-8")).hexdigest()[:12]
+def lesson_thumbs():
+    """A thumbnail per video lesson, cut from the frames the transcriber saved (Video Notes/<course>/<Module>/<Lesson>/frames)."""
+    notes_root = ROOT.parent / "Video Notes"
+    out_dir = ROOT / "theme" / "thumbs"
+    if not notes_root.exists():
+        return
+    out_dir.mkdir(parents=True, exist_ok=True)
+    folders = {p.name: p for p in notes_root.glob("*/*/*") if (p / "frames").is_dir()}
+    for pid, page in seed.get("library", {}).items():
+        for v in page.get("videos") or []:
+            name = re.split(r"[\\/]", str(v.get("path", "")))[-1].rsplit(".", 1)[0]
+            folder = folders.get(name) or folders.get(str(v.get("title", "")))
+            if not folder:
+                continue
+            frames = sorted((folder / "frames").glob("*.jpg"))
+            if not frames:
+                continue
+            out = out_dir / f"{pid}.webp"
+            from PIL import Image, ImageStat
+            def detail(f):  # pick the busiest early frame, so a blank slide never becomes the thumbnail
+                with Image.open(f) as im:
+                    return sum(ImageStat.Stat(im.convert("L").resize((160, 90))).stddev)
+            pick = max(frames[: max(2, len(frames) // 2)], key=detail)
+            if not out.exists() or out.stat().st_mtime < pick.stat().st_mtime or out.stat().st_size == 0 or page.get("_rethumb"):
+                with Image.open(pick) as im:
+                    w, h = im.size
+                    im = im.convert("RGB").crop((0, 0, w, int(h * 0.955)))  # drop the recorded player bar
+                    im.thumbnail((640, 360))
+                    im.save(out, "WEBP", quality=78)
+            page["thumb"] = f"theme/thumbs/{pid}.webp"
+            break
+
+
+lesson_thumbs()
 glossary_file = ROOT / "data" / "glossary.json"  # the Glossary view (definition of terms), grouped
 glossary = json.loads(glossary_file.read_text(encoding="utf-8")).get("groups", []) if glossary_file.exists() else []
 assets = {f.stem: "assets/" + f.name for f in sorted((ROOT / "assets").glob("*")) if f.is_file()}
